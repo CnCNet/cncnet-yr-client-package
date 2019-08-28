@@ -1,0 +1,183 @@
+[Delete]
+expandmd09.mix
+cncnetclient.dat
+cncnetclient.log
+Interop.WMPLib.dll
+Ionic.Zip.dll
+INI\Cooperative_ForcedOptions.ini
+INI\Cooperative_spawn.ini
+INI\Megawealth_spawn.ini
+INI\Meatgrind.ini
+INI\Meatgrind_spawn.ini
+INI\Navalwar.ini
+INI\Navalwar_spawn.ini
+INI\Standard_spawn.ini
+INI\Land Rush_spawn.ini
+INI\Team Alliance_spawn.ini
+INI\Unholy Alliance_spawn.ini
+Maps\c1a01md.ini
+Maps\c1a02md.ini
+Maps\c1a03md.ini
+Maps\c2s01md.ini
+Maps\c2s02md.ini
+Maps\c2s03md.ini
+Maps\c3y01md.ini
+Maps\c3y02md.ini
+Maps\c3y03md.ini
+Maps\c4w01md.ini
+Resources\75pxbtn.png
+Resources\75pxbtn_c.png
+Resources\92pxbtn.png
+Resources\92pxbtn_c.png
+Resources\97pxbtn.png
+Resources\97pxbtn_c.png
+Resources\110pxbtn.png
+Resources\110pxbtn_c.png
+Resources\121pxbtn.png
+Resources\121pxbtn_c.png
+Resources\133pxbtn.png
+Resources\133pxbtn_c.png
+Resources\142pxbtn.png
+Resources\142pxbtn_c.png
+Resources\acceptMapActive.png
+Resources\acceptMapInactive.png
+Resources\ban.png
+Resources\ban_c.png
+Resources\button.wav
+Resources\cancelGameActive.png
+Resources\cancelGameInactive.png
+Resources\changeMapActive.png
+Resources\changeMapInactive.png
+Resources\checkBoxChecked.png
+Resources\checkBoxCheckedD.png
+Resources\checkBoxClear.png
+Resources\checkBoxClearD.png
+Resources\cncnet.ico
+Resources\cncnetlobbybg.png
+Resources\cncnetlobbypanelbg.png
+Resources\comboBoxArrow.png
+Resources\createGameActive.png
+Resources\createGameInactive.png
+Resources\displayTunnelsActive.png
+Resources\displayTunnelsInactive.png
+Resources\DTACnCNetClient.ini
+Resources\enemyslocindicator.png
+Resources\facebookActive.png
+Resources\facebookInactive.png
+Resources\followedGamesActive.png
+Resources\followedgamesbg.png
+Resources\followedGamesInactive.png
+Resources\forumsActive.png
+Resources\forumsInactive.png
+Resources\gamecreated.wav
+Resources\gamecreationoptionsbg.png
+Resources\gamecreationpanelbg.png
+Resources\gamelobbybg.png
+Resources\gamelobbyoptionspanelbg.png
+Resources\gamelobbypanelbg.png
+Resources\googlePlusActive.png
+Resources\googlePlusInactive.png
+Resources\joingame.wav
+Resources\joinGameActive.png
+Resources\joinGameInactive.png
+Resources\kick.png
+Resources\kick_c.png
+Resources\launcherupdater.png
+Resources\launchGameActive.png
+Resources\launchGameInactive.png
+Resources\leavegame.wav
+Resources\leaveGameActive.png
+Resources\leaveGameInactive.png
+Resources\loadmissionbg.png
+Resources\lobbymusic.wav
+Resources\lockGameActive.png
+Resources\lockGameInactive.png
+Resources\logindialogbg.png
+Resources\mainclienticon.ico
+Resources\MainMenu.ini
+Resources\mapselbg.png
+Resources\message.wav
+Resources\missionselectorbg.png
+Resources\moddbActive.png
+Resources\moddbInactive.png
+Resources\msgboxform.png
+Resources\nopreview.png
+Resources\openedComboBoxArrow.png
+Resources\optionsActive.png
+Resources\optionsbg.png
+Resources\optionsInactive.png
+Resources\optionspanel.png
+Resources\passwordquerybg.png
+Resources\pbLoading.gif
+Resources\PM.ico
+Resources\privatemessagebg.png
+Resources\qres license.txt
+Resources\quitActive.png
+Resources\quitInactive.png
+Resources\sbBackground.png
+Resources\sbDownArrow.png
+Resources\sbMiddle.png
+Resources\sbThumbBottom.png
+Resources\sbThumbBottomSpan.png
+Resources\sbThumbTop.png
+Resources\sbThumbTopSpan.png
+Resources\sbUpArrow.png
+Resources\scoreviewerbg.png
+Resources\scoreviewerpanelbg.png
+Resources\sendActive.png
+Resources\sendInactive.png
+Resources\slocindicator1.png
+Resources\slocindicator2.png
+Resources\slocindicator3.png
+Resources\slocindicator4.png
+Resources\slocindicator5.png
+Resources\slocindicator6.png
+Resources\slocindicator7.png
+Resources\slocindicator8.png
+Resources\splashScreen.png
+Resources\statview.ico
+Resources\twitterActive.png
+Resources\twitterInactive.png
+Resources\updatequerybg.png
+Resources\updaterbg.png
+Resources\youtubeActive.png
+Resources\youtubeInactive.png
+Resources\Binaries\AudioOptions.dll
+Resources\Binaries\CnCNetOptions.dll
+Resources\Binaries\DisplayOptions.dll
+Resources\Binaries\GameOptions.dll
+Resources\Binaries\GenericOptions.dll
+Resources\Binaries\UpdaterOptions.dll
+Resources\MainMenu\button.wav
+Resources\MainMenu\cncnet.png
+Resources\MainMenu\cncnet_c.png
+Resources\MainMenu\credits.png
+Resources\MainMenu\credits_c.png
+Resources\MainMenu\exitgame.png
+Resources\MainMenu\exitgame_c.png
+Resources\MainMenu\mainmenubg.png
+Resources\MainMenu\options.png
+Resources\MainMenu\options_c.png
+Resources\MainMenu\skirmish.png
+Resources\MainMenu\skirmish_c.png
+CnCNetQM.exe
+INI\Cooperative.ini
+INI\Free For All.ini
+INI\Land Rush.ini
+INI\Meat Grinder.ini
+INI\Megawealth.ini
+INI\Naval War.ini
+INI\Standard.ini
+INI\Team Alliance.ini
+INI\Unholy Alliance.ini
+INI\Game Options\Cooperative.ini
+INI\Game Options\Free For All.ini
+INI\Game Options\Land Rush.ini
+INI\Game Options\Meat Grinder.ini
+INI\Game Options\Megawealth.ini
+INI\Game Options\Naval War.ini
+INI\Game Options\Standard.ini
+INI\Game Options\Team Alliance.ini
+INI\Game Options\Tournament.ini
+INI\Game Options\Unholy Alliance.ini
+INI\Game Options\Unholy Alliance.ini
