@@ -4,3 +4,6 @@ version text eol=crlf
 *.ini text eol=crlf
 *.map text eol=crlf
 *.txt text eol=crlf
+preupdateexec text eol=crlf
+updateexec text eol=crlf
+version text eol=crlf
