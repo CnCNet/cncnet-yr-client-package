@@ -1,2 +1,6 @@
 *-spawn.exe
 DtaverWriter.exe
+ddraw.dll
+ddraw.ini
+Client/*
+RA2MD.ini
