@@ -8,4 +8,4 @@ This package is an add-on to the [XNA CnCNet Client](https://github.com/CnCNet/x
 ### Contributing 
 * [dkeetonx](https://github.com/dkeetonx)
 * [GrantBartlett](https://github.com/GrantBartlett)
-* [Martin-Veskilt](https://github.com/Martin-Veskilt)
+* [Martin](https://forums.cncnet.org/profile/32538-ravage/)
