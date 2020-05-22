@@ -59,54 +59,19 @@ Type: files; Name: "{app}\version"
 
 [Files]
 Source: ..\*; DestDir: "{app}"; Excludes: ".gitattributes,.gitignore,README.md,versionconfig.ini,preupdateexec,updateexec"; Flags: ignoreversion
-Source: ..\Resources\*; DestDir: "{app}\Resources"; Flags: ignoreversion
-Source: ..\Qt\*; DestDir: "{app}\Qt"; Flags: ignoreversion
-Source: ..\Qt\audio\*; DestDir: "{app}\Qt\audio"; Flags: ignoreversion
-Source: ..\Qt\bearer\*; DestDir: "{app}\Qt\bearer"; Flags: ignoreversion
-Source: ..\Qt\generic\*; DestDir: "{app}\Qt\generic"; Flags: ignoreversion
-Source: ..\Qt\iconengines\*; DestDir: "{app}\Qt\iconengines"; Flags: ignoreversion
-Source: ..\Qt\imageformats\*; DestDir: "{app}\Qt\imageformats"; Flags: ignoreversion
-Source: ..\Qt\mediaservice\*; DestDir: "{app}\Qt\mediaservice"; Flags: ignoreversion
-Source: ..\Qt\platforms\*; DestDir: "{app}\Qt\platforms"; Flags: ignoreversion
-Source: ..\Qt\playlistformats\*; DestDir: "{app}\Qt\playlistformats"; Flags: ignoreversion
-Source: ..\Qt\printsupport\*; DestDir: "{app}\Qt\printsupport"; Flags: ignoreversion
-Source: ..\Qt\qmltooling\*; DestDir: "{app}\Qt\qmltooling"; Flags: ignoreversion
-Source: ..\Qt\sqldrivers\*; DestDir: "{app}\Qt\sqldrivers"; Flags: ignoreversion
-Source: ..\Resources\Binaries\*; DestDir: "{app}\Resources\Binaries"; Flags: ignoreversion
-Source: ..\Resources\Binaries\OpenGL\*; DestDir: "{app}\Resources\Binaries\OpenGL"; Flags: ignoreversion
-Source: ..\Resources\Binaries\OpenGL\x86\*; DestDir: "{app}\Resources\Binaries\OpenGL\x86"; Flags: ignoreversion
-Source: ..\Resources\Binaries\Windows\*; DestDir: "{app}\Resources\Binaries\Windows"; Flags: ignoreversion
-Source: ..\Resources\Binaries\XNA\*; DestDir: "{app}\Resources\Binaries\XNA"; Flags: ignoreversion
-
-Source: ..\Resources\Yuri Theme\*; DestDir: "{app}\Resources\Yuri Theme"; Flags: ignoreversion
-Source: ..\Resources\Yuri Theme\MainMenu\*; DestDir: "{app}\Resources\Yuri Theme\MainMenu"; Flags: ignoreversion
-
-Source: ..\Resources\Allied Theme\*; DestDir: "{app}\Resources\Allied Theme"; Flags: ignoreversion
-Source: ..\Resources\Allied Theme\MainMenu\*; DestDir: "{app}\Resources\Allied Theme\MainMenu"; Flags: ignoreversion
-
-Source: ..\Resources\Soviet Theme\*; DestDir: "{app}\Resources\Soviet Theme"; Flags: ignoreversion
-Source: ..\Resources\Soviet Theme\MainMenu\*; DestDir: "{app}\Resources\Soviet Theme\MainMenu"; Flags: ignoreversion
-
-Source: ..\INI\*; DestDir: "{app}\INI"; Flags: ignoreversion
-Source: ..\INI\Game Options\*; DestDir: "{app}\INI\Game Options"; Flags: ignoreversion
-Source: ..\INI\Map Code\*; DestDir: "{app}\INI\Map Code"; Flags: ignoreversion
-Source: ..\Maps\Custom\*; DestDir: "{app}\Maps\Custom"; Flags: ignoreversion
-Source: ..\Maps\Yuri's Revenge\*; DestDir: "{app}\Maps\Yuri's Revenge"; Flags: ignoreversion
-Source: ..\Maps\Yuri's Revenge\CTF\*; DestDir: "{app}\Maps\Yuri's Revenge\CTF\"; Flags: ignoreversion
-Source: ..\Maps\Yuri's Revenge\Battle\*; DestDir: "{app}\Maps\Yuri's Revenge\Battle\"; Flags: ignoreversion
-Source: ..\Maps\Yuri's Revenge\Demolition\*; DestDir: "{app}\Maps\Yuri's Revenge\Demolition\"; Flags: ignoreversion
-Source: ..\Maps\Yuri's Revenge\Mod Maps\*; DestDir: "{app}\Maps\Yuri's Revenge\Mod Maps\"; Flags: ignoreversion
-Source: ..\Maps\Yuri's Revenge\Standard\*; DestDir: "{app}\Maps\Yuri's Revenge\Standard\"; Flags: ignoreversion
-Source: ..\Maps\Yuri's Revenge\Tournament\*; DestDir: "{app}\Maps\Yuri's Revenge\Tournament\"; Flags: ignoreversion
-Source: ..\Map Renderer\*; DestDir: "{app}\Map Renderer"; Flags: ignoreversion
+Source: ..\Resources\*; DestDir: "{app}\Resources"; Flags: ignoreversion recursesubdirs
+Source: ..\Qt\*; DestDir: "{app}\Qt"; Flags: ignoreversion recursesubdirs
+Source: ..\INI\*; DestDir: "{app}\INI"; Flags: ignoreversion recursesubdirs
+Source: ..\Maps\*; DestDir: "{app}\Maps"; Flags: ignoreversion recursesubdirs
+Source: ..\Map Renderer\*; DestDir: "{app}\Map Renderer"; Flags: ignoreversion recursesubdirs
 
 Source: Resources\Ra2.lcf; DestDir: "{app}"; Flags: ignoreversion uninsneveruninstall
 Source: Resources\ra2md.lcf; DestDir: "{app}"; Flags: ignoreversion uninsneveruninstall
 Source: Resources\yuri.lcf; DestDir: "{app}"; Flags: ignoreversion uninsneveruninstall
+Source: Resources\wsock32.dll; DestDir: "{app}"; DestName: "wsock32.dll"; Flags: ignoreversion
 
 Source: ..\Resources\cnc-ddraw.dll; DestDir: "{app}"; DestName: "ddraw.dll"; Flags: ignoreversion
 Source: ..\Resources\cnc-ddraw.ini; DestDir: "{app}"; DestName: "ddraw.ini"; Flags: ignoreversion
-Source: Resources\wsock32.dll; DestDir: "{app}"; DestName: "wsock32.dll"; Flags: ignoreversion
 
 Source: Resources\wic_x86_enu.exe; Flags: dontcopy
 
