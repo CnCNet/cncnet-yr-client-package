@@ -101,7 +101,7 @@ Source: Resources\Ra2.lcf; DestDir: "{app}"; Flags: ignoreversion uninsneverunin
 Source: Resources\ra2md.lcf; DestDir: "{app}"; Flags: ignoreversion uninsneveruninstall
 Source: Resources\yuri.lcf; DestDir: "{app}"; Flags: ignoreversion uninsneveruninstall
 
-Source: Resources\ddraw.dll; DestDir: "{app}"; DestName: "ddraw.dll"; Flags: ignoreversion
+;Source: Resources\ddraw.dll; DestDir: "{app}"; DestName: "ddraw.dll"; Flags: ignoreversion
 Source: Resources\wsock32.dll; DestDir: "{app}"; DestName: "wsock32.dll"; Flags: ignoreversion
 
 Source: Resources\wic_x86_enu.exe; Flags: dontcopy
