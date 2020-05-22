@@ -74,6 +74,7 @@ Source: ..\Qt\qmltooling\*; DestDir: "{app}\Qt\qmltooling"; Flags: ignoreversion
 Source: ..\Qt\sqldrivers\*; DestDir: "{app}\Qt\sqldrivers"; Flags: ignoreversion
 Source: ..\Resources\Binaries\*; DestDir: "{app}\Resources\Binaries"; Flags: ignoreversion
 Source: ..\Resources\Binaries\OpenGL\*; DestDir: "{app}\Resources\Binaries\OpenGL"; Flags: ignoreversion
+Source: ..\Resources\Binaries\OpenGL\x86\*; DestDir: "{app}\Resources\Binaries\OpenGL\x86"; Flags: ignoreversion
 Source: ..\Resources\Binaries\Windows\*; DestDir: "{app}\Resources\Binaries\Windows"; Flags: ignoreversion
 Source: ..\Resources\Binaries\XNA\*; DestDir: "{app}\Resources\Binaries\XNA"; Flags: ignoreversion
 
@@ -92,7 +93,9 @@ Source: ..\INI\Map Code\*; DestDir: "{app}\INI\Map Code"; Flags: ignoreversion
 Source: ..\Maps\Custom\*; DestDir: "{app}\Maps\Custom"; Flags: ignoreversion
 Source: ..\Maps\Yuri's Revenge\*; DestDir: "{app}\Maps\Yuri's Revenge"; Flags: ignoreversion
 Source: ..\Maps\Yuri's Revenge\CTF\*; DestDir: "{app}\Maps\Yuri's Revenge\CTF\"; Flags: ignoreversion
+Source: ..\Maps\Yuri's Revenge\Battle\*; DestDir: "{app}\Maps\Yuri's Revenge\Battle\"; Flags: ignoreversion
 Source: ..\Maps\Yuri's Revenge\Demolition\*; DestDir: "{app}\Maps\Yuri's Revenge\Demolition\"; Flags: ignoreversion
+Source: ..\Maps\Yuri's Revenge\Mod Maps\*; DestDir: "{app}\Maps\Yuri's Revenge\Mod Maps\"; Flags: ignoreversion
 Source: ..\Maps\Yuri's Revenge\Standard\*; DestDir: "{app}\Maps\Yuri's Revenge\Standard\"; Flags: ignoreversion
 Source: ..\Maps\Yuri's Revenge\Tournament\*; DestDir: "{app}\Maps\Yuri's Revenge\Tournament\"; Flags: ignoreversion
 Source: ..\Map Renderer\*; DestDir: "{app}\Map Renderer"; Flags: ignoreversion
