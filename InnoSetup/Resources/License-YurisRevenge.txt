@@ -1,0 +1,24 @@
+This is an unofficial fan made installer, CnCNet is not affiliated with Electronic Arts in any way and trademarks belong to their respective owners.
+
+Command & Conquer™ and Command & Conquer: Yuri's Revenge™ are registered trademarks of Electronic Arts, all rights reserved.
+http://www.commandandconquer.com
+
+To be able to continue you must agree to the following:
+
+CnCNet Terms & Conditions: https://cncnet.org/terms-and-conditions
+CnCNet Privacy Policy: https://cncnet.org/privacy-policy
+GameSurge Terms of Service: http://gamesurge.net/tos/
+
+The following third-party material is included, please visit the respective websites for all information:
+-
+DotNetZip library - https://dotnetzip.codeplex.com/
+-
+ZLIB - http://zlib.net/
+-
+QRes - https://sourceforge.net/projects/qres/
+-
+Original IrcD.Net code by Thomas Bruderer, License: http://github.com/FreeApophis/ircddotnet/blob/master/LICENSE
+-
+ts-ddraw by Toni Spets - MIT License http://github.com/cnc-patch/ts-ddraw
+-
+DxWnd by gho: https://sourceforge.net/projects/dxwnd/
