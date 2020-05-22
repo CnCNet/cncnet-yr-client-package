@@ -58,7 +58,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Type: files; Name: "{app}\version"
 
 [Files]
-Source: ..\*; DestDir: "{app}"; Excludes: ".gitattributes,.gitignore,README.md,version,versionconfig.ini,preupdateexec,updateexec"; Flags: ignoreversion
+Source: ..\*; DestDir: "{app}"; Excludes: ".gitattributes,.gitignore,README.md,versionconfig.ini,preupdateexec,updateexec"; Flags: ignoreversion
 Source: ..\Resources\*; DestDir: "{app}\Resources"; Flags: ignoreversion
 Source: ..\Qt\*; DestDir: "{app}\Qt"; Flags: ignoreversion
 Source: ..\Qt\audio\*; DestDir: "{app}\Qt\audio"; Flags: ignoreversion
