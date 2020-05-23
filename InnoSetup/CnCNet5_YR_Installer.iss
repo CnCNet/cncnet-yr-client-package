@@ -99,6 +99,7 @@ Filename: "{app}\RA2.INI"; Section: "Video"; Key: "ScreenHeight"; String: "600";
 
 [UninstallDelete]
 Type: files; Name: "{app}\version"
+Type: files; Name: "{app}\version_u"
 Type: files; Name: "{app}\stats.dmp"
 Type: files; Name: "{app}\spawnmap.ini"
 Type: files; Name: "{app}\spawn.ini"
