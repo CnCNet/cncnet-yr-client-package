@@ -7,3 +7,6 @@ RA2MD.ini
 Maps/Custom/*.map
 Maps/Custom/*.png
 Maps/Custom/*.yrm
+version_u
+.DS_Store
+CnCNet5_YR_Installer.exe
