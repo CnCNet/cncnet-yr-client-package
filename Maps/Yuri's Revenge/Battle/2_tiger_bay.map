@@ -1280,7 +1280,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=Tiger Bay Night
+Name=[2] Tiger Bay
 Author=DistantQ
 Percent=0
 GameMode=standard

@@ -1556,7 +1556,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=Divide Freezes Over
+Name=[4] Divide Freezes Over
 Percent=0
 GameMode=standard, meatgrind, duel
 HomeCell=98

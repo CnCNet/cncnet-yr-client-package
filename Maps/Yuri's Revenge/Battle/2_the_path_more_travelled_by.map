@@ -569,7 +569,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=The Path More Traveled By
+Name=[2] The Path More Traveled By
 Author=Desmond
 Percent=0
 GameMode=standard
