@@ -1557,6 +1557,7 @@ PlayerControl=no
 
 [Basic]
 Name=[4] Divide Freezes Over
+Author=DistantQ
 Percent=0
 GameMode=standard, meatgrind, duel
 HomeCell=98
