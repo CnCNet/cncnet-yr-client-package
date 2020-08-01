@@ -13,3 +13,15 @@ INI\Game Options\Team Alliance.ini
 INI\Game Options\Tournament.ini
 INI\Game Options\Unholy Alliance.ini
 INI\Game Options\Unholy Alliance.ini
+Qt\bearer/qnativewifibearer.dll
+Qt\gamepads/xinputgamepad.dll
+Qt\imageformats/qdds.dll
+Qt\libeay32.dll
+Qt\libjasper-1.dll
+Qt\libpcre16-0.dll
+Qt\libwebp-5.dll
+Qt\libwebpdemux-1.dll
+Qt\position/qtposition_geoclue.dll
+Qt\scenegraph/softwarecontext.dll
+Qt\sceneparsers/gltfsceneio.dll
+Qt\ssleay32.dll
