@@ -1,0 +1,27 @@
+[Delete]
+Resources\MapThumbnailExtractor.dll
+expandmd09.mix
+ra2md.csf
+INI\Game Options\Cooperative.ini
+INI\Game Options\Free For All.ini
+INI\Game Options\Land Rush.ini
+INI\Game Options\Meat Grinder.ini
+INI\Game Options\Megawealth.ini
+INI\Game Options\Naval War.ini
+INI\Game Options\Standard.ini
+INI\Game Options\Team Alliance.ini
+INI\Game Options\Tournament.ini
+INI\Game Options\Unholy Alliance.ini
+INI\Game Options\Unholy Alliance.ini
+Qt\bearer/qnativewifibearer.dll
+Qt\gamepads/xinputgamepad.dll
+Qt\imageformats/qdds.dll
+Qt\libeay32.dll
+Qt\libjasper-1.dll
+Qt\libpcre16-0.dll
+Qt\libwebp-5.dll
+Qt\libwebpdemux-1.dll
+Qt\position/qtposition_geoclue.dll
+Qt\scenegraph/softwarecontext.dll
+Qt\sceneparsers/gltfsceneio.dll
+Qt\ssleay32.dll
