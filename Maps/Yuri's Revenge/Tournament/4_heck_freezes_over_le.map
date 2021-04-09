@@ -1069,11 +1069,11 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[4] Heck Freezes Over [LE v1.5]
+Name=[4] Heck Freezes Over LE
 Theme=Snow
 Author=Westwood & CncNet QM Team
 Percent=0
-GameMode=standard, duel, teamgame
+GameMode=standard,duel,teamgame,Competitive Balance,Tournament
 InitTime=10000
 Official=yes
 EndOfGame=no
