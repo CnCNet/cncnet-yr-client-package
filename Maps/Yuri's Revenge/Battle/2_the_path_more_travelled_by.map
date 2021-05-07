@@ -13,6 +13,10 @@ Waypoint7=0,0
 Waypoint8=0,0
 NumberStartingPoints=2
 
+[OilExplosionWH]
+Verses=150%,100%,100%,90%,70%,50%,200%,90%,50%,100%,100%
+;Verses=150%,100%,100%,90%,70%,50%,200%,200%,200%,100%,100%
+
 [AircraftTypes]
 
 [Preview]
