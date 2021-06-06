@@ -1703,7 +1703,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[6] Grand Gulch v1.0.2
+Name=[6] Grand Gulch
 Author=kapow
 Percent=0
 GameMode=standard
