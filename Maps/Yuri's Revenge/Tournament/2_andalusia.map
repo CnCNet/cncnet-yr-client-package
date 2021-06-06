@@ -1809,7 +1809,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[2] Andalusia LE v2.2
+Name=[2] Andalusia LE
 Author=oday fawaz, RaVaGe
 Percent=0
 GameMode=standard
