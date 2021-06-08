@@ -2098,7 +2098,7 @@ YURITRI176-G=yes
 YURITRI178-G=yes
 
 [Basic]
-Name=[4] Dusk Ravine LE v1.23
+Name=[4] Dusk Ravine LE
 Author=WavePy, RaVaGe
 Percent=0
 GameMode=standard, meatgrind

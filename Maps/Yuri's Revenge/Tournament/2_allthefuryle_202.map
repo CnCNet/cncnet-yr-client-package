@@ -2174,7 +2174,7 @@ YURITRI178-G=yes
 01000000=1,19,7,WeatherIntro,0,0,0,0,A
 
 [Basic]
-Name=[2] All The Fury LE v2.02
+Name=[2] All The Fury LE
 Author=BlackSnow, RaVaGe
 Percent=0
 GameMode=standard
