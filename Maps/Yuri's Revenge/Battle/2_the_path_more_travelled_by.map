@@ -13,6 +13,12 @@ Waypoint7=0,0
 Waypoint8=0,0
 NumberStartingPoints=2
 
+;Prevent the barrels on this map from blowing up oil derricks
+;Revert barrel and oil damage to RA2 damage
+[OilExplosionWH] 
+Verses=150%,100%,100%,90%,70%,50%,200%,90%,50%,100%,100%
+;Verses=150%,100%,100%,90%,70%,50%,200%,200%,200%,100%,100%
+
 [AircraftTypes]
 
 [Preview]

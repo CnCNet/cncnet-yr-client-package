@@ -390,15 +390,12 @@ TurboBoost=yes
 [SHAD]
 Cost=1500
 Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs
-Speed=23
-Primary=NewNightHawkWeapon
+Primary=BlackHawkCannon
 Strength=250
 BuildLimit=1
-Passengers=10
+Passengers=5
 SelfHealing=yes
-ElitePrimary=NewNightHawkWeapon
-JumpjetClimb=20
-JumpjetSpeed=40
+ElitePrimary=BlackHawkCannonE
 Prerequisite=CALAB
 JumpjetHeight=900
 
