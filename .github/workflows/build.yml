@@ -17,3 +17,9 @@ jobs:
       run: build_installer.bat
       shell: cmd
       working-directory: ./InnoSetup
+      
+    - uses: actions/upload-artifact@v2
+      name: Upload Artifacts
+      with:
+        name: artifacts
+        path: ./InnoSetup/output
