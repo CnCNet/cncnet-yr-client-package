@@ -19,10 +19,6 @@ NumberStartingPoints=2
 
 [AircraftTypes]
 
-[CAOILD]
-Name=Tech Oil Derrick
-ProduceCashStartup=500
-
 [GAYARD]
 TechLevel=-1
 
@@ -1053,7 +1049,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[2] Divide Freezes Over LE (PreCaptured)
+Name=[2] Divide Freezes Over LE
 Author=DistantQ & CnCNet QM Team
 Percent=0
 GameMode=standard, teamgame
