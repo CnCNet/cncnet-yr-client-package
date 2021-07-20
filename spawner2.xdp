@@ -1307,12 +1307,6 @@ Mutant=Special
 301=CASTRT03
 302=CASTRT04
 303=CASTRT05
-374=CAPOWR
-1050=CAMACH_F
-
-1000=CAMACH
-1046=CAPOWR_A
-1047=CAPOWR_AD
 
 ; *** Terrain Object List ***
 ; This is the list of terrain objects. Typically, these include
@@ -10740,55 +10734,6 @@ ProduceCashAmount=20 ; Amount every Delay
 ProduceCashDelay=100 ; Frame delay between Amounts
 WorkingSound=OilDerrickLoop
 LeaveRubble=yes
-
-[CAPOWR]
-UIName=Name:CAPOWR
-Name=Tech Civilian Power Plant
-TechLevel=-1
-Strength=800
-Insignificant=yes
-Nominal=yes
-Sight=6
-Points=5
-Armor=concrete
-Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
-MaxDebris=15
-MinDebris=5
-DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
-DamageParticleSystems=SmallGreySSys,BigGreySmokeSys
-Capturable=yes
-CaptureEvaEvent=  EVA_TechBuildingCaptured ;Eva (and therefore 3way split) voice to use when captured
-NeedsEngineer=yes
-Unsellable=yes
-Ammo=5
-;SuperWeapon=ParaDropSpecial
-LeaveRubble=yes
-Power=200
-RadarVisible=yes;gs put on radar even if insignificant and unowned (insignificant and owned is a UC building)
-
-[CAMACH]
-UIName=Name:CAMACH
-Name=Tech Machine Shop
-;Image=CAOILD;###TEMP
-TechLevel=-1
-Strength=800
-Insignificant=yes
-Nominal=yes
-Sight=6
-Points=5
-Armor=concrete
-;Armory=yes ;old and useless.  Becoming new building
-MaxDebris=8
-MinDebris=4
-Capturable=yes
-CaptureEvaEvent=  EVA_MachineShopCaptured ;Eva (and therefore 3way split) voice to use when captured
-NeedsEngineer=yes
-Unsellable=yes
-Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
-DamageParticleSystems=SmallGreySSys,BigGreySmokeSys
-LeaveRubble=yes
-UnitsGainSelfHeal=1 ; one 'unit' of SelfHealUnitAmount per SelfHealUnitFrames
-RadarVisible=yes;gs put on radar even if insignificant and unowned (insignificant and owned is a UC building)
 
 ; Use Ammo to specify number of time the building can be used to upgrade infantry
 [CAARMR]
