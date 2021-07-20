@@ -3909,7 +3909,7 @@ EliteAbilities=SELF_HEAL,STRONGER,FIREPOWER,ROF
 ImmuneToPsionics=yes
 IFVMode=0
 Trainable=no
-
+Natural=yes
 
 ; Attack dog
 [ADOG]
@@ -3959,6 +3959,7 @@ EliteAbilities=SELF_HEAL,STRONGER,FIREPOWER,ROF
 ImmuneToPsionics=yes
 IFVMode=0
 Trainable=no
+Natural=yes
 
 ; civilians
 [CIV1]

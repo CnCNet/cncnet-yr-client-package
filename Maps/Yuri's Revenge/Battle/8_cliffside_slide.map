@@ -30,6 +30,18 @@ LightRedTint=-1.5
 LightGreenTint=0.01
 LightBlueTint=0.01
 
+[GAYARD]
+Name=Allied Shipyard
+TechLevel=11
+
+[NAYARD]
+Name=Soviet Shipyard
+TechLevel=11
+
+[YAYARD]
+Name=Yuri Submarine Pen
+TechLevel=11
+
 [Preview]
 Size=0,0,230,90
 
