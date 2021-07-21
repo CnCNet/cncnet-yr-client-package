@@ -79,8 +79,9 @@ Waypoint7=0,0
 Waypoint8=0,0
 
 [Basic]
-NextScenario=GDI2A.map
-AltNextScenario=GDI9C.MAP
+Name=[6] Wild Animal Park
+NextScenario=
+AltNextScenario=
 NewINIFormat=4
 CarryOverCap=0
 EndOfGame=no

@@ -363,7 +363,7 @@ PlayerControl=no
 
 [Basic]
 Name=REKOOOL - ALL STARS ORIGINAL
-Briefing=REKOOOL - ALL STARS ORIGINAL@@@Game modifications:@@- Instat build speed@- Increased unit queue to 299@- Disabled Grand Cannon @- Disabled Spy@- Disabled Yuri (MCV turns into Soviet Construction Yard).@@ Please report any bugs or errors to the map author on cncnet forums: https://forums.cncnet.org/forum/63-ra2yr-maps/ @@Author: DOC
+Briefing=REKOOOL - ALL STARS ORIGINAL@@@Game modifications:@@- Instant build speed@- Increased unit queue to 299@- Disabled Grand Cannon @- Disabled Spy@- Disabled Yuri (MCV turns into Soviet Construction Yard).@@ Please report any bugs or errors to the map author on cncnet forums: https://forums.cncnet.org/forum/63-ra2yr-maps/ @@Author: DOC
 Author=DOC
 Percent=0
 GameMode=casual

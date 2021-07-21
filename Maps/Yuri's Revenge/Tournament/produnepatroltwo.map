@@ -499,7 +499,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[Pro] [2] Dune Patrol II
+Name=[2] Dune Patrol II
 Author=Toveena (original) & RaVaGe (pro edit)
 Percent=0
 GameMode=standard, meatgrind
