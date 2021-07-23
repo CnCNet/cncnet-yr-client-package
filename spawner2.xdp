@@ -10692,6 +10692,7 @@ TechLevel=-1
 Strength=800
 Insignificant=yes
 Nominal=yes
+Sight=6
 Points=5
 Armor=concrete
 Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60

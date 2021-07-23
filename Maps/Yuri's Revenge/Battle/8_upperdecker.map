@@ -1417,10 +1417,10 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[8] Upper Decker v1.0.3
+Name=[8] Upper Decker
 Author=kapow
 Percent=0
-GameMode=standard
+GameMode=Battle
 HomeCell=98
 InitTime=10000
 Official=no
