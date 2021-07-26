@@ -27,7 +27,6 @@ TechLevel=12
 
 [VehicleTypes]
 
-
 [Preview]
 Size=0,0,120,66
 
@@ -347,6 +346,7 @@ PlayerControl=no
 Name=[2] Dry Heat RA2
 Percent=0
 GameMode=Battle,RA2 Ladder Maps
+Author=Westwood Studios
 HomeCell=98
 InitTime=10000
 Official=no
@@ -362,7 +362,6 @@ OneTimeOnly=no
 CarryOverCap=0
 NewINIFormat=4
 NextScenario=
-SkipMapSelect=no
 CarryOverMoney=0.000000
 AltNextScenario=
 MultiplayerOnly=1
