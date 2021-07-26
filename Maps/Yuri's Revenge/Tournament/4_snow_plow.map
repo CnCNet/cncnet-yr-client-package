@@ -26,6 +26,7 @@ TechLevel=-1
 [YAYARD]
 TechLevel=-1
 
+
 [Preview]
 Size=0,0,170,88
 
@@ -847,36 +848,28 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Win=
-Lose=
 Name=[4] Snow Plow
-Brief=
-Intro=
-Theme=
-Action=
-Percent=0
-Briefing=Brief:
+Author=Instinct
 GameMode=standard
 InitTime=10000
-Official=yes
+Official=no
 EndOfGame=no
 FillSilos=no
 FreeRadar=no
 MaxPlayer=4
 MinPlayer=2
-PostScore=<none>
 SkipScore=no
 TrainCrate=no
 TruckCrate=no
 OneTimeOnly=no
 CarryOverCap=0
 NewINIFormat=4
-NextScenario=GDI2A.map
+NextScenario=
 PreMapSelect=
 TimerInherit=no
 SkipMapSelect=no
 CarryOverMoney=0.000000
-AltNextScenario=GDI9C.MAP
+AltNextScenario=
 MultiplayerOnly=1
 IceGrowthEnabled=no
 VeinGrowthEnabled=no
@@ -2584,11 +2577,11 @@ PlayerControl=no
 [Lighting]
 Red=0.600000
 Blue=1.000000
-Green=0.600000
+Green=0.700000
 Level=0.032000
 Ground=0.000000
 IonRed=0.400000
-Ambient=1.250000
+Ambient=1.000000
 IonBlue=0.900000
 IonGreen=0.400000
 IonLevel=0.032000
