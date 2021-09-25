@@ -2,7 +2,7 @@
 Name=[6] Rogues' Arena
 Author=BlackSnow, RaVaGe(YR)
 Percent=0
-GameMode=standard, meatgrind, teamgame
+GameMode=Battle
 HomeCell=98
 InitTime=10000
 Official=no

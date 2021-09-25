@@ -735,9 +735,9 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=Lakeside Plateaus (2-4)
+Name=[4] Lakeside Plateaus
 Percent=0
-GameMode=standard, meatgrind, duel
+GameMode=Battle,RA2 Ladder Maps
 HomeCell=98
 InitTime=10000
 Official=no

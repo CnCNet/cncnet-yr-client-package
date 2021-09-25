@@ -1243,10 +1243,10 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[4]  Snow Patrol
+Name=[4] Snow Patrol
 Author=WavePy
 Percent=0
-GameMode=standard, meatgrind
+GameMode=Battle
 HomeCell=98
 InitTime=10000
 Official=no
