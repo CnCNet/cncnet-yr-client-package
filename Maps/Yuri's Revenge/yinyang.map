@@ -719,9 +719,9 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=Yin Yang (2-4)
+Name=[4] Yin Yang
 Percent=0
-GameMode=standard, meatgrind
+GameMode=Battle
 HomeCell=98
 InitTime=10000
 Official=no

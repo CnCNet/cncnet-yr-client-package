@@ -771,9 +771,9 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=Golden State Valley (2-4)
+Name=[4] Golden State Valley
 Percent=0
-GameMode=standard
+GameMode=Battle,YR Ladder Maps,RA2 Ladder Maps
 HomeCell=98
 InitTime=10000
 Official=no

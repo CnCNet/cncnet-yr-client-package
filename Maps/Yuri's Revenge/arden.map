@@ -659,9 +659,9 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=Arden River (2)
+Name=[2] Arden River
 Percent=0
-GameMode=standard, meatgrind, navalwar, airwar
+GameMode=Battle
 HomeCell=98
 InitTime=10000
 Official=no
