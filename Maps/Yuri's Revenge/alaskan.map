@@ -1194,7 +1194,7 @@ PlayerControl=no
 [Basic]
 Name=Alaskan Outback (2)
 Percent=0
-GameMode=standard, meatgrind
+GameMode=Battle
 HomeCell=98
 InitTime=10000
 Official=no

@@ -492,15 +492,15 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=Morningtide (2-5)
+Name=[2] Morningtide
 Percent=0
-GameMode=standard, meatgrind
+GameMode=Battle,RA2 Ladder Maps
 HomeCell=98
 InitTime=10000
 Official=no
 EndOfGame=no
 FreeRadar=no
-MaxPlayer=4
+MaxPlayer=2
 MinPlayer=2
 SkipScore=no
 TrainCrate=no
@@ -2601,7 +2601,6 @@ DestroyableBridges=yes
 85081=TREE25
 85084=TREE27
 85092=TREE25
-85093=TREE26
 85101=TREE26
 85142=TREE26
 85147=TREE27
@@ -3100,10 +3099,8 @@ DestroyableBridges=yes
 [Triggers]
 
 [Waypoints]
-0=42097
-1=84128
-2=119094
-3=75037
+0=84126
+1=75037
 
 [YuriCountry]
 IQ=0

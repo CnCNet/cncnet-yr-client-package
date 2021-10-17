@@ -291,7 +291,7 @@ begin
     if (Version.Major < 6) then
       ExtractTemporaryFile('wic_x86_enu.exe');
 
-  end
+  end;
 
   if (Version.Major < 6) or ((Version.Major = 6) and (Version.Minor = 0)) then
     idpAddFile('{#XNAredist}', ExpandConstant('{tmp}\xnafx40_redist.msi'));

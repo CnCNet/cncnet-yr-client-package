@@ -649,7 +649,7 @@ PlayerControl=no
 [Basic]
 Name=Frigid Triangle (2-3)
 Percent=0
-GameMode=standard, meatgrind, navalwar
+GameMode=Battle
 HomeCell=98
 InitTime=10000
 Official=no

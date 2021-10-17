@@ -556,9 +556,9 @@ NodeCount=
 NodeCount=
 
 [Basic]
-Name=Little Big Bay (2)
+Name=[2] Little Big Bay
 Percent=0
-GameMode=standard, meatgrind
+GameMode=Battle
 HomeCell=98
 InitTime=10000
 Official=no
