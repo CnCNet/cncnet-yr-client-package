@@ -1,0 +1,3 @@
+﻿tag-prefix: 'yr-'
+continuous-delivery-fallback-tag: dev
+mode: ContinuousDeployment
