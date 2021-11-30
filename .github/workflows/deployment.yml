@@ -70,7 +70,7 @@ jobs:
 
       # Archive this repo, excluding unnecessary files for the update
       - name: Zip dependencies
-        run: zip -r archive.zip . -x *.git\* *.github\* *InnoSetup\* *.gitignore *.gitattributes
+        run: zip -r archive.zip . -x *.git\* *.github\* *.gitignore *.gitattributes
 
       # Upload the archive artifact for the next job
       - name: Upload artifact
@@ -99,6 +99,16 @@ jobs:
       # Extract the archive
       - name: Extract archive
         run: 7z x archive.zip
+        
+      # Setup Compiler
+      - name: Compile Installer
+#        if: {{steps.gitversion.outputs.PreReleaseLabel}} != 'dev'
+        run: ./build_installer.bat
+        working-directory: ./InnoSetup
+
+      # Clean up InnoSetup files
+      - name: Clean up InnoSetup files
+        run: rm -v -r InnoSetup
 
       # Run the VersionWriter
       - name: Run VersionWriter.exe
