@@ -17,6 +17,15 @@ Waypoint7=0,0
 Waypoint8=0,0
 NumberStartingPoints=2
 
+[GAYARD]
+TechLevel=-1
+
+[NAYARD]
+TechLevel=-1
+
+[YAYARD]
+TechLevel=-1
+
 
 [Preview]
 Size=0,0,176,92
