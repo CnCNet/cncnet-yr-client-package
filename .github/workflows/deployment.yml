@@ -101,10 +101,10 @@ jobs:
         run: 7z x archive.zip
         
       # Setup Compiler
-      - name: Compile Installer
-#        if: {{steps.gitversion.outputs.PreReleaseLabel}} != 'dev'
-        run: ./build_installer.bat
-        working-directory: ./InnoSetup
+#      - name: Compile Installer
+##        if: {{steps.gitversion.outputs.PreReleaseLabel}} != 'dev'
+#        run: ./build_installer.bat
+#        working-directory: ./InnoSetup
 
       # Clean up InnoSetup files
       - name: Clean up InnoSetup files
