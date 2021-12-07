@@ -583,7 +583,7 @@ PlayerControl=yes
 0BA8972C=10,99,7,_Amb_OceanHeavy,0,0,0,0,AS,99,7,_Amb_OceanLight,0,0,0,0,AT,99,7,_Amb_OceanHeavy,0,0,0,0,AU,99,7,_Amb_OceanLight,0,0,0,0,AV,99,7,_Amb_OceanHeavy,0,0,0,0,AW,99,7,_Amb_OceanLight,0,0,0,0,AX,99,7,_Amb_OceanHeavy,0,0,0,0,AY,99,7,_Amb_OceanLight,0,0,0,0,AZ,99,7,_Amb_OceanHeavy,0,0,0,0,BA,99,7,_Amb_OceanLight,0,0,0,0,BB
 
 [Basic]
-Name=[4] Facedown LE
+Name=[4] Face Down LE
 Theme=No theme
 Author=Westwood
 Percent=0
