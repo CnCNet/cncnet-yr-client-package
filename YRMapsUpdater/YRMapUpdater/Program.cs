@@ -46,10 +46,7 @@ namespace YRMapUpdater
 
         static void Main(string[] args)
         {
-            Parser.Default.ParseArguments<ProgramOptions>(args).WithParsed(o =>
-            {
-                new Program(o).Run();
-            });
+            Parser.Default.ParseArguments<ProgramOptions>(args).WithParsed(o => { new Program(o).Run(); });
         }
 
         public Program(ProgramOptions programOptions)
@@ -104,7 +101,7 @@ namespace YRMapUpdater
             _logger.Information($"Writing map {map.Name}");
             var mapKey = GetMapKey(map);
             var newSection = new SectionData(mapKey);
-            var existingSection = _mpMapsData.GetSectionData(mapKey);
+            var existingSection = _mpMapsData.GetSectionData(mapKey) ?? new SectionData(mapKey);
             // newSection.Merge(existingSection); // for testing only
 
             // Write the name/description
@@ -268,33 +265,25 @@ namespace YRMapUpdater
 
         private void WriteTeamStartMappings(SectionData newSection, SectionData existingSection, Map map)
         {
-            var teamStartMappingPresets =
-                map.GetSectionKeyValue(Keys.Basic, Keys.TeamStartMappingPresets) ??
-                existingSection.GetKeyValue(Keys.TeamStartMappingPresets);
-
-            if (string.IsNullOrEmpty(teamStartMappingPresets))
-                return;
-
-            var teamStartMappingPresetNames = teamStartMappingPresets
-                .Split(",")
-                .Select(presetName => presetName.Replace(" ", "").ToLower())
-                .Select(presetName => $"{Keys.TeamStartMappingPreset}_{presetName}")
-                .ToList();
-
-            if (!teamStartMappingPresetNames.Any())
-                return;
-
-            newSection.SetKeyValue(Keys.TeamStartMappingPresets, teamStartMappingPresets);
-
-            teamStartMappingPresetNames.ForEach(presetKey =>
+            for (var i = 0;; i++)
             {
-                var presetValue = map.GetSectionKeyValue(Keys.Basic, presetKey) ??
-                                  existingSection.GetKeyValue(presetKey);
-                if (string.IsNullOrEmpty(presetValue))
-                    return;
+                var teamStartMappingPreset =
+                    map.GetSectionKeyValue(Keys.Basic, string.Format(Keys.TeamStartMapping, i)) ??
+                    existingSection.GetKeyValue(string.Format(Keys.TeamStartMapping, i));
 
-                newSection.SetKeyValue(presetKey, presetValue);
-            });
+                if (string.IsNullOrEmpty(teamStartMappingPreset))
+                    return; // mapping not found
+
+                var teamStartMappingPresetName =
+                    map.GetSectionKeyValue(Keys.Basic, string.Format(Keys.TeamStartMappingName, i)) ??
+                    existingSection.GetKeyValue(string.Format(Keys.TeamStartMappingName, i));
+
+                if (string.IsNullOrEmpty(teamStartMappingPresetName))
+                    continue; // mapping found, but no name specified
+
+                newSection.SetKeyValue(string.Format(Keys.TeamStartMapping, i), teamStartMappingPreset);
+                newSection.SetKeyValue(string.Format(Keys.TeamStartMappingName, i), teamStartMappingPresetName);
+            }
         }
 
         /// <summary>
@@ -369,7 +358,7 @@ namespace YRMapUpdater
         {
             if (_programOptions.Silent)
                 return true;
-            
+
             Console.WriteLine($"The file \"{_mpMapsIniPath}\" already exists.\nContinuing will ovewrite it. Would you still like to continue? [y/N]");
             return string.Equals(Console.ReadLine(), "y", StringComparison.InvariantCultureIgnoreCase);
         }
