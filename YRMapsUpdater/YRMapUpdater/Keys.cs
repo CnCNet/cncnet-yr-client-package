@@ -9,8 +9,8 @@
         public const string MinPlayers = "MinPlayers";
         public const string MaxPlayers = "MaxPlayers";
         public const string EnforceMaxPlayers = "EnforceMaxPlayers";
-        public const string TeamStartMappingPresets = "TeamStartMappingPresets";
-        public const string TeamStartMappingPreset = "TeamStartMappingPreset";
+        public const string TeamStartMapping = "TeamStartMapping{0}";
+        public const string TeamStartMappingName = "TeamStartMapping{0}Name";
         public const string ForcedOptions = "ForcedOptions";
         public const string Size = "Size";
         public const string LocalSize = "LocalSize";
