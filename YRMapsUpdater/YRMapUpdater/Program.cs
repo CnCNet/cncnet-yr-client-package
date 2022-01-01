@@ -22,7 +22,10 @@ namespace YRMapUpdater
         private const string MP_MAPS_BASE_INI_FILE = "INI\\MPMapsBase.ini";
         private const string MP_MAPS_INI_FILE = "INI\\MPMaps.ini";
         private const string MAPS_DIRECTORY = "Maps\\Yuri's Revenge";
-        private const string LOG_FILE = "yr_map_updater.log";
+        private const string LOG_DIR = "logs";
+        private static readonly string LOG_FILE = $"{LOG_DIR}\\yr_map_updater.log";
+        private static readonly string MISSING_MAPS = $"{LOG_DIR}\\missing_maps.log";
+        private static readonly string ADDED_MAPS = $"{LOG_DIR}\\added_maps.log";
         private const string GAME_MODE_BATTLE = "Battle";
         private const string GAME_MODE_STANDARD = "Standard";
         private const string DEFAULT_GAME_MODE = GAME_MODE_BATTLE;
@@ -39,6 +42,8 @@ namespace YRMapUpdater
         private string _mpMapsIniPath;
         private string _mapsPath;
         private List<Map> _maps;
+        private List<string> _missingMapKeys;
+        private List<string> _addedMapKeys;
         private Logger _logger;
 
         private IniData _mpMapsBaseData;
@@ -68,12 +73,15 @@ namespace YRMapUpdater
             _maps = mapLoader.ReadMapFiles();
 
             WriteMultiMaps();
+            CompareMultiMaps();
             WriteMaps();
 
             // We've gathered all MPMaps.ini data. Now, write it to the file.
-            _parser.WriteFile(_mpMapsIniPath, _mpMapsData);
+            _parser.WriteFile(_mpMapsIniPath, _mpMapsBaseData);
 
             _logger.Information("Update complete!");
+            _logger.Information($"{_missingMapKeys.Count} missing map(s). {MISSING_MAPS}");
+            _logger.Information($"{_addedMapKeys.Count} added map(s). {ADDED_MAPS}");
         }
 
         /// <summary>
@@ -86,8 +94,43 @@ namespace YRMapUpdater
             for (var i = 0; i < _maps.Count; i++)
             {
                 var map = _maps[i];
-                multiMapsSection.SetKeyData(i, GetMapKey(map));
+                var mapKey = GetMapKey(map);
+                multiMapsSection.SetKeyData(i, mapKey);
             }
+        }
+
+        private void CompareMultiMaps()
+        {
+            var existingMultiMapValues = _mpMapsData.GetSectionData(Keys.MultiMaps).Keys.Select(key => key.Value).ToList();
+            var newMultiMapValues = _mpMapsBaseData.GetSectionData(Keys.MultiMaps).Keys.Select(key => key.Value).ToList();
+
+            _missingMapKeys = existingMultiMapValues.Where(value => !newMultiMapValues.Contains(value)).ToList();
+            _addedMapKeys = newMultiMapValues.Where(value => !existingMultiMapValues.Contains(value)).ToList();
+
+            ReportMissingMaps();
+            ReportAddedMaps();
+        }
+
+        /// <summary>
+        /// Reports all maps that are currently missing from original MPMaps.ini
+        /// </summary>
+        private void ReportMissingMaps()
+        {
+            File.Delete(MISSING_MAPS);
+            if (!_missingMapKeys.Any())
+                return;
+            File.WriteAllLinesAsync(MISSING_MAPS, _missingMapKeys);
+        }
+
+        /// <summary>
+        /// Reports all maps that are newly added to MPMaps.ini
+        /// </summary>
+        private void ReportAddedMaps()
+        {
+            File.Delete(ADDED_MAPS);
+            if (!_addedMapKeys.Any())
+                return;
+            File.WriteAllLinesAsync(ADDED_MAPS, _addedMapKeys);
         }
 
         private void WriteMaps() => _maps.ForEach(WriteMap);
@@ -127,7 +170,7 @@ namespace YRMapUpdater
             WritePreviewSize(newSection, map);
             WriteTeamStartMappings(newSection, existingSection, map);
 
-            _mpMapsData.SetSectionData(mapKey, newSection);
+            _mpMapsBaseData.SetSectionData(mapKey, newSection);
         }
 
         /// <summary>
@@ -144,7 +187,7 @@ namespace YRMapUpdater
 
             var forcedOptionsName = $"{Keys.ForcedOptions}{mapKey}";
             newSection.SetKeyValue(Keys.ForcedOptions, forcedOptionsName);
-            _mpMapsData.SetKeyValue(forcedOptionsName, forcedOptions);
+            _mpMapsBaseData.SetKeyValue(forcedOptionsName, forcedOptions);
         }
 
         /// <summary>
@@ -301,12 +344,13 @@ namespace YRMapUpdater
                              new[] { DEFAULT_GAME_MODE }).ToList();
 
             // Replace "Standard" with "Battle", if it exists
-            var standardIndex = gameModes.IndexOf(GAME_MODE_STANDARD);
+            var standardIndex = gameModes.FindIndex(gm => string.Equals(gm, GAME_MODE_STANDARD, StringComparison.InvariantCultureIgnoreCase));
             if (standardIndex >= 0)
                 gameModes[standardIndex] = GAME_MODE_BATTLE;
 
             // Create a unique list
-            gameModes = gameModes.Distinct().ToList();
+            gameModes = gameModes
+                .Distinct().ToList();
 
             // Write game modes to section
             newSection.SetKeyValue(Keys.GameModes, string.Join(",", gameModes));
@@ -324,6 +368,7 @@ namespace YRMapUpdater
 
         private void InitLogger()
         {
+            CreateLogsDir();
             var logFilePath = $"{Directory.GetCurrentDirectory()}\\{LOG_FILE}";
             File.Delete(logFilePath);
             _logger = new LoggerConfiguration()
@@ -331,6 +376,18 @@ namespace YRMapUpdater
                 .WriteTo.File(logFilePath)
                 .WriteTo.Console()
                 .CreateLogger();
+        }
+
+        private void CreateLogsDir()
+        {
+            try
+            {
+                Directory.CreateDirectory(LOG_DIR);
+            }
+            catch (Exception)
+            {
+                // do nothing
+            }
         }
 
         private void CheckNecessaryFilesAndDirectories()

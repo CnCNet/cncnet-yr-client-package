@@ -11,7 +11,6 @@ namespace YRMapUpdater
 {
     public class MapLoader
     {
-        private const string MISSING_MAPS = "missing_maps.txt";
         private const string INVALID_MAPS = "invalid_maps.txt";
         private const string REGEX_MAP_NAME = "^\\[\\d\\] \\S.+$";
 
@@ -32,8 +31,13 @@ namespace YRMapUpdater
 
         public List<Map> ReadMapFiles()
         {
-            _logger.Information("Reading .map files...");
-            var mapFiles = Directory.GetFiles(_mapsPath, "*.map");
+            return ReadMapFiles(_mapsPath);
+        }
+
+        private List<Map> ReadMapFiles(string directory)
+        {
+            _logger.Information($"Reading .map files from {directory}...");
+            var mapFiles = Directory.GetFiles(directory, "*.map");
             var invalidMapFileNames = new List<Tuple<string, string>>();
             var rawMaps = mapFiles
                 .Select(file =>
@@ -62,14 +66,15 @@ namespace YRMapUpdater
                 .Where(map => map != null)
                 .ToList();
 
-            var mapsWithNames = rawMaps.Where(HasValidName).ToList();
-            var missingMaps = rawMaps.Except(mapsWithNames).ToList();
-            ReportMissingMaps(missingMaps);
+            var maps = rawMaps.Where(HasValidName);
             ReportInvalidMaps(invalidMapFileNames);
 
-            return mapsWithNames.ToList();
-        }
+            var subDirectories = Directory.GetDirectories(directory);
+            maps = subDirectories.Aggregate(maps, (current, subDir) => current.Concat(ReadMapFiles(subDir)));
 
+            return maps.OrderBy(m => m.Name).ToList();
+        }
+        
         private bool HasValidName(Map map)
         {
             var name = _mpMapsData.Sections[_getMapKey(map)]?[Keys.Description] ?? map.GetSectionKeyValue(Keys.Basic, Keys.Name);
@@ -81,18 +86,6 @@ namespace YRMapUpdater
 
             map.Name = name;
             return true;
-        }
-
-        /// <summary>
-        /// Reports all maps that are currently missing
-        /// </summary>
-        /// <param name="maps"></param>
-        private static void ReportMissingMaps(List<Map> maps)
-        {
-            File.Delete(MISSING_MAPS);
-            if (!maps.Any())
-                return;
-            File.WriteAllLinesAsync(MISSING_MAPS, maps.Select(map => map.FullPath));
         }
 
         /// <summary>
