@@ -16,10 +16,17 @@ NumberStartingPoints=4
 [AircraftTypes]
 
 [GAYARD]
-TechLevel=-1
+Name=Allied Shipyard
+TechLevel=11
 
 [NAYARD]
-TechLevel=-1
+Name=Soviet Shipyard
+TechLevel=11
+
+[YAYARD]
+Name=Yuri Submarine Pen
+TechLevel=11
+
 
 [VehicleTypes]
 
