@@ -17,6 +17,19 @@ Waypoint7=293,116
 Waypoint8=299,147
 NumberStartingPoints=8
 
+[GAYARD]
+Name=Allied Shipyard
+TechLevel=11
+
+[NAYARD]
+Name=Soviet Shipyard
+TechLevel=11
+
+[YAYARD]
+Name=Yuri Submarine Pen
+TechLevel=11
+
+
 [AircraftTypes]
 
 
