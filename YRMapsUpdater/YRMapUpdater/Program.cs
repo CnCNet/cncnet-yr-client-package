@@ -26,6 +26,7 @@ namespace YRMapUpdater
         private static readonly string LOG_FILE = $"{LOG_DIR}\\yr_map_updater.log";
         private static readonly string MISSING_MAPS = $"{LOG_DIR}\\missing_maps.log";
         private static readonly string ADDED_MAPS = $"{LOG_DIR}\\added_maps.log";
+        public static readonly string INVALID_MAPS = $"{LOG_DIR}\\invalid_maps.log";
         private const string GAME_MODE_BATTLE = "Battle";
         private const string GAME_MODE_STANDARD = "Standard";
         private const string DEFAULT_GAME_MODE = GAME_MODE_BATTLE;
@@ -82,6 +83,7 @@ namespace YRMapUpdater
             _logger.Information("Update complete!");
             _logger.Information($"{_missingMapKeys.Count} missing map(s). {MISSING_MAPS}");
             _logger.Information($"{_addedMapKeys.Count} added map(s). {ADDED_MAPS}");
+            _logger.Information($"{mapLoader.InvalidMaps.Count} invalid map(s). {INVALID_MAPS}");
         }
 
         /// <summary>
