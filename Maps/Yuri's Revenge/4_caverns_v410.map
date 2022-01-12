@@ -884,7 +884,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=Caverns of Siberia
+Name=[4] Caverns of Siberia
 Author=DistantQ
 Percent=0
 GameMode=Battle,RA2 Ladder Maps,YR Ladder Maps
