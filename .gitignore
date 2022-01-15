@@ -4,6 +4,7 @@ ddraw.dll
 ddraw.ini
 Client/*
 RA2MD.ini
+Maps/Custom/*.zip
 Maps/Custom/*.map
 Maps/Custom/*.png
 Maps/Custom/*.yrm
