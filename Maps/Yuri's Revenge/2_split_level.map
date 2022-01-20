@@ -48,6 +48,17 @@ LightVisibility=4000
 
 [VehicleTypes]
 
+[GAYARD]
+Name=Allied Shipyard
+TechLevel=11
+
+[NAYARD]
+Name=Soviet Shipyard
+TechLevel=11
+
+[YAYARD]
+Name=Yuri Submarine Pen
+TechLevel=11
 
 [Preview]
 Size=0,0,172,86
