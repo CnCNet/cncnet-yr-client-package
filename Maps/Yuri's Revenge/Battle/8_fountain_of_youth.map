@@ -124,20 +124,6 @@ LightGreenTint=0.03
 LightIntensity=-0.15
 LightVisibility=3500
 
-[GAYARD]
-Name=Allied Shipyard
-TechLevel=11
-
-[NAYARD]
-Name=Soviet Shipyard
-TechLevel=11
-
-[YAYARD]
-Name=Yuri Submarine Pen
-TechLevel=11
-
-
-
 [Preview]
 Size=0,0,240,86
 
