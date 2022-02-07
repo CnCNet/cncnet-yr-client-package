@@ -49,6 +49,15 @@ LightGreenTint=0.30
 LightIntensity=0.02
 LightVisibility=3000
 
+[GAYARD]
+TechLevel=-1
+
+[NAYARD]
+TechLevel=-1
+
+[YAYARD]
+TechLevel=-1
+
 
 [Preview]
 Size=0,0,180,100
