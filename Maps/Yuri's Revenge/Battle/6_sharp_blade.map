@@ -429,7 +429,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=Sharp Blade
+Name=[6] Sharp Blade
 Percent=0
 GameMode=Battle,Meat Grinder
 HomeCell=98
