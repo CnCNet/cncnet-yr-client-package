@@ -430,6 +430,7 @@ PlayerControl=no
 
 [Basic]
 Name=[6] Sharp Blade
+Author=Instinct
 Percent=0
 GameMode=Battle,Meat Grinder
 HomeCell=98
