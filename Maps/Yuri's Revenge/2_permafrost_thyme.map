@@ -26,6 +26,15 @@ TechLevel=-1
 [YAYARD]
 TechLevel=-1
 
+[CAOILD]
+Name=Tech Oil Derrick
+Powered=false
+LightRedTint=0.15
+LightBlueTint=0.15
+LightGreenTint=0.15
+LightIntensity=0.002
+LightVisibility=2000
+ProduceCashStartup=500
 
 [Preview]
 Size=0,0,194,107
