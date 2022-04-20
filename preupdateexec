@@ -1,4 +1,17 @@
 [Delete]
+Resources\Allied Theme\CnCNetLobby.ini
+Resources\Allied Theme\GenericWindow.ini
+Resources\Allied Theme\LANLobby.ini
+Resources\Allied Theme\LoadingScreen.ini
+Resources\Allied Theme\MultiplayerGameLobby.ini
+Resources\Allied Theme\OptionsWindow.ini
+Resources\Allied Theme\SkirmishLobby.ini
+Resources\Soviet Theme\CnCNetLobby.ini
+Resources\Soviet Theme\LANLobby.ini
+Resources\Soviet Theme\LoadingScreen.ini
+Resources\Soviet Theme\MultiplayerGameLobby.ini
+Resources\Soviet Theme\OptionsWindow.ini
+Resources\Soviet Theme\SkirmishLobby.ini
 Crate.sno
 crate.sno
 crate.des
