@@ -83,9 +83,12 @@ Type: files; Name: "{app}\wcrate.tem"
 Type: files; Name: "{app}\wcrate.ubn"
 Type: files; Name: "{app}\wcrate.urb"
 Type: files; Name: "{app}\expandspawn09.mix"
+Type: files; Name: "{app}\DEPLOYMENTS.md"
+Type: files; Name: "{app}\gitversion.json"
+Type: files; Name: "{app}\GitVersion.yml"
 
 [Files]
-Source: ..\*; DestDir: "{app}"; Excludes: "RA2MD.ini,version_u,version,DtaverWriter.exe,.gitattributes,.gitignore,README.md,versionconfig.ini,preupdateexec,updateexec"; Flags: ignoreversion
+Source: ..\*; DestDir: "{app}"; Excludes: "RA2MD.ini,version_u,version,DtaverWriter.exe,.gitattributes,.gitignore,README.md,versionconfig.ini,preupdateexec,updateexec,DEPLOYMENTS.md,gitversion.json,GitVersion.yml"; Flags: ignoreversion
 ; explicitly list "version" file so that an error is thrown if it does not exist
 Source: ..\version; DestDir: "{app}";
 Source: ..\Resources\*; DestDir: "{app}\Resources"; Flags: ignoreversion recursesubdirs
