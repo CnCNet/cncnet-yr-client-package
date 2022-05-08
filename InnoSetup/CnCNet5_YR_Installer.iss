@@ -86,9 +86,10 @@ Type: files; Name: "{app}\expandspawn09.mix"
 Type: files; Name: "{app}\DEPLOYMENTS.md"
 Type: files; Name: "{app}\gitversion.json"
 Type: files; Name: "{app}\GitVersion.yml"
+Type: files; Name: "{app}\update_mpmaps.bat"
 
 [Files]
-Source: ..\*; DestDir: "{app}"; Excludes: "RA2MD.ini,version_u,version,DtaverWriter.exe,.gitattributes,.gitignore,README.md,versionconfig.ini,preupdateexec,updateexec,DEPLOYMENTS.md,gitversion.json,GitVersion.yml"; Flags: ignoreversion
+Source: ..\*; DestDir: "{app}"; Excludes: "RA2MD.ini,version_u,version,DtaverWriter.exe,.gitattributes,.gitignore,README.md,versionconfig.ini,preupdateexec,updateexec,DEPLOYMENTS.md,gitversion.json,GitVersion.yml,update_mpmaps.bat"; Flags: ignoreversion
 ; explicitly list "version" file so that an error is thrown if it does not exist
 Source: ..\version; DestDir: "{app}";
 Source: ..\Resources\*; DestDir: "{app}\Resources"; Flags: ignoreversion recursesubdirs
