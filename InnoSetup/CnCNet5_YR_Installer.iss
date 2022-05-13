@@ -4,6 +4,7 @@
 
 #define Net40 = "http://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe"
 #define XNAredist = "http://download.microsoft.com/download/A/C/2/AC2C903B-E6E8-42C2-9FD7-BEBAC362A930/xnafx40_redist.msi"
+#define AppVersion = ReadIni(SourcePath  + "..\version", "DTA", "Version")
 
 [CustomMessages]
 InstallingApp=Installing %1, this may take several minutes...
@@ -20,11 +21,11 @@ OriginReg=Software\EA Games\Command and Conquer Red Alert II
 [Setup]
 AppId={{D22A250A-085F-415E-959E-8DB49F4E4CCA}
 AppName=CnCNet5 Yuri's Revenge
-AppVersion=1.0
-AppVerName=CnCNet5 Yuri's Revenge
+AppVersion={#AppVersion}
+AppVerName=CnCNet5 Yuri's Revenge {#AppVersion}  
 AppPublisher=cncnet.org
 VersionInfoVersion=1.0.0.0
-VersionInfoTextVersion=1.0.0.0
+VersionInfoTextVersion={#AppVersion}
 VersionInfoProductName=CnCNet5 Yuri's Revenge
 VersionInfoDescription=CnCNet5 Yuri's Revenge
 AppPublisherURL=https://cncnet.org
