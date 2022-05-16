@@ -90,9 +90,11 @@ Type: files; Name: "{app}\GitVersion.yml"
 Type: files; Name: "{app}\update_mpmaps.bat"
 
 [Files]
-Source: ..\*; DestDir: "{app}"; Excludes: "RA2MD.ini,version_u,version,DtaverWriter.exe,.gitattributes,.gitignore,README.md,versionconfig.ini,preupdateexec,updateexec,DEPLOYMENTS.md,gitversion.json,GitVersion.yml,update_mpmaps.bat"; Flags: ignoreversion
+Source: ..\*; DestDir: "{app}"; Excludes: "RA2MD.ini,version_u,version,gamemd-spawn.exe,DtaverWriter.exe,.gitattributes,.gitignore,README.md,versionconfig.ini,preupdateexec,updateexec,DEPLOYMENTS.md,gitversion.json,GitVersion.yml,update_mpmaps.bat,VersionWriter.exe,VersionWriter-CopiedFiles"; Flags: ignoreversion
 ; explicitly list "version" file so that an error is thrown if it does not exist
 Source: ..\version; DestDir: "{app}";
+; explicitly list "gamemd-spawn.exe" file so that an error is thrown if it does not exist
+Source: ..\gamemd-spawn.exe; DestDir: "{app}";
 Source: ..\Resources\*; DestDir: "{app}\Resources"; Flags: ignoreversion recursesubdirs
 Source: ..\Qt\*; DestDir: "{app}\Qt"; Flags: ignoreversion recursesubdirs
 Source: ..\INI\*; DestDir: "{app}\INI"; Flags: ignoreversion recursesubdirs
