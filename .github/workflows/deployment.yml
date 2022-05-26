@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - master
+      - qm
   
   # Run this manually
   workflow_dispatch:
@@ -100,16 +101,6 @@ jobs:
       - name: Extract archive
         run: 7z x archive.zip
         
-      # Setup Compiler
-#      - name: Compile Installer
-##        if: {{steps.gitversion.outputs.PreReleaseLabel}} != 'dev'
-#        run: ./build_installer.bat
-#        working-directory: ./InnoSetup
-
-      # Clean up InnoSetup files
-      - name: Clean up InnoSetup files
-        run: rm -v -r InnoSetup
-
       # Run the VersionWriter
       - name: Run VersionWriter.exe
         run: ./VersionWriter.exe /S
@@ -117,6 +108,29 @@ jobs:
       # Remove files we do not want in the new archive
       - name: Clean up files
         run: rm archive.zip && rm VersionWriter.exe && rm -r VersionWriter-CopiedFiles
+        
+      # Build CnCNet5_YR_Installer.exe
+      - name: Build Installer
+#        if: check if this is a dev version
+        run: build_installer.bat
+        shell: cmd
+        working-directory: ./InnoSetup
+
+      # Upload CnCNet5_YR_Installer.exe
+      - name: Upload installed exe
+#        if: check if this is a dev version
+        uses: actions/upload-artifact@v2
+        with:
+          name: installer
+          path: CnCNet5_YR_Installer.exe
+
+      # Clean up InnoSetup files
+      - name: Clean up InnoSetup files
+        run: rm -v -r InnoSetup
+
+      # Clean up CnCNet5_YR_Installer.exe
+      - name: Clean up CnCNet5_YR_Installer.exe
+        run: rm CnCNet5_YR_Installer.exe
 
       # Create new archive
       - name: Create new versioned archive

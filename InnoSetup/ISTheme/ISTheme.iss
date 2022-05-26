@@ -6,9 +6,9 @@
 #define ISThemeTextBoxForeColor = '$000000'
 
 [Files]
-Source: "ISTheme\WizardFormBackground.bmp"; Flags: dontcopy
-Source: "ISTheme\InnerPageBackground.bmp"; Flags: dontcopy
-Source: "ISTheme\PageBackground.bmp"; Flags: dontcopy
+;Source: "ISTheme\WizardFormBackground.bmp"; Flags: dontcopy
+;Source: "ISTheme\InnerPageBackground.bmp"; Flags: dontcopy
+;Source: "ISTheme\PageBackground.bmp"; Flags: dontcopy
 
 [Code]
 procedure ReplaceLabel(sourceLabel: TNewStaticText);
@@ -84,44 +84,44 @@ begin
   WizardForm.WelcomeLabel2.Height := WizardForm.InnerNotebook.Height - WizardForm.WelcomeLabel1.Height;
 
   //### set backgrounds ###
-  ExtractTemporaryFile('WizardFormBackground.bmp');
-  ExtractTemporaryFile('InnerPageBackground.bmp');
-  ExtractTemporaryFile('PageBackground.bmp');
+  //ExtractTemporaryFile('WizardFormBackground.bmp');
+  //ExtractTemporaryFile('InnerPageBackground.bmp');
+  //ExtractTemporaryFile('PageBackground.bmp');
   
-  SetPageBackground(WizardForm.WelcomePage ,'InnerPageBackground.bmp');
-  SetPageBackground(WizardForm.InnerPage ,'InnerPageBackground.bmp');
-  SetPageBackground(WizardForm.FinishedPage ,'InnerPageBackground.bmp');
-  SetPageBackground(WizardForm.LicensePage ,'PageBackground.bmp');
-  SetPageBackground(WizardForm.PasswordPage ,'PageBackground.bmp');
-  SetPageBackground(WizardForm.InfoBeforePage ,'PageBackground.bmp');
-  SetPageBackground(WizardForm.UserInfoPage ,'PageBackground.bmp');
-  SetPageBackground(WizardForm.SelectDirPage ,'PageBackground.bmp');
-  SetPageBackground(WizardForm.SelectComponentsPage ,'PageBackground.bmp');
-  SetPageBackground(WizardForm.SelectProgramGroupPage ,'PageBackground.bmp');
-  SetPageBackground(WizardForm.SelectTasksPage ,'PageBackground.bmp');
-  SetPageBackground(WizardForm.ReadyPage ,'PageBackground.bmp');
-  SetPageBackground(WizardForm.PreparingPage ,'PageBackground.bmp');
-  SetPageBackground(WizardForm.InstallingPage ,'PageBackground.bmp');
-  SetPageBackground(WizardForm.InfoAfterPage ,'PageBackground.bmp');
+  //SetPageBackground(WizardForm.WelcomePage ,'InnerPageBackground.bmp');
+  //SetPageBackground(WizardForm.InnerPage ,'InnerPageBackground.bmp');
+  //SetPageBackground(WizardForm.FinishedPage ,'InnerPageBackground.bmp');
+  //SetPageBackground(WizardForm.LicensePage ,'PageBackground.bmp');
+  //SetPageBackground(WizardForm.PasswordPage ,'PageBackground.bmp');
+  //SetPageBackground(WizardForm.InfoBeforePage ,'PageBackground.bmp');
+  //SetPageBackground(WizardForm.UserInfoPage ,'PageBackground.bmp');
+  //SetPageBackground(WizardForm.SelectDirPage ,'PageBackground.bmp');
+  //SetPageBackground(WizardForm.SelectComponentsPage ,'PageBackground.bmp');
+  //SetPageBackground(WizardForm.SelectProgramGroupPage ,'PageBackground.bmp');
+  //SetPageBackground(WizardForm.SelectTasksPage ,'PageBackground.bmp');
+  //SetPageBackground(WizardForm.ReadyPage ,'PageBackground.bmp');
+  //SetPageBackground(WizardForm.PreparingPage ,'PageBackground.bmp');
+  //SetPageBackground(WizardForm.InstallingPage ,'PageBackground.bmp');
+  //SetPageBackground(WizardForm.InfoAfterPage ,'PageBackground.bmp');
   
-  BackgroundBmp := TBitmapImage.Create(WizardForm);
-  BackgroundBmp.Bitmap.LoadFromFile(ExpandConstant('{tmp}\PageBackground.bmp'));
-  BackgroundBmp.Stretch := True;
-  BackgroundBmp.Align := alClient;
-  BackgroundBmp.Parent:= WelcomePageNotebook;
+  //BackgroundBmp := TBitmapImage.Create(WizardForm);
+  //BackgroundBmp.Bitmap.LoadFromFile(ExpandConstant('{tmp}\PageBackground.bmp'));
+  //BackgroundBmp.Stretch := True;
+  //BackgroundBmp.Align := alClient;
+  //BackgroundBmp.Parent:= WelcomePageNotebook;
   
-  BackgroundBmp := TBitmapImage.Create(WizardForm);
-  BackgroundBmp.Bitmap.LoadFromFile(ExpandConstant('{tmp}\WizardFormBackground.bmp'));
-  BackgroundBmp.Stretch := True;
-  BackgroundBmp.Align := alClient;
-  BackgroundBmp.Parent:= WizardForm;
+  //BackgroundBmp := TBitmapImage.Create(WizardForm);
+  //BackgroundBmp.Bitmap.LoadFromFile(ExpandConstant('{tmp}\WizardFormBackground.bmp'));
+  //BackgroundBmp.Stretch := True;
+  //BackgroundBmp.Align := alClient;
+  //BackgroundBmp.Parent:= WizardForm;
   
   //# Custom #
-  BackgroundBmp:= TBitmapImage.Create(WizardForm);
-  BackgroundBmp.Bitmap.LoadFromFile(ExpandConstant('{tmp}\PageBackground.bmp'));
-  BackgroundBmp.Stretch := True;
-  BackgroundBmp.Align := alClient;
-  BackgroundBmp.Parent:= IDPForm.Page.Surface;
+  //BackgroundBmp:= TBitmapImage.Create(WizardForm);
+  //BackgroundBmp.Bitmap.LoadFromFile(ExpandConstant('{tmp}\PageBackground.bmp'));
+  //BackgroundBmp.Stretch := True;
+  //BackgroundBmp.Align := alClient;
+  //BackgroundBmp.Parent:= IDPForm.Page.Surface;
 
   //### hide unwanted stuff ###
   WizardForm.FinishedHeadingLabel.Visible := False;

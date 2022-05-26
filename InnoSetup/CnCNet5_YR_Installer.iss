@@ -1,9 +1,10 @@
 ;Made with Inno Setup 5.5.3 Ansi
 #include <.\Inno Download Plugin\idp.iss>
-#include <.\ISTheme\ISTheme.iss>
+;#include <.\ISTheme\ISTheme.iss>
 
 #define Net40 = "http://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe"
 #define XNAredist = "http://download.microsoft.com/download/A/C/2/AC2C903B-E6E8-42C2-9FD7-BEBAC362A930/xnafx40_redist.msi"
+#define AppVersion = ReadIni(SourcePath  + "..\version", "DTA", "Version")
 
 [CustomMessages]
 InstallingApp=Installing %1, this may take several minutes...
@@ -20,11 +21,11 @@ OriginReg=Software\EA Games\Command and Conquer Red Alert II
 [Setup]
 AppId={{D22A250A-085F-415E-959E-8DB49F4E4CCA}
 AppName=CnCNet5 Yuri's Revenge
-AppVersion=1.0
-AppVerName=CnCNet5 Yuri's Revenge
+AppVersion={#AppVersion}
+AppVerName=CnCNet5 Yuri's Revenge {#AppVersion}  
 AppPublisher=cncnet.org
 VersionInfoVersion=1.0.0.0
-VersionInfoTextVersion=1.0.0.0
+VersionInfoTextVersion={#AppVersion}
 VersionInfoProductName=CnCNet5 Yuri's Revenge
 VersionInfoDescription=CnCNet5 Yuri's Revenge
 AppPublisherURL=https://cncnet.org
@@ -55,10 +56,45 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [InstallDelete]
 ;Type: files; Name: "{app}\wsock32.dll"; MinVersion: 6.2
-Type: files; Name: "{app}\version"
+;Type: files; Name: "{app}\version"
+Type: files; Name: "{app}\Resources\Allied Theme\CnCNetLobby.ini"
+Type: files; Name: "{app}\Resources\Allied Theme\GenericWindow.ini"
+Type: files; Name: "{app}\Resources\Allied Theme\LANLobby.ini"
+Type: files; Name: "{app}\Resources\Allied Theme\LoadingScreen.ini"
+Type: files; Name: "{app}\Resources\Allied Theme\MultiplayerGameLobby.ini"
+Type: files; Name: "{app}\Resources\Allied Theme\OptionsWindow.ini"
+Type: files; Name: "{app}\Resources\Allied Theme\SkirmishLobby.ini"
+Type: files; Name: "{app}\Resources\Soviet Theme\CnCNetLobby.ini"
+Type: files; Name: "{app}\Resources\Soviet Theme\LANLobby.ini"
+Type: files; Name: "{app}\Resources\Soviet Theme\LoadingScreen.ini"
+Type: files; Name: "{app}\Resources\Soviet Theme\MultiplayerGameLobby.ini"
+Type: files; Name: "{app}\Resources\Soviet Theme\OptionsWindow.ini"
+Type: files; Name: "{app}\Resources\Soviet Theme\SkirmishLobby.ini"
+Type: files; Name: "{app}\Crate.sno"
+Type: files; Name: "{app}\crate.sno"
+Type: files; Name: "{app}\crate.des"
+Type: files; Name: "{app}\crate.lun"
+Type: files; Name: "{app}\crate.tem"
+Type: files; Name: "{app}\crate.ubn"
+Type: files; Name: "{app}\crate.urb"
+Type: files; Name: "{app}\wcrate.des"
+Type: files; Name: "{app}\wcrate.lun"
+Type: files; Name: "{app}\wcrate.sno"
+Type: files; Name: "{app}\wcrate.tem"
+Type: files; Name: "{app}\wcrate.ubn"
+Type: files; Name: "{app}\wcrate.urb"
+Type: files; Name: "{app}\expandspawn09.mix"
+Type: files; Name: "{app}\DEPLOYMENTS.md"
+Type: files; Name: "{app}\gitversion.json"
+Type: files; Name: "{app}\GitVersion.yml"
+Type: files; Name: "{app}\update_mpmaps.bat"
 
 [Files]
-Source: ..\*; DestDir: "{app}"; Excludes: "RA2MD.ini,version_u,version,DtaverWriter.exe,.gitattributes,.gitignore,README.md,versionconfig.ini,preupdateexec,updateexec"; Flags: ignoreversion
+Source: ..\*; DestDir: "{app}"; Excludes: "RA2MD.ini,version_u,version,gamemd-spawn.exe,DtaverWriter.exe,.gitattributes,.gitignore,README.md,versionconfig.ini,preupdateexec,updateexec,DEPLOYMENTS.md,gitversion.json,GitVersion.yml,update_mpmaps.bat,VersionWriter.exe,VersionWriter-CopiedFiles"; Flags: ignoreversion
+; explicitly list "version" file so that an error is thrown if it does not exist
+Source: ..\version; DestDir: "{app}";
+; explicitly list "gamemd-spawn.exe" file so that an error is thrown if it does not exist
+Source: ..\gamemd-spawn.exe; DestDir: "{app}";
 Source: ..\Resources\*; DestDir: "{app}\Resources"; Flags: ignoreversion recursesubdirs
 Source: ..\Qt\*; DestDir: "{app}\Qt"; Flags: ignoreversion recursesubdirs
 Source: ..\INI\*; DestDir: "{app}\INI"; Flags: ignoreversion recursesubdirs
@@ -241,13 +277,13 @@ begin
   idpSetOption('AllowContinue',  '0');      
   idpSetOption('UserAgent',      'Mozilla/5.0 (Windows NT 5.1; rv:18.0) Gecko/20100101 Firefox/18.0');
   
-  ISTheme();
+  //ISTheme();
 
   // # license radio text color
-  WizardForm.LicenseAcceptedRadio.Font.Color := {#ISThemeTextBoxForeColor};
-  WizardForm.LicenseAcceptedRadio.Color := {#ISThemeTextBoxBackColor};
-  WizardForm.LicenseNotAcceptedRadio.Font.Color := {#ISThemeTextBoxForeColor};
-  WizardForm.LicenseNotAcceptedRadio.Color := {#ISThemeTextBoxBackColor};
+  //WizardForm.LicenseAcceptedRadio.Font.Color := {#ISThemeTextBoxForeColor};
+  //WizardForm.LicenseAcceptedRadio.Color := {#ISThemeTextBoxBackColor};
+  //WizardForm.LicenseNotAcceptedRadio.Font.Color := {#ISThemeTextBoxForeColor};
+  //WizardForm.LicenseNotAcceptedRadio.Color := {#ISThemeTextBoxBackColor};
 end;
 
 procedure CurPageChanged(CurPageID: Integer);
