@@ -588,8 +588,8 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[8] Tour of Zilla
-Author=Westwood
+Name=[8] Tour of Egypt (4v4)
+Author=Westwood / CnCNet Community
 Theme=No theme
 Percent=0
 GameMode=Standard,Battle,SFJ
