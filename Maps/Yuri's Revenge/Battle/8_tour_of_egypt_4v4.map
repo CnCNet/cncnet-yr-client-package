@@ -18,6 +18,15 @@ Waypoint8=282,43
 NumberStartingPoints=8
 NumCoopHumanStartSpots=4
 
+[GAYARD]
+TechLevel=-1
+
+[NAYARD]
+TechLevel=-1
+
+[YAYARD]
+TechLevel=-1
+
 
 [Preview]
 Size=0,0,130,90
