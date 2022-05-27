@@ -3011,13 +3011,13 @@ PlayerControl=no
 2099=KCkAbygpAHAoKwBuAM7sBQhvAM4AAAAAAAAFABEAAA==
 
 [Lighting]
-Red=0.900000
-Blue=1.200000
-Green=1.100000
+Red=0.770000
+Blue=1.050000
+Green=0.9500000
 Level=0.042000
 Ground=0.000000
 IonRed=1.000000
-Ambient=0.600000
+Ambient=0.800000
 IonBlue=1.000000
 IonGreen=1.000000
 IonLevel=0.032000
