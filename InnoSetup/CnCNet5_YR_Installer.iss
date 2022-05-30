@@ -55,8 +55,6 @@ LicenseFile=Resources\License-YurisRevenge.txt
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [InstallDelete]
-;Type: files; Name: "{app}\wsock32.dll"; MinVersion: 6.2
-;Type: files; Name: "{app}\version"
 Type: files; Name: "{app}\Resources\Allied Theme\CnCNetLobby.ini"
 Type: files; Name: "{app}\Resources\Allied Theme\GenericWindow.ini"
 Type: files; Name: "{app}\Resources\Allied Theme\LANLobby.ini"
@@ -88,6 +86,10 @@ Type: files; Name: "{app}\DEPLOYMENTS.md"
 Type: files; Name: "{app}\gitversion.json"
 Type: files; Name: "{app}\GitVersion.yml"
 Type: files; Name: "{app}\update_mpmaps.bat"
+; delete all game modes so that installer can put correct ones back, rather than removing individuals
+Type: filesandordirs; Name: "{app}\INI\Map Code"
+; delete all maps so that installer can put correct ones back, rather than removing individuals
+Type: filesandordirs; Name: "{app}\Maps\Yuri's Revenge"
 
 [Files]
 Source: ..\*; DestDir: "{app}"; Excludes: "RA2MD.ini,version_u,version,gamemd-spawn.exe,DtaverWriter.exe,.gitattributes,.gitignore,README.md,versionconfig.ini,preupdateexec,updateexec,DEPLOYMENTS.md,gitversion.json,GitVersion.yml,update_mpmaps.bat,VersionWriter.exe,VersionWriter-CopiedFiles"; Flags: ignoreversion
