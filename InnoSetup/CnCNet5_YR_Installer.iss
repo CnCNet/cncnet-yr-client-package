@@ -92,7 +92,7 @@ Type: filesandordirs; Name: "{app}\INI\Map Code"
 Type: filesandordirs; Name: "{app}\Maps\Yuri's Revenge"
 
 [Files]
-Source: ..\*; DestDir: "{app}"; Excludes: "RA2MD.ini,version_u,version,gamemd-spawn.exe,DtaverWriter.exe,.gitattributes,.gitignore,README.md,versionconfig.ini,preupdateexec,updateexec,DEPLOYMENTS.md,gitversion.json,GitVersion.yml,update_mpmaps.bat,VersionWriter.exe,VersionWriter-CopiedFiles"; Flags: ignoreversion
+Source: ..\*; DestDir: "{app}"; Excludes: "RA2MD.ini,version_u,version,gamemd-spawn.exe,DtaverWriter.exe,.gitattributes,.gitignore,.github,README.md,versionconfig.ini,preupdateexec,updateexec,DEPLOYMENTS.md,gitversion.json,GitVersion.yml,update_mpmaps.bat,VersionWriter.exe,VersionWriter-CopiedFiles,InnoSetup,updater-scripts,YRMapsUpdater,DEPLOYMENDS.md"; Flags: ignoreversion
 ; explicitly list "version" file so that an error is thrown if it does not exist
 Source: ..\version; DestDir: "{app}";
 ; explicitly list "gamemd-spawn.exe" file so that an error is thrown if it does not exist
