@@ -702,6 +702,10 @@ Size=0,0,200,81
 0ECCFA7C-G=yes
 0ECCFCAC-G=yes
 
+[Actions]
+01000000=3,14,0,4475,0,0,0,0,A,14,0,4477,0,0,0,0,A,21,6,EVA_TechBuildingCaptured,0,0,0,0,A
+01000002=3,14,0,4476,0,0,0,0,A,14,0,4478,0,0,0,0,A,21,6,EVA_TechBuildingCaptured,0,0,0,0,A
+
 [Africans]
 IQ=0
 Edge=North
@@ -751,15 +755,15 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[4] Poltergeist
+Name=[2] Poltergeist LE (PreCaptured)
 Percent=0
-GameMode=Battle,RA2 Ladder Maps
+GameMode=Battle,YR Ladder Maps,SFJ
 HomeCell=98
 InitTime=10000
-Official=Yes
+Official=no
 EndOfGame=no
 FreeRadar=no
-MaxPlayer=4
+MaxPlayer=2
 MinPlayer=2
 SkipScore=no
 TrainCrate=no
@@ -804,6 +808,10 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+
+[Events]
+01000000=1,9,0,0
+01000002=1,9,0,0
 
 [French]
 IQ=0
@@ -2604,7 +2612,11 @@ DestroyableBridges=yes
 40=Neutral,CAARMY03,256,137,108,64,None,1,0,1,0,0,None,None,None,0,0
 41=Neutral,CAMSC06,36,139,113,64,None,1,0,1,0,0,None,None,None,0,0
 
-[TaskForces]
+[Tags]
+01000001=0,Tech_L 1,01000000
+01000003=0,Tech_R 1,01000002
+
+[TeamTypes]
 
 [Terrain]
 32112=TIBTRE03
@@ -3273,6 +3285,8 @@ DestroyableBridges=yes
 152109=TREE14
 
 [Triggers]
+01000000=Neutral,<none>,Tech_L,0,1,1,1,0
+01000002=Neutral,<none>,Tech_R,0,1,1,1,0
 
 [Units]
 0=Neutral,PTRUCK,256,97,103,64,Guard,None,0,-1,0,-1,1,1
