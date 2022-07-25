@@ -531,6 +531,9 @@ Size=0,0,90,67
 172=a5gOO9eEwHQChIBgO/qW1NVVxEJicsBifcAWwlbEN4SSocBAbkv3rlv3Piv34RAAA=
 
 [Actions]
+01000000=2,11,4,vox:csof032,0,0,0,0,A,21,6,EVA_2MinutesRemaining,0,0,0,0,A
+01000002=8,119,0,4475,0,0,0,0,A,119,0,4476,0,0,0,0,A,119,0,4477,0,0,0,0,A,1198,0,0,0,0,0,0,A,119,0,4479,0,0,0,0,A,119,0,4480,0,0,0,0,A,119,0,4481,0,0,0,0,A,119,0,4482,0,0,0,0,A
+01000004=2,27,0,2400,0,0,0,0,A,103,4,MISSION:Lose2,0,0,0,0,A
 01000006=1,14,0,4475,0,0,0,0,A
 01000008=1,14,0,4476,0,0,0,0,A
 
@@ -583,7 +586,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[2] Brute - Blitz
+Name=[2] Brute - Blitz (with TIMER)
 Author=RA2CashGames
 Percent=0
 Briefing=- Allied factions have all Allied faction bonuses (Minus France).@- Soviet factions have all Soviet faction bonuses. Yuri Is Sov.@- Game Timer: 10 Minutes. @- No Ore Build Oil For Money (Consumes 35 Power).@- All player buildings are engi immune.@- Chrono Legionnaires can't attack oils.@- Limit of 12 oils can be built per game.@- Tech precaptured at 30 seconds.@- Genetic Mutator is indestructible & Capturable.@----------------------------------------------------------------------@Blitz Mod by: Burg, Snark, Bbglas007, NuclearKommando
@@ -638,6 +641,9 @@ PercentBuilt=0
 PlayerControl=no
 
 [Events]
+01000000=1,13,0,1920
+01000002=1,13,0,2400
+01000004=1,13,0,1
 01000006=1,13,0,120
 01000008=1,13,0,120
 
@@ -1479,6 +1485,9 @@ DestroyableBridges=yes
 80041=TREE22
 
 [Triggers]
+01000000=Americans,<none>,Timer Two Minute Warning,0,1,1,1,0
+01000002=Americans,<none>,Timer Expiration,0,1,1,1,0
+01000004=Americans,<none>,Timer Start,0,1,1,1,0
 01000006=Americans,<none>,p1oil,0,1,1,1,0
 01000008=Americans,<none>,p2oil,0,1,1,1,0
 
