@@ -322,6 +322,17 @@ TechLevel=-1
 Name=Yuri War Factory
 Prerequisite=YABRCK,YACNST
 
+[YAYARD]
+Name=Yuri Submarine Pen
+TechLevel=11
+
+[GAYARD]
+Name=Navy Shipyard
+TechLevel=-1
+
+[NAYARD]
+Name=Soviet Shipyard
+TechLevel=-1
 
 [Preview]
 Size=0,0,148,74
@@ -698,7 +709,7 @@ PlayerControl=no
 Name=[4] Kong - Blitz
 Author=Burg (Minor Edits By Snark & LuKeZ)
 Percent=0
-Briefing=-Allied factions have all Allied faction bonuses (minus France).@-Soviet factions have all Soviet faction bonuses. Yuri deploys as sov.@-10min game timer@-No ore, build oil for money (oil takes 125 power)@-All player buildings are engi immune@-Chrono can't attack oil@-Allied power plant buff@-Health crate spawns in center every 90 seconds
+Briefing=-Allied factions have all Allied faction bonuses (minus France).@-Soviet factions have all Soviet faction bonuses. Yuri deploys as sov.@-10min game timer@-No ore, build oil for money (oil takes -35 power)@-All player buildings are engi immune@-Chrono can't attack oil@-Allied power plant buff@-Health crate spawns in center every 90 seconds
 GameMode=standard
 HomeCell=98
 InitTime=10000

@@ -72,8 +72,9 @@ RequiredHouses=Alliance,British,French,Germans,Americans
 [BuildingTypes]
 407=AlliedOil
 408=SovietOil
+408=CAOILD5
 
-[CAOILD]
+[CAOILD5]
 Cost=1250
 Name=Tech Oil Derrick
 Armor=Steel
@@ -1413,10 +1414,10 @@ TiberiumExplosive=no
 DestroyableBridges=yes
 
 [Structures]
-0=Neutral,CAOILD,256,59,93,64,01000007,1,0,1,0,0,None,None,None,0,0
-1=Neutral,CAOILD,256,20,54,64,01000007,1,0,1,0,0,None,None,None,0,0
-2=Neutral,CAOILD,256,54,21,64,01000009,1,0,1,0,0,None,None,None,0,0
-3=Neutral,CAOILD,256,93,60,64,01000009,1,0,1,0,0,None,None,None,0,0
+0=Neutral,CAOILD5,256,59,93,64,01000007,1,0,1,0,0,None,None,None,0,0
+1=Neutral,CAOILD5,256,20,54,64,01000007,1,0,1,0,0,None,None,None,0,0
+2=Neutral,CAOILD5,256,54,21,64,01000009,1,0,1,0,0,None,None,None,0,0
+3=Neutral,CAOILD5,256,93,60,64,01000009,1,0,1,0,0,None,None,None,0,0
 
 [Tags]
 01000005=0,Change to player A 1,01000006
