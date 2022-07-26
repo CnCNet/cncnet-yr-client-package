@@ -426,7 +426,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[2] Big Little Lake
+Name=[2] Big Little Lake - Blitz
 Author=RA2cashGames, bbglas007
 Percent=0
 Briefing=-Allied factions have all Allied faction bonuses (minus France).@-Soviet factions have all Soviet faction bonuses. Yuri deploys as sov.@-10min game timer@-No ore, build oil for money (oil takes -35 power) @-All player buildings are engi immune@- Chrono can't attack oil@- Allied power plant buff
