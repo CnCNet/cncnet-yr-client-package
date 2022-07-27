@@ -72,7 +72,7 @@ RequiredHouses=Alliance,British,French,Germans,Americans
 [BuildingTypes]
 407=AlliedOil
 408=SovietOil
-408=CAOILD5
+409=CAOILD5
 
 [CAOILD5]
 Cost=1250
