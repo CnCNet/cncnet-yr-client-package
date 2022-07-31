@@ -75,6 +75,21 @@ ProduceCashStartup=10
 [GAYARD]
 TechLevel=11
 
+[CMIN]
+Name=Chrono Miner
+TechLevel=11
+CrateGoodie=no
+
+[CMON]
+Name=Chrono Miner(noback)
+TechLevel=11
+CrateGoodie=no
+
+[HARV]
+Name=War Miner
+TechLevel=11
+CrateGoodie=no
+
 [MGTK]
 CrateGoodie=no
 
