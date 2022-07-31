@@ -99,10 +99,6 @@ Name=Demolitions Truck
 Owner=Russians,Confederation,Africans,Arabs,YuriCountry
 RequiredHouses=Russians,Confederation,Africans,Arabs,YuriCountry
 
-[E1]
-Cost=250
-Name=GI
-
 [GAAIRC]
 Name=Allied Airforce Command Headquarters
 TechLevel=-1
@@ -589,7 +585,7 @@ PlayerControl=no
 Name=[2] Brute - Blitz
 Author=Iver (For the first time! LuKeZ Ed.)
 Percent=0
-Briefing=- Allied factions have all Allied faction bonuses (Minus France).@- Soviet factions have all Soviet faction bonuses. Yuri Is Sov.@- Game Timer: 10 Minutes. @- No Ore Build Oil For Money (Consumes 35 Power).@- All player buildings are engi immune.@- Chrono Legionnaires can't attack oils.@- Limit of 12 oils can be built per game.@- Tech precaptured at 30 seconds.@- Genetic Mutator is indestructible & Capturable.@ -Allied GI costs $250.@----------------------------------------------------------------------@Blitz Mod by: Burg, Snark, Bbglas007, NuclearKommando
+Briefing=- Allied factions have all Allied faction bonuses (Minus France).@- Soviet factions have all Soviet faction bonuses. Yuri Is Sov.@- Game Timer: 10 Minutes. @- No Ore Build Oil For Money (Consumes 35 Power).@- All player buildings are engi immune.@- Chrono Legionnaires can't attack oils.@- Limit of 12 oils can be built per game.@- Tech precaptured at 30 seconds.@- Genetic Mutator is indestructible & Capturable.@----------------------------------------------------------------------@Blitz Mod by: Burg, Snark, Bbglas007, NuclearKommando
 GameMode=standard
 HomeCell=98
 InitTime=10000
