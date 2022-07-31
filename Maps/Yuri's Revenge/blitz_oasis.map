@@ -229,10 +229,6 @@ ForbiddenHouses=British,French,Germans,Americans,Alliance
 Name=Intruder
 TechLevel=-1
 
-[PCV]
-Name=Yuri Construction Vehicle
-DeploysInto=NACNST
-
 [Powerups]
 Money=20,MONEY,yes,1
 
@@ -681,7 +677,7 @@ PlayerControl=no
 Name=[2] Oasis - Blitz
 Author=Burg, RA2CashGames
 Percent=0
-Briefing=- Allied factions have all Allied faction bonuses (Minus France).@- Soviet factions have all Soviet faction bonuses. Yuri Is Sov.@- No Ore Build Oil For Money (Consumes 35 Power).@- All player buildings are engi immune.@- Chrono Legionnaires can't attack oils.@- Limit of 12 oils can be built per game.@- Money crates spawn around water every 10 game mins.@- Capture the lighthouse to build a naval yard.@----------------------------------------------------------------------@Blitz Mod by: Burg, Snark, Bbglas007, NuclearKommando
+Briefing=- Allied factions have all Allied faction bonuses (Minus France).@- Soviet factions have all Soviet faction bonuses. Yuri Is Sov.@- No Ore Build Oil For Money (Consumes 35 Power).@- All player buildings are engi immune.@- Chrono Legionnaires can't attack oils.@- Limit of 12 oils can be built per game.@- Money crates spawn around water every 10 game mins.@- Capture the lighthouse to build a naval yard.@ -Allied GI costs $250.@----------------------------------------------------------------------@Blitz Mod by: Burg, Snark, Bbglas007, NuclearKommando
 GameMode=standard
 HomeCell=98
 InitTime=10000
