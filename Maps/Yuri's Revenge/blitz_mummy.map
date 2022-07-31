@@ -155,91 +155,6 @@ ProduceCashAmount=30
 AIBasePlanningSide=1
 ProduceCashStartup=10
 
-[CAPOWR]
-Capturable=no
-
-[CMIN]
-Name=Chrono Miner
-TechLevel=-1
-CrateGoodie=no
-
-[CMON]
-Name=Chrono Miner(noback)
-TechLevel=-1
-
-[DESO]
-Name=Desolater
-Owner=Russians,Confederation,Africans,Arabs,YuriCountry
-RequiredHouses=Russians,Confederation,Africans,Arabs,YuriCountry
-
-[DTRUCK]
-Name=Demolitions Truck
-Owner=Russians,Confederation,Africans,Arabs,YuriCountry
-RequiredHouses=Russians,Confederation,Africans,Arabs,YuriCountry
-
-[E1]
-Cost=250
-Name=GI
-
-[GAAIRC]
-Name=Allied Airforce Command Headquarters
-TechLevel=-1
-
-[GACNST]
-Name=Allied Construction Yard
-Capturable=false
-
-[GADEPT]
-Name=Allied Service Depot
-Capturable=false
-
-[GAGAP]
-BaseNormal=no
-
-[GAOREP]
-Name=Allied Ore Processor
-TechLevel=11
-
-[GAPILE]
-Name=Allied Barracks
-Capturable=false
-
-[GAPOWR]
-Name=Allied Power Plant
-Capturable=false
-BuildTimeMultiplier=0.75
-
-[GAREFN]
-Name=Allied Ore Refinery
-TechLevel=-1
-
-[GAROBO]
-Name=Allied Robot Control Center
-Capturable=false
-
-[GASPYSAT]
-Name=Allied SpySat Uplink
-Capturable=false
-
-[GATECH]
-Name=Allied Battle Lab
-Capturable=false
-
-[GAWEAP]
-Name=Allied War Factory
-Capturable=false
-Prerequisite=GAPILE,GACNST
-
-[GAYARD]
-Name=Navy Shipyard
-TechLevel=11
-Prerequisite=PROC,POWER,GACNST
-ForbiddenHouses=Russians,Confederation,Africans,Arabs,YuriCountry
-
-[GTGCAN]
-Name=Allied Grand Cannon
-TechLevel=-1
-
 [General]
 ThirdCrew=E2
 BuildSpeed=0.5
@@ -247,11 +162,6 @@ YuriParaDropInf=E2
 YuriParaDropNum=9
 PrerequisiteProc=GAREFN,SovietOil,AlliedOil,CAOILD
 PrerequisitePower=GAPOWR,NAPOWR,NANRCT,YAPOWR,CAPOWR
-
-[HARV]
-Name=War Miner
-TechLevel=-1
-CrateGoodie=no
 
 [MGTK]
 CrateGoodie=no
@@ -269,18 +179,6 @@ Damage=10
 [Mummysmash]
 Damage=10
 
-[NAYARD]
-Name=Soviet Shipyard
-TechLevel=11
-Prerequisite=PROC,POWER
-ForbiddenHouses=British,French,Germans,Americans,Alliance
-
-[PCV]
-Name=Yuri Construction Vehicle
-Sight=6
-CrateGoodie=no
-DeploysInto=NACNST
-
 [Rough]
 Buildable=no
 
@@ -292,10 +190,6 @@ CrateGoodie=no
 
 [SREF]
 CrateGoodie=no
-
-[SovietOil]
-Name=
-Owner=
 
 [TNKD]
 Name=Tank Destroyer
@@ -310,10 +204,15 @@ RequiredHouses=Russians,Confederation,Africans,Arabs,YuriCountry
 [V3]
 CrateGoodie=no
 
+[GAYARD]
+TechLevel=11
+
+[NAYARD]
+TechLevel=11
+
 [YAYARD]
 Name=Yuri Submarine Pen
 TechLevel=11
-
 
 [Preview]
 Size=0,0,148,74
