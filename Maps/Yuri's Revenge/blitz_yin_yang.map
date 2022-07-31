@@ -72,7 +72,7 @@ RequiredHouses=Alliance,British,French,Germans,Americans
 [BuildingTypes]
 407=AlliedOil
 408=SovietOil
-409=CAOILD5
+409=CAOILD5 ;precapped oil on yin yang - cannot build off
 
 [CAOILD5]
 Cost=1250
@@ -246,10 +246,6 @@ ForbiddenHouses=British,French,Germans,Americans,Alliance
 [ORCA]
 Name=Intruder
 TechLevel=-1
-
-[PCV]
-Name=Yuri Construction Vehicle
-DeploysInto=NACNST
 
 [SNIPE]
 Name=Sniper
@@ -560,7 +556,7 @@ PlayerControl=no
 Name=[2] YinYang - Blitz
 Author=Ravage & Snark
 Percent=0
-Briefing=- Allied factions have all Allied faction bonuses (Minus France).@- Soviet factions have all Soviet faction bonuses. Yuri Is Sov.@- No Ore Build Oil For Money (Consumes 35 Power).@- All player buildings are engi immune.@- Chrono Legionnaires can't attack oils.@- Limit of 12 oils can be built per game.@- 2 Oils per player precaptured.@----------------------------------------------------------------------@Blitz Mod by: Burg, Snark
+Briefing=- Allied factions have all Allied faction bonuses (Minus France).@- Soviet factions have all Soviet faction bonuses. Yuri Is Sov.@- No Ore Build Oil For Money (Consumes 35 Power).@- All player buildings are engi immune.@- Chrono Legionnaires can't attack oils.@- Limit of 12 oils can be built per game.@- 2 Oils per player precaptured.@ -Allied GI costs $250.@----------------------------------------------------------------------@Blitz Mod by: Burg, Snark
 GameMode=standard
 HomeCell=98
 InitTime=10000

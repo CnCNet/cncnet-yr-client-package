@@ -144,6 +144,7 @@ Capturable=false
 Capturable=false
 
 [GAOREP]
+TechLevel=11
 Capturable=false
 
 [GAPILE]
@@ -243,11 +244,6 @@ LightVisibility=3500
 Name=Intruder
 TechLevel=-1
 ForbiddenHouses=none
-
-[PCV]
-Name=Yuri Construction Vehicle
-CrateGoodie=no
-DeploysInto=NACNST
 
 [SMIN]
 TechLevel=-1
@@ -652,10 +648,7 @@ Size=0,0,148,74
 0ECCFCAC-G=yes
 
 [Actions]
-01000000=1,27,0,2400,0,0,0,0,A
-01000002=8,119,0,4475,0,0,0,0,A,119,0,4476,0,0,0,0,A,119,0,4477,0,0,0,0,A,119,0,4478,0,0,0,0,A,119,0,4479,0,0,0,0,A,119,0,4480,0,0,0,0,A,119,0,4481,0,0,0,0,A,119,0,4482,0,0,0,0,A
 01000004=3,108,0,2,0,0,0,0,U,11,4,HEALTH_CRATE,0,0,0,0,A,19,7,HealCrate,0,0,0,0,A
-01000006=2,21,6,EVA_2MinutesRemaining,0,0,0,0,A,11,4,vox:ceva032,0,0,0,0,A
 
 [Africans]
 IQ=0
@@ -710,7 +703,7 @@ Name=[4] Kong - Blitz
 Author=Burg, RA2CashGames
 Percent=0
 Briefing=-Allied factions have all Allied faction bonuses (minus France).@-Soviet factions have all Soviet faction bonuses. Yuri deploys as sov.@-No ore, build oil for money (oil takes -35 power)@-All player buildings are engi immune@-Chrono can't attack oil@-Allied power plant buff@-Health crate spawns in center every 90 seconds
-GameMode=standard
+GameMode=Blitz
 HomeCell=98
 InitTime=10000
 Official=no
@@ -768,10 +761,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Events]
-01000000=1,13,0,5
-01000002=1,13,0,2400
 01000004=1,13,0,360
-01000006=1,13,0,1920
 
 [French]
 IQ=0
@@ -2046,10 +2036,7 @@ DestroyableBridges=yes
 96=Neutral,NEGLAMP,256,32,100,64,None,1,0,1,0,0,None,None,None,0,0
 
 [Tags]
-01000001=0,Game_Start 1,01000000
-01000003=0,EndGame 1,01000002
 01000005=2,SpawnCrate 1,01000004
-01000007=0,2MinWarning 1,01000006
 
 [TeamTypes]
 
@@ -2122,10 +2109,7 @@ DestroyableBridges=yes
 107073=TREE21
 
 [Triggers]
-01000000=Neutral,<none>,Game_Start,0,1,1,1,0
-01000002=Neutral,<none>,EndGame,0,1,1,1,0
 01000004=Neutral,<none>,SpawnCrate,0,1,1,1,0
-01000006=Neutral,<none>,2MinWarning,0,1,1,1,0
 
 [Waypoints]
 0=69043

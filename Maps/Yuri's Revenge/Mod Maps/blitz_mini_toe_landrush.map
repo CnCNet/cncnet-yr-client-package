@@ -299,10 +299,6 @@ DamageParticleSystems=SparkSys,LGSparkSys
 Name=Intruder
 TechLevel=-1
 
-[PCV]
-Name=Yuri Construction Vehicle
-DeploysInto=NACNST
-
 [SNIPE]
 Name=Sniper
 RequiredHouses=British,French,Germans,Americans,Alliance
