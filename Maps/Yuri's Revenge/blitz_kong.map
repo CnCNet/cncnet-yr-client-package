@@ -17,100 +17,6 @@ Waypoint7=0,0
 Waypoint8=0,0
 NumberStartingPoints=4
 
-[AMRADR]
-Name=Allied American Airforce Command Headquarters
-Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
-Capturable=false
-Prerequisite=GACNST,GAPILE
-RequiredHouses=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
-
-[AircraftTypes]
-
-[AlliedOil]
-Cost=1250
-Name=Allied Oil Derrick
-Armor=steel
-Image=CAOILD
-Owner=Russians,Confederation,Africans,Arabs,YuriCountry,British,French,Germans,Americans,Alliance
-Power=-35
-Sight=6
-Points=500
-UIName=Name:CAOILD
-Nominal=yes
-Soylent=625
-BuildCat=Resource
-Explodes=yes
-Strength=1000
-Warpable=no
-Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
-MaxDebris=8
-MinDebris=4
-TechLevel=1
-Capturable=false
-Unsellable=false
-AIBuildThis=yes
-DeathWeapon=OilExplosion
-DebrisAnims=DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM,DBRIS6SM,DBRIS7LG,DBRIS7SM
-LeaveRubble=no
-Prerequisite=GACNST,GAPOWR
-RadarVisible=yes
-WorkingSound=OilDerrickLoop
-Insignificant=yes
-NeedsEngineer=no
-ImmuneToRadBeam=Yes
-ImmuneToPsionics=yes
-ProduceCashDelay=35
-ProduceCashAmount=30
-AIBasePlanningSide=0
-ProduceCashStartup=0
-
-[BEAG]
-Name=Black Eagle
-Owner=British,French,Germans,Americans,Alliance
-RequiredHouses=Alliance,British,French,Germans,Americans
-
-[BuildingTypes]
-500=AlliedOil
-501=SovietOil
-
-[CAOILD]
-Cost=1250
-Name=Tech Oil Derrick
-Owner=Russians,Confederation,Africans,Arabs,YuriCountry,British,French,Germans,Americans,Alliance
-Power=-35
-Points=500
-Soylent=625
-BuildCat=Resource
-Warpable=no
-TechLevel=-1
-Capturable=false
-Unsellable=false
-AIBuildThis=yes
-LeaveRubble=no
-NeedsEngineer=no
-ImmuneToRadBeam=Yes
-ImmuneToPsionics=yes
-ProduceCashDelay=35
-ProduceCashAmount=30
-ProduceCashStartup=0
-
-[CATEXS02]
-Name=Alamo
-Strength=8500
-LightRedTint=0.05
-LightBlueTint=0.01
-LightGreenTint=0.05
-LightIntensity=0.2
-LightVisibility=3000
-
-[CMIN]
-Name=Chrono Miner
-TechLevel=-1
-
-[CMON]
-Name=Chrono Miner(noback)
-TechLevel=-1
-
 [ChimpBite]
 ROF=30
 Range=2
@@ -121,117 +27,6 @@ Warhead=ChimpBiteWH
 Projectile=InvisibleLow
 CellRangefinding=yes
 
-[DESO]
-Name=Desolater
-Owner=Russians,Confederation,Africans,Arabs,YuriCountry
-RequiredHouses=Russians,Confederation,Africans,Arabs,YuriCountry
-
-[DTRUCK]
-Name=Demolitions Truck
-Owner=Russians,Confederation,Africans,Arabs,YuriCountry
-RequiredHouses=Russians,Confederation,Africans,Arabs,YuriCountry
-
-[GAAIRC]
-Name=Allied Airforce Command Headquarters
-TechLevel=-1
-Capturable=false
-ForbiddenHouses=None
-
-[GACNST]
-Capturable=false
-
-[GADEPT]
-Capturable=false
-
-[GAOREP]
-TechLevel=11
-Capturable=false
-
-[GAPILE]
-Capturable=false
-
-[GAPOWR]
-Capturable=false
-BuildTimeMultiplier=0.75
-
-[GAREFN]
-Name=Allied Ore Refinery
-TechLevel=-1
-Capturable=false
-
-[GAROBO]
-Capturable=false
-
-[GASPYSAT]
-Capturable=false
-
-[GATECH]
-Capturable=false
-
-[GAWEAP]
-Name=Allied War Factory
-Capturable=false
-Prerequisite=GAPILE,GACNST
-
-[GTGCAN]
-Name=Allied Grand Cannon
-TechLevel=-1
-
-[General]
-ThirdCrew=E2
-BuildSpeed=0.5
-SecretBuildings=none
-
-[HARV]
-Name=War Miner
-TechLevel=-1
-
-[JOSH]
-Name=Animal Monkey
-Primary=ChimpBite
-Strength=250
-
-[NACNST]
-Capturable=false
-
-[NADEPT]
-Capturable=false
-
-[NAHAND]
-Capturable=false
-
-[NAINDP]
-Capturable=false
-Prerequisite=NATECH,NACNST
-
-[NANRCT]
-Capturable=false
-
-[NAPOWR]
-Capturable=false
-
-[NAPSIS]
-Name=Yuri Psychic Sensor
-Prerequisite=YACNST,YABRCK
-
-[NARADR]
-Name=Soviet Radar Tower
-Capturable=false
-Prerequisite=NACNST,NAHAND
-
-[NAREFN]
-Name=Soviet Ore Refinery
-TechLevel=-1
-Capturable=false
-
-[NATECH]
-Capturable=false
-
-[NAWEAP]
-Name=Soviet War Factory
-Capturable=false
-Prerequisite=NAHAND,NACNST
-
 [NEGLAMP]
 Name=Negative Light Post
 LightRedTint=0.03
@@ -240,83 +35,8 @@ LightGreenTint=0.04
 LightIntensity=-0.35
 LightVisibility=3500
 
-[ORCA]
-Name=Intruder
-TechLevel=-1
-ForbiddenHouses=none
-
-[SMIN]
-TechLevel=-1
-
-[SNIPE]
-Name=Sniper
-Owner=British,French,Germans,Americans,Alliance
-RequiredHouses=British,French,Germans,Americans,Alliance
-
-[SovietOil]
-Cost=1250
-Name=Allied Oil Derrick
-Armor=steel
-Image=CAOILD
-Owner=Russians,Confederation,Africans,Arabs,YuriCountry,British,French,Germans,Americans,Alliance
-Power=-35
-Sight=6
-Points=500
-UIName=Name:CAOILD
-Nominal=yes
-Soylent=625
-BuildCat=Resource
-Explodes=yes
-Strength=1000
-Warpable=no
-Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
-MaxDebris=8
-MinDebris=4
-TechLevel=1
-Capturable=false
-Unsellable=false
-AIBuildThis=yes
-DeathWeapon=OilExplosion
-DebrisAnims=DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM,DBRIS6SM,DBRIS7LG,DBRIS7SM
-LeaveRubble=no
-Prerequisite=NACNST,NAPOWR
-RadarVisible=yes
-WorkingSound=OilDerrickLoop
-Insignificant=yes
-NeedsEngineer=no
-ImmuneToRadBeam=Yes
-ImmuneToPsionics=yes
-ProduceCashDelay=35
-ProduceCashAmount=30
-AIBasePlanningSide=1
-ProduceCashStartup=0
-
-[TERROR]
-Name=Terrorist
-Owner=Russians,Confederation,Africans,Arabs,YuriCountry
-RequiredHouses=Russians,Confederation,Africans,Arabs,YuriCountry
-
-[TNKD]
-Name=Tank Destroyer
-Owner=British,French,Germans,Americans,Alliance,YuriCountry
-RequiredHouses=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
-
-[TTNK]
-Name=Tesla Tank
-Owner=Russians,Confederation,Africans,Arabs,YuriCountry
-RequiredHouses=Russians,Confederation,Africans,Arabs,YuriCountry
-
-[VehicleTypes]
-
 [Warheads]
 106=ChimpBiteWH
-
-[YAREFN]
-TechLevel=-1
-
-[YAWEAP]
-Name=Yuri War Factory
-Prerequisite=YABRCK,YACNST
 
 [YAYARD]
 Name=Yuri Submarine Pen
@@ -324,11 +44,11 @@ TechLevel=11
 
 [GAYARD]
 Name=Navy Shipyard
-TechLevel=-1
+TechLevel=11
 
 [NAYARD]
 Name=Soviet Shipyard
-TechLevel=-1
+TechLevel=11
 
 [Preview]
 Size=0,0,148,74
