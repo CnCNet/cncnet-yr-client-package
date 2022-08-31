@@ -17,6 +17,20 @@ Waypoint7=0,0
 Waypoint8=0,0
 NumberStartingPoints=4
 
+[NAYARD]
+Name=Soviet Shipyard
+Prerequisite=PROC,POWER
+ForbiddenHouses=British,French,Germans,Americans,Alliance
+TechLevel=4
+AIBasePlanningSide=-1
+
+[GAYARD]
+Name=Allied Shipyard
+Prerequisite=PROC,POWER,GACNST
+ForbiddenHouses=Russians,Confederation,Africans,Arabs,YuriCountry
+AIBasePlanningSide=-1
+TechLevel=6
+
 [CAFARM06]
 Name=San Fran Alcatraz lighthouse
 CanC4=no
@@ -38,11 +52,6 @@ LightIntensity=.005
 LightVisibility=4500
 ImmuneToPsionics=yes
 MaxNumberOccupants=0
-
-[NAYARD]
-Adjacent=4
-Prerequisite=PROC,POWER
-ForbiddenHouses=British,French,Germans,Americans,Alliance
 
 [Powerups]
 Money=20,MONEY,yes,1

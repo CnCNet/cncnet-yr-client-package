@@ -32,6 +32,20 @@ Capturable=yes
 Unsellable=yes
 Insignificant=yes
 
+[NAYARD]
+Name=Soviet Shipyard
+Prerequisite=PROC,POWER
+ForbiddenHouses=British,French,Germans,Americans,Alliance
+TechLevel=4
+AIBasePlanningSide=-1
+
+[GAYARD]
+Name=Allied Shipyard
+Prerequisite=PROC,POWER,GACNST
+ForbiddenHouses=Russians,Confederation,Africans,Arabs,YuriCountry
+AIBasePlanningSide=-1
+TechLevel=6
+
 [Preview]
 Size=0,0,90,67
 
