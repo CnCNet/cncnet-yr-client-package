@@ -7,6 +7,57 @@
 #define AppVersion = ReadIni(SourcePath  + "..\version", "DTA", "Version")
 #define AppName = "CnCNet Yuri's Revenge"
 
+#define ExecFileHandle
+#define ExecFileLine  
+#define ExecFileName
+#define ExecDeleteFile
+#define ExecDeleteFolder
+
+; This sub routine processes a single preupdateexec or updateexec file. 
+; See [InstallDelete] section below.
+#sub ProcessExecFile
+  #pragma message "Parsing " + ExecFileName
+  ; Reset these values before reading in the file
+  #expr ExecDeleteFile = False
+  #expr ExecDeleteFolder = False
+  ; Iterate of lines of the file
+  #for {ExecFileHandle = FileOpen("..\" + ExecFileName); \
+    ExecFileHandle && !FileEof(ExecFileHandle); ""} \
+    ProcessExecFileLine
+    ; Close the file
+  #if ExecFileHandle
+    #expr FileClose(ExecFileHandle)
+  #endif
+#endsub
+
+; This sub routine processes a single line of preupdateexec or updateexec file.
+#sub ProcessExecFileLine
+  #define ExecFileLine = FileRead(ExecFileHandle)
+  #if Pos("[Delete]", ExecFileLine) > 0
+    ; We found the [Delete] section in the file
+    #expr ExecDeleteFile = True
+    #expr ExecDeleteFolder = False
+  #elif Pos("[DeleteFolder]", ExecFileLine) > 0
+    ; We found the [DeleteFolder] section in the file   
+    #expr ExecDeleteFile = False
+    #expr ExecDeleteFolder = True
+  #elif Pos("[", ExecFileLine) > 0    
+    ; We found another section in the file. Ignore lines from it.
+    #expr ExecDeleteFile = False
+    #expr ExecDeleteFolder = False
+  #elif ExecDeleteFile && \
+        !SameStr("do_not_remove_this_line", ExecFileLine) && \
+        Len(Trim(ExecFileLine)) > 0 
+    ; We are currently in the [Delete] section 
+    Type: files; Name: "{app}\{#ExecFileLine}"
+  #elif ExecDeleteFolder && \
+        !SameStr("do_not_remove_this_line", ExecFileLine) && \
+        Len(Trim(ExecFileLine)) > 0
+    ; We are currently in the [DeleteFolder] section 
+    Type: filesandordirs; Name: "{app}\{#ExecFileLine}" 
+  #endif
+#endsub
+
 [CustomMessages]
 InstallingApp=Installing %1, this may take several minutes...
 GameNotFound=Red Alert 2 Yuri's Revenge not found in %1 %nPlease select the right folder...%nNote: You need to have the game installed, Red Alert 2 is not freeware and therefore not included in this installer!
@@ -55,42 +106,15 @@ LicenseFile=Resources\License-YurisRevenge.txt
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
-[InstallDelete]
-Type: files; Name: "{app}\Resources\Allied Theme\CnCNetLobby.ini"
-Type: files; Name: "{app}\Resources\Allied Theme\GenericWindow.ini"
-Type: files; Name: "{app}\Resources\Allied Theme\LANLobby.ini"
-Type: files; Name: "{app}\Resources\Allied Theme\LoadingScreen.ini"
-Type: files; Name: "{app}\Resources\Allied Theme\MultiplayerGameLobby.ini"
-Type: files; Name: "{app}\Resources\Allied Theme\OptionsWindow.ini"
-Type: files; Name: "{app}\Resources\Allied Theme\SkirmishLobby.ini"
-Type: files; Name: "{app}\Resources\Soviet Theme\CnCNetLobby.ini"
-Type: files; Name: "{app}\Resources\Soviet Theme\LANLobby.ini"
-Type: files; Name: "{app}\Resources\Soviet Theme\LoadingScreen.ini"
-Type: files; Name: "{app}\Resources\Soviet Theme\MultiplayerGameLobby.ini"
-Type: files; Name: "{app}\Resources\Soviet Theme\OptionsWindow.ini"
-Type: files; Name: "{app}\Resources\Soviet Theme\SkirmishLobby.ini"
-Type: files; Name: "{app}\Crate.sno"
-Type: files; Name: "{app}\crate.sno"
-Type: files; Name: "{app}\crate.des"
-Type: files; Name: "{app}\crate.lun"
-Type: files; Name: "{app}\crate.tem"
-Type: files; Name: "{app}\crate.ubn"
-Type: files; Name: "{app}\crate.urb"
-Type: files; Name: "{app}\wcrate.des"
-Type: files; Name: "{app}\wcrate.lun"
-Type: files; Name: "{app}\wcrate.sno"
-Type: files; Name: "{app}\wcrate.tem"
-Type: files; Name: "{app}\wcrate.ubn"
-Type: files; Name: "{app}\wcrate.urb"
-Type: files; Name: "{app}\expandspawn09.mix"
-Type: files; Name: "{app}\DEPLOYMENTS.md"
-Type: files; Name: "{app}\gitversion.json"
-Type: files; Name: "{app}\GitVersion.yml"
-Type: files; Name: "{app}\update_mpmaps.bat"
-; delete all game modes so that installer can put correct ones back, rather than removing individuals
-Type: filesandordirs; Name: "{app}\INI\Map Code"
-; delete all maps so that installer can put correct ones back, rather than removing individuals
-Type: filesandordirs; Name: "{app}\Maps\Yuri's Revenge"
+; these files are deleted before install
+[InstallDelete] 
+; capture all deleted files from preupdateexec and updateexec
+#expr ExecFileName = "preupdateexec"
+#expr ProcessExecFile       
+#expr ExecFileName = "updateexec"
+#expr ProcessExecFile
+
+
 
 [Files]
 Source: ..\*; DestDir: "{app}"; Excludes: "RA2MD.ini,version_u,version,gamemd-spawn.exe,DtaverWriter.exe,.gitattributes,.gitignore,.github,README.md,versionconfig.ini,preupdateexec,updateexec,DEPLOYMENTS.md,gitversion.json,GitVersion.yml,update_mpmaps.bat,VersionWriter.exe,VersionWriter-CopiedFiles,InnoSetup,updater-scripts,YRMapsUpdater,DEPLOYMENDS.md"; Flags: ignoreversion
