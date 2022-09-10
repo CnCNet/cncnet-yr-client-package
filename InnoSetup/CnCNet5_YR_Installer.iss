@@ -46,12 +46,12 @@
     #expr ExecDeleteFile = False
     #expr ExecDeleteFolder = False
   #elif ExecDeleteFile && \
-        !SameStr("do_not_remove_this_line", ExecFileLine) && \
+        "do_not_remove_this_line" != LowerCase(ExecFileLine) && \
         Len(Trim(ExecFileLine)) > 0 
     ; We are currently in the [Delete] section 
     Type: files; Name: "{app}\{#ExecFileLine}"
   #elif ExecDeleteFolder && \
-        !SameStr("do_not_remove_this_line", ExecFileLine) && \
+        "do_not_remove_this_line" != LowerCase(ExecFileLine) && \
         Len(Trim(ExecFileLine)) > 0
     ; We are currently in the [DeleteFolder] section 
     Type: filesandordirs; Name: "{app}\{#ExecFileLine}" 
