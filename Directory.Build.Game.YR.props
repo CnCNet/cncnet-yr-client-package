@@ -1,0 +1,51 @@
+﻿<!--
+Typically when developing the xna-cncnet-client, the theme of the client is base DTA (Dawn of the Tiberium Age).
+This will tell msbuild to copy all YR resources into the output path of the client executables so that it will
+have a YR theme instead.
+
+Instructions:
+
+1. Copy this file into the root of the xna-cncnet-client repo when developing locally. 
+2. Simply build and launch then xna-cncnet-client.
+3. Profit.
+
+-->
+<Project>
+    <!-- Only run this target if the DXMainClient project is the one being built -->
+    <Target Name="CopyYRResources" AfterTargets="PrepareForRun" Condition="$(ProjectName) == 'DXMainClient'">
+        <PropertyGroup>
+            <!-- 
+            Change the value of this property to the root of the YR client repo OR
+            you can use your installation path of YR for cncnet.
+            This path should be the same one that contains the file "gamemd.exe".
+            
+            Example: c:\repos\cncnet-yr-client-package
+            -->
+            <YRSource>{{ Path to YR resources }}</YRSource>
+        </PropertyGroup>
+        <Message Text="Copying YR Resources from '$(YRSource)' to '$(OutputPath)"/>
+        <ItemGroup Label="YR Resources">
+            <YRResources Include="$(YRSource)\**\*.*"/>
+
+            <!-- Exclude Directories -->
+            <YRResources Remove="$(YRSource)\.idea\**"/>
+            <YRResources Remove="$(YRSource)\.vs\**"/>
+            <YRResources Remove="$(YRSource)\.git\**"/>
+            <YRResources Remove="$(YRSource)\.github\**"/>
+            <YRResources Remove="$(YRSource)\InnoSetup\**"/>
+            <YRResources Remove="$(YRSource)\updater-scripts\**"/>
+            <YRResources Remove="$(YRSource)\YRMapsUpdater\**"/>
+            <YRResources Remove="$(YRSource)\QM\**"/>
+            <YRResources Remove="$(YRSource)\Client\ClientCrashLogs\**"/>
+            <YRResources Remove="$(YRSource)\rmcache\**"/>
+
+            <!-- We do not need these, because they should be coming from the DXMainClient build -->
+            <YRResources Remove="$(YRSource)\Resources\Binaries\**"/>
+
+            <!-- Exclude any other executables in Resources -->
+            <YRResources Remove="$(YRSource)\Resources\*.exe"/>
+        </ItemGroup>
+
+        <Copy SourceFiles="@(YRResources)" DestinationFolder="$(OutputPath)\%(RecursiveDir)" SkipUnchangedFiles="true"/>
+    </Target>
+</Project>
