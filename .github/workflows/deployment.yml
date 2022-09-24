@@ -6,6 +6,7 @@ on:
     branches:
       - master
       - qm
+      - quakenet
   release:
     types: [published]
   

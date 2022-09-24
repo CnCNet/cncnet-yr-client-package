@@ -12,3 +12,8 @@ branches:
     regex: ^qm$
     source-branches: [ 'qm' ]
     tag: 'qm'
+
+  quakenet:
+    regex: ^quakenet$
+    source-branches: [ 'quakenet' ]
+    tag: 'quakenet'
