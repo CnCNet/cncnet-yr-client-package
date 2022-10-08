@@ -8,28 +8,48 @@ Height=49
 StartX=237
 StartY=48
 Waypoint1=245,55
-Waypoint2=270,54
-Waypoint3=244,88
-Waypoint4=272,89
+Waypoint2=272,89
+Waypoint3=0,0
+Waypoint4=0,0
 Waypoint5=0,0
 Waypoint6=0,0
 Waypoint7=0,0
 Waypoint8=0,0
-NumberStartingPoints=4
+NumberStartingPoints=2
 
-[NAYARD]
-Name=Soviet Shipyard
-Prerequisite=PROC,POWER
-ForbiddenHouses=British,French,Germans,Americans,Alliance
-TechLevel=4
+[AMCV]
+Name=Allied Construction Vehicle
+CrateGoodie=no
+
+[AMRADR]
+Name=Allied American Airforce Command Headquarters
+TechLevel=5
+Capturable=false
+Prerequisite=GACNST,GAPILE
+RequiredHouses=British,French,Germans,Americans,Alliance
 AIBasePlanningSide=-1
 
-[GAYARD]
-Name=Allied Shipyard
-Prerequisite=PROC,POWER,GACNST
-ForbiddenHouses=Russians,Confederation,Africans,Arabs,YuriCountry
-AIBasePlanningSide=-1
-TechLevel=6
+[APOC]
+Name=Apocalypse
+CrateGoodie=no
+
+[AircraftTypes]
+
+[BEAG]
+Name=Black Eagle
+Owner=British,French,Germans,Americans,Alliance
+RequiredHouses=Alliance,British,French,Germans,Americans
+
+[BFRT]
+Name=Battle Fortress
+CrateGoodie=no
+
+[BuildingTypes]
+407=CAOILD5
+408=CAOILD6
+
+[CAAIRP]
+Capturable=no
 
 [CAFARM06]
 Name=San Fran Alcatraz lighthouse
@@ -53,11 +73,445 @@ LightVisibility=4500
 ImmuneToPsionics=yes
 MaxNumberOccupants=0
 
+[CAOILD]
+Power=-35
+Warpable=no
+ProduceCashDelay=35
+ProduceCashAmount=30
+ProduceCashStartup=10
+
+[CAOILD5]
+Cost=1250
+Name=Tech Oil Derrick
+Armor=Steel
+Image=CAOILD
+Owner=Russians,Confederation,Africans,Arabs,YuriCountry
+Power=0
+Sight=6
+Points=500
+UIName=Name:CAOILD
+Nominal=yes
+Soylent=625
+BuildCat=Resource
+Explodes=yes
+Strength=1000
+Warpable=no
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=8
+MinDebris=4
+TechLevel=11
+BaseNormal=no
+Capturable=false
+Unsellable=false
+AIBuildThis=yes
+DeathWeapon=OilExplosion
+DebrisAnims=DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM,DBRIS6SM,DBRIS7LG,DBRIS7SM
+LeaveRubble=no
+RadarVisible=yes
+WorkingSound=OilDerrickLoop
+Insignificant=yes
+NeedsEngineer=no
+ImmuneToRadBeam=Yes
+ImmuneToPsionics=yes
+ProduceCashDelay=35
+ProduceCashAmount=30
+ProduceCashStartup=10
+
+[CAOILD6]
+Cost=1250
+Name=Tech Oil Derrick
+Armor=Steel
+Image=CAOILD
+Owner=Russians,Confederation,Africans,Arabs,YuriCountry
+Power=0
+Sight=6
+Points=500
+UIName=Name:CAOILD
+Nominal=yes
+Soylent=625
+BuildCat=Resource
+Explodes=yes
+Strength=1000
+Warpable=no
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=8
+MinDebris=4
+TechLevel=11
+BaseNormal=yes
+Capturable=false
+Unsellable=false
+AIBuildThis=yes
+DeathWeapon=OilExplosion
+DebrisAnims=DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM,DBRIS6SM,DBRIS7LG,DBRIS7SM
+LeaveRubble=no
+RadarVisible=yes
+WorkingSound=OilDerrickLoop
+Insignificant=yes
+NeedsEngineer=no
+ImmuneToRadBeam=Yes
+ImmuneToPsionics=yes
+ProduceCashDelay=35
+ProduceCashAmount=30
+ProduceCashStartup=10
+
+[CAPOWR]
+Capturable=no
+
+[CMIN]
+Name=Chrono Miner
+TechLevel=11
+CrateGoodie=no
+
+[CMON]
+Name=Chrono Miner(noback)
+TechLevel=11
+CrateGoodie=no
+
+[DESO]
+Name=Desolater
+Owner=Russians,Confederation,Africans,Arabs,YuriCountry
+RequiredHouses=Russians,Confederation,Africans,Arabs,YuriCountry
+
+[DTRUCK]
+Name=Demolitions Truck
+Owner=Russians,Confederation,Africans,Arabs,YuriCountry
+RequiredHouses=Russians,Confederation,Africans,Arabs,YuriCountry
+
+[GAAIRC]
+Name=Allied Airforce Command Headquarters
+TechLevel=11
+
+[GACNST]
+Name=Allied Construction Yard
+Capturable=false
+
+[GADEPT]
+Name=Allied Service Depot
+TechLevel=7
+Capturable=false
+AIBasePlanningSide=-1
+
+[GAOREP]
+Name=Allied Ore Processor
+TechLevel=11
+
+[GAPILE]
+Name=Allied Barracks
+TechLevel=3
+Capturable=false
+AIBasePlanningSide=-1
+
+[GAPOWR]
+Name=Allied Power Plant
+TechLevel=1
+Capturable=false
+AIBasePlanningSide=-1
+BuildTimeMultiplier=0.75
+
+[GAREFN]
+Name=Allied Ore Refinery
+TechLevel=11
+
+[GAROBO]
+Name=Allied Robot Control Center
+TechLevel=9
+Capturable=false
+AIBasePlanningSide=-1
+
+[GASPYSAT]
+Name=Allied SpySat Uplink
+Capturable=false
+
+[GATECH]
+Name=Allied Battle Lab
+TechLevel=8
+Capturable=false
+AIBasePlanningSide=-1
+
+[GAWEAP]
+Name=Allied War Factory
+TechLevel=4
+Capturable=false
+Prerequisite=GAPILE,GACNST
+AIBasePlanningSide=-1
+
+[GAYARD]
+Name=Allied Shipyard
+Adjacent=4
+TechLevel=6
+Prerequisite=CAFARM06
+ForbiddenHouses=Russians,Confederation,Africans,Arabs,YuriCountry
+AIBasePlanningSide=-1
+
+[GTGCAN]
+Name=Allied Grand Cannon
+TechLevel=11
+
+[General]
+ThirdCrew=E2
+BuildSpeed=0.5
+YuriParaDropInf=E2
+YuriParaDropNum=9
+PrerequisiteProc=NAPSYB,CAOILD,CAOILD5,CAOILD6
+PrerequisitePower=GAPOWR,NAPOWR,NANRCT,YAPOWR,CAPOWR
+
+[HARV]
+Name=War Miner
+TechLevel=11
+CrateGoodie=no
+
+[Ice]
+Buildable=no
+
+[MGTK]
+Name=Mirage Tank
+CrateGoodie=no
+
+[MIND]
+Name=Master Mind
+CrateGoodie=yes
+
+[MMClone]
+ROT=5
+Cost=1750
+Name=YMM Master Mind
+Size=6
+Armor=heavy
+Image=MIND
+Owner=YuriCountry
+Sight=9
+Speed=4
+Points=25
+UIName=Name:MasterMind
+Weight=3.5
+Crusher=no
+Primary=MultipleMindControlTank
+Soylent=1750
+Category=AFV
+DieSound=GenVehicleDie
+IsTilter=yes
+PipScale=MindControl
+Strength=500
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+Locomotor={4A582741-9839-11d1-B709-00A024DDAFD1}
+Maxdebris=3
+MoveSound=MasterMindMoveStart
+TechLevel=2
+Trainable=no
+VoiceMove=MasterMindMove
+CrushSound=TankCrush
+Accelerates=false
+CrateGoodie=yes
+SelfHealing=yes
+ThreatPosed=40
+VoiceAttack=MasterMindAttackCommand
+VoiceSelect=MasterMindSelect
+MovementZone=Destroyer
+Prerequisite=YAWEAP,YATECH
+ZFudgeColumn=8
+ZFudgeTunnel=13
+VoiceFeedback=
+EliteAbilities=SELF_HEAL,STRONGER,FIREPOWER,ROF
+OpportunityFire=yes
+ImmuneToPsionics=yes
+VeteranAbilities=STRONGER,FIREPOWER,SIGHT,FASTER
+DamageSmokeOffset=100, 100, 275
+DamageParticleSystems=SparkSys,SmallGreySSys
+IsSelectableCombatant=yes
+TooBigToFitUnderBridge=true
+AllowedToStartInMultiplayer=no
+
+[NACNST]
+Name=Soviet Construction Yard
+Capturable=false
+
+[NADEPT]
+Name=Soviet Service Depot
+TechLevel=7
+Capturable=false
+AIBasePlanningSide=-1
+
+[NAHAND]
+Name=Soviet Barracks
+TechLevel=3
+Capturable=false
+AIBasePlanningSide=-1
+
+[NAINDP]
+Name=Soviet Industrial Plant
+TechLevel=10
+Capturable=false
+Prerequisite=NATECH,NACNST
+AIBasePlanningSide=-1
+
+[NANRCT]
+Name=Soviet Nuclear Reactor
+TechLevel=9
+Capturable=false
+AIBasePlanningSide=-1
+
+[NAPOWR]
+Name=Soviet Tesla Reactor
+TechLevel=1
+Capturable=false
+AIBasePlanningSide=-1
+
+[NAPSYB]
+Cost=1250
+Name=Player Buildable Oil Derrick
+Armor=Steel
+Image=CAOILD
+Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
+Power=-35
+Sight=6
+Crewed=no
+UIName=Name:CAOILD
+Nominal=yes
+Powered=false
+Soylent=625
+Adjacent=3
+BuildCat=Resource
+DieSound=none
+Explodes=yes
+Strength=1000
+Warpable=no
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=8
+MinDebris=4
+TechLevel=2
+BaseNormal=yes
+BuildLimit=-12
+Capturable=false
+DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
+Unsellable=true
+AIBuildThis=yes
+DeathWeapon=OilExplosion
+DebrisAnims=DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM,DBRIS6SM,DBRIS7LG,DBRIS7SM
+LeaveRubble=no
+AmbientSound=OilDerrickLoop
+Prerequisite=POWER
+RadarVisible=yes
+Insignificant=yes
+NeedsEngineer=no
+DetectDisguise=no
+ImmuneToRadBeam=Yes
+ImmuneToPsionics=yes
+ProduceCashDelay=35
+DamageSmokeOffset=220, 390, 150
+ProduceCashAmount=30
+AIBasePlanningSide=-1
+HasRadialIndicator=false
+ProduceCashStartup=10
+DamageParticleSystems=SparkSys,SmallGreySSys,BigGreySmokeSys
+
+[NARADR]
+Name=Soviet Radar Tower
+TechLevel=6
+Capturable=false
+Prerequisite=NACNST,NAHAND
+AIBasePlanningSide=-1
+
+[NAREFN]
+Name=Soviet Ore Refinery
+TechLevel=11
+
+[NATECH]
+TechLevel=8
+Capturable=false
+AIBasePlanningSide=-1
+
+[NAWEAP]
+Name=Soviet War Factory
+TechLevel=5
+Capturable=false
+Prerequisite=NAHAND,NACNST
+AIBasePlanningSide=-1
+
+[NAYARD]
+Name=Soviet Shipyard
+Adjacent=4
+TechLevel=4
+Prerequisite=CAFARM06
+ForbiddenHouses=British,French,Germans,Americans,Alliance
+AIBasePlanningSide=-1
+
+[ORCA]
+Name=Intruder
+TechLevel=11
+
+[OilExplosion]
+Damage=300
+
+[PCV]
+Name=Yuri Construction Vehicle
+Sight=6
+CrateGoodie=no
+DeploysInto=NACNST
+
 [Powerups]
 Money=20,MONEY,yes,1
 
 [Rough]
 Buildable=no
+
+[SMCV]
+Name=Soviet Construction Vehicle
+CrateGoodie=no
+
+[SMIN]
+Name=Slave Miner
+CrateGoodie=no
+
+[SNIPE]
+Name=Sniper
+RequiredHouses=British,French,Germans,Americans,Alliance
+
+[SREF]
+Name=Prism Tank
+CrateGoodie=no
+
+[TERROR]
+Name=Terrorist
+RequiredHouses=Russians,Confederation,Africans,Arabs,YuriCountry
+
+[TNKD]
+Name=Tank Destroyer
+CrateGoodie=no
+RequiredHouses=British,French,Germans,Americans,Alliance
+
+[TTNK]
+Name=Tesla Tank
+CrateGoodie=no
+RequiredHouses=Russians,Confederation,Africans,Arabs,YuriCountry
+
+[V3]
+Name=V3 Launcher
+CrateGoodie=no
+
+[VehicleTypes]
+85=MMClone
+
+[YAGNTC]
+Name=Yuri Genetic Mutator Device
+CanC4=no
+Power=0
+Immune=yes
+Bombable=no
+Warpable=no
+BaseNormal=no
+Capturable=yes
+Unsellable=yes
+Insignificant=yes
+
+[YAPPET]
+Name=Yuri Puppet Master Psychic Dominator
+CanC4=no
+Immune=yes
+BaseNormal=no
+Capturable=yes
+Unsellable=yes
+Insignificant=yes
+
 
 [Preview]
 Size=0,0,148,74
@@ -69,24 +523,24 @@ Size=0,0,148,74
 4=g8dAAgTqgFIGwwAiBO7AMgcrgBID84BiAJfAEgCaQAWCggDLAAIBK8AEgGIEgIADAsAzBE
 5=ACBIMAIgqKABIAAkDAUgqDAIIACTIAMgjf8OoqhQJ3hNA4+XQXuEMahOA4CIMYKIMKwBA4
 6=6WP4+VPawBKrwAKiwAA4qQOp6mS6wEA4+XRIeRPOwBKEwBKlwAKuwAIAMsAAOUm0aEjjms
-7=Cja8ALQDIFcUACAe3AcgCfgACb25VJykUZacRpSYQkwBtCFMAUg2SABUNkgABoOMNIyUQY
-8=iSP1A7QAQDjJc+mqNJTwGaoEtYAUABSwCdpU+nO42WPFACA4yVP5CXQEwBWEC0OUwETwF9
-9=iC9QAkwKQAFYBFACSABMB1gBXAJQPlACSABQAkgAQAFIAEABSABAAUgAQwGPmUZADawBVD
-10=MDqq9Tk5k/QBZIA1ACA52hSKaaSVwCIL0IAEQdUDUGubZZra1TjZg/sB0Dl55EjpRASANI
-11=IUgAJ5QETAFYK7wCSHJAAUgAUAJcBUABSABMAUgAQAFEQVgrQDdMAaQ4rAFYAUAESANAAa
-12=xnKqQGvAJIA0wESABAAUgAQAFARlB0UD5QDkBGUAJDSZCWPkgDA6esU7q4VlAXTxCQlEC8
-13=F0wKVDkDp6xVsa9VpAIgGBQAIAn8CyAYiAEgFeAAoB9AN1g3WGdYH0tXpKlRKgwLQCVLJI
-14=GLN0ABtC1QJlgxWAFcAkgAVConJAVQAlgBRKRcAkwBSGlAB7Q2SAZAAUgDUAi8BUQ1VEVY
-15=BFAFSABAAUgAQAFIAEABSABAAUgAQAFEQUyCTAFAB7yAXAgn7ABMN1AXUE0DkJNAoKhOUB
-16=oDt7hVubhWWBlMB7wCIBV8BCB+1ABYHEwfXFZQHVgcpCxMW0xYQB9YJUgAQAFALlzLSABI
-17=J0gAWJ1MW1wCvAVYASc8DkjhKpwOWKxYBFAISGZAAUgArAFQCFMvm6RKWAFQAkgAQAFIAE
-18=ABSABAAUgAQAFIAEABSAAnfAFcCE8H/wAASABUSEAESABDBJ2hRkABJycXr7RUS2+VmERc
-19=AiA2CAYgXUgOUB1UHkw3QFtALlguSGNEOLwCSANEJkgkSABEJkwBvAJYBFguzQGZZCasAV
-20=wFQAFIAEABSABAAUgAQAFIAEg8JywATA0nLABAAUgAQARIAEABSABAAUgAQAFIAEABSABA
-21=AVgHQBNENUhIUBEtCACsBFgEQAFMEycMEUCmQIhQUFBxIDb4BiAYWAEgJNwHSB6gELxuWA
-22=FEIECUQAEtiARYAVQnQFtIA0wESABAAUgAQAFIAEABSABAAUgAQAFIAEABSAAzpAZUmSdc
-23=AEhvUAVIAFAFSABAAUgAQAFIAEABSABAAUCvQAGksEx8RBEnCwCKkDpIA0wESABAAaS2Tx
-24=miqEtIb1BuQKmgHCCuFABQHUgeSAA2RAYniARAAUBzvAU4tAURAACvCwAgClCiqFCiqFCj
+7=Cja8ALQDIFcUACAe3AcgCfgACb25VJykUZacRpSYQkwBtCFMAaQItAAGg4w0jJRBiJI/UD
+8=tABAOMlz6ao0lPAZqgS1gBQAFLAJ2lT6c7jZY8UAIDjJU/kJdATAFYQLQ5TARPAX2IL1AC
+9=UEFAAVgEUAJIAEwHWAFcAlA+UAJIAFACSABAAUgAQAFIAEABSABDAY+ZRkANrAFUMwOqr1
+10=OTmT9AFkgDUAIDnaFIpppJXAIgvQgARB1QNQa5tlmtrVONmD+wHQOXnkSOlEBIA0ghSAAn
+11=lARMAVgrvAJIckABSABQAlwFQAFIAEwBSABAAURBWCtAN0wBpDisAVgBQARIA0ABrGcqpA
+12=a8AkgDTARIAEABSABAAUBGUHRQPlAOQEZQAkNJkJY+SAMDp6xTurhWUBdPEJCUQLwXTApU
+13=OQOnrFWxr1WkAiAYFAC8ViAY+AAgOeAAoB9AN1g3WGdYH0tXpKlRKgwLQCVLJIGLN0ABtC
+14=1QJlgxWAFcAkgAVConJAVQAlgBRKRcAkwBSGlAB7Q2SAZAAUgDUAi8BUQ1VEVYBFAFSABA
+15=AUgAQAFIAEABSABAAUgAQAFEQUyCTAFAB7S3XAgn7ABMN1AXUE0DkJNAoKhOUBoDt7hVub
+16=hWWBlMB7wCIDkMBSBaZAFYHEwfXFZQHVgcpCxMW0xYQB9YJUgAQAFALlzLSABIJ0gAWJ1M
+17=W1wCvAVYASc8DkjhKpwOWKxYBFAISGZAAUgArAFQCFMvm6RKWAFQAkgAQAFIAEABSABAAU
+18=gAQAFIAEABSAAnfAFcCEwHrHBUSEAESABDBJ2hRkABJycXr7RUS2+VmERcAiA2eAUgXUgO
+19=UB1UHkw3QFtALlguSGNEOLwCSANHJv8AAEgARCZMAbwCWARYLs0BmWQmrAFcBUABSABAAU
+20=gAQAFIAEABSABIPCcsAEwNJywAQAFIAEAESABAAUgAQAFIAEABSABAAUgAQAFYB0ATRDVI
+21=SEhvQAFcAkQ4JywATARIAFACTBMnDBFApkCIUFBQcSA2+AYgGFgBICTcB0geoBC8blgBRC
+22=BAlEABSDYtCABQJkBbSANMBEgAQAFIAEABSABAAUgAQAFIAEABSABAAUgAM6QGVJknXABI
+23=b1AFSABQBUgAQAFIAEABSABAAUgAQAFAr0ABpLBMfFQ2Q0mNljxPAYqQOkgDTARIAEABpL
+24=ZPGaKoS0hvUG5AqaAcIK4UAFAdSB5IADZEBirsBkBzvAU4tAURAACvCwAgClCiqFCiqFCj
 25=p1Cjp1AnLAAMlpxGj5dEfYgvjZY8h5E8J1wAKowAOS8AnKRRSAZABEgAUAivAXuEMUABWA
 26=pAClwCTAFIAEABTw2DjDRIAAOQlj4UFBRQAkgAXAJMASA8CQB4gAAgPIgBMHABA52lT4+X
 27=QUghA4KIMICIMUgAQwGepktIHidmBJqgeAFEIEgAXAJIAEABSABAAUgAQAFIAEABSABAAU
@@ -143,7 +597,7 @@ Size=0,0,148,74
 78=twp0wKRKQnrA1cFEilSABM30wQVLcGknpAgG41fG41UBRIAFACVDZAAUgATAFUUUABSABM
 79=AUgAWAcgQggAIDNUFDnYArQbTMQq1AZQAkgASB5IACcHB3dYLkQ1WGEtNBNfYsWzZUgAQO
 80=JADSLEIie9G0MigDBIM0gAUGsn7BtENUA3UAJIAEABWAFQcU8BS1FaSG8kxExADVBBRDgq
-81=l0ykp1UqtBRca1C8XPIqnAJMAVAXSABAAUgAQAFIAEABTBMgCggAEQAAXAsAIAEUFBQUII
+81=l0ykp1UqtBRca1C8XPIqnAJMAVAXSABAAUgAQAFIAEABTBMgCggAEQAALwsAIAEUFBQUII
 82=IAAAAJoqhQlJtGhI45kJY+j5dEj5dBe4Qxh5E8jJU/SwOjp1BIAAAVdnM1j3o+ropA57tu
 83=4Lxw5b9z5r1wz7dovblUqadYu6tdlJhCxbNlSwDXtWhIAwAFvq99d4ZnVmBdQkVZQURZQE
 84=NZQUNZQkRsAVgBcgJDWHYARFlUAEsAQUNYwAQLQ1hbZ17cu3vhwIHlwn9ADaQoAAu3qViv
@@ -182,37 +636,36 @@ Size=0,0,148,74
 117=AEAfSB5EjFg0rAFYAUQgQB9QcUQgUAJIAFACSABAAUgAQAFIAEQprAFMbScsAFwCUAJIAE
 118=ABSABAAUgAQwF/Wy9c3QNpTSyJbTtUPEwBA21ZMIFnNUA6RDVYAVACUDgnLABEqgybpE15
 119=bTdxdTaQmES4uVG8CDasAVwXQwSaoEshSEFYDUwBSABAAbwCW4iHkTwgMOAGIFSgDS0UA1
-120=gcSABEHUgAWBxYbUBVTAEDjZg//wAAqABABEgAUAJIAEABSABAAUgAQAFIAEABSABAAUgA
-121=QAFIAEABSABAAUgAQAFIAEABA4VwOHZrNawBDHRtM4F4O3h9PHl9O3ZXLEs5fHM2QARTO3
-122=JkNKwESANAAUgATAdIAEABSABAAUgAQAFIAEABSABQhifMAlACSABQAkgAQAFQUFg3RKct
-123=yAMgPDgAIEhMB0AcWBxIAFgctI1AN0ghXG60NioUAFAFSABQBUgAQAFIAEABSABAAUgAQA
-124=FIAEABSABAAUgAQAFIAEABSABAAUgAQAFIAEABKiQvJ8QTXAJIAEAESABAAUgAQAFIAEAB
-125=SABAAUgAQAFIFUQySGlA9FgBUAJIhCecAlCnUAJIAFwCSABA37waIDy8BiAqcAEgDOgHWB
-126=y8yEQdKiwAVKgnQARcAiq0BVgBUAVIAEABSABAAUgAQAFIAEABSABAAUgAQAFIAEABSABA
-127=AUgAQAFIAEABSABYQ7QqKmcWlpxGQARIAEAESABAAUgAQAFIAEABJwwCTAdATFhMXAInkA
-128=InIABQAkgAUAVIBkABSAAgKmwFIBUoASAMRAYgBogBJNkmuSPUV1jWQMqsASQ0IlQeWB9I
-129=AEABSQCMKdw0UAJIAFACSABAAUgAQAFIAEABSABAAUgAQAFIAEABSABAAUgAQAFIAEABSA
-130=BAAUgAQAFIAEABSABAAUgAQAFIAEABSABAAUgAQAFIAEABSABINkA3Q22EjjlUSydcACrg
-131=BlACSABQBUgAQAFIAEABIAZABCCNmAAn3DRbFr25VKf+lJhCWDckdEtAH1gfWMpYJUgAVJ
-132=BTJp6mS1wCTFtAOjk0MUwETAdIAEABSABAAUgAQAFca0wHQDGsZ1ACWAFQAkgDTAFIAEIB
-133=l543lGdYN0gARDhYB1AFSABcBUgAQAFIAEABSABAAUgAQAFIAEgbOQgAIANQDCADjAA5iA
-134=EgM2gAJ9wNWBxIAFgcJMw1rwGRkj9Qy1A1WP1IAEABJLQ7KpQTSAZIMLwCrM0nZAdQCEgA
-135=QARIAEEBjyNcVKwBWAFDAY+VPVAFrAF6AZdBvAhEMlAFWA1QDlzaQARIAEAESABAAUgAQA
-136=FIAFAFJywAQAFAT1OGlZhESMCsiEwBXAJIAFAFIDP0BCBgTwG6uFZPXo+ZRoUvSyTkZQm0
-137=tVWOlECiqFCjp1ARAACPAgAgAAaBizd9iC+iqFCjp1B7hDGiqFCPl0SHkTxYAUwBSABAAb
-138=wCBoyVP5CXQISOOVACSABcAkgAAAOdpU99iC+NljyCiDCDjDSKkDqepktcAkAESABAAUgA
-139=QAFIAEABTA1DAZSbRlAISwaOlj9YAVwCSABAAUgAQAFIAEABSABAAUgAQAFIAEABCbq4Vp
-140=ykUYyUQYiSP1gBCpqgS46UQJCTQKCoThQgswAAtx65uFZYHKwBVB5AAUgAQAFLAICIMUgA
-141=Wy6Qlj5IKlMpj5U9WAEzFAZIA0AHQyiPmUZANEwBSABQCFgBQAG8AkQyTAFAOlg0TApMAU
-142=gATARIAEAErAFEQUg8rAFcAkABSABAAUgAQAEDjJc+mqNJrAFYAUABSABAAUgAQAFMGUA1
-143=rgGRkmg/WAEgtwgAWBxIAFQeSABAAUgAQAFIAEABSABAAUQySDasAVgBQAG8a7QwWAFQAk
-144=gAQAFIAEABSABAAUgAQAFIAEABUzKWnEasAVgBQAFIAEhCQEBYN0wBUAJIAEABWARERDBc
-145=AEgDU32Pl0FYOkhyUAVIAFACSABAAUgAQAFIAAOnrFO3uFVbN5eeRFRRIDzJBniAAC2IAY
-146=0CeC1QACC9OAAg0sgDIL1AByAAACF0AyCBQBAggYQCIC0MDiA8vAMgPHABIBscBCAGYAIg
-147=BpgAIBskAiCT7AAgA1gEIAOMACBs7AMgHsACIB74ACBsKAQgAAAABjACIACovA8gAKgcBy
-148=CxzBogb2QKPzwCP4AAIGaMBiB4nAIgD2ACIA+8ACBm/AUgAAAJGAIg+XgLP2QEP4AATHAg
-149=A4wAWAQg8AgAIA/fBP///yBLDAUgBngCIAaYACAV5AIgIXABIA4EAREAABoAWAABFBQUFE
-150=EAeIAAQAEgIQgAA3h4eHh4eBEAAA==
+120=gcSABEHUgAWBxYbUBVTgGNmCKQPkMBlpxGQARIAEwBSABAAUgAQAFIAEABSABAAUgAQAFI
+121=AEABSABAAUgAQAFIAEABSABAAQOFcDh2azWsAQx0bTOBeDt4fTx5fTt2VyxLOXxzNkAEUz
+122=tyZDSsBEgDQAFIAEwHSABAAUgAQAFIAEABSABAAUgAUIYnzAJQAkgAUAJIAEABUFBYN0Sn
+123=LcgDIDw4ACBITAdAHFgcSABYHLSNQDdIIbxuQJFABCdEEkwBSABQBUgAQAFIAEABSABAAU
+124=gAQAFIAEABSABAAUgAQAFIAEABSABAAUgAQAFIAEABKiQvIA98AUgVRDJIaUD0SAlACkuE
+125=/wAAqACsFrwCSANA37waIDy8BiAqcAEgDOgHWBy8yEQdKiwAJxYVj5l8biq0BVgEUAVIAE
+126=ABSABAAUgAQAFIAEABSABAAUgAQAFIAEABSABAAUgAQAFIAEABSABYQ7QqKmQWPIwPJwwC
+127=TAdATFhMXAioNioUAFACSABQBSesASAqbAUgFSgBIAxEBiAGiAEk2Sa5I9RXWNZAyqwBJD
+128=QiRCBYH0gAQAFJAIwp3DRQAkgAUAJIAEABSABAAUgAQAFIAEABSABAAUgAQAFIAEABSABA
+129=AUgAQAFIAEABSABAAUgAQAFIAEABSABAAUgAQAFIAEABSABAAUgAQAFIAEg2QDdDbYSOOS
+130=d0CVwCJ+wGTAFQBUgAQAFIAEABSABAASAGQAQgjZgAJ9w0Wxa9uVSn/pSYQlg3JHRLQB9Y
+131=H1jKWCVIAFSQUyaepktcAkxbQDo5NDFMBEwHSABAAUgAQAFIAEABXGtMB0AxrGdQAlgBUA
+132=JIA0wBSABCAZeeN5RnWDdIAEQ4WAdQBUgAXAVIAEABSABAAUgAQAG0XVQASBs5CABABEgA
+133=OYAASANABEgAQAEgaQgAJ9wNRB1IAEgeJMw1rwGRkj9Qy1A1WP1IAEABJLQ7KpQTSAZIML
+134=wCrM0nZAdQCEgAQARIAEEBjyNcVKwBWAFDAY+VPVAFrAF6AZdBvAhEMlAFWA1QDlzaQARI
+135=AEAESABAAUgAQAFIAFAFJywAQAFAT1OGlZhESMCsiEwBQC6oACBpzAUgKicCurhWTF5Q2o
+136=UvSyTkZQm0tVWOlECiqFCjp1ARAACPAgAgAAaBizd9iC+iqFCjp1B7hDGiqFCPl0SHkTxY
+137=AUwBSABAAbwCBoyVP5CXQISOOVACSABcAkgAAAOdpU99iC+NljyCiDCDjDSKkDqepktcAk
+138=AESABAAUgAQAFIAEABTA1DAZSbRlAISwaOlj9YAVwCSABAAUgAQAFIAEABSABAAUgAQAFI
+139=AEABCbq4VpykUYyUQYiSP1gBCpqgS46UQJCTQKCoThQgswAAtx65uFZYHKwBVB5AAUgAQA
+140=FLAICIMUgAWy6Qlj5IKlMpj5U9WAEzFAZIA0AHQyiPmUZANEwBSABQCFgBQAG8AkQyTAFA
+141=Olg0TApMAUgATARIAEAErAFEQUg8rAFcAkABSABAAUgAQAEDjJc+mqNJrAFYAUABSABAAU
+142=gAQAFMGUA1rgGRkmg/WAEgtwgAWBxIAFQeSABAAUgAQAFIAEABSABAAUQySDasAVgBQAG8
+143=a7QwWAFQAkgAQAFIAEABSABAAUgAQAFIAEABUzKWnEasAVgBQAFIAEhCQEBYN0wBUAJIAE
+144=ABWARERDBcAEgDU32Pl0FYOkhyUAVIAFACSABAAUgAQAFIAAOnrFO3uFVbN5eeRFRRIDzJ
+145=BniAAC2IAY0CeC1QACC9OAAg0sgDIL1AByAAACF0AyCBQBAggYQCIC0MDiA8vAMgPHABIB
+146=scBCAGYAIgBpgAIBskAiCT7AAgA1gEIAOMACBs7AMgHsACIB74ACBsKAQgAAAABjACIACo
+147=vA8gAKgcByCxzBogb2QKPzwCP4AAIGaMBiB4nAIgD2ACIA+8ACBm/AUgAAAJGAIg+XgLP2
+148=QEP4AATHAgA4wAWAQg8AgAIA/fBP///yBLDAUgBngCIAaYACAV5AIgIXABIA4EAREAABoA
+149=WAABFBQUFEEAeIAAQAEgIQgAA3h4eHh4eBEAAA==
 
 [AITriggerTypesEnable]
 043F40BC-G=yes
@@ -385,6 +838,8 @@ Size=0,0,148,74
 0ECCFCAC-G=yes
 
 [Actions]
+01000000=1,14,0,4475,0,0,0,0,A
+01000002=1,14,0,4476,0,0,0,0,A
 01000006=6,108,0,0,0,0,0,0,K,108,0,0,0,0,0,0,L,108,0,0,0,0,0,0,M,108,0,0,0,0,0,0,N,19,7,CrateMoney,0,0,0,0,A,11,4,gui:cratesappear,0,0,0,0,A
 01000008=1,125,10,CAFARM06,0,0,0,0,AP
 01000010=1,125,10,CAFARM06,0,0,0,0,AO
@@ -443,14 +898,14 @@ PlayerControl=no
 Name=[2] Oasis - Blitz
 Author=Burg, RA2CashGames
 Percent=0
-Briefing=- Allied factions have all Allied faction bonuses (Minus France).@- Soviet factions have all Soviet faction bonuses. Yuri Is Sov.@- No Ore Build Oil For Money (Consumes 35 Power).@- All player buildings are engi immune.@- Chrono Legionnaires can't attack oils.@- Limit of 12 oils can be built per game.@- Money crates spawn around water every 10 game mins.@- Capture the lighthouse to build a naval yard.@----------------------------------------------------------------------@Blitz Mod by: Burg, Snark, Bbglas007, NuclearKommando
+Briefing=- Allied factions have all Allied faction bonuses (Minus France).@- Soviet factions have all Soviet faction bonuses. Yuri Is Sov.@- No Ore Build Oil For Money (Consumes 35 Power).@- All player buildings are engi immune.@- Chrono Legionnaires can't attack oils.@- Limit of 12 oils can be built per game.@- Precaptured Oil for each player.@- Money crates spawn around water every 10 game mins.@- Capture the lighthouse to build a naval yard.@----------------------------------------------------------------------@Blitz Mod by: Burg, Snark, Bbglas007, NuclearKommando
 GameMode=standard
 HomeCell=98
 InitTime=10000
 Official=no
 EndOfGame=no
 FreeRadar=no
-MaxPlayer=4
+MaxPlayer=2
 MinPlayer=2
 SkipScore=no
 TrainCrate=no
@@ -495,6 +950,8 @@ PercentBuilt=0
 PlayerControl=no
 
 [Events]
+01000000=1,8,0,0
+01000002=1,8,0,0
 01000006=1,13,0,600
 01000008=1,13,0,5
 01000010=1,13,0,5
@@ -1739,8 +2196,12 @@ DestroyableBridges=yes
 102=Neutral,CAMSC09,256,92,72,64,None,1,0,1,0,0,None,None,None,0,0
 103=Neutral,CAFARM06,256,64,76,64,01000015,1,0,1,0,0,None,None,None,0,0
 104=Neutral,CAFARM06,256,78,60,64,01000013,1,0,1,0,0,None,None,None,0,0
+105=Neutral,CAOILD6,256,38,60,64,01000001,1,0,1,0,0,None,None,None,0,0
+106=Neutral,CAOILD6,256,111,70,64,01000003,1,0,1,0,0,None,None,None,0,0
 
 [Tags]
+01000001=0,Player A Preacap 1,01000000
+01000003=0,Player B Pracap 1,01000002
 01000007=2,Money Crates 1,01000006
 01000009=2,Make Lighthouses Loop Right Side 1,01000008
 01000011=2,Make Lighthouses Loop Left Side 1,01000010
@@ -1825,6 +2286,8 @@ DestroyableBridges=yes
 111078=TREE06
 
 [Triggers]
+01000000=Americans,<none>,Player A Preacap,0,1,1,1,0
+01000002=Americans,<none>,Player B Pracap,0,1,1,1,0
 01000006=Neutral,<none>,Money Crates,0,1,1,1,0
 01000008=Neutral,<none>,Make Lighthouses Loop Right Side,1,1,1,1,0
 01000010=Neutral,<none>,Make Lighthouses Loop Left Side,1,1,1,1,0
@@ -1833,9 +2296,7 @@ DestroyableBridges=yes
 
 [Waypoints]
 0=66044
-1=40068
-2=99076
-3=72105
+1=72105
 10=78074
 11=67062
 12=58070

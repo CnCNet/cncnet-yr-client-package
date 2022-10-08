@@ -1,7 +1,7 @@
 @echo off
 
 set solutionDir=YRMapsUpdater
-set projFile=%solutionDir%\YRMapsUpdater\YRMapUpdater.csproj
+set projFile=%solutionDir%\YRMapUpdater\YRMapUpdater.csproj
 set buildFile=%solutionDir%\build\YRMapUpdater.exe
 
 dotnet restore %projFile%
