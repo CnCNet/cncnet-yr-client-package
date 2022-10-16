@@ -504,9 +504,6 @@ Size=0,0,130,90
 0ECCFA7C-G=yes
 0ECCFCAC-G=yes
 
-[Actions]
-01000000=1,27,0,1200,0,0,0,0,A
-
 [Africans]
 IQ=0
 Edge=North
@@ -702,9 +699,6 @@ Wood=yes
 Verses=100%,100%,100%,85%,100%,65%,50%,50%,50%,200%,100%
 AnimList=TSTIMPCT
 InfDeath=5
-
-[Events]
-01000000=1,8,0,0
 
 [French]
 IQ=0
@@ -2103,10 +2097,7 @@ DestroyableBridges=yes
 20=Neutral,CAMSC05,256,119,117,64,None,1,0,1,0,0,None,None,None,0,0
 21=Neutral,CAMSC05,256,123,113,64,None,1,0,1,0,0,None,None,None,0,0
 
-[Tags]
-01000001=0,Timer 1,01000000
-
-[TeamTypes]
+[TaskForces]
 
 [Terrain]
 30084=TIBTRE01
@@ -2150,7 +2141,6 @@ DestroyableBridges=yes
 129115=TREE31
 
 [Triggers]
-01000000=Neutral,<none>,Timer,0,1,1,1,0
 
 [VariableNames]
 0=<Alternate Start Location>
