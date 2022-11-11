@@ -79,7 +79,7 @@ jobs:
         run: sed -i "2 s/.*/${{steps.gitversion.outputs.SemVer}}/" versionconfig.ini
 
       # We need to download necessary "tools" for the update (including VersionWriter.exe). Github Workflow linux containers do 
-      # not the necessary programs installed by default and we do not have the ability to install it.
+      # not have the necessary programs installed by default and we do not have the ability to install it.
       # So, we use our own Docker container to do so.
 
       # Build the container from our Dockerfile
