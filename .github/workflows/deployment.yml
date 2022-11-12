@@ -94,9 +94,10 @@ jobs:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_PASS: ${{ secrets.SSH_PASS }}
           SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_PATH_TOOLS: ${{ secrets.SSH_PATH_TOOLS }}
+          SSH_PATH_TOOLS_COMMON: ${{ secrets.SSH_PATH_TOOLS_COMMON }}
+          SSH_PATH_TOOLS_YR: ${{ secrets.SSH_PATH_TOOLS_YR }}
           SSH_PORT: ${{ secrets.SSH_PORT }}
-        run: docker run -v ${{ github.workspace }}:/download-tools -e SSH_KEY -e SSH_HOST -e SSH_PASS -e SSH_USER -e SSH_PATH_TOOLS -e SSH_PORT -i download-tools
+        run: docker run -v ${{ github.workspace }}:/download-tools -e SSH_KEY -e SSH_HOST -e SSH_PASS -e SSH_USER -e SSH_PATH_TOOLS_COMMON -e SSH_PATH_TOOLS_YR -e SSH_PORT -i download-tools
 
       # Archive this repo, excluding unnecessary files for the update
       - name: Zip dependencies
@@ -142,14 +143,12 @@ jobs:
       
       # Build CnCNet5_YR_Installer.exe
       - name: Build Installer
-        #        if: check if this is a dev version
         run: build_installer.bat
         shell: cmd
         working-directory: ./InnoSetup
 
       # Upload CnCNet5_YR_Installer.exe
       - name: Upload installed exe
-        #        if: check if this is a dev version
         uses: actions/upload-artifact@v2
         with:
           name: installer
