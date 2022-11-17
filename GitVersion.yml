@@ -3,7 +3,7 @@ mode: ContinuousDeployment
 increment: Patch
 
 branches:
-  master:
+  develop:
     regex: ^develop
     source-branches: [ 'develop' ]
     tag: 'dev'
