@@ -4,7 +4,7 @@ on:
   # Run on push to any branches listed
   push:
     branches:
-      - master
+      - develop
       - qm
       - quakenet
   release:
