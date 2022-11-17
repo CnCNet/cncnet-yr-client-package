@@ -4,8 +4,8 @@ increment: Patch
 
 branches:
   master:
-    regex: ^master$
-    source-branches: [ 'master' ]
+    regex: ^develop
+    source-branches: [ 'develop' ]
     tag: 'dev'
     
   qm:
