@@ -335,7 +335,6 @@ RequiredHouses=British,French,Germans,Americans,Alliance
 Name=STT Tesla Tank
 RequiredHouses=Russians,Confederation,Africans,Arabs,YuriCountry
 
-
 [Preview]
 Size=0,0,90,68
 
@@ -579,8 +578,8 @@ PlayerControl=no
 Name=[2] Surge - Blitz
 Author=Iver
 Percent=0
-Briefing=- Allied factions have all Allied faction bonuses (Minus France).@- Soviet factions have all Soviet faction bonuses. Yuri Is Sov.@- No Ore, Build Oil For Money (Consumes 35 Power).@- All player buildings are engi immune.@- Chrono Legionnaires can't attack oils.@- Limit of 12 oils can be built per game.@- Tech Power Plant, Oil and A Mech Shop Precaptured.@- Weather Storm is indestructible & Capturable.@- 4 Speed crates around the center every 3 min.@----------------------------------------------------------------------@Blitz Mod by: Burg, Snark
-GameMode=standard
+Briefing=- Allied factions have all Allied faction bonuses (Minus France).@- Soviet factions have all Soviet faction bonuses. Yuri Is Sov.@- No Ore, Build Oil For Money (Consumes 35 Power).@- All player buildings are engi immune.@- Chrono Legionnaires can't attack oils.@- Limit of 12 oils can be built per game.@- Tech Power Plant, Oil and A Tech Airport Precaptured.@- Weather Storm is indestructible & Capturable.@- 4 Speed crates around the center every 3 min.@----------------------------------------------------------------------@Blitz Mod by: Burg, Snark
+GameMode=Blitz
 HomeCell=98
 InitTime=10000
 Official=no
@@ -1430,19 +1429,19 @@ TiberiumExplosive=no
 DestroyableBridges=yes
 
 [Structures]
-0=Neutral,CAMACH,256,30,51,64,01000005,1,0,1,0,0,None,None,None,0,0
-1=Neutral,CAMACH,256,50,31,64,01000009,1,0,1,0,0,None,None,None,0,0
-2=Neutral,CAPOWR,256,73,82,64,01000005,1,0,1,0,0,None,None,None,0,0
+0=Neutral,CAAIRP,256,30,51,64,01000005,1,0,1,0,0,None,None,None,0,0
+1=Neutral,CAAIRP,256,50,31,64,01000009,1,0,1,0,0,None,None,None,0,0
+2=Neutral,CAPOWR,256,63,88,64,01000005,1,0,1,0,0,None,None,None,0,0
 3=Neutral,GAWALL,256,29,54,64,None,1,0,1,0,0,None,None,None,0,0
 4=Neutral,GAWEAT,256,59,60,64,None,1,0,1,0,0,None,None,None,0,0
-5=Neutral,CAOILD5,256,63,88,64,01000005,1,0,1,0,0,None,None,None,0,0
-6=Neutral,CAOILD5,256,87,64,64,01000009,1,0,1,0,0,None,None,None,0,0
+5=Neutral,CAOILD5,256,73,82,64,01000005,1,0,1,0,0,None,None,None,0,0
+6=Neutral,CAOILD5,256,81,74,64,01000009,1,0,1,0,0,None,None,None,0,0
 7=Neutral,CAARMY01,256,55,73,64,None,1,0,1,0,0,None,None,None,0,0
 8=Neutral,CAARMY01,256,47,64,64,None,1,0,1,0,0,None,None,None,0,0
 9=Neutral,GAWALL,256,30,54,64,None,1,0,1,0,0,None,None,None,0,0
 10=Neutral,GAWALL,256,31,54,64,None,1,0,1,0,0,None,None,None,0,0
 11=Neutral,GAWALL,256,32,54,64,None,1,0,1,0,0,None,None,None,0,0
-12=Neutral,CAPOWR,256,81,74,64,01000009,1,0,1,0,0,None,None,None,0,0
+12=Neutral,CAPOWR,256,87,64,64,01000009,1,0,1,0,0,None,None,None,0,0
 13=Neutral,CAARMY01,256,63,49,64,None,1,0,1,0,0,None,None,None,0,0
 14=Neutral,CAARMY01,256,71,57,64,None,1,0,1,0,0,None,None,None,0,0
 15=Neutral,GAWALL,256,33,54,64,None,1,0,1,0,0,None,None,None,0,0
