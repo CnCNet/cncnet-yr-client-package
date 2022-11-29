@@ -1,29 +1,31 @@
-﻿<!--
-Typically when developing the xna-cncnet-client, the theme of the client is base DTA (Dawn of the Tiberium Age).
-This will tell msbuild to copy all YR resources into the output path of the client executables so that it will
-have a YR theme instead.
-
-Instructions:
-
-1. Copy this file into the root of the xna-cncnet-client repo when developing locally. 
-2. Simply build and launch then xna-cncnet-client.
-3. Profit.
-
--->
+﻿<!--  -->
 <Project>
-    <!-- Only run this target if the DXMainClient project is the one being built -->
     <Target Name="CopyYRResources" AfterTargets="PrepareForRun" Condition="$(ProjectName) == 'DXMainClient'">
         <PropertyGroup>
             <!-- 
-            Change the value of this property to the root of the YR client repo OR
+            Change the value of YRSource to wherever you have the YR client repo checked out OR
             you can use your installation path of YR for cncnet.
             This path should be the same one that contains the file "gamemd.exe".
-            
+
             Example: c:\repos\cncnet-yr-client-package
             -->
-            <YRSource>{{ Path to YR resources }}</YRSource>
+            <YRSource></YRSource>
+
+            <!-- 
+            OPTIONAL
+            Change the value of YRGameInstallSource to wherever you have the game installed locally.
+            This is only necessary if YRSource above is not already set to the game installation path and 
+            you need to be able to launch the game from the client during development/while using the YR client repo for YRSource.
+
+            Example: c:\ra2InstallPath\Command and Conquer Red Alert II
+            -->
+            <YRGameInstallSource></YRGameInstallSource>
+
+            <YRStartupPath>$(OutputPath)..\..</YRStartupPath>
         </PropertyGroup>
-        <Message Text="Copying YR Resources from '$(YRSource)' to '$(OutputPath)"/>
+        <ItemGroup Label="Game Install Resources" Condition="'$(YRGameInstallSource)' != ''">
+            <YRGameInstallResources Include="$(YRGameInstallSource)\**\*.*"/>
+        </ItemGroup>
         <ItemGroup Label="YR Resources">
             <YRResources Include="$(YRSource)\**\*.*"/>
 
@@ -46,6 +48,11 @@ Instructions:
             <YRResources Remove="$(YRSource)\Resources\*.exe"/>
         </ItemGroup>
 
-        <Copy SourceFiles="@(YRResources)" DestinationFolder="$(OutputPath)\%(RecursiveDir)" SkipUnchangedFiles="true"/>
+        <Message Text="Skipping copying game install resources..." Condition="'$(YRGameInstallSource)' == ''"/>
+        <Message Text="Copying game install resources from '$(YRGameInstallSource)' to '$(YRStartupPath)" Condition="'$(YRGameInstallSource)' != ''"/>
+        <Copy SourceFiles="@(YRGameInstallResources)" DestinationFolder="$(YRStartupPath)\%(RecursiveDir)" SkipUnchangedFiles="true" Condition="'$(YRGameInstallResources)' != ''"/>
+
+        <Message Text="Copying YR resources from '$(YRSource)' to '$(YRStartupPath)"/>
+        <Copy SourceFiles="@(YRResources)" DestinationFolder="$(YRStartupPath)\%(RecursiveDir)" SkipUnchangedFiles="true"/>
     </Target>
 </Project>
