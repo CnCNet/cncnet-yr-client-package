@@ -5,12 +5,14 @@ This package is an add-on to the [XNA CnCNet Client](https://github.com/CnCNet/x
 
 ### Contributors
 
+* [tomsons26](https://github.com/tomsons26)
 * [dkeetonx](https://github.com/dkeetonx)
 * [GrantBartlett](https://github.com/GrantBartlett)
 * [Martin](https://forums.cncnet.org/profile/32538-ravage/)
 * [Kerbiter](https://github.com/Metadorius)
 * [Burg](https://github.com/alexp8)
 * [devo1929](https://github.com/devo1929)
+* [Belonit](https://github.com/Belonit)
 
 ### Development
 
