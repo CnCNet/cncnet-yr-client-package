@@ -1,3 +1,8 @@
+.idea
+obj
+bin
+.vs/
+/logs/*
 *-spawn.exe
 DtaverWriter.exe
 ddraw.dll
@@ -15,7 +20,10 @@ CnCNet5_YR_Installer.exe
 VersionWriter-CopiedFiles/
 
 VersionWriter.exe
-version
+
+/PackageBuilder/PackageContents/gamemd-spawn.exe
+/PackageBuilder/PackageContents/version
+/PackageBuilder/PackageContents/**/*.pdb
 
 RA2.ico
 RA2Launcher.exe
@@ -55,7 +63,6 @@ EB3.mmx
 EB4.mmx
 EB5.mmx
 GDFBinary_en_US.dll
-KeyboardMD.ini
 drvmgt.dll
 expandmd01.mix
 invasion.mmx
@@ -96,6 +103,4 @@ ra2md.lcf
 ra2md.mix
 stats.dmp
 wdt.mix
-/InnoSetup/output
 /gitversion.json
-/logs

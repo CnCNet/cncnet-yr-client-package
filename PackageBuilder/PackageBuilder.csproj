@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>default</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="devo1929.CnCNet.clientdx.YR" Version="2.8.0-git-version.1" />
+      <PackageReference Include="DotLiquid" Version="2.2.656" />
+      <PackageReference Include="GitVersion.MsBuild" Version="5.11.1">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="ini-parser" Version="2.5.2" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+      <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+      <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+      <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+      <PackageReference Include="Tools.InnoSetup" Version="6.2.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- This comes from the Tools.InnoSetup nuget package and makes it accessible in code. -->
+        <RuntimeHostConfigurationOption Include="InnoSetupCompiler" Value="$(InnoSetupCompiler)" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="PackageResources\**\*" />
+      <Content Include="PackageResources\**\*">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+        <None Remove="PackageContents\**\*" />
+        <Content Include="PackageContents\**\*">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+</Project>

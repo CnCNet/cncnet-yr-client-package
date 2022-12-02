@@ -1,0 +1,12 @@
+﻿{%- if DeleteFiles.size > 0 -%}
+[Delete]
+{% for file in DeleteFiles -%}
+{{ file }}
+{%- endfor -%}
+{%-  endif -%}
+{%- if DeleteFolders.size > 0 %}
+[DeleteFolder]
+{% for folder in DeleteFolders -%}
+{{ folder }}
+{%- endfor -%}
+{%-  endif -%}
