@@ -64,7 +64,7 @@ jobs:
       # This runs gitversion in a docker container and writes the output json to a local file.
       # This output file will be available in the uploaded artifact later in the workflow.
       - name: Run Gitversion Docker
-        run: docker run --rm -v "$(pwd):/repo" gittools/gitversion:latest-debian.10 /repo >gitversion.json
+        run: docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.11.1-debian.10 /repo >gitversion.json
 
       # Get access to the properties from the gitversion output file
       - name: Get gitversion.json properties
