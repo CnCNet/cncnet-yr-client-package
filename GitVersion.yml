@@ -1,4 +1,4 @@
-﻿label-prefix: 'yr-'
+﻿tag-prefix: 'yr-'
 mode: ContinuousDeployment
 increment: Patch
 
@@ -6,14 +6,14 @@ branches:
   develop:
     regex: ^develop
     source-branches: [ 'develop' ]
-    label: 'dev'
+    tag: 'dev'
     
   qm:
     regex: ^qm$
     source-branches: [ 'qm' ]
-    label: 'qm'
+    tag: 'qm'
 
   quakenet:
     regex: ^quakenet$
     source-branches: [ 'quakenet' ]
-    label: 'quakenet'
+    tag: 'quakenet'
