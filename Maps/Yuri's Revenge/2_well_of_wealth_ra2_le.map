@@ -17,9 +17,6 @@ Waypoint7=0,0
 Waypoint8=0,0
 NumberStartingPoints=2
 
-[CAOILD]
-ProduceCashStartup=500
-
 [CAAIRP]
 Powered=false
 LightRedTint=0.15
@@ -35,6 +32,7 @@ LightBlueTint=0.15
 LightGreenTint=0.15
 LightIntensity=0.002
 LightVisibility=2500
+ProduceCashStartup=500
 
 [CAOILD]
 Powered=false
