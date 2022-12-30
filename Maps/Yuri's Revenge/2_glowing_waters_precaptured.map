@@ -21,6 +21,8 @@ NumberStartingPoints=2
 
 [VehicleTypes]
 
+[CAOILD]
+ProduceCashStartup=500
 
 [Preview]
 Size=0,0,130,89
