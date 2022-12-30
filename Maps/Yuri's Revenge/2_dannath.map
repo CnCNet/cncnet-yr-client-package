@@ -31,9 +31,6 @@ Insignificant=yes
 [CRUISE]
 AmbientSound=_Amb_WavesLake
 
-[General]
-DefaultMirageDisguises=TREE17,TREE29,TREE34,TREE35
-
 [INBLULMP]
 Strength=60000
 LightRedTint=0.01
