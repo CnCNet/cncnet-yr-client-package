@@ -17,6 +17,10 @@ Waypoint7=0,0
 Waypoint8=0,0
 NumberStartingPoints=2
 
+; Tech Airport is precaptured
+[CAAIRP]
+Capturable=no
+
 [AMRADR]
 Name=AFC Allied American Airforce Command Headquarters
 TechLevel=5
