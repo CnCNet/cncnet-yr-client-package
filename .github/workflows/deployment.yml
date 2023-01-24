@@ -7,6 +7,8 @@ on:
       - develop
       - qm
       - quakenet
+      - net7
+
   release:
     types: [published]
   

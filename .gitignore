@@ -99,3 +99,4 @@ wdt.mix
 /InnoSetup/output
 /gitversion.json
 /logs
+/updater-scripts/download-artifacts/temp-client

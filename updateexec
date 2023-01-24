@@ -284,8 +284,24 @@ Maps\Yuri's Revenge\2_glowing_waters_precap.map
 Maps\Yuri's Revenge\2_glowing_waters_precap.png
 Maps\Yuri's Revenge\6_serve_the_hour.png
 Maps\Yuri's Revenge\6_serve_the_hour.png
+Resources\Binaries\DTAUpdater.dll
+Resources\Binaries\Ionic.Zip.dll
+Resources\Binaries\OpenGL\libopenal.1.dylib
+Resources\Binaries\OpenGL\libSDL2-2.0.0.dylib
+Resources\Binaries\OpenGL\Localization.dll
+Resources\Binaries\OpenGL\Rampastring.XNAUI.dll
+Resources\Binaries\Windows\Localization.dll
+Resources\Binaries\Windows\Rampastring.XNAUI.dll
+Resources\Binaries\XNA\Localization.dll
+Resources\Binaries\XNA\Rampastring.XNAUI.dll
+Resources\cursor.cur
+Resources\clientdx.exe
+Resources\clientogl.exe
+Resources\clientxna.exe
 
 [DeleteFolder]
+Resources\Binaries\OpenGL\x64
+Resources\Binaries\OpenGL\x86
 Maps\Yuri's Revenge\CTF
 Maps\Yuri's Revenge\Demolition
 do_not_remove_this_line

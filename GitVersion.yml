@@ -17,3 +17,8 @@ branches:
     regex: ^quakenet$
     source-branches: [ 'quakenet' ]
     tag: 'quakenet'
+
+  net7:
+    regex: ^net7$
+    source-branches: [ 'net7' ]
+    tag: 'net7'
