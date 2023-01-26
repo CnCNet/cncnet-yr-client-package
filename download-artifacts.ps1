@@ -1,3 +1,6 @@
+# this script must be called with a github token
+# ex: ./download-artifacts.ps1 -GithubToken "abc123"
+
 param($GithubToken)
 
 # load in configuration
