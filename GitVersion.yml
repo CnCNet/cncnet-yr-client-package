@@ -17,3 +17,8 @@ branches:
     regex: ^quakenet$
     source-branches: [ 'quakenet' ]
     tag: 'quakenet'
+
+  packager:
+    regex: ^packager
+    source-branches: [ 'packager' ]
+    tag: 'packager'

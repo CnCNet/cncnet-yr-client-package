@@ -1,4 +1,4 @@
-name: update-deploy
+name: build-and-deploy
 
 on:
   # Run on push to any branches listed
@@ -7,19 +7,29 @@ on:
       - develop
       - qm
       - quakenet
+      - packager
+
+  # Run when there is a release published
   release:
-    types: [published]
+    types: [ published ]
   
-  # Run this manually
+  # Allows for this workflow to be ru manually
   workflow_dispatch:
 
 jobs:
-  # This job validates a possible published release workflow trigger.
-  check-for-release:
-    runs-on: ubuntu-latest
-    outputs: 
-      result: ${{ steps.check-release.outputs.result }}
+  # This job is responsible for building the package that will be deployed to the server.
+  # It is run in a windows container so that Version.exe and other Windows based tools are able to be executed.
+  build-package:
+    runs-on: windows-latest
+    environment: cncnet
+    outputs:
+      # This the fully qualified version string that is used for deploy purposes.
+      packageUploadVersion: ${{ env.GitVersion_MajorMinorPatch }}${{ env.GitVersion_PreReleaseLabelWithDash }}
+
     steps:
+      # This step checks to see if this run was a result of a published release.
+      # If it was, then we need to validate the format of the tag used for the release.
+      # Currently, it must be in the format "yr-X.Y" or "yr-X.Y.Z" 
       - name: Check for release
         uses: actions/github-script@v6
         id: set-result
@@ -31,8 +41,8 @@ jobs:
               console.log('Not a release')
               return ''
             }
-            console.log('This is a published release. Validating tag name.')
-            
+            console.log('This is a published release. Validating tag name format.')
+
             // This workflow was triggered by a published release. We need to validate that the tag 
             // was created with the proper format for auto versioning. (GitVersion)
             const tagRegex = /^refs\/tags\/yr-\d+.\d+(?:\.\d+){0,1}$/
@@ -42,185 +52,98 @@ jobs:
               return ''
             }
             throw `Invalid tag specified: ${tagName}. Must be in the format 'yr-0.0' or 'yr-0.0.0'.`
-  
-  # This job uses a Docker Ubuntu container to download necessary files/tools from the server to create the update.
-  # An Ubuntu Docker container is necessary, because we have more control over what Ubuntu programs are available to us,
-  # because we can install them into a Github workflow container.
-  download-tools:
-    # This job requires an Ubuntu platform so that it can create the Ubuntu Docker container.
-    runs-on: ubuntu-latest
-    environment: cncnet
-    needs: check-for-release
-    if: ${{ success() }}
 
-    steps:
       # Checkout the repo
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0 # required for gitversion
 
-      # Run Gitversion - https://gitversion.net/docs/
-      # This runs gitversion in a docker container and writes the output json to a local file.
-      # This output file will be available in the uploaded artifact later in the workflow.
-      - name: Run Gitversion Docker
-        run: docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.11.1-debian.10 /repo >gitversion.json
-
-      # Get access to the properties from the gitversion output file
-      - name: Get gitversion.json properties
-        id: gitversion
-        uses: zoexx/github-action-json-file-properties@release
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.15
         with:
-          file_path: "gitversion.json"
+          versionSpec: '5.x'
+
+      # Run Gitversion - https://gitversion.net/docs/
+      - name: Run GitVersion
+        uses: gittools/actions/gitversion/execute@v0.9.15
 
       # Update versionconfig.ini with gitversion version info
       - name: Update versionconfig.ini
         # replace the second line in the file with the proper version number (X.Y.Z-dev.N)
-        run: sed -i "2 s/.*/${{steps.gitversion.outputs.SemVer}}/" versionconfig.ini
-
-      # We need to download necessary "tools" for the update (including VersionWriter.exe). Github Workflow linux containers do 
-      # not have the necessary programs installed by default and we do not have the ability to install it.
-      # So, we use our own Docker container to do so.
-
-      # Build the container from our Dockerfile
-      - name: Build docker container
-        run: docker build -t download-tools ${{ github.workspace }}/updater-scripts/download-tools
-
-      # Run the newly built container
-      - name: Run docker container
-        env:
-          # These are secret variables that should be stored in Github for the repository.
-          SSH_KEY: ${{ secrets.SSH_KEY }}
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_PASS: ${{ secrets.SSH_PASS }}
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_PATH_TOOLS_COMMON: ${{ secrets.SSH_PATH_TOOLS_COMMON }}
-          SSH_PATH_TOOLS_YR: ${{ secrets.SSH_PATH_TOOLS_YR }}
-          SSH_PORT: ${{ secrets.SSH_PORT }}
-        run: docker run -v ${{ github.workspace }}:/download-tools -e SSH_KEY -e SSH_HOST -e SSH_PASS -e SSH_USER -e SSH_PATH_TOOLS_COMMON -e SSH_PATH_TOOLS_YR -e SSH_PORT -i download-tools
-
-      # Archive this repo, excluding unnecessary files for the update
-      - name: Zip dependencies
-        run: zip -r archive.zip . -x *.git\* *.github\* *.gitignore *.gitattributes
-
-      # Upload the archive artifact for the next job
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: artifact
-          path: archive.zip
-
-  # We have the necessary tools and the proper version has been written to our versionconfig.ini file.
-  # Now, we need to actually run VersionWriter.exe.
-
-  version-writer:
-    # if previous job was successful
-    if: ${{ success() }}
-    # This jub runs runs on a Windows platform, because we need to run the VersionWriter executable.
-    runs-on: windows-latest
-    environment: cncnet
-    # Make sure we wait for the "download-tools" job to complete successfully
-    needs: download-tools
-
-    steps:
-      # Download the previous artifact archive
-      - name: Get artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: artifact
-
-      # Extract the archive
-      - name: Extract archive
-        run: 7z x archive.zip
+        run: sed -i "2 s/.*/${{env.GitVersion_SemVer}}/" ./package/versionconfig.ini
       
-      # Run the VersionWriter
-      - name: Run VersionWriter.exe
-        run: ./VersionWriter.exe /S
+#      - name: MP Maps Updater
+#        shell: pwsh
+#        run: . ./tools/maps-updater/maps-updater.ps1
 
-      # Remove files we do not want in the new archive
-      - name: Clean up files
-        run: rm archive.zip && rm VersionWriter.exe && rm -r VersionWriter-CopiedFiles
-      
-      # Build CnCNet5_YR_Installer.exe
+      - name: Version Writer
+        shell: pwsh
+        run: . ./tools/version-writer/version-writer.ps1
+        
       - name: Build Installer
-        run: build_installer.bat
-        shell: cmd
-        working-directory: ./InnoSetup
+        shell: pwsh
+        run: . ./tools/installer/installer.ps1
 
-      # Upload CnCNet5_YR_Installer.exe
-      - name: Upload installed exe
-        uses: actions/upload-artifact@v2
+      # Create package archive
+      - name: Create package artifact
+        run: tar -C ./package -czvf package.tar.gz .
+          
+      # Upload package archive as artifact for next job
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: package
+          path: ./package.tar.gz
+      
+      # Upload installer as artifact for manual download
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v3
         with:
           name: installer
-          path: CnCNet5_YR_Installer.exe
-
-      # Clean up InnoSetup files
-      - name: Clean up InnoSetup files
-        run: rm -v -r InnoSetup
-
-      # Clean up CnCNet5_YR_Installer.exe
-      - name: Clean up CnCNet5_YR_Installer.exe
-        run: rm CnCNet5_YR_Installer.exe
-
-      # Create new archive
-      - name: Create new versioned archive
-        run: 7z a -r archive.zip .
-
-      # Upload the versioned archive artifact for next job
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: artifact
-          path: archive.zip
-
-  # We now have a zip file containing the exact files necessary for the next update. We need to 
-  # upload these files to the server in the proper version folder.
-
-  # This job creates the appropriate version folder on the server and uploads our updated files to it.
-  upload-version:
+          path: ./tools/installer/CnCNet5_YR_Installer.exe
+      
+  # This job downloads the package artifact from the previous job and deploys it to the server.
+  deploy-package:
     # if previous job was successful
     if: ${{ success() }}
     runs-on: ubuntu-latest
     environment: cncnet
-    needs: version-writer
+    needs: build-package
 
     steps:
-      # Download the previous artifact archive
+      # Download the package artifact from previous job
       - name: Get artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
-          name: artifact
+          name: package
 
-      # Extract the archive
-      - name: Extract archive
-        run: 7z x archive.zip
-
-      # Get access to the properties from the gitversion output file
-      - name: Get gitversion.json properties
-        id: gitversion
-        uses: zoexx/github-action-json-file-properties@release
+      # Deploy the package to the server
+      - name: Deploy package
+        uses: appleboy/scp-action@master
         with:
-          file_path: "gitversion.json"
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          passphrase: ${{ secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY2 }}
+          port: ${{ secrets.SSH_PORT }}
+          overwrite: true
+          source: "package.tar.gz"
+          target: "${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/"
 
-      # Create deploy archive
-      - name: Create deploy archive
-        run: tar --exclude=*updater-scripts\* --exclude=archive.zip -czvf archive.tar.gz *
-
-      # Build the container from our Dockerfile
-      - name: Build docker container
-        run: docker build -t upload-version ${{ github.workspace }}/updater-scripts/upload-version
-
-      # Run the newly built container
-      - name: Run docker container
-        env:
-          # These are secret variables that should be stored in Github for the repository.
-          SSH_KEY: ${{ secrets.SSH_KEY }}
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_PASS: ${{ secrets.SSH_PASS }}
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_PATH_UPDATES: ${{ secrets.SSH_PATH_UPDATES }}
-          SSH_PORT: ${{ secrets.SSH_PORT }}
-          VERSION: ${{ steps.gitversion.outputs.MajorMinorPatch }}${{ steps.gitversion.outputs.PreReleaseLabelWithDash }}
-        run: docker run -v ${{ github.workspace }}:/upload-version -e SSH_KEY -e SSH_HOST -e SSH_PASS -e SSH_USER -e SSH_PATH_UPDATES -e SSH_PORT -e VERSION -i upload-version
+      # Extract the deployed package on the server
+      - name: Extract the deployed package
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          passphrase: ${{ secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY2 }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}
+            tar -xzvf ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/package.tar.gz
+            rm ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/package.tar.gz
+            chmod 777 --recursive ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/*
 
 
