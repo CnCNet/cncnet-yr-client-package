@@ -2,6 +2,8 @@ name: build-and-deploy
 
 on:
   # Run on push to any branches listed
+  # Any new features that should be auto built and deployed should be in a branch under "feature/"
+  # example: feature/net7 or feature/quakenet
   push:
     branches:
       - develop
