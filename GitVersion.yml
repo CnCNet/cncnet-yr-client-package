@@ -8,17 +8,8 @@ branches:
     source-branches: [ 'develop' ]
     tag: 'dev'
     
-  qm:
-    regex: ^qm$
-    source-branches: [ 'qm' ]
-    tag: 'qm'
-
-  quakenet:
-    regex: ^quakenet$
-    source-branches: [ 'quakenet' ]
-    tag: 'quakenet'
-
-  packager:
-    regex: ^packager
-    source-branches: [ 'packager' ]
-    tag: 'packager'
+  feature:
+    regex: ^feature?[/-]
+    source-branches: [ 'develop' ]
+    tag: useBranchName
+    increment: 'Inherit'

@@ -5,9 +5,7 @@ on:
   push:
     branches:
       - develop
-      - qm
-      - quakenet
-      - packager
+      - feature/*
 
   # Run when there is a release published
   release:
