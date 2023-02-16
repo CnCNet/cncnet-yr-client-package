@@ -17,4 +17,4 @@ spawnmap.ini
 version_u
 /Client/*
 .idea
-.idea/*
+.idea/*/logs
