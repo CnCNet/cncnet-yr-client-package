@@ -18,7 +18,7 @@ dotnet msbuild $ProjectFile
 # -n <name of the program>
 # -m <maps dir relative to working directory>
 $Process = Start-Process $BuildFile "-s -w $( $Config.PackagePath ) -n `"Yuri's Revenge Map Updater`" -m `"Maps/Yuri's Revenge`" -l `"$( $Config.LogsPath )/maps-updater`"" -NoNewWindow -Wait
-if ($Process.ExitCode > 0)
+if ($Process.ExitCode -gt 0)
 {
     Throw "Failed to update mpmaps.ini"
 }

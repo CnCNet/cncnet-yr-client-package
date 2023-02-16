@@ -5,7 +5,7 @@ $InnoBinary = "$PSScriptRoot\bin\ISCC.exe"
 $InnoScript = "$PSScriptRoot\installer.iss"
 
 $Process = Start-Process $InnoBinary $InnoScript -NoNewWindow -Wait -WorkingDirectory $PSScriptRoot
-if ($Process.ExitCode > 0)
+if ($Process.ExitCode -gt 0)
 {
     Throw "Failed to build installer"
 }

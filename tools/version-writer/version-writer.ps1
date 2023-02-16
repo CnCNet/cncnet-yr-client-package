@@ -10,7 +10,7 @@ if (Test-Path $VersionFile)
     Remove-Item $VersionFile
 }
 $Process = Start-Process "$PSScriptRoot\$VersionWriterExe" "/S $( $Config.PackagePath )" -Wait -NoNewWindow
-if ($Process.ExitCode > 0)
+if ($Process.ExitCode -gt 0)
 {
     Throw "Failed to run VersionWriter.exe"
 }
