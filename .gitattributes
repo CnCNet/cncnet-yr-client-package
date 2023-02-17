@@ -7,3 +7,5 @@ version text eol=crlf
 preupdateexec text eol=crlf
 updateexec text eol=crlf
 version text eol=crlf
+
+*.sh text eol=lf
