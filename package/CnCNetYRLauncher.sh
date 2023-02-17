@@ -1,2 +1,2 @@
 #!/bin/sh
-dotnet Resources/Binaries/UniversalGL/clientogl.dll
+dotnet Resources/Binaries/UniversalGL/clientogl.dll "$@"
