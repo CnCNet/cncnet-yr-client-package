@@ -107,5 +107,17 @@ namespace YRMapUpdater
                 return;
             File.WriteAllLinesAsync(Program.INVALID_MAPS, InvalidMaps.Select(e => $"{e.Item1}: {e.Item2}\n"));
         }
+
+        private readonly List<string> _previewImageExtensions = new() { ".png", ".jpg" };
+
+        public List<FileInfo> GetMapPreviewImages()
+        {
+            return Directory
+                .GetFiles(_mapsPath)
+                .Where(f => _previewImageExtensions.Any(e => f.EndsWith(e, StringComparison.InvariantCultureIgnoreCase)))
+                .Select(f => new FileInfo(f))
+                .ToList();
+        }
+            
     }
 }

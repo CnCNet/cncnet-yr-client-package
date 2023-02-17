@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using CommandLine;
 using IniParser;
 using IniParser.Model;
@@ -40,6 +41,7 @@ internal class Program
     private string _mpMapsIniPath;
     private string _mapsPath;
     private List<Map> _maps;
+    private List<FileInfo> _mapPreviewImages;
     private List<string> _missingMapKeys;
     private List<string> _addedMapKeys;
     private Logger _logger;
@@ -79,6 +81,7 @@ internal class Program
 
         var mapLoader = new MapLoader(_logger, _mapsPath, _parser, _mpMapsData, GetMapKey);
         _maps = mapLoader.ReadMapFiles();
+        _mapPreviewImages = mapLoader.GetMapPreviewImages();
 
         WriteMultiMaps();
         CompareMultiMaps();
@@ -178,8 +181,37 @@ internal class Program
 
         WritePreviewSize(newSection, map);
         WriteTeamStartMappings(newSection, existingSection, map);
+        FixMapPreviewImageName(map);
 
         _mpMapsBaseData.SetSectionData(mapKey, newSection);
+    }
+
+    /**
+     * Some maps have a mis-match of the "case" of filenames between the .map file and the preview image file.
+     * For example, the map "Hill Between" previously had a map file of "hillbtwn.map", but a preview image file of "HillBtwn.png".
+     * This will identify those mismatches and rename the png to have the same cased filename as the .map file.
+     *
+     * This is necessary, because it causes issues in Linux, where filenames are case-sensitive by default.
+     */
+    private void FixMapPreviewImageName(Map map)
+    {
+        // first, find that matches case-INsensitvie
+        var misMatchedCaseImage = _mapPreviewImages.FirstOrDefault(i =>
+            i.Name.Equals($"{map.Filename}{i.Extension}", StringComparison.InvariantCultureIgnoreCase)
+        );
+
+        if (misMatchedCaseImage == null)
+            return;
+
+        var correctImageFilename = $"{map.Filename}{misMatchedCaseImage.Extension}";
+        // now, check to see if there's a case-sensitive mismatch
+        if (misMatchedCaseImage.Name.Equals(correctImageFilename, StringComparison.InvariantCulture))
+            return;
+
+        _logger.Warning($"Renaming mismatched case-sensitive map file name: {misMatchedCaseImage.Name} --> {correctImageFilename}");
+        var guid = Guid.NewGuid();
+        File.Move(misMatchedCaseImage.FullName, $"{map.ParentDirectory}/{guid}");
+        File.Move($"{map.ParentDirectory}/{guid}", $"{map.ParentDirectory}/{correctImageFilename}");
     }
 
     /// <summary>
@@ -272,7 +304,8 @@ internal class Program
     {
         try
         {
-            var previewImage = Image.FromStream(File.OpenRead($"{map.ParentDirectory}\\{map.Filename}.png"), false, false);
+            using var previewImageStream = File.OpenRead($"{map.ParentDirectory}\\{map.Filename}.png");
+            using var previewImage = Image.FromStream(previewImageStream, false, false);
             newSection.SetKeyValue(Keys.PreviewSize, $"{previewImage.Width},{previewImage.Height}");
         }
         catch (Exception e)
