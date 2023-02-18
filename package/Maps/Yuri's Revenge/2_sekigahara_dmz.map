@@ -85,9 +85,6 @@ LightGreenTint=0.15
 LightIntensity=0.002
 LightVisibility=2500
 
-[GAYARD]
-TechLevel=-1
-
 [INBLULMP]
 LightRedTint=0.01
 LightBlueTint=0.1
@@ -131,19 +128,12 @@ LightGreenTint=0.15
 LightIntensity=0.01
 LightVisibility=3500
 
-[NAYARD]
-TechLevel=-1
-
 [NEGLAMP]
 LightRedTint=0.03
 LightBlueTint=0.03
 LightGreenTint=0.03
 LightIntensity=-0.15
 LightVisibility=3500
-
-[YAYARD]
-TechLevel=-1
-
 
 [Preview]
 Size=0,0,174,98
