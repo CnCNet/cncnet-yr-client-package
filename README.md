@@ -1,5 +1,7 @@
 # CnCNet Yuri's Revenge Client Package
 
+![logo](https://user-images.githubusercontent.com/6104940/219884309-a1737d96-c140-49ae-b235-456cc2c43d6a.png)
+
 The official CnCNet [Yuri's Revenge](https://cncnet.org/yuris-revenge) package for online.
 This package is an add-on to the [XNA CnCNet Client](https://github.com/CnCNet/xna-cncnet-client) by [Rampastring](https://github.com/Rampastring)
 
