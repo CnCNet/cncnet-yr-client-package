@@ -7,7 +7,7 @@
   "targets": {
     ".NETCoreApp,Version=v7.0": {},
     ".NETCoreApp,Version=v7.0/win-x86": {
-      "clientxna/2.8.0-beta0187": {
+      "clientxna/2.8.0-beta0194": {
         "dependencies": {
           "DTAConfig": "2.2.0",
           "DiscordRichPresence": "1.1.3.18",
@@ -22,15 +22,15 @@
           "clientxna.dll": {}
         }
       },
-      "CnCNet.ClientUpdater/1.0.8": {
+      "CnCNet.ClientUpdater/1.0.10": {
         "dependencies": {
           "Microsoft.AspNet.WebApi.Client": "5.2.9",
           "Rampastring.Tools": "2.0.4"
         },
         "runtime": {
           "lib/net7.0/ClientUpdater.dll": {
-            "assemblyVersion": "1.0.8.0",
-            "fileVersion": "1.0.8.0"
+            "assemblyVersion": "1.0.10.0",
+            "fileVersion": "1.0.10.0"
           }
         }
       },
@@ -1418,7 +1418,7 @@
       "DTAConfig/2.2.0": {
         "dependencies": {
           "ClientGUI": "2.1.0.1",
-          "CnCNet.ClientUpdater": "1.0.8"
+          "CnCNet.ClientUpdater": "1.0.10"
         },
         "runtime": {
           "DTAConfig.dll": {}
@@ -1435,17 +1435,17 @@
     }
   },
   "libraries": {
-    "clientxna/2.8.0-beta0187": {
+    "clientxna/2.8.0-beta0194": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "CnCNet.ClientUpdater/1.0.8": {
+    "CnCNet.ClientUpdater/1.0.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-X5U7bK4jEmjocExqhwtPxTumNjCTkKFgh+5B9iKFU0qhUI/WTqNzDeEqrNyow+fyDh26p/i7Sczf4dlN1snj9w==",
-      "path": "cncnet.clientupdater/1.0.8",
-      "hashPath": "cncnet.clientupdater.1.0.8.nupkg.sha512"
+      "sha512": "sha512-hqFcMaCK5g2WZN6w7O+B8b9H6MBM4bFmgRHEQBl2DaJfRHo/BolJM+h81r3IRqmf3Gtd6kmUT42tLGUR2amrIQ==",
+      "path": "cncnet.clientupdater/1.0.10",
+      "hashPath": "cncnet.clientupdater.1.0.10.nupkg.sha512"
     },
     "DiscordRichPresence/1.1.3.18": {
       "type": "package",
