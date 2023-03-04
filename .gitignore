@@ -9,3 +9,12 @@
 
 /logs
 /gitversion.json
+ddraw.dll
+ddraw.ini
+RA2MD.ini
+spawn.ini
+spawnmap.ini
+version_u
+/Client/*
+.idea
+.idea/*
