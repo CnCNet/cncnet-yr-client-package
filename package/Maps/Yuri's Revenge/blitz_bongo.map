@@ -46,6 +46,7 @@ CrateGoodie=no
 408=CAOILD6
 409=GatBuildingA
 410=GatBuildingB
+411=PillboxClone
 
 [CAOILD6]
 Cost=1250
@@ -274,7 +275,7 @@ CrushSound=TankCrush
 IsGattling=yes
 Accelerates=false
 CrateGoodie=no
-DeploysInto=GAPILL
+DeploysInto=PillboxClone
 EliteStage1=100
 EliteStage2=200
 EliteStage3=300
@@ -305,6 +306,42 @@ DamageParticleSystems=SparkSys,SmallGreySSys
 IsSelectableCombatant=yes
 TooBigToFitUnderBridge=true
 AllowedToStartInMultiplayer=no
+
+[PillboxClone]
+Image=GAPILL
+UIName=Name:GAPILL
+Name=Allied Pill Box
+BuildCat=Combat
+Strength=400
+Armor=steel
+Prerequisite=BARRACKS,GACNST
+TechLevel=1
+Adjacent=4
+ROT=10
+Sight=7
+DetectDisguise=no
+Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
+AIBasePlanningSide=0 ;gs 0 for Good, 1 for Evil
+Cost=500
+BaseNormal=no
+Points=30
+Power=0
+Crewed=no
+Capturable=false
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
+MaxDebris=15
+MinDebris=5
+Primary=Vulcan2
+ThreatPosed=30 ; This value MUST be 0 for all building addons
+DamageParticleSystems=SparkSys,LGSparkSys
+IsBaseDefense=yes
+HasStupidGuardMode=false
+ImmuneToPsionics=no ; defaults to yes for buildings, no for others
+AntiInfantryValue=25
+AntiArmorValue=10
+AntiAirValue=0
+
 
 [General]
 ThirdCrew=E2
@@ -560,7 +597,6 @@ BaseNormal=no
 Capturable=yes
 Unsellable=yes
 Insignificant=yes
-
 
 [Preview]
 Size=0,0,130,89
