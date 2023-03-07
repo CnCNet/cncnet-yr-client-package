@@ -313,6 +313,7 @@ UIName=Name:GAPILL
 Name=Allied Pill Box
 BuildCat=Combat
 Strength=400
+TechLevel=11
 Armor=steel
 Prerequisite=BARRACKS,GACNST
 TechLevel=1
