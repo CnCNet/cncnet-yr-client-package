@@ -1,1 +1,0 @@
-pwsh ./installer.ps1

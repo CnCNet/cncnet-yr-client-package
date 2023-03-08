@@ -8,6 +8,7 @@ on:
     branches:
       - develop
       - feature/*
+      - devo1929/refactor-deploy-scripts
 
   # Run when there is a release published
   release:
@@ -68,8 +69,8 @@ jobs:
         run: . ./tools/version-writer/version-writer.ps1
 
       - name: Build Installer
-        shell: pwsh
-        run: . ./tools/installer/installer.ps1
+        working-directory: tools
+        run: npm run build-installer-action
 
       # Create package archive
       - name: Create package artifact
