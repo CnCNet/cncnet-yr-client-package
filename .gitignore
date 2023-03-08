@@ -6,7 +6,6 @@
 /package/VersionWriter.exe
 /package/version
 /package/Qt/QM/
-
 /logs
 /gitversion.json
 ddraw.dll
@@ -18,3 +17,4 @@ version_u
 /Client/*
 .idea
 .idea/*
+/tools/node_modules
