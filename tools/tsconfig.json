@@ -1,0 +1,9 @@
+﻿{
+  "include": [
+    "*/action.*.ts",
+    "*/index.ts"
+  ],
+  "compilerOptions": {
+    "lib": [ "ES2020" ]
+  }
+}
