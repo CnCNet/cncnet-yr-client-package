@@ -44,7 +44,7 @@ jobs:
       - name: Check for release
         working-directory: tools
         run: |
-          npm run release-tag-validator-action
+          npm run release-tag-validator
 
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0.9.15
@@ -60,17 +60,13 @@ jobs:
         # replace the second line in the file with the proper version number (X.Y.Z-dev.N)
         run: sed -i "2 s/.*/${{env.GitVersion_SemVer}}/" ./package/versionconfig.ini
 
-      - name: MP Maps Updater
-        shell: pwsh
-        run: . ./tools/maps-updater/maps-updater.ps1
-
       - name: Version Writer
         shell: pwsh
         run: . ./tools/version-writer/version-writer.ps1
 
       - name: Build Installer
         working-directory: tools
-        run: npm run build-installer-action
+        run: npm run build-installer
 
       # Create package archive
       - name: Create package artifact
@@ -87,7 +83,7 @@ jobs:
       # If there is no release/tag, this will not do anything
       - name: Upload Package Release Asset
         working-directory: tools
-        run: npm run release-asset-uploader-action -- --token ${{ secrets.GITHUB_TOKEN }} --assetName package_${{env.GitVersion_SemVer}}.tar.gz --assetPath ../package.tar.gz
+        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName package_${{env.GitVersion_SemVer}}.tar.gz --assetPath ../package.tar.gz
 
       # Upload installer as artifact for manual download
       - name: Upload Installer Build Artifact
@@ -100,7 +96,7 @@ jobs:
       # If there is no release/tag, this will not do anything
       - name: Upload Installer Release Asset
         working-directory: tools
-        run: npm run release-asset-uploader-action -- --token ${{ secrets.GITHUB_TOKEN }} --assetName CnCNet5_YR_Installer_${{env.GitVersion_SemVer}}.exe --assetPath ./installer/CnCNet5_YR_Installer.exe
+        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName CnCNet5_YR_Installer_${{env.GitVersion_SemVer}}.exe --assetPath ./installer/CnCNet5_YR_Installer.exe
 
   # This job downloads the package artifact from the previous job and deploys it to the server.
   deploy-package:

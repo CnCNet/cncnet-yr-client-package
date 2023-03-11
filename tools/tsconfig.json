@@ -1,9 +1,6 @@
 ﻿{
-  "include": [
-    "*/action.*.ts",
-    "*/index.ts"
-  ],
   "compilerOptions": {
-    "lib": [ "ES2020" ]
+    "target": "ES2022",
+    "moduleResolution": "Node"
   }
 }

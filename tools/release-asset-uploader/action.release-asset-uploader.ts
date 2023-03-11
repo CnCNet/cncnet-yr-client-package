@@ -8,7 +8,7 @@ export class ReleaseAssetUploaderAction extends AbstractRepoAction<ReleaseAssetU
 
     public static run(context?: Context | any): void {
         new ReleaseAssetUploaderAction().run(context || new Context())
-            .catch(console.error)
+            .catch(console.error);
     }
 
     protected getOptionValues(): ReleaseAssetUploaderOptionValues {
