@@ -14,7 +14,7 @@ export class VersionWriterService {
             console.log(data.toString());
         });
         versionWriter.stderr.on('data', data => {
-            console.error(data.toString());
+            throw data.toString();
         });
     }
 }

@@ -123,7 +123,7 @@ export class BuildInstallerService {
             console.log(data.toString());
         });
         inno.stderr.on('data', data => {
-            console.error(data.toString());
+            throw data.toString();
         });
     }
 }
