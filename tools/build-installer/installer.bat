@@ -1,7 +1,7 @@
 @echo off
+
 cd ../
 cmd /c npm install
-cmd /c npm run build-installer-action
+cmd /c npm run build-installer
 
-echo "build installer complete"
 pause

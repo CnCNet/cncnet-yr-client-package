@@ -1,3 +1,3 @@
-import { BuildInstallerAction } from './action.build-installer';
+import { BuildInstallerService } from './service';
 
-BuildInstallerAction.run();
+BuildInstallerService.run();
