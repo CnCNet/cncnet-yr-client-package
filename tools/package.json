@@ -9,6 +9,7 @@
     "release-tag-validator": "ts-node release-tag-validator",
     "build-installer": "ts-node build-installer",
     "mpmaps-updater": "ts-node mpmaps-updater",
+    "version-writer": "ts-node version-writer",
     "test-release-asset-uploader": "ts-node release-asset-uploader/test.ts",
     "test-release-tag-validator": "ts-node release-tag-validator/test.ts"
   },

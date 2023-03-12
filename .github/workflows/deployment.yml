@@ -8,7 +8,6 @@ on:
     branches:
       - develop
       - feature/*
-      - devo1929/refactor-deploy-scripts
 
   # Run when there is a release published
   release:
@@ -61,8 +60,8 @@ jobs:
         run: sed -i "2 s/.*/${{env.GitVersion_SemVer}}/" ./package/versionconfig.ini
 
       - name: Version Writer
-        shell: pwsh
-        run: . ./tools/version-writer/version-writer.ps1
+        working-directory: tools
+        run: npm run version-writer
 
       - name: Build Installer
         working-directory: tools
@@ -78,6 +77,7 @@ jobs:
         with:
           name: package
           path: ./package.tar.gz
+          if-no-files-found: error
 
       # Upload package archive to any relevant releases for current tag
       # If there is no release/tag, this will not do anything
@@ -90,7 +90,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: installer
-          path: ./tools/installer/CnCNet5_YR_Installer.exe
+          path: ./tools/build-installer/CnCNet5_YR_Installer.exe
+          if-no-files-found: error
 
       # Upload installer to any relevant releases for current tag
       # If there is no release/tag, this will not do anything
