@@ -9,11 +9,12 @@ const setupIconPath = resolve(innoResourcesPath, 'cncnet5.ico');
 const licenseFilePath = resolve(innoResourcesPath, 'License-YurisRevenge.txt');
 const installerBinary = resolve(innoPath, 'bin/ISCC.exe');
 const installerTemplate = resolve(innoPath, 'installer.twig');
-const installerScript = resolve(innoPath, 'installer-new.iss');
+const installerScript = resolve(innoPath, 'installer.iss');
 const preUpdateExecFilename = 'preupdateexec';
 const updateExecFilename = 'updateexec';
 const preUpdateExecFilePath = resolve(packagePath, preUpdateExecFilename);
 const updateExecFilePath = resolve(packagePath, updateExecFilename);
+const netCoreCheckPath = resolve(innoPath, 'libs/InnoDependencyInstaller/netcorecheck');
 
 const constants = {
     app: {
@@ -34,7 +35,8 @@ const constants = {
         licenseFilePath,
         versionFilePath,
         preUpdateExecFilePath,
-        updateExecFilePath
+        updateExecFilePath,
+        netCoreCheckPath
     },
     excludedInstallerFiles: [
         preUpdateExecFilename,

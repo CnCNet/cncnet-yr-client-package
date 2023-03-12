@@ -1,5 +1,10 @@
 ; Made for Inno Setup 6.2.2
 
+; Allows us to add .NET7 as a dependency
+; https://github.com/DomGries/InnoDependencyInstaller
+#define public Dependency_NoExampleSetup
+#include "libs/InnoDependencyInstaller/CodeDependencies.iss" 
+
 [CustomMessages]
 InstallingApp=Installing %1, this may take several minutes...
 GameNotFound=Red Alert 2 Yuri's Revenge not found in %1 %nPlease select the right folder...%nNote: You need to have the game installed, Red Alert 2 is not freeware and therefore not included in this installer!
@@ -44,6 +49,7 @@ SetupIconFile={{ setupIconFile }}
 AppendDefaultDirName=no
 ShowLanguageDialog=no
 LicenseFile={{ licenseFile }}
+ArchitecturesInstallIn64BitMode=x64
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -55,6 +61,7 @@ Type: filesandordirs; Name: "{app}\{{ item }}"
 {%-  endfor %}
 
 [Files]
+Source: {{ netCoreCheckPath }}\*; Flags: dontcopy noencryption
 Source: *; DestDir: "{app}"; Excludes: "{{ excludedInstallerFiles }}"; Flags: recursesubdirs ignoreversion
 ; explicitly list "version" file so that an error is thrown if it does not exist
 Source: version; DestDir: "{app}";
@@ -227,6 +234,8 @@ function InitializeSetup(): Boolean;
 var
   Version: TWindowsVersion;
 begin
+  // This will trigger net7 x64 to auto download and install - uncomment following line when net7 client is released
+  // Dependency_AddDotNet70Desktop
   GetWindowsVersionEx(Version);
   Result := true;
 

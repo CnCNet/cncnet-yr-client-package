@@ -19,9 +19,11 @@ export class BuildInstallerService {
 
     private async buildInstallerScript(): Promise<void> {
         console.log('Building installer script');
-        const model = await this.getTemplateModel();
+        const templateModel = await this.getTemplateModel();
+        console.log('Template model:');
+        console.log(templateModel);
         return new Promise((resolve, reject) => {
-            Twig.renderFile(constants.paths.installerTemplate, model, (err, content) => {
+            Twig.renderFile(constants.paths.installerTemplate, templateModel, (err, content) => {
                 if (err)
                     throw err;
 
@@ -55,7 +57,8 @@ export class BuildInstallerService {
             licenseFile: constants.paths.licenseFilePath,
             outputBaseFilename: constants.outputBaseFilename,
             installDeleteFiles: await this.getInstallDeleteFiles(),
-            excludedInstallerFiles: constants.excludedInstallerFiles.join(',')
+            excludedInstallerFiles: constants.excludedInstallerFiles.join(','),
+            netCoreCheckPath: constants.paths.netCoreCheckPath
         };
     }
 
@@ -121,9 +124,6 @@ export class BuildInstallerService {
         });
         inno.stderr.on('data', data => {
             console.error(data.toString());
-        });
-        inno.stdout.on('end', () => {
-            console.log(`Installer written to '${resolve(constants.paths.repoPath, constants.outputBaseFilename)}'`);
         });
     }
 }

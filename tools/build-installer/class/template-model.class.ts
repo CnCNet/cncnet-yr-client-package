@@ -9,4 +9,5 @@ export class TemplateModel {
     outputBaseFilename: string;
     installDeleteFiles: string[];
     excludedInstallerFiles: string;
+    netCoreCheckPath: string;
 }
