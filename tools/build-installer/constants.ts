@@ -40,7 +40,10 @@ const constants = {
     },
     excludedInstallerFiles: [
         preUpdateExecFilename,
-        updateExecFilename
+        updateExecFilename,
+        'VersionWriter-CopiedFiles',
+        'versionconfig.ini',
+        'RA2MD.ini'
     ]
 }
 export { constants };
