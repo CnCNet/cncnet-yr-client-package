@@ -90,7 +90,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: installer
-          path: ./tools/build-installer/CnCNet5_YR_Installer.exe
+          path: ./CnCNet5_YR_Installer.exe
           if-no-files-found: error
 
       # Upload installer to any relevant releases for current tag
