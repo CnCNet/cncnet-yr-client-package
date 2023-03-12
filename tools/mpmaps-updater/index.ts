@@ -1,3 +1,3 @@
-import { MpMapsUpdaterService } from './service/mpmaps-updater.service';
+import { MpMapsUpdaterService } from './service';
 
 MpMapsUpdaterService.run();

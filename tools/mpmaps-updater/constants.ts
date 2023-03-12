@@ -5,7 +5,6 @@ const toolsPath = resolve(rootPath, 'tools');
 const packagePath = resolve(rootPath, 'package');
 const mapsPath = resolve(packagePath, 'Maps');
 const iniPath = resolve(packagePath, 'INI');
-const mpMapsBaseIniPath = resolve(iniPath, 'MPMapsBase.ini');
 const mpMapsIniPath = resolve(iniPath, 'MPMaps.ini');
 
 const constants = {

@@ -1,7 +1,7 @@
 import { access, constants as fsConstants } from 'fs';
 import { constants } from '../constants';
 import { MapLoaderService } from './map-loader.service';
-import { IniFile } from '../class/ini-file.class';
+import { IniFile } from '../class';
 
 export class MpMapsUpdaterService {
     public static run(): void {
@@ -108,7 +108,7 @@ export class MpMapsUpdaterService {
     private async addNewMapIniFile(mpMapsIniFile: IniFile, mapIniFile: IniFile): Promise<void> {
         console.log(`Adding new map '${mapIniFile.getPackageRelativePath()}'`);
         const newMapSection = await this.getNewMapSection(mapIniFile);
-        
+
         const mpMapsKey = mapIniFile.mpMapsKey;
         console.log(`Adding map key to MPMaps.ini: '${mpMapsKey}'`);
         mpMapsIniFile.setMapSection(mpMapsKey, newMapSection);

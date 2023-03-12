@@ -1,15 +1,9 @@
 import { readdir, stat } from 'fs';
 import { constants } from '../constants';
 import * as util from 'util'
-import { IniFile } from '../class/ini-file.class';
-import { MapReportingService } from './map-reporting.service';
+import { IniFile } from '../class';
 
 export class MapLoaderService {
-    private mapReportingService: MapReportingService;
-
-    constructor() {
-        this.mapReportingService = new MapReportingService();
-    }
 
     public async getMapIniFilesAsync(): Promise<IniFile[]> {
         console.log('Reading all .map files');
