@@ -27,37 +27,23 @@ jobs:
       packageUploadVersion: ${{ env.GitVersion_MajorMinorPatch }}${{ env.GitVersion_PreReleaseLabelWithDash }}
 
     steps:
-      # This step checks to see if this run was a result of a published release.
-      # If it was, then we need to validate the format of the tag used for the release.
-      # Currently, it must be in the format "yr-X.Y" or "yr-X.Y.Z" 
-      - name: Check for release
-        uses: actions/github-script@v6
-        id: set-result
-        with:
-          result-encoding: string
-          script: |
-            // This workflow was not triggered by a published release. No need to validate it.
-            if ('${{ github.event_name }}' != 'release') {
-              console.log('Not a release')
-              return ''
-            }
-            console.log('This is a published release. Validating tag name format.')
-
-            // This workflow was triggered by a published release. We need to validate that the tag 
-            // was created with the proper format for auto versioning. (GitVersion)
-            const tagRegex = /^refs\/tags\/yr-\d+.\d+(?:\.\d+){0,1}$/
-            const tagName = '${{ github.ref }}'
-            if (tagRegex.test(tagName)) {
-              console.log(`Valid tag name: ${tagName}`)
-              return ''
-            }
-            throw `Invalid tag specified: ${tagName}. Must be in the format 'yr-0.0' or 'yr-0.0.0'.`
-
       # Checkout the repo
       - name: Checkout repo
         uses: actions/checkout@v3
         with:
           fetch-depth: 0 # required for gitversion
+
+      - name: Install Tools NPM Libs
+        working-directory: tools
+        run: npm install
+
+      # This step checks to see if this run was a result of a published release.
+      # If it was, then we need to validate the format of the tag used for the release.
+      # Currently, it must be in the format "yr-X.Y" or "yr-X.Y.Z" 
+      - name: Check for release
+        working-directory: tools
+        run: |
+          npm run release-tag-validator
 
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0.9.15
@@ -72,37 +58,47 @@ jobs:
       - name: Update versionconfig.ini
         # replace the second line in the file with the proper version number (X.Y.Z-dev.N)
         run: sed -i "2 s/.*/${{env.GitVersion_SemVer}}/" ./package/versionconfig.ini
-      
-#      - name: MP Maps Updater
-#        shell: pwsh
-#        run: . ./tools/maps-updater/maps-updater.ps1
 
       - name: Version Writer
-        shell: pwsh
-        run: . ./tools/version-writer/version-writer.ps1
-        
+        working-directory: tools
+        run: npm run version-writer
+
       - name: Build Installer
-        shell: pwsh
-        run: . ./tools/installer/installer.ps1
+        working-directory: tools
+        run: npm run build-installer
 
       # Create package archive
       - name: Create package artifact
         run: tar -C ./package -czvf package.tar.gz .
-          
+
       # Upload package archive as artifact for next job
-      - name: Upload package artifact
+      - name: Upload Package Build Artifact
         uses: actions/upload-artifact@v3
         with:
           name: package
           path: ./package.tar.gz
-      
+          if-no-files-found: error
+
+      # Upload package archive to any relevant releases for current tag
+      # If there is no release/tag, this will not do anything
+      - name: Upload Package Release Asset
+        working-directory: tools
+        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName package_${{env.GitVersion_SemVer}}.tar.gz --assetPath ../package.tar.gz
+
       # Upload installer as artifact for manual download
-      - name: Upload installer artifact
+      - name: Upload Installer Build Artifact
         uses: actions/upload-artifact@v3
         with:
           name: installer
-          path: ./tools/installer/CnCNet5_YR_Installer.exe
-      
+          path: ./CnCNet5_YR_Installer.exe
+          if-no-files-found: error
+
+      # Upload installer to any relevant releases for current tag
+      # If there is no release/tag, this will not do anything
+      - name: Upload Installer Release Asset
+        working-directory: tools
+        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName CnCNet5_YR_Installer_${{env.GitVersion_SemVer}}.exe --assetPath ./CnCNet5_YR_Installer.exe
+
   # This job downloads the package artifact from the previous job and deploys it to the server.
   deploy-package:
     # if previous job was successful

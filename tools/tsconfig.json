@@ -1,0 +1,12 @@
+﻿{
+  "compilerOptions": {
+    "target": "ES2022",
+    "moduleResolution": "Node",
+    "paths": {
+      "@cncnet-core/*": ["core/*"]
+    }
+  },
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}

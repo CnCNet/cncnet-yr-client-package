@@ -3,10 +3,10 @@
 /package/Maps/Custom/*.map
 /package/Maps/Custom/*.png
 /package/Maps/Custom/*.yrm
-/package/VersionWriter.exe
 /package/version
 /package/Qt/QM/
-
+/package/VersionWriter.exe
+/package/VersionWriter-CopiedFiles
 /logs
 /gitversion.json
 ddraw.dll
@@ -17,4 +17,6 @@ spawnmap.ini
 version_u
 /Client/*
 .idea
-.idea/*/logs
+.idea/*
+/CnCNet5_YR_Installer.exe
+/package.tar.gz

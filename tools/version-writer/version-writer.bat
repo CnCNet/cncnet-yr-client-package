@@ -1,1 +1,7 @@
-pwsh ./version-writer.ps1
+@echo off
+
+cd ../
+cmd /c npm install
+cmd /c npm run version-writer
+
+pause
