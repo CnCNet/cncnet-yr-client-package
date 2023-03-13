@@ -57,7 +57,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 
 ; these files are deleted before install
 [InstallDelete]
-{%- for item in installDeleteFiles %}
+{% for item in installDeleteFiles %}
 Type: filesandordirs; Name: "{app}\{{ item }}"
 {%-  endfor %}
 
