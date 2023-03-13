@@ -49,7 +49,7 @@ SetupIconFile={{ setupIconFile }}
 AppendDefaultDirName=no
 ShowLanguageDialog=no
 LicenseFile={{ licenseFile }}
-ArchitecturesInstallIn64BitMode=x64
+; ArchitecturesInstallIn64BitMode=x64
 UsedUserAreasWarning=no
 
 [Languages]
@@ -59,7 +59,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [InstallDelete]
 {% for item in installDeleteFiles %}
 Type: filesandordirs; Name: "{app}\{{ item }}"
-{%-  endfor %}
+{%  endfor %}
 
 [Files]
 Source: {{ netCoreCheckPath }}\*; Flags: dontcopy noencryption
