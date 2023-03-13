@@ -1,13 +1,14 @@
 ﻿import { Context } from '@actions/github/lib/context';
-import { AbstractRepoAction } from '../core/abstract-repo-action';
+import { AbstractRepoService } from '@cncnet-core/service';
 import { existsSync, readFileSync } from 'fs';
-import { ReleaseAssetUploaderOptionValues } from '../core/class/class.release-asset-uploader-option-values';
 import { program } from 'commander';
+import { ReleaseAssetUploaderOptionValues } from '@cncnet-core/class';
+import { resolve } from 'path';
 
-export class ReleaseAssetUploaderAction extends AbstractRepoAction<ReleaseAssetUploaderOptionValues> {
+export class ReleaseAssetUploaderService extends AbstractRepoService<ReleaseAssetUploaderOptionValues> {
 
     public static run(context?: Context | any): void {
-        new ReleaseAssetUploaderAction().run(context || new Context())
+        new ReleaseAssetUploaderService().run(context || new Context())
             .catch(console.error);
     }
 
@@ -42,12 +43,13 @@ export class ReleaseAssetUploaderAction extends AbstractRepoAction<ReleaseAssetU
             return;
         }
 
-        console.log(`Checking to see if asset exists at ${assetPath}`);
-        if (!existsSync(assetPath))
-            throw `Asset does not exist at: ${assetPath}`;
+        const fullAssetPath = resolve(process.cwd(), assetPath);
+        console.log(`Checking to see if asset exists at ${fullAssetPath}`);
+        if (!existsSync(fullAssetPath))
+            throw `Asset does not exist at: ${fullAssetPath}`;
 
         console.log(`Reading asset file data`);
-        const data: unknown = readFileSync(assetPath);
+        const data: unknown = readFileSync(fullAssetPath);
 
         console.log(`Uploading asset to release`);
         const uploadResponse = await this.github.rest.repos.uploadReleaseAsset({

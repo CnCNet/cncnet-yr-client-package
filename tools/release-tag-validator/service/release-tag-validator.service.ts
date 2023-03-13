@@ -1,12 +1,12 @@
 ﻿import { Context } from '@actions/github/lib/context';
-import { AbstractRepoAction } from '../core/abstract-repo-action';
-import { DefaultOptionValues } from '../core/class/class.default-option-values';
+import { DefaultOptionValues } from '@cncnet-core/class';
+import { AbstractRepoService } from '@cncnet-core/service';
 
 /**
  * This action is meant to be run with the github-script action:
  * https://github.com/actions/github-script
  */
-export class ReleaseTagValidatorAction extends AbstractRepoAction<DefaultOptionValues> {
+export class ReleaseTagValidatorService extends AbstractRepoService<DefaultOptionValues> {
     private run(context: Context): void {
         console.log(`Running ReleaseTagValidatorAction`)
         if (!super.isRelease(context.eventName)) {
@@ -28,7 +28,7 @@ export class ReleaseTagValidatorAction extends AbstractRepoAction<DefaultOptionV
     }
 
     public static run(context?: Context | any): void {
-        new ReleaseTagValidatorAction().run(context || new Context());
+        new ReleaseTagValidatorService().run(context || new Context());
     }
 
     protected getOptionValues(): DefaultOptionValues {

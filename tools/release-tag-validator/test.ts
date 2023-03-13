@@ -2,14 +2,14 @@
  * This is a simple script to test the action.
  */
 
-import { ReleaseTagValidatorAction } from './action.release-tag-validator';
+import { ReleaseTagValidatorService } from './service';
 import { testBadReleaseTagContext, testGoodReleaseTagContext, testNonReleaseContext } from './test-data';
 
-ReleaseTagValidatorAction.run(testGoodReleaseTagContext);
-ReleaseTagValidatorAction.run(testNonReleaseContext);
+ReleaseTagValidatorService.run(testGoodReleaseTagContext);
+ReleaseTagValidatorService.run(testNonReleaseContext);
 
 try {
-    ReleaseTagValidatorAction.run(testBadReleaseTagContext);
+    ReleaseTagValidatorService.run(testBadReleaseTagContext);
 } catch (e) {
     console.error(e);
 }

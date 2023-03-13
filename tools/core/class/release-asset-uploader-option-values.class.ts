@@ -1,4 +1,4 @@
-﻿import { AbstractOptionValues } from './class.abstract-option-values';
+﻿import { AbstractOptionValues } from './abstract-option-values.class';
 
 export class ReleaseAssetUploaderOptionValues extends AbstractOptionValues {
     assetPath: string;

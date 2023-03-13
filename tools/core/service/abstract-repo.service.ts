@@ -1,10 +1,10 @@
 ﻿import { GitHub } from '@actions/github/lib/utils';
 import { getOctokit } from '@actions/github';
-import { AbstractOptionValues } from './class/class.abstract-option-values';
+import { AbstractOptionValues } from '../class';
 
 const TAG_REGEX: RegExp = /^refs\/tags\/(yr-\d+.\d+(?:\.\d+){0,1})$/;
 
-export abstract class AbstractRepoAction<T extends AbstractOptionValues> {
+export abstract class AbstractRepoService<T extends AbstractOptionValues> {
 
     protected github: InstanceType<typeof GitHub>;
 

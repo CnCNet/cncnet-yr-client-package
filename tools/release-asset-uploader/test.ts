@@ -3,6 +3,6 @@
  */
 
 import { testPackageContext } from './test-data/';
-import { ReleaseAssetUploaderAction } from './action.release-asset-uploader';
+import { ReleaseAssetUploaderService } from './service';
 
-ReleaseAssetUploaderAction.run(testPackageContext)
+ReleaseAssetUploaderService.run(testPackageContext)
