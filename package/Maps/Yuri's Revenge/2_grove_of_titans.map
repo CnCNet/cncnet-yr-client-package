@@ -17,7 +17,7 @@ Waypoint7=0,0
 Waypoint8=0,0
 NumberStartingPoints=2
 
-[AircraftTypes]
+[General]
 DefaultMirageDisguises=TREE25,TREE26,TREE27
 
 [CAOILD]
@@ -45,9 +45,6 @@ RadarColor=0,192,0
 IsFlammable=no
 SnowOccupationBits=7
 TemperateOccupationBits=7
-
-[TREE25,TREE26,TREE27]
-Name=
 
 [TREE26]
 Name=Tree
