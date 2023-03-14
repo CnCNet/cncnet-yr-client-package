@@ -1,3 +1,3 @@
-﻿import { ReleaseTagValidatorAction } from './action.release-tag-validator';
+﻿import { ReleaseTagValidatorService } from './service';
 
-ReleaseTagValidatorAction.run();
+ReleaseTagValidatorService.run();

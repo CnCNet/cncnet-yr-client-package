@@ -90,14 +90,14 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: installer
-          path: ./tools/build-installer/CnCNet5_YR_Installer.exe
+          path: ./CnCNet5_YR_Installer.exe
           if-no-files-found: error
 
       # Upload installer to any relevant releases for current tag
       # If there is no release/tag, this will not do anything
       - name: Upload Installer Release Asset
         working-directory: tools
-        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName CnCNet5_YR_Installer_${{env.GitVersion_SemVer}}.exe --assetPath ./installer/CnCNet5_YR_Installer.exe
+        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName CnCNet5_YR_Installer_${{env.GitVersion_SemVer}}.exe --assetPath ../CnCNet5_YR_Installer.exe
 
   # This job downloads the package artifact from the previous job and deploys it to the server.
   deploy-package:

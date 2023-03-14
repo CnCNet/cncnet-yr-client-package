@@ -1,3 +1,3 @@
-﻿import { ReleaseAssetUploaderAction } from './action.release-asset-uploader';
+﻿import { ReleaseAssetUploaderService } from './service';
 
-ReleaseAssetUploaderAction.run();
+ReleaseAssetUploaderService.run();
