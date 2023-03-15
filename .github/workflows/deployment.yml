@@ -39,10 +39,10 @@ jobs:
         working-directory: tools
         run: npm install
 
-      # This step checks to see if this run was a result of a published release.
-      # If it was, then we need to validate the format of the tag used for the release.
+      # This step validates the format of the tag created, if this was a published release.
       # Currently, it must be in the format "yr-X.Y" or "yr-X.Y.Z" 
-      - name: Check for release
+      - name: Validate Tag Name
+        if: ${{ env.GITHUB_EVENT_NAME == 'release' }}
         working-directory: tools
         run: |
           npm run release-tag-validator
@@ -65,39 +65,42 @@ jobs:
         working-directory: tools
         run: npm run version-writer
 
-      - name: Build Installer
-        working-directory: tools
-        run: npm run build-installer
-
       # Create package archive
       - name: Create package artifact
         run: tar -C ./package -czvf package.tar.gz .
 
-      # Upload package archive as artifact for next job
-      - name: Upload Package Build Artifact
+      # Create installer
+      - name: Build Installer
+        working-directory: tools
+        run: npm run build-installer
+
+      # Upload package archive as a workflow artifact
+      - name: Upload Package Workflow Artifact
         uses: actions/upload-artifact@v3
         with:
           name: package
           path: ./package.tar.gz
           if-no-files-found: error
 
-      # Upload package archive to any relevant releases for current tag
-      # If there is no release/tag, this will not do anything
-      - name: Upload Package Release Asset
-        working-directory: tools
-        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName package_${{env.GitVersion_SemVer}}.tar.gz --assetPath ../package.tar.gz
-
-      # Upload installer as artifact for manual download
-      - name: Upload Installer Build Artifact
+      # Upload installer as a workflow artifact
+      - name: Upload Installer Workflow Artifact
         uses: actions/upload-artifact@v3
         with:
           name: installer
           path: ./CnCNet5_YR_Installer.exe
           if-no-files-found: error
 
+      # Upload package archive to any relevant releases for current tag
+      # If there is no release/tag, this will not do anything
+      - name: Upload Package Release Asset
+        if: ${{ env.GITHUB_EVENT_NAME == 'release' }}
+        working-directory: tools
+        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName package_${{env.GitVersion_SemVer}}.tar.gz --assetPath ../package.tar.gz
+
       # Upload installer to any relevant releases for current tag
       # If there is no release/tag, this will not do anything
       - name: Upload Installer Release Asset
+        if: ${{ env.GITHUB_EVENT_NAME == 'release' }}
         working-directory: tools
         run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName CnCNet5_YR_Installer_${{env.GitVersion_SemVer}}.exe --assetPath ../CnCNet5_YR_Installer.exe
 
