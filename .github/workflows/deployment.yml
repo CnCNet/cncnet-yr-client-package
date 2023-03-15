@@ -8,6 +8,7 @@ on:
     branches:
       - develop
       - feature/*
+      - hotfix/*
 
   # Run when there is a release published
   release:
@@ -97,7 +98,7 @@ jobs:
       # If there is no release/tag, this will not do anything
       - name: Upload Installer Release Asset
         working-directory: tools
-        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName CnCNet5_YR_Installer_${{env.GitVersion_SemVer}}.exe --assetPath ./CnCNet5_YR_Installer.exe
+        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName CnCNet5_YR_Installer_${{env.GitVersion_SemVer}}.exe --assetPath ../CnCNet5_YR_Installer.exe
 
   # This job downloads the package artifact from the previous job and deploys it to the server.
   deploy-package:
