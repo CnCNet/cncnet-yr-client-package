@@ -26,6 +26,7 @@ jobs:
     outputs:
       # This the fully qualified version string that is used for deploy purposes.
       packageUploadVersion: ${{ env.GitVersion_MajorMinorPatch }}${{ env.GitVersion_PreReleaseLabelWithDash }}
+      mirrorLinkName: ${{ env.GitVersion_PreReleaseLabel }}
 
     steps:
       # Checkout the repo
@@ -142,5 +143,25 @@ jobs:
             tar -xzvf ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/package.tar.gz
             rm ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/package.tar.gz
             chmod 777 --recursive ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/*
+            
+      # Create/update a mirror link for client update purposes, using the GitVersion pre release label as the link name.
+      # See the file "GitVersion.yml" for more details on the name that will be used for a given branch.
+      # Ex: if the branch name is "develop", it will create a link of "dev" to point to the directory "updates/X.Y.Z-dev".
+      # Then, client users can use the path "/updates/games/yr/develop/" for their UpdaterConfig.ini file.
+      # This will keep develop and feature branch update mirror links up to date as soon as the deploy has occurred.
+      - name: Update mirror link
+        uses: appleboy/ssh-action@v0.1.7
+        # RUN ON NON-RELEASES ONLY. RELEASE VERSION LINKS SHOULD CONTINUE TO BE UPDATED MANUALLY, FOR NOW.
+        if: ${{ env.GITHUB_EVENT_NAME != 'release' }} 
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          passphrase: ${{ secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY2 }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ${{ secrets.SSH_PATH_GAMES_YR }}
+            ln -sfn updates/${{ needs.build-package.outputs.packageUploadVersion }} ${{ needs.build-package.outputs.mirrorLinkName }}
+        
 
 
