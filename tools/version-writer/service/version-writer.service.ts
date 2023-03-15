@@ -1,5 +1,7 @@
 import { spawn } from 'child_process';
 import { constants } from '../constants';
+import { rm } from 'fs/promises';
+import { resolve } from 'path';
 
 export class VersionWriterService {
     public static async run(): Promise<void> {
@@ -15,6 +17,14 @@ export class VersionWriterService {
         });
         versionWriter.stderr.on('data', data => {
             throw data.toString();
+        });
+        versionWriter.stdout.on('end', await this.deleteVersionWriterCopiedFiles);
+    }
+
+    private async deleteVersionWriterCopiedFiles(): Promise<void> {
+        return rm(resolve(constants.paths.packagePath, 'VersionWriter-CopiedFiles'), {
+            force: true,
+            recursive: true
         });
     }
 }
