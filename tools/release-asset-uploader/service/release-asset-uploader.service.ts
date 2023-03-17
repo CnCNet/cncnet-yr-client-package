@@ -13,12 +13,7 @@ export class ReleaseAssetUploaderService extends AbstractRepoService<ReleaseAsse
     }
 
     protected getOptionValues(): ReleaseAssetUploaderOptionValues {
-        return program
-            .option('--token <token>')
-            .option('--assetName <assetName>')
-            .option('--assetPath <assetPath>')
-            .parse()
-            .opts<ReleaseAssetUploaderOptionValues>();
+        return ReleaseAssetUploaderOptionValues.parse();
     }
 
     private async run(context: any | Context): Promise<void> {
