@@ -10,8 +10,10 @@
     "build-installer": "ts-node build-installer",
     "mpmaps-updater": "ts-node mpmaps-updater",
     "version-writer": "ts-node version-writer",
+    "publish-release": "ts-node publish-release",
     "test-release-asset-uploader": "ts-node release-asset-uploader/test.ts",
-    "test-release-tag-validator": "ts-node release-tag-validator/test.ts"
+    "test-release-tag-validator": "ts-node release-tag-validator/test.ts",
+    "test-publish-release": "ts-node publish-release/test.ts"
   },
   "author": "",
   "license": "ISC",
@@ -21,7 +23,9 @@
     "@octokit/core": "^4.2.0",
     "@types/node": "^18.14.0",
     "commander": "^10.0.0",
+    "irc": "^0.5.2",
     "js-ini": "^1.6.0",
+    "ssh2": "^1.11.0",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.2",
     "twig": "^1.16.0",

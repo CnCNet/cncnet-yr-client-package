@@ -14,7 +14,7 @@ on:
   release:
     types: [ published ]
   
-  # Allows for this workflow to be ru manually
+  # Allows for this workflow to be run manually
   workflow_dispatch:
 
 jobs:
@@ -126,7 +126,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           passphrase: ${{ secrets.SSH_PASS }}
-          key: ${{ secrets.SSH_KEY2 }}
+          key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           overwrite: true
           source: "package.tar.gz"
@@ -139,7 +139,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           passphrase: ${{ secrets.SSH_PASS }}
-          key: ${{ secrets.SSH_KEY2 }}
+          key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}
@@ -160,7 +160,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           passphrase: ${{ secrets.SSH_PASS }}
-          key: ${{ secrets.SSH_KEY2 }}
+          key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd ${{ secrets.SSH_PATH_GAMES_YR }}
