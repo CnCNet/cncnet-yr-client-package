@@ -68,7 +68,7 @@ export class PublishReleaseService extends AbstractRepoService<PublishReleaseOpt
 
         await sshClient.executeCommands([
             `cd ${this.options.yrGamePath}`,
-            `ln -sfn updates/${releaseVersion} live2`
+            `ln -sfn updates/${releaseVersion} live`
         ]);
     }
 
