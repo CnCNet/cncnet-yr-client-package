@@ -87,8 +87,8 @@ export class PublishReleaseService extends AbstractRepoService<PublishReleaseOpt
             password: this.options.ircPassword,
             realName: this.options.ircRealName
         });
-
-        await ircClientService.postUpdateMessage(this.options.ircChannel, releaseVersion);
+        const channel = `#${this.options.ircChannel}`;
+        await ircClientService.postUpdateMessage(channel, releaseVersion);
     }
 
     /**

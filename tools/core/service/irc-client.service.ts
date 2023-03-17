@@ -32,7 +32,7 @@ export class IrcClientService {
                 const updateMessage = `UPDATE ${releaseVersion}`;
                 console.log('Channel joined.');
                 console.log(`Sending update message: ${updateMessage}...`)
-                client.ctcp('#cncnet-yr-games', null, updateMessage);
+                client.ctcp(channel, null, updateMessage);
                 console.log('Disconnecting...');
                 client.disconnect();
             });
