@@ -1,0 +1,28 @@
+name: publish-release
+
+on:
+  # Only run this workflow manually
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: cncnet
+
+    steps:
+      # Checkout the repo
+      - name: Checkout repo
+        uses: actions/checkout@v3
+  
+      - name: Install Tools NPM Libs
+        working-directory: tools
+        run: npm install
+  
+      # This looks for the latest release in our repo and does the following: 
+      # - updates our /live mirror path to point to it
+      # - posts an update message to an IRC channel notifying user clients of the newly published update
+      - name: Publish Latest Release
+        working-directory: tools
+        run: npm run publish-release -- --token ${{ secrets.GITHUB_TOKEN }} --sshHost ${{ secrets.SSH_HOST }} --sshUsername ${{ secrets.SSH_USER }} --sshPort ${{ secrets.SSH_PORT }} --sshPassphrase ${{ secrets.SSH_PASS }} --sshKeyBase64 ${{ secrets.SSH_KEY_BASE64 }} --yrGamePath ${{ secrets.SSH_PATH_GAMES_YR }} --ircServer ${{ secrets.IRC_SERVER }} --ircChannel ${{ secrets.IRC_CHANNEL }} --ircNick ${{ secrets.IRC_NICK }} --ircUserName ${{ secrets.IRC_USERNAME }} --ircPassword ${{ secrets.IRC_PASSWORD }} --ircRealName ${{ secrets.IRC_REALNAME }}
+      
+    

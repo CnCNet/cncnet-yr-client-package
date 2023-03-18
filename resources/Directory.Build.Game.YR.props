@@ -1,4 +1,8 @@
-﻿<!--  -->
+﻿<!--  
+Put this file into the root of the xna-cncnet-client repository before building it.
+When you build the client, this will copy over all necessary YR resources into the output path
+so that the client starts up with the YR theme.
+-->
 <Project>
     <Target Name="CopyYRResources" AfterTargets="PrepareForRun" Condition="$(ProjectName) == 'DXMainClient'">
         <PropertyGroup>
@@ -21,7 +25,7 @@
             -->
             <YRGameInstallSource></YRGameInstallSource>
 
-            <YRStartupPath>$(OutputPath)..\..</YRStartupPath>
+            <YRStartupPath>$(OutputPath)..\..\..</YRStartupPath>
         </PropertyGroup>
         <ItemGroup Label="Game Install Resources" Condition="'$(YRGameInstallSource)' != ''">
             <YRGameInstallResources Include="$(YRGameInstallSource)\**\*.*"/>
