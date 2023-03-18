@@ -1,5 +1,5 @@
 import { AbstractRepoService, IrcClientService, SshClientService } from '@cncnet-core/service';
-import { PublishReleaseOptionValues } from '@cncnet-core/class';
+import { IrcServerConfig, PublishReleaseOptionValues } from '@cncnet-core/class';
 import { Context } from '@actions/github/lib/context';
 
 const tagRegex = /^yr-(?<major>\d+).(?<minor>\d+)(?:\.(?<patch>\d+))*$/;
@@ -21,8 +21,7 @@ export class PublishReleaseService extends AbstractRepoService<PublishReleaseOpt
     private async run(context: any | Context): Promise<void> {
         const releaseVersion = await this.getLatestReleaseNumber(context);
 
-        await this.publishReleaseVersion(releaseVersion);
-
+        await this.publishReleaseVersionOnServer(releaseVersion);
         await this.postIrcUpdateMessage(releaseVersion);
     }
 
@@ -57,7 +56,7 @@ export class PublishReleaseService extends AbstractRepoService<PublishReleaseOpt
      * @param releaseVersion
      * @private
      */
-    private async publishReleaseVersion(releaseVersion: string): Promise<void> {
+    private async publishReleaseVersionOnServer(releaseVersion: string): Promise<void> {
         const sshClient = new SshClientService({
             host: this.options.sshHost,
             port: this.options.sshPort,
@@ -68,7 +67,7 @@ export class PublishReleaseService extends AbstractRepoService<PublishReleaseOpt
 
         await sshClient.executeCommands([
             `cd ${this.options.yrGamePath}`,
-            `ln -sfn updates/${releaseVersion} live`
+            `ln -sfn updates/${releaseVersion} live2`
         ]);
     }
 
@@ -80,15 +79,15 @@ export class PublishReleaseService extends AbstractRepoService<PublishReleaseOpt
      * @private
      */
     private async postIrcUpdateMessage(releaseVersion: string): Promise<void> {
-        const ircClientService = new IrcClientService({
+        const config: IrcServerConfig = {
             server: this.options.ircServer,
             userName: this.options.ircUserName,
             nick: this.options.ircNick,
             password: this.options.ircPassword,
             realName: this.options.ircRealName
-        });
+        };
         const channel = `#${this.options.ircChannel}`;
-        await ircClientService.postUpdateMessage(channel, releaseVersion);
+        await new IrcClientService(config, channel, releaseVersion).postUpdateMessage();
     }
 
     /**
