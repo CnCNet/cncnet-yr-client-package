@@ -1,2 +1,2 @@
 #!/bin/sh
-wine gamemd-spawn.exe $*
+${WINE:=wine} gamemd-spawn.exe $*
