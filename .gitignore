@@ -21,3 +21,6 @@ version_u
 /tools/node_modules
 /CnCNet5_YR_Installer.exe
 /package.tar.gz
+/package/Map Editor/
+/package/Resources/Yuri Theme/MainMenuTheme.bak
+/package/Client/
