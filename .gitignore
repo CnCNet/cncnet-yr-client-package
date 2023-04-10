@@ -20,3 +20,6 @@ version_u
 .idea/*
 /CnCNet5_YR_Installer.exe
 /package.tar.gz
+/package/Map Editor/
+/package/Resources/Yuri Theme/MainMenuTheme.bak
+/package/Client/
