@@ -15,7 +15,7 @@ RA2MD.ini
 spawn.ini
 spawnmap.ini
 version_u
-/Client/*
+/package/Client/
 .idea
 .idea/*
 /tools/node_modules
