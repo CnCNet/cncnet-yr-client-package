@@ -85,7 +85,9 @@ export class IniFile {
      * Gets the [Basic] section of the file. This is most commonly used for .map files.
      */
     public getBasicSection(): IniValue {
-        return this.data['Basic'];
+        let iniValue = this.data['Basic'];
+        iniValue['Description'] = iniValue['Name'];
+        return iniValue
     }
 
     /**

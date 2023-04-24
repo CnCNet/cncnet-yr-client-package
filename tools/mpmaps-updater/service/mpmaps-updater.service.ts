@@ -43,7 +43,7 @@ export class MpMapsUpdaterService {
     private async getNewMapSection(mapIniFile: IniFile): Promise<any> {
         const newSection = Object.assign({}, mapIniFile.getMapSection() || {}, mapIniFile.getBasicSection() || {}, mapIniFile);
         const waypoints = mapIniFile.getWaypointsSectionValues();
-        for (let i = 0; i < waypoints.length; i++) {
+        for (let i = 0; i < 8; i++) {
             newSection[`Waypoint${i}`] = waypoints[i];
         }
 
