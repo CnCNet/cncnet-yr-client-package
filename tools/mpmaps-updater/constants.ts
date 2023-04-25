@@ -41,7 +41,8 @@ const constants = {
         'LocalSize',
         'Waypoint.*',
         'TeamStartMapping.*'
-    ]
+    ],
+    maxWaypoints: 8
 };
 
 export { constants };

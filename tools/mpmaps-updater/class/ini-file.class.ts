@@ -36,7 +36,7 @@ export class IniFile {
 
     /**
      * Create an instance of this file.
-     * @param filePath the path at which this file should be read from or written to
+     * @param {string} filePath the path at which this file should be read from or written to
      */
     public static async createAsync(filePath: string): Promise<IniFile> {
         const content = await util.promisify(readFile)(filePath, {
@@ -51,8 +51,8 @@ export class IniFile {
     /**
      * Adds/sets the map section to the file, by header
      * Example: [Maps\Yuri's Revenge\hillbtwn]
-     * @param mpMapKey The key to write, ex: Maps\Yuri's Revenge\hillbtwn
-     * @param iniValue The object to write
+     * @param {string} mpMapKey The key to write, ex: Maps\Yuri's Revenge\hillbtwn
+     * @param {IniValue} iniValue The object to write
      */
     public setMapSection(mpMapKey: string, iniValue: IniValue): void {
         this.data[mpMapKey] = iniValue;
@@ -60,7 +60,7 @@ export class IniFile {
 
     /**
      * Deletes a map section the MPMaps.ini file. This would be done when a map has been removed from the repo.
-     * @param mpMapKey
+     * @param {string} mpMapKey
      */
     public deleteMapSection(mpMapKey: string): void {
         delete this.data[mpMapKey];
@@ -68,7 +68,7 @@ export class IniFile {
 
     /**
      * Sets the object of the entire [MultiMaps] section
-     * @param iniValue
+     * @param {IniValue} iniValue
      */
     public setMultiMapsSection(iniValue: IniValue): void {
         this.data['MultiMaps'] = iniValue;
@@ -76,40 +76,56 @@ export class IniFile {
 
     /**
      * Get the object at the [MultiMaps] section.
+     * @return {IniValue}
      */
     public getMultiMapsSection(): IniValue {
-        return this.data['MultiMaps'];
+        return this.getSection('MultiMaps');
     }
 
     /**
      * Gets the [Basic] section of the file. This is most commonly used for .map files.
+     *
+     * @return {IniValue}
      */
     public getBasicSection(): IniValue {
-        let iniValue = this.data['Basic'];
-        iniValue['Description'] = iniValue['Name'];
-        return iniValue
+        return this.getSection('Basic');
+    }
+
+    /**
+     * Get any data section by name
+     * @param {string} sectionName
+     * @return {IniValue}
+     */
+    public getSection(sectionName: string): IniValue {
+        return this.data[sectionName];
     }
 
     /**
      * Gets the [Waypoints] section of the file. This is most commonly used for .map files.
+     * @return {IniValue}
      */
     public getWaypointsSection(): IniValue {
-        return this.data['Waypoints'];
+        return this.getSection('Waypoints');
     }
 
+    /**
+     * @return {string[]}
+     */
     public getWaypointsSectionValues(): string[] {
         return Object.values(this.getWaypointsSection());
     }
 
     /**
      * Gets the [Map] section of the file. This is most commonly used for .map files.
+     * @return {IniValue}
      */
     public getMapSection(): IniValue {
-        return this.data['Map'];
+        return this.getSection('Map');
     }
 
     /**
      * Gets the values of each key in the [MultiMaps] section
+     * @return {string[]}
      */
     public getMultiMapsValues(): string[] {
         return Object.values(this.getMultiMapsSection());
@@ -118,13 +134,16 @@ export class IniFile {
     /**
      * Can be used to generate the key used for a given map.
      * Example: Maps\Yuri's Revenge\hillbtwn
+     * @return {string}
      */
     public get mpMapsKey(): string {
         return this.filePath.slice(constants.paths.package.length + 1, -this.fileExt.length);
     }
 
+    /**
+     * @return {string}
+     */
     public getPackageRelativePath(): string {
         return this.filePath.slice(constants.paths.package.length + 1);
     }
-
 }
