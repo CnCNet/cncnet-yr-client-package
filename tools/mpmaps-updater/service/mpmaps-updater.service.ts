@@ -38,12 +38,36 @@ export class MpMapsUpdaterService {
         console.log('Merging MPMaps.ini file with .map files');
         await this.addNewMapIniFiles(mpMapsIniFile, mapIniFiles);
         await this.removeMissingMaps(mpMapsIniFile, mapIniFiles);
+        await this.updateMultiMaps(mpMapsIniFile);
+    }
+
+    private async updateMultiMaps(mpMapsIniFile: IniFile): Promise<void> {
+        const sortKey = 'Description';
+        const sortedMapSections = mpMapsIniFile.getMultiMapsValues().map(mapKey => {
+            // create simple array of objects for each map key and the map section in the MPMaps.ini file
+            return {
+                mapKey,
+                section: mpMapsIniFile.getSection(mapKey)
+            }
+        }).sort((mapObjA: any, mapObjB: any) => {
+            // sort the simple array by "sortKey" above
+            if (mapObjA.section[sortKey] === mapObjB.section[sortKey])
+                return 0;
+            return mapObjA.section[sortKey] > mapObjB.section[sortKey] ? 1 : -1;
+        });
+
+        const multiMapsSection = {}
+        for (let i = 0; i < sortedMapSections.length; i++) {
+            multiMapsSection[i] = sortedMapSections[i].mapKey;
+        }
+
+        mpMapsIniFile.setMultiMapsSection(multiMapsSection);
     }
 
     private async getNewMapSection(mapIniFile: IniFile): Promise<any> {
         const newSection = Object.assign({}, mapIniFile.getMapSection() || {}, mapIniFile.getBasicSection() || {}, mapIniFile);
         const waypoints = mapIniFile.getWaypointsSectionValues();
-        for (let i = 0; i < waypoints.length; i++) {
+        for (let i = 0; i < constants.maxWaypoints; i++) {
             newSection[`Waypoint${i}`] = waypoints[i];
         }
 
@@ -57,6 +81,8 @@ export class MpMapsUpdaterService {
         newSection['MinPlayers'] = newSection['MinPlayer'];
         newSection['MaxPlayers'] = newSection['MaxPlayer'];
         newSection['EnforceMaxPlayers'] = newSection['true'];
+        newSection['Description'] = newSection['Name'];
+        delete newSection['Name'];
 
         // only pull properties that we've whitelisted
         for (let key of Object.keys(newSection)) {
@@ -93,6 +119,7 @@ export class MpMapsUpdaterService {
         const mpMapKeys = mpMapsIniFile.getMultiMapsValues();
         const addedMapKeys = mapKeys.filter(mapKey => mpMapKeys.indexOf(mapKey) === -1);
         const addedMapIniFiles = mapIniFiles.filter(m => addedMapKeys.indexOf(m.mpMapsKey) !== -1);
+        const combinedMapKeys = mpMapKeys.concat(addedMapKeys);
 
         if (!addedMapIniFiles.length) {
             console.log('No maps added');
@@ -149,13 +176,6 @@ export class MpMapsUpdaterService {
             mpMapsIniFile.deleteMapSection(missingMapKey);
         }
 
-        const multiMapsSection = {};
-        for (let i = 0; i < currentMapKeys.length; i++) {
-            multiMapsSection[i] = currentMapKeys[i];
-        }
-
-        console.log('Updating [MultiMap] section');
-        mpMapsIniFile.setMultiMapsSection(multiMapsSection);
     }
 
     /**

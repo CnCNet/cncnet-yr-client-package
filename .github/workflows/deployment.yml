@@ -66,8 +66,11 @@ jobs:
         run: npm run version-writer
 
       # Create package archive
-      - name: Create package artifact
+      - name: Create package artifact (tar)
         run: tar -C ./package -czvf package.tar.gz .
+        
+      - name: Create package artifact (zip)
+        run: 7z.exe a package.zip ./package
 
       # Create installer
       - name: Build Installer
@@ -90,19 +93,26 @@ jobs:
           path: ./CnCNet5_YR_Installer.exe
           if-no-files-found: error
 
-      # Upload package archive to any relevant releases for current tag
+      # Upload package archive (tar) to any relevant releases for current tag
       # If there is no release/tag, this will not do anything
-      - name: Upload Package Release Asset
+      - name: Upload Package Release Asset (tar)
         if: github.event_name == 'release'
         working-directory: tools
-        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName package_${{env.GitVersion_SemVer}}.tar.gz --assetPath ../package.tar.gz
+        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName package_${{env.GitVersion_SemVer}} (tar) --assetPath ../package.tar.gz
 
+      # Upload package archive (zip) to any relevant releases for current tag
+      # If there is no release/tag, this will not do anything
+      - name: Upload Package Release Asset (zip)
+        if: github.event_name == 'release'
+        working-directory: tools
+        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName package_${{env.GitVersion_SemVer}} (zip) --assetPath ../package.zip
+        
       # Upload installer to any relevant releases for current tag
       # If there is no release/tag, this will not do anything
       - name: Upload Installer Release Asset
         if: github.event_name == 'release'
         working-directory: tools
-        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName CnCNet5_YR_Installer_${{env.GitVersion_SemVer}}.exe --assetPath ../CnCNet5_YR_Installer.exe
+        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName CnCNet5_YR_Installer_${{env.GitVersion_SemVer}} (exe) --assetPath ../CnCNet5_YR_Installer.exe
 
   # This job downloads the package artifact from the previous job and deploys it to the server.
   deploy-package:
