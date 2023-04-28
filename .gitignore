@@ -15,8 +15,9 @@ RA2MD.ini
 spawn.ini
 spawnmap.ini
 version_u
-/Client/*
+/package/Client/
 .idea
 .idea/*
 /CnCNet5_YR_Installer.exe
 /package.tar.gz
+/Client/
