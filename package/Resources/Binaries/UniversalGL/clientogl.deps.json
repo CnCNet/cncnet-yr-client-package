@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {
-      "clientogl/2.8.0-beta0196": {
+      "clientogl/2.8.0-beta0210": {
         "dependencies": {
           "DTAConfig": "2.2.0",
           "DiscordRichPresence": "1.1.3.18",
@@ -21,15 +21,15 @@
           "clientogl.dll": {}
         }
       },
-      "CnCNet.ClientUpdater/1.0.11": {
+      "CnCNet.ClientUpdater/1.0.12": {
         "dependencies": {
           "Microsoft.AspNet.WebApi.Client": "5.2.9",
           "Rampastring.Tools": "2.0.4"
         },
         "runtime": {
           "lib/net7.0/ClientUpdater.dll": {
-            "assemblyVersion": "1.0.11.0",
-            "fileVersion": "1.0.11.0"
+            "assemblyVersion": "1.0.12.0",
+            "fileVersion": "1.0.12.0"
           }
         }
       },
@@ -563,17 +563,17 @@
           }
         }
       },
-      "Rampastring.XNAUI.UniversalGL/2.2.11": {
+      "Rampastring.XNAUI.UniversalGL/2.3.8": {
         "dependencies": {
           "MonoGame.Framework.DesktopGL": "3.8.1.303",
           "Rampastring.Tools": "2.0.4",
           "SixLabors.ImageSharp": "2.1.3",
-          "TextCopy": "6.2.0"
+          "TextCopy": "6.2.1"
         },
         "runtime": {
           "lib/net7.0/Rampastring.XNAUI.UniversalGL.dll": {
-            "assemblyVersion": "2.2.11.0",
-            "fileVersion": "2.2.11.0"
+            "assemblyVersion": "2.3.8.0",
+            "fileVersion": "2.3.8.0"
           }
         }
       },
@@ -1334,7 +1334,7 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "TextCopy/6.2.0": {
+      "TextCopy/6.2.1": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
         },
@@ -1347,8 +1347,8 @@
       },
       "ClientCore/2.0.0.3": {
         "dependencies": {
-          "Localization": "1.0.0",
-          "Rampastring.XNAUI.UniversalGL": "2.2.11",
+          "Rampastring.Tools": "2.0.4",
+          "Rampastring.XNAUI.UniversalGL": "2.3.8",
           "System.Text.Encoding.CodePages": "7.0.0"
         },
         "runtime": {
@@ -1366,34 +1366,26 @@
       "DTAConfig/2.2.0": {
         "dependencies": {
           "ClientGUI": "2.1.0.1",
-          "CnCNet.ClientUpdater": "1.0.11"
+          "CnCNet.ClientUpdater": "1.0.12"
         },
         "runtime": {
           "DTAConfig.dll": {}
-        }
-      },
-      "Localization/1.0.0": {
-        "dependencies": {
-          "Rampastring.Tools": "2.0.4"
-        },
-        "runtime": {
-          "Localization.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "clientogl/2.8.0-beta0196": {
+    "clientogl/2.8.0-beta0210": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "CnCNet.ClientUpdater/1.0.11": {
+    "CnCNet.ClientUpdater/1.0.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aAYylZKi8SeZIQyfvDVr7+rNmQOgkhE9hpw/qOj+DmJ/G5wNdtdhxsMFsqyhDL0HUHnPKfKJrMqPiGxzMmIc4Q==",
-      "path": "cncnet.clientupdater/1.0.11",
-      "hashPath": "cncnet.clientupdater.1.0.11.nupkg.sha512"
+      "sha512": "sha512-N6wV9DSac8SskkBKNsI0Le3KMndmscX44rHS+GY4vnayrr+YU88TWGyTi9/uP0ofHZcDZEU4GpVffw95O22iyg==",
+      "path": "cncnet.clientupdater/1.0.12",
+      "hashPath": "cncnet.clientupdater.1.0.12.nupkg.sha512"
     },
     "DiscordRichPresence/1.1.3.18": {
       "type": "package",
@@ -1675,12 +1667,12 @@
       "path": "rampastring.tools/2.0.4",
       "hashPath": "rampastring.tools.2.0.4.nupkg.sha512"
     },
-    "Rampastring.XNAUI.UniversalGL/2.2.11": {
+    "Rampastring.XNAUI.UniversalGL/2.3.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vZgLwYfNR+T+Mi5gUoMedJTr7yYbHeAoCWdp9PDe1V6uJL++88CEuJq/aRKQDYJv9vMgUvkBp7zf9k2n+2dRQA==",
-      "path": "rampastring.xnaui.universalgl/2.2.11",
-      "hashPath": "rampastring.xnaui.universalgl.2.2.11.nupkg.sha512"
+      "sha512": "sha512-xoRV7NXLPQ9VL78AEia56HogQ1Vzt1LvNIQ3JF0oJ8LALgDWJ+xMzpTpMY0fTmc/s0sIRkIfX6Kz8XnefaDLWA==",
+      "path": "rampastring.xnaui.universalgl/2.3.8",
+      "hashPath": "rampastring.xnaui.universalgl.2.3.8.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
@@ -2263,12 +2255,12 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "TextCopy/6.2.0": {
+    "TextCopy/6.2.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mpl+ssTDgROzmSkAoivi8HJdrEh5QCpXScP/vW2qIugfbaPI9eDNxbxxWDosVmKJSh4dfsALsSKqD6EJbE9awQ==",
-      "path": "textcopy/6.2.0",
-      "hashPath": "textcopy.6.2.0.nupkg.sha512"
+      "sha512": "sha512-ryejViUBmHQ2XMie2AiRBn7KVKu2Gh/hqrctGSAUf1BufwfPjr+MWuACNBaiG+40TMbWRDJZgV73Tpl9hggeRw==",
+      "path": "textcopy/6.2.1",
+      "hashPath": "textcopy.6.2.1.nupkg.sha512"
     },
     "ClientCore/2.0.0.3": {
       "type": "project",
@@ -2281,11 +2273,6 @@
       "sha512": ""
     },
     "DTAConfig/2.2.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Localization/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
