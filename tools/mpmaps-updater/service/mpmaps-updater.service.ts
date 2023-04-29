@@ -66,8 +66,10 @@ export class MpMapsUpdaterService {
 
     private async getNewMapSection(mapIniFile: IniFile): Promise<any> {
         const newSection = Object.assign({}, mapIniFile.getMapSection() || {}, mapIniFile.getBasicSection() || {}, mapIniFile);
+        const headerSection = mapIniFile.getHeaderSection() || {};
+        const maxWaypoints = parseInt(headerSection['NumberStartingPoints']) || constants.maxWaypoints;
         const waypoints = mapIniFile.getWaypointsSectionValues();
-        for (let i = 0; i < constants.maxWaypoints; i++) {
+        for (let i = 0; i < maxWaypoints; i++) {
             newSection[`Waypoint${i}`] = waypoints[i];
         }
 
@@ -119,7 +121,6 @@ export class MpMapsUpdaterService {
         const mpMapKeys = mpMapsIniFile.getMultiMapsValues();
         const addedMapKeys = mapKeys.filter(mapKey => mpMapKeys.indexOf(mapKey) === -1);
         const addedMapIniFiles = mapIniFiles.filter(m => addedMapKeys.indexOf(m.mpMapsKey) !== -1);
-        const combinedMapKeys = mpMapKeys.concat(addedMapKeys);
 
         if (!addedMapIniFiles.length) {
             console.log('No maps added');

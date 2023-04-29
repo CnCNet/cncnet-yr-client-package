@@ -92,6 +92,15 @@ export class IniFile {
     }
 
     /**
+     * Gets the [Header] section of the file. This is most commonly used for .map files.
+     *
+     * @return {IniValue}
+     */
+    public getHeaderSection(): IniValue {
+        return this.getSection('Header');
+    }
+
+    /**
      * Get any data section by name
      * @param {string} sectionName
      * @return {IniValue}
