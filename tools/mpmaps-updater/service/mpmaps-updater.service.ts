@@ -49,6 +49,10 @@ export class MpMapsUpdaterService {
                 mapKey,
                 section: mpMapsIniFile.getSection(mapKey)
             }
+        }).filter((mapObj: any): boolean => {
+            // map may have been previously removed, but still exists in [MultiMaps] for now
+            // that section gets updated below after this sorting
+            return !!mapObj.section;
         }).sort((mapObjA: any, mapObjB: any) => {
             // sort the simple array by "sortKey" above
             if (mapObjA.section[sortKey] === mapObjB.section[sortKey])
