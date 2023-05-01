@@ -86,7 +86,7 @@ export class MpMapsUpdaterService {
         newSection['GameModes'] = newSection['GameMode'];
         newSection['MinPlayers'] = newSection['MinPlayer'];
         newSection['MaxPlayers'] = newSection['MaxPlayer'];
-        newSection['EnforceMaxPlayers'] = 'true';
+        newSection['EnforceMaxPlayers'] = 'True';
         newSection['Description'] = newSection['Name'];
         delete newSection['Name'];
 
