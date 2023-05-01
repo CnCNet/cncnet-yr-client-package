@@ -1,8 +1,10 @@
-import { access, constants as fsConstants } from 'fs';
+import { access, constants as fsConstants, readFile, writeFileSync } from 'fs';
 import { constants } from '../constants';
 import { MapLoaderService } from './map-loader.service';
 import { IniFile } from '../class';
 import { SortedMapSection } from '../interface';
+import * as util from 'util';
+import { IIniObject, parse as parseIni, stringify } from 'js-ini';
 
 export class MpMapsUpdaterService {
     public static run(): void {
@@ -174,6 +176,7 @@ export class MpMapsUpdaterService {
 
         console.log(`${missingMapKeys.length} map(s) being removed`);
         await this.removeMissingMapKeys(mpMapsIniFile, mpMapKeys, missingMapKeys);
+        await this.addRemovedMapsToUpdateExec(missingMapKeys);
 
         return missingMapKeys;
     }
@@ -191,7 +194,52 @@ export class MpMapsUpdaterService {
             console.log(`Clearing map key from MPMaps.ini: '${missingMapKey}'`);
             mpMapsIniFile.deleteMapSection(missingMapKey);
         }
+    }
 
+    /**
+     * This adds entries to the updateexec file in the [Delete] section for all removed maps
+     * @param {string[]} missingMapKeys
+     */
+    private async addRemovedMapsToUpdateExec(missingMapKeys: string[]): Promise<void> {
+        const updateExecIniFile = await this.getUpdateExecIniFile();
+        const deleteFiles = updateExecIniFile[constants.updateExecSections.deleteFile] as string[];
+        const keysToAdd = missingMapKeys.map(key => [
+            `${key}.map`,
+            `${key}.png`
+        ]).flat();
+        
+        for (let mapKey of keysToAdd) {
+            deleteFiles.push(mapKey);
+        }
+
+        updateExecIniFile[constants.updateExecSections.deleteFile] = deleteFiles;
+        
+        await this.writeUpdateExecIniFile(updateExecIniFile);
+    }
+
+    /**
+     * Get the content of the existing updateexec file as an IIniObject
+     */
+    private async getUpdateExecIniFile(): Promise<IIniObject> {
+        const updateExecContent = await util.promisify(readFile)(constants.paths.updateExec, {
+            encoding: 'utf-8'
+        });
+        return parseIni(updateExecContent, {
+            autoTyping: false,
+            dataSections: [
+                constants.updateExecSections.deleteFile,
+                constants.updateExecSections.deleteFolder
+            ]
+        });
+    }
+
+    /**
+     * Write out data to the updateexec file
+     * @param {IIniObject} data
+     */
+    private async writeUpdateExecIniFile(data: IIniObject): Promise<void> {
+        const updateExecContent = stringify(data, {}).trim();
+        writeFileSync(constants.paths.updateExec, updateExecContent, 'utf8');
     }
 
     /**
