@@ -145,7 +145,7 @@ export class IniFile {
      * Example: Maps\Yuri's Revenge\hillbtwn
      * @return {string}
      */
-    public get mpMapsKey(): string {
+    public getMpMapsKey(): string {
         return this.filePath.slice(constants.paths.package.length + 1, -this.fileExt.length);
     }
 
