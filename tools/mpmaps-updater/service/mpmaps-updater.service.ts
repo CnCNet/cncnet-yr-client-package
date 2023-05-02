@@ -2,6 +2,7 @@ import { access, constants as fsConstants } from 'fs';
 import { constants } from '../constants';
 import { MapLoaderService } from './map-loader.service';
 import { IniFile } from '../class';
+import { SortedMapSection } from '../interface';
 
 export class MpMapsUpdaterService {
     public static run(): void {
@@ -36,23 +37,30 @@ export class MpMapsUpdaterService {
      */
     private async mergeMapsKeys(mpMapsIniFile: IniFile, mapIniFiles: IniFile[]): Promise<void> {
         console.log('Merging MPMaps.ini file with .map files');
-        await this.addNewMapIniFiles(mpMapsIniFile, mapIniFiles);
-        await this.removeMissingMaps(mpMapsIniFile, mapIniFiles);
-        await this.updateMultiMaps(mpMapsIniFile);
+        const addedMapFiles: IniFile[] = await this.addNewMapIniFiles(mpMapsIniFile, mapIniFiles);
+        const removedMapKeys: string[] = await this.removeMissingMaps(mpMapsIniFile, mapIniFiles);
+        await this.updateMultiMaps(mpMapsIniFile, addedMapFiles, removedMapKeys);
     }
 
-    private async updateMultiMaps(mpMapsIniFile: IniFile): Promise<void> {
-        const sortKey = 'Description';
-        const sortedMapSections = mpMapsIniFile.getMultiMapsValues().map(mapKey => {
+    private async updateMultiMaps(mpMapsIniFile: IniFile, addedMapIniFiles: IniFile[], removedMapKeys: string[]): Promise<void> {
+        const addedMapKeys = addedMapIniFiles.map(m => m.getMpMapsKey());
+        const allMapKeys = mpMapsIniFile
+            // get all existing map keys from [MultiMaps]
+            .getMultiMapsValues()
+            // filter out those that were removed
+            .filter(mpMapKey => removedMapKeys.indexOf(mpMapKey) === -1)
+            // add new ones
+            .concat(addedMapKeys);
+
+        // This is the property of each map that we sort on when ordering them in the [MultiMaps] section.
+        // This will also dictate how they are default sorted in the client game lobby.
+        const sortKey: string = 'Description';
+        const sortedMapSections: SortedMapSection[] = allMapKeys.map(mapKey => {
             // create simple array of objects for each map key and the map section in the MPMaps.ini file
             return {
                 mapKey,
                 section: mpMapsIniFile.getSection(mapKey)
             }
-        }).filter((mapObj: any): boolean => {
-            // map may have been previously removed, but still exists in [MultiMaps] for now
-            // that section gets updated below after this sorting
-            return !!mapObj.section;
         }).sort((mapObjA: any, mapObjB: any) => {
             // sort the simple array by "sortKey" above
             if (mapObjA.section[sortKey] === mapObjB.section[sortKey])
@@ -60,7 +68,7 @@ export class MpMapsUpdaterService {
             return mapObjA.section[sortKey] > mapObjB.section[sortKey] ? 1 : -1;
         });
 
-        const multiMapsSection = {}
+        const multiMapsSection: { [key: number]: string } = {}
         for (let i = 0; i < sortedMapSections.length; i++) {
             multiMapsSection[i] = sortedMapSections[i].mapKey;
         }
@@ -119,52 +127,55 @@ export class MpMapsUpdaterService {
         return gameMode.split(/\s+/).map(a => `${a.slice(0, 1).toUpperCase()}${a.slice(1)}`).join(' ');
     }
 
-    private async addNewMapIniFiles(mpMapsIniFile: IniFile, mapIniFiles: IniFile[]): Promise<void> {
+    private async addNewMapIniFiles(mpMapsIniFile: IniFile, mapIniFiles: IniFile[]): Promise<IniFile[]> {
         console.log('Checking for added maps');
-        const mapKeys = mapIniFiles.map(m => m.mpMapsKey);
         const mpMapKeys = mpMapsIniFile.getMultiMapsValues();
-        const addedMapKeys = mapKeys.filter(mapKey => mpMapKeys.indexOf(mapKey) === -1);
-        const addedMapIniFiles = mapIniFiles.filter(m => addedMapKeys.indexOf(m.mpMapsKey) !== -1);
+        // find all map files that so not have an entry in MPMaps.ini [MultiMaps] OR do not have a section of their own in MPMaps.ini
+        const addedMapIniFiles = mapIniFiles.filter(m => mpMapKeys.indexOf(m.getMpMapsKey()) === -1 || !mpMapsIniFile.getSection(m.getMpMapsKey()));
 
         if (!addedMapIniFiles.length) {
             console.log('No maps added');
-            return;
+            return [];
         }
 
         console.log(`${addedMapIniFiles.length} new map(s) found`);
         for (let addedMapIniFile of addedMapIniFiles) {
             await this.addNewMapIniFile(mpMapsIniFile, addedMapIniFile);
         }
+
+        return addedMapIniFiles;
     }
 
     private async addNewMapIniFile(mpMapsIniFile: IniFile, mapIniFile: IniFile): Promise<void> {
         console.log(`Adding new map '${mapIniFile.getPackageRelativePath()}'`);
         const newMapSection = await this.getNewMapSection(mapIniFile);
 
-        const mpMapsKey = mapIniFile.mpMapsKey;
-        console.log(`Adding map key to MPMaps.ini: '${mpMapsKey}'`);
+        const mpMapsKey = mapIniFile.getMpMapsKey();
+        console.log(`Adding map section to MPMaps.ini: '${mpMapsKey}'`);
         mpMapsIniFile.setMapSection(mpMapsKey, newMapSection);
     }
 
     /**
      * If .map files are removed from the repo, we must also remove them from the MPMaps.ini file.
-     * @param mpMapsIniFile the file to remove maps from
-     * @param mapIniFiles the list of maps found on the system
-     * @private
+     * @param {IniFile} mpMapsIniFile the file to remove maps from
+     * @param {IniFile[]} mapIniFiles the list of maps found on the system
+     * @return {string[]} missing map keys
      */
-    private async removeMissingMaps(mpMapsIniFile: IniFile, mapIniFiles: IniFile[]): Promise<void> {
+    private async removeMissingMaps(mpMapsIniFile: IniFile, mapIniFiles: IniFile[]): Promise<string[]> {
         console.log('Checking for removed maps');
-        const mapKeys = mapIniFiles.map(m => m.mpMapsKey);
+        const mapKeys = mapIniFiles.map(m => m.getMpMapsKey());
         const mpMapKeys = mpMapsIniFile.getMultiMapsValues();
         const missingMapKeys = mpMapKeys.filter(mapKey => mapKeys.indexOf(mapKey) === -1);
 
         if (!missingMapKeys.length) {
             console.log('No maps removed');
-            return;
+            return [];
         }
 
         console.log(`${missingMapKeys.length} map(s) being removed`);
         await this.removeMissingMapKeys(mpMapsIniFile, mpMapKeys, missingMapKeys);
+
+        return missingMapKeys;
     }
 
     /**
