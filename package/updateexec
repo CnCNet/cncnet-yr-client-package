@@ -311,14 +311,25 @@ Maps\Yuri's Revenge\Battle\4_well_of_wealth.map
 Maps\Yuri's Revenge\Battle\4_well_of_wealth.png
 Resources\Binaries\DTAUpdater.dll
 Resources\Binaries\Ionic.Zip.dll
+Resources\Binaries\CnCNetServices.dll
+Resources\Binaries\MapThumbnailExtractor.dll
+Resources\Binaries\RestSharp.dll
 Resources\Binaries\OpenGL\libopenal.1.dylib
 Resources\Binaries\OpenGL\libSDL2-2.0.0.dylib
 Resources\Binaries\OpenGL\Localization.dll
 Resources\Binaries\OpenGL\Rampastring.XNAUI.dll
+Resources\Binaries\OpenGL\NVorbis.dll
+Resources\Binaries\OpenGL\OpenTK.dll
+Resources\Binaries\OpenGL\Rampastring.Tools.dll
 Resources\Binaries\Windows\Localization.dll
 Resources\Binaries\Windows\Rampastring.XNAUI.dll
+Resources\Binaries\Windows\DTAUpdater.dll
+Resources\Binaries\Windows\Rampastring.Tools.dll
+Resources\Binaries\Windows\SharpDX.RawInput.dll
 Resources\Binaries\XNA\Localization.dll
 Resources\Binaries\XNA\Rampastring.XNAUI.dll
+Resources\Binaries\XNA\DTAUpdater.dll
+Resources\Binaries\XNA\Rampastring.Tools.dll
 Resources\clientdx.exe
 Resources\clientogl.exe
 Resources\clientxna.exe
