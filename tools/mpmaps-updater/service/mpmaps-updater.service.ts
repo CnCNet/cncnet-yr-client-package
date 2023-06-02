@@ -63,6 +63,9 @@ export class MpMapsUpdaterService {
                 mapKey,
                 section: mpMapsIniFile.getSection(mapKey)
             }
+        }).filter((m, index, allMaps) => {
+            // create unique array
+            return allMaps.findIndex(_m => _m.mapKey === m.mapKey) === index;
         }).sort((mapObjA: any, mapObjB: any) => {
             // sort the simple array by "sortKey" above
             if (mapObjA.section[sortKey] === mapObjB.section[sortKey])
@@ -93,7 +96,8 @@ export class MpMapsUpdaterService {
     private async normalizeSection(newSection: any): Promise<any> {
         console.log('Normalizing new map section');
         // map files declare this as 'GameMode'. MPMaps.ini declares this as 'GameModes'.
-        newSection['GameModes'] = newSection['GameMode'];
+        // newSection['GameModes'] = newSection['GameMode'];
+        newSection['GameModes'] = 'Battle';
         newSection['MinPlayers'] = newSection['MinPlayer'];
         newSection['MaxPlayers'] = newSection['MaxPlayer'];
         newSection['EnforceMaxPlayers'] = 'True';
