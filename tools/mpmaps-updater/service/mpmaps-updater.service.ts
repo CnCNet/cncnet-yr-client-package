@@ -96,9 +96,8 @@ export class MpMapsUpdaterService {
     private async normalizeSection(newSection: any): Promise<any> {
         console.log('Normalizing new map section');
         // map files declare this as 'GameMode'. MPMaps.ini declares this as 'GameModes'.
-        // newSection['GameModes'] = newSection['GameMode'];
-        newSection['GameModes'] = 'Battle';
-        newSection['MinPlayers'] = newSection['MinPlayer'];
+        newSection['GameModes'] = newSection['GameMode'].replace('Standard', 'Battle');
+        newSection['MinPlayers'] = 1;   //allow 1 person to launch the game, to practice/preview the map (this is existing behavior from previous script)
         newSection['MaxPlayers'] = newSection['MaxPlayer'];
         newSection['EnforceMaxPlayers'] = 'True';
         newSection['Description'] = newSection['Name'];
