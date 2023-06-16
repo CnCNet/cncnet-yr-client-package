@@ -6,6 +6,7 @@ const packagePath = resolve(rootPath, 'package');
 const mapsPath = resolve(packagePath, 'Maps');
 const iniPath = resolve(packagePath, 'INI');
 const mpMapsIniPath = resolve(iniPath, 'MPMaps.ini');
+const updateExecPath = resolve(packagePath, 'updateexec');
 
 const constants = {
     regex: {
@@ -25,7 +26,8 @@ const constants = {
         // the /Maps directory
         maps: mapsPath,
         // the path to the /INI/MPMaps.ini file
-        mpMapsIni: mpMapsIniPath
+        mpMapsIni: mpMapsIniPath,
+        updateExec: updateExecPath
     },
     newMapSectionWhitelist: [
         'Name',
@@ -42,7 +44,11 @@ const constants = {
         'Waypoint.*',
         'TeamStartMapping.*'
     ],
-    maxWaypoints: 8
+    maxWaypoints: 8,
+    updateExecSections: {
+        deleteFile: 'Delete',
+        deleteFolder: 'DeleteFolder'
+    }
 };
 
 export { constants };
