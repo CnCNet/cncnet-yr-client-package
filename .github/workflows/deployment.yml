@@ -35,9 +35,15 @@ jobs:
         with:
           fetch-depth: 0 # required for gitversion
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: tools/package-lock.json
+
       - name: Install Tools NPM Libs
         working-directory: tools
-        run: npm install
+        run: npm ci
 
       # This step validates the format of the tag created, if this was a published release.
       # Currently, it must be in the format "yr-X.Y" or "yr-X.Y.Z" 
