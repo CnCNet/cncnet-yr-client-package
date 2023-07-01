@@ -1,4 +1,5 @@
-﻿tag-prefix: 'yr-'
+﻿next-version: 9.0
+tag-prefix: 'yr-'
 mode: ContinuousDeployment
 increment: Patch
 
