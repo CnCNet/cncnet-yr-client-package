@@ -35,16 +35,13 @@ jobs:
         with:
           fetch-depth: 0 # required for gitversion
 
-      - name: Restore NPM Lib Cache
-        id: cache-npm
-        uses: actions/cache@v3
+      - uses: actions/setup-node@v3
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS and c:\npm on Windows
-          path: c:\npm
-          key: npm-${{ hashFiles('tools/package-lock.json') }}
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: tools/package-lock.json
 
-      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-        name: Install Tools NPM Libs
+      - name: Install Tools NPM Libs
         working-directory: tools
         run: npm ci
 
