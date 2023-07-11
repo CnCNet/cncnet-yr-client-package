@@ -31,6 +31,7 @@
     - This file is very important, it tells the client what maps to display and in what order.
     - Execute this script to automatically update `MpMaps.ini` for you. `\tools\mpmaps-updater\maps-updater.bat`
     - View the output of the bat file to see any warnings or errors.
+    - Open MpMaps.ini and ensure each new map you have inserted is in the file, and double check the GameModes and details.
     
 5. Commit and push
     - When all changes are ready, use git to add the files you added, then commit and push them.
