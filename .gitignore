@@ -3,6 +3,7 @@
 /package/Maps/Custom/*.map
 /package/Maps/Custom/*.png
 /package/Maps/Custom/*.yrm
+/package/VersionWriter.exe
 /package/version
 /package/Qt/QM/
 /package/VersionWriter.exe
