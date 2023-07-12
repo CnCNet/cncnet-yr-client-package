@@ -16,10 +16,11 @@ This package is an add-on to the [XNA CnCNet Client](https://github.com/CnCNet/x
 * [devo1929](https://github.com/devo1929)
 * [Belonit](https://github.com/Belonit)
 * [CCHyper](https://github.com/CCHyper)
+* [ [RU]Polye](https://github.com/bhdrks78)
 
 ### Development
 
-**NOTE:** This is NOT the repository necessary for developing the CNCNET client for Yuri's revenge. That is the **XNA CnCNet Client** mentioned above. This is simply a wrapper for it.
+**NOTE:** This is NOT the repository necessary for developing the CnCNet client for Yuri's revenge. That is the **XNA CnCNet Client** mentioned above. This is simply a wrapper for it.
 
 To contribute to the XNA client for YR, you must also check out the `xna-cncnet-client` repo mentioned above. Once that repo is checked out, you can copy and paste the `Directory.Build.Game.YR.props` file located into the root of the `xna-cncnet-client` checkout location. This file should automatically copy over all necessary resources from this repository to the output directory of the compiled `xna-cncnet-client` executable. Then, when launched, it should do so with with the Yuri's revenge theme.
 
