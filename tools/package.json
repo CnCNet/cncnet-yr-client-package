@@ -11,6 +11,7 @@
     "mpmaps-updater": "ts-node mpmaps-updater",
     "version-writer": "ts-node version-writer",
     "publish-release": "ts-node publish-release",
+    "map-name-case-fix": "ts-node map-name-case-fix",
     "test-release-asset-uploader": "ts-node release-asset-uploader/test.ts",
     "test-release-tag-validator": "ts-node release-tag-validator/test.ts",
     "test-publish-release": "ts-node publish-release/test.ts"

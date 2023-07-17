@@ -5,11 +5,20 @@ import { IniFile } from '../class';
 import { SortedMapSection } from '../interface';
 import * as util from 'util';
 import { IIniObject, parse as parseIni, stringify } from 'js-ini';
+import { MpMapsFileService } from '@cncnet-core/class/mp-maps-file.service';
 
 export class MpMapsUpdaterService {
+
+    private mpMapsIniFileService: MpMapsFileService;
+    private mapLoaderService: MapLoaderService;
+
     public static run(): void {
-        new MpMapsUpdaterService().run()
-            .catch(console.error);
+        new MpMapsUpdaterService().run().catch(console.error);
+    }
+
+    constructor() {
+        this.mpMapsIniFileService = new MpMapsFileService();
+        this.mapLoaderService = new MapLoaderService();
     }
 
     /**
@@ -19,16 +28,11 @@ export class MpMapsUpdaterService {
         console.log('MPMaps.ini updater');
         await this.checkForRequiredFilesAsync();
 
-        const mpMapsIniFile: IniFile = await this.getMpMapsIniFile();
-        const mapIniFiles: IniFile[] = await new MapLoaderService().getMapIniFilesAsync();
+        const mpMapsIniFile: IniFile = await this.mpMapsIniFileService.getMpMapsIniFileAsync();
+        const mapIniFiles: IniFile[] = await this.mapLoaderService.getMapIniFilesAsync();
         await this.mergeMapsKeys(mpMapsIniFile, mapIniFiles);
 
         await mpMapsIniFile.writeAsync();
-    }
-
-    private async getMpMapsIniFile(): Promise<IniFile> {
-        console.log('Reading MPMaps.ini file');
-        return await IniFile.createAsync(constants.paths.mpMapsIni);
     }
 
     /**
@@ -210,13 +214,13 @@ export class MpMapsUpdaterService {
             `${key}.map`,
             `${key}.png`
         ]).flat();
-        
+
         for (let mapKey of keysToAdd) {
             deleteFiles.push(mapKey);
         }
 
         updateExecIniFile[constants.updateExecSections.deleteFile] = deleteFiles;
-        
+
         await this.writeUpdateExecIniFile(updateExecIniFile);
     }
 
