@@ -1,12 +1,7 @@
 import { resolve } from 'path';
+import { coreConstants } from '@cncnet-core/constants';
 
-const rootPath = resolve(__dirname, '../../');
-const toolsPath = resolve(rootPath, 'tools');
-const packagePath = resolve(rootPath, 'package');
-const mapsPath = resolve(packagePath, 'Maps');
-const iniPath = resolve(packagePath, 'INI');
-const mpMapsIniPath = resolve(iniPath, 'MPMaps.ini');
-const updateExecPath = resolve(packagePath, 'updateexec');
+const updateExecPath = resolve(coreConstants.paths.package, 'updateexec');
 
 const constants = {
     regex: {
@@ -17,16 +12,7 @@ const constants = {
         mapName: /^\[\d\] \S.+$/
     },
     paths: {
-        // the root of the repo
-        root: rootPath,
-        // the /tools directory
-        tools: toolsPath,
-        // the /package directory
-        package: packagePath,
-        // the /Maps directory
-        maps: mapsPath,
-        // the path to the /INI/MPMaps.ini file
-        mpMapsIni: mpMapsIniPath,
+        ...coreConstants.paths,
         updateExec: updateExecPath
     },
     newMapSectionWhitelist: [
