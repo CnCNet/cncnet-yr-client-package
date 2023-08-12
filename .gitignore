@@ -1,3 +1,6 @@
+/game-assets/**/*.mix
+package/cncnet.mix
+package/ra2mode.mix
 /package/RA2MD.ini
 /package/Maps/Custom/*.zip
 /package/Maps/Custom/*.map
