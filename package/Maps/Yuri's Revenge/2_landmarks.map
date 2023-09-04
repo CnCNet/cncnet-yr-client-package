@@ -1003,7 +1003,7 @@ PlayerControl=no
 [Basic]
 Name=[2] Landmarks
 Percent=0
-GameMode=Battle,RA2 Ladder Maps
+GameMode=Battle
 HomeCell=98
 InitTime=10000
 Official=no
