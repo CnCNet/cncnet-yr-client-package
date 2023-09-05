@@ -17,10 +17,6 @@ Waypoint7=0,0
 Waypoint8=0,0
 NumberStartingPoints=4
 
-[GAPOWR]
-Sight=7
-BuildTimeMultiplier=0.75
-
 [INBLULMP]
 LightRedTint=0.08
 LightBlueTint=0.11
@@ -70,16 +66,12 @@ LightGreenTint=0.17
 LightIntensity=0.06
 LightVisibility=3500
 
-[NAPOWR]
-Sight=7
-
 [TEMDUSLAMP]
 LightRedTint=0.08
 LightBlueTint=0.06
 LightGreenTint=0.04
 LightIntensity=0.011
 LightVisibility=1200
-
 
 [Preview]
 Size=0,0,204,99
