@@ -19,7 +19,6 @@ NumberStartingPoints=4
 
 [GAPOWR]
 Sight=8
-BuildTimeMultiplier=0.75
 
 [INBLULMP]
 LightRedTint=0.11
@@ -909,7 +908,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[4] Market square
+Name=[4] Market Square
 Author=Lucifer
 Percent=0
 GameMode=standard

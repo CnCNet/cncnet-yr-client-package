@@ -2944,7 +2944,7 @@ RadarInvisible=true
 NoUseTileLandType=true
 
 [Basic]
-Name=[2] Tropic Thunder LE v37
+Name=[2] Tropic Thunder LE
 Author=Madness and Lucifer
 Percent=0
 GameMode=standard, navalwar

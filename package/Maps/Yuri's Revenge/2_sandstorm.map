@@ -753,7 +753,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[2] Sandstorm 1v1
+Name=[2] Sandstorm
 Author=Lucifer
 Percent=0
 GameMode=standard
