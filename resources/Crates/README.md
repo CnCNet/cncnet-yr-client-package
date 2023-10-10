@@ -1,6 +1,6 @@
 # Custom Crates
 
-Currently, we have pumpkin crates and present/gift crates available. They are contained within each `expandspawn09.mix` file in their respective folders. Simply copy any one of these files to the root of this repo and commit it.
+Currently, we have pumpkin crates and present/gift crates available. They are contained within each `expandspawn09.mix` file in their respective folders. Simply copy any one of these files to the `package` folder in the root of this repo and commit it.
 
 To turn OFF custom crates, simply use the `expandspawn09.mix` file from the `None` folder. It is simply empty.
 
