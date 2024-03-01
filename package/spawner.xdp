@@ -6509,7 +6509,7 @@ MovementZone=Infantry
 ThreatPosed=0	; This value MUST be 0 for all building addons
 ImmuneToVeins=yes
 Size=1
-IFVMode=0
+IFVMode=2
 UseOwnName=true
 
 
@@ -24558,7 +24558,7 @@ RevealOnFire=no ; Doesn't clear shroud when fired
 
 ; Fire by Prism Cannon
 [CowShot];[PrismShot]
-Damage=1
+Damage=300
 ROF=75;100
 Range=12;8
 Speed=100
