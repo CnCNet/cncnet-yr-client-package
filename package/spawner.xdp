@@ -6509,7 +6509,7 @@ MovementZone=Infantry
 ThreatPosed=0	; This value MUST be 0 for all building addons
 ImmuneToVeins=yes
 Size=1
-IFVMode=0
+IFVMode=2
 UseOwnName=true
 
 
