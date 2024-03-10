@@ -17,10 +17,6 @@ OriginDir=Origin Games\Command and Conquer Red Alert II
 TFDReg=Software\Electronic Arts\EA Games\Command and Conquer The First Decade
 OriginReg=Software\EA Games\Command and Conquer Red Alert II
 
-[Messages]
-SelectDirDesc=Please note, if you have installed RA2 and YR via the C&C The Ultimate Collection on Steam, please launch the game once before running the CnCNet installer.
-
-
 [Setup]
 AppId={{ '{{D22A250A-085F-415E-959E-8DB49F4E4CCA}' }}
 AppName={{ app.name }}
@@ -145,6 +141,23 @@ Root: HKCU; Subkey: Software\Wine\AppDefaults\game.exe\DllOverrides; ValueType: 
 ;Root: HKLM; Subkey: Software\Westwood\Red Alert 2; ValueType: String; ValueName: Serial; ValueData: "{code:RandomString}"; Flags: createvalueifdoesntexist
 
 [Code]
+procedure InitializeWizard;
+begin
+  WizardForm.SelectDirLabel.Caption := 'Please note, if you have installed RA2 and YR via the C&C The Ultimate Collection on Steam, please launch the game once before running the CnCNet installer so Steam can write the correct registry keys.';
+end;
+
+<event('InitializeWizard')>
+procedure InitializeWizard2;
+begin
+  Log('InitializeWizard2 called');
+end;
+
+<event('InitializeWizard')>
+procedure InitializeWizard3;
+begin
+  Log('InitializeWizard3 called');
+end;
+
 procedure CurStepChanged(CurStep: TSetupStep);
 var
   SteamInstallScript, SteamInstallScriptDest: String;
