@@ -108,6 +108,16 @@ Type: filesandordirs; Name: "{app}\Client"
 [Registry]
 Root: HKLM; Subkey: SOFTWARE\Classes\CLSID\{{'{{1440AD10-6AA8-11D1-B6F9-00A024DDAFD1}'}}\InprocServer32; ValueType: string; ValueData: "blowfish.dll";
 
+Root: HKCU; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\gamemd.exe; Flags: deletevalue 
+Root: HKLM; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\gamemd.exe; Flags: deletevalue
+Root: HKCU64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\gamemd.exe; Flags: deletevalue; Check: IsWin64
+Root: HKLM64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\gamemd.exe; Flags: deletevalue; Check: IsWin64
+
+Root: HKCU; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\game.exe; Flags: deletevalue 
+Root: HKLM; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\game.exe; Flags: deletevalue
+Root: HKCU64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\game.exe; Flags: deletevalue; Check: IsWin64
+Root: HKLM64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\game.exe; Flags: deletevalue; Check: IsWin64
+
 Root: HKCU; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\Ra2.exe; Flags: deletevalue 
 Root: HKLM; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\Ra2.exe; Flags: deletevalue
 Root: HKCU64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\Ra2.exe; Flags: deletevalue; Check: IsWin64
@@ -141,21 +151,22 @@ Root: HKCU; Subkey: Software\Wine\AppDefaults\game.exe\DllOverrides; ValueType: 
 ;Root: HKLM; Subkey: Software\Westwood\Red Alert 2; ValueType: String; ValueName: Serial; ValueData: "{code:RandomString}"; Flags: createvalueifdoesntexist
 
 [Code]
-procedure InitializeWizard;
-begin
-  WizardForm.SelectDirLabel.Caption := 'Please note, if you have installed RA2 and YR via the C&C The Ultimate Collection on Steam, please launch the game once before running the CnCNet installer so Steam can write the correct registry keys.';
-end;
+var
+  CustomPage: TWizardPage;
 
-<event('InitializeWizard')>
-procedure InitializeWizard2;
+procedure InitializeWizard();
+var
+  Memo: TRichEditViewer;
 begin
-  Log('InitializeWizard2 called');
-end;
+  CustomPage := CreateCustomPage(wpWelcome, 'Welcome to the CnCNet Red Alert 2 Yuri''s Revenge Setup', 'Need help? Join our Discord: cncnet.org/discord');
 
-<event('InitializeWizard')>
-procedure InitializeWizard3;
-begin
-  Log('InitializeWizard3 called');
+  Memo := TRichEditViewer.Create(WizardForm);
+  Memo.Parent := CustomPage.Surface;
+  Memo.SetBounds(0, 0, CustomPage.SurfaceWidth, CustomPage.SurfaceHeight);
+  Memo.ReadOnly := True;
+  Memo.ScrollBars := ssVertical;
+  Memo.WordWrap := True;
+  Memo.Text := 'Please note, if you have installed RA2 and YR via the C&C The Ultimate Collection on Steam, please launch the game once before running the CnCNet installer so Steam can write the correct registry keys.'#13#10#13#10'This installer will also move Steams installScript.vdf to Backup\installScript.vdf. This is important for compatibility with CnCNet';
 end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
