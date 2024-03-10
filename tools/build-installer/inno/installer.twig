@@ -17,6 +17,10 @@ OriginDir=Origin Games\Command and Conquer Red Alert II
 TFDReg=Software\Electronic Arts\EA Games\Command and Conquer The First Decade
 OriginReg=Software\EA Games\Command and Conquer Red Alert II
 
+[Messages]
+SelectDirDesc=Please note, if you have installed RA2 and YR via the C&C The Ultimate Collection on Steam, please launch the game once before running the CnCNet installer.
+
+
 [Setup]
 AppId={{ '{{D22A250A-085F-415E-959E-8DB49F4E4CCA}' }}
 AppName={{ app.name }}
@@ -141,6 +145,39 @@ Root: HKCU; Subkey: Software\Wine\AppDefaults\game.exe\DllOverrides; ValueType: 
 ;Root: HKLM; Subkey: Software\Westwood\Red Alert 2; ValueType: String; ValueName: Serial; ValueData: "{code:RandomString}"; Flags: createvalueifdoesntexist
 
 [Code]
+procedure CurStepChanged(CurStep: TSetupStep);
+var
+  SteamInstallScript, SteamInstallScriptDest: String;
+begin
+  if CurStep = ssInstall then
+  begin
+    // Define the paths for the source and destination files
+    SteamInstallScript := ExpandConstant('{app}\installScript.vdf');
+    SteamInstallScriptDest := ExpandConstant('{app}\Backup\installScript.vdf');
+
+    // Ensure the destination directory exists before attempting to move the file
+    if not DirExists(ExtractFilePath(SteamInstallScriptDest)) then
+    begin
+      // Try to create the backup directory if it doesn't exist
+      if not ForceDirectories(ExtractFilePath(SteamInstallScriptDest)) then
+      begin
+        MsgBox('Failed to create backup directory for Steam install script.', mbError, MB_OK);
+        Exit;
+      end;
+    end;
+
+    // Check if the source file exists and attempt to move it
+    if FileExists(SteamInstallScript) then
+    begin
+      if not RenameFile(SteamInstallScript, SteamInstallScriptDest) then
+      begin
+        MsgBox('Failed to move the file from ' + SteamInstallScript + ' to ' + SteamInstallScriptDest, mbError, MB_OK);
+        // Optionally, you can handle the failure here, for example, by logging the error
+      end;
+    end;
+  end;
+end;
+
 function GetModuleHandleA(lpLibFileName: PAnsiChar): THandle;
 external 'GetModuleHandleA@kernel32.dll stdcall';
 function GetProcAddress(Module: THandle; ProcName: PAnsiChar): Longword;
@@ -201,6 +238,7 @@ begin
     end
     else Result:=true;
   end
+
   else result:=true;
 end;
 
@@ -222,6 +260,7 @@ end;
 function InitializeSetup(): Boolean;
 var
   Version: TWindowsVersion;
+
 begin
   // This will trigger net7 x64 to auto download and install - uncomment following line when net7 client is released
   // Dependency_AddDotNet70Desktop
