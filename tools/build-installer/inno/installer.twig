@@ -166,7 +166,7 @@ begin
   Memo.ReadOnly := True;
   Memo.ScrollBars := ssVertical;
   Memo.WordWrap := True;
-  Memo.Text := 'Please note, if you have installed RA2 and YR via the C&C The Ultimate Collection on Steam, please launch the game once before running the CnCNet installer so Steam can write the correct registry keys.'#13#10#13#10'This installer will also move Steams installScript.vdf to Backup\installScript.vdf. This is important for compatibility with CnCNet';
+  Memo.Text := 'Important info, please read!'#13#10#13#10'If you have installed Red Alert 2 and Yuri''s Revenge via the C&C The Ultimate Collection on Steam, please launch the game once before running the CnCNet installer so Steam can write the correct registry keys.'#13#10#13#10'This installer will also move Steams "installScript.vdf" to "Backup\installScript.vdf", this is done to ensure the correct compatibility flags are set for the CnCNet Client to function correctly.';
 end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
