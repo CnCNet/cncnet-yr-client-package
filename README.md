@@ -29,7 +29,8 @@ You MUST edit the `YRSource` property in the `Directory.Build.Game.YR.props` fil
 ### Repository Structure
 
 - `package` - This directory contains the exact file structure that should make up the client package that is delivered to users.
-- `resources` - This directory contains any resources to assist in building the package, like other theming elements. For example, this directory contains various `expandspawn09.mix` files for custom crates. These `mix` files can be moved to the `package` directory when we want to change the crate theme.
+- `game-assets` - This directory contains game assets used by CnCNet. All child directories with a `.pack` extension will be packed at build time into `*.mix` archives. Parent `*.mix` will be moved to the `package` directory.
+- `resources` - This directory contains any resources to assist in building the package, like other theming elements.
 - `tools` - This directory contains tools that are used to help build the package. It includes tools like:
   - `download-artifacts/download-client.ps1` - A powershell script to automatically download a specific set of binaries of the `xna-cncnet-client`
   - `download-artifacts/download-client-launcher.ps1` - A powershell script to automatically download a specific instance of the client launcher.
