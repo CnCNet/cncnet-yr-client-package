@@ -12,6 +12,7 @@ Resources\Soviet Theme\LoadingScreen.ini
 Resources\Soviet Theme\MultiplayerGameLobby.ini
 Resources\Soviet Theme\OptionsWindow.ini
 Resources\Soviet Theme\SkirmishLobby.ini
+Resources\Soviet Theme\GenericWindow.ini
 Crate.sno
 crate.sno
 crate.des
@@ -49,4 +50,5 @@ mplsobs.pal
 ls800obs.shp
 spawner.xdp
 spawner2.xdp
+Client\custom_map_cache
 do_not_remove_this_line
