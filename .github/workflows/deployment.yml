@@ -13,7 +13,7 @@ on:
   # Run when there is a release published
   release:
     types: [ published ]
-  
+
   # Allows for this workflow to be run manually
   workflow_dispatch:
 
@@ -40,7 +40,7 @@ jobs:
         run: npm ci
 
       # This step validates the format of the tag created, if this was a published release.
-      # Currently, it must be in the format "yr-X.Y" or "yr-X.Y.Z" 
+      # Currently, it must be in the format "yr-X.Y" or "yr-X.Y.Z"
       - name: Validate Tag Name
         if: github.event_name == 'release'
         working-directory: tools
@@ -61,6 +61,10 @@ jobs:
         # replace the second line in the file with the proper version number (X.Y.Z-dev.N)
         run: sed -i "2 s/.*/${{env.GitVersion_SemVer}}/" ./package/versionconfig.ini
 
+      - name: Pack Game Assets
+        working-directory: tools
+        run: npm run mix-packer
+
       - name: Version Writer
         working-directory: tools
         run: npm run version-writer
@@ -68,7 +72,7 @@ jobs:
       # Create package archive
       - name: Create package artifact (tar)
         run: tar -C ./package -czvf package.tar.gz .
-        
+
       - name: Create package artifact (zip)
         run: 7z.exe a package.zip ./package
 
@@ -106,7 +110,7 @@ jobs:
         if: github.event_name == 'release'
         working-directory: tools
         run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName "package_${{env.GitVersion_SemVer}} (zip)" --assetPath ../package.zip
-        
+
       # Upload installer to any relevant releases for current tag
       # If there is no release/tag, this will not do anything
       - name: Upload Installer Release Asset
@@ -156,7 +160,7 @@ jobs:
             tar -xzvf ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/package.tar.gz
             rm ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/package.tar.gz
             chmod 777 --recursive ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/*
-            
+
       # Create/update a mirror link for client update purposes, using the GitVersion pre release label as the link name.
       # See the file "GitVersion.yml" for more details on the name that will be used for a given branch.
       # Ex: if the branch name is "develop", it will create a link of "dev" to point to the directory "updates/X.Y.Z-dev".
@@ -175,6 +179,3 @@ jobs:
           script: |
             cd ${{ secrets.SSH_PATH_GAMES_YR }}
             ln -sfn updates/${{ needs.build-package.outputs.packageUploadVersion }} ${{ needs.build-package.outputs.mirrorLinkName }}
-        
-
-

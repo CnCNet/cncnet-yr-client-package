@@ -1,3 +1,5 @@
+/game-assets/**/*.mix
+
 /package/**/*.SAV
 /package/BINKW32.DLL
 /package/Blowfish.dll
