@@ -87,6 +87,11 @@ Filename: "{app}\RA2MD.INI"; Section: "Video"; Key: "AllowHiResModes"; String: "
 Filename: "{app}\RA2MD.INI"; Section: "Video"; Key: "ScreenWidth"; String: "800"; Flags: createkeyifdoesntexist
 Filename: "{app}\RA2MD.INI"; Section: "Video"; Key: "ScreenHeight"; String: "600"; Flags: createkeyifdoesntexist
 
+; prevent hi res monitor crash on first install
+Filename: "{app}\RA2MD.INI"; Section: "Video"; Key: "ClientResolutionX"; String: "1280"; Flags: createkeyifdoesntexist
+Filename: "{app}\RA2MD.INI"; Section: "Video"; Key: "ClientResolutionY"; String: "720"; Flags: createkeyifdoesntexist
+Filename: "{app}\RA2MD.INI"; Section: "Video"; Key: "BorderlessWindowedClient"; String: "False"; Flags: createkeyifdoesntexist
+
 Filename: "{app}\RA2.INI"; Section: "Video"; Key: "AllowHiResModes"; String: "Yes"
 Filename: "{app}\RA2.INI"; Section: "Video"; Key: "ScreenWidth"; String: "800"; Flags: createkeyifdoesntexist
 Filename: "{app}\RA2.INI"; Section: "Video"; Key: "ScreenHeight"; String: "600"; Flags: createkeyifdoesntexist
@@ -108,6 +113,16 @@ Type: filesandordirs; Name: "{app}\Client"
 [Registry]
 Root: HKLM; Subkey: SOFTWARE\Classes\CLSID\{{'{{1440AD10-6AA8-11D1-B6F9-00A024DDAFD1}'}}\InprocServer32; ValueType: string; ValueData: "blowfish.dll";
 
+Root: HKCU; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\gamemd.exe; Flags: deletevalue 
+Root: HKLM; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\gamemd.exe; Flags: deletevalue
+Root: HKCU64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\gamemd.exe; Flags: deletevalue; Check: IsWin64
+Root: HKLM64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\gamemd.exe; Flags: deletevalue; Check: IsWin64
+
+Root: HKCU; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\game.exe; Flags: deletevalue 
+Root: HKLM; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\game.exe; Flags: deletevalue
+Root: HKCU64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\game.exe; Flags: deletevalue; Check: IsWin64
+Root: HKLM64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\game.exe; Flags: deletevalue; Check: IsWin64
+
 Root: HKCU; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\Ra2.exe; Flags: deletevalue 
 Root: HKLM; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\Ra2.exe; Flags: deletevalue
 Root: HKCU64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueName: {app}\Ra2.exe; Flags: deletevalue; Check: IsWin64
@@ -128,16 +143,6 @@ Root: HKCU; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\
 Root: HKCU64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueType: String; ValueName: {app}\gamemd-spawn.exe; ValueData: "16BITCOLOR 8And16BitTimedPriSync HIGHDPIAWARE"; Check: IsWin64
 Root: HKLM64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueType: String; ValueName: {app}\gamemd-spawn.exe; ValueData: "16BITCOLOR 8And16BitTimedPriSync HIGHDPIAWARE"; Check: IsWin64
 
-Root: HKLM; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueType: String; ValueName: {app}\gamemd.exe; ValueData: "16BITCOLOR 8And16BitTimedPriSync HIGHDPIAWARE RUNASADMIN"
-Root: HKCU; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueType: String; ValueName: {app}\gamemd.exe; ValueData: "16BITCOLOR 8And16BitTimedPriSync HIGHDPIAWARE RUNASADMIN"
-Root: HKCU64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueType: String; ValueName: {app}\gamemd.exe; ValueData: "16BITCOLOR 8And16BitTimedPriSync HIGHDPIAWARE RUNASADMIN"; Check: IsWin64
-Root: HKLM64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueType: String; ValueName: {app}\gamemd.exe; ValueData: "16BITCOLOR 8And16BitTimedPriSync HIGHDPIAWARE RUNASADMIN"; Check: IsWin64
-
-Root: HKLM; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueType: String; ValueName: {app}\game.exe; ValueData: "16BITCOLOR 8And16BitTimedPriSync HIGHDPIAWARE RUNASADMIN"
-Root: HKCU; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueType: String; ValueName: {app}\game.exe; ValueData: "16BITCOLOR 8And16BitTimedPriSync HIGHDPIAWARE RUNASADMIN"
-Root: HKCU64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueType: String; ValueName: {app}\game.exe; ValueData: "16BITCOLOR 8And16BitTimedPriSync HIGHDPIAWARE RUNASADMIN"; Check: IsWin64
-Root: HKLM64; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueType: String; ValueName: {app}\game.exe; ValueData: "16BITCOLOR 8And16BitTimedPriSync HIGHDPIAWARE RUNASADMIN"; Check: IsWin64
-
 Root: HKCU; Subkey: Software\Wine\AppDefaults\gamemd-spawn.exe\DllOverrides; ValueType: string; ValueName: "ddraw"; ValueData: "native, builtin"; Check: RunsOnWine
 Root: HKCU; Subkey: Software\Wine\AppDefaults\gamemd-spawn.exe\DllOverrides; ValueType: string; ValueName: "wsock32"; ValueData: "native, builtin"; Check: RunsOnWine
 
@@ -151,6 +156,57 @@ Root: HKCU; Subkey: Software\Wine\AppDefaults\game.exe\DllOverrides; ValueType: 
 ;Root: HKLM; Subkey: Software\Westwood\Red Alert 2; ValueType: String; ValueName: Serial; ValueData: "{code:RandomString}"; Flags: createvalueifdoesntexist
 
 [Code]
+var
+  CustomPage: TWizardPage;
+
+procedure InitializeWizard();
+var
+  Memo: TRichEditViewer;
+begin
+  CustomPage := CreateCustomPage(wpWelcome, 'Welcome to the CnCNet Red Alert 2 Yuri''s Revenge Setup', 'Need help? Join our Discord: cncnet.org/discord');
+
+  Memo := TRichEditViewer.Create(WizardForm);
+  Memo.Parent := CustomPage.Surface;
+  Memo.SetBounds(0, 0, CustomPage.SurfaceWidth, CustomPage.SurfaceHeight);
+  Memo.ReadOnly := True;
+  Memo.ScrollBars := ssVertical;
+  Memo.WordWrap := True;
+  Memo.Text := 'Important info, please read!'#13#10#13#10'If you have installed Red Alert 2 and Yuri''s Revenge via the C&C The Ultimate Collection on Steam, please launch the game once before running the CnCNet installer so Steam can write the correct registry keys.'#13#10#13#10'This installer will also move Steams "installScript.vdf" to "Backup\installScript.vdf", this is done to ensure the correct compatibility flags are set for the CnCNet Client to function correctly.';
+end;
+
+procedure CurStepChanged(CurStep: TSetupStep);
+var
+  SteamInstallScript, SteamInstallScriptDest: String;
+begin
+  if CurStep = ssInstall then
+  begin
+    // Define the paths for the source and destination files
+    SteamInstallScript := ExpandConstant('{app}\installScript.vdf');
+    SteamInstallScriptDest := ExpandConstant('{app}\Backup\installScript.vdf');
+
+    // Ensure the destination directory exists before attempting to move the file
+    if not DirExists(ExtractFilePath(SteamInstallScriptDest)) then
+    begin
+      // Try to create the backup directory if it doesn't exist
+      if not ForceDirectories(ExtractFilePath(SteamInstallScriptDest)) then
+      begin
+        MsgBox('Failed to create backup directory for Steam install script.', mbError, MB_OK);
+        Exit;
+      end;
+    end;
+
+    // Check if the source file exists and attempt to move it
+    if FileExists(SteamInstallScript) then
+    begin
+      if not RenameFile(SteamInstallScript, SteamInstallScriptDest) then
+      begin
+        MsgBox('Failed to move the file from ' + SteamInstallScript + ' to ' + SteamInstallScriptDest, mbError, MB_OK);
+        // Optionally, you can handle the failure here, for example, by logging the error
+      end;
+    end;
+  end;
+end;
+
 function GetModuleHandleA(lpLibFileName: PAnsiChar): THandle;
 external 'GetModuleHandleA@kernel32.dll stdcall';
 function GetProcAddress(Module: THandle; ProcName: PAnsiChar): Longword;
@@ -211,6 +267,7 @@ begin
     end
     else Result:=true;
   end
+
   else result:=true;
 end;
 
@@ -232,6 +289,7 @@ end;
 function InitializeSetup(): Boolean;
 var
   Version: TWindowsVersion;
+
 begin
   // This will trigger net7 x64 to auto download and install - uncomment following line when net7 client is released
   // Dependency_AddDotNet70Desktop

@@ -24558,7 +24558,7 @@ RevealOnFire=no ; Doesn't clear shroud when fired
 
 ; Fire by Prism Cannon
 [CowShot];[PrismShot]
-Damage=1
+Damage=300
 ROF=75;100
 Range=12;8
 Speed=100
