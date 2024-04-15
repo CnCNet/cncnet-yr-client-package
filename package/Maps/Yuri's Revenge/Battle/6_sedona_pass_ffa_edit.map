@@ -18,6 +18,9 @@ Waypoint8=0,0
 NumberStartingPoints=6
 NumCoopHumanStartSpots=4
 
+[GASPYSAT] ; recon errors
+TechLevel=11
+
 [CATEXS02]
 Strength=500
 MaxNumberOccupants=5
@@ -981,6 +984,7 @@ PlayerControl=no
 [Basic]
 Name=[6] Sedona Pass (FFA Edit)
 Theme=No theme
+Briefing=SpySat is off due to recon errors
 Author=Westwood, FFA Edit by Burg
 Percent=0
 GameMode=standard,Free for All
