@@ -12,6 +12,7 @@ Resources\Soviet Theme\LoadingScreen.ini
 Resources\Soviet Theme\MultiplayerGameLobby.ini
 Resources\Soviet Theme\OptionsWindow.ini
 Resources\Soviet Theme\SkirmishLobby.ini
+Resources\Soviet Theme\GenericWindow.ini
 Crate.sno
 crate.sno
 crate.des
@@ -41,4 +42,13 @@ Maps\Yuri's Revenge\Survival\4_symmetrical_survival_v1_RAZER.map
 Maps\Yuri's Revenge\Survival\4_symmetrical_survival_v1_RAZER.png
 Maps\Yuri's Revenge\Survival\4_symmetrical_survival_v2_RAZER.map
 Maps\Yuri's Revenge\Survival\4_symmetrical_survival_v2_RAZER.png
+Resources\ClassicMode.mix
+expandspawn01.mix
+expandspawn02.mix
+expandspawn09.mix
+mplsobs.pal
+ls800obs.shp
+spawner.xdp
+spawner2.xdp
+Client\custom_map_cache
 do_not_remove_this_line

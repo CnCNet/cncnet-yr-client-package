@@ -11,14 +11,20 @@ GameSurge Terms of Service: http://gamesurge.net/tos/
 
 The following third-party material is included, please visit the respective websites for all information:
 -
+Ares and Syringe by Ares-developers - https://ares.strategy-x.com/
+-
+cnc-ddraw by FunkyFr3sh - MIT License https://github.com/FunkyFr3sh/cnc-ddraw
+-
 DotNetZip library - https://dotnetzip.codeplex.com/
 -
-ZLIB - http://zlib.net/
+DxWnd by ghotik - LGPL v3.0 License https://sourceforge.net/projects/dxwnd/
 -
-QRes - https://sourceforge.net/projects/qres/
+Original IrcD.Net code by Thomas Bruderer - License: http://github.com/FreeApophis/ircddotnet/blob/master/LICENSE
 -
-Original IrcD.Net code by Thomas Bruderer, License: http://github.com/FreeApophis/ircddotnet/blob/master/LICENSE
+Phobos by Phobos-developers - LGPL v3.0 License https://github.com/Phobos-developers/Phobos
+-
+QRes by b_engelbrecht - BSD License https://sourceforge.net/projects/qres/
 -
 ts-ddraw by Toni Spets - MIT License http://github.com/cnc-patch/ts-ddraw
 -
-DxWnd by gho: https://sourceforge.net/projects/dxwnd/
+ZLIB - http://zlib.net/
