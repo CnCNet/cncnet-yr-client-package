@@ -1,0 +1,2303 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SecondStageUpdater</name>
+    </assembly>
+    <members>
+        <member name="T:System.Runtime.CompilerServices.CallerArgumentExpressionAttribute">
+            <summary>
+            Indicates that a parameter captures the expression passed for another parameter as a string.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.CallerArgumentExpressionAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Runtime.CompilerServices.CallerArgumentExpressionAttribute"/> class.
+            </summary>
+            <param name="parameterName">
+            The name of the parameter whose expression should be captured as a string.
+            </param>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.CallerArgumentExpressionAttribute.ParameterName">
+            <summary>
+            Gets the name of the parameter whose expression should be captured as a string.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute">
+            <summary>
+            Indicates that compiler support for a particular feature is required for the location where this attribute is applied.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.#ctor(System.String)">
+            <summary>
+            Initialize a new instance of <see cref="T:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute"/>
+            </summary>
+            <param name="featureName">The name of the required compiler feature.</param>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName">
+            <summary>
+            The name of the compiler feature.
+            </summary>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.IsOptional">
+            <summary>
+            If true, the compiler can choose to allow access to the location where this attribute is applied if it does not understand <see cref="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName"/>.
+            </summary>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.RefStructs">
+            <summary>
+            The <see cref="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName"/> used for the ref structs C# feature.
+            </summary>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.RequiredMembers">
+            <summary>
+            The <see cref="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName"/> used for the required members C# feature.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.DisableRuntimeMarshallingAttribute">
+             <summary>
+             Disables the built-in runtime managed/unmanaged marshalling subsystem for
+             P/Invokes, Delegate types, and unmanaged function pointer invocations.
+             </summary>
+             <remarks>
+             The built-in marshalling subsystem has some behaviors that cannot be changed due to
+             backward-compatibility requirements. This attribute allows disabling the built-in
+             subsystem and instead uses the following rules for P/Invokes, Delegates,
+             and unmanaged function pointer invocations:
+            
+             - All value types that do not contain reference type fields recursively (<c>unmanaged</c> in C#) are blittable
+             - Value types that recursively have any fields that have <c>[StructLayout(LayoutKind.Auto)]</c> are disallowed from interop.
+             - All reference types are disallowed from usage in interop scenarios.
+             - SetLastError support in P/Invokes is disabled.
+             - varargs support is disabled.
+             - LCIDConversionAttribute support is disabled.
+             </remarks>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+            Reserved to be used by the compiler for tracking metadata. This class should not be used by developers in source code.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.ModuleInitializerAttribute">
+             <summary>
+             Used to indicate to the compiler that a method should be called
+             in its containing module's initializer.
+             </summary>
+             <remarks>
+             When one or more valid methods
+             with this attribute are found in a compilation, the compiler will
+             emit a module initializer which calls each of the attributed methods.
+            
+             Certain requirements are imposed on any method targeted with this attribute:
+             - The method must be `static`.
+             - The method must be an ordinary member method, as opposed to a property accessor, constructor, local function, etc.
+             - The method must be parameterless.
+             - The method must return `void`.
+             - The method must not be generic or be contained in a generic type.
+             - The method's effective accessibility must be `internal` or `public`.
+            
+             The specification for module initializers in the .NET runtime can be found here:
+             https://github.com/dotnet/runtime/blob/master/docs/design/specs/Ecma-335-Augments.md#module-initializer
+             </remarks>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.RequiredMemberAttribute">
+            <summary>
+            Specifies that a type has required members or that a member is required.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.SkipLocalsInitAttribute">
+            <summary>
+            Used to indicate to the compiler that the <c>.locals init</c>
+            flag should not be set in method headers.
+            </summary>
+            <remarks>
+            This attribute is unsafe because it may reveal uninitialized memory to
+            the application in certain instances (e.g., reading from uninitialized
+            stackalloc'd memory). If applied to a method directly, the attribute
+            applies to that method and all nested functions (lambdas, local
+            functions) below it. If applied to a type or module, it applies to all
+            methods nested inside. This attribute is intentionally not permitted on
+            assemblies. Use at the module level instead to apply to multiple type
+            declarations.
+            </remarks>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler">
+            <summary>Provides a handler used by the language compiler to process interpolated strings into <see cref="T:System.String"/> instances.</summary>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.GuessedLengthPerHole">
+            <summary>Expected average length of formatted data used for an individual interpolation expression result.</summary>
+            <remarks>
+            This is inherited from string.Format, and could be changed based on further data.
+            string.Format actually uses `format.Length + args.Length * 8`, but format.Length
+            includes the format items themselves, e.g. "{0}", and since it's rare to have double-digit
+            numbers of items, we bump the 8 up to 11 to account for the three extra characters in "{d}",
+            since the compiler-provided base length won't include the equivalent character count.
+            </remarks>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.MinimumArrayPoolLength">
+            <summary>Minimum size array to rent from the pool.</summary>
+            <remarks>Same as stack-allocation size used today by string.Format.</remarks>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.StringMaxLength">
+            <summary>Maximum length allowed for a string.</summary>
+            <remarks>Keep in sync with AllocateString in gchelpers.cpp.</remarks>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler._provider">
+            <summary>Optional provider to pass to IFormattable.ToString or ISpanFormattable.TryFormat calls.</summary>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler._arrayToReturnToPool">
+            <summary>Array rented from the array pool and used to back <see cref="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler._chars"/>.</summary>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler._chars">
+            <summary>The span to write into.</summary>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler._pos">
+            <summary>Position at which to write the next character.</summary>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler._hasCustomFormatter">
+            <summary>Whether <see cref="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler._provider"/> provides an ICustomFormatter.</summary>
+            <remarks>
+            Custom formatters are very rare.  We want to support them, but it's ok if we make them more expensive
+            in order to make them as pay-for-play as possible.  So, we avoid adding another reference type field
+            to reduce the size of the handler and to reduce required zero'ing, by only storing whether the provider
+            provides a formatter, rather than actually storing the formatter.  This in turn means, if there is a
+            formatter, we pay for the extra interface call on each AppendFormatted that needs it.
+            </remarks>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.#ctor(System.Int32,System.Int32)">
+            <summary>Creates a handler used to translate an interpolated string into a <see cref="T:System.String"/>.</summary>
+            <param name="literalLength">The number of constant characters outside of interpolation expressions in the interpolated string.</param>
+            <param name="formattedCount">The number of interpolation expressions in the interpolated string.</param>
+            <remarks>This is intended to be called only by compiler-generated code. Arguments are not validated as they'd otherwise be for members intended to be used directly.</remarks>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.#ctor(System.Int32,System.Int32,System.IFormatProvider)">
+            <summary>Creates a handler used to translate an interpolated string into a <see cref="T:System.String"/>.</summary>
+            <param name="literalLength">The number of constant characters outside of interpolation expressions in the interpolated string.</param>
+            <param name="formattedCount">The number of interpolation expressions in the interpolated string.</param>
+            <param name="provider">An object that supplies culture-specific formatting information.</param>
+            <remarks>This is intended to be called only by compiler-generated code. Arguments are not validated as they'd otherwise be for members intended to be used directly.</remarks>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.#ctor(System.Int32,System.Int32,System.IFormatProvider,System.Span{System.Char})">
+            <summary>Creates a handler used to translate an interpolated string into a <see cref="T:System.String"/>.</summary>
+            <param name="literalLength">The number of constant characters outside of interpolation expressions in the interpolated string.</param>
+            <param name="formattedCount">The number of interpolation expressions in the interpolated string.</param>
+            <param name="provider">An object that supplies culture-specific formatting information.</param>
+            <param name="initialBuffer">A buffer temporarily transferred to the handler for use as part of its formatting.  Contents may be overwritten.</param>
+            <remarks>This is intended to be called only by compiler-generated code. Arguments are not validated as they'd otherwise be for members intended to be used directly.</remarks>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.GetDefaultLength(System.Int32,System.Int32)">
+            <summary>Derives a default length with which to seed the handler.</summary>
+            <param name="literalLength">The number of constant characters outside of interpolation expressions in the interpolated string.</param>
+            <param name="formattedCount">The number of interpolation expressions in the interpolated string.</param>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.ToString">
+            <summary>Gets the built <see cref="T:System.String"/>.</summary>
+            <returns>The built string.</returns>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.ToStringAndClear">
+            <summary>Gets the built <see cref="T:System.String"/> and clears the handler.</summary>
+            <returns>The built string.</returns>
+            <remarks>
+            This releases any resources used by the handler. The method should be invoked only
+            once and as the last thing performed on the handler. Subsequent use is erroneous, ill-defined,
+            and may destabilize the process, as may using any other copies of the handler after ToStringAndClear
+            is called on any one of them.
+            </remarks>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.Clear">
+            <summary>Clears the handler, returning any rented array to the pool.</summary>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.Text">
+            <summary>Gets a span of the written characters thus far.</summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendLiteral(System.String)">
+            <summary>Writes the specified string to the handler.</summary>
+            <param name="value">The string to write.</param>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormatted``1(``0)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+            <typeparam name="T">The type of the value to write.</typeparam>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormatted``1(``0,System.String)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+            <param name="format">The format string.</param>
+            <typeparam name="T">The type of the value to write.</typeparam>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormatted``1(``0,System.Int32)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+            <param name="alignment">
+            Minimum number of characters that should be written for this value.  If the value is negative, it indicates
+            left-aligned and the required minimum is the absolute value.
+            </param>
+            <typeparam name="T">The type of the value to write.</typeparam>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormatted``1(``0,System.Int32,System.String)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+            <param name="format">The format string.</param>
+            <param name="alignment">
+            Minimum number of characters that should be written for this value.  If the value is negative, it indicates
+            left-aligned and the required minimum is the absolute value.
+            </param>
+            <typeparam name="T">The type of the value to write.</typeparam>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormatted(System.ReadOnlySpan{System.Char})">
+            <summary>Writes the specified character span to the handler.</summary>
+            <param name="value">The span to write.</param>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormatted(System.ReadOnlySpan{System.Char},System.Int32,System.String)">
+            <summary>Writes the specified string of chars to the handler.</summary>
+            <param name="value">The span to write.</param>
+            <param name="alignment">
+            Minimum number of characters that should be written for this value.  If the value is negative, it indicates
+            left-aligned and the required minimum is the absolute value.
+            </param>
+            <param name="format">The format string.</param>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormatted(System.String)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormattedSlow(System.String)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+            <remarks>
+            Slow path to handle a custom formatter, potentially null value,
+            or a string that doesn't fit in the current buffer.
+            </remarks>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormatted(System.String,System.Int32,System.String)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+            <param name="alignment">
+            Minimum number of characters that should be written for this value.  If the value is negative, it indicates
+            left-aligned and the required minimum is the absolute value.
+            </param>
+            <param name="format">The format string.</param>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormatted(System.Object,System.Int32,System.String)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+            <param name="alignment">
+            Minimum number of characters that should be written for this value.  If the value is negative, it indicates
+            left-aligned and the required minimum is the absolute value.
+            </param>
+            <param name="format">The format string.</param>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.HasCustomFormatter(System.IFormatProvider)">
+            <summary>Gets whether the provider provides a custom formatter.</summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendCustomFormatter``1(``0,System.String)">
+            <summary>Formats the value using the custom formatter from the provider.</summary>
+            <param name="value">The value to write.</param>
+            <param name="format">The format string.</param>
+            <typeparam name="T">The type of the value to write.</typeparam>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendOrInsertAlignmentIfNeeded(System.Int32,System.Int32)">
+            <summary>Handles adding any padding required for aligning a formatted value in an interpolation expression.</summary>
+            <param name="startingPos">The position at which the written value started.</param>
+            <param name="alignment">
+            Non-zero minimum number of characters that should be written for this value.  If the value is negative, it
+            indicates left-aligned and the required minimum is the absolute value.
+            </param>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.EnsureCapacityForAdditionalChars(System.Int32)">
+            <summary>
+            Ensures <see cref="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler._chars"/> has the capacity to store <paramref name="additionalChars"/> beyond <see cref="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler._pos"/>.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.GrowThenCopyString(System.String)">
+            <summary>
+            Fallback for fast path in <see cref="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendLiteral(System.String)"/> when there's not enough space in the destination.
+            </summary>
+            <param name="value">The string to write.</param>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.GrowThenCopySpan(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Fallback for <see cref="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormatted(System.ReadOnlySpan{System.Char})"/> for when not enough space exists in the current buffer.
+            </summary>
+            <param name="value">The span to write.</param>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.Grow(System.Int32)">
+            <summary>
+            Grows <see cref="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler._chars"/> to have the capacity to store at least <paramref name="additionalChars"/>
+            beyond <see cref="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler._pos"/>.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.Grow">
+            <summary>Grows the size of <see cref="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler._chars"/>.</summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.GrowCore(System.UInt32)">
+            <summary>
+            Grow the size of <see cref="F:System.Runtime.CompilerServices.DefaultInterpolatedStringHandler._chars"/> to at least the specified <paramref name="requiredMinCapacity"/>.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute">
+            <summary>
+            Indicates which arguments to a method involving an interpolated string handler should be passed to that handler.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute"/> class.
+            </summary>
+            <param name="argument">The name of the argument that should be passed to the handler.</param>
+            <remarks><see langword="null"/> may be used as the name of the receiver in an instance method.</remarks>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute"/> class.
+            </summary>
+            <param name="arguments">The names of the arguments that should be passed to the handler.</param>
+            <remarks><see langword="null"/> may be used as the name of the receiver in an instance method.</remarks>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.InterpolatedStringHandlerArgumentAttribute.Arguments">
+            <summary>Gets the names of the arguments that should be passed to the handler.</summary>
+            <remarks>
+            <see langword="null"/> may be used as the name of the receiver in an instance method.
+            </remarks>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.InterpolatedStringHandlerAttribute">
+            <summary>
+            Indicates the attributed type is to be used as an interpolated string handler.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.Versioning.OSPlatformAttribute">
+            <summary>
+            Base type for all platform-specific API attributes.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.Versioning.ObsoletedOSPlatformAttribute">
+            <summary>
+            Marks APIs that were obsoleted in a given operating system version.
+            </summary>
+            <remarks>
+            Primarily used by OS bindings to indicate APIs that should not be used anymore.
+            </remarks>
+        </member>
+        <member name="T:System.Runtime.Versioning.SupportedOSPlatformAttribute">
+             <summary>
+             Records the operating system (and minimum version) that supports an API. Multiple attributes can be
+             applied to indicate support on multiple operating systems.
+             </summary>
+             <remarks>
+             Callers can apply a <see cref="T:System.Runtime.Versioning.SupportedOSPlatformAttribute" />
+             or use guards to prevent calls to APIs on unsupported operating systems.
+            
+             A given platform should only be specified once.
+             </remarks>
+        </member>
+        <member name="T:System.Runtime.Versioning.SupportedOSPlatformGuardAttribute">
+             <summary>
+             Annotates a custom guard field, property or method with a supported platform name and optional version.
+             Multiple attributes can be applied to indicate guard for multiple supported platforms.
+             </summary>
+             <remarks>
+             Callers can apply a <see cref="T:System.Runtime.Versioning.SupportedOSPlatformGuardAttribute" /> to a field, property or method
+             and use that field, property or method in a conditional or assert statements in order to safely call platform specific APIs.
+            
+             The type of the field or property should be boolean, the method return type should be boolean in order to be used as platform guard.
+             </remarks>
+        </member>
+        <member name="T:System.Runtime.Versioning.TargetPlatformAttribute">
+            <summary>
+            Records the platform that the project targeted.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.Versioning.UnsupportedOSPlatformAttribute">
+            <summary>
+            Marks APIs that were removed in a given operating system version.
+            </summary>
+            <remarks>
+            Primarily used by OS bindings to indicate APIs that are only available in
+            earlier versions.
+            </remarks>
+        </member>
+        <member name="T:System.Runtime.Versioning.UnsupportedOSPlatformGuardAttribute">
+             <summary>
+             Annotates the custom guard field, property or method with an unsupported platform name and optional version.
+             Multiple attributes can be applied to indicate guard for multiple unsupported platforms.
+             </summary>
+             <remarks>
+             Callers can apply a <see cref="T:System.Runtime.Versioning.UnsupportedOSPlatformGuardAttribute" /> to a field, property or method
+             and use that  field, property or method in a conditional or assert statements as a guard to safely call APIs unsupported on those platforms.
+            
+             The type of the field or property should be boolean, the method return type should be boolean in order to be used as platform guard.
+             </remarks>
+        </member>
+        <member name="T:System.Runtime.InteropServices.SuppressGCTransitionAttribute">
+             <summary>
+             An attribute used to indicate a GC transition should be skipped when making an unmanaged function call.
+             </summary>
+             <example>
+             Example of a valid use case. The Win32 `GetTickCount()` function is a small performance related function
+             that reads some global memory and returns the value. In this case, the GC transition overhead is significantly
+             more than the memory read.
+             <code>
+             using System;
+             using System.Runtime.InteropServices;
+             class Program
+             {
+                 [DllImport("Kernel32")]
+                 [SuppressGCTransition]
+                 static extern int GetTickCount();
+                 static void Main()
+                 {
+                     Console.WriteLine($"{GetTickCount()}");
+                 }
+             }
+             </code>
+             </example>
+             <remarks>
+             This attribute is ignored if applied to a method without the <see cref="T:System.Runtime.InteropServices.DllImportAttribute"/>.
+            
+             Forgoing this transition can yield benefits when the cost of the transition is more than the execution time
+             of the unmanaged function. However, avoiding this transition removes some of the guarantees the runtime
+             provides through a normal P/Invoke. When exiting the managed runtime to enter an unmanaged function the
+             GC must transition from Cooperative mode into Preemptive mode. Full details on these modes can be found at
+             https://github.com/dotnet/runtime/blob/master/docs/coding-guidelines/clr-code-guide.md#2.1.8.
+             Suppressing the GC transition is an advanced scenario and should not be done without fully understanding
+             potential consequences.
+            
+             One of these consequences is an impact to Mixed-mode debugging (https://docs.microsoft.com/visualstudio/debugger/how-to-debug-in-mixed-mode).
+             During Mixed-mode debugging, it is not possible to step into or set breakpoints in a P/Invoke that
+             has been marked with this attribute. A workaround is to switch to native debugging and set a breakpoint in the native function.
+             In general, usage of this attribute is not recommended if debugging the P/Invoke is important, for example
+             stepping through the native code or diagnosing an exception thrown from the native code.
+            
+             The runtime may load the native library for method marked with this attribute in advance before the method is called for the first time.
+             Usage of this attribute is not recommended for platform neutral libraries with conditional platform specific code.
+            
+             The P/Invoke method that this attribute is applied to must have all of the following properties:
+               * Native function always executes for a trivial amount of time (less than 1 microsecond).
+               * Native function does not perform a blocking syscall (e.g. any type of I/O).
+               * Native function does not call back into the runtime (e.g. Reverse P/Invoke).
+               * Native function does not throw exceptions.
+               * Native function does not manipulate locks or other concurrency primitives.
+            
+             Consequences of invalid uses of this attribute:
+               * GC starvation.
+               * Immediate runtime termination.
+               * Data corruption.
+             </remarks>
+        </member>
+        <member name="T:System.Runtime.InteropServices.UnmanagedCallersOnlyAttribute">
+            <summary>
+            Any method marked with <see cref="T:System.Runtime.InteropServices.UnmanagedCallersOnlyAttribute" /> can be directly called from
+            native code. The function token can be loaded to a local variable using the <see href="https://docs.microsoft.com/dotnet/csharp/language-reference/operators/pointer-related-operators#address-of-operator-">address-of</see> operator
+            in C# and passed as a callback to a native method.
+            </summary>
+            <remarks>
+            Methods marked with this attribute have the following restrictions:
+              * Method must be marked "static".
+              * Must not be called from managed code.
+              * Must only have <see href="https://docs.microsoft.com/dotnet/framework/interop/blittable-and-non-blittable-types">blittable</see> arguments.
+            </remarks>
+        </member>
+        <member name="F:System.Runtime.InteropServices.UnmanagedCallersOnlyAttribute.CallConvs">
+            <summary>
+            Optional. If omitted, the runtime will use the default platform calling convention.
+            </summary>
+            <remarks>
+            Supplied types must be from the official "System.Runtime.CompilerServices" namespace and
+            be of the form "CallConvXXX".
+            </remarks>
+        </member>
+        <member name="F:System.Runtime.InteropServices.UnmanagedCallersOnlyAttribute.EntryPoint">
+            <summary>
+            Optional. If omitted, no named export is emitted during compilation.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.ExperimentalAttribute">
+            <summary>
+            Indicates that a parameter captures the expression passed for another parameter as a string.
+            </summary>
+            <summary>
+             Indicates that an API is experimental and it may change in the future.
+            </summary>
+            <remarks>
+              This attribute allows call sites to be flagged with a diagnostic that indicates that an experimental
+              feature is used. Authors can use this attribute to ship preview features in their assemblies.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.ExperimentalAttribute.#ctor(System.String)">
+            <summary>
+             Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.ExperimentalAttribute"/> class, specifying the ID that the compiler will use
+             when reporting a use of the API the attribute applies to.
+            </summary>
+            <param name="diagnosticId">The ID that the compiler will use when reporting a use of the API the attribute applies to.</param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.ExperimentalAttribute.DiagnosticId">
+            <summary>
+             Gets the ID that the compiler will use when reporting a use of the API the attribute applies to.
+            </summary>
+            <value>The unique diagnostic ID.</value>
+            <remarks>
+             The diagnostic ID is shown in build output for warnings and errors.
+             <para>This property represents the unique ID that can be used to suppress the warnings or errors, if needed.</para>
+            </remarks>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.ExperimentalAttribute.UrlFormat">
+            <summary>
+             Gets or sets the URL for corresponding documentation.
+             The API accepts a format string instead of an actual URL, creating a generic URL that includes the diagnostic ID.
+            </summary>
+            <value>The format string that represents a URL to corresponding documentation.</value>
+            <remarks>An example format string is <c>https://contoso.com/obsoletion-warnings/{0}</c>.</remarks>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
+            <summary>
+              Specifies that <see langword="null"/> is allowed as an input even if the
+              corresponding type disallows it.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DisallowNullAttribute">
+            <summary>
+              Specifies that <see langword="null"/> is disallowed as an input even if the
+              corresponding type allows it.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute">
+            <summary>
+              Specifies that a method that will never return under any circumstance.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute">
+            <summary>
+              Specifies that the method will not return if the associated <see cref="T:System.Boolean"/>
+              parameter is passed the specified value.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue">
+            <summary>
+              Gets the condition parameter value.
+              Code after the method is considered unreachable by diagnostics if the argument
+              to the associated parameter matches this value.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)">
+            <summary>
+              Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute"/>
+              class with the specified parameter value.
+            </summary>
+            <param name="parameterValue">
+              The condition parameter value.
+              Code after the method is considered unreachable by diagnostics if the argument
+              to the associated parameter matches this value.
+            </param>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute">
+            <summary>
+              Specifies that an output may be <see langword="null"/> even if the
+              corresponding type disallows it.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute">
+            <summary>
+              Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue"/>,
+              the parameter may be <see langword="null"/> even if the corresponding type disallows it.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue">
+            <summary>
+              Gets the return value condition.
+              If the method returns this value, the associated parameter may be <see langword="null"/>.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>
+               Initializes the attribute with the specified return value condition.
+            </summary>
+            <param name="returnValue">
+              The return value condition.
+              If the method returns this value, the associated parameter may be <see langword="null"/>.
+            </param>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute">
+            <summary>
+              Specifies that the method or property will ensure that the listed field and property members have
+              not-<see langword="null"/> values.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members">
+            <summary>
+              Gets field or property member names.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)">
+            <summary>
+              Initializes the attribute with a field or property member.
+            </summary>
+            <param name="member">
+              The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])">
+            <summary>
+              Initializes the attribute with the list of field and property members.
+            </summary>
+            <param name="members">
+              The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute">
+            <summary>
+              Specifies that the method or property will ensure that the listed field and property members have
+              non-<see langword="null"/> values when returning with the specified return value condition.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue">
+            <summary>
+              Gets the return value condition.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members">
+            <summary>
+              Gets field or property member names.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)">
+            <summary>
+              Initializes the attribute with the specified return value condition and a field or property member.
+            </summary>
+            <param name="returnValue">
+              The return value condition. If the method returns this value,
+              the associated parameter will not be <see langword="null"/>.
+            </param>
+            <param name="member">
+              The field or property member that is promised to be not-<see langword="null"/>.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])">
+            <summary>
+              Initializes the attribute with the specified return value condition and list
+              of field and property members.
+            </summary>
+            <param name="returnValue">
+              The return value condition. If the method returns this value,
+              the associated parameter will not be <see langword="null"/>.
+            </param>
+            <param name="members">
+              The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullAttribute">
+            <summary>
+              Specifies that an output is not <see langword="null"/> even if the
+              corresponding type allows it.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName">
+            <summary>
+              Gets the associated parameter name.
+              The output will be non-<see langword="null"/> if the argument to the
+              parameter specified is non-<see langword="null"/>.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)">
+            <summary>
+              Initializes the attribute with the associated parameter name.
+            </summary>
+            <param name="parameterName">
+              The associated parameter name.
+              The output will be non-<see langword="null"/> if the argument to the
+              parameter specified is non-<see langword="null"/>.
+            </param>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute">
+            <summary>
+              Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue"/>,
+              the parameter will not be <see langword="null"/> even if the corresponding type allows it.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue">
+            <summary>
+              Gets the return value condition.
+              If the method returns this value, the associated parameter will not be <see langword="null"/>.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>
+              Initializes the attribute with the specified return value condition.
+            </summary>
+            <param name="returnValue">
+              The return value condition.
+              If the method returns this value, the associated parameter will not be <see langword="null"/>.
+            </param>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.SetsRequiredMembersAttribute">
+            <summary>
+            Specifies that this constructor sets all required members for the current type, and callers
+            do not need to set any required members themselves.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute">
+            <summary>
+            Specifies the syntax used in a string.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.#ctor(System.String)">
+            <summary>
+            Initializes the <see cref="T:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute"/> with the identifier of the syntax used.</summary>
+            <param name="syntax">The syntax identifier.</param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.#ctor(System.String,System.Object[])">
+            <summary>
+            Initializes the <see cref="T:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute"/> with the identifier of the syntax used.</summary>
+            <param name="syntax">The syntax identifier.</param>
+            <param name="arguments">Optional arguments associated with the specific syntax employed.</param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Syntax">
+            <summary>Gets the identifier of the syntax used.</summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Arguments">
+            <summary>Optional arguments associated with the specific syntax employed.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.CompositeFormat">
+            <summary>The syntax identifier for strings containing composite formats for string formatting.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.DateOnlyFormat">
+            <summary>The syntax identifier for strings containing date format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.DateTimeFormat">
+            <summary>The syntax identifier for strings containing date and time format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.EnumFormat">
+            <summary>The syntax identifier for strings containing <see cref="T:System.Enum"/> format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.GuidFormat">
+            <summary>The syntax identifier for strings containing <see cref="T:System.Guid"/> format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Json">
+            <summary>The syntax identifier for strings containing JavaScript Object Notation (JSON).</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.NumericFormat">
+            <summary>The syntax identifier for strings containing numeric format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Regex">
+            <summary>The syntax identifier for strings containing regular expressions.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.TimeOnlyFormat">
+            <summary>The syntax identifier for strings containing time format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.TimeSpanFormat">
+            <summary>The syntax identifier for strings containing <see cref="T:System.TimeSpan"/> format specifiers.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Uri">
+            <summary>The syntax identifier for strings containing URIs.</summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.StringSyntaxAttribute.Xml">
+            <summary>The syntax identifier for strings containing XML.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute">
+            <summary>
+            States a dependency that one member has on another.
+            </summary>
+            <remarks>
+            This can be used to inform tooling of a dependency that is otherwise not evident purely from
+            metadata and IL, for example a member relied on via reflection.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute"/> class
+            with the specified signature of a member on the same type as the consumer.
+            </summary>
+            <param name="memberSignature">The signature of the member depended on.</param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.#ctor(System.String,System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute"/> class
+            with the specified signature of a member on a <see cref="T:System.Type"/>.
+            </summary>
+            <param name="memberSignature">The signature of the member depended on.</param>
+            <param name="type">The <see cref="T:System.Type"/> containing <paramref name="memberSignature"/>.</param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute"/> class
+            with the specified signature of a member on a type in an assembly.
+            </summary>
+            <param name="memberSignature">The signature of the member depended on.</param>
+            <param name="typeName">The full name of the type containing the specified member.</param>
+            <param name="assemblyName">The assembly name of the type containing the specified member.</param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.#ctor(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes,System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute"/> class
+            with the specified types of members on a <see cref="T:System.Type"/>.
+            </summary>
+            <param name="memberTypes">The types of members depended on.</param>
+            <param name="type">The <see cref="T:System.Type"/> containing the specified members.</param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.#ctor(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute"/> class
+            with the specified types of members on a type in an assembly.
+            </summary>
+            <param name="memberTypes">The types of members depended on.</param>
+            <param name="typeName">The full name of the type containing the specified members.</param>
+            <param name="assemblyName">The assembly name of the type containing the specified members.</param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.MemberSignature">
+            <summary>
+            Gets the signature of the member depended on.
+            </summary>
+            <remarks>
+            Either <see cref="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.MemberSignature"/> must be a valid string or <see cref="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.MemberTypes"/>
+            must not equal <see cref="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.None"/>, but not both.
+            </remarks>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.MemberTypes">
+            <summary>
+            Gets the <see cref="T:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes"/> which specifies the type
+            of members depended on.
+            </summary>
+            <remarks>
+            Either <see cref="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.MemberSignature"/> must be a valid string or <see cref="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.MemberTypes"/>
+            must not equal <see cref="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.None"/>, but not both.
+            </remarks>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.Type">
+            <summary>
+            Gets the <see cref="T:System.Type"/> containing the specified member.
+            </summary>
+            <remarks>
+            If neither <see cref="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.Type"/> nor <see cref="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.TypeName"/> are specified,
+            the type of the consumer is assumed.
+            </remarks>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.TypeName">
+            <summary>
+            Gets the full name of the type containing the specified member.
+            </summary>
+            <remarks>
+            If neither <see cref="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.Type"/> nor <see cref="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.TypeName"/> are specified,
+            the type of the consumer is assumed.
+            </remarks>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.AssemblyName">
+            <summary>
+            Gets the assembly name of the specified type.
+            </summary>
+            <remarks>
+            <see cref="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.AssemblyName"/> is only valid when <see cref="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.TypeName"/> is specified.
+            </remarks>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DynamicDependencyAttribute.Condition">
+            <summary>
+            Gets or sets the condition in which the dependency is applicable, e.g. "DEBUG".
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes">
+             <summary>
+             Specifies the types of members that are dynamically accessed.
+            
+             This enumeration has a <see cref="T:System.FlagsAttribute"/> attribute that allows a
+             bitwise combination of its member values.
+             </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.None">
+            <summary>
+            Specifies no members.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicParameterlessConstructor">
+            <summary>
+            Specifies the default, parameterless public constructor.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors">
+            <summary>
+            Specifies all public constructors.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.NonPublicConstructors">
+            <summary>
+            Specifies all non-public constructors.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicMethods">
+            <summary>
+            Specifies all public methods.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.NonPublicMethods">
+            <summary>
+            Specifies all non-public methods.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicFields">
+            <summary>
+            Specifies all public fields.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.NonPublicFields">
+            <summary>
+            Specifies all non-public fields.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicNestedTypes">
+            <summary>
+            Specifies all public nested types.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.NonPublicNestedTypes">
+            <summary>
+            Specifies all non-public nested types.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicProperties">
+            <summary>
+            Specifies all public properties.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.NonPublicProperties">
+            <summary>
+            Specifies all non-public properties.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicEvents">
+            <summary>
+            Specifies all public events.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.NonPublicEvents">
+            <summary>
+            Specifies all non-public events.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.Interfaces">
+            <summary>
+            Specifies all interfaces implemented by the type.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.All">
+            <summary>
+            Specifies all members.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute">
+             <summary>
+             Indicates that certain members on a specified <see cref="T:System.Type"/> are accessed dynamically,
+             for example through <see cref="N:System.Reflection"/>.
+             </summary>
+             <remarks>
+             This allows tools to understand which members are being accessed during the execution
+             of a program.
+            
+             This attribute is valid on members whose type is <see cref="T:System.Type"/> or <see cref="T:System.String"/>.
+            
+             When this attribute is applied to a location of type <see cref="T:System.String"/>, the assumption is
+             that the string represents a fully qualified type name.
+            
+             If the attribute is applied to a method it's treated as a special case and it implies
+             the attribute should be applied to the "this" parameter of the method. As such the attribute
+             should only be used on instance methods of types assignable to System.Type (or string, but no methods
+             will use it there).
+             </remarks>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute.#ctor(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute"/> class
+            with the specified member types.
+            </summary>
+            <param name="memberTypes">The types of members dynamically accessed.</param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute.MemberTypes">
+            <summary>
+            Gets the <see cref="T:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes"/> which specifies the type
+            of members dynamically accessed.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute">
+            <summary>
+            Indicates that the specified method requires the ability to generate new code at runtime,
+            for example through <see cref="N:System.Reflection"/>.
+            </summary>
+            <remarks>
+            This allows tools to understand which methods are unsafe to call when compiling ahead of time.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute"/> class
+            with the specified message.
+            </summary>
+            <param name="message">
+            A message that contains information about the usage of dynamic code.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute.Message">
+            <summary>
+            Gets a message that contains information about the usage of dynamic code.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute.Url">
+            <summary>
+            Gets or sets an optional URL that contains more information about the method,
+            why it requires dynamic code, and what options a consumer has to deal with it.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute">
+            <summary>
+            Indicates that the specified method requires dynamic access to code that is not referenced
+            statically, for example through <see cref="N:System.Reflection"/>.
+            </summary>
+            <remarks>
+            This allows tools to understand which methods are unsafe to call when removing unreferenced
+            code from an application.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute"/> class
+            with the specified message.
+            </summary>
+            <param name="message">
+            A message that contains information about the usage of unreferenced code.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute.Message">
+            <summary>
+            Gets a message that contains information about the usage of unreferenced code.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute.Url">
+            <summary>
+            Gets or sets an optional URL that contains more information about the method,
+            why it requires unreferenced code, and what options a consumer has to deal with it.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute">
+            <summary>
+            Suppresses reporting of a specific rule violation, allowing multiple suppressions on a
+            single code artifact.
+            </summary>
+            <remarks>
+            <see cref="T:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute"/> is different than
+            <see cref="T:System.Diagnostics.CodeAnalysis.SuppressMessageAttribute"/> in that it doesn't have a
+            <see cref="T:System.Diagnostics.ConditionalAttribute"/>. So it is always preserved in the compiled assembly.
+            </remarks>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute"/>
+            class, specifying the category of the tool and the identifier for an analysis rule.
+            </summary>
+            <param name="category">The category for the attribute.</param>
+            <param name="checkId">The identifier of the analysis rule the attribute applies to.</param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.Category">
+            <summary>
+            Gets the category identifying the classification of the attribute.
+            </summary>
+            <remarks>
+            The <see cref="P:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.Category"/> property describes the tool or tool analysis category
+            for which a message suppression attribute applies.
+            </remarks>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.CheckId">
+            <summary>
+            Gets the identifier of the analysis tool rule to be suppressed.
+            </summary>
+            <remarks>
+            Concatenated together, the <see cref="P:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.Category"/> and <see cref="P:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.CheckId"/>
+            properties form a unique check identifier.
+            </remarks>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.Scope">
+            <summary>
+            Gets or sets the scope of the code that is relevant for the attribute.
+            </summary>
+            <remarks>
+            The Scope property is an optional argument that specifies the metadata scope for which
+            the attribute is relevant.
+            </remarks>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.Target">
+            <summary>
+            Gets or sets a fully qualified path that represents the target of the attribute.
+            </summary>
+            <remarks>
+            The <see cref="P:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.Target"/> property is an optional argument identifying the analysis target
+            of the attribute. An example value is "System.IO.Stream.ctor():System.Void".
+            Because it is fully qualified, it can be long, particularly for targets such as parameters.
+            The analysis tool user interface should be capable of automatically formatting the parameter.
+            </remarks>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.MessageId">
+            <summary>
+            Gets or sets an optional argument expanding on exclusion criteria.
+            </summary>
+            <remarks>
+            The <see cref="P:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.MessageId"/> property is an optional argument that specifies additional
+            exclusion where the literal metadata target is not sufficiently precise. For example,
+            the <see cref="T:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute"/> cannot be applied within a method,
+            and it may be desirable to suppress a violation against a statement in the method that will
+            give a rule violation, but not against all statements in the method.
+            </remarks>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.Justification">
+            <summary>
+            Gets or sets the justification for suppressing the code analysis message.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.UnscopedRefAttribute">
+            <summary>
+            Used to indicate a byref escapes and is not scoped.
+            </summary>
+            <remarks>
+            <para>
+            There are several cases where the C# compiler treats a <see langword="ref"/> as implicitly
+            <see langword="scoped"/> - where the compiler does not allow the <see langword="ref"/> to escape the method.
+            </para>
+            <para>
+            For example:
+            <list type="number">
+              <item><see langword="this"/> for <see langword="struct"/> instance methods.</item>
+              <item><see langword="ref"/> parameters that refer to <see langword="ref"/> <see langword="struct"/> types.</item>
+              <item><see langword="out"/> parameters.</item>
+            </list>
+            </para>
+            <para>
+            This attribute is used in those instances where the <see langword="ref"/> should be allowed to escape.
+            </para>
+            <para>
+            Applying this attribute, in any form, has impact on consumers of the applicable API. It is necessary for
+            API authors to understand the lifetime implications of applying this attribute and how it may impact their users.
+            </para>
+            </remarks>
+        </member>
+        <member name="T:System.Diagnostics.StackTraceHiddenAttribute">
+            <summary>
+            Types and Methods attributed with StackTraceHidden will be omitted from the stack trace text shown in StackTrace.ToString()
+            and Exception.StackTrace
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.UnreachableException">
+            <summary>
+            Exception thrown when the program executes an instruction that was thought to be unreachable.
+            </summary>
+            <seealso href="https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.unreachableexception"/>
+            <seealso href="https://source.dot.net/#System.Private.CoreLib/src/libraries/System.Private.CoreLib/src/System/Diagnostics/UnreachableException.cs"/>
+        </member>
+        <member name="M:System.Diagnostics.UnreachableException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Diagnostics.UnreachableException"/> class with the default error message.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.UnreachableException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Diagnostics.UnreachableException"/>
+            class with a specified error message.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+        </member>
+        <member name="M:System.Diagnostics.UnreachableException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Diagnostics.UnreachableException"/>
+            class with a specified error message and a reference to the inner exception that is the cause of
+            this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="T:System.Index">
+            <summary>Represent a type can be used to index a collection either from the start or the end.</summary>
+            <remarks>
+            Index is used by the C# compiler to support the new index syntax
+            <code>
+            int[] someArray = new int[5] { 1, 2, 3, 4, 5 } ;
+            int lastElement = someArray[^1]; // lastElement = 5
+            </code>
+            </remarks>
+        </member>
+        <member name="M:System.Index.#ctor(System.Int32,System.Boolean)">
+            <summary>Construct an Index using a value and indicating if the index is from the start or from the end.</summary>
+            <param name="value">The index value. it has to be zero or positive number.</param>
+            <param name="fromEnd">Indicating if the index is from the start or from the end.</param>
+            <remarks>
+            If the Index constructed from the end, index value 1 means pointing at the last element and index value 0 means pointing at beyond last element.
+            </remarks>
+        </member>
+        <member name="P:System.Index.Start">
+            <summary>Create an Index pointing at first element.</summary>
+        </member>
+        <member name="P:System.Index.End">
+            <summary>Create an Index pointing at beyond last element.</summary>
+        </member>
+        <member name="M:System.Index.FromStart(System.Int32)">
+            <summary>Create an Index from the start at the position indicated by the value.</summary>
+            <param name="value">The index value from the start.</param>
+        </member>
+        <member name="M:System.Index.FromEnd(System.Int32)">
+            <summary>Create an Index from the end at the position indicated by the value.</summary>
+            <param name="value">The index value from the end.</param>
+        </member>
+        <member name="P:System.Index.Value">
+            <summary>Returns the index value.</summary>
+        </member>
+        <member name="P:System.Index.IsFromEnd">
+            <summary>Indicates whether the index is from the start or the end.</summary>
+        </member>
+        <member name="M:System.Index.GetOffset(System.Int32)">
+            <summary>Calculate the offset from the start using the giving collection length.</summary>
+            <param name="length">The length of the collection that the Index will be used with. length has to be a positive value</param>
+            <remarks>
+            For performance reason, we don't validate the input length parameter and the returned offset value against negative values.
+            we don't validate either the returned offset is greater than the input length.
+            It is expected Index will be used with collections which always have non negative length/count. If the returned offset is negative and
+            then used to index a collection will get out of range exception which will be same affect as the validation.
+            </remarks>
+        </member>
+        <member name="M:System.Index.Equals(System.Object)">
+            <summary>Indicates whether the current Index object is equal to another object of the same type.</summary>
+            <param name="value">An object to compare with this object</param>
+        </member>
+        <member name="M:System.Index.Equals(System.Index)">
+            <summary>Indicates whether the current Index object is equal to another Index object.</summary>
+            <param name="other">An object to compare with this object</param>
+        </member>
+        <member name="M:System.Index.GetHashCode">
+            <summary>Returns the hash code for this instance.</summary>
+        </member>
+        <member name="M:System.Index.op_Implicit(System.Int32)~System.Index">
+            <summary>Converts integer number to an Index.</summary>
+        </member>
+        <member name="M:System.Index.ToString">
+            <summary>Converts the value of the current Index object to its equivalent string representation.</summary>
+        </member>
+        <member name="T:System.Range">
+            <summary>Represent a range has start and end indexes.</summary>
+            <remarks>
+            Range is used by the C# compiler to support the range syntax.
+            <code>
+            int[] someArray = new int[5] { 1, 2, 3, 4, 5 };
+            int[] subArray1 = someArray[0..2]; // { 1, 2 }
+            int[] subArray2 = someArray[1..^0]; // { 2, 3, 4, 5 }
+            </code>
+            </remarks>
+        </member>
+        <member name="M:System.Range.#ctor(System.Index,System.Index)">
+            <summary>Represent a range has start and end indexes.</summary>
+            <remarks>
+            Range is used by the C# compiler to support the range syntax.
+            <code>
+            int[] someArray = new int[5] { 1, 2, 3, 4, 5 };
+            int[] subArray1 = someArray[0..2]; // { 1, 2 }
+            int[] subArray2 = someArray[1..^0]; // { 2, 3, 4, 5 }
+            </code>
+            </remarks>
+        </member>
+        <member name="M:System.Range.ToString">
+            <summary>Converts the value of the current Range object to its equivalent string representation.</summary>
+        </member>
+        <member name="M:System.Range.StartAt(System.Index)">
+            <summary>Create a Range object starting from start index to the end of the collection.</summary>
+        </member>
+        <member name="M:System.Range.EndAt(System.Index)">
+            <summary>Create a Range object starting from first element in the collection to the end Index.</summary>
+        </member>
+        <member name="P:System.Range.All">
+            <summary>Create a Range object starting from first element to the end.</summary>
+        </member>
+        <member name="M:System.Range.GetOffsetAndLength(System.Int32)">
+            <summary>Calculate the start offset and length of range object using a collection length.</summary>
+            <param name="length">The length of the collection that the range will be used with. length has to be a positive value.</param>
+            <remarks>
+            For performance reason, we don't validate the input length parameter against negative values.
+            It is expected Range will be used with collections which always have non negative length/count.
+            We validate the range is inside the length scope though.
+            </remarks>
+        </member>
+        <member name="T:System.Reflection.NullabilityInfo">
+            <summary>
+            A class that represents nullability info
+            </summary>
+        </member>
+        <member name="P:System.Reflection.NullabilityInfo.Type">
+            <summary>
+            The <see cref="T:System.Type" /> of the member or generic parameter
+            to which this NullabilityInfo belongs
+            </summary>
+        </member>
+        <member name="P:System.Reflection.NullabilityInfo.ReadState">
+            <summary>
+            The nullability read state of the member
+            </summary>
+        </member>
+        <member name="P:System.Reflection.NullabilityInfo.WriteState">
+            <summary>
+            The nullability write state of the member
+            </summary>
+        </member>
+        <member name="P:System.Reflection.NullabilityInfo.ElementType">
+            <summary>
+            If the member type is an array, gives the <see cref="T:System.Reflection.NullabilityInfo" /> of the elements of the array, null otherwise
+            </summary>
+        </member>
+        <member name="P:System.Reflection.NullabilityInfo.GenericTypeArguments">
+            <summary>
+            If the member type is a generic type, gives the array of <see cref="T:System.Reflection.NullabilityInfo" /> for each type parameter
+            </summary>
+        </member>
+        <member name="T:System.Reflection.NullabilityState">
+            <summary>
+            An enum that represents nullability state
+            </summary>
+        </member>
+        <member name="F:System.Reflection.NullabilityState.Unknown">
+            <summary>
+            Nullability context not enabled (oblivious)
+            </summary>
+        </member>
+        <member name="F:System.Reflection.NullabilityState.NotNull">
+            <summary>
+            Non nullable value or reference type
+            </summary>
+        </member>
+        <member name="F:System.Reflection.NullabilityState.Nullable">
+            <summary>
+            Nullable value or reference type
+            </summary>
+        </member>
+        <member name="T:System.Reflection.NullabilityInfoContext">
+            <summary>
+            Provides APIs for populating nullability information/context from reflection members:
+            <see cref="T:System.Reflection.ParameterInfo"/>, <see cref="T:System.Reflection.FieldInfo"/>, <see cref="T:System.Reflection.PropertyInfo"/> and <see cref="T:System.Reflection.EventInfo"/>.
+            </summary>
+        </member>
+        <member name="M:System.Reflection.NullabilityInfoContext.Create(System.Reflection.ParameterInfo)">
+            <summary>
+            Populates <see cref="T:System.Reflection.NullabilityInfo" /> for the given <see cref="T:System.Reflection.ParameterInfo" />.
+            If the nullablePublicOnly feature is set for an assembly, like it does in .NET SDK, the private and/or internal member's
+            nullability attributes are omitted, in this case the API will return NullabilityState.Unknown state.
+            </summary>
+            <param name="parameterInfo">The parameter which nullability info gets populated</param>
+            <exception cref="T:System.ArgumentNullException">If the parameterInfo parameter is null</exception>
+            <returns><see cref="T:System.Reflection.NullabilityInfo" /></returns>
+        </member>
+        <member name="M:System.Reflection.NullabilityInfoContext.Create(System.Reflection.PropertyInfo)">
+            <summary>
+            Populates <see cref="T:System.Reflection.NullabilityInfo" /> for the given <see cref="T:System.Reflection.PropertyInfo" />.
+            If the nullablePublicOnly feature is set for an assembly, like it does in .NET SDK, the private and/or internal member's
+            nullability attributes are omitted, in this case the API will return NullabilityState.Unknown state.
+            </summary>
+            <param name="propertyInfo">The parameter which nullability info gets populated</param>
+            <exception cref="T:System.ArgumentNullException">If the propertyInfo parameter is null</exception>
+            <returns><see cref="T:System.Reflection.NullabilityInfo" /></returns>
+        </member>
+        <member name="M:System.Reflection.NullabilityInfoContext.Create(System.Reflection.EventInfo)">
+            <summary>
+            Populates <see cref="T:System.Reflection.NullabilityInfo" /> for the given <see cref="T:System.Reflection.EventInfo" />.
+            If the nullablePublicOnly feature is set for an assembly, like it does in .NET SDK, the private and/or internal member's
+            nullability attributes are omitted, in this case the API will return NullabilityState.Unknown state.
+            </summary>
+            <param name="eventInfo">The parameter which nullability info gets populated</param>
+            <exception cref="T:System.ArgumentNullException">If the eventInfo parameter is null</exception>
+            <returns><see cref="T:System.Reflection.NullabilityInfo" /></returns>
+        </member>
+        <member name="M:System.Reflection.NullabilityInfoContext.Create(System.Reflection.FieldInfo)">
+            <summary>
+            Populates <see cref="T:System.Reflection.NullabilityInfo" /> for the given <see cref="T:System.Reflection.FieldInfo" />
+            If the nullablePublicOnly feature is set for an assembly, like it does in .NET SDK, the private and/or internal member's
+            nullability attributes are omitted, in this case the API will return NullabilityState.Unknown state.
+            </summary>
+            <param name="fieldInfo">The parameter which nullability info gets populated</param>
+            <exception cref="T:System.ArgumentNullException">If the fieldInfo parameter is null</exception>
+            <returns><see cref="T:System.Reflection.NullabilityInfo" /></returns>
+        </member>
+        <member name="T:System.Text.AppendInterpolatedStringHandler">
+            <summary>Provides a handler used by the language compiler to append interpolated strings into <see cref="T:System.Text.StringBuilder"/> instances.</summary>
+        </member>
+        <member name="F:System.Text.AppendInterpolatedStringHandler._stringBuilder">
+            <summary>The associated StringBuilder to which to append.</summary>
+        </member>
+        <member name="F:System.Text.AppendInterpolatedStringHandler._provider">
+            <summary>Optional provider to pass to IFormattable.ToString or ISpanFormattable.TryFormat calls.</summary>
+        </member>
+        <member name="F:System.Text.AppendInterpolatedStringHandler._hasCustomFormatter">
+            <summary>Whether <see cref="F:System.Text.AppendInterpolatedStringHandler._provider"/> provides an ICustomFormatter.</summary>
+            <remarks>
+            Custom formatters are very rare.  We want to support them, but it's ok if we make them more expensive
+            in order to make them as pay-for-play as possible.  So, we avoid adding another reference type field
+            to reduce the size of the handler and to reduce required zero'ing, by only storing whether the provider
+            provides a formatter, rather than actually storing the formatter.  This in turn means, if there is a
+            formatter, we pay for the extra interface call on each AppendFormatted that needs it.
+            </remarks>
+        </member>
+        <member name="M:System.Text.AppendInterpolatedStringHandler.#ctor(System.Int32,System.Int32,System.Text.StringBuilder)">
+            <summary>Creates a handler used to append an interpolated string into a <see cref="T:System.Text.StringBuilder"/>.</summary>
+            <param name="literalLength">The number of constant characters outside of interpolation expressions in the interpolated string.</param>
+            <param name="formattedCount">The number of interpolation expressions in the interpolated string.</param>
+            <param name="stringBuilder">The associated StringBuilder to which to append.</param>
+            <remarks>This is intended to be called only by compiler-generated code. Arguments are not validated as they'd otherwise be for members intended to be used directly.</remarks>
+        </member>
+        <member name="M:System.Text.AppendInterpolatedStringHandler.#ctor(System.Int32,System.Int32,System.Text.StringBuilder,System.IFormatProvider)">
+            <summary>Creates a handler used to translate an interpolated string into a <see cref="T:System.String"/>.</summary>
+            <param name="literalLength">The number of constant characters outside of interpolation expressions in the interpolated string.</param>
+            <param name="formattedCount">The number of interpolation expressions in the interpolated string.</param>
+            <param name="stringBuilder">The associated StringBuilder to which to append.</param>
+            <param name="provider">An object that supplies culture-specific formatting information.</param>
+            <remarks>This is intended to be called only by compiler-generated code. Arguments are not validated as they'd otherwise be for members intended to be used directly.</remarks>
+        </member>
+        <member name="M:System.Text.AppendInterpolatedStringHandler.AppendLiteral(System.String)">
+            <summary>Writes the specified string to the handler.</summary>
+            <param name="value">The string to write.</param>
+        </member>
+        <member name="M:System.Text.AppendInterpolatedStringHandler.AppendFormatted``1(``0)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+            <typeparam name="T">The type of the value to write.</typeparam>
+        </member>
+        <member name="M:System.Text.AppendInterpolatedStringHandler.AppendFormatted``1(``0,System.String)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+            <param name="format">The format string.</param>
+            <typeparam name="T">The type of the value to write.</typeparam>
+        </member>
+        <member name="M:System.Text.AppendInterpolatedStringHandler.AppendFormatted``1(``0,System.Int32)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+            <param name="alignment">
+            Minimum number of characters that should be written for this value.  If the value is negative, it indicates
+            left-aligned and the required minimum is the absolute value.
+            </param>
+            <typeparam name="T">The type of the value to write.</typeparam>
+        </member>
+        <member name="M:System.Text.AppendInterpolatedStringHandler.AppendFormatted``1(``0,System.Int32,System.String)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+            <param name="format">The format string.</param>
+            <param name="alignment">
+            Minimum number of characters that should be written for this value.  If the value is negative, it indicates
+            left-aligned and the required minimum is the absolute value.
+            </param>
+            <typeparam name="T">The type of the value to write.</typeparam>
+        </member>
+        <member name="M:System.Text.AppendInterpolatedStringHandler.AppendFormattedWithTempSpace``1(``0,System.Int32,System.String)">
+            <summary>Formats into temporary space and then appends the result into the StringBuilder.</summary>
+        </member>
+        <member name="M:System.Text.AppendInterpolatedStringHandler.AppendFormatted(System.ReadOnlySpan{System.Char})">
+            <summary>Writes the specified character span to the handler.</summary>
+            <param name="value">The span to write.</param>
+        </member>
+        <member name="M:System.Text.AppendInterpolatedStringHandler.AppendFormatted(System.ReadOnlySpan{System.Char},System.Int32,System.String)">
+            <summary>Writes the specified string of chars to the handler.</summary>
+            <param name="value">The span to write.</param>
+            <param name="alignment">
+            Minimum number of characters that should be written for this value.  If the value is negative, it indicates
+            left-aligned and the required minimum is the absolute value.
+            </param>
+            <param name="format">The format string.</param>
+        </member>
+        <member name="M:System.Text.AppendInterpolatedStringHandler.AppendFormatted(System.String)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:System.Text.AppendInterpolatedStringHandler.AppendFormatted(System.String,System.Int32,System.String)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+            <param name="alignment">
+            Minimum number of characters that should be written for this value.  If the value is negative, it indicates
+            left-aligned and the required minimum is the absolute value.
+            </param>
+            <param name="format">The format string.</param>
+        </member>
+        <member name="M:System.Text.AppendInterpolatedStringHandler.AppendFormatted(System.Object,System.Int32,System.String)">
+            <summary>Writes the specified value to the handler.</summary>
+            <param name="value">The value to write.</param>
+            <param name="alignment">
+            Minimum number of characters that should be written for this value.  If the value is negative, it indicates
+            left-aligned and the required minimum is the absolute value.
+            </param>
+            <param name="format">The format string.</param>
+        </member>
+        <member name="M:System.Text.AppendInterpolatedStringHandler.AppendCustomFormatter``1(``0,System.String)">
+            <summary>Formats the value using the custom formatter from the provider.</summary>
+            <param name="value">The value to write.</param>
+            <param name="format">The format string.</param>
+            <typeparam name="T">The type of the value to write.</typeparam>
+        </member>
+        <member name="T:System.ISpanFormattable">
+            <summary>Provides functionality to format the string representation of an object into a span.</summary>
+        </member>
+        <member name="M:System.ISpanFormattable.TryFormat(System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+            <summary>Tries to format the value of the current instance into the provided span of characters.</summary>
+            <param name="destination">When this method returns, this instance's value formatted as a span of characters.</param>
+            <param name="charsWritten">When this method returns, the number of characters that were written in <paramref name="destination"/>.</param>
+            <param name="format">A span containing the characters that represent a standard or custom format string that defines the acceptable format for <paramref name="destination"/>.</param>
+            <param name="provider">An optional object that supplies culture-specific formatting information for <paramref name="destination"/>.</param>
+            <returns><see langword="true"/> if the formatting was successful; otherwise, <see langword="false"/>.</returns>
+            <remarks>
+            An implementation of this interface should produce the same string of characters as an implementation of <see cref="M:System.IFormattable.ToString(System.String,System.IFormatProvider)"/>
+            on the same type.
+            TryFormat should return false only if there is not enough space in the destination buffer. Any other failures should throw an exception.
+            </remarks>
+        </member>
+        <member name="M:EnumPolyfill.GetValues``1">
+            <summary>
+            Retrieves an array of the values of the constants in a specified enumeration type.
+            </summary>
+            <returns>An array that contains the values of the constants in TEnum.</returns>
+        </member>
+        <member name="M:EnumPolyfill.GetNames``1">
+            <summary>
+            Retrieves an array of the names of the constants in a specified enumeration type.
+            </summary>
+            <returns>A string array of the names of the constants in TEnum.</returns>
+        </member>
+        <member name="T:Polyfill">
+            <summary>
+            Static and thread safe wrapper around NullabilityInfoContext.
+            </summary>
+        </member>
+        <member name="M:Polyfill.UnsafeRegister(System.Threading.CancellationToken,System.Action{System.Object},System.Object)">
+            <summary>
+            Registers a delegate that will be called when this
+            <see cref="T:System.Threading.CancellationToken">CancellationToken</see> is canceled.
+            </summary>
+            <remarks>
+            <para>
+            If this token is already in the canceled state, the delegate will be run immediately and synchronously.
+            Any exception the delegate generates will be propagated out of this method call.
+            </para>
+            <para>
+            <see cref="T:System.Threading.ExecutionContext">ExecutionContext</see> is not captured nor flowed
+            to the callback's invocation.
+            </para>
+            </remarks>
+            <param name="callback">The delegate to be executed when the <see cref="T:System.Threading.CancellationToken">CancellationToken</see> is canceled.</param>
+            <param name="state">The state to pass to the <paramref name="callback"/> when the delegate is invoked.  This may be null.</param>
+            <returns>The <see cref="T:System.Threading.CancellationTokenRegistration"/> instance that can
+            be used to unregister the callback.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="callback"/> is null.</exception>
+        </member>
+        <member name="M:Polyfill.Register(System.Threading.CancellationToken,System.Action{System.Object,System.Threading.CancellationToken},System.Object)">
+            <summary>Registers a delegate that will be called when this <see cref="T:System.Threading.CancellationToken">CancellationToken</see> is canceled.</summary>
+            <remarks>
+            If this token is already in the canceled state, the delegate will be run immediately and synchronously. Any exception the delegate
+            generates will be propagated out of this method call. The current <see cref="T:System.Threading.ExecutionContext">ExecutionContext</see>, if one exists,
+            will be captured along with the delegate and will be used when executing it. The current <see cref="T:System.Threading.SynchronizationContext"/> is not captured.
+            </remarks>
+            <param name="callback">The delegate to be executed when the <see cref="T:System.Threading.CancellationToken">CancellationToken</see> is canceled.</param>
+            <param name="state">The state to pass to the <paramref name="callback"/> when the delegate is invoked.  This may be null.</param>
+            <returns>The <see cref="T:System.Threading.CancellationTokenRegistration"/> instance that can be used to unregister the callback.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="callback"/> is null.</exception>
+        </member>
+        <member name="M:Polyfill.UnsafeRegister(System.Threading.CancellationToken,System.Action{System.Object,System.Threading.CancellationToken},System.Object)">
+            <summary>Registers a delegate that will be called when this <see cref="T:System.Threading.CancellationToken">CancellationToken</see> is canceled.</summary>
+            <remarks>
+            If this token is already in the canceled state, the delegate will be run immediately and synchronously. Any exception the delegate
+            generates will be propagated out of this method call. <see cref="T:System.Threading.ExecutionContext"/> is not captured nor flowed to the callback's invocation.
+            </remarks>
+            <param name="callback">The delegate to be executed when the <see cref="T:System.Threading.CancellationToken">CancellationToken</see> is canceled.</param>
+            <param name="state">The state to pass to the <paramref name="callback"/> when the delegate is invoked.  This may be null.</param>
+            <returns>The <see cref="T:System.Threading.CancellationTokenRegistration"/> instance that can be used to unregister the callback.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="callback"/> is null.</exception>
+        </member>
+        <member name="M:Polyfill.CancelAsync(System.Threading.CancellationTokenSource)">
+            <summary>Communicates a request for cancellation asynchronously.</summary>
+            <remarks>
+            <para>
+            The associated <see cref="T:System.Threading.CancellationToken" /> will be notified of the cancellation
+            and will synchronously transition to a state where <see cref="P:System.Threading.CancellationToken.IsCancellationRequested"/> returns true.
+            Any callbacks or cancelable operations registered with the <see cref="T:System.Threading.CancellationToken"/>  will be executed asynchronously,
+            with the returned <see cref="T:System.Threading.Tasks.Task"/> representing their eventual completion.
+            </para>
+            <para>
+            Callbacks registered with the token should not throw exceptions.
+            However, any such exceptions that are thrown will be aggregated into an <see cref="T:System.AggregateException"/>,
+            such that one callback throwing an exception will not prevent other registered callbacks from being executed.
+            </para>
+            <para>
+            The <see cref="T:System.Threading.ExecutionContext"/> that was captured when each callback was registered
+            will be reestablished when the callback is invoked.
+            </para>
+            </remarks>
+            <exception cref="T:System.ObjectDisposedException">This <see cref="T:System.Threading.CancellationTokenSource"/> has been disposed.</exception>
+        </member>
+        <member name="M:Polyfill.Remove``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1@)">
+            <summary>
+            Removes the value with the specified key from the <see cref="T:System.Collections.Generic.Dictionary`2"/>, and copies the element
+            to the value parameter.
+            </summary>
+            <param name="target">A dictionary with keys of type TKey and values of type TValue.</param>
+            <param name="key">The key of the element to remove.</param>
+            <param name="value">The removed element.</param>
+            <typeparam name="TKey">The type of the keys in the dictionary.</typeparam>
+            <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
+            <returns><code>true</code> if the element is successfully found and removed; otherwise, <code>false</code>.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="key"/> is <code>null</code>.</exception>
+        </member>
+        <member name="M:Polyfill.Except``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Produces a set items excluding <paramref name="item"/> by using the default equality comparer to compare values.
+            </summary>
+            <param name="target">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> whose elements that are not equal to <paramref name="item"/> will be returned.</param>
+            <param name="item">An <see cref="!:TSource"/> that is elements equal it will cause those elements to be removed from the returned sequence.</param>
+            <typeparam name="TSource">The type of the elements of <paramref name="target" />.</typeparam>
+            <returns>A sequence that contains the items of <paramref name="target"/> but excluding <paramref name="item"/>.</returns>
+        </member>
+        <member name="M:Polyfill.Except``1(System.Collections.Generic.IEnumerable{``0},``0[])">
+            <summary>
+            Produces the set difference of two sequences by using the default equality comparer to compare values.
+            </summary>
+            <param name="target">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> whose elements that are not equal to <paramref name="item"/> will be returned.</param>
+            <param name="item">An <see cref="!:TSource"/> that is elements equal it will cause those elements to be removed from the returned sequence.</param>
+            <typeparam name="TSource">The type of the elements of <paramref name="target" />.</typeparam>
+            <returns>A sequence that contains the items of <paramref name="target"/> but excluding <paramref name="item"/>.</returns>
+        </member>
+        <member name="M:Polyfill.Except``1(System.Collections.Generic.IEnumerable{``0},``0,System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Produces a set items excluding <paramref name="item"/> by using <paramref name="comparer"/> to compare values.
+            </summary>
+            <param name="target">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> whose elements that are not equal to <paramref name="item"/> will be returned.</param>
+            <param name="item">An <see cref="!:TSource"/> that is elements equal it will cause those elements to be removed from the returned sequence.</param>
+            <param name="comparer">An <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> to compare values.</param>
+            <typeparam name="TSource">The type of the elements of <paramref name="target" />.</typeparam>
+            <returns>A sequence that contains the items of <paramref name="target"/> but excluding <paramref name="item"/>.</returns>
+        </member>
+        <member name="M:Polyfill.Except``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0},``0[])">
+            <summary>
+            Produces the set difference of two sequences by <paramref name="comparer"/> to compare values.
+            </summary>
+            <param name="target">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> whose elements that are not equal to <paramref name="item"/> will be returned.</param>
+            <param name="item">An <see cref="!:TSource"/> that is elements equal it will cause those elements to be removed from the returned sequence.</param>
+            <typeparam name="TSource">The type of the elements of <paramref name="target" />.</typeparam>
+            <returns>A sequence that contains the items of <paramref name="target"/> but excluding <paramref name="item"/>.</returns>
+        </member>
+        <member name="M:Polyfill.Chunk``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Split the elements of a sequence into chunks of size at most <paramref name="size"/>.
+            </summary>
+            <remarks>
+            Every chunk except the last will be of size <paramref name="size"/>.
+            The last chunk will contain the remaining elements and may be of a smaller size.
+            </remarks>
+            <param name="source">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> whose elements to chunk.</param>
+            <param name="size">Maximum size of each chunk.</param>
+            <typeparam name="TSource">The type of the elements of source.</typeparam>
+            <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerable`1"/> that contains the elements the input sequence split into chunks of size <paramref name="size"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="source"/> is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="size"/> is below 1.</exception>
+        </member>
+        <member name="M:Polyfill.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Returns the maximum value in a generic sequence according to a specified key selector function.
+            </summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="target" />.</typeparam>
+            <typeparam name="TKey">The type of key to compare elements by.</typeparam>
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="keySelector">A function to extract the key for each element.</param>
+            <returns>The value with the maximum key in the sequence.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="source" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentException">No key extracted from <paramref name="source" /> implements the <see cref="T:System.IComparable" /> or <see cref="T:System.IComparable`1" /> interface.</exception>
+            <remarks>
+            <para>If <typeparamref name="TKey" /> is a reference type and the source sequence is empty or contains only values that are <see langword="null" />, this method returns <see langword="null" />.</para>
+            </remarks>
+        </member>
+        <member name="M:Polyfill.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+            <summary>Returns the maximum value in a generic sequence according to a specified key selector function.</summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="target" />.</typeparam>
+            <typeparam name="TKey">The type of key to compare elements by.</typeparam>
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="keySelector">A function to extract the key for each element.</param>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IComparer`1" /> to compare keys.</param>
+            <returns>The value with the maximum key in the sequence.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="source" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentException">No key extracted from <paramref name="source" /> implements the <see cref="T:System.IComparable" /> or <see cref="T:System.IComparable`1" /> interface.</exception>
+            <remarks>
+            <para>If <typeparamref name="TKey" /> is a reference type and the source sequence is empty or contains only values that are <see langword="null" />, this method returns <see langword="null" />.</para>
+            </remarks>
+        </member>
+        <member name="M:Polyfill.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Returns the minimum value in a generic sequence according to a specified key selector function.
+            </summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="target" />.</typeparam>
+            <typeparam name="TKey">The type of key to compare elements by.</typeparam>
+            <param name="source">A sequence of values to determine the minby value of.</param>
+            <param name="keySelector">A function to extract the key for each element.</param>
+            <returns>The value with the minimum key in the sequence.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="source" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentException">No key extracted from <paramref name="source" /> implements the <see cref="T:System.IComparable" /> or <see cref="T:System.IComparable`1" /> interface.</exception>
+            <remarks>
+            <para>If <typeparamref name="TKey" /> is a reference type and the source sequence is empty or contains only values that are <see langword="null" />, this method returns <see langword="null" />.</para>
+            </remarks>
+        </member>
+        <member name="M:Polyfill.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+            <summary>Returns the minimum value in a generic sequence according to a specified key selector function.</summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="target" />.</typeparam>
+            <typeparam name="TKey">The type of key to compare elements by.</typeparam>
+            <param name="source">A sequence of values to determine the minimum value of.</param>
+            <param name="keySelector">A function to extract the key for each element.</param>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IComparer`1" /> to compare keys.</param>
+            <returns>The value with the minimum key in the sequence.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="source" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentException">No key extracted from <paramref name="target" /> implements the <see cref="T:System.IComparable" /> or <see cref="T:System.IComparable`1" /> interface.</exception>
+            <remarks>
+            <para>If <typeparamref name="TKey" /> is a reference type and the source sequence is empty or contains only values that are <see langword="null" />, this method returns <see langword="null" />.</para>
+            </remarks>
+        </member>
+        <member name="M:Polyfill.SkipLast``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Returns a new enumerable collection that contains the elements from source with the last count elements of the
+            source collection omitted.
+            </summary>
+            <param name="source">An enumerable collection instance.</param>
+            <param name="count">The number of elements to omit from the end of the collection.</param>
+            <typeparam name="TSource">The type of the elements in the enumerable collection.</typeparam>
+            <returns>A new enumerable collection that contains the elements from source minus count elements from the end
+            of the collection.</returns>
+        </member>
+        <member name="M:Polyfill.GetValueOrDefault``2(System.Collections.Generic.IReadOnlyDictionary{``0,``1},``0)">
+            <summary>
+            Tries to get the value associated with the specified key in the dictionary.
+            </summary>
+            <param name="target">A dictionary with keys of type TKey and values of type TValue.</param>
+            <param name="key">The key of the value to get.</param>
+            <typeparam name="TKey">The type of the keys in the dictionary.</typeparam>
+            <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
+            <returns>
+            A TValue instance. When the method is successful, the returned object is the value associated with
+            the specified key. When the method fails, it returns the default value for TValue.
+            </returns>
+        </member>
+        <member name="M:Polyfill.GetValueOrDefault``2(System.Collections.Generic.IReadOnlyDictionary{``0,``1},``0,``1)">
+            <summary>
+            Tries to get the value associated with the specified key in the dictionary.
+            </summary>
+            <param name="target">A dictionary with keys of type TKey and values of type TValue.</param>
+            <param name="key">The key of the value to get.</param>
+            <param name="defaultValue">A dictionary with keys of type TKey and values of type TValue.</param>
+            <typeparam name="TKey">The type of the keys in the dictionary.</typeparam>
+            <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
+            <returns>
+            A TValue instance. When the method is successful, the returned object is the value associated with
+            the specified key. When the method fails, it returns the default value for TValue.
+            </returns>
+        </member>
+        <member name="M:Polyfill.Deconstruct``2(System.Collections.Generic.KeyValuePair{``0,``1},``0@,``1@)">
+            <summary>
+            Deconstructs the current <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            </summary>
+            <param name="key">The key of the current <see cref="T:System.Collections.Generic.KeyValuePair`2"/>.</param>
+            <param name="value">The value of the current <see cref="T:System.Collections.Generic.KeyValuePair`2"/>.</param>
+        </member>
+        <member name="M:Polyfill.Contains``1(System.ReadOnlySpan{``0},``0)">
+            <summary>
+            Indicates whether a specified value is found in a read-only span. Values are compared using IEquatable{T}.Equals(T).
+            </summary>
+            <param name="value">The value to search for.</param>
+            <returns><c>true</c> if found, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Polyfill.Contains``1(System.Span{``0},``0)">
+            <summary>
+            Indicates whether a specified value is found in a only span. Values are compared using IEquatable{T}.Equals(T).
+            </summary>
+            <param name="value">The value to search for.</param>
+            <returns><c>true</c> if found, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Polyfill.SequenceEqual(System.ReadOnlySpan{System.Char},System.String)">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements using IEquatable{T}.Equals(T).
+            </summary>
+            <param name="target">The first sequence to compare.</param>
+            <param name="other">The second sequence to compare.</param>
+            <returns><c>true</c> if the two sequences are equal; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Polyfill.SequenceEqual(System.Span{System.Char},System.String)">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements using IEquatable{T}.Equals(T).
+            </summary>
+            <param name="target">The first sequence to compare.</param>
+            <param name="other">The second sequence to compare.</param>
+            <returns><c>true</c> if the two sequences are equal; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Polyfill.StartsWith(System.ReadOnlySpan{System.Char},System.String,System.StringComparison)">
+            <summary>
+            Determines whether a read-only character span begins with a specified value when compared using a specified <see cref="T:System.StringComparison"/> value.
+            </summary>
+            <param name="target">The source span.</param>
+            <param name="other">The sequence to compare to the beginning of the source span.</param>
+            <param name="comparison">An enumeration value that determines how span and value are compared.</param>
+            <returns><c>true</c> if value matches the beginning of span; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Polyfill.StartsWith(System.Span{System.Char},System.String)">
+            <summary>
+            Determines whether a specified sequence appears at the start of a span.
+            </summary>
+            <param name="target">The source span.</param>
+            <param name="other">The sequence to compare to the beginning of the source span.</param>
+            <returns><c>true</c> if value matches the beginning of span; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Polyfill.EndsWith(System.ReadOnlySpan{System.Char},System.String,System.StringComparison)">
+            <summary>
+            Determines whether the end of the span matches the specified value when compared using the specified <paramref name="comparison"/> option.
+            </summary>
+            <param name="target">The source span.</param>
+            <param name="other">The sequence to compare to the end of the source span.</param>
+            <param name="comparison">An enumeration value that determines how span and value are compared.</param>
+            <returns><c>true</c> if value matches the end of span; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Polyfill.EndsWith(System.Span{System.Char},System.String)">
+            <summary>
+            Determines whether the specified sequence appears at the end of a span.
+            </summary>
+            <param name="target">The source span.</param>
+            <param name="other">The sequence to compare to the end of the source span.</param>
+            <returns><c>true</c> if value matches the end of span; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Polyfill.Nanoseconds(System.TimeSpan)">
+            <summary>
+            Gets the nanosecond component of the time represented by the current <see cref="T:System.TimeSpan"/> object.
+            </summary>
+        </member>
+        <member name="M:Polyfill.Nanosecond(System.DateTime)">
+            <summary>
+            Gets the nanosecond component of the time represented by the current <see cref="T:System.DateTime"/> object.
+            </summary>
+        </member>
+        <member name="M:Polyfill.Nanosecond(System.DateTimeOffset)">
+            <summary>
+            Gets the nanosecond component of the time represented by the current <see cref="T:System.DateTimeOffset"/> object.
+            </summary>
+        </member>
+        <member name="M:Polyfill.Microseconds(System.TimeSpan)">
+            <summary>
+            Gets the microsecond component of the time represented by the current <see cref="T:System.TimeSpan"/> object.
+            </summary>
+        </member>
+        <member name="M:Polyfill.Microsecond(System.DateTime)">
+            <summary>
+            Gets the microsecond component of the time represented by the current <see cref="T:System.DateTime"/> object.
+            </summary>
+        </member>
+        <member name="M:Polyfill.Microsecond(System.DateTimeOffset)">
+            <summary>
+            Gets the microsecond component of the time represented by the current <see cref="T:System.DateTimeOffset"/> object.
+            </summary>
+        </member>
+        <member name="M:Polyfill.AddMicroseconds(System.DateTime,System.Double)">
+            <summary>
+            Returns a new <see cref="T:System.DateTime"/> object that adds a specified number of microseconds to the value of this instance..
+            </summary>
+        </member>
+        <member name="M:Polyfill.AddMicroseconds(System.DateTimeOffset,System.Double)">
+            <summary>
+            Returns a new <see cref="T:System.DateTimeOffset"/> object that adds a specified number of microseconds to the value of this instance..
+            </summary>
+        </member>
+        <member name="M:Polyfill.WaitForExitAsync(System.Diagnostics.Process,System.Threading.CancellationToken)">
+            <summary>
+            Instructs the Process component to wait for the associated process to exit, or
+            for the <paramref name="cancellationToken"/> to be canceled.
+            </summary>
+            <remarks>
+            Calling this method will set <see cref="!:EnableRaisingEvents"/> to <see langword="true" />.
+            </remarks>
+            <returns>
+            A task that will complete when the process has exited, cancellation has been requested,
+            or an error occurs.
+            </returns>
+        </member>
+        <member name="M:Polyfill.ReadAsync(System.IO.Stream,System.Memory{System.Byte},System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously reads a sequence of bytes from the current stream, advances the position within the stream by
+            the number of bytes read, and monitors cancellation requests.
+            </summary>
+            <param name="buffer">The region of memory to write the data into.</param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None"/>.
+            </param>
+            <returns>
+            A task that represents the asynchronous read operation. The value of its Result property contains the
+            total number of bytes read into the buffer. The result value can be less than the number of bytes allocated in
+            the buffer if that many bytes are not currently available, or it can be 0 (zero) if the end of the stream has
+            been reached.
+            </returns>
+        </member>
+        <member name="M:Polyfill.WriteAsync(System.IO.Stream,System.ReadOnlyMemory{System.Byte},System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously writes a sequence of bytes to the current stream, advances the current position
+            within this stream by the number of bytes written, and monitors cancellation requests.
+            </summary>
+            <param name="buffer">The region of memory to write data from.</param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None"/>.
+            </param>
+            <returns>A task that represents the asynchronous write operation.</returns>
+        </member>
+        <member name="M:Polyfill.CopyToAsync(System.IO.Stream,System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously reads the bytes from the current stream and writes them to another stream, using a specified
+            cancellation token. Both streams positions are advanced by the number of bytes copied.
+            </summary>
+            <param name="destination">The stream to which the contents of the current stream will be copied.</param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None"/>.
+            </param>
+            <returns>A task that represents the asynchronous copy operation.</returns>
+        </member>
+        <member name="M:Polyfill.CopyTo(System.String,System.Span{System.Char})">
+            <summary>
+            Copies the contents of this string into the destination span.
+            </summary>
+            <param name="destination">The span into which to copy this string's contents</param>
+        </member>
+        <member name="M:Polyfill.TryCopyTo(System.String,System.Span{System.Char})">
+            <summary>
+            Copies the contents of this string into the destination span.
+            </summary>
+            <param name="destination">The span into which to copy this string's contents</param>
+            <returns>true if the data was copied; false if the destination was too short to fit the contents of the string.</returns>
+        </member>
+        <member name="M:Polyfill.GetHashCode(System.String,System.StringComparison)">
+            <summary>
+            Returns the hash code for this string using the specified rules.
+            </summary>
+            <param name="comparisonType">One of the enumeration values that specifies the rules to use in the comparison.</param>
+            <returns>A 32-bit signed integer hash code.</returns>
+        </member>
+        <member name="M:Polyfill.Contains(System.String,System.String,System.StringComparison)">
+            <summary>
+            Returns a value indicating whether a specified string occurs within this string, using the specified comparison rules.
+            </summary>
+            <param name="value">The string to seek.</param>
+            <param name="comparisonType">One of the enumeration values that specifies the rules to use in the comparison.</param>
+            <returns>true if the value parameter occurs within this string, or if value is the empty string (""); otherwise, false.</returns>
+        </member>
+        <member name="M:Polyfill.StartsWith(System.String,System.Char)">
+            <summary>
+            Determines whether this string instance starts with the specified character.
+            </summary>
+            <param name="value">The character to compare.</param>
+            <remarks>This method performs an ordinal (case-sensitive and culture-insensitive) comparison.</remarks>
+            <returns>true if value matches the beginning of this string; otherwise, false.</returns>
+        </member>
+        <member name="M:Polyfill.EndsWith(System.String,System.Char)">
+            <summary>
+            Returns a value indicating whether a specified character occurs within this string.
+            </summary>
+            <param name="value">The character to seek.</param>
+            <remarks>This method performs an ordinal (case-sensitive and culture-insensitive) comparison.</remarks>
+            <returns>true if the value parameter occurs within this string; otherwise, false.</returns>
+        </member>
+        <member name="M:Polyfill.Split(System.String,System.Char,System.StringSplitOptions)">
+            <summary>
+            Splits a string into a maximum number of substrings based on a specified delimiting character and, optionally,
+            options. Splits a string into a maximum number of substrings based on the provided character separator,
+            optionally omitting empty substrings from the result.
+            </summary>
+            <param name="separator">A character that delimits the substrings in this instance.</param>
+            <param name="options">A bitwise combination of the enumeration values that specifies whether to trim substrings
+            and include empty substrings.</param>
+            <returns>An array that contains at most count substrings from this instance that are delimited by separator.</returns>
+        </member>
+        <member name="M:Polyfill.Split(System.String,System.Char,System.Int32,System.StringSplitOptions)">
+            <summary>
+            Splits a string into a maximum number of substrings based on a specified delimiting character and, optionally,
+            options. Splits a string into a maximum number of substrings based on the provided character separator,
+            optionally omitting empty substrings from the result.
+            </summary>
+            <param name="separator">A character that delimits the substrings in this instance.</param>
+            <param name="count">The maximum number of elements expected in the array.</param>
+            <param name="options">A bitwise combination of the enumeration values that specifies whether to trim substrings
+            and include empty substrings.</param>
+            <returns>An array that contains at most count substrings from this instance that are delimited by separator.</returns>
+        </member>
+        <member name="M:Polyfill.Contains(System.String,System.Char)">
+            <summary>
+            Returns a value indicating whether a specified character occurs within this string.
+            </summary>
+            <remarks>This method performs an ordinal (case-sensitive and culture-insensitive) comparison.</remarks>
+            <param name="value">The character to seek.</param>
+            <returns>true if the value parameter occurs within this string; otherwise, false.</returns>
+        </member>
+        <member name="M:Polyfill.CopyTo(System.Text.StringBuilder,System.Int32,System.Span{System.Char},System.Int32)">
+            <summary>
+            Copies the characters from a specified segment of this instance to a destination Char span.
+            </summary>
+            <param name="sourceIndex">The starting position in this instance where characters will be copied from. The index is zero-based.</param>
+            <param name="destination">The writable span where characters will be copied.</param>
+            <param name="count">The number of characters to be copied.</param>
+        </member>
+        <member name="M:Polyfill.Append(System.Text.StringBuilder,System.ReadOnlySpan{System.Char})">
+            <summary>
+            Appends the string representation of a specified read-only character span to this instance.
+            </summary>
+            <param name="value">The read-only character span to append.</param>
+            <returns>A reference to this instance after the append operation is completed.</returns>
+        </member>
+        <member name="M:Polyfill.Equals(System.Text.StringBuilder,System.ReadOnlySpan{System.Char})">
+            <summary>
+            Returns a value indicating whether the characters in this instance are equal to the characters in a specified
+            read-only character span.
+            </summary>
+            <param name="span">The character span to compare with the current instance.</param>
+            <remarks>
+            The Equals method performs an ordinal comparison to determine whether the characters in the current instance
+            and span are equal.
+            </remarks>
+            <returns>true if the characters in this instance and span are the same; otherwise, false.</returns>
+        </member>
+        <member name="M:Polyfill.Append(System.Text.StringBuilder,System.Text.AppendInterpolatedStringHandler@)">
+            <summary>Appends the specified interpolated string to this instance.</summary>
+            <param name="handler">The interpolated string to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:Polyfill.Append(System.Text.StringBuilder,System.IFormatProvider,System.Text.AppendInterpolatedStringHandler@)">
+            <summary>Appends the specified interpolated string to this instance.</summary>
+            <param name="provider">An object that supplies culture-specific formatting information.</param>
+            <param name="handler">The interpolated string to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:Polyfill.AppendLine(System.Text.StringBuilder,System.Text.AppendInterpolatedStringHandler@)">
+            <summary>Appends the specified interpolated string followed by the default line terminator to the end of the current StringBuilder object.</summary>
+            <param name="handler">The interpolated string to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:Polyfill.AppendLine(System.Text.StringBuilder,System.IFormatProvider,System.Text.AppendInterpolatedStringHandler@)">
+            <summary>Appends the specified interpolated string followed by the default line terminator to the end of the current StringBuilder object.</summary>
+            <param name="provider">An object that supplies culture-specific formatting information.</param>
+            <param name="handler">The interpolated string to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:Polyfill.AppendJoin(System.Text.StringBuilder,System.String,System.String[])">
+            <summary>Concatenates the strings of the provided array, using the specified separator between each string, then appends the result to the current instance of the string builder.</summary>
+            <param name="separator">The string to use as a separator. separator is included in the joined strings only if values has more than one element.</param>
+            <param name="values">An array that contains the strings to concatenate and append to the current instance of the string builder.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:Polyfill.AppendJoin(System.Text.StringBuilder,System.String,System.Object[])">
+            <summary>Concatenates the string representations of the elements in the provided array of objects, using the specified separator between each member, then appends the result to the current instance of the string builder.</summary>
+            <param name="separator">The string to use as a separator. separator is included in the joined strings only if values has more than one element.</param>
+            <param name="values">An array that contains the strings to concatenate and append to the current instance of the string builder.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:Polyfill.AppendJoin(System.Text.StringBuilder,System.Char,System.String[])">
+            <summary>Concatenates the strings of the provided array, using the specified char separator between each string, then appends the result to the current instance of the string builder.</summary>
+            <param name="separator">The character to use as a separator. separator is included in the joined strings only if values has more than one element.</param>
+            <param name="values">An array that contains the strings to concatenate and append to the current instance of the string builder.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:Polyfill.AppendJoin(System.Text.StringBuilder,System.Char,System.Object[])">
+            <summary>Concatenates the string representations of the elements in the provided array of objects, using the specified char separator between each member, then appends the result to the current instance of the string builder.</summary>
+            <param name="separator">The character to use as a separator. separator is included in the joined strings only if values has more than one element.</param>
+            <param name="values">An array that contains the strings to concatenate and append to the current instance of the string builder.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:Polyfill.AppendJoin``1(System.Text.StringBuilder,System.Char,``0[])">
+            <summary>Concatenates and appends the members of a collection, using the specified char separator between each member.</summary>
+            <param name="separator">The character to use as a separator. separator is included in the joined strings only if values has more than one element.</param>
+            <param name="values">A collection that contains the objects to concatenate and append to the current instance of the string builder.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:Polyfill.AppendJoin``1(System.Text.StringBuilder,System.String,``0[])">
+            <summary>Concatenates and appends the members of a collection, using the specified char separator between each member.</summary>
+            <param name="separator">The string to use as a separator. separator is included in the concatenated and appended strings only if values has more than one element.</param>
+            <param name="values">A collection that contains the objects to concatenate and append to the current instance of the string builder.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:Polyfill.WaitAsync(System.Threading.Tasks.Task,System.Threading.CancellationToken)">
+            <summary>Gets a <see cref="T:System.Threading.Tasks.Task"/> that will complete when this <see cref="T:System.Threading.Tasks.Task"/> completes or when the specified <see cref="T:System.Threading.CancellationToken"/> has cancellation requested.</summary>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> to monitor for a cancellation request.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous wait.  It may or may not be the same instance as the current instance.</returns>
+        </member>
+        <member name="M:Polyfill.WaitAsync(System.Threading.Tasks.Task,System.TimeSpan)">
+            <summary>Gets a <see cref="T:System.Threading.Tasks.Task"/> that will complete when this <see cref="T:System.Threading.Tasks.Task"/> completes or when the specified timeout expires.</summary>
+            <param name="timeout">The timeout after which the <see cref="T:System.Threading.Tasks.Task"/> should be faulted with a <see cref="T:System.TimeoutException"/> if it hasn't otherwise completed.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous wait.  It may or may not be the same instance as the current instance.</returns>
+        </member>
+        <member name="M:Polyfill.WaitAsync(System.Threading.Tasks.Task,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>Gets a <see cref="T:System.Threading.Tasks.Task"/> that will complete when this <see cref="T:System.Threading.Tasks.Task"/> completes, when the specified timeout expires, or when the specified <see cref="T:System.Threading.CancellationToken"/> has cancellation requested.</summary>
+            <param name="timeout">The timeout after which the <see cref="T:System.Threading.Tasks.Task"/> should be faulted with a <see cref="T:System.TimeoutException"/> if it hasn't otherwise completed.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> to monitor for a cancellation request.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous wait.  It may or may not be the same instance as the current instance.</returns>
+        </member>
+        <member name="M:Polyfill.WaitAsync``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)">
+            <summary>
+            Gets a <see cref="T:System.Threading.Tasks.Task"/> that will complete when this <see cref="T:System.Threading.Tasks.Task"/> completes, or when the specified <see cref="T:System.Threading.CancellationToken"/> has cancellation requested.
+            </summary>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> to monitor for a cancellation request.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous wait.  It may or may not be the same instance as the current instance.</returns>
+        </member>
+        <member name="M:Polyfill.WaitAsync``1(System.Threading.Tasks.Task{``0},System.TimeSpan)">
+            <summary>
+            Gets a <see cref="T:System.Threading.Tasks.Task"/> that will complete when this <see cref="T:System.Threading.Tasks.Task"/> completes, or when the specified timeout expires.
+            </summary>
+            <param name="timeout">The timeout after which the <see cref="T:System.Threading.Tasks.Task"/> should be faulted with a <see cref="T:System.TimeoutException"/> if it hasn't otherwise completed.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous wait.  It may or may not be the same instance as the current instance.</returns>
+        </member>
+        <member name="M:Polyfill.WaitAsync``1(System.Threading.Tasks.Task{``0},System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Gets a <see cref="T:System.Threading.Tasks.Task"/> that will complete when this <see cref="T:System.Threading.Tasks.Task"/> completes, when the specified timeout expires, or when the specified <see cref="T:System.Threading.CancellationToken"/> has cancellation requested.
+            </summary>
+            <param name="timeout">The timeout after which the <see cref="T:System.Threading.Tasks.Task"/> should be faulted with a <see cref="T:System.TimeoutException"/> if it hasn't otherwise completed.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> to monitor for a cancellation request.</param>
+            <returns>The <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous wait.  It may or may not be the same instance as the current instance.</returns>
+        </member>
+        <member name="M:Polyfill.ReadAsync(System.IO.TextReader,System.Memory{System.Char},System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously reads the characters from the current stream into a memory block.
+            </summary>
+            <param name="buffer">
+            When this method returns, contains the specified memory block of characters replaced by the characters read
+            from the current source.
+            </param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None"/>.
+            </param>
+            <returns>
+            A value task that represents the asynchronous read operation. The value of the type parameter of the value task
+            contains the number of characters that have been read, or 0 if at the end of the stream and no data was read.
+            The number will be less than or equal to the <paramref name="buffer"/> length, depending on whether the data is
+            available within the stream.
+            </returns>
+        </member>
+        <member name="M:Polyfill.ReadToEndAsync(System.IO.TextReader,System.Threading.CancellationToken)">
+            <summary>
+            Reads all characters from the current position to the end of the stream asynchronously and returns them as one string.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A task that represents the asynchronous read operation. The value of the <c>TResult</c> parameter contains
+            a string with the characters from the current position to the end of the stream.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">The number of characters is larger than <see cref="F:System.Int32.MaxValue"/>.</exception>
+            <exception cref="T:System.ObjectDisposedException">The stream reader has been disposed.</exception>
+            <exception cref="T:System.InvalidOperationException">The reader is currently in use by a previous read operation.</exception>
+        </member>
+        <member name="M:Polyfill.ReadLineAsync(System.IO.TextReader,System.Threading.CancellationToken)">
+            <summary>
+            Reads a line of characters asynchronously and returns the data as a string.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A value task that represents the asynchronous read operation. The value of the <c>TResult</c>
+            parameter contains the next line from the text reader, or is <see langword="null" /> if all of the characters have been read.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">The number of characters in the next line is larger than <see cref="F:System.Int32.MaxValue"/>.</exception>
+            <exception cref="T:System.ObjectDisposedException">The text reader has been disposed.</exception>
+            <exception cref="T:System.InvalidOperationException">The reader is currently in use by a previous read operation.</exception>
+        </member>
+        <member name="M:Polyfill.WriteAsync(System.IO.TextWriter,System.ReadOnlyMemory{System.Char},System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously writes a character memory region to the stream.
+            </summary>
+            <param name="buffer">The character memory region to write to the stream.</param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests.
+            The default value is <see cref="P:System.Threading.CancellationToken.None"/>.
+            </param>
+            <returns>A task that represents the asynchronous write operation.</returns>
+        </member>
+        <member name="M:Polyfill.WriteLineAsync(System.IO.TextWriter,System.ReadOnlyMemory{System.Char},System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously writes the text representation of a character memory region to the stream, followed by a line terminator.
+            </summary>
+            <param name="buffer">The character memory region to write to the stream.</param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests.
+            The default value is <see cref="P:System.Threading.CancellationToken.None"/>.
+            </param>
+            <returns>A task that represents the asynchronous write operation.</returns>
+        </member>
+        <member name="M:Polyfill.Write(System.IO.TextWriter,System.ReadOnlySpan{System.Char})">
+            <summary>
+            Writes a character span to the text stream.
+            </summary>
+            <param name="buffer">The character span to write.</param>
+        </member>
+        <member name="M:Polyfill.WriteLine(System.IO.TextWriter,System.ReadOnlySpan{System.Char})">
+            <summary>
+            Writes the text representation of a character span to the text stream, followed by a line terminator.
+            </summary>
+            <param name="buffer">The char span value to write to the text stream.</param>
+        </member>
+        <member name="M:Polyfill.TryFormat(System.SByte,System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+            <summary>
+            Tries to format the value of the current instance into the provided span of characters.
+            </summary>
+        </member>
+        <member name="M:Polyfill.TryFormat(System.Byte,System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+            <summary>
+            Tries to format the value of the current instance into the provided span of characters.
+            </summary>
+        </member>
+        <member name="M:Polyfill.TryFormat(System.Int16,System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+            <summary>
+            Tries to format the value of the current instance into the provided span of characters.
+            </summary>
+        </member>
+        <member name="M:Polyfill.TryFormat(System.UInt16,System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+            <summary>
+            Tries to format the value of the current instance into the provided span of characters.
+            </summary>
+        </member>
+        <member name="M:Polyfill.TryFormat(System.Int32,System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+            <summary>
+            Tries to format the value of the current instance into the provided span of characters.
+            </summary>
+        </member>
+        <member name="M:Polyfill.TryFormat(System.UInt32,System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+            <summary>
+            Tries to format the value of the current instance into the provided span of characters.
+            </summary>
+        </member>
+        <member name="M:Polyfill.TryFormat(System.Int64,System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+            <summary>
+            Tries to format the value of the current instance into the provided span of characters.
+            </summary>
+        </member>
+        <member name="M:Polyfill.TryFormat(System.UInt64,System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+            <summary>
+            Tries to format the value of the current instance into the provided span of characters.
+            </summary>
+        </member>
+        <member name="M:Polyfill.TryFormat(System.Single,System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+            <summary>
+            Tries to format the value of the current instance into the provided span of characters.
+            </summary>
+        </member>
+        <member name="M:Polyfill.TryFormat(System.Double,System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+            <summary>
+            Tries to format the value of the current instance into the provided span of characters.
+            </summary>
+        </member>
+        <member name="M:Polyfill.TryFormat(System.Decimal,System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+            <summary>
+            Tries to format the value of the current instance into the provided span of characters.
+            </summary>
+        </member>
+        <member name="M:Polyfill.TryFormat(System.Boolean,System.Span{System.Char},System.Int32@)">
+            <summary>
+            Tries to format the value of the current instance into the provided span of characters.
+            </summary>
+        </member>
+        <member name="M:Polyfill.TryFormat(System.DateTimeOffset,System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+            <summary>
+            Tries to format the value of the current instance into the provided span of characters.
+            </summary>
+        </member>
+        <member name="M:Polyfill.TryFormat(System.DateTime,System.Span{System.Char},System.Int32@,System.ReadOnlySpan{System.Char},System.IFormatProvider)">
+            <summary>
+            Tries to format the value of the current instance into the provided span of characters.
+            </summary>
+        </member>
+        <member name="M:Polyfill.IsGenericMethodParameter(System.Type)">
+            <summary>
+            Gets a value that indicates whether the current Type represents a type parameter in the definition of a generic method.
+            </summary>
+        </member>
+        <member name="M:Polyfill.GetMemberWithSameMetadataDefinitionAs(System.Type,System.Reflection.MemberInfo)">
+            <summary>
+            Searches for the MemberInfo on the current Type that matches the specified MemberInfo.
+            </summary>
+            <param name="type">The MemberInfo to find on the current Type.</param>
+            <param name="member">The MemberInfo to find on the current Type.</param>
+            <returns>An object representing the member on the current Type that matches the specified member.</returns>
+        </member>
+    </members>
+</doc>
