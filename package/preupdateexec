@@ -1,4 +1,25 @@
 [Delete]
+Client\custom_map_cache
+Resources\ClassicMode.mix
+expandspawn01.mix
+expandspawn02.mix
+expandspawn09.mix
+ls800obs.shp
+mplsobs.pal
+spawner.xdp
+spawner2.xdp
+crate.des
+crate.lun
+crate.sno
+crate.tem
+crate.ubn
+crate.urb
+wcrate.des
+wcrate.lun
+wcrate.sno
+wcrate.tem
+wcrate.ubn
+wcrate.urb
 Resources\Allied Theme\CnCNetLobby.ini
 Resources\Allied Theme\GenericWindow.ini
 Resources\Allied Theme\LANLobby.ini
@@ -13,19 +34,6 @@ Resources\Soviet Theme\MultiplayerGameLobby.ini
 Resources\Soviet Theme\OptionsWindow.ini
 Resources\Soviet Theme\SkirmishLobby.ini
 Resources\Soviet Theme\GenericWindow.ini
-Crate.sno
-crate.sno
-crate.des
-crate.lun
-crate.tem
-crate.ubn
-crate.urb
-wcrate.des
-wcrate.lun
-wcrate.sno
-wcrate.tem
-wcrate.ubn
-wcrate.urb
 Maps\Yuri's Revenge\Survival\2_hard_survival_RAZER.map
 Maps\Yuri's Revenge\Survival\2_hard_survival_RAZER.png
 Maps\Yuri's Revenge\Survival\2_liberty_island_RAZER.map
@@ -42,13 +50,4 @@ Maps\Yuri's Revenge\Survival\4_symmetrical_survival_v1_RAZER.map
 Maps\Yuri's Revenge\Survival\4_symmetrical_survival_v1_RAZER.png
 Maps\Yuri's Revenge\Survival\4_symmetrical_survival_v2_RAZER.map
 Maps\Yuri's Revenge\Survival\4_symmetrical_survival_v2_RAZER.png
-Resources\ClassicMode.mix
-expandspawn01.mix
-expandspawn02.mix
-expandspawn09.mix
-mplsobs.pal
-ls800obs.shp
-spawner.xdp
-spawner2.xdp
-Client\custom_map_cache
 do_not_remove_this_line
