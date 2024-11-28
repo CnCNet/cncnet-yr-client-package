@@ -27,7 +27,6 @@ VeteranRatio=4
 
 [CrateRules]
 CrateMaximum=1
-CrateMinimum=0
 CrateRegen=5
 
 [Powerups]
