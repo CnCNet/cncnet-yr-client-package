@@ -28,7 +28,6 @@ VeteranRatio=4
 
 [CrateRules]
 CrateMaximum=1
-CrateMinimum=0
 
 [Warheads]
 90=PATMS
