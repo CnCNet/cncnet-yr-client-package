@@ -75,6 +75,17 @@ Verses=200%,100%,100%,0%,0%,0%,0%,0%,0%,0%,100%
 [APOC]
 NavalTargeting=5
 
+[ApocAP]
+Verses=100%,100%,100%,75%,100%,100%,100%,100%,70%,100%,100%
+CellSpread=1
+
+[ApocAPE]
+Verses=100%,100%,100%,75%,100%,100%,100%,100%,70%,100%,100%
+CellSpread=1
+
+[MammothTusk]
+Warhead=PATMS
+
 [HTNK]
 NavalTargeting=5
 
