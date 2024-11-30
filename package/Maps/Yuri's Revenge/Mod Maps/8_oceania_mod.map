@@ -106,6 +106,18 @@ Range=7
 [120mmxE]
 Range=7
 
+[ApocAP]
+Verses=100%,100%,100%,75%,100%,100%,100%,100%,70%,100%,100%
+CellSpread=1
+
+[ApocAPE]
+Verses=100%,100%,100%,75%,100%,100%,100%,100%,70%,100%,100%
+CellSpread=1
+
+[MammothTusk]
+Range=10
+Warhead=PATMS
+
 [HTNK]
 Cost=850
 Soylent=850
