@@ -342,8 +342,8 @@ Soylent=500
 
 [SNIPE]
 Cost=1500
+Soylent=750
 Pip=red
-Soylent=500
 
 [HollowPointNoBuilding]
 Verses=200%,100%,75%,0%,0%,0%,0%,0%,0%,15%,100%
