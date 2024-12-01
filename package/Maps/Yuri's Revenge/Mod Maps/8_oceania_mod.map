@@ -378,8 +378,8 @@ Soylent=500
 Verses=200%,100%,100%,0%,0%,0%,0%,0%,0%,0%,100%
 
 [SNIPE]
-Cost=2000
-Soylent=1000
+Cost=1800
+Soylent=900
 Pip=red
 
 [AWP]
