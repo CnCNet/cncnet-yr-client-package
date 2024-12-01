@@ -85,6 +85,12 @@ Range=10
 [SABOTE]
 Range=11
 
+[UltraAP]
+Verses=8%,8%,8%,100%,40%,100%,8%,8%,8%,8%,100%
+
+[UltraAPE]
+Verses=8%,8%,8%,100%,50%,100%,8%,8%,8%,100%,100%
+
 [FV]
 CrateGoodie=1
 NavalTargeting=5
@@ -107,11 +113,10 @@ Range=7
 Range=7
 
 [ApocAP]
-Verses=100%,100%,100%,75%,100%,100%,100%,100%,70%,100%,100%
+Verses=100%,100%,100%,75%,100%,100%,100%,100%,70%,60%,100%
 CellSpread=1
 
 [ApocAPE]
-Verses=100%,100%,100%,75%,100%,100%,100%,100%,70%,100%,100%
 CellSpread=1
 
 [MammothTusk]
