@@ -17,6 +17,7 @@ This package is an add-on to the [XNA CnCNet Client](https://github.com/CnCNet/x
 * [Belonit](https://github.com/Belonit)
 * [CCHyper](https://github.com/CCHyper)
 * [ [RU]Polye](https://github.com/bhdrks78)
+* [CnCRAZER](https://github.com/CnCRAZER)
 
 ### Development
 
