@@ -34,7 +34,7 @@ so that the client starts up with the YR theme.
             <YRResources Include="$(YRSource)\**\*.*"/>
 
             <!-- We do not need these, because they should be coming from the DXMainClient build -->
-            <YRResources Remove="$(YRSource)\Resources\Binaries\**"/>
+            <YRResources Remove="$(YRSource)\Resources\Binaries*\**"/>
 
             <!-- Exclude any other executables in Resources -->
             <YRResources Remove="$(YRSource)\Resources\*.exe"/>
@@ -42,7 +42,7 @@ so that the client starts up with the YR theme.
 
         <Message Text="Skipping copying game install resources..." Condition="'$(YRGameInstallSource)' == ''"/>
         <Message Text="Copying game install resources from '$(YRGameInstallSource)' to '$(YRStartupPath)" Condition="'$(YRGameInstallSource)' != ''"/>
-        <Copy SourceFiles="@(YRGameInstallResources)" DestinationFolder="$(YRStartupPath)\%(RecursiveDir)" SkipUnchangedFiles="true" Condition="'$(YRGameInstallResources)' != ''"/>
+        <Copy SourceFiles="@(YRGameInstallResources)" DestinationFolder="$(YRStartupPath)\%(RecursiveDir)" SkipUnchangedFiles="true" Condition="'$(YRGameInstallSource)' != ''"/>
 
         <Message Text="Copying YR resources from '$(YRSource)' to '$(YRStartupPath)"/>
         <Copy SourceFiles="@(YRResources)" DestinationFolder="$(YRStartupPath)\%(RecursiveDir)" SkipUnchangedFiles="true"/>
