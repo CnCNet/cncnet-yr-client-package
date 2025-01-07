@@ -8,7 +8,7 @@ so that the client starts up with the YR theme.
         <PropertyGroup>
             <!-- 
             Change the value of YRSource to wherever you have the YR client repo checked out OR
-            you can use your installation path of YR for cncnet.
+            your installation path of YR for cncnet.
             This path should be the same one that contains the file "gamemd.exe".
 
             Example: c:\repos\cncnet-yr-client-package\package
