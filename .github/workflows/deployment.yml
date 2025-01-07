@@ -31,7 +31,7 @@ jobs:
     steps:
       # Checkout the repo
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0 # required for gitversion
 
@@ -79,7 +79,7 @@ jobs:
 
       # Upload package archive as a workflow artifact
       - name: Upload Package Workflow Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: package
           path: ./package.tar.gz
@@ -87,7 +87,7 @@ jobs:
 
       # Upload installer as a workflow artifact
       - name: Upload Installer Workflow Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: installer
           path: ./CnCNet5_YR_Installer.exe
@@ -125,7 +125,7 @@ jobs:
     steps:
       # Download the package artifact from previous job
       - name: Get artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: package
 
