@@ -18,6 +18,7 @@ This package is an add-on to the [XNA CnCNet Client](https://github.com/CnCNet/x
 * [CCHyper](https://github.com/CCHyper)
 * [ [RU]Polye](https://github.com/bhdrks78)
 * [CnCRAZER](https://github.com/CnCRAZER)
+* [BRichardson1991](https://github.com/brichardson1991)
 
 ### Development
 
