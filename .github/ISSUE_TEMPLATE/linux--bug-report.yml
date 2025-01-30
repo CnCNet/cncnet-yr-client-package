@@ -1,0 +1,70 @@
+name: 'Linux: Bug report'
+about: Create an issue that is happening on MacOS
+title: '[Linux Bug]: '
+labels: bug, Linux
+assignees:
+  - ''
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened? / Steps to reproduce
+      description: What were you doing when the bug occurred?
+      placeholder: Tell us what you saw! eg. "I clicked on a building, paused it, unpaused it and it stayed paused."
+      value: "A clear and concise description of what the bug is."
+    validations:
+      required: true
+  - type: textarea
+    id: what-should-happen
+    attributes:
+      label: What should have happened?
+      description: What were you expecting to happen?
+      placeholder: Tell us what you expected to see! eg. "The building should have unpaused and started working again."
+      value: "A clear and concise description of what you expected to happen."
+    validations:
+      required: true
+  - type: dropdown
+    id: LinuxVersion
+    description: What main distro of Linux are you using?
+    attributes:
+    options:
+      - Arch
+      - Debian
+      - Fedora
+      - Ubuntu
+      - Lutris
+      - Majoro
+      - Pop OS
+    default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: linuxdistroversion
+    attributes:
+      label: Linux Distro Version
+      description: Please provide the version of the Linux Distro you are using. Or the full distro name and version if not one from above
+      placeholder: Tell us which Linux Distro you are using! eg. "Ubuntu 20.04"
+      value: ""
+    validations:
+      required: true
+  - type: dropdown
+    id: GameVersion
+    description: What version of the game are you using?
+    attributes:
+    options:
+      - Live
+      - Dev
+      - Beta
+    default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Client Log or Client Crash Log
+      description: Please copy and paste a log output. The file can be located in either "Client\client.log" or "Client\ClientCrashLogs\ClientCrashLog_%DATE%_%TIME%.txt" This will be automatically formatted into code, so no need for backticks.
+      render: shell
