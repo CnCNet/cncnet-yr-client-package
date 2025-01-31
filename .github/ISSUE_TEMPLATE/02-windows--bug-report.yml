@@ -45,6 +45,8 @@ body:
       description: Please tell us the current version of your game install
       placeholder: 8.67.3
       value: "8.67.3"
+    validations:
+      required: true
   - type: dropdown
     id: GameBranch
     attributes:
