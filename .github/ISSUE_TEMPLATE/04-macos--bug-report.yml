@@ -37,10 +37,19 @@ body:
       default: 0
     validations:
       required: true
-  - type: dropdown
+  - type: textarea
     id: GameVersion
     attributes:
-      label: What version of the game are you using?
+      label: What version of the game are you running?
+      description: Please tell us the current version of your game install
+      placeholder: 8.67.3
+      value: "8.67.3"
+    validations:
+      required: true
+  - type: dropdown
+    id: GameBranch
+    attributes:
+      label: What branch of the game are you using?
       options:
         - Live
         - Dev
