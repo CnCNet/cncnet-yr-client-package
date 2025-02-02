@@ -66,7 +66,7 @@ jobs:
         run: npm run version-writer
 
       # Create package archive
-      - name: Create package artifact (tar)
+      - name: Create package artifact (tar.gz)
         run: tar -C ./package -czvf package.tar.gz .
         
       - name: Create package artifact (zip)
@@ -93,12 +93,12 @@ jobs:
           path: ./CnCNet5_YR_Installer.exe
           if-no-files-found: error
 
-      # Upload package archive (tar) to any relevant releases for current tag
+      # Upload package archive (tar.gz) to any relevant releases for current tag
       # If there is no release/tag, this will not do anything
-      - name: Upload Package Release Asset (tar)
+      - name: Upload Package Release Asset (tar.gz)
         if: github.event_name == 'release'
         working-directory: tools
-        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName "package_${{env.GitVersion_SemVer}} (tar)" --assetPath ../package.tar.gz
+        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName "package_${{env.GitVersion_SemVer}} (tar.gz)" --assetPath ../package.tar.gz
 
       # Upload package archive (zip) to any relevant releases for current tag
       # If there is no release/tag, this will not do anything
