@@ -36,14 +36,14 @@ for %%A in ("%gameMdPath%") do set "fileSize=%%~zA"
 if defined fileSize (
     if "%fileSize%" GEQ "%minSize%" (
         echo Launching gamemd.exe
-        start "" "%gameMdPath%"
+        start "" "%gameMdPath%" %*
     ) else (
         if exist "%ra2MdPath%" (
             echo Launching RA2MD.exe
-            start "" "%ra2MdPath%"
+            start "" "%ra2MdPath%" %*
         ) else (
             echo RA2MD.exe not found. Launching gamemd.exe instead.
-            start "" "%gameMdPath%"
+            start "" "%gameMdPath%" %*
         )
     )
 ) else (
