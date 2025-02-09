@@ -1,9 +1,16 @@
-version text eol=crlf
-*.xdp text eol=crlf
+# Shell scripts require LF
+*.sh  text eol=lf
+
+# Batch scripts require CRLF
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
 *.cfg text eol=crlf
 *.ini text eol=crlf
 *.map text eol=crlf
 *.txt text eol=crlf
+*.xdp text eol=crlf
+
 preupdateexec text eol=crlf
-updateexec text eol=crlf
-version text eol=crlf
+updateexec    text eol=crlf
+version       text eol=crlf
