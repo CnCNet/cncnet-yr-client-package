@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # This script checks if gamemd.exe is patched and launches the appropriate executable.
 
@@ -75,8 +76,7 @@ if [[ -z "$gamemd_path" ]]; then
 fi
 
 # Determine if gamemd is patched
-is_patched "$gamemd_path"
-is_patched_status=$?
+is_patched "$gamemd_path" && is_patched_status=0 || is_patched_status=$?
 
 # Launch the appropriate executable
 if [[ "$is_patched_status" -eq 0 ]]; then
