@@ -11,6 +11,7 @@
           "ClientUpdater": "1.0.0",
           "DTAConfig": "1.0.0",
           "DiscordRichPresence": "1.1.3.18",
+          "Facepunch.Steamworks": "2.4.1",
           "GitVersion.MsBuild": "5.12.0",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "NETStandard.Library": "2.0.3",
@@ -34,6 +35,14 @@
           "lib/netstandard2.0/DiscordRPC.dll": {
             "assemblyVersion": "1.1.3.18",
             "fileVersion": "1.1.3.18"
+          }
+        }
+      },
+      "Facepunch.Steamworks/2.4.1": {
+        "runtime": {
+          "lib/netstandard2.0/Facepunch.Steamworks.Win64.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.4.1.0"
           }
         }
       },
@@ -749,6 +758,13 @@
       "sha512": "sha512-cu8ilTx4DPuU3YJO1bNF+UtTlVvQIihvJ7AwoRKkcy9+cZ+fUxKfQsMpEcfm3PndT3zExpljPbS9wMdbLeYdAg==",
       "path": "discordrichpresence/1.1.3.18",
       "hashPath": "discordrichpresence.1.1.3.18.nupkg.sha512"
+    },
+    "Facepunch.Steamworks/2.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zR9R5CywbvGBuV7CWAkZ3sFLHrThLmOWOg+DzVfupQ4LOR9NboEjGEt9GOPMNYbcDx+cvUaU7NdHQ5h4eWJQpQ==",
+      "path": "facepunch.steamworks/2.4.1",
+      "hashPath": "facepunch.steamworks.2.4.1.nupkg.sha512"
     },
     "GitVersion.MsBuild/5.12.0": {
       "type": "package",
