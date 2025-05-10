@@ -7,35 +7,37 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {},
     ".NETCoreApp,Version=v8.0/win-x86": {
-      "clientxna/2.11.9-yr-develop0001": {
+      "clientxna/2.12.1-yr-develop0001": {
         "dependencies": {
           "ClientUpdater": "1.0.0",
           "DTAConfig": "1.0.0",
-          "DiscordRichPresence": "1.1.3.18",
+          "DiscordRichPresence": "1.2.1.24",
           "Facepunch.Steamworks": "2.4.1",
           "GitVersion.MsBuild": "5.12.0",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "NETStandard.Library": "2.0.3",
-          "OpenMcdf": "2.2.1.12",
-          "SixLabors.ImageSharp": "2.1.9",
+          "OpenMcdf": "2.4.1",
+          "SixLabors.ImageSharp": "2.1.10",
           "System.DirectoryServices": "8.0.0",
           "System.IO.FileSystem": "4.3.0",
           "System.Management": "8.0.0",
+          "System.Private.Uri": "4.3.2",
+          "System.Text.Json": "8.0.5",
           "lzo.net": "0.0.6"
         },
         "runtime": {
           "clientxna.dll": {}
         }
       },
-      "DiscordRichPresence/1.1.3.18": {
+      "DiscordRichPresence/1.2.1.24": {
         "dependencies": {
           "Microsoft.Win32.Registry": "5.0.0",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/DiscordRPC.dll": {
-            "assemblyVersion": "1.1.3.18",
-            "fileVersion": "1.1.3.18"
+            "assemblyVersion": "1.2.1.24",
+            "fileVersion": "1.2.1.24"
           }
         }
       },
@@ -161,7 +163,7 @@
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "8.0.0",
           "Microsoft.Extensions.FileProviders.Abstractions": "8.0.0",
-          "System.Text.Json": "8.0.0"
+          "System.Text.Json": "8.0.5"
         },
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.Configuration.Json.dll": {
@@ -357,7 +359,7 @@
           "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
           "Microsoft.Extensions.Logging.Configuration": "8.0.0",
           "Microsoft.Extensions.Options": "8.0.0",
-          "System.Text.Json": "8.0.0"
+          "System.Text.Json": "8.0.5"
         },
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.Logging.Console.dll": {
@@ -401,7 +403,7 @@
           "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
           "Microsoft.Extensions.Options": "8.0.0",
           "Microsoft.Extensions.Primitives": "8.0.0",
-          "System.Text.Json": "8.0.0"
+          "System.Text.Json": "8.0.5"
         },
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.Logging.EventSource.dll": {
@@ -446,7 +448,7 @@
         }
       },
       "Microsoft.NETCore.Platforms/5.0.0": {},
-      "Microsoft.NETCore.Targets/1.1.0": {},
+      "Microsoft.NETCore.Targets/1.1.3": {},
       "Microsoft.Win32.Registry/5.0.0": {
         "dependencies": {
           "System.Security.AccessControl": "5.0.0",
@@ -477,11 +479,11 @@
           }
         }
       },
-      "OpenMcdf/2.2.1.12": {
+      "OpenMcdf/2.4.1": {
         "runtime": {
           "lib/netstandard2.0/OpenMcdf.dll": {
-            "assemblyVersion": "2.2.1.12",
-            "fileVersion": "2.2.1.12"
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
           }
         }
       },
@@ -493,10 +495,10 @@
           }
         }
       },
-      "Rampastring.XNAUI.WindowsXNA/2.5.1": {
+      "Rampastring.XNAUI.WindowsXNA/2.7.8": {
         "dependencies": {
           "Rampastring.Tools": "2.0.6",
-          "SixLabors.ImageSharp": "2.1.9",
+          "SixLabors.ImageSharp": "2.1.10",
           "TextCopy": "6.2.1"
         },
         "runtime": {
@@ -541,8 +543,8 @@
             "fileVersion": "4.0.30901.0"
           },
           "lib/net8.0-windows7.0/Rampastring.XNAUI.WindowsXNA.dll": {
-            "assemblyVersion": "2.5.1.0",
-            "fileVersion": "2.5.1.0"
+            "assemblyVersion": "2.7.8.0",
+            "fileVersion": "2.7.8.0"
           }
         }
       },
@@ -559,7 +561,7 @@
       "runtime.any.System.Resources.ResourceManager/4.3.0": {},
       "runtime.any.System.Runtime/4.3.0": {
         "dependencies": {
-          "System.Private.Uri": "4.3.0"
+          "System.Private.Uri": "4.3.2"
         }
       },
       "runtime.any.System.Runtime.Handles/4.3.0": {},
@@ -589,7 +591,7 @@
       },
       "runtime.win.System.Runtime.Extensions/4.3.0": {
         "dependencies": {
-          "System.Private.Uri": "4.3.0"
+          "System.Private.Uri": "4.3.2"
         }
       },
       "SharpGen.Runtime/2.0.0-beta.9": {
@@ -611,7 +613,7 @@
           }
         }
       },
-      "SixLabors.ImageSharp/2.1.9": {
+      "SixLabors.ImageSharp/2.1.10": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "5.0.0",
           "System.Text.Encoding.CodePages": "8.0.0"
@@ -619,7 +621,7 @@
         "runtime": {
           "lib/netcoreapp3.1/SixLabors.ImageSharp.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.1.9.0"
+            "fileVersion": "2.1.10.0"
           }
         }
       },
@@ -636,7 +638,7 @@
       "System.Collections/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.Runtime": "4.3.0",
           "runtime.any.System.Collections": "4.3.0"
         }
@@ -644,7 +646,7 @@
       "System.Diagnostics.Debug/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.Runtime": "4.3.0",
           "runtime.win.System.Diagnostics.Debug": "4.3.0"
         }
@@ -654,7 +656,7 @@
       "System.Diagnostics.Tracing/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.Runtime": "4.3.0",
           "runtime.any.System.Diagnostics.Tracing": "4.3.0"
         }
@@ -663,7 +665,7 @@
       "System.Globalization/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.Runtime": "4.3.0",
           "runtime.any.System.Globalization": "4.3.0"
         }
@@ -671,7 +673,7 @@
       "System.IO/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0",
           "System.Threading.Tasks": "4.3.0",
@@ -681,7 +683,7 @@
       "System.IO.FileSystem/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.IO": "4.3.0",
           "System.IO.FileSystem.Primitives": "4.3.0",
           "System.Runtime": "4.3.0",
@@ -708,16 +710,16 @@
         }
       },
       "System.Memory/4.5.5": {},
-      "System.Private.Uri/4.3.0": {
+      "System.Private.Uri/4.3.2": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0"
+          "Microsoft.NETCore.Targets": "1.1.3"
         }
       },
       "System.Reflection/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.IO": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
           "System.Runtime": "4.3.0",
@@ -727,7 +729,7 @@
       "System.Reflection.Primitives/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.Runtime": "4.3.0",
           "runtime.any.System.Reflection.Primitives": "4.3.0"
         }
@@ -735,7 +737,7 @@
       "System.Resources.ResourceManager/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.Globalization": "4.3.0",
           "System.Reflection": "4.3.0",
           "System.Runtime": "4.3.0",
@@ -745,7 +747,7 @@
       "System.Runtime/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "runtime.any.System.Runtime": "4.3.0"
         }
       },
@@ -753,7 +755,7 @@
       "System.Runtime.Extensions/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.Runtime": "4.3.0",
           "runtime.win.System.Runtime.Extensions": "4.3.0"
         }
@@ -761,7 +763,7 @@
       "System.Runtime.Handles/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.Runtime": "4.3.0",
           "runtime.any.System.Runtime.Handles": "4.3.0"
         }
@@ -769,7 +771,7 @@
       "System.Runtime.InteropServices/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.Reflection": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
           "System.Runtime": "4.3.0",
@@ -787,7 +789,7 @@
       "System.Text.Encoding/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.Runtime": "4.3.0",
           "runtime.any.System.Text.Encoding": "4.3.0"
         }
@@ -796,16 +798,18 @@
       "System.Text.Encoding.Extensions/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0",
           "runtime.any.System.Text.Encoding.Extensions": "4.3.0"
         }
       },
-      "System.Text.Encodings.Web/8.0.0": {},
-      "System.Text.Json/8.0.0": {
-        "dependencies": {
-          "System.Text.Encodings.Web": "8.0.0"
+      "System.Text.Json/8.0.5": {
+        "runtime": {
+          "lib/net8.0/System.Text.Json.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
         }
       },
       "System.Threading/4.3.0": {
@@ -825,7 +829,7 @@
       "System.Threading.Tasks/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.3",
           "System.Runtime": "4.3.0",
           "runtime.any.System.Threading.Tasks": "4.3.0"
         }
@@ -854,11 +858,20 @@
           }
         }
       },
+      "Ude.NetStandard/1.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/Ude.NetStandard.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
       "ClientCore/1.0.0": {
         "dependencies": {
           "Rampastring.Tools": "2.0.6",
-          "Rampastring.XNAUI.WindowsXNA": "2.5.1",
-          "System.Text.Encoding.CodePages": "8.0.0"
+          "Rampastring.XNAUI.WindowsXNA": "2.7.8",
+          "System.Text.Encoding.CodePages": "8.0.0",
+          "Ude.NetStandard": "1.2.0"
         },
         "runtime": {
           "ClientCore.dll": {}
@@ -895,17 +908,17 @@
     }
   },
   "libraries": {
-    "clientxna/2.11.9-yr-develop0001": {
+    "clientxna/2.12.1-yr-develop0001": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "DiscordRichPresence/1.1.3.18": {
+    "DiscordRichPresence/1.2.1.24": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cu8ilTx4DPuU3YJO1bNF+UtTlVvQIihvJ7AwoRKkcy9+cZ+fUxKfQsMpEcfm3PndT3zExpljPbS9wMdbLeYdAg==",
-      "path": "discordrichpresence/1.1.3.18",
-      "hashPath": "discordrichpresence.1.1.3.18.nupkg.sha512"
+      "sha512": "sha512-DVmmlFQ/oQmidNRmZhPzYjC7ryaT4beWcKaMKPVw6fhOzM/HOoY6NOL4KMOYEnD4M7SNsODjleYimvUNIZcbiA==",
+      "path": "discordrichpresence/1.2.1.24",
+      "hashPath": "discordrichpresence.1.2.1.24.nupkg.sha512"
     },
     "Facepunch.Steamworks/2.4.1": {
       "type": "package",
@@ -1138,12 +1151,12 @@
       "path": "microsoft.netcore.platforms/5.0.0",
       "hashPath": "microsoft.netcore.platforms.5.0.0.nupkg.sha512"
     },
-    "Microsoft.NETCore.Targets/1.1.0": {
+    "Microsoft.NETCore.Targets/1.1.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
-      "path": "microsoft.netcore.targets/1.1.0",
-      "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+      "sha512": "sha512-3Wrmi0kJDzClwAC+iBdUBpEKmEle8FQNsCs77fkiOIw/9oYA07bL1EZNX0kQ2OMN3xpwvl0vAtOCYY3ndDNlhQ==",
+      "path": "microsoft.netcore.targets/1.1.3",
+      "hashPath": "microsoft.netcore.targets.1.1.3.nupkg.sha512"
     },
     "Microsoft.Win32.Registry/5.0.0": {
       "type": "package",
@@ -1173,12 +1186,12 @@
       "path": "newtonsoft.json.bson/1.0.2",
       "hashPath": "newtonsoft.json.bson.1.0.2.nupkg.sha512"
     },
-    "OpenMcdf/2.2.1.12": {
+    "OpenMcdf/2.4.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kyyhBB6PQonDia44Fz2KsNMq0ISJDIlaJjeijFVrHIaZNoaklTjhVlDfHpLgkI8RDOpU6jIlUKNH6ZjiE2QLJA==",
-      "path": "openmcdf/2.2.1.12",
-      "hashPath": "openmcdf.2.2.1.12.nupkg.sha512"
+      "sha512": "sha512-0XVhI+P6pe80xYntIeF6H4F7AIL4ZolMTI5vkm3QUt9XTnRJht6CNYk1eSfI8YInRble6cw91ypF5llPXzKD/A==",
+      "path": "openmcdf/2.4.1",
+      "hashPath": "openmcdf.2.4.1.nupkg.sha512"
     },
     "Rampastring.Tools/2.0.6": {
       "type": "package",
@@ -1187,12 +1200,12 @@
       "path": "rampastring.tools/2.0.6",
       "hashPath": "rampastring.tools.2.0.6.nupkg.sha512"
     },
-    "Rampastring.XNAUI.WindowsXNA/2.5.1": {
+    "Rampastring.XNAUI.WindowsXNA/2.7.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-b3ZjD7zLMVzy5BQocKzZmXJc0LZ4962Rowb+w2SHRGFdXka6IZe964PN8IC8yAGWtyp9dA3eRgzgbWmKOB1iLg==",
-      "path": "rampastring.xnaui.windowsxna/2.5.1",
-      "hashPath": "rampastring.xnaui.windowsxna.2.5.1.nupkg.sha512"
+      "sha512": "sha512-NGr/6wzkIzRhUsOgtkoF4pZCsU/PD5M2d6Ct12EeE8WcaaaBrEGI1/cB1Fchrfq2NdTV6Xdj8tx0LD+aQfuSeQ==",
+      "path": "rampastring.xnaui.windowsxna/2.7.8",
+      "hashPath": "rampastring.xnaui.windowsxna.2.7.8.nupkg.sha512"
     },
     "runtime.any.System.Collections/4.3.0": {
       "type": "package",
@@ -1320,12 +1333,12 @@
       "path": "sharpgen.runtime.com/2.0.0-beta.9",
       "hashPath": "sharpgen.runtime.com.2.0.0-beta.9.nupkg.sha512"
     },
-    "SixLabors.ImageSharp/2.1.9": {
+    "SixLabors.ImageSharp/2.1.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VcjfKbOExie3RgZGrQL1jJMI4iZ3J9B6ifDo2QpDVJUYhTZKVcKnBhpNOHqbvNjHgadAks1jzhRjB7OZet1PJA==",
-      "path": "sixlabors.imagesharp/2.1.9",
-      "hashPath": "sixlabors.imagesharp.2.1.9.nupkg.sha512"
+      "sha512": "sha512-hk1E7U3RSlxrBVo6Gb6OjeM52fChpFYH+SZvyT/M2vzSGlzAaKE33hc3V/Pvnjcnn1opT8/Z+0QfqdM5HsIaeA==",
+      "path": "sixlabors.imagesharp/2.1.10",
+      "hashPath": "sixlabors.imagesharp.2.1.10.nupkg.sha512"
     },
     "System.Buffers/4.3.0": {
       "type": "package",
@@ -1425,12 +1438,12 @@
       "path": "system.memory/4.5.5",
       "hashPath": "system.memory.4.5.5.nupkg.sha512"
     },
-    "System.Private.Uri/4.3.0": {
+    "System.Private.Uri/4.3.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-I4SwANiUGho1esj4V4oSlPllXjzCZDE+5XXso2P03LW2vOda2Enzh8DWOxwN6hnrJyp314c7KuVu31QYhRzOGg==",
-      "path": "system.private.uri/4.3.0",
-      "hashPath": "system.private.uri.4.3.0.nupkg.sha512"
+      "sha512": "sha512-o1+7RJnu3Ik3PazR7Z7tJhjPdE000Eq2KGLLWhqJJKXj04wrS8lwb1OFtDF9jzXXADhUuZNJZlPc98uwwqmpFA==",
+      "path": "system.private.uri/4.3.2",
+      "hashPath": "system.private.uri.4.3.2.nupkg.sha512"
     },
     "System.Reflection/4.3.0": {
       "type": "package",
@@ -1523,19 +1536,12 @@
       "path": "system.text.encoding.extensions/4.3.0",
       "hashPath": "system.text.encoding.extensions.4.3.0.nupkg.sha512"
     },
-    "System.Text.Encodings.Web/8.0.0": {
+    "System.Text.Json/8.0.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-yev/k9GHAEGx2Rg3/tU6MQh4HGBXJs70y7j1LaM1i/ER9po+6nnQ6RRqTJn1E7Xu0fbIFK80Nh5EoODxrbxwBQ==",
-      "path": "system.text.encodings.web/8.0.0",
-      "hashPath": "system.text.encodings.web.8.0.0.nupkg.sha512"
-    },
-    "System.Text.Json/8.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-OdrZO2WjkiEG6ajEFRABTRCi/wuXQPxeV6g8xvUJqdxMvvuCCEk86zPla8UiIQJz3durtUEbNyY/3lIhS0yZvQ==",
-      "path": "system.text.json/8.0.0",
-      "hashPath": "system.text.json.8.0.0.nupkg.sha512"
+      "sha512": "sha512-0f1B50Ss7rqxXiaBJyzUu9bWFOO2/zSlifZ/UNMdiIpDYe4cY4LQQicP4nirK1OS31I43rn062UIJ1Q9bpmHpg==",
+      "path": "system.text.json/8.0.5",
+      "hashPath": "system.text.json.8.0.5.nupkg.sha512"
     },
     "System.Threading/4.3.0": {
       "type": "package",
@@ -1578,6 +1584,13 @@
       "sha512": "sha512-CSukndRKy/Lv1baceAt0xuD9JcL3azpvSSriiVjxxxxSj0RKzwuL8hzNiU2lx0FtPrR9AT80DVjnGDiEYTjsBQ==",
       "path": "tsfsharp/1.1.0",
       "hashPath": "tsfsharp.1.1.0.nupkg.sha512"
+    },
+    "Ude.NetStandard/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zRWpPAxBg3lNdm4UiKixTe+DFPoNid9CILggTCy/0WR2WKETe17kTWhiiIpLB2k5IEgnvA0QLfKlvd6Tvu0pzA==",
+      "path": "ude.netstandard/1.2.0",
+      "hashPath": "ude.netstandard.1.2.0.nupkg.sha512"
     },
     "ClientCore/1.0.0": {
       "type": "project",
