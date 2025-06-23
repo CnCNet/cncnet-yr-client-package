@@ -3711,6 +3711,9 @@ Anim=INVISO
 ShowTimer=no
 
 [CombatDamage]
+V3EliteWarhead=V3EWH
+DMislEliteWarhead=DMISLEWH
+CMislEliteWarhead=CMISLEWH
 OccupyWeaponRange=6
 OccupyROFMultiplier=1.3
 OccupyDamageMultiplier=1.3

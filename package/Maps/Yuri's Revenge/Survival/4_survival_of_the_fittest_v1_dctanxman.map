@@ -15889,6 +15889,9 @@ Projectile=InvisibleHigh
 IsElectricBolt=true
 
 [CombatDamage]
+V3EliteWarhead=V3EWH
+DMislEliteWarhead=DMISLEWH
+CMislEliteWarhead=CMISLEWH
 OccupyWeaponRange=6
 BunkerROFMultiplier=1.3
 OccupyROFMultiplier=1.2

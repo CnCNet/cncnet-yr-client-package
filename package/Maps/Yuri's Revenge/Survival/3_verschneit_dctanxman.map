@@ -3487,6 +3487,9 @@ MaxDebris=1
 CrateGoodie=no
 
 [CombatDamage]
+V3EliteWarhead=V3EWH
+DMislEliteWarhead=DMISLEWH
+CMislEliteWarhead=CMISLEWH
 BridgeStrength=9000000
 
 [CometWH]

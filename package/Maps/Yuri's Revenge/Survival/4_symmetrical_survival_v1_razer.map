@@ -893,8 +893,8 @@ BlockagePathDelay=20
 0ECCFCAC-G=yes
 
 [AMCV]
+Speed=5
 Storage=20
-BuildLimit=-5
 CrateGoodie=no
 ThreatPosed=100
 Prerequisite=GAWEAP,GATECH
@@ -1409,6 +1409,7 @@ PlayerControl=no
 995=ZRAZERCAMACH
 996=ZRAZERCAOILD
 997=ZRAZERCANEWY04
+998=RAZER-Expansion
 
 [CAAIRP]
 Power=-100000
@@ -1626,6 +1627,9 @@ AssaultAnim=UCELEC
 IsElectricBolt=true
 
 [CombatDamage]
+V3EliteWarhead=V3EWH
+DMislEliteWarhead=DMISLEWH
+CMislEliteWarhead=CMISLEWH
 Craters=CRATER01,CRATER02,CRATER03,CRATER04,CRATER05,CRATER06,CRATER07,CRATER08,CRATER09,CRATER10,CRATER11,CRATER12
 Scorches=BURNT01,BURNT02
 Scorches1=BURNT03,BURNT04,BURNT05
@@ -2029,40 +2033,38 @@ TechLevel=11
 TechLevel=-1
 
 [GAGAP]
-ROT=10
+TechLevel=-1
+
+[RAZER-Expansion]
 Cost=1500
-Name=GAP Expansion[RAZER]
-Armor=concrete
-Image=gaspot
+Name=Base Expansion
+Armor=wood
+Image=GASPOT
 Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
 Power=-100
+Sight=5
 Crewed=no
 Points=30
-Turret=yes
-UIName=GAP Expansion[RAZER]
+UIName=Base Expansion
 Powered=false
 Adjacent=6
 BuildCat=Combat
+Strength=600
 Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
 MaxDebris=4
 MinDebris=2
 TechLevel=7
 BaseNormal=yes
 Capturable=false
-TurretAnim=Bana
+AIBuildThis=no
 DebrisAnims=DBRIS1SM
-ThreatPosed=100
-TurretAnimX=0
-TurretAnimY=-54
+ThreatPosed=40
 AntiAirValue=0
-GapGenerator=no
 Prerequisite=CNST
-Insignificant=no
 IsBaseDefense=yes
 AntiArmorValue=10
 AntiInfantryValue=25
-TurretAnimIsVoxel=false
-TurretAnimZAdjust=-80
+DamageSmokeOffset=450, 200, 150
 AIBasePlanningSide=1
 HasRadialIndicator=true
 HasStupidGuardMode=false
@@ -5256,8 +5258,8 @@ TargetDistanceCoefficient=-1
 7=/x//gAcAACCB//7/H/+ABwAAIIH//v8f/4AHAAAggf/+/x//gA==
 
 [PCV]
+Speed=5
 Storage=20
-BuildLimit=-5
 CrateGoodie=no
 ThreatPosed=100
 Prerequisite=YAWEAP,YATECH
@@ -6852,8 +6854,8 @@ Speed=5
 TargetDistanceCoefficient=-1
 
 [SMCV]
+Speed=5
 Storage=20
-BuildLimit=-5
 CrateGoodie=no
 ThreatPosed=100
 Prerequisite=NAWEAP,NATECH

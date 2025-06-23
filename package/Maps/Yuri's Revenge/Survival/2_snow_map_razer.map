@@ -727,6 +727,7 @@ PlayerControl=no
 [BuildingTypes]
 999=ZRAZERYURITOWER
 1000=ZRAZERREPAIR
+1001=RAZER-Expansion
 
 [CAAIRP]
 Power=-100000
@@ -940,6 +941,9 @@ Projectile=InvisibleHigh
 IsElectricBolt=true
 
 [CombatDamage]
+V3EliteWarhead=V3EWH
+DMislEliteWarhead=DMISLEWH
+CMislEliteWarhead=CMISLEWH
 Craters=CRATER01,CRATER02,CRATER03,CRATER04,CRATER05,CRATER06,CRATER07,CRATER08,CRATER09,CRATER10,CRATER11,CRATER12
 Scorches=BURNT01,BURNT02
 Scorches1=BURNT03,BURNT04,BURNT05
@@ -1311,40 +1315,38 @@ TechLevel=11
 TechLevel=-1
 
 [GAGAP]
-ROT=10
+TechLevel=-1
+
+[RAZER-Expansion]
 Cost=1500
 Name=Base Expansion
-Armor=concrete
-Image=gaspot
+Armor=wood
+Image=GASPOT
 Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
-Power=0
+Power=-100
+Sight=5
 Crewed=no
 Points=30
-Turret=yes
 UIName=Base Expansion
 Powered=false
 Adjacent=5
 BuildCat=Combat
+Strength=600
 Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
 MaxDebris=4
 MinDebris=2
 TechLevel=7
 BaseNormal=yes
 Capturable=false
-TurretAnim=Bana
+AIBuildThis=no
 DebrisAnims=DBRIS1SM
 ThreatPosed=40
-TurretAnimX=0
-TurretAnimY=-54
 AntiAirValue=0
-GapGenerator=no
 Prerequisite=CNST,TECH
-Insignificant=no
 IsBaseDefense=yes
 AntiArmorValue=10
 AntiInfantryValue=25
-TurretAnimIsVoxel=false
-TurretAnimZAdjust=-80
+DamageSmokeOffset=450, 200, 150
 AIBasePlanningSide=1
 HasRadialIndicator=true
 HasStupidGuardMode=false

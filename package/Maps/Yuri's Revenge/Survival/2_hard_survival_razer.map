@@ -399,7 +399,7 @@ PatrolScan=.05
 BlockagePathDelay=20
 
 [AMCV]
-Speed=7
+Speed=5
 Storage=20
 CrateGoodie=no
 ThreatPosed=100
@@ -721,6 +721,7 @@ PlayerControl=no
 
 [BuildingTypes]
 999=ZRAZERYURITOWER
+1000=RAZER-Expansion
 
 [CAAIRP]
 Power=-100000
@@ -1085,6 +1086,9 @@ AssaultAnim=UCELEC
 IsElectricBolt=true
 
 [CombatDamage]
+V3EliteWarhead=V3EWH
+DMislEliteWarhead=DMISLEWH
+CMislEliteWarhead=CMISLEWH
 Craters=CRATER01,CRATER02,CRATER03,CRATER04,CRATER05,CRATER06,CRATER07,CRATER08,CRATER09,CRATER10,CRATER11,CRATER12
 Scorches=BURNT01,BURNT02
 Scorches1=BURNT03,BURNT04,BURNT05
@@ -1378,40 +1382,38 @@ TechLevel=11
 TechLevel=-1
 
 [GAGAP]
-ROT=10
+TechLevel=-1
+
+[RAZER-Expansion]
 Cost=1500
-Name=Base Expansion[RAZER]
-Armor=concrete
-Image=gaspot
+Name=Base Expansion
+Armor=wood
+Image=GASPOT
 Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
 Power=-100
+Sight=5
 Crewed=no
 Points=30
-Turret=yes
-UIName=Base Expansion[RAZER]
+UIName=Base Expansion
 Powered=false
 Adjacent=5
 BuildCat=Combat
+Strength=600
 Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
 MaxDebris=4
 MinDebris=2
 TechLevel=7
 BaseNormal=yes
 Capturable=false
-TurretAnim=Bana
+AIBuildThis=no
 DebrisAnims=DBRIS1SM
-ThreatPosed=100
-TurretAnimX=0
-TurretAnimY=-54
+ThreatPosed=40
 AntiAirValue=0
-GapGenerator=no
-Prerequisite=TECH
-Insignificant=no
+Prerequisite=CNST,TECH
 IsBaseDefense=yes
 AntiArmorValue=10
 AntiInfantryValue=25
-TurretAnimIsVoxel=false
-TurretAnimZAdjust=-80
+DamageSmokeOffset=450, 200, 150
 AIBasePlanningSide=1
 HasRadialIndicator=true
 HasStupidGuardMode=false
@@ -1486,7 +1488,7 @@ TargetDistanceCoefficient=-1
 Adjacent=6
 Trainable=yes
 BuildLimit=8
-ThreatPosed=100
+ThreatPosed=40
 EliteAbilities=STRONGER,FIREPOWER,ROF
 RequiredHouses=British,French,Germans,Americans,Alliance
 VeteranAbilities=STRONGER,FIREPOWER,ROF
@@ -3220,7 +3222,7 @@ TargetDistanceCoefficient=-1
 7=/x//gAcAACCB//7/H/+ABwAAIIH//v8f/4AHAAAggf/+/x//gA==
 
 [PCV]
-Speed=7
+Speed=5
 Storage=20
 CrateGoodie=no
 ThreatPosed=100
@@ -6500,7 +6502,7 @@ Speed=5
 TargetDistanceCoefficient=-1
 
 [SMCV]
-Speed=7
+Speed=5
 Storage=20
 CrateGoodie=no
 ThreatPosed=100
@@ -7293,7 +7295,7 @@ NeedsEngineer=yes
 [YAGRND]
 Crewed=no
 DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbris10lg,Dbris10sm
-ThreatPosed=100
+ThreatPosed=40
 
 [YAPOWR]
 Power=500
@@ -8755,7 +8757,7 @@ BuildLimit=8
 Capturable=false
 AIBuildThis=no
 DebrisAnims=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
-ThreatPosed=100
+ThreatPosed=40
 Prerequisite=RADAR,YACNST
 WorkingSound=PowerOn
 Insignificant=no

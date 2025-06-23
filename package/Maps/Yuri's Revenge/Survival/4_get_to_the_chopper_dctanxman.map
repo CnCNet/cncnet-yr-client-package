@@ -2081,6 +2081,9 @@ CanBeOccupied=no
 MaxNumberOccupants=0
 
 [CombatDamage]
+V3EliteWarhead=V3EWH
+DMislEliteWarhead=DMISLEWH
+CMislEliteWarhead=CMISLEWH
 BridgeStrength=1000000
 
 [Confederation]

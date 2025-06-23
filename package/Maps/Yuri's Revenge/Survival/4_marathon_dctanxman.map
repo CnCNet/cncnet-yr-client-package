@@ -10434,6 +10434,9 @@ Range=10
 Damage=400
 
 [CombatDamage]
+V3EliteWarhead=V3EWH
+DMislEliteWarhead=DMISLEWH
+CMislEliteWarhead=CMISLEWH
 BridgeStrength=2000000
 
 [Confederation]

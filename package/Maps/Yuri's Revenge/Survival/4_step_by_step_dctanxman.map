@@ -1624,6 +1624,9 @@ RechargeTime=10
 DisableableFromShell=no
 
 [CombatDamage]
+V3EliteWarhead=V3EWH
+DMislEliteWarhead=DMISLEWH
+CMislEliteWarhead=CMISLEWH
 BridgeStrength=5000000
 DestroyableBridges=no
 IronCurtainDuration=1000

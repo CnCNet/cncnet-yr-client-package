@@ -2637,6 +2637,9 @@ Anim=INVISO
 Anim=INVISO
 
 [CombatDamage]
+V3EliteWarhead=V3EWH
+DMislEliteWarhead=DMISLEWH
+CMislEliteWarhead=CMISLEWH
 OpenToppedRangeBonus=3
 OpenToppedDamageMultiplier=1.8
 
