@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "clientdx/2.12.4-yr-develop0001": {
+      "clientdx/2.12.5": {
         "dependencies": {
           "ClientUpdater": "1.0.0",
           "DTAConfig": "1.0.0",
@@ -744,7 +744,7 @@
           }
         }
       },
-      "Rampastring.XNAUI.WindowsDX/2.7.8": {
+      "Rampastring.XNAUI.WindowsDX/2.7.10": {
         "dependencies": {
           "MonoGame.Framework.WindowsDX": "3.8.1.303",
           "Rampastring.Tools": "2.0.6",
@@ -753,8 +753,8 @@
         },
         "runtime": {
           "lib/net8.0-windows7.0/Rampastring.XNAUI.WindowsDX.dll": {
-            "assemblyVersion": "2.7.8.0",
-            "fileVersion": "2.7.8.0"
+            "assemblyVersion": "2.7.10.0",
+            "fileVersion": "2.7.10.0"
           }
         }
       },
@@ -1903,7 +1903,7 @@
       "ClientCore/1.0.0": {
         "dependencies": {
           "Rampastring.Tools": "2.0.6",
-          "Rampastring.XNAUI.WindowsDX": "2.7.8",
+          "Rampastring.XNAUI.WindowsDX": "2.7.10",
           "System.Text.Encoding.CodePages": "8.0.0",
           "Ude.NetStandard": "1.2.0"
         },
@@ -1942,7 +1942,7 @@
     }
   },
   "libraries": {
-    "clientdx/2.12.4-yr-develop0001": {
+    "clientdx/2.12.5": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -2346,12 +2346,12 @@
       "path": "rampastring.tools/2.0.6",
       "hashPath": "rampastring.tools.2.0.6.nupkg.sha512"
     },
-    "Rampastring.XNAUI.WindowsDX/2.7.8": {
+    "Rampastring.XNAUI.WindowsDX/2.7.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1Ag9pM/Y7eIceD4sE5o7ahIHEVUKGPa2qYEcbK4nv+GXEGikCP+b3tWjqRcbVQlUAwT5pWgqC/+2mltPxvJQMQ==",
-      "path": "rampastring.xnaui.windowsdx/2.7.8",
-      "hashPath": "rampastring.xnaui.windowsdx.2.7.8.nupkg.sha512"
+      "sha512": "sha512-L0pwecF28jUCB8LT4Vz8hxNugSGnIZW3Iei/Du1PGGHO96WttF/sZLpsHzky9r0CtKFU6w+5ZfE+cU3vcS900A==",
+      "path": "rampastring.xnaui.windowsdx/2.7.10",
+      "hashPath": "rampastring.xnaui.windowsdx.2.7.10.nupkg.sha512"
     },
     "runtime.native.System/4.0.0": {
       "type": "package",
