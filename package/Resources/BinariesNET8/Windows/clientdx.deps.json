@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "clientdx/2.12.5": {
+      "clientdx/2.12.6": {
         "dependencies": {
           "ClientUpdater": "1.0.0",
           "DTAConfig": "1.0.0",
@@ -49,15 +49,15 @@
         }
       },
       "GitVersion.MsBuild/5.12.0": {},
-      "ImeSharp/1.4.0": {
+      "ImeSharp/1.4.1": {
         "dependencies": {
           "Microsoft.Win32.Registry": "5.0.0",
           "TsfSharp": "1.1.0"
         },
         "runtime": {
           "lib/net8.0/ImeSharp.dll": {
-            "assemblyVersion": "1.4.0.0",
-            "fileVersion": "1.4.0.0"
+            "assemblyVersion": "1.4.1.0",
+            "fileVersion": "1.4.1.0"
           }
         }
       },
@@ -1914,7 +1914,7 @@
       "ClientGUI/1.0.0": {
         "dependencies": {
           "ClientCore": "1.0.0",
-          "ImeSharp": "1.4.0"
+          "ImeSharp": "1.4.1"
         },
         "runtime": {
           "ClientGUI.dll": {}
@@ -1942,7 +1942,7 @@
     }
   },
   "libraries": {
-    "clientdx/2.12.5": {
+    "clientdx/2.12.6": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1968,12 +1968,12 @@
       "path": "gitversion.msbuild/5.12.0",
       "hashPath": "gitversion.msbuild.5.12.0.nupkg.sha512"
     },
-    "ImeSharp/1.4.0": {
+    "ImeSharp/1.4.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-p4rmt9GoRDMFoWHD0Dlk27qJ/yIlyL1t3/YO8CUP/jTQ5tOwk78McWqpzwqHFeUnVYx2H+iJP/kvaDFxZRB/7A==",
-      "path": "imesharp/1.4.0",
-      "hashPath": "imesharp.1.4.0.nupkg.sha512"
+      "sha512": "sha512-DyWlB0R7un9KC2j2T58yKs10YrtVFwF8/2/zdw6sYYn/+Kf/VUZ2wTBLXc6JfwvG0Nte5pGnAxJwnYvggbb/dQ==",
+      "path": "imesharp/1.4.1",
+      "hashPath": "imesharp.1.4.1.nupkg.sha512"
     },
     "Libuv/1.9.1": {
       "type": "package",
