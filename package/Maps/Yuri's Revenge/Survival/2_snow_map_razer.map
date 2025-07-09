@@ -1265,7 +1265,7 @@ Projectile=FlakProj
 
 [ForcedOptions]
 chkNoSpy=false
-chkCrates=true
+cmbCratesModifier=1
 chkRA2Mode=False
 cmbCredits=0
 chkBrutalAI=True
