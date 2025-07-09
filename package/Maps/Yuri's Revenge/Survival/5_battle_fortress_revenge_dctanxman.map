@@ -3302,7 +3302,7 @@ TargetDistanceCoefficient=-1
 
 [ForcedOptions]
 chkNoSpy=false
-chkCrates=true
+cmbCratesModifier=1
 chkRA2Mode=False
 cmbCredits=0
 chkBrutalAI=false

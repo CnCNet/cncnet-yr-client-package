@@ -3391,7 +3391,7 @@ Anim=INVISO
 
 [ForcedOptions]
 chkNoSpy=false
-chkCrates=true
+cmbCratesModifier=1
 chkRA2Mode=false
 cmbCredits=0
 chkBrutalAI=false
