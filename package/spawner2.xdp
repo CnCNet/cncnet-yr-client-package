@@ -263,7 +263,7 @@ AlliedDisguise=E1
 SovietDisguise=E2 ; these are the defaults for the spy if a MakeupKit hasn't been used
 SpyPowerBlackout=1000 ; Frame time a spy shuts down power for (900 = 1 minute)
 SpyMoneyStealPercent=.5 ; Percent of total money you take with a spy
-AttackCursorOnDisguise=no ;gs If yes, the mouse will be an attack cursor on a disguised unit as if he is not disguised.  
+AttackCursorOnDisguise=yes ; changed on Jul 2025 from no ;gs If yes, the mouse will be an attack cursor on a disguised unit as if he is not disguised.  
 								;If no, you will still get an attack cursor on a fake-blinking Mirage and a spy _always_
 
 ; SJM: Default disguise for the Mirage Tank (object type)
