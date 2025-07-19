@@ -17231,9 +17231,9 @@ Anim=YURICNTL
 FireOnce=yes
 
 [SuperMindControl]
-Damage=10;Needed to be considered offensive unit
+Damage=1 ; changed on Jul 2025. With the previous parameter value of 10, Yuri Prime could control 10 units instead of 1
 ROF=200
-Range=30
+Range=25 ; changed on Jul 2025. The previous value of 30 seemed absolutely excessive
 Projectile=PsychicControl
 Speed=100
 Warhead=Controller
