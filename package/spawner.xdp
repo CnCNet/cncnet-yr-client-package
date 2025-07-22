@@ -27471,7 +27471,7 @@ ProneDamage=150%
 
 ;Takes picture for disguise
 [Snapshot]
-Verses=100%,100%,100%,0%,0%,0%,0%,0%,0%,100%,100%
+Verses=100%,100%,100%,0%,0%,0%,0%,0%,0%,0%,0%
 MakesDisguise=yes
 
 [TankSnapshot]
