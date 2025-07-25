@@ -952,7 +952,7 @@ PlayerControl=no
 01000004=1,8,0,0
 
 [ForcedOptions]
-chkDestrBridges=false
+chkDestroyableBridges=false
 
 [French]
 IQ=0

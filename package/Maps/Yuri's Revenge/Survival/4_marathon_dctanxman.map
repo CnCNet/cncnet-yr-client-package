@@ -11285,23 +11285,23 @@ Anim=INVISO
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=1
+chkCrates=true
 chkRA2Mode=false
 cmbCredits=0
 chkBrutalAI=false
-chkMultiEng=false
+chkMultiEngineer=false
 chkRedeplMCV=false
 chkShortGame=false
 cmbAIModifier=1
-chkBalancePatch=false
-chkDestrBridges=false
+chkYuriRebalance=false
+chkDestroyableBridges=false
 chkNoDogEngiEat=false
 cmbSuperWeaponsModifier=3
 cmbGameSpeedCap=2
 cmbStartingUnits=10
 chkNoYuri=false
 chkNoFrance=false
-chkNoSpawnPreviews=false
+chkNoSpawnPreview=false
 cmbGameSpeedCapMultiplayer=2
 cmbGameSpeedCapSkirmish=2
 

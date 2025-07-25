@@ -1,3 +1,7 @@
+#Ignore thumbnails created by Windows
+Thumbs.db
+#Ignore log, config etc. user created files.
+.git
 /package/RA2MD.ini
 /package/Maps/Custom/*.zip
 /package/Maps/Custom/*.map
@@ -22,4 +26,3 @@ version_u
 /CnCNet5_YR_Installer.exe
 /package.tar.gz
 /Client/
-.git

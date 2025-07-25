@@ -18335,22 +18335,22 @@ Projectile=FlakProj
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=1
+chkCrates=true
 chkRA2Mode=false
 cmbCredits=0
 chkBrutalAI=false
-chkMultiEng=false
+chkMultiEngineer=false
 chkRedeplMCV=true
 chkShortGame=true
 cmbAIModifier=0
-chkBalancePatch=false
-chkDestrBridges=false
+chkYuriRebalance=false
+chkDestroyableBridges=false
 chkNoDogEngiEat=false
 cmbGameSpeedCap=2
 cmbStartingUnits=0
 chkNoYuri=false
 chkNoFrance=false
-chkNoSpawnPreviews=false
+chkNoSpawnPreview=false
 cmbGameSpeedCapSkirmish=2
 cmbGameSpeedCapMultiplayer=2
 

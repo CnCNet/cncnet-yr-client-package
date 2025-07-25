@@ -4776,22 +4776,22 @@ AffectsAllies=no
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=1
+chkCrates=true
 chkRA2Mode=False
 cmbCredits=0
 chkBrutalAI=True
-chkMultiEng=false
+chkMultiEngineer=false
 chkRedeplMCV=true
 chkShortGame=true
-chkBalancePatch=false
+chkYuriRebalance=false
 chkBuildOffAlly=False
-chkDestrBridges=true
+chkDestroyableBridges=true
 chkNoDogEngiEat=False
 chkIngameAllying=true
 cmbStartingUnits=10
 chkNoYuri=false
 chkNoFrance=false
-chkNoSpawnPreviews=false
+chkNoSpawnPreview=false
 chkDisableSuperWeapons=true
 
 [French]

@@ -1785,23 +1785,23 @@ DisableableFromShell=no
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=1
+chkCrates=true
 chkRA2Mode=false
 cmbCredits=0
-chkMultiEng=false
+chkMultiEngineer=false
 chkRedeplMCV=false
 chkShortGame=true
 cmbAIModifier=1
-chkBalancePatch=false
+chkYuriRebalance=false
 chkBuildOffAlly=false
-chkDestrBridges=false
+chkDestroyableBridges=false
 chkNoDogEngiEat=false
 cmbSuperWeaponsModifier=3
 chkIngameAllying=false
 cmbStartingUnits=10
 chkNoYuri=false
 chkNoFrance=false
-chkNoSpawnPreviews=false
+chkNoSpawnPreview=false
 
 [French]
 IQ=0

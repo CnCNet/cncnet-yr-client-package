@@ -9876,7 +9876,7 @@ YuriParaDropNum=5,1
 MaximumQueuedObjects=50
 
 [ForcedOptions]
-chkBalancePatch=true
+chkYuriRebalance=true
 chkNoSpy=true
 chkCrates=true
 chkNoYuriNoFrance=true

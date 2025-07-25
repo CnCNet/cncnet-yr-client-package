@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <userSettings>
+    <CNCMaps.GUI.Properties.Settings>
+      <setting name="skipupdatecheck" serializeAs="String">True</setting>
+      <setting name="fullsize" serializeAs="String">False</setting>
+      <setting name="outputpng" serializeAs="String">True</setting>
+      <setting name="enginets" serializeAs="String">False</setting>
+      <setting name="mixdir" serializeAs="String">..\</setting>
+      <setting name="outputjpg" serializeAs="String">False</setting>
+      <setting name="autosize" serializeAs="String">False</setting>
+      <setting name="localsize" serializeAs="String">True</setting>
+      <setting name="input" serializeAs="String"></setting>
+      <setting name="enginefs" serializeAs="String">False</setting>
+      <setting name="squaredpos" serializeAs="String">False</setting>
+      <setting name="output" serializeAs="String"></setting>
+      <setting name="outputjpgq" serializeAs="String">90</setting>
+      <setting name="outputauto" serializeAs="String">True</setting>
+      <setting name="enginera2" serializeAs="String">False</setting>
+      <setting name="outputcustom" serializeAs="String">False</setting>
+      <setting name="modconfig" serializeAs="String">True</setting>
+      <setting name="hwvoxels" serializeAs="String">True</setting>
+      <setting name="renderprog" serializeAs="String">CNCMaps.Renderer.exe</setting>
+      <setting name="engineyr" serializeAs="String">True</setting>
+      <setting name="thumbpreserveaspect" serializeAs="String">True</setting>
+      <setting name="swvoxels" serializeAs="String">False</setting>
+      <setting name="thumbdimensions" serializeAs="String">837,380</setting>
+      <setting name="omitsquarespreview" serializeAs="String">True</setting>
+      <setting name="engineauto" serializeAs="String">False</setting>
+      <setting name="outputthumb" serializeAs="String">True</setting>
+      <setting name="customfilename" serializeAs="String"></setting>
+      <setting name="tiledpos" serializeAs="String">False</setting>
+      <setting name="injectthumb" serializeAs="String">True</setting>
+      <setting name="thumboutputpng" serializeAs="String">True</setting>
+      <setting name="emphore" serializeAs="String">False</setting>
+      <setting name="outputpngq" serializeAs="String">6</setting>
+      <setting name="fixuptiles" serializeAs="String">False</setting>
+      <setting name="email" serializeAs="String"></setting>
+      <setting name="markers" serializeAs="String">None</setting>
+      <setting name="backup" serializeAs="String">False</setting>
+      <setting name="tunnelpaths" serializeAs="String">False</setting>
+      <setting name="startmarkertype" serializeAs="String">Diamond</setting>
+      <setting name="icegrowth" serializeAs="String">False</setting>
+      <setting name="fixoverlays" serializeAs="String">False</setting>
+      <setting name="diagwindow" serializeAs="String">False</setting>
+      <setting name="startmarker" serializeAs="String">False</setting>
+      <setting name="tunnelpos" serializeAs="String">True</setting>
+      <setting name="usefilename" serializeAs="String">False</setting>
+      <setting name="startmarkersize" serializeAs="String">4</setting>
+      <setting name="thumbpng" serializeAs="String">True</setting>
+      <setting name="compresstiles" serializeAs="String">False</setting>
+      <setting name="batchinput" serializeAs="String"></setting>
+      <setting name="windowlocation" serializeAs="String">40, 40</setting>
+      <setting name="modconfigfile" serializeAs="String"></setting>
+    </CNCMaps.GUI.Properties.Settings>
+  </userSettings>
+</configuration>
