@@ -73,7 +73,7 @@ jobs:
         run: 7z.exe a package.zip ./package
 
       # Create installer
-      - name: Build Installer
+      - name: Build 
         working-directory: tools
         run: npm run build-installer
 
