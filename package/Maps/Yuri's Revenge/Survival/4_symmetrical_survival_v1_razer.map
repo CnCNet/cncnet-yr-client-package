@@ -1984,20 +1984,20 @@ Range=12
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=0
+chkCrates=false
 chkRA2Mode=False
 cmbCredits=0
-chkMultiEng=false
+chkMultiEngineer=false
 chkShortGame=true
-chkBalancePatch=false
+chkYuriRebalance=false
 chkBuildOffAlly=false
-chkDestrBridges=true
+chkDestroyableBridges=true
 chkNoDogEngiEat=false
 chkIngameAllying=false
 cmbStartingUnits=0
 chkNoYuri=false
 chkNoFrance=false
-chkNoSpawnPreviews=false
+chkNoSpawnPreview=false
 
 [French]
 IQ=0

@@ -2524,22 +2524,22 @@ Projectile=FlakProj
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=1
+chkCrates=true
 chkRA2Mode=False
 cmbCredits=0
 chkBrutalAI=True
-chkMultiEng=false
+chkMultiEngineer=false
 chkRedeplMCV=true
 chkShortGame=true
-chkBalancePatch=false
+chkYuriRebalance=false
 chkBuildOffAlly=False
-chkDestrBridges=false
+chkDestroyableBridges=false
 chkNoDogEngiEat=false
 chkIngameAllying=true
 cmbStartingUnits=0
 chkNoYuri=false
 chkNoFrance=false
-chkNoSpawnPreviews=false
+chkNoSpawnPreview=false
 
 [French]
 IQ=0

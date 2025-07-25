@@ -712,7 +712,7 @@ BuildTimeMultiplier=1.20
 Version=215
 
 [ForcedOptions]
-chkDestrBridges=false
+chkDestroyableBridges=false
 
 [GAAIRC]
 Name=AFC Allied Airforce Command Headquarters

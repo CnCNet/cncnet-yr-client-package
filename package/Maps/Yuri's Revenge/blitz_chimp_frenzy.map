@@ -455,7 +455,7 @@ BuildTimeMultiplier=1.20
 Version=12
 
 [ForcedOptions]
-chkDestrBridges=false
+chkDestroyableBridges=false
 
 [French]
 IQ=0
@@ -620,21 +620,21 @@ NumberStartingPoints=2
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=0
+chkCrates=false
 chkRA2Mode=false
 cmbCredits=5
 chkBrutalAI=false
 chkRedeplMCV=true
 chkShortGame=true
-chkBalancePatch=false
+chkYuriRebalance=false
 chkBuildOffAlly=true
-chkDestrBridges=true
+chkDestroyableBridges=true
 cmbSuperWeaponsModifier=0
 chkIngameAllying=true
 cmbStartingUnits=10
 chkNoYuri=false
 chkNoFrance=false
-chkNoSpawnPreviews=false
+chkNoSpawnPreview=false
 
 
 [INBLULMP]

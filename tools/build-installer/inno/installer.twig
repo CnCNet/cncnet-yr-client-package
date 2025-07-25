@@ -70,14 +70,14 @@ Source: version; DestDir: "{app}";
 Source: gamemd-spawn.exe; DestDir: "{app}";
 
 [Icons]
-Name: "{commondesktop}\Yuri's Revenge CnCNet"; Filename: "{app}\CnCNetYRLauncher.exe"; Check: not RunsOnWine
+Name: "{commondesktop}\Yuri's Revenge CnCNet"; Filename: "{app}\CnCNetCnCNetYRLauncher.exe"; Check: not RunsOnWine
 Name: "{app}\Uninstall CnCNet"; Filename: "{uninstallexe}"
 
 [Run]
 Filename: "{tmp}\wic_x86_enu.exe"; Parameters: "/q /norestart"; Flags: runascurrentuser; Check: FileExists(ExpandConstant('{tmp}\wic_x86_enu.exe')) and ChangeStatusLabel('Windows Imaging Component')
 Filename: "{tmp}\dotNetFx40_Full_x86_x64.exe"; Parameters: "/norestart /passive /showrmui"; Flags: runascurrentuser; Check: FileExists(ExpandConstant('{tmp}\dotNetFx40_Full_x86_x64.exe')) and ChangeStatusLabel('.NET Framework 4.0')
 Filename: "msiexec.exe"; Parameters: "-i ""{tmp}\xnafx40_redist.msi"" /quiet /norestart"; Flags: runascurrentuser; Check: FileExists(ExpandConstant('{tmp}\xnafx40_redist.msi')) and ChangeStatusLabel('XNA Framework 4.0')
-Filename: "{app}\CnCNetYRLauncher.exe"; WorkingDir: "{app}"; Description: "{cm:LaunchProgram,Yuris Revenge}"; Flags: nowait postinstall runascurrentuser skipifsilent
+Filename: "{app}\CnCNetCnCNetYRLauncher.exe"; WorkingDir: "{app}"; Description: "{cm:LaunchProgram,Yuris Revenge}"; Flags: nowait postinstall runascurrentuser skipifsilent
  
 [INI]
 Filename: "{app}\RA2MD.ini"; Section: "Video"; Key: "UseGraphicsPatch"; String: "Yes"; MinVersion: 6.2

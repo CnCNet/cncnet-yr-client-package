@@ -13,25 +13,27 @@ Please look at `[razer_survival_options]` within `MPMaps.ini` if you want forced
 ## [ForcedOptions]
 
 ### Game Settings
+- **Crates**: Enabled (`chkCrates=true`)
+  - Enables or disables Crates.
 - **Short Game**: Enabled (`chkShortGame=true`)
   - Enables or disables Short Game mode.
 - **MCV Redeployment**: Enabled (`chkRedeplMCV=true`)
   - Allows or disallows MCV redeployment.
 - **Auto Repair**: Disabled (`chkAutoRepair=false`)
   - Enables or disables automatic unit repairs.
-- **Multi Engineer**: Disabled (`chkMultiEng=false`)
+- **Multi Engineer**: Disabled (`chkMultiEngineer=false`)
   - Enables or disables multiple engineers capturing buildings.
 - **Ingame Allying**: Enabled (`chkIngameAllying=true`)
   - Allows or disallows forming alliances during gameplay.
-- **Destroyable Bridges**: Disabled (`chkDestrBridges=false`)
+- **Destroyable Bridges**: Disabled (`chkDestroyableBridges=false`)
   - Enables or disables bridge destruction.
 - **Build Off Ally**: Enabled (`chkBuildOffAlly=true`)
   - Allows or disallows building off allied Construction Yards.
 - **RA2 Mode**: Disabled (`chkRA2Mode=false`)
   - Enables or disables Red Alert 2 mode.
-- **YR Rebalance Patch**: Disabled (`chkBalancePatch=false`)
+- **YR Rebalance Patch**: Disabled (`chkYuriRebalance=false`)
   - Enables or disables Yuri's Revenge rebalance patch.
-- **Spawn Previews**: Disabled (`chkNoSpawnPreviews=false`)
+- **Spawn Previews**: Disabled (`chkNoSpawnPreview=false`)
   - Enables or disables spawn previews.
 - **Yuri Faction**: Enabled (`chkNoYuri=false`)
   - Allows or disallows selecting Yuri as a faction.
@@ -41,8 +43,8 @@ Please look at `[razer_survival_options]` within `MPMaps.ini` if you want forced
   - Allows or disallows building spies.
 - **Dog Engineer Eating**: Disabled (`chkNoDogEngiEat=false`)
   - Enables or disables dogs eating engineers.
-- **Stolen Tech**: Enabled (`chkNoStolenTech=false`)
-  - Allows or disallows spies entering Battle Labs to unlock special units (Chrono Commando, Ivan, Psi-Troop).
+- **Stolen Tech**: Enabled (`chkStolenTech=true`)
+  - Enables or disables special units from spying battle labs(Chrono Commando, Ivan, Psi-Troop).
   - Battle labs are now immune to spys. As a fail safe, unlocked units now have TechLevel=-1 and BuildLimit=0.
 
 ### Game Speed
@@ -74,12 +76,3 @@ Please look at `[razer_survival_options]` within `MPMaps.ini` if you want forced
     - 0 = Vanilla AI (default behavior).
     - 1 = Brutal AI (more challenging, based on RA2/YR Brutal AI).
     - 2 = Extreme AI (more challenging, based on RAZER changes).
-
-### Crates
-- **Crates Modifier**: Disabled (`cmbCratesModifier=0`)
-  - Controls crate spawning (range: 0-3):
-    - 0 = Disabled (no crates spawn).
-    - 1 = Enabled-Default (crates spawn with default settings from `spawner.xdp`).
-    - 2 = Enabled-Extra (more crates, minimum 8 vs. 1).
-    - 3 = Enabled-Extreme (many crates, minimum 40 vs. 1).
-  - **Note**: To fully disable crates, ensure `Crates=False` in the gamemode's `spawn.ini` settings (e.g., check Blitz or Blitz 2v2 settings in `MPBase.ini`).

@@ -5750,21 +5750,21 @@ LaserOuterSpread=0,0,0
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=0
+chkCrates=false
 chkRA2Mode=False
 cmbCredits=0
 chkBrutalAI=false
-chkMultiEng=false
+chkMultiEngineer=false
 chkShortGame=true
-chkBalancePatch=false
+chkYuriRebalance=false
 chkBuildOffAlly=false
-chkDestrBridges=false
+chkDestroyableBridges=false
 chkNoDogEngiEat=false
 chkIngameAllying=false
 cmbStartingUnits=10
 chkNoYuri=false
 chkNoFrance=false
-chkNoSpawnPreviews=false
+chkNoSpawnPreview=false
 
 [French]
 IQ=0

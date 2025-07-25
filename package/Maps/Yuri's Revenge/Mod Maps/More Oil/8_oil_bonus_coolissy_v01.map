@@ -14565,7 +14565,7 @@ MaximumQueuedObjects=49
 SelfHealInfantryAmount=10
 
 [ForcedOptions]
-chkBalancePatch=true
+chkYuriRebalance=true
 chkNoSpy=true
 chkCrates=true
 chkNoYuriNoFrance=true

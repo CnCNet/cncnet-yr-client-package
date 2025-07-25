@@ -20,7 +20,7 @@ NumberStartingPoints=8
 
 [ForcedOptions]
 chkRA2Mode=false
-chkBalancePatch=false
+chkYuriRebalance=false
 
 [BuildingTypes]
 501=GTGCANBD

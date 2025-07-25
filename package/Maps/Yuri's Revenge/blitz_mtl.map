@@ -735,7 +735,7 @@ BuildTimeMultiplier=1.20
 Version=124
 
 [ForcedOptions]
-chkDestrBridges=false
+chkDestroyableBridges=false
 
 [French]
 IQ=0

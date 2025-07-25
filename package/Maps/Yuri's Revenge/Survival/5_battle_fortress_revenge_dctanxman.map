@@ -3302,23 +3302,23 @@ TargetDistanceCoefficient=-1
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=1
+chkCrates=true
 chkRA2Mode=False
 cmbCredits=0
 chkBrutalAI=false
-chkMultiEng=false
+chkMultiEngineer=false
 chkRedeplMCV=false
 chkShortGame=True
-chkBalancePatch=false
+chkYuriRebalance=false
 chkBuildOffAlly=False
-chkDestrBridges=False
+chkDestroyableBridges=False
 chkNoDogEngiEat=false
 cmbSuperWeaponsModifier=3
 chkIngameAllying=false
 cmbStartingUnits=10
 chkNoYuri=false
 chkNoFrance=false
-chkNoSpawnPreviews=false
+chkNoSpawnPreview=false
 
 [French]
 IQ=0
