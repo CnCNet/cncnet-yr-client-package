@@ -73,7 +73,7 @@ jobs:
         run: 7z.exe a package.zip ./package
 
       # Create installer
-      - name: Build 
+      - name: Build Installer
         working-directory: tools
         run: npm run build-installer
 
@@ -176,5 +176,4 @@ jobs:
             cd ${{ secrets.SSH_PATH_GAMES_YR }}
             ln -sfn updates/${{ needs.build-package.outputs.packageUploadVersion }} ${{ needs.build-package.outputs.mirrorLinkName }}
         
-
 
