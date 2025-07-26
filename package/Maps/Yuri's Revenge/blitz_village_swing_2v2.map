@@ -17,14 +17,6 @@ Waypoint7=0,0
 Waypoint8=0,0
 NumberStartingPoints=4
 
-[AMRADR]
-Name=Allied American Airforce Command Headquarters
-TechLevel=5
-Capturable=false
-Prerequisite=GACNST,GAPILE
-RequiredHouses=British,French,Germans,Americans,Alliance
-AIBasePlanningSide=-1
-
 [AirToGroundMissile]
 Arm=2
 
@@ -105,12 +97,6 @@ TechLevel=11
 Name=Allied Construction Yard
 Capturable=false
 
-[GADEPT]
-Name=Allied Service Depot
-TechLevel=7
-Capturable=false
-AIBasePlanningSide=-1
-
 [GAOREP]
 Name=Allied Ore Processor
 TechLevel=10
@@ -134,16 +120,6 @@ BuildTimeMultiplier=0.75
 [GAREFN]
 Name=Allied Ore Refinery
 TechLevel=11
-
-[GAROBO]
-Name=Allied Robot Control Center
-TechLevel=9
-Capturable=false
-AIBasePlanningSide=-1
-
-[GASPYSAT]
-Name=Allied SpySat Uplink
-Capturable=false
 
 [GATECH]
 Name=Allied Battle Lab
@@ -198,12 +174,6 @@ Strength=70
 [NACNST]
 Name=Soviet Construction Yard
 Capturable=false
-
-[NADEPT]
-Name=Soviet Service Depot
-TechLevel=7
-Capturable=false
-AIBasePlanningSide=-1
 
 [NAHAND]
 Name=Soviet Barracks
@@ -289,11 +259,6 @@ AIBasePlanningSide=-1
 Name=Soviet Ore Refinery
 TechLevel=11
 
-[NATECH]
-TechLevel=8
-Capturable=false
-AIBasePlanningSide=-1
-
 [NAWEAP]
 Name=Soviet War Factory
 TechLevel=5
@@ -328,10 +293,6 @@ RequiredHouses=British,French,Germans,Americans,Alliance
 [TERROR]
 Name=Terrorist
 RequiredHouses=Russians,Confederation,Africans,Arabs,YuriCountry
-
-[TNKD]
-Name=Tank Destroyer
-RequiredHouses=British,French,Germans,Americans,Alliance
 
 [TTNK]
 Name=Tesla Tank
@@ -889,8 +850,15 @@ Group=-1
 0=3,11
 Name=PLAYER_A
 
+[AMRADR]
+Name=Allied American Airforce Command Headquarters
+TechLevel=5
+Capturable=false
+Prerequisite=GACNST,GAPILE
+RequiredHouses=British,French,Germans,Americans,Alliance
+AIBasePlanningSide=-1
+
 [Actions]
-01000000=6,80,1,01000015,0,0,0,0,K,80,1,01000016,0,0,0,0,U,80,1,01000017,0,0,0,0,AE,80,1,01000018,0,0,0,0,AO,21,6,EVA_ReinforcementsHaveArrived,0,0,0,0,A,27,0,300,0,0,0,0,A
 01000002=2,14,0,4475,0,0,0,0,A,21,6,EVA_TechBuildingCaptured,0,0,0,0,A
 01000004=2,14,0,4476,0,0,0,0,A,21,6,EVA_TechBuildingCaptured,0,0,0,0,A
 01000006=3,27,0,280,0,0,0,0,A,21,6,EVA_TimerStarted,0,0,0,0,A,103,4,GUI:V3,0,0,0,0,A
@@ -970,7 +938,7 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[4] Village Swing Blitz 2v2 v2
+Name=[4] Village Swing Blitz 2v2 (no V3)
 Author=matel1s (totally not inspired by westwood / snark)
 Percent=0
 Briefing=VILLAGE SWING (totally not copy of a country swing)@@BLITZ MOD@@V3 for each player every 5 minutes@@Oil and Power Precaptured
@@ -1031,7 +999,6 @@ PlayerControl=no
 Name=Deploy Script
 
 [Events]
-01000000=1,13,0,300
 01000002=1,8,0,0
 01000004=1,8,0,0
 01000006=1,13,0,20
@@ -1076,6 +1043,22 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+
+[GADEPT]
+Name=Allied Service Depot
+TechLevel=7
+Capturable=false
+AIBasePlanningSide=-1
+
+[GAROBO]
+Name=Allied Robot Control Center
+TechLevel=9
+Capturable=false
+AIBasePlanningSide=-1
+
+[GASPYSAT]
+Name=Allied SpySat Uplink
+Capturable=false
 
 [GDI]
 IQ=0
@@ -2281,6 +2264,17 @@ Size=0,0,80,80
 Theater=TEMPERATE
 LocalSize=2,7,76,63
 
+[NADEPT]
+Name=Soviet Service Depot
+TechLevel=7
+Capturable=false
+AIBasePlanningSide=-1
+
+[NATECH]
+TechLevel=8
+Capturable=false
+AIBasePlanningSide=-1
+
 [Neutral]
 IQ=0
 Edge=North
@@ -2410,6 +2404,10 @@ Group=-1
 0=1,PCV
 Name=Yuri MCV
 Group=-1
+
+[TNKD]
+Name=Tank Destroyer
+RequiredHouses=British,French,Germans,Americans,Alliance
 
 [TTAMCVPA]
 Max=5
@@ -2821,7 +2819,6 @@ AreTeamMembersRecruitable=no
 
 [Tags]
 TextTag=0,Display text 1,TextTrigger
-01000001=2,Spawn V3s 1,01000000
 01000003=0,Precap Player 1 1,01000002
 01000005=0,Precap Player 2 1,01000004
 01000008=0,First Timer 1,01000006
@@ -2940,7 +2937,6 @@ TagDSTRYmcvP4America=0,Destroy MCV America Player D 1,DESmcvP4America
 142070=TREE28
 
 [Triggers]
-01000000=Neutral,<none>,Spawn V3s,0,1,1,1,0
 01000002=Americans,<none>,Precap Player 1,0,1,1,1,0
 01000004=Americans,<none>,Precap Player 2,0,1,1,1,0
 01000006=Neutral,<none>,First Timer,0,1,1,1,0
