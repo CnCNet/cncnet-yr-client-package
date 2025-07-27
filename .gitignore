@@ -2,6 +2,7 @@
 Thumbs.db
 #Ignore log, config etc. user created files.
 .git
+/game-assets/**/*.mix
 /package/RA2MD.ini
 /package/Maps/Custom/*.zip
 /package/Maps/Custom/*.map

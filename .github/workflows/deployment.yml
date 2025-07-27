@@ -12,7 +12,7 @@ on:
 
   # Run when there is a release published
   release:
-    types: [ published ]
+    types: [published]
   
   # Allows for this workflow to be run manually
   workflow_dispatch:
@@ -40,7 +40,7 @@ jobs:
         run: npm ci
 
       # This step validates the format of the tag created, if this was a published release.
-      # Currently, it must be in the format "yr-X.Y" or "yr-X.Y.Z" 
+      # Currently, it must be in the format "yr-X.Y" or "yr-X.Y.Z"
       - name: Validate Tag Name
         if: github.event_name == 'release'
         working-directory: tools
@@ -50,7 +50,7 @@ jobs:
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0.9.15
         with:
-          versionSpec: '5.x'
+          versionSpec: "5.x"
 
       # Run Gitversion - https://gitversion.net/docs/
       - name: Run GitVersion
@@ -60,6 +60,10 @@ jobs:
       - name: Update versionconfig.ini
         # replace the second line in the file with the proper version number (X.Y.Z-dev.N)
         run: sed -i "2 s/.*/${{env.GitVersion_SemVer}}/" ./package/versionconfig.ini
+
+      - name: Pack Game Assets
+        working-directory: tools
+        run: npm run mix-packer
 
       - name: Version Writer
         working-directory: tools
@@ -175,6 +179,3 @@ jobs:
           script: |
             cd ${{ secrets.SSH_PATH_GAMES_YR }}
             ln -sfn updates/${{ needs.build-package.outputs.packageUploadVersion }} ${{ needs.build-package.outputs.mirrorLinkName }}
-        
-
-
