@@ -7,7 +7,7 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {},
     ".NETCoreApp,Version=v8.0/win-x86": {
-      "clientxna/2.12.7": {
+      "clientxna/2.12.9": {
         "dependencies": {
           "ClientUpdater": "1.0.0",
           "DTAConfig": "1.0.0",
@@ -17,7 +17,7 @@
           "Microsoft.Extensions.Hosting": "8.0.0",
           "NETStandard.Library": "2.0.3",
           "OpenMcdf": "2.4.1",
-          "SixLabors.ImageSharp": "2.1.10",
+          "SixLabors.ImageSharp": "2.1.11",
           "System.DirectoryServices": "8.0.0",
           "System.IO.FileSystem": "4.3.0",
           "System.Management": "8.0.0",
@@ -487,18 +487,18 @@
           }
         }
       },
-      "Rampastring.Tools/2.0.6": {
+      "Rampastring.Tools/2.0.7": {
         "runtime": {
           "lib/net8.0/Rampastring.Tools.dll": {
-            "assemblyVersion": "2.0.6.0",
-            "fileVersion": "2.0.6.0"
+            "assemblyVersion": "2.0.7.0",
+            "fileVersion": "2.0.7.0"
           }
         }
       },
-      "Rampastring.XNAUI.WindowsXNA/2.7.10": {
+      "Rampastring.XNAUI.WindowsXNA/3.0.4": {
         "dependencies": {
-          "Rampastring.Tools": "2.0.6",
-          "SixLabors.ImageSharp": "2.1.10",
+          "Rampastring.Tools": "2.0.7",
+          "SixLabors.ImageSharp": "2.1.11",
           "TextCopy": "6.2.1"
         },
         "runtime": {
@@ -543,8 +543,8 @@
             "fileVersion": "4.0.30901.0"
           },
           "lib/net8.0-windows7.0/Rampastring.XNAUI.WindowsXNA.dll": {
-            "assemblyVersion": "2.7.10.0",
-            "fileVersion": "2.7.10.0"
+            "assemblyVersion": "3.0.4.0",
+            "fileVersion": "3.0.4.0"
           }
         }
       },
@@ -613,7 +613,7 @@
           }
         }
       },
-      "SixLabors.ImageSharp/2.1.10": {
+      "SixLabors.ImageSharp/2.1.11": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "5.0.0",
           "System.Text.Encoding.CodePages": "8.0.0"
@@ -621,7 +621,7 @@
         "runtime": {
           "lib/netcoreapp3.1/SixLabors.ImageSharp.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.1.10.0"
+            "fileVersion": "2.1.11.0"
           }
         }
       },
@@ -868,8 +868,8 @@
       },
       "ClientCore/1.0.0": {
         "dependencies": {
-          "Rampastring.Tools": "2.0.6",
-          "Rampastring.XNAUI.WindowsXNA": "2.7.10",
+          "Rampastring.Tools": "2.0.7",
+          "Rampastring.XNAUI.WindowsXNA": "3.0.4",
           "System.Text.Encoding.CodePages": "8.0.0",
           "Ude.NetStandard": "1.2.0"
         },
@@ -890,7 +890,7 @@
         "dependencies": {
           "ClientCore": "1.0.0",
           "Microsoft.AspNet.WebApi.Client": "6.0.0",
-          "Rampastring.Tools": "2.0.6"
+          "Rampastring.Tools": "2.0.7"
         },
         "runtime": {
           "ClientUpdater.dll": {}
@@ -908,7 +908,7 @@
     }
   },
   "libraries": {
-    "clientxna/2.12.7": {
+    "clientxna/2.12.9": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1193,19 +1193,19 @@
       "path": "openmcdf/2.4.1",
       "hashPath": "openmcdf.2.4.1.nupkg.sha512"
     },
-    "Rampastring.Tools/2.0.6": {
+    "Rampastring.Tools/2.0.7": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-eNKfJU1hBAMO7KHhoehkUdIOw+zOJCsSWWP9FoXL2jO0RG9Z0cd87tEQTfSB81y9LVi0ZMBA+FAy2y2wWZsYWg==",
-      "path": "rampastring.tools/2.0.6",
-      "hashPath": "rampastring.tools.2.0.6.nupkg.sha512"
+      "sha512": "sha512-BchEewWN1D1x2Myq/Cqb6uqw05VsFSn9EEs2BHy1b3PCKGp2NuECfc9oPdvTW88tyVWx9tFR3mfJ+sjW2E5GFQ==",
+      "path": "rampastring.tools/2.0.7",
+      "hashPath": "rampastring.tools.2.0.7.nupkg.sha512"
     },
-    "Rampastring.XNAUI.WindowsXNA/2.7.10": {
+    "Rampastring.XNAUI.WindowsXNA/3.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VFKkcLh/nY/WU072exWsk0XtLPOc7N+lYLUMMtk71wax/bM3BMsRG6L38wD1giYT2dC3P5zlvyzvqXWykYJI6Q==",
-      "path": "rampastring.xnaui.windowsxna/2.7.10",
-      "hashPath": "rampastring.xnaui.windowsxna.2.7.10.nupkg.sha512"
+      "sha512": "sha512-jnVhZJr/iE3A4gtbuvETtrHwXbAOfwGCoLaKr6VYm49/qYaT0R9INcGm/HXUCme61SSLLAY2yFNPc7WeW8Vqpg==",
+      "path": "rampastring.xnaui.windowsxna/3.0.4",
+      "hashPath": "rampastring.xnaui.windowsxna.3.0.4.nupkg.sha512"
     },
     "runtime.any.System.Collections/4.3.0": {
       "type": "package",
@@ -1333,12 +1333,12 @@
       "path": "sharpgen.runtime.com/2.0.0-beta.9",
       "hashPath": "sharpgen.runtime.com.2.0.0-beta.9.nupkg.sha512"
     },
-    "SixLabors.ImageSharp/2.1.10": {
+    "SixLabors.ImageSharp/2.1.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hk1E7U3RSlxrBVo6Gb6OjeM52fChpFYH+SZvyT/M2vzSGlzAaKE33hc3V/Pvnjcnn1opT8/Z+0QfqdM5HsIaeA==",
-      "path": "sixlabors.imagesharp/2.1.10",
-      "hashPath": "sixlabors.imagesharp.2.1.10.nupkg.sha512"
+      "sha512": "sha512-tUvsejgzUmEbES114yLseRxmFiYlQbH5RyaYXUQsEL7ksDo1/kW+ZL1EfD6iSUfxj7LHU8p110oFvSrRfsaWSQ==",
+      "path": "sixlabors.imagesharp/2.1.11",
+      "hashPath": "sixlabors.imagesharp.2.1.11.nupkg.sha512"
     },
     "System.Buffers/4.3.0": {
       "type": "package",
