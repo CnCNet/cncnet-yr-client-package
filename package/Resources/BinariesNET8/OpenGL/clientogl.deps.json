@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "clientogl/2.12.7": {
+      "clientogl/2.12.9": {
         "dependencies": {
           "ClientUpdater": "1.0.0",
           "DTAConfig": "1.0.0",
@@ -16,7 +16,7 @@
           "Microsoft.Extensions.Hosting": "8.0.0",
           "NETStandard.Library": "2.0.3",
           "OpenMcdf": "2.4.1",
-          "SixLabors.ImageSharp": "2.1.10",
+          "SixLabors.ImageSharp": "2.1.11",
           "System.DirectoryServices": "8.0.0",
           "System.IO.FileSystem": "4.3.0",
           "System.Management": "8.0.0",
@@ -524,29 +524,29 @@
           }
         }
       },
-      "Rampastring.Tools/2.0.6": {
+      "Rampastring.Tools/2.0.7": {
         "runtime": {
           "lib/net8.0/Rampastring.Tools.dll": {
-            "assemblyVersion": "2.0.6.0",
-            "fileVersion": "2.0.6.0"
+            "assemblyVersion": "2.0.7.0",
+            "fileVersion": "2.0.7.0"
           }
         }
       },
-      "Rampastring.XNAUI.WindowsGL/2.7.10": {
+      "Rampastring.XNAUI.WindowsGL/3.0.4": {
         "dependencies": {
           "MonoGame.Framework.DesktopGL": "3.8.1.303",
-          "Rampastring.Tools": "2.0.6",
-          "SixLabors.ImageSharp": "2.1.10",
+          "Rampastring.Tools": "2.0.7",
+          "SixLabors.ImageSharp": "2.1.11",
           "TextCopy": "6.2.1"
         },
         "runtime": {
           "lib/net8.0-windows7.0/Rampastring.XNAUI.WindowsGL.dll": {
-            "assemblyVersion": "2.7.10.0",
-            "fileVersion": "2.7.10.0"
+            "assemblyVersion": "3.0.4.0",
+            "fileVersion": "3.0.4.0"
           }
         }
       },
-      "SixLabors.ImageSharp/2.1.10": {
+      "SixLabors.ImageSharp/2.1.11": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "5.0.0",
           "System.Text.Encoding.CodePages": "8.0.0"
@@ -554,7 +554,7 @@
         "runtime": {
           "lib/netcoreapp3.1/SixLabors.ImageSharp.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.1.10.0"
+            "fileVersion": "2.1.11.0"
           }
         }
       },
@@ -684,8 +684,8 @@
       },
       "ClientCore/1.0.0": {
         "dependencies": {
-          "Rampastring.Tools": "2.0.6",
-          "Rampastring.XNAUI.WindowsGL": "2.7.10",
+          "Rampastring.Tools": "2.0.7",
+          "Rampastring.XNAUI.WindowsGL": "3.0.4",
           "System.Text.Encoding.CodePages": "8.0.0",
           "Ude.NetStandard": "1.2.0"
         },
@@ -705,7 +705,7 @@
         "dependencies": {
           "ClientCore": "1.0.0",
           "Microsoft.AspNet.WebApi.Client": "6.0.0",
-          "Rampastring.Tools": "2.0.6"
+          "Rampastring.Tools": "2.0.7"
         },
         "runtime": {
           "ClientUpdater.dll": {}
@@ -723,7 +723,7 @@
     }
   },
   "libraries": {
-    "clientogl/2.12.7": {
+    "clientogl/2.12.9": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1008,26 +1008,26 @@
       "path": "openmcdf/2.4.1",
       "hashPath": "openmcdf.2.4.1.nupkg.sha512"
     },
-    "Rampastring.Tools/2.0.6": {
+    "Rampastring.Tools/2.0.7": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-eNKfJU1hBAMO7KHhoehkUdIOw+zOJCsSWWP9FoXL2jO0RG9Z0cd87tEQTfSB81y9LVi0ZMBA+FAy2y2wWZsYWg==",
-      "path": "rampastring.tools/2.0.6",
-      "hashPath": "rampastring.tools.2.0.6.nupkg.sha512"
+      "sha512": "sha512-BchEewWN1D1x2Myq/Cqb6uqw05VsFSn9EEs2BHy1b3PCKGp2NuECfc9oPdvTW88tyVWx9tFR3mfJ+sjW2E5GFQ==",
+      "path": "rampastring.tools/2.0.7",
+      "hashPath": "rampastring.tools.2.0.7.nupkg.sha512"
     },
-    "Rampastring.XNAUI.WindowsGL/2.7.10": {
+    "Rampastring.XNAUI.WindowsGL/3.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xD7A+MIfiO1zxwkJ8cOtVMayI6hNzKjzY/rwmgYuQUUwRZkLUzPf2uBORmpQ+oNYIWZ/62W/1k+P5HRpLPbB3Q==",
-      "path": "rampastring.xnaui.windowsgl/2.7.10",
-      "hashPath": "rampastring.xnaui.windowsgl.2.7.10.nupkg.sha512"
+      "sha512": "sha512-8VIWEw/d1j+wbdH5qU8uHhlwsDAhxEJxH9Fhnp1UvudkJmyaO/Le/DiKAEujfhfb+1B+KXmflI94/teblF4FBw==",
+      "path": "rampastring.xnaui.windowsgl/3.0.4",
+      "hashPath": "rampastring.xnaui.windowsgl.3.0.4.nupkg.sha512"
     },
-    "SixLabors.ImageSharp/2.1.10": {
+    "SixLabors.ImageSharp/2.1.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hk1E7U3RSlxrBVo6Gb6OjeM52fChpFYH+SZvyT/M2vzSGlzAaKE33hc3V/Pvnjcnn1opT8/Z+0QfqdM5HsIaeA==",
-      "path": "sixlabors.imagesharp/2.1.10",
-      "hashPath": "sixlabors.imagesharp.2.1.10.nupkg.sha512"
+      "sha512": "sha512-tUvsejgzUmEbES114yLseRxmFiYlQbH5RyaYXUQsEL7ksDo1/kW+ZL1EfD6iSUfxj7LHU8p110oFvSrRfsaWSQ==",
+      "path": "sixlabors.imagesharp/2.1.11",
+      "hashPath": "sixlabors.imagesharp.2.1.11.nupkg.sha512"
     },
     "System.CodeDom/8.0.0": {
       "type": "package",
