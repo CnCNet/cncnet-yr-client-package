@@ -7,7 +7,7 @@ on:
   push:
     branches:
       - develop
-      - rc
+      - pre-release
       - feature/*
       - hotfix/*
 
