@@ -12,7 +12,7 @@ Please look at `[razer_survival_options]` within `MPMaps.ini` if you want forced
 
 ## [ForcedOptions]
 
-### Game Settings:
+### Game Settings
 - **Short Game**: Enabled (`chkShortGame=true`)
   - Enables or disables Short Game mode.
 - **MCV Redeployment**: Enabled (`chkRedeplMCV=true`)
