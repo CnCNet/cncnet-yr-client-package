@@ -7791,7 +7791,7 @@ TargetDistanceCoefficient=-1
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=1
+chkCrates=true
 chkRA2Mode=false
 cmbCredits=0
 chkMultiEng=false

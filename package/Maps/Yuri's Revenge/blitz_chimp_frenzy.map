@@ -620,7 +620,7 @@ NumberStartingPoints=2
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=0
+chkCrates=false
 chkRA2Mode=false
 cmbCredits=5
 chkBrutalAI=false

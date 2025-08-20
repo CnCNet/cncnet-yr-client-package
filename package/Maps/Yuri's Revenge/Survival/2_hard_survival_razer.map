@@ -1336,7 +1336,7 @@ Projectile=FlakProj
 Range=12
 
 [ForcedOptions]
-cmbCratesModifier=0
+chkCrates=false
 chkRA2Mode=False
 cmbCredits=0
 chkMultiEng=false

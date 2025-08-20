@@ -1984,7 +1984,7 @@ Range=12
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=0
+chkCrates=false
 chkRA2Mode=False
 cmbCredits=0
 chkMultiEng=false
