@@ -518,6 +518,8 @@ Maps\Custom\83b65056362a027b56ce57842588d1e470373af3.png
 INI\Game Options\AI\Extreme AI Beta.ini
 Resources\Config\UpdaterConfig_net48.ini
 Resources\Config\UpdaterConfig_Beta.ini
+INI\Game Options\Crates\Disabled.ini
+INI\Game Options\Crates\Super Increased.ini
 
 [DeleteFolder]
 Maps\Yuri's Revenge\CTF
