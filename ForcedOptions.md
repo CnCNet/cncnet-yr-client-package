@@ -31,7 +31,7 @@ Please look at `[razer_survival_options]` within `MPMaps.ini` if you want forced
   - Enables or disables Red Alert 2 mode.
 - **YR Rebalance Patch**: Disabled (`chkBalancePatch=false`)
   - Enables or disables Yuri's Revenge rebalance patch.
-- **Spawn Previews**: Disabled (`chkNoSpawnPreviews=false`)
+- **Blind Start**: Disabled (`chkNoSpawnPreviews=false`)
   - Enables or disables spawn previews.
 - **Yuri Faction**: Enabled (`chkNoYuri=false`)
   - Allows or disallows selecting Yuri as a faction.
@@ -39,7 +39,7 @@ Please look at `[razer_survival_options]` within `MPMaps.ini` if you want forced
   - Allows or disallows selecting France as a faction.
 - **Spies**: Enabled (`chkNoSpy=false`)
   - Allows or disallows building spies.
-- **Dog Engineer Eating**: Disabled (`chkNoDogEngiEat=false`)
+- **Engi Dog Immune**: Disabled (`chkNoDogEngiEat=false`)
   - Enables or disables dogs eating engineers.
 - **Stolen Tech**: Enabled (`chkNoStolenTech=false`)
   - Allows or disallows spies entering Battle Labs to unlock special units (Chrono Commando, Ivan, Psi-Troop).
