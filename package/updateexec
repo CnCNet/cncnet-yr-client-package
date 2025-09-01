@@ -206,6 +206,7 @@ INI\Map Code\RA2 Armageddon.ini
 INI\Map Code\Tournament.ini
 INI\Map Code\Demolition.ini
 INI\Map Code\Capture The Flag.ini
+INI\Map Code\Blitz.ini
 Maps\Yuri's Revenge\CTF\CTFallTheFury.map
 Maps\Yuri's Revenge\CTF\CTFallTheFury.png
 Maps\Yuri's Revenge\CTF\CTFantarctic.map
@@ -518,6 +519,10 @@ Maps\Custom\83b65056362a027b56ce57842588d1e470373af3.png
 INI\Game Options\AI\Extreme AI Beta.ini
 Resources\Config\UpdaterConfig_net48.ini
 Resources\Config\UpdaterConfig_Beta.ini
+Maps\Yuri's Revenge\blitz_bongo_2v2.map
+Maps\Yuri's Revenge\blitz_bongo_2v2.png
+Maps\Yuri's Revenge\blitz_candy_mountain_2v2.map
+Maps\Yuri's Revenge\blitz_candy_mountain_2v2.png
 
 [DeleteFolder]
 Maps\Yuri's Revenge\CTF
