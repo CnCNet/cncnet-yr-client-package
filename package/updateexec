@@ -520,6 +520,7 @@ Resources\Config\UpdaterConfig_net48.ini
 Resources\Config\UpdaterConfig_Beta.ini
 INI\Game Options\Crates\Disabled.ini
 INI\Game Options\Crates\Super Increased.ini
+Resources\GenericWindowLegacy.ini
 
 [DeleteFolder]
 Maps\Yuri's Revenge\CTF
