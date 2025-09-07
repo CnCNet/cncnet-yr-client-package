@@ -9,6 +9,13 @@ cncnet.mix
 ra2mode.mix
 ares.mix
 ra2mdlauncher.exe
+Resources\SpriteFont2.xnb
+Resources\SpriteFont3.xnb
+Resources\SpriteFont4.xnb
+Resources\Translations\zh-Hans\SpriteFont2.xnb
+Resources\Translations\zh-Hans\SpriteFont3.xnb
+Resources\Translations\zh-Hans\SpriteFont4.xnb
+Resources\Translations\zh-Hans\SpriteFont5.xnb
 Resources\FHCConfig.ini
 Resources\Allied Theme\loading.png
 Resources\Soviet Theme\loading.png
