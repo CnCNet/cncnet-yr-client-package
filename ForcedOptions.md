@@ -31,7 +31,7 @@ Please look at `[razer_survival_options]` within `MPMaps.ini` if you want forced
   - Enables or disables Red Alert 2 mode.
 - **YR Rebalance Patch**: Disabled (`chkBalancePatch=false`)
   - Enables or disables Yuri's Revenge rebalance patch.
-- **Spawn Previews**: Disabled (`chkNoSpawnPreviews=false`)
+- **Blind Start**: Disabled (`chkNoSpawnPreviews=false`)
   - Enables or disables spawn previews.
 - **Yuri Faction**: Enabled (`chkNoYuri=false`)
   - Allows or disallows selecting Yuri as a faction.
@@ -39,13 +39,15 @@ Please look at `[razer_survival_options]` within `MPMaps.ini` if you want forced
   - Allows or disallows selecting France as a faction.
 - **Spies**: Enabled (`chkNoSpy=false`)
   - Allows or disallows building spies.
-- **Dog Engineer Eating**: Disabled (`chkNoDogEngiEat=false`)
+- **Engi Dog Immune**: Disabled (`chkNoDogEngiEat=false`)
   - Enables or disables dogs eating engineers.
 - **Stolen Tech**: Enabled (`chkNoStolenTech=false`)
   - Allows or disallows spies entering Battle Labs to unlock special units (Chrono Commando, Ivan, Psi-Troop).
   - Battle labs are now immune to spys. As a fail safe, unlocked units now have TechLevel=-1 and BuildLimit=0.
 - **Crates**: Enabled (`chkCrates=true`)
   - Enables or disables goodie crate logic in the map.
+- **Game Speed Slider**: Enabled (`chkDisableGameSpeed=false`)
+  - Enables or Disables gamespeed slider from appearing ingame. `chkDisableGameSpeed=true` disables the slider entirely.
 
 ### Game Speed
 - **Skirmish Game Speed**: 30 FPS (`cmbGameSpeedCapSkirmish=2`)
@@ -80,8 +82,8 @@ Please look at `[razer_survival_options]` within `MPMaps.ini` if you want forced
 ### Crates
 - **Crates Modifier**: Disabled (`cmbCratesModifier=0`)
   - Controls crate spawning (range: 0-3):
-    - 0 = Disabled (no crates spawn).
-    - 1 = Enabled-Default (crates spawn with default settings from `spawner.xdp`).
-    - 2 = Enabled-Extra (more crates, minimum 8 vs. 1).
-    - 3 = Enabled-Extreme (many crates, minimum 40 vs. 1).
-  - **Note**: To fully disable crates, ensure `Crates=False` in the gamemode's `spawn.ini` settings (e.g., check Blitz or Blitz 2v2 settings in `MPBase.ini`).
+    - 0 = Minimal (Maximum crates at a time is 1).
+    - 1 = Normal (Crates spawn with default settings from `spawner.xdp`,unless map file has specific values set inside).
+    - 2 = Increased (Minimum crate spawn of 8 vs 1).
+    - 3 = Extreme (Many crates, minimum 40 vs. 1).
+  - **Note**: To fully disable crates, ensure `chkCrates=False`
