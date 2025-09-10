@@ -1307,6 +1307,36 @@ Mutant=Special
 301=CASTRT03
 302=CASTRT04
 303=CASTRT05
+330=CALA01
+335=CALOND01
+337=CALOND03
+338=CAMORR01
+339=CAMORR02
+340=CAMORR03
+342=CASANF02
+343=CASANF03
+379=CABARR01
+380=CABARR02
+381=CAMORR04
+382=CAMORR05
+387=CAMORR06
+388=CAMORR07
+389=CAMORR08
+390=CAMORR09
+391=CAMORR10
+398=CAPARK04
+399=CAPARK05
+400=CAPARK06
+403=CABUNK03
+404=CABUNK04
+405=CALUNR01
+406=CALUNR02
+408=CASYDN02
+409=CATRAN01
+410=CATRAN02
+411=CAURB01
+412=CAURB02
+413=CAURB03
 
 ; *** Terrain Object List ***
 ; This is the list of terrain objects. Typically, these include
@@ -14316,9 +14346,7 @@ Nominal=yes
 Points=5
 Armor=wood
 Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
-																 
 MaxDebris=0
-		   
 BaseNormal=no
 Sight=6 ; UC base values
 ClickRepairable=no
@@ -16212,7 +16240,6 @@ DamageSound=BuildingMetalDamaged
 DieSound=BuildingMetalDamaged
 
 [CAURB01]
-
 Name=Telephone Booth
 UIName=Name:CAURB01
 TechLevel=-1
@@ -16233,7 +16260,6 @@ DieSound=BuildingMetalDamaged
 [CAURB02]
 Name=Fire Hydrant
 UIName=Name:CAURB02
-
 TechLevel=-1
 Strength=5
 Insignificant=yes
@@ -16252,7 +16278,6 @@ DieSound=BuildingMetalDamaged
 [CAURB03]
 Name=Hollywood Spotlight
 UIName=Name:CAURB03
-
 TechLevel=-1
 Strength=5
 Insignificant=yes
