@@ -9307,6 +9307,523 @@ ThreatPosed=0	; This value MUST be 0 for all building addons
 BaseNormal=no ;psst....IsBase isn't a Rules flag
 AIBuildThis=no
 
+[CALA01]
+Name=LA Keegan Produce
+;UIName=Name:CALA01
+UIName=Name:CACITY01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=6 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+
+[CALOND01]
+Name=London Victorian Home 1
+;UIName=Name:CALOND01
+UIName=Name:CACITY01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=6 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+
+[CALOND03]
+Name=London Pub
+;UIName=Name:CALOND03
+UIName=Name:CACITY01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=6 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+
+[CABARR01]
+Name=Barricade 01
+UIName=Name:CABARR
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=0
+Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+DamageSound=BuildingMetalDamaged
+DieSound=BuildingMetalDamaged
+ 
+[CABARR02]
+Name=Barricade 02
+UIName=Name:CABARR
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=0
+Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+DamageSound=BuildingMetalDamaged
+DieSound=BuildingMetalDamaged
+
+[CAMORR01]
+Name=Morocco Generic
+;UIName=Name:CAMORR01
+UIName=Name:CACITY01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=8 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+ 
+[CAMORR02]
+Name=Morocco Generic02
+;UIName=Name:CAMORR02
+UIName=Name:CACITY01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=8 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+ 
+[CAMORR03]
+Name=Morroco Generic03
+;UIName=Name:CAMORR03
+UIName=Name:CACITY01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=8 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+
+[CAMORR04]
+Name=Morroco Generic04
+;UIName=Name:CAMORR04
+UIName=Name:CACITY01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=10 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+
+[CAMORR05]
+Name=Morroco Bar 01
+UIName=Name:CACITY01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=6 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+
+[CAMORR06]
+Name=Morroco Bar 02
+UIName=Name:CAMORR05
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=6 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+
+[CAMORR07]
+Name=Morroco Generic07
+;UIName=Name:CAMORR07
+UIName=Name:CACITY01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=10 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+
+[CAMORR08]
+Name=Morroco Generic08
+;UIName=Name:CAMORR08
+UIName=Name:CACITY01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=10 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+
+[CAMORR09]
+Name=Morroco Generic09
+;UIName=Name:CAMORR09
+UIName=Name:CACITY01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=10 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+
+[CAMORR10]
+Name=Morroco Generic10
+;UIName=Name:CAMORR10
+UIName=Name:CACITY01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=10 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+
+[CASANF02]
+Name=San Fran Victorian Home 2
+;UIName=Name:CASANF02
+UIName=Name:CACITY01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=6 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+ 
+[CASANF03]
+Name=San Fran Victorian Home 3
+;UIName=Name:CASANF03
+UIName=Name:CACITY01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=6 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+LeaveRubble=true
+DieSound=MonumentCrumble
+CanOccupyFire=yes
+
+[CASYDN02]
+Name=Sydney Kangaroo Burger
+UIName=Name:CASYDN02
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=6 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+
+[CATRAN01]
+Name=Transylvania Crypt 1
+UIName=Name:CATRAN01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=6 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+ 
+[CATRAN02]
+Name=Transylvania Crypt 2
+UIName=Name:CATRAN01
+TechLevel=-1
+Strength=1000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+;DestroyAnim=CARUS01D
+DebrisAnims=DBRI-WM1,DBRI-WM2,DBRI-WM3,DBRI-WM4,DBRI-WM5,DBRI-WM6
+MaxDebris=15
+MinDebris=5
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=6 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=10
+CanOccupyFire=yes
+LeaveRubble=true
+DieSound=MonumentCrumble
+
 [CAMEX02]
 UIName=Name:MAYANRUINS
 Name=RA2 Mayan Castillo
@@ -13787,6 +14304,53 @@ ClickRepairable=no
 ;CanOccupyFire=Yes
 LeaveRubble=Yes
 
+;Lunar Lander
+[CALUNR01]
+UIName=Name:CALUNR01
+Name=Lunar Lander
+TechLevel=-1
+Strength=1
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+																 
+MaxDebris=0
+		   
+BaseNormal=no
+Sight=6 ; UC base values
+ClickRepairable=no
+;CanBeOccupied=yes
+;MaxNumberOccupants=6
+;DistributedFire=yes
+;CanOccupyFire=yes
+;
+
+;Lunar Flag
+[CALUNR02]
+;UIName=Name:CALUNR02
+UIName=Name:CAUSFGL
+Name=Lunar Flag
+TechLevel=-1
+Strength=1
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=0
+BaseNormal=no
+Sight=6 ; UC base values
+ClickRepairable=no
+;CanBeOccupied=yes
+;MaxNumberOccupants=6
+;DistributedFire=yes
+;CanOccupyFire=yes
+;
+
 ;Park Bench
 [CAPARK01]
 UIName=Name:CAPARK01
@@ -13851,6 +14415,69 @@ ClickRepairable=no
 ;MaxNumberOccupants=6
 ;DistributedFire=yes
 ;CanOccupyFire=Yes
+
+;Park Bench North facing
+[CAPARK04]
+UIName=Name:CAPARK01
+Name=Park Bench North
+TechLevel=-1
+Strength=1
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=0
+BaseNormal=no
+Sight=6 ; UC base values
+ClickRepairable=no
+;CanBeOccupied=yes
+;MaxNumberOccupants=6
+;DistributedFire=yes
+;CanOccupyFire=yes
+
+;Park Bench West facing
+[CAPARK05]
+UIName=Name:CAPARK01
+Name=Park Bench West
+TechLevel=-1
+Strength=1
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=0
+BaseNormal=no
+Sight=6 ; UC base values
+ClickRepairable=no
+;CanBeOccupied=yes
+;MaxNumberOccupants=6
+;DistributedFire=yes
+;CanOccupyFire=yes
+
+;Park Bench East facing
+[CAPARK06]
+UIName=Name:CAPARK01
+Name=Park Bench East
+TechLevel=-1
+Strength=1
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=wood
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=0
+BaseNormal=no
+Sight=6 ; UC base values
+ClickRepairable=no
+;CanBeOccupied=yes
+;MaxNumberOccupants=6
+;DistributedFire=yes
+;CanOccupyFire=yes
 
 ;American House 02
 [CAHSE02]
@@ -15266,6 +15893,58 @@ MaxNumberOccupants=8
 CanOccupyFire=Yes
 LeaveRubble=yes
 
+;Concrete Bunker 03
+[CABUNK03];gs restoring this to proper state.  The buildable one is up in the soviet section
+UIName=Name:CABUNK01
+Name=Concrete Bunker 03
+TechLevel=-1
+Strength=2000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=steel
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=15
+MinDebris=5
+DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris10lg,Dbris10sm
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=6 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=8
+;DistributedFire=yes
+CanOccupyFire=yes
+LeaveRubble=yes
+
+;Concrete Bunker 04
+[CABUNK04];gs restoring this to proper state.  The buildable one is up in the soviet section
+UIName=Name:CABUNK01
+Name=Concrete Bunker 04
+TechLevel=-1
+Strength=2000
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=steel
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=15
+MinDebris=5
+DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris10lg,Dbris10sm
+;Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+Sight=6 ; UC base values
+ClickRepairable=no
+CanBeOccupied=yes
+MaxNumberOccupants=8
+;DistributedFire=yes
+CanOccupyFire=yes
+LeaveRubble=yes
+
 [CAMSC13]
 UIName=Name:CAMISC13
 Name=RA2 Derelict Tank
@@ -15522,6 +16201,63 @@ Strength=20
 Insignificant=yes
 Nominal=yes
 RadarInvisible=yes
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=0
+Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+DamageSound=BuildingMetalDamaged
+DieSound=BuildingMetalDamaged
+
+[CAURB01]
+
+Name=Telephone Booth
+UIName=Name:CAURB01
+TechLevel=-1
+Strength=5
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=0
+Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+DamageSound=BuildingMetalDamaged
+DieSound=BuildingMetalDamaged
+
+[CAURB02]
+Name=Fire Hydrant
+UIName=Name:CAURB02
+
+TechLevel=-1
+Strength=5
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
+Points=5
+Armor=concrete
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+MaxDebris=0
+Selectable=no
+;IsBase=no
+BaseNormal=no ;psst....IsBase isn't a Rules flag
+DamageSound=BuildingMetalDamaged
+DieSound=BuildingMetalDamaged
+
+[CAURB03]
+Name=Hollywood Spotlight
+UIName=Name:CAURB03
+
+TechLevel=-1
+Strength=5
+Insignificant=yes
+Nominal=yes
+;RadarInvisible=yes
 Points=5
 Armor=concrete
 Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
