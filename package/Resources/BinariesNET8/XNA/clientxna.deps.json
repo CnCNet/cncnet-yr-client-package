@@ -7,7 +7,7 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {},
     ".NETCoreApp,Version=v8.0/win-x86": {
-      "clientxna/2.12.10": {
+      "clientxna/2.12.11": {
         "dependencies": {
           "ClientUpdater": "1.0.0",
           "DTAConfig": "1.0.0",
@@ -908,7 +908,7 @@
     }
   },
   "libraries": {
-    "clientxna/2.12.10": {
+    "clientxna/2.12.11": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
