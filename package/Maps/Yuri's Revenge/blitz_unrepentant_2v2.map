@@ -1181,7 +1181,6 @@ PlayerControl=no
 Name=[4] Unrepentant 2v2 - Blitz
 Theme=No theme
 Percent=0
-Briefing=Brief:ALL01md
 GameMode=standard
 InitTime=10000
 Official=yes
