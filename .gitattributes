@@ -1,5 +1,3 @@
-* text=crlf
-
 # Shell scripts require LF
 *.sh  text eol=lf
 *.ps1 eol=lf
@@ -12,6 +10,7 @@
 *.ini text eol=crlf
 *.map text eol=crlf
 *.txt text eol=crlf
+*.xdp text eol=crlf
 
 preupdateexec text eol=crlf
 updateexec    text eol=crlf
