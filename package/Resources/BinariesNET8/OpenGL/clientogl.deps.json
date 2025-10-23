@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "clientogl/2.12.12": {
+      "clientogl/2.12.13": {
         "dependencies": {
           "ClientGUI": "1.0.0",
           "ClientUpdater": "1.0.0",
@@ -532,7 +532,7 @@
           }
         }
       },
-      "Rampastring.XNAUI.WindowsGL/3.1.0": {
+      "Rampastring.XNAUI.WindowsGL/3.1.6": {
         "dependencies": {
           "MonoGame.Framework.DesktopGL": "3.8.1.303",
           "Rampastring.Tools": "2.0.7",
@@ -541,8 +541,8 @@
         },
         "runtime": {
           "lib/net8.0-windows7.0/Rampastring.XNAUI.WindowsGL.dll": {
-            "assemblyVersion": "3.1.0.0",
-            "fileVersion": "3.1.0.0"
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.1.6.0"
           }
         }
       },
@@ -695,7 +695,7 @@
       "ClientGUI/1.0.0": {
         "dependencies": {
           "ClientCore": "1.0.0",
-          "Rampastring.XNAUI.WindowsGL": "3.1.0"
+          "Rampastring.XNAUI.WindowsGL": "3.1.6"
         },
         "runtime": {
           "ClientGUI.dll": {}
@@ -714,7 +714,7 @@
     }
   },
   "libraries": {
-    "clientogl/2.12.12": {
+    "clientogl/2.12.13": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1006,12 +1006,12 @@
       "path": "rampastring.tools/2.0.7",
       "hashPath": "rampastring.tools.2.0.7.nupkg.sha512"
     },
-    "Rampastring.XNAUI.WindowsGL/3.1.0": {
+    "Rampastring.XNAUI.WindowsGL/3.1.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-pRYbkhVhpUJRW6gsLRNbDWiBk7g43FIXRRQLk0BuLw2pfqyhY8oUoeFEmCq1mH5CqAsMROk3LC/nM1TH4MX/Ig==",
-      "path": "rampastring.xnaui.windowsgl/3.1.0",
-      "hashPath": "rampastring.xnaui.windowsgl.3.1.0.nupkg.sha512"
+      "sha512": "sha512-AYQlR5zhQujYazmGHJhfB3RwN72gNZk9SeSIGXDBtk4wt3x+VK325POmT4h1pxj+2eZpnrNfpaNoitEFbejOPA==",
+      "path": "rampastring.xnaui.windowsgl/3.1.6",
+      "hashPath": "rampastring.xnaui.windowsgl.3.1.6.nupkg.sha512"
     },
     "SixLabors.ImageSharp/2.1.11": {
       "type": "package",
