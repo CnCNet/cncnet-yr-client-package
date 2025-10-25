@@ -18,7 +18,7 @@ Resources\Soviet Theme\LoadingScreen.ini
 Resources\Soviet Theme\MultiplayerGameLobby.ini
 Resources\Soviet Theme\OptionsWindow.ini
 Resources\Soviet Theme\SkirmishLobby.ini
-; Removing icon files before update to be replaced with good one for Linux users
+; Removing icon files before update to redownload with correct capitalization (important for case-sensitive filesystems, like on Linux)
 Resources\americaicon.png
 Resources\cubaicon.png
 Resources\franceicon.png
