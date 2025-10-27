@@ -3244,19 +3244,19 @@ Anim=INVISO
 01000048=1,107,1,01000046,0,0,0,0,U
 01000050=1,53,2,01000020,0,0,0,0,A
 01000052=1,54,2,01000390,0,0,0,0,A
-01000054=4,11,4,Map.Made.By.Dctanxman,0,0,0,0,A,11,4,You.Can.Download,0,0,0,0,A,11,4,All.My.Original.Maps,0,0,0,0,A,11,4,On...CnCnet.org/forums,0,0,0,0,A
+01000054=4,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A,11,4,NOSTR:You Can Download,0,0,0,0,A,11,4,NOSTR:All My Original Maps,0,0,0,0,A,11,4,NOSTR:On...CnCnet.org/forums,0,0,0,0,A
 01000056=1,53,2,01000029,0,0,0,0,A
 01000058=1,14,0,4475,0,0,0,0,A
 01000060=1,14,0,4476,0,0,0,0,A
 01000062=1,14,0,4477,0,0,0,0,A
 01000064=1,14,0,4478,0,0,0,0,A
-01000066=1,11,4,Welcome.To.Stomp.The.Comp,0,0,0,0,A
+01000066=1,11,4,NOSTR:Welcome To Stomp The Comp,0,0,0,0,A
 01000068=1,11,4,MISSION:ALL02c,0,0,0,0,A
 01000073=6,80,1,01000072,0,0,0,0,BS,80,1,01000072,0,0,0,0,BT,80,1,01000072,0,0,0,0,BU,80,1,01000072,0,0,0,0,BV,80,1,01000072,0,0,0,0,BW,80,1,01000072,0,0,0,0,BX
 01000075=1,118,0,0,0,0,0,0,A
 01000081=1,107,1,01000096,0,0,0,0,P
 01000082=1,80,1,01000077,0,0,0,0,M
-01000085=3,11,4,MISSION:ALL02c,0,0,0,0,A,53,2,01000131,0,0,0,0,A,11,4,NOW.GO.KILL.THE.ENEMY,0,0,0,0,A
+01000085=3,11,4,MISSION:ALL02c,0,0,0,0,A,53,2,01000131,0,0,0,0,A,11,4,NOSTR:NOW GO KILL THE ENEMY,0,0,0,0,A
 01000089=1,21,6,EVA_ArmorBattallianDetected,0,0,0,0,A
 01000091=1,53,2,01000035,0,0,0,0,A
 01000104=1,107,1,01000100,0,0,0,0,AO
@@ -3308,10 +3308,10 @@ Anim=INVISO
 01000202=2,56,0,3,0,0,0,0,A,53,2,01000208,0,0,0,0,A
 01000204=7,53,2,01000190,0,0,0,0,A,53,2,01000198,0,0,0,0,A,53,2,01000200,0,0,0,0,A,53,2,01000202,0,0,0,0,A,53,2,01000303,0,0,0,0,A,53,2,01000307,0,0,0,0,A,53,2,01000315,0,0,0,0,A
 01000206=1,119,0,12,0,0,0,0,A
-01000208=3,57,0,3,0,0,0,0,A,11,4,Player.Four.Dead,0,0,0,0,A,53,2,01000403,0,0,0,0,A
-01000210=3,57,0,0,0,0,0,0,A,11,4,Player.One.Dead,0,0,0,0,A,53,2,01000397,0,0,0,0,A
-01000212=3,57,0,1,0,0,0,0,A,11,4,Player.Two.Dead,0,0,0,0,A,53,2,01000399,0,0,0,0,A
-01000214=3,11,4,Player.Three.Dead,0,0,0,0,A,57,0,2,0,0,0,0,A,53,2,01000401,0,0,0,0,A
+01000208=3,57,0,3,0,0,0,0,A,11,4,NOSTR:Player Four Dead,0,0,0,0,A,53,2,01000403,0,0,0,0,A
+01000210=3,57,0,0,0,0,0,0,A,11,4,NOSTR:Player One Dead,0,0,0,0,A,53,2,01000397,0,0,0,0,A
+01000212=3,57,0,1,0,0,0,0,A,11,4,NOSTR:Player Two Dead,0,0,0,0,A,53,2,01000399,0,0,0,0,A
+01000214=3,11,4,NOSTR:Player Three Dead,0,0,0,0,A,57,0,2,0,0,0,0,A,53,2,01000401,0,0,0,0,A
 01000216=1,6,0,4480,0,0,0,0,A
 01000218=1,6,0,4480,0,0,0,0,A
 01000221=1,107,1,01000088,0,0,0,0,V
@@ -3364,7 +3364,7 @@ Anim=INVISO
 01000341=1,107,1,01000095,0,0,0,0,T
 01000343=1,107,1,01000046,0,0,0,0,U
 01000345=2,53,2,01000242,0,0,0,0,A,53,2,01000254,0,0,0,0,A
-01000347=3,6,0,4480,0,0,0,0,A,11,4,All_HUNT!!!,0,0,0,0,A,53,2,01000216,0,0,0,0,A
+01000347=3,6,0,4480,0,0,0,0,A,11,4,NOSTR:All HUNT!!!,0,0,0,0,A,53,2,01000216,0,0,0,0,A
 01000349=1,6,0,4479,0,0,0,0,A
 01000351=1,6,0,4481,0,0,0,0,A
 01000353=9,107,1,01000043,0,0,0,0,E,107,1,01000043,0,0,0,0,F,107,1,01000043,0,0,0,0,G,107,1,01000043,0,0,0,0,AO,107,1,01000043,0,0,0,0,AP,107,1,01000043,0,0,0,0,R,107,1,01000043,0,0,0,0,U,107,1,01000043,0,0,0,0,V,53,2,01000218,0,0,0,0,A
@@ -3454,10 +3454,10 @@ MaxDebris=1
 TargetDistanceCoefficient=-1
 
 [BFRT]
-Name=LoadTanks IntoMe
+Name=Battlefortress
 Size=16
 Speed=6
-UIName=LoadTanks IntoMe
+UIName=NOSTR:Load Tanks Into Me
 Weight=3.5
 Explosion=INVISO
 MaxDebris=1
@@ -3465,6 +3465,7 @@ SizeLimit=6
 TechLevel=-1
 Passengers=25
 TargetDistanceCoefficient=-1
+Experience.PromotePassengers=yes
 
 [BORIS]
 Speed=7
@@ -3481,7 +3482,7 @@ TargetDistanceCoefficient=-1
 Name=[4] Stomp The Comp - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spots 5 & 6 & 7 - AI Only@----------------------------------@@*Super Battle Bunkers - All Sides*@-GuardianGI@-FlakTrooper@-TeslaTrooper@-Load Into Bunkers@@*Super Battlefortress - All Sides*@-Tanks Load Into Battlefortress@@-Map Can Be Played Single/Multi Player@@------------------------@--Difficulty = Hard--@------------------------@@By Dctanxman®
+Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spots 5 & 6 & 7 - AI Only@----------------------------------@@*Super Battle Bunkers - All Sides*@-GuardianGI@-FlakTrooper@-TeslaTrooper@@*Super Battlefortress - All Sides*@-Tanks Load Into Battlefortress@@-Map Can Be Played Single/Multi Player@@------------------------@--Difficulty = Hard--@------------------------@@By Dctanxman® ~Official Final Version©
 GameMode=standard
 HomeCell=98
 InitTime=10000
@@ -3760,7 +3761,7 @@ Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,
 Sight=6
 Speed=6
 Points=50
-UIName=Super BattleFortress
+UIName=NOSTR:Super BattleFortress
 Weight=100
 Crusher=yes
 Primary=Comet
@@ -3802,6 +3803,7 @@ IsSelectableCombatant=yes
 TooBigToFitUnderBridge=true
 TargetDistanceCoefficient=-1
 AllowedToStartInMultiplayer=no
+Experience.PromotePassengers=yes
 
 [DCTANXMANSCHP]
 ROT=5
@@ -3816,7 +3818,7 @@ Speed=12
 Crewed=no
 Points=15
 Turret=yes
-UIName=Name:SiegeChopper
+UIName=NOSTR:Siege Chopper
 JumpJet=yes
 Primary=BlackHawkCannon
 Soylent=1100
@@ -4045,7 +4047,7 @@ IsElectricBolt=true
 01000231=3,13,0,1900,36,0,6,36,0,2
 01000240=3,13,0,3300,36,0,0,36,0,6
 01000242=2,13,0,350,36,0,4
-01000250=4,13,0,315,36,0,1,37,0,3,37,0,6
+01000250=4,13,0,315,36,0,1,37,0,3,36,0,6
 01000252=2,13,0,3475,36,0,6
 01000254=2,13,0,350,36,0,5
 01000256=2,13,0,3510,36,0,4
@@ -7355,7 +7357,7 @@ MinimumRange=1
 [NABNKR]
 Name=Super Battle Bunker
 Power=30
-UIName=Super Battle Bunker
+UIName=NOSTR:Super Battle Bunker
 Strength=3000
 Explosion=INVISO
 MaxDebris=2
@@ -7695,7 +7697,6 @@ Explosion=INVISO
 TechLevel=-1
 
 [SHK]
-Size=2
 Speed=6
 Occupier=yes
 OccupyWeapon=ElectricBoltBunker
@@ -8046,7 +8047,6 @@ MaxDebris=1
 TargetDistanceCoefficient=-1
 
 [TTNK]
-Size=7
 Speed=8
 Explosion=INVISO
 MaxDebris=1

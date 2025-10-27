@@ -1482,6 +1482,8 @@ AreTeamMembersRecruitable=no
 Explosion=INVISO
 MaxDebris=2
 MinDebris=1
+SuperWeapon=AmericanParaDropSpecial
+SuperWeapon2=ParaDropSpecial
 
 [Actions]
 01000020=1,14,0,4475,0,0,0,0,A
@@ -1495,8 +1497,8 @@ MinDebris=1
 01000036=2,21,6,EVA_EnemyAirArmadaDetected,0,0,0,0,A,107,1,01000016,0,0,0,0,Y
 01000038=5,80,1,01000018,0,0,0,0,AE,80,1,01000018,0,0,0,0,AF,80,1,01000018,0,0,0,0,AG,80,1,01000018,0,0,0,0,AH,107,1,01000018,0,0,0,0,CV
 01000040=8,80,1,01000019,0,0,0,0,AO,80,1,01000019,0,0,0,0,AP,80,1,01000019,0,0,0,0,AQ,80,1,01000019,0,0,0,0,AR,80,1,01000019,0,0,0,0,AS,80,1,01000019,0,0,0,0,AT,80,1,01000019,0,0,0,0,AU,80,1,01000019,0,0,0,0,BI
-01000042=1,11,4,Welcome.To.Crossroad.Island,0,0,0,0,A
-01000044=4,11,4,Map.Made.By.Dctanxman,0,0,0,0,A,11,4,You.Can.Download,0,0,0,0,A,11,4,All.My.Original.Maps,0,0,0,0,A,11,4,On...CnCnet.org/forums,0,0,0,0,A
+01000042=2,11,4,NOSTR:Welcome To....,0,0,0,0,A,11,4,NOSTR:Crossroad Island,0,0,0,0,A
+01000044=4,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A,11,4,NOSTR:You Can Download,0,0,0,0,A,11,4,NOSTR:All My Original Maps,0,0,0,0,A,11,4,NOSTR:On...CnCnet.org/forums,0,0,0,0,A
 01000046=2,11,4,MISSION:All03a,0,0,0,0,A,55,0,5,0,0,0,0,CV
 01000048=1,11,4,MISSION:ALL02c,0,0,0,0,A
 01000050=3,46,0,0,0,0,0,0,A,112,0,0,0,0,0,0,CU,53,2,01000173,0,0,0,0,A
@@ -1534,13 +1536,13 @@ MinDebris=1
 01000137=1,107,1,01000015,0,0,0,0,X
 01000139=1,107,1,01000017,0,0,0,0,Z
 01000141=1,107,1,01000017,0,0,0,0,Z
-01000143=2,56,0,0,0,0,0,0,A,53,2,01000145,0,0,0,0,A
+01000143=1,56,0,0,0,0,0,0,A
 01000145=1,57,0,0,0,0,0,0,A
-01000147=2,56,0,1,0,0,0,0,A,53,2,01000149,0,0,0,0,A
+01000147=1,56,0,1,0,0,0,0,A
 01000149=1,57,0,1,0,0,0,0,A
-01000151=2,56,0,2,0,0,0,0,A,53,2,01000153,0,0,0,0,A
+01000151=1,56,0,2,0,0,0,0,A
 01000153=1,57,0,2,0,0,0,0,A
-01000155=2,56,0,3,0,0,0,0,A,53,2,01000157,0,0,0,0,A
+01000155=1,56,0,3,0,0,0,0,A
 01000157=1,57,0,3,0,0,0,0,A
 01000159=7,54,2,01000109,0,0,0,0,A,54,2,01000119,0,0,0,0,A,54,2,01000034,0,0,0,0,A,54,2,01000121,0,0,0,0,A,54,2,01000123,0,0,0,0,A,54,2,01000107,0,0,0,0,A,54,2,01000125,0,0,0,0,A
 01000161=7,54,2,01000092,0,0,0,0,A,54,2,01000127,0,0,0,0,A,54,2,01000111,0,0,0,0,A,54,2,01000129,0,0,0,0,A,54,2,01000131,0,0,0,0,A,54,2,01000113,0,0,0,0,A,54,2,01000133,0,0,0,0,A
@@ -1548,7 +1550,7 @@ MinDebris=1
 01000165=1,107,1,01000073,0,0,0,0,AZ
 01000167=1,107,1,01000074,0,0,0,0,BA
 01000169=1,107,1,01000075,0,0,0,0,BB
-01000171=7,48,0,2,0,0,0,0,BB,11,4,Spy's,0,0,0,0,A,112,0,0,0,0,0,0,AY,53,2,01000076,0,0,0,0,AY,53,2,01000165,0,0,0,0,AY,53,2,01000167,0,0,0,0,AY,53,2,01000169,0,0,0,0,AY
+01000171=7,48,0,2,0,0,0,0,BB,11,4,NOSTR:Spy's,0,0,0,0,A,112,0,0,0,0,0,0,AY,53,2,01000076,0,0,0,0,AY,53,2,01000165,0,0,0,0,AY,53,2,01000167,0,0,0,0,AY,53,2,01000169,0,0,0,0,AY
 01000173=1,41,0,475,0,0,0,0,BJ
 
 [Africans]
@@ -1624,7 +1626,7 @@ Prerequisite=GAPILE
 Name=[4] CrossRoad Island - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-Destroy The Psychic Beacon@-Destroy All Hostile Forces@@-Map Can Be Played Single Player or Mutli Players@@------------------------@--Difficulty = Easy--@------------------------@@By Dctanxman®
+Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-Destroy The Psychic Beacon@-Destroy All Hostile Forces@@-Map Can Be Played Single Player or Mutli Players@@------------------------@--Difficulty = Easy--@------------------------@@By Dctanxman® ~Official Final Version©
 GameMode=standard
 HomeCell=98
 InitTime=10000
@@ -1790,7 +1792,7 @@ MaxDebris=1
 01000123=3,13,0,825,36,0,2,37,0,3
 01000125=3,13,0,825,37,0,2,36,0,3
 01000127=3,13,0,500,36,0,0,37,0,1
-01000129=3,13,0,500,36,0,1,36,0,1
+01000129=3,13,0,500,37,0,0,36,0,1
 01000131=3,13,0,500,36,0,2,37,0,3
 01000133=3,13,0,500,37,0,2,36,0,3
 01000135=3,13,0,501,36,0,0,37,0,1
@@ -1822,23 +1824,29 @@ Cost=700
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=1
+chkNoYuri=false
 chkRA2Mode=false
 cmbCredits=0
-chkBrutalAI=false
 chkMultiEng=false
+chkNoFrance=false
 chkRedeplMCV=false
 chkShortGame=true
+chkAutoRepair=false
+cmbAIModifier=1
 chkBalancePatch=false
 chkBuildOffAlly=false
 chkDestrBridges=false
 chkNoDogEngiEat=false
-cmbSuperWeaponsModifier=3
+chkNoStolenTech=false
 chkIngameAllying=false
 cmbStartingUnits=10
-chkNoYuri=false
-chkNoFrance=false
+cmbCratesModifier=1
 chkNoSpawnPreviews=false
+cmbSuperWeaponsModifier=2
+chkCrates=true
+chkSuperWeapons=true
+chkNoYuriNoFrance=false
+chkBrutalAI=true
 
 [French]
 IQ=0
@@ -1905,8 +1913,8 @@ AllyParaDropInf=GGI,SNIPE,BORIS
 AllyParaDropNum=3,1,1
 AmerParaDropInf=GGI,SNIPE,BORIS
 AmerParaDropNum=3,1,1
-YuriParadropInf=GGI,SNIPE,BORIS
-YuriParadropNum=3,1,1
+YuriParaDropInf=GGI,SNIPE,BORIS
+YuriParaDropNum=3,1,1
 ChronoReinfDelay=0
 AISlaveMinerNumber=0,0,0
 MaximumQueuedObjects=100
@@ -3755,6 +3763,10 @@ TechLevel=-1
 21=IIH//v8f/4AHAAAggf/+/x//gAcAACCB//7/H/+ABwAAIIH//v8f/4AHAAAggf/+/x//gA
 22=cAACCB//7/H/+ABwAAIIH//v8f/4AHAAAggf/+/x//gAcAACCB//7/H/+ABwAAIIH//v8f
 23=/4AHAAAggf/+/x//gAcAACCB//7/H/+ABwAAIIH//v8f/4AHAAAggf/+/x//gA==
+
+[ParaDropSpecial]
+ShowTimer=No
+RechargeTime=8
 
 [Powerups]
 Unit=30,<none>,no
