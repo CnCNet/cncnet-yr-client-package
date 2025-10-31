@@ -281,7 +281,7 @@ begin
   Dependency_AddVC2015To2022;
   Dependency_ForceX86 := False; // disable forced 32-bit install again
 
-  // VC++ Redistributables (x64)
+  // VC++ Redistributables (x64 if IsWin64)
   Dependency_AddVC2005;
   Dependency_AddVC2008;
   Dependency_AddVC2010;
