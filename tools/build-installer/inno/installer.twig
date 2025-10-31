@@ -74,7 +74,6 @@ Name: "{app}\Uninstall CnCNet"; Filename: "{uninstallexe}"
 
 [Run]
 Filename: "{tmp}\wic_x86_enu.exe"; Parameters: "/q /norestart"; Flags: runascurrentuser; Check: FileExists(ExpandConstant('{tmp}\wic_x86_enu.exe')) and ChangeStatusLabel('Windows Imaging Component')
-Filename: "msiexec.exe"; Parameters: "-i ""{tmp}\xnafx40_redist.msi"" /quiet /norestart"; Flags: runascurrentuser; Check: FileExists(ExpandConstant('{tmp}\xnafx40_redist.msi')) and ChangeStatusLabel('XNA Framework 4.0')
 Filename: "{app}\CnCNetYRLauncher.exe"; WorkingDir: "{app}"; Description: "{cm:LaunchProgram,Yuris Revenge}"; Flags: nowait postinstall runascurrentuser skipifsilent
  
 [INI]
