@@ -34,6 +34,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
+          submodules: true
           fetch-depth: 0 # required for gitversion
 
       - name: Install Tools NPM Libs
