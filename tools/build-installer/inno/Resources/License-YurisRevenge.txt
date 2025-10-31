@@ -1,6 +1,6 @@
 This is an unofficial fan made installer, CnCNet is not affiliated with Electronic Arts in any way and trademarks belong to their respective owners.
 
-Command & Conquer� and Command & Conquer: Yuri's Revenge� are registered trademarks of Electronic Arts, all rights reserved.
+Command & Conquer™ and Command & Conquer: Yuri's Revenge™ are registered trademarks of Electronic Arts, all rights reserved.
 http://www.commandandconquer.com
 
 To be able to continue you must agree to the following:

@@ -25,9 +25,7 @@ export default class MIXFile {
 
         const filesArray = ExFS.GetFileArray(this.folderPath);
 
-        this.body = new ExBuffer(
-            ExFS.GetFolderSize(this.folderPath) + filesArray.length
-        );
+        this.body = new ExBuffer(ExFS.GetFolderSize(this.folderPath) + filesArray.length);
 
         for (let i = 0; i < filesArray.length; i++) {
             this.addFile(filesArray[i]);
@@ -40,11 +38,7 @@ export default class MIXFile {
         const id = MIXFile.getID(fileName);
 
         if (this.includedFilesID.has(id)) {
-            console.log(
-                `fileID =${id.toString(
-                    16
-                )}, filePath =${filePath} Has in ${path}`
-            );
+            console.log(`fileID =${id.toString(16)}, filePath =${filePath} Has in ${path}`);
             throw new Error();
         }
 
@@ -60,11 +54,9 @@ export default class MIXFile {
     addLocalMixDatabase() {
         const fileName = "local mix database.dat";
 
-        const fileList = Array.from(this.includedFilesID.values()).map(
-            (el) => el.fileName
-        );
-        fileList.push(fileName)
-        fileList.sort()
+        const fileList = Array.from(this.includedFilesID.values()).map((el) => el.fileName);
+        fileList.push(fileName);
+        fileList.sort();
 
         const body = fileList.join("\x00");
         const size = 0x34 + body.length + 1;
