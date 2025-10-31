@@ -291,8 +291,14 @@ var
   Version: TWindowsVersion;
 
 begin
-  // This will trigger net7 x64 to auto download and install - uncomment following line when net7 client is released
-  // Dependency_AddDotNet70Desktop
+  // Add dependencies here
+  Dependency_AddDotNet48;
+
+  //Dependency_ForceX86 := True; // force 32-bit install of next dependencies
+  Dependency_AddVC2015To2022;
+  //Dependency_ForceX86 := False; // disable forced 32-bit install again
+  Dependency_AddVC2015To2022;
+
   GetWindowsVersionEx(Version);
   Result := true;
 
