@@ -22,7 +22,7 @@ jobs:
   # This job is responsible for building the package that will be deployed to the server.
   # It is run in a windows container so that Version.exe and other Windows based tools are able to be executed.
   build-package:
-    runs-on: windows-latest
+    runs-on: windows-2022
     environment: cncnet
     outputs:
       # This the fully qualified version string that is used for deploy purposes.
@@ -124,7 +124,7 @@ jobs:
   deploy-package:
     # if previous job was successful
     if: ${{ success() }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     environment: cncnet
     needs: build-package
 
