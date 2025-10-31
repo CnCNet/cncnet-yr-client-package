@@ -62,7 +62,7 @@ Type: filesandordirs; Name: "{app}\{{ item }}"
 {%  endfor %}
 
 [Files]
-Source: *; DestDir: "{app}"; Excludes: "{{ excludedInstallerFiles }}"; Flags: recursesubdirs ignoreversion overwritereadonly
+Source: *; DestDir: "{app}"; Excludes: "{{ excludedInstallerFiles }}"; Flags: recursesubdirs ignoreversion overwritereadonly sortfilesbyextension
 ; explicitly list "version" file so that an error is thrown if it does not exist
 Source: version; DestDir: "{app}";
 ; explicitly list "gamemd-spawn.exe" file so that an error is thrown if it does not exist
