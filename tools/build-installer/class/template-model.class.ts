@@ -8,6 +8,5 @@ export class TemplateModel {
     licenseFile: string;
     outputBaseFilename: string;
     installDeleteFiles: string[];
-    excludedInstallerFiles: string;
-    netCoreCheckPath: string;
+    excludedInstallerFiles: string
 }

@@ -62,7 +62,6 @@ Type: filesandordirs; Name: "{app}\{{ item }}"
 {%  endfor %}
 
 [Files]
-Source: {{ netCoreCheckPath }}\*; Flags: dontcopy noencryption
 Source: *; DestDir: "{app}"; Excludes: "{{ excludedInstallerFiles }}"; Flags: recursesubdirs ignoreversion
 ; explicitly list "version" file so that an error is thrown if it does not exist
 Source: version; DestDir: "{app}";
