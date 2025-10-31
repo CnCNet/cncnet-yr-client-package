@@ -285,13 +285,38 @@ begin
     end;
 end;
 
+function InitializeDependencies();
+begin
+  // Add dependencies here
+
+  // .NET Framework 4.8
+  Dependency_AddDotNet48;
+
+  // VC++ Redistributables (x86)
+  Dependency_ForceX86 := True; // force 32-bit install of next dependencies
+  Dependency_AddVC2005;
+  Dependency_AddVC2008;
+  Dependency_AddVC2010;
+  Dependency_AddVC2012;
+  Dependency_AddVC2013;  
+  Dependency_AddVC2015To2022;
+  Dependency_ForceX86 := False; // disable forced 32-bit install again
+
+  // VC++ Redistributables (x64)
+  Dependency_AddVC2005;
+  Dependency_AddVC2008;
+  Dependency_AddVC2010;
+  Dependency_AddVC2012;
+  Dependency_AddVC2013;  
+  Dependency_AddVC2015To2022;
+end;
+
 function InitializeSetup(): Boolean;
 var
   Version: TWindowsVersion;
 
 begin
-  // Add dependencies here
-  Dependency_AddDotNet48;
+  InitializeDependencies;
 
   GetWindowsVersionEx(Version);
   Result := true;
