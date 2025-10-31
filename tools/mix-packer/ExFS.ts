@@ -1,6 +1,9 @@
 import * as fs from "fs-extra";
 import * as path from "path";
 import * as glob from "glob";
+const fastFolderSizeSync = require("fast-folder-size/sync") as (
+    target: string
+) => number;
 
 function toPosixPath(pathStr: string) {
     return pathStr.replace(/\\/g, "/");
@@ -49,24 +52,7 @@ export default class ExFS {
     }
 
     static GetFolderSize(folderPath: string) {
-        if (!fs.existsSync(folderPath)) return 0;
-
-        try {
-            const globPattern = toPosixPath(path.join(folderPath, "**", "*"));
-            const files = glob.sync(globPattern, { nodir: true, absolute: true });
-            let total = 0;
-            for (const f of files) {
-                try {
-                    const st = fs.statSync(f);
-                    total += st.size || 0;
-                } catch {
-                    // ignore files that disappear / are inaccessible
-                }
-            }
-            return total;
-        } catch {
-            return 0;
-        }
+        return fastFolderSizeSync(folderPath) || 0;
     }
 
     static GetFile(filePath: string) {
