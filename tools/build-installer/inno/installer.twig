@@ -103,6 +103,8 @@ Type: filesandordirs; Name: "{app}\Resources"
 Type: filesandordirs; Name: "{app}\Client"
 
 [Registry]
+Root: HKLM; Subkey: SYSTEM\CurrentControlSet\Control\FileSystem; ValueType: dword; ValueName: LongPathsEnabled; ValueData: 1; Flags: noerror
+
 Root: HKLM; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueType: String; ValueName: {app}\gamemd-spawn.exe; ValueData: "HIGHDPIAWARE"
 Root: HKCU; Subkey: Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers; ValueType: String; ValueName: {app}\gamemd-spawn.exe; ValueData: "HIGHDPIAWARE"
 
