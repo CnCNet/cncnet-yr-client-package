@@ -57,8 +57,7 @@ export class BuildInstallerService {
             licenseFile: constants.paths.licenseFilePath,
             outputBaseFilename: constants.outputBaseFilename,
             installDeleteFiles: await this.getInstallDeleteFiles(),
-            excludedInstallerFiles: constants.excludedInstallerFiles.join(','),
-            netCoreCheckPath: constants.paths.netCoreCheckPath
+            excludedInstallerFiles: constants.excludedInstallerFiles.join(',')
         };
     }
 
