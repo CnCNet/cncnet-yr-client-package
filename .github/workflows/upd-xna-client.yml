@@ -1,0 +1,191 @@
+# To be able use this workflow you must ensure that your repository have enable write and right access for GitHub Actions.
+#
+# GUI Reference to enable access:
+# Repository --> Actions --> General --> Workflow permissions --> Read and write permissions
+#                                                            \--> Allow Github Actions to create and approve pull requests
+
+name: Update XNA CnCNet Client
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: "0 0 * * *" # Starts everyday at 00:00 UTC+0
+
+env:
+  CLIENT_PATH: package # Do not add trailing slash
+  UPDATE_BRANCH_NAME: update-client-binaries # The workflow adds the release tag after this value, i.e. "update-client-binaries-2.12.13"
+  TARGET_BRANCH: develop # Into this branch workflow should create pull request for merge
+  COMMIT_MESSAGE: Update client binaries to the latest version
+  PR_TITLE: Update client binaries to the version # The workflow adds the release tag after this value, i.e. "Update client binaries to the version 2.12.13"
+  PR_BODY: This is an automatic pull request to update client binaries to the latest release published in [CnCNet/xna-cncnet-client](https://github.com/CnCNet/xna-cncnet-client) repository.
+
+jobs:
+  publish-update-pr:
+    runs-on: windows-2022
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+      with:
+        lfs: true
+    
+    - name: Download Latest Release
+      id: download
+      uses: robinraju/release-downloader@v1
+      with:
+        repository: CnCNet/xna-cncnet-client
+        latest: true
+        fileName: xna-cncnet-client*
+
+    - name: Create Update Branch
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        $repoDir = (Get-Location).Path
+        $clientDir = $repoDir + "\${{ env.CLIENT_PATH }}"
+        $currentVersion = (Get-Item -Path "$clientDir\Resources\clientdx.exe").VersionInfo.FileVersion -Replace "\.0$", ""
+        $downloadVersion = '${{ steps.download.outputs.tag_name }}'
+        
+        echo "Current client version: '$currentVersion'"
+        echo "Downloaded client version: '$downloadVersion'"
+
+        if ($currentVersion -eq $downloadVersion)
+        {
+          echo "Update is not required"
+        }
+        else
+        {
+          echo "Update required"
+
+          # Check if branch exist
+          $branch_exist = 'false'
+          gh pr list | Where-Object {$_.Contains('${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}')} | ForEach-Object { $branch_exist = 'true' }
+          if ($branch_exist -eq 'true')
+          {
+            echo "Branch ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }} already exist. Skip updating."
+          }
+          else
+          {
+            # Configure git
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+
+            # Make update branch
+            git checkout -b ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}
+            
+            # Delete old binaries, unpack archive, remove archive
+            rm -r -fo "$clientDir\Resources\Binaries"
+            rm -r -fo "$clientDir\Resources\BinariesNET8"
+            7z x xna-cncnet-client-*.7z -y -oTEMPORARY
+            cp -r -fo "TEMPORARY\Resources\*" "$clientDir\Resources\"
+            rm -r -fo TEMPORARY
+            rm xna-cncnet-client-*.7z
+
+            # Commit changes
+            git commit -am "${{ env.COMMIT_MESSAGE }}"
+
+            # Path to the updateexec file
+            $updateExecPath = "$clientDir\updateexec"
+
+            # Check if the updateexec file exists
+            if (-Not (Test-Path -Path $updateExecPath))
+            {
+              echo "The file 'updateexec' does not exist. Skip updating [Delete] section."
+            }
+            else
+            {
+              # Get the deleted and moved files from git diff
+              $deletedFiles = git diff --diff-filter=D --name-status HEAD~1 HEAD | Where-Object { $_.StartsWith('D') } | ForEach-Object { $_.Substring(1).Trim().Replace('/', '\') }
+              $deletedFiles += [Environment]::NewLine
+              $deletedFiles += git diff --diff-filter=R --name-status --diff-filter=R HEAD~1 HEAD | Where-Object { $_.StartsWith('R100') } | ForEach-Object { $_.Substring(4).Trim().Split(' ')[0].Replace('/', '\') }
+
+              # If exclude is empty, ignore
+              if ($exclude.Length -ne 0)
+              {
+                # Clearing delete files from exclude path
+                $tmp = ""
+                foreach($delete_file in $deletedFiles)
+                {
+                  if ($delete_file.StartsWith($exclude + '\'))
+                  {
+                    $tmp += ($delete_file.Remove(0, ($exclude.Length + 1)))
+                    $tmp += [Environment]::NewLine
+                  }
+                  else
+                  {
+                    $tmp += $delete_file
+                    $tmp += [Environment]::NewLine
+                  }
+                }
+                $deletedFiles = $tmp
+              }
+
+              # Check if there are any deleted files
+              if ($deletedFiles.Count -eq 0)
+              {
+                  echo "No deleted files found in the git diff. Skip updating [Delete] section."
+              }
+              else
+              {
+                # Read the content of the updateexec file
+                $updateexecContent_old = Get-Content -Path $updateExecPath
+                $updateexecContent_new = ""
+
+                # Find the [Delete] section and its position
+                $deleteSectionIndex = $updateexecContent_old.IndexOf("[Delete]")
+
+                # If not exist, create
+                if ($deleteSectionIndex -eq -1)
+                {
+                  $updateexecContent_old += [Environment]::NewLine 
+                  $updateexecContent_old += "[Delete]"
+                  $deleteSectionIndex = $updateexecContent_old.IndexOf("[Delete]")
+                }
+
+                # Exclude path from string for config
+                $exclude = "${{ env.CLIENT_PATH }}"
+
+                # Iterate all content of old updateexec
+                foreach($old_line in $updateexecContent_old)
+                {
+                  $index = $updateexecContent_old.IndexOf($old_line)
+                  $updateexecContent_new += $old_line + [Environment]::NewLine
+
+                  # If we find section [Delete], add new deleted files
+                  if ($deleteSectionIndex -eq $index)
+                  {
+                    $updateexecContent_new += "; ${{ steps.download.outputs.tag_name }} (auto-generated entries for removed/renamed files)" + [Environment]::NewLine
+                    
+                    foreach($new_delete in $deletedFiles)
+                    {
+                      $updateexecContent_new += $new_delete + [Environment]::NewLine
+                    }
+
+                    $updateexecContent_new += "; end entries" + [Environment]::NewLine + [Environment]::NewLine
+                  }
+                }
+
+                # Save the modified content back to the file
+                $updateexecContent_new | Set-Content -Path $updateExecPath
+              }
+            }
+
+            # Commit changes if there exist updateexec and client binaries have new deleted files
+            git commit --amend -am "${{ env.COMMIT_MESSAGE }}"
+
+            # Push changes
+            git push --force origin ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}
+
+            # This timeout is for the remote server to index received content 
+            # https://stackoverflow.com/questions/74842935/powershell-batch-script-timeout-error-input-redirection-is-not-supported-exiti
+            Start-Job {
+              # Simulate calling a batch file (cmd /c)
+              # inside of which the `start` call is made,
+              # waiting for 5 seconds in this example.
+              cmd /c start /min timeout.exe 10
+            } | Receive-Job -Wait -AutoRemoveJob
+
+            # Open a PR
+            gh pr create -B ${{ env.TARGET_BRANCH }} -H ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }} --title '${{ env.PR_TITLE }} ${{ steps.download.outputs.tag_name }}' --body '${{ env.PR_BODY }}'
+          }
+        }
