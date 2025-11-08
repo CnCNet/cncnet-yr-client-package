@@ -20,6 +20,7 @@ RadialIndicatorVisibility=ally
 [CrateRules]
 CrateRegen=5
 UnitCrateVehicleCap=-1
+CrateOnlyOnLand=1
 
 [Powerups]
 Unit=60,<none>,0

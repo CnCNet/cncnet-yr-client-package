@@ -5,6 +5,9 @@ GameMode=standard
 MaxPlayer=8
 NewINIFormat=4
 
+[CrateRules]
+CrateOnlyOnLand=1
+
 [CAMSC03]
 Sight=10
 DieSound=CampfireLoop

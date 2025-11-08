@@ -19,6 +19,7 @@ RadialIndicatorVisibility=ally
 
 [CrateRules]
 UnitCrateVehicleCap=-1
+CrateOnlyOnLand=1
 
 [Warheads]
 110=PATMS
