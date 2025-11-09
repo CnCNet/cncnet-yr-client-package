@@ -4322,7 +4322,7 @@ IonGreen=.7
 173=Neutral,TEMMORLAMP,256,135,90,0,01984038,0,0,1,0,0,None,None,None,0,0
 174=Neutral,TEMMORLAMP,256,91,135,0,01984038,0,0,1,0,0,None,None,None,0,0
 175=Neutral,TEMMORLAMP,256,85,96,0,01984038,0,0,1,0,0,None,None,None,0,0
-1984=Neutral,INGALITE,256,92,92,64,01984000,0,0,0,0,0,None,None,None,0,0
+1984=Neutral,INGALITE,256,92,92,0,01984000,0,0,0,0,0,None,None,None,0,0
 
 [Tags]
 01000000=0,Change House to Player0,01000100
@@ -5244,4 +5244,5 @@ Group=-1
 
 [01000500]
 Name=Load in Transport
+
 0=14,0
