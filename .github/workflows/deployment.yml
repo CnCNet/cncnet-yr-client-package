@@ -163,6 +163,19 @@ jobs:
             rm ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/package.tar.gz
             chmod 777 --recursive ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/*
 
+      # Upload the installer executable to the server
+      - name: Upload installer
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          passphrase: ${{ secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          overwrite: true
+          source: "CnCNet5_YR_Installer.exe"
+          target: "/home/cncnet/downloads.cncnet.org/public/CnCNet5_YR_Installer.exe"
+
       # Create/update a mirror link for client update purposes, using the GitVersion pre release label as the link name.
       # See the file "GitVersion.yml" for more details on the name that will be used for a given branch.
       # Ex: if the branch name is "develop", it will create a link of "dev" to point to the directory "updates/X.Y.Z-dev".
