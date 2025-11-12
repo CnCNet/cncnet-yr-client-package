@@ -183,7 +183,7 @@ jobs:
       # This will keep develop and feature branch update mirror links up to date as soon as the deploy has occurred.
       - name: Update mirror link
         uses: appleboy/ssh-action@v0.1.7
-        # RUN ON NON-RELEASES ONLY. RELEASE VERSION LINKS SHOULD CONTINUE TO BE UPDATED MANUALLY, FOR NOW.
+        # RUN ON ALL RELEASES.
         if: github.event_name == 'release'
         with:
           host: ${{ secrets.SSH_HOST }}
