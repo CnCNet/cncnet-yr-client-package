@@ -174,7 +174,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           overwrite: true
           source: "CnCNet5_YR_Installer.exe"
-          target: "${{ secrets.PUBLICDOWNLOADFOLDER }}CnCNet5_YR_Installer.exe"
+          target: ${{ secrets.PUBLICDOWNLOADFOLDER }}CnCNet5_YR_Installer.exe"
 
       # Create/update a mirror link for client update purposes, using the GitVersion pre release label as the link name.
       # See the file "GitVersion.yml" for more details on the name that will be used for a given branch.
@@ -183,8 +183,6 @@ jobs:
       # This will keep develop and feature branch update mirror links up to date as soon as the deploy has occurred.
       - name: Update mirror link
         uses: appleboy/ssh-action@v0.1.7
-        # RUN ON ALL RELEASES.
-        if: github.event_name == 'release'
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
