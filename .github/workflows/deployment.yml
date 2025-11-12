@@ -174,7 +174,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           overwrite: true
           source: "CnCNet5_YR_Installer.exe"
-          target: "/home/cncnet/downloads.cncnet.org/public/CnCNet5_YR_Installer.exe"
+          target: "${{ secrets.PUBLICDOWNLOADFOLDER }}CnCNet5_YR_Installer.exe"
 
       # Create/update a mirror link for client update purposes, using the GitVersion pre release label as the link name.
       # See the file "GitVersion.yml" for more details on the name that will be used for a given branch.
