@@ -42,17 +42,10 @@ export class IniFile {
         const content = await util.promisify(readFile)(filePath, {
             encoding: 'utf-8'
         });
-        const sanitized = IniFile.sanitizeIniContent(content);
-        const iniObject = parseIni(sanitized, {
+        const iniObject = parseIni(content, {
             autoTyping: false
         });
         return new IniFile(filePath, iniObject);
-    }
-    public static sanitizeIniContent(content: string): string {
-        // Remove lines that start with NOSTR: (optionally preceded by whitespace)
-        // Example offending line: "NOSTR:Yuri Defense Platform"
-        const withoutBareNostr = content.replace(/^\s*NOSTR:.*$/gmi, '');
-        return withoutBareNostr;
     }
 
     /**
