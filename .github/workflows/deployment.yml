@@ -137,7 +137,8 @@ jobs:
 
       # Deploy the package to the server
       - name: Deploy package
-        uses: appleboy/scp-action@master
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verfied commits. Be careful when updating.
+        uses: appleboy/scp-action@7179e72a3fa4d4c33870a471708fda724fae7596
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -150,7 +151,8 @@ jobs:
 
       # Extract the deployed package on the server
       - name: Extract the deployed package
-        uses: appleboy/ssh-action@v0.1.7
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verfied commits. Be careful when updating.
+        uses: appleboy/ssh-action@d91a1af6f57cd4478ceee14d7705601dafabaa19
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -165,7 +167,8 @@ jobs:
 
       # Upload the installer executable to the server
       - name: Upload installer
-        uses: appleboy/scp-action@master
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verfied commits. Be careful when updating.
+        uses: appleboy/scp-action@7179e72a3fa4d4c33870a471708fda724fae7596
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -182,7 +185,8 @@ jobs:
       # Then, client users can use the path "/updates/games/yr/develop/" for their UpdaterConfig.ini file.
       # This will keep develop and feature branch update mirror links up to date as soon as the deploy has occurred.
       - name: Update mirror link
-        uses: appleboy/ssh-action@v0.1.7
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verfied commits. Be careful when updating.
+        uses: appleboy/ssh-action@d91a1af6f57cd4478ceee14d7705601dafabaa19
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
