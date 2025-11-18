@@ -67,10 +67,10 @@ Please look at `[razer_survival_options]` within `MPMaps.ini` if you want forced
 ### Super Weapons
 - **Super Weapons Modifier**: Enabled (`cmbSuperWeaponsModifier=0`)
   - Controls super weapon availability (range: 0-3):
-    - 0 = Enabled (all super weapons allowed).
-    - 1 = Offensive (Nuke, Weatherstorm, Dominator only).
-    - 2 = Defensive (Iron Curtain, Chronosphere, Genetic Mutator only).
-    - 3 = Disabled (no super weapons).
+    - 0 = All (all super weapons allowed).
+    - 1 = Strategic (Nuke, Weatherstorm, Dominator only).
+    - 2 = Tactical (Iron Curtain, Chronosphere, Genetic Mutator only).
+    - 3 = None (no super weapons).
 
 ### AI Behavior
 - **AI Modifier**: Vanilla AI (`cmbAIModifier=0`)

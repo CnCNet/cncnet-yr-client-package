@@ -51,4 +51,8 @@ wcrate.urb
 Resources\Binaries\Windows\Rampastring.Tools.dll
 Resources\Binaries\XNA\Rampastring.Tools.dll
 Resources\Binaries\OpenGL\Rampastring.Tools.dll
+
+[DeleteFolder]
+; Right now whole INI folder gets hashed, as a quick fix we do this to force re-download INI files
+INI\
 do_not_remove_this_line

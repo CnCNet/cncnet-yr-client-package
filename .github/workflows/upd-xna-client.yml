@@ -98,75 +98,84 @@ jobs:
               $deletedFiles = git diff --diff-filter=D --name-status HEAD~1 HEAD | Where-Object { $_.StartsWith('D') } | ForEach-Object { $_.Substring(1).Trim().Replace('/', '\') }
               $deletedFiles += [Environment]::NewLine
               $deletedFiles += git diff --diff-filter=R --name-status --diff-filter=R HEAD~1 HEAD | Where-Object { $_.StartsWith('R100') } | ForEach-Object { $_.Substring(4).Trim().Split(' ')[0].Replace('/', '\') }
+              $deletedFiles = $deletedFiles.Trim().Trim([Environment]::NewLine)
 
-              # If exclude is empty, ignore
-              if ($exclude.Length -ne 0)
+              # Skip update if there is no deleted files
+              if ($deletedFiles -eq [String]::Empty)
               {
-                # Clearing delete files from exclude path
-                $tmp = ""
-                foreach($delete_file in $deletedFiles)
-                {
-                  if ($delete_file.StartsWith($exclude + '\'))
-                  {
-                    $tmp += ($delete_file.Remove(0, ($exclude.Length + 1)))
-                    $tmp += [Environment]::NewLine
-                  }
-                  else
-                  {
-                    $tmp += $delete_file
-                    $tmp += [Environment]::NewLine
-                  }
-                }
-                $deletedFiles = $tmp
-              }
-
-              # Check if there are any deleted files
-              if ($deletedFiles.Count -eq 0)
-              {
-                  echo "No deleted files found in the git diff. Skip updating [Delete] section."
+                echo "Delete files list is empty. Skip updating 'updateexec'."
               }
               else
               {
-                # Read the content of the updateexec file
-                $updateexecContent_old = Get-Content -Path $updateExecPath
-                $updateexecContent_new = ""
-
-                # Find the [Delete] section and its position
-                $deleteSectionIndex = $updateexecContent_old.IndexOf("[Delete]")
-
-                # If not exist, create
-                if ($deleteSectionIndex -eq -1)
+                # If exclude is empty, ignore
+                if ($exclude.Length -ne 0)
                 {
-                  $updateexecContent_old += [Environment]::NewLine 
-                  $updateexecContent_old += "[Delete]"
-                  $deleteSectionIndex = $updateexecContent_old.IndexOf("[Delete]")
-                }
-
-                # Exclude path from string for config
-                $exclude = "${{ env.CLIENT_PATH }}"
-
-                # Iterate all content of old updateexec
-                foreach($old_line in $updateexecContent_old)
-                {
-                  $index = $updateexecContent_old.IndexOf($old_line)
-                  $updateexecContent_new += $old_line + [Environment]::NewLine
-
-                  # If we find section [Delete], add new deleted files
-                  if ($deleteSectionIndex -eq $index)
+                  # Clearing delete files from exclude path
+                  $tmp = ""
+                  foreach($delete_file in $deletedFiles)
                   {
-                    $updateexecContent_new += "; ${{ steps.download.outputs.tag_name }} (auto-generated entries for removed/renamed files)" + [Environment]::NewLine
-                    
-                    foreach($new_delete in $deletedFiles)
+                    if ($delete_file.StartsWith($exclude + '\'))
                     {
-                      $updateexecContent_new += $new_delete + [Environment]::NewLine
+                      $tmp += ($delete_file.Remove(0, ($exclude.Length + 1)))
+                      $tmp += [Environment]::NewLine
                     }
-
-                    $updateexecContent_new += "; end entries" + [Environment]::NewLine + [Environment]::NewLine
+                    else
+                    {
+                      $tmp += $delete_file
+                      $tmp += [Environment]::NewLine
+                    }
                   }
+                  $deletedFiles = $tmp
                 }
 
-                # Save the modified content back to the file
-                $updateexecContent_new | Set-Content -Path $updateExecPath
+                # Check if there are any deleted files
+                if ($deletedFiles.Count -eq 0)
+                {
+                    echo "No deleted files found in the git diff. Skip updating [Delete] section."
+                }
+                else
+                {
+                  # Read the content of the updateexec file
+                  $updateexecContent_old = Get-Content -Path $updateExecPath
+                  $updateexecContent_new = ""
+
+                  # Find the [Delete] section and its position
+                  $deleteSectionIndex = $updateexecContent_old.IndexOf("[Delete]")
+
+                  # If not exist, create
+                  if ($deleteSectionIndex -eq -1)
+                  {
+                    $updateexecContent_old += [Environment]::NewLine
+                    $updateexecContent_old += "[Delete]"
+                    $deleteSectionIndex = $updateexecContent_old.IndexOf("[Delete]")
+                  }
+
+                  # Exclude path from string for config
+                  $exclude = "${{ env.CLIENT_PATH }}"
+
+                  # Iterate all content of old updateexec
+                  foreach($old_line in $updateexecContent_old)
+                  {
+                    $index = $updateexecContent_old.IndexOf($old_line)
+                    $updateexecContent_new += $old_line + [Environment]::NewLine
+
+                    # If we find section [Delete], add new deleted files
+                    if ($deleteSectionIndex -eq $index)
+                    {
+                      $updateexecContent_new += "; ${{ steps.download.outputs.tag_name }} (auto-generated entries for removed/renamed files)" + [Environment]::NewLine
+                      
+                      foreach($new_delete in $deletedFiles)
+                      {
+                        $updateexecContent_new += $new_delete + [Environment]::NewLine
+                      }
+
+                      $updateexecContent_new += "; end entries" + [Environment]::NewLine + [Environment]::NewLine
+                    }
+                  }
+
+                  # Save the modified content back to the file
+                  $updateexecContent_new | Set-Content -Path $updateExecPath
+                }
               }
             }
 

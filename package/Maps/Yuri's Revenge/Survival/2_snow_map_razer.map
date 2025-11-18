@@ -9843,7 +9843,7 @@ Power=-100
 Sight=10
 Crewed=no
 Points=50
-NOSTR:Yuri Defense Platform
+UIName=NOSTR:Yuri Defense Platform
 Nominal=yes
 Powered=true
 Primary=ZRAZERYURIDEFENSE
