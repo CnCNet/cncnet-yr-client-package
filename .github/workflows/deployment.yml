@@ -37,6 +37,14 @@ jobs:
           submodules: true
           fetch-depth: 0 # required for gitversion
 
+      # Restore Tools NPM Libs from Cache
+      - name: Restore Tools NPM Libs from Cache
+        uses: actions/cache@v4
+        with:
+          path: tools/node_modules
+          key: ${{ runner.os }}-node-tools-${{ hashFiles('tools/package-lock.json', 'tools/package.json') }}
+          restore-keys: ${{ runner.os }}-node-tools-
+
       - name: Install Tools NPM Libs
         working-directory: tools
         run: npm ci

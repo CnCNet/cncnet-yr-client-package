@@ -24,7 +24,7 @@ jobs:
 
       - name: Install Tools NPM Libs
         working-directory: tools
-        run: npm install
+        run: npm ci
 
       # This looks for the latest release in our repo and does the following:
       # - updates our /live mirror path to point to it
