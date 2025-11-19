@@ -137,7 +137,7 @@ jobs:
 
       # Deploy the package to the server
       - name: Deploy package
-        # This is a 3rd-party action using secret credentials. Therefore, please only specify verfied commits. Be careful when updating.
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
         uses: appleboy/scp-action@7179e72a3fa4d4c33870a471708fda724fae7596
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -151,7 +151,7 @@ jobs:
 
       # Extract the deployed package on the server
       - name: Extract the deployed package
-        # This is a 3rd-party action using secret credentials. Therefore, please only specify verfied commits. Be careful when updating.
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
         uses: appleboy/ssh-action@d91a1af6f57cd4478ceee14d7705601dafabaa19
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -169,7 +169,7 @@ jobs:
       - name: Upload installer
       # This should be done for published releases only!
         if: github.event_name == 'release' && github.event.action == 'published'
-        # This is a 3rd-party action using secret credentials. Therefore, please only specify verfied commits. Be careful when updating.
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
         uses: appleboy/scp-action@7179e72a3fa4d4c33870a471708fda724fae7596
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -187,7 +187,7 @@ jobs:
       # Then, client users can use the path "/updates/games/yr/develop/" for their UpdaterConfig.ini file.
       # This will keep develop and feature branch update mirror links up to date as soon as the deploy has occurred.
       - name: Update mirror link
-        # This is a 3rd-party action using secret credentials. Therefore, please only specify verfied commits. Be careful when updating.
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
         uses: appleboy/ssh-action@d91a1af6f57cd4478ceee14d7705601dafabaa19
         with:
           host: ${{ secrets.SSH_HOST }}
