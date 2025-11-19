@@ -187,6 +187,7 @@ jobs:
       # Then, client users can use the path "/updates/games/yr/develop/" for their UpdaterConfig.ini file.
       # This will keep develop and feature branch update mirror links up to date as soon as the deploy has occurred.
       - name: Update mirror link
+        if: needs.build-package.outputs.mirrorLinkName != ''
         # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
         uses: appleboy/ssh-action@d91a1af6f57cd4478ceee14d7705601dafabaa19
         with:
