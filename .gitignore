@@ -10,7 +10,6 @@
 /package/debug/
 /package/langmd.mix
 /package/language.mix
-/package/Map Editor/FinalSun.ini
 /package/Maps/Custom/*.map
 /package/Maps/Custom/*.png
 /package/Maps/Custom/*.yrm
@@ -47,3 +46,4 @@
 /package.tar.gz
 /tools/node_modules
 /Client/
+FinalSun.ini
