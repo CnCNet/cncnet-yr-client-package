@@ -1,0 +1,23 @@
+// FinalAlert2:YR Script file
+// Name: Resize map from input
+// Written By: E1 Elite
+// Last Change: August 27, 2019
+// Be careful when editing scripts, they may cause damage to maps if used improperly
+
+AskContinue("Make backup before proceeding. Limits to avoid FA2 hang/crash/glitches:\n  Width + Height <= 512 \n  Width * Height < 43500 approximately.\n Continue?");
+
+UInputGetInteger("%NewW%","New Width:","20","511");
+UInputGetInteger("%NewH%","New Height:","20","511");
+UInputGetInteger("%X%","Left Position:","-491","491");
+UInputGetInteger("%Y%","Top Position:","-491","491");
+
+AskContinue("This script will resize the map from %Width%x%Height% to %NewW%x%NewH% with Left=%X% Top=%Y%. Continue?");
+
+SetVariable("W", "%NewW%");
+SetVariable("H", "%NewH%");
+SetVariable("L", "%X%");
+SetVariable("T", "%Y%");
+
+Resize("L","T","W","H");
+
+
