@@ -16,7 +16,7 @@ env:
   LAUNCHER_NAME: CnCNetYRLauncher.exe # Full launcher filename
   ICON_NAME: clienticon.ico # Full icon filename in the Resources folder
   UPDATE_BRANCH_NAME: update-client-launcher # The workflow adds the release tag after this value, i.e. "update-client-launcher-2.12.13"
-  TARGET_BRANCH: main # Into this branch workflow should create pull request for merge
+  TARGET_BRANCH: develop # Into this branch workflow should create pull request for merge
   COMMIT_MESSAGE: Update client launcher to the latest version
   PR_TITLE: Update client launcher to the version # The workflow adds the release tag after this value, i.e. "Update client binaries to the launcher 2.12.13"
   PR_BODY: This is an automatic pull request to update client launcher to the latest release published in [CnCNet/xna-cncnet-client-launcher](https://github.com/CnCNet/xna-cncnet-client-launcher) repository.
