@@ -143,6 +143,13 @@ jobs:
         with:
           name: package
 
+      #Download the installer artifact (only for published releases)
+      - name: Get installer artifact
+        if: github.event_name == 'release' && github.event.action == 'published'
+        uses: actions/download-artifact@v4
+        with:
+          name: installer
+
       # Deploy the package to the server
       - name: Deploy package
         # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
