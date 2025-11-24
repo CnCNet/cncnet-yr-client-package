@@ -143,7 +143,7 @@ jobs:
         with:
           name: package
 
-      #Download the installer artifact (only for published releases)
+      # Download the installer artifact (only for published releases)
       - name: Get installer artifact
         if: github.event_name == 'release' && github.event.action == 'published'
         uses: actions/download-artifact@v4
