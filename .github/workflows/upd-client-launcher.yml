@@ -43,7 +43,7 @@ jobs:
       uses: robinraju/release-downloader@v1
       with:
         repository: stefanGaina/icon-changer
-        latest: true
+        tag: 'v1.1.0'
         fileName: icon-changer*
 
     - name: Open PR
