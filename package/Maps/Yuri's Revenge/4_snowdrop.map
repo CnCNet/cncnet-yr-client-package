@@ -24,6 +24,7 @@ LightGreenTint=0.1
 LightIntensity=0.03
 LightVisibility=9200
 ProduceCashStartup=500
+Sight=8
 
 [GAYARD]
 TechLevel=11
