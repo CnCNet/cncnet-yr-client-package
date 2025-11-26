@@ -39,6 +39,7 @@ jobs:
 
       # Restore Tools NPM Libs from Cache
       - name: Restore Tools NPM Libs from Cache
+        id: npm-cache
         uses: actions/cache@v4
         with:
           path: tools/node_modules
@@ -46,6 +47,7 @@ jobs:
           restore-keys: ${{ runner.os }}-node-tools-
 
       - name: Install Tools NPM Libs
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         working-directory: tools
         run: npm ci
 
