@@ -937,6 +937,8 @@ Points=200
 
 [CombatDamage]
 IronCurtainDuration=1500
+V3EliteWarhead=V3EWH
+DMislEliteWarhead=DMISLEWH
 
 [IronCurtainSpecial]
 RechargeTime=20
