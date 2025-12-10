@@ -13020,9 +13020,9 @@ Anim=INVISO
 01000196=2,27,0,249,0,0,0,0,A,103,4,MISSION:C13Timer,0,0,0,0,
 01000198=3,27,0,2250,0,0,0,0,A,103,4,vox:csof013,0,0,0,0,A,21,6,EVA_TimerStarted,0,0,0,0,A
 01000200=1,121,0,4479,0,0,0,0,E
-01000202=1,11,4,Welcome.To.Lunar.Survival,0,0,0,0,A
-01000204=4,11,4,Map.Made.By.Dctanxman,0,0,0,0,A,11,4,You.Can.Download,0,0,0,0,A,11,4,All.My.Original.Maps,0,0,0,0,A,11,4,On...CnCnet.org/forums,0,0,0,0,A
-01000206=3,21,6,EVA_MissionAccomplished,0,0,0,0,A,11,4,Thanks.For.Playing,0,0,0,0,A,11,4,Good.Game!!!,0,0,0,0,A
+01000202=1,11,4,NOSTR:Welcome To Lunar Survival,0,0,0,0,A
+01000204=4,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A,11,4,NOSTR:You Can Download,0,0,0,0,A,11,4,NOSTR:All My Original Maps,0,0,0,0,A,11,4,NOSTR:On...CnCnet.org/forums,0,0,0,0,A
+01000206=3,21,6,EVA_MissionAccomplished,0,0,0,0,A,11,4,NOSTR:Thanks For Playing,0,0,0,0,A,11,4,NOSTR:Good Game!!!,0,0,0,0,A
 01000208=1,14,0,4479,0,0,0,0,A
 01000210=1,67,0,0,0,0,0,0,A
 01000212=7,80,1,01000032,0,0,0,0,K,80,1,01000033,0,0,0,0,L,80,1,01000034,0,0,0,0,M,80,1,01000035,0,0,0,0,N,80,1,01000036,0,0,0,0,O,80,1,01000037,0,0,0,0,P,53,2,01000291,0,0,0,0,A
@@ -13275,10 +13275,10 @@ MaxDebris=1
 TargetDistanceCoefficient=-1
 
 [BFRT]
-Name=LoadTanks IntoMe
+Name=Battlefortress
 Size=16
 Speed=7
-UIName=LoadTanks IntoMe
+UIName=NOSTR:Load Tanks Into Me
 Weight=3.5
 Explosion=INVISO
 MaxDebris=1
@@ -13302,7 +13302,7 @@ TargetDistanceCoefficient=-1
 Name=[4] Lunar Survival III - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-First Wave Is Air@-Multi-MCV@@------------------------------@--Difficulty = Very Hard--@------------------------------@@By Dctanxman®
+Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-First Wave Is Air@-Multi-MCV@@------------------------------@--Difficulty = Very Hard--@------------------------------@@By Dctanxman® ~Official Final Version©
 GameMode=standard
 HomeCell=98
 InitTime=10000
@@ -13526,7 +13526,7 @@ Speed=12
 Crewed=no
 Points=15
 Turret=yes
-UIName=Name:SiegeChopper
+UIName=NOSTR:Siege Chopper
 JumpJet=yes
 Primary=BlackHawkCannon
 Soylent=1100
@@ -13893,20 +13893,28 @@ Anim=INVISO
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=1
+chkNoYuri=false
 chkRA2Mode=false
 cmbCredits=0
-chkBrutalAI=false
 chkMultiEng=false
+chkNoFrance=false
 chkRedeplMCV=true
 chkShortGame=true
+chkAutoRepair=false
+cmbAIModifier=1
 chkBalancePatch=false
 chkDestrBridges=false
 chkNoDogEngiEat=false
+chkNoStolenTech=false
 cmbStartingUnits=0
-chkNoYuri=false
-chkNoFrance=false
+cmbCratesModifier=1
 chkNoSpawnPreviews=false
+cmbGameSpeedCapSkirmish=2
+cmbGameSpeedCapMultiplayer=2
+chkCrates=true
+chkNoYuriNoFrance=false
+cmbGameSpeedCap=2
+chkBrutalAI=true
 
 [French]
 IQ=0
@@ -15964,10 +15972,10 @@ MaxDebris=1
 TargetDistanceCoefficient=-1
 
 [LIMO]
-Name=hgghhg
+Name=Stealth Tank
 Image=STNK
 Speed=11
-UIName=Dctanxman Tank
+UIName=NOSTR:Dctanxman Tank
 Primary=120mm
 Sensors=yes
 Strength=550
@@ -16356,7 +16364,6 @@ Explosion=INVISO
 TechLevel=-1
 
 [SHK]
-Size=2
 Speed=6
 TargetDistanceCoefficient=-1
 
@@ -16407,7 +16414,7 @@ Sight=8
 Speed=11
 Crewed=no
 Points=100
-UIName=Yuri Head
+UIName=NOSTR:Yuri Head
 Primary=BlimpBomb
 Soylent=2000
 Category=AirPower
@@ -16572,7 +16579,6 @@ MaxDebris=1
 TargetDistanceCoefficient=-1
 
 [TTNK]
-Size=7
 Speed=8
 Explosion=INVISO
 MaxDebris=1

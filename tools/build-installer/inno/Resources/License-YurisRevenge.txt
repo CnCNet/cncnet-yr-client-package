@@ -1,6 +1,6 @@
 This is an unofficial fan made installer, CnCNet is not affiliated with Electronic Arts in any way and trademarks belong to their respective owners.
 
-Command & Conquer™ and Command & Conquer: Yuri's Revenge™ are registered trademarks of Electronic Arts, all rights reserved.
+Command & Conquerâ„¢ and Command & Conquer: Yuri's Revengeâ„¢ are registered trademarks of Electronic Arts, all rights reserved.
 http://www.commandandconquer.com
 
 To be able to continue you must agree to the following:
@@ -11,14 +11,22 @@ GameSurge Terms of Service: http://gamesurge.net/tos/
 
 The following third-party material is included, please visit the respective websites for all information:
 -
+Ares by Ares-developers - https://ares.strategy-x.com/
+-
+cnc-ddraw by FunkyFr3sh - MIT License https://github.com/FunkyFr3sh/cnc-ddraw
+-
 DotNetZip library - https://dotnetzip.codeplex.com/
 -
-ZLIB - http://zlib.net/
+DxWnd by ghotik - LGPL v3.0 License https://sourceforge.net/projects/dxwnd/
 -
-QRes - https://sourceforge.net/projects/qres/
+Original IrcD.Net code by Thomas Bruderer - License: http://github.com/FreeApophis/ircddotnet/blob/master/LICENSE
 -
-Original IrcD.Net code by Thomas Bruderer, License: http://github.com/FreeApophis/ircddotnet/blob/master/LICENSE
+Phobos by Phobos-developers - GPL v3.0 License https://github.com/Phobos-developers/Phobos
+-
+Syringe by Ares-developers, with patches from Phobos-developers and CnCNet - LGPL v3.0 License https://github.com/CnCNet/Syringe
+-
+QRes by b_engelbrecht - BSD License https://sourceforge.net/projects/qres/
 -
 ts-ddraw by Toni Spets - MIT License http://github.com/cnc-patch/ts-ddraw
 -
-DxWnd by gho: https://sourceforge.net/projects/dxwnd/
+ZLIB - http://zlib.net/

@@ -2,6 +2,7 @@ import { readdir, stat } from 'fs';
 import { constants } from '../constants';
 import * as util from 'util'
 import { IniFile } from '../class';
+import * as path from "path";
 
 export class MapLoaderService {
 
@@ -17,7 +18,7 @@ export class MapLoaderService {
         });
 
         for (const fileOrDir of dirFiles) {
-            const fileOrDirPath = `${dir}\\${fileOrDir}`;
+            const fileOrDirPath = path.join(dir, fileOrDir);
             const stats = await util.promisify(stat)(fileOrDirPath);
             if (stats.isDirectory()) {
                 maps.push(...(await this.getMapFilesFromDirAsync(fileOrDirPath)));

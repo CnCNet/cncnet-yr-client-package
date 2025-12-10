@@ -151,10 +151,10 @@ Speed=16
 MaxDebris=0
 
 [BFRT]
-Name=gffgfgfgfgf
+Name=Battlefortress
 Size=16
 Speed=7
-UIName=Dctanxman
+UIName=NOSTR:Dctanxman
 Weight=1
 Explosion=INVISO
 Maxdebris=1
@@ -357,20 +357,28 @@ Speed=6
 
 [ForcedOptions]
 chkNoSpy=false
-cmbCratesModifier=1
+chkNoYuri=false
 chkRA2Mode=false
 cmbCredits=0
-chkBrutalAI=false
 chkMultiEng=false
+chkNoFrance=false
 chkRedeplMCV=true
 chkShortGame=true
+chkAutoRepair=false
+cmbAIModifier=1
 chkBalancePatch=false
 chkDestrBridges=false
 chkNoDogEngiEat=false
+chkNoStolenTech=false
 cmbStartingUnits=0
-chkNoYuri=false
-chkNoFrance=false
+cmbCratesModifier=1
 chkNoSpawnPreviews=false
+cmbGameSpeedCapSkirmish=2
+cmbGameSpeedCapMultiplayer=2
+chkCrates=true
+chkNoYuriNoFrance=false
+cmbGameSpeedCap=2
+chkBrutalAI=true
 
 [FV]
 Speed=13
@@ -583,10 +591,10 @@ Speed=9
 Maxdebris=1
 
 [LIMO]
-Name=hgghhg
+Name=Stealth Tank
 Image=STNK
 Speed=11
-UIName=Dctanxman Tank
+UIName=NOSTR:Dctanxman Tank
 Primary=120mm
 Sensors=yes
 Strength=550
@@ -13890,9 +13898,9 @@ AreTeamMembersRecruitable=no
 01000196=2,27,0,250,0,0,0,0,A,103,4,MISSION:C13Timer,0,0,0,0,
 01000198=3,27,0,2250,0,0,0,0,A,103,4,vox:csof013,0,0,0,0,,21,6,EVA_TimerStarted,0,0,0,0,A
 01000200=1,121,0,4479,0,0,0,0,E
-01000202=1,11,4,Map.Made.By.Dctanxman,0,0,0,0,A
-01000204=4,11,4,Map.Made.By.Dctanxman,0,0,0,0,A,11,4,You.Can.Download,0,0,0,0,A,11,4,All.My.Official.Maps,0,0,0,0,A,11,4,On...CnCnet.org/forums,0,0,0,0,A
-01000206=3,21,6,EVA_MissionAccomplished,0,0,0,0,A,11,4,If.You.Are.Reading.This,0,0,0,0,A,11,4,Congratulations,0,0,0,0,A
+01000202=1,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A
+01000204=4,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A,11,4,NOSTR:You Can Download,0,0,0,0,A,11,4,NOSTR:All My Official Maps,0,0,0,0,A,11,4,NOSTR:On...CnCnet.org/forums,0,0,0,0,A
+01000206=3,21,6,EVA_MissionAccomplished,0,0,0,0,A,11,4,NOSTR:If You Are Reading This,0,0,0,0,A,11,4,NOSTR:Congratulations,0,0,0,0,A
 01000208=1,14,0,4479,0,0,0,0,A
 01000210=1,67,0,0,0,0,0,0,A
 01000212=7,80,1,01000032,0,0,0,0,K,80,1,01000033,0,0,0,0,L,80,1,01000034,0,0,0,0,M,80,1,01000035,0,0,0,0,N,80,1,01000036,0,0,0,0,O,80,1,01000037,0,0,0,0,P,53,2,01000291,0,0,0,0,A
@@ -13933,7 +13941,7 @@ AreTeamMembersRecruitable=no
 01000303=1,21,6,EVA_3MinutesRemaining,0,0,0,0,A
 01000305=1,21,6,EVA_1MinuteRemaining,0,0,0,0,A
 01000307=1,21,6,EVA_2MinutesRemaining,0,0,0,0,A
-01000309=4,11,4,Map.Made.By.Dctanxman,0,0,0,0,A,19,7,Cheer,0,0,0,0,A,11,4,You.Are.Some.Of.The.Best,0,0,0,0,A,11,4,Survival.Players.Ever,0,0,0,0,A
+01000309=4,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A,19,7,Cheer,0,0,0,0,A,11,4,NOSTR:You Are Some Of The Best,0,0,0,0,A,11,4,NOSTR:Survival Players Ever,0,0,0,0,A
 01000320=6,80,1,01000272,0,0,0,0,K,80,1,01000273,0,0,0,0,L,80,1,01000274,0,0,0,0,M,80,1,01000275,0,0,0,0,N,80,1,01000293,0,0,0,0,O,80,1,01000294,0,0,0,0,P
 01000322=6,80,1,01000300,0,0,0,0,K,80,1,01000301,0,0,0,0,L,80,1,01000302,0,0,0,0,M,80,1,01000311,0,0,0,0,N,80,1,01000312,0,0,0,0,O,80,1,01000313,0,0,0,0,P
 01000324=6,107,1,01000314,0,0,0,0,K,107,1,01000315,0,0,0,0,L,107,1,01000316,0,0,0,0,M,107,1,01000317,0,0,0,0,N,107,1,01000318,0,0,0,0,O,107,1,01000319,0,0,0,0,P
@@ -14055,10 +14063,10 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[4] lunar Survival II - Dctanxman
+Name=[4] Lunar Survival II - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-This Map Is For Pro Players Only@-Recommended Side = France Or Yuri@-First Wave Is Air@@------------------------------@--Difficulty = Very Hard--@------------------------------@@By Dctanxman®
+Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-This Map Is For Pro Players Only@-Recommended Side = France Or Yuri@-First Wave Is Air@@------------------------------@--Difficulty = Very Hard--@------------------------------@@By Dctanxman® ~Official Final Version©
 GameMode=standard
 HomeCell=98
 InitTime=10000

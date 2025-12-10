@@ -1,0 +1,115 @@
+# To be able use this workflow you must ensure that your repository have enable write and right access for GitHub Actions.
+#
+# GUI Reference to enable access:
+# Repository --> Actions --> General --> Workflow permissions --> Read and write permissions
+#                                                            \--> Allow Github Actions to create and approve pull requests
+
+name: Update XNA CnCNet Client Launcher
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: "0 0 * * *" # Starts everyday at 00:00 UTC+0
+
+env:
+  CLIENT_PATH: package # Do not add trailing slash
+  LAUNCHER_NAME: CnCNetYRLauncher.exe # Full launcher filename
+  ICON_NAME: clienticon.ico # Full icon filename in the Resources folder
+  UPDATE_BRANCH_NAME: update-client-launcher # The workflow adds the release tag after this value, i.e. "update-client-launcher-2.12.13"
+  TARGET_BRANCH: develop # Into this branch workflow should create pull request for merge
+  COMMIT_MESSAGE: Update client launcher to the latest version
+  PR_TITLE: Update client launcher to the version # The workflow adds the release tag after this value, i.e. "Update client binaries to the launcher 2.12.13"
+  PR_BODY: This is an automatic pull request to update client launcher to the latest release published in [CnCNet/xna-cncnet-client-launcher](https://github.com/CnCNet/xna-cncnet-client-launcher) repository.
+
+jobs:
+  publish-update-pr:
+    runs-on: windows-2022
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+      with:
+        lfs: true
+    
+    - name: Download Latest Release
+      id: download
+      uses: robinraju/release-downloader@v1
+      with:
+        repository: CnCNet/xna-cncnet-client-launcher
+        latest: true
+        fileName: CnCNet*
+
+    - name: Download Icon Changer
+      uses: robinraju/release-downloader@v1
+      with:
+        repository: stefanGaina/icon-changer
+        tag: 'v1.1.0'
+        fileName: icon-changer*
+
+    - name: Open PR
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        $repoDir = (Get-Location).Path
+        $clientDir = $repoDir + "\${{ env.CLIENT_PATH }}"
+        $launcher = "${{ env.LAUNCHER_NAME }}"
+        $currentVersion = ((Get-Item -Path "$clientDir\$launcher").VersionInfo.ProductVersion).Split("+")[0] -Replace "\.0$", ""
+        $downloadVersion = '${{ steps.download.outputs.tag_name }}'.Trim("v")
+
+        echo "Current launcher version: '$currentVersion'"
+        echo "Downloaded launcher version: '$downloadVersion'"
+
+        if ($currentVersion -eq $downloadVersion)
+        {
+          echo "Update is not required"
+          exit
+        }
+
+        echo "Update required"
+
+        # Check if branch exist
+        $branch_exist = 'false'
+        gh pr list | Where-Object {$_.Contains('${{ env.UPDATE_BRANCH_NAME }}-$downloadVersion')} | ForEach-Object { $branch_exist = 'true' }
+        if ($branch_exist -eq 'true')
+        {
+          echo "Branch ${{ env.UPDATE_BRANCH_NAME }}-$downloadVersion already exist. Skip updating."
+          exit
+        }
+        
+        # Configure git
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+        # Make update branch
+        git checkout -b ${{ env.UPDATE_BRANCH_NAME }}-$downloadVersion
+
+        # Delete old binaries, unpack archive, remove archive
+        7z x CnCNet*.zip -y -oTEMPORARY
+        mv -Force "TEMPORARY\CnCNet.LauncherStub.exe"        "${{ env.CLIENT_PATH }}\${{ env.LAUNCHER_NAME }}"
+        mv -Force "TEMPORARY\CnCNet.LauncherStub.exe.config" "${{ env.CLIENT_PATH }}\${{ env.LAUNCHER_NAME }}.config"
+        rm -r -fo TEMPORARY
+        rm CnCNet*.zip
+
+        7z x icon-changer*.zip
+        & ./icon-changer.exe "${{ env.CLIENT_PATH }}\Resources\${{ env.ICON_NAME }}" "${{ env.CLIENT_PATH }}\${{ env.LAUNCHER_NAME }}"
+        rm icon-changer.exe
+        rm icon-changer*.zip
+
+        # Commit changes
+        git add *
+        git commit -m "${{ env.COMMIT_MESSAGE }}"
+
+        # Push changes
+        git push --force origin ${{ env.UPDATE_BRANCH_NAME }}-$downloadVersion
+
+        # This timeout is for the remote server to index received content 
+        # https://stackoverflow.com/questions/74842935/powershell-batch-script-timeout-error-input-redirection-is-not-supported-exiti
+        Start-Job {
+          # Simulate calling a batch file (cmd /c)
+          # inside of which the `start` call is made,
+          # waiting for 5 seconds in this example.
+          cmd /c start /min timeout.exe 10
+        } | Receive-Job -Wait -AutoRemoveJob
+
+        # Open a PR
+        gh pr create -B ${{ env.TARGET_BRANCH }} -H ${{ env.UPDATE_BRANCH_NAME }}-$downloadVersion --title '${{ env.PR_TITLE }} ${{ steps.download.outputs.tag_name }}' --body '${{ env.PR_BODY }}'

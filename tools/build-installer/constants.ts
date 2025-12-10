@@ -14,7 +14,6 @@ const preUpdateExecFilename = 'preupdateexec';
 const updateExecFilename = 'updateexec';
 const preUpdateExecFilePath = resolve(packagePath, preUpdateExecFilename);
 const updateExecFilePath = resolve(packagePath, updateExecFilename);
-const netCoreCheckPath = resolve(innoPath, 'libs/InnoDependencyInstaller/netcorecheck');
 
 const constants = {
     app: {
@@ -35,8 +34,7 @@ const constants = {
         licenseFilePath,
         versionFilePath,
         preUpdateExecFilePath,
-        updateExecFilePath,
-        netCoreCheckPath
+        updateExecFilePath
     },
     excludedInstallerFiles: [
         preUpdateExecFilename,

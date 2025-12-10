@@ -1,15 +1,15 @@
 [Delete]
-Syringe.exe
-cncnet.mix
 cncnet5.dll
-Syringe.exe
-Ares.dll
-Phobos.dll
-cncnet.mix
-ra2mode.mix
-ares.mix
+Resources\SpriteFont2.xnb
+Resources\SpriteFont3.xnb
+Resources\SpriteFont4.xnb
+Resources\Translations\zh-Hans\SpriteFont2.xnb
+Resources\Translations\zh-Hans\SpriteFont3.xnb
+Resources\Translations\zh-Hans\SpriteFont4.xnb
+Resources\Translations\zh-Hans\SpriteFont5.xnb
 ra2mdlauncher.exe
-Resources\FHCConfig.ini
+ra2md-launcher.exe
+ra2-launcher.exe
 Resources\Allied Theme\loading.png
 Resources\Soviet Theme\loading.png
 Resources\Yuri Theme\loading.png
@@ -206,6 +206,7 @@ INI\Map Code\RA2 Armageddon.ini
 INI\Map Code\Tournament.ini
 INI\Map Code\Demolition.ini
 INI\Map Code\Capture The Flag.ini
+INI\Map Code\Blitz.ini
 Maps\Yuri's Revenge\CTF\CTFallTheFury.map
 Maps\Yuri's Revenge\CTF\CTFallTheFury.png
 Maps\Yuri's Revenge\CTF\CTFantarctic.map
@@ -515,6 +516,63 @@ Maps\Yuri's Revenge\blitz_park_of_vytautas_blitz.png
 INI\Game Options\No_France_No_Yuri.ini
 INI\ForcedOptions ReadMe.txt
 Maps\Custom\83b65056362a027b56ce57842588d1e470373af3.png
+Resources\Config\UpdaterConfig_net48.ini
+Resources\Config\UpdaterConfig_Beta.ini
+Maps\Yuri's Revenge\blitz_bongo_2v2.map
+Maps\Yuri's Revenge\blitz_bongo_2v2.png
+Maps\Yuri's Revenge\blitz_candy_mountain_2v2.map
+Maps\Yuri's Revenge\blitz_candy_mountain_2v2.png
+Maps\Yuri's Revenge\Mod Maps\More Oil\8_oil_with_bonus_rts_no_nuke_team.map
+Maps\Yuri's Revenge\Mod Maps\More Oil\8_oil_with_bonus_rts_no_nuke_team.png
+Maps\Yuri's Revenge\Mod Maps\More Oil\8_oil_with_bonus_rts_no_nuke.map
+Maps\Yuri's Revenge\Mod Maps\More Oil\8_oil_with_bonus_rts_no_nuke.png
+Maps\Yuri's Revenge\Mod Maps\More Oil\8_oil_with_bonus_rts_team.map
+Maps\Yuri's Revenge\Mod Maps\More Oil\8_oil_with_bonus_rts_team.png
+Maps\Yuri's Revenge\Mod Maps\More Oil\8_oil_with_bonus_rts.map
+Maps\Yuri's Revenge\Mod Maps\More Oil\8_oil_with_bonus_rts.png
+Maps\Custom\[2] Arctic Circle + Best by Test + C (trial)_b00aa82e3aa2198ab455e330bb915a642c21eb67.map
+Maps\Custom\[2] Arctic Circle + Best by Test + C + Mike 2v1 with oil_950a0da653160cc1f2b89dfa6a0109315fe40c74.map
+Maps\Custom\[2] Arctic Circle + Best by Test + C_686129dd4da89fc6a760a3955f000106fc20672f.map
+Maps\Custom\[6] Oil In Corners & Center Original [x2] (Final Version) - 3_84b5372b594cefca45f3d785b3141df35ce3e2d6.map
+Maps\Custom\[8] Oil with Bonus V12 Remastered by VK_1e4aec6bda148bd81cc5166e207faa771198629c.map
+Maps\Custom\[8] Oil with Bonus V12 Remastered by VK_13633887cad83c986873f1f4d4830b1a53ad6406.map
+Maps\Custom\[8] The Oil With Bonus - ASIA - [Team] ERMAN Version (No Nuke)_19d638a4e065a21e3aef62251c5cb0633bb0afac.map
+Maps\Custom\[8] The Oil With Bonus - ASIA - [Team] ERMAN Version (No Nuke)_07357108417c7da19c6afd64710df8c22a83ff51 — копия.map
+Maps\Custom\[8] The Oil With Bonus - ASIA - [Team] ERMAN Version (No Nuke)_07357108417c7da19c6afd64710df8c22a83ff51.map
+Maps\Custom\[8] The Oil With Bonus - ASIA - [Team] ERMAN Version (No Nuke)_e4b22603a659b4f9346dbc913f6fe2f0c94f15ec — копия.map
+Maps\Custom\[8] The Oil With Bonus - ASIA - [Team] ERMAN Version (No Nuke)_e4b22603a659b4f9346dbc913f6fe2f0c94f15ec.map
+Maps\Custom\[8] The Oil With Bonus - ASIA - ERMAN Version (No Nuke)_70489d79d6413f5b46a79e7a83592b88b792dcc0 — копия.map
+Maps\Custom\[8] The Oil With Bonus - ASIA - ERMAN Version (No Nuke)_70489d79d6413f5b46a79e7a83592b88b792dcc0.map
+Maps\Custom\[8] The Oil With Bonus - ASIA [Night] - [Updated at 28.03.2025]_ba9d0df93b249095485b75240061cdfc0a18ba71.map
+Maps\Custom\[8] The Oil With Bonus - ASIA [No Nuke]-[Erman Team]_d4167a9b0b76102c0fdc67a8567ec673d1f16004.map
+Maps\Custom\[8] The Oil With Bonus [SS] RTS_03b65e1fe6847c513f3e463f4f4b1d346e330168 — копия.map
+Maps\Custom\[8] The Oil With Bonus [SS] RTS_03b65e1fe6847c513f3e463f4f4b1d346e330168.map
+Maps\Custom\[8] The Oil With Bonus SS [X4] [TEAM]_6e13db2484ffabdc3811d8a9ca8f272942514986.map
+Maps\Custom\[8]Oil with Bonus Remastered by VK Subscribe me on Youtube @privacyVK_3f069fa5bc7366678ce7cd4059740f1252627022.map
+Maps\Custom\737934c19ccc138da093d6cace92d666581e6a45.map
+INI\Game Options\Crates\Disabled.ini
+INI\Game Options\Crates\Super Increased.ini
+Resources\GenericWindowLegacy.ini
+Maps\Custom\[8] The PrivacyVK [Team] 2027 ©_60e10279bd53cd84d6454968b405a1191f58d8c9.map
+Maps\Custom\[8] The PrivacyVK [No Nuke] [Solo] XL 2026 ©_0f1bf254d5a7b032d640b301fc09ad3041782a94.map
+Maps\Custom\[8] The PrivacyVK 2025 © [No Nuke] [Team] ©_a955413c06bddaa436dd56fb0615a973a954dcda.map
+artra2.ini
+artyr.ini
+Resources\Binaries\Windows\DTAConfig.dll
+Resources\Binaries\Windows\DTAConfig.pdb
+Resources\Binaries\OpenGL\DTAConfig.dll
+Resources\Binaries\OpenGL\DTAConfig.pdb
+Resources\Binaries\XNA\DTAConfig.dll
+Resources\Binaries\XNA\DTAConfig.pdb
+Resources\BinariesNET8\Windows\DTAConfig.dll
+Resources\BinariesNET8\Windows\DTAConfig.pdb
+Resources\BinariesNET8\OpenGL\DTAConfig.dll
+Resources\BinariesNET8\OpenGL\DTAConfig.pdb
+Resources\BinariesNET8\UniversalGL\DTAConfig.dll
+Resources\BinariesNET8\UniversalGL\DTAConfig.pdb
+Resources\BinariesNET8\XNA\DTAConfig.dll
+Resources\BinariesNET8\XNA\DTAConfig.pdb
+Maps\Custom\a488fba207efc7910d994a546d410b876bf2dfef.map
 
 [DeleteFolder]
 Maps\Yuri's Revenge\CTF
