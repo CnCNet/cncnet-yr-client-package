@@ -1725,7 +1725,7 @@ Name=Vehicle
 Name=Power
 
 [01000157]
-0=16,99
+0=14,0
 1=0,7
 2=0,5
 3=0,2
@@ -11228,7 +11228,7 @@ Name=Transport@93
 
 [01000633]
 Max=5
-Full=yes
+Full=no
 Name=B001@P1
 Group=-1
 House=Neutral
@@ -11262,7 +11262,7 @@ AreTeamMembersRecruitable=no
 
 [01000634]
 Max=5
-Full=yes
+Full=no
 Name=B001@P2
 Group=-1
 House=Neutral
@@ -11296,7 +11296,7 @@ AreTeamMembersRecruitable=no
 
 [01000635]
 Max=5
-Full=yes
+Full=no
 Name=B001@P3
 Group=-1
 House=Neutral
@@ -11330,7 +11330,7 @@ AreTeamMembersRecruitable=no
 
 [01000636]
 Max=5
-Full=yes
+Full=no
 Name=B001@P4
 Group=-1
 House=Neutral
@@ -11364,11 +11364,11 @@ AreTeamMembersRecruitable=no
 
 [01000637]
 Max=5
-Full=yes
+Full=no
 Name=B001@D
 Group=-1
 House=Neutral
-Script=01000650
+Script=01000157
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11429,7 +11429,7 @@ Name=BFRT2
 
 [01000656]
 Max=5
-Full=yes
+Full=no
 Name=B002@P1
 Group=-1
 House=Neutral
@@ -11463,7 +11463,7 @@ AreTeamMembersRecruitable=no
 
 [01000657]
 Max=5
-Full=yes
+Full=no
 Name=B002@P2
 Group=-1
 House=Neutral
@@ -11497,7 +11497,7 @@ AreTeamMembersRecruitable=no
 
 [01000660]
 Max=5
-Full=yes
+Full=no
 Name=B002@P3
 Group=-1
 House=Neutral
@@ -11531,7 +11531,7 @@ AreTeamMembersRecruitable=no
 
 [01000661]
 Max=5
-Full=yes
+Full=no
 Name=B002@P4
 Group=-1
 House=Neutral
@@ -11565,11 +11565,11 @@ AreTeamMembersRecruitable=no
 
 [01000662]
 Max=5
-Full=yes
+Full=no
 Name=B002@D
 Group=-1
 House=Neutral
-Script=01000650
+Script=01000157
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11599,7 +11599,7 @@ AreTeamMembersRecruitable=no
 
 [01000663]
 Max=5
-Full=yes
+Full=no
 Name=B003@P1
 Group=-1
 House=Neutral
@@ -11633,7 +11633,7 @@ AreTeamMembersRecruitable=no
 
 [01000664]
 Max=5
-Full=yes
+Full=no
 Name=B003@P2
 Group=-1
 House=Neutral
@@ -11667,7 +11667,7 @@ AreTeamMembersRecruitable=no
 
 [01000665]
 Max=5
-Full=yes
+Full=no
 Name=B003@P3
 Group=-1
 House=Neutral
@@ -11701,7 +11701,7 @@ AreTeamMembersRecruitable=no
 
 [01000666]
 Max=5
-Full=yes
+Full=no
 Name=B003@P4
 Group=-1
 House=Neutral
@@ -11735,11 +11735,11 @@ AreTeamMembersRecruitable=no
 
 [01000667]
 Max=5
-Full=yes
+Full=no
 Name=B003@D
 Group=-1
 House=Neutral
-Script=01000650
+Script=01000157
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11773,7 +11773,7 @@ Full=yes
 Name=B004@P1
 Group=-1
 House=Neutral
-Script=01000935
+Script=01001271
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11807,7 +11807,7 @@ Full=yes
 Name=B004@P2
 Group=-1
 House=Neutral
-Script=01000936
+Script=01001272
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11841,7 +11841,7 @@ Full=yes
 Name=B004@P3
 Group=-1
 House=Neutral
-Script=01000937
+Script=01001273
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11875,7 +11875,7 @@ Full=yes
 Name=B004@P4
 Group=-1
 House=Neutral
-Script=01000938
+Script=01001274
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11943,7 +11943,7 @@ Full=yes
 Name=B005@P1
 Group=-1
 House=Neutral
-Script=01000935
+Script=01001271
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11977,7 +11977,7 @@ Full=yes
 Name=B005@P2
 Group=-1
 House=Neutral
-Script=01000936
+Script=01001272
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -12011,7 +12011,7 @@ Full=yes
 Name=B005@P3
 Group=-1
 House=Neutral
-Script=01000937
+Script=01001273
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -12045,7 +12045,7 @@ Full=yes
 Name=B005@P4
 Group=-1
 House=Neutral
-Script=01000938
+Script=01001274
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -12649,7 +12649,7 @@ Full=yes
 Name=B006@P1
 Group=-1
 House=Neutral
-Script=01000935
+Script=01001271
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -12683,7 +12683,7 @@ Full=yes
 Name=B006@P2
 Group=-1
 House=Neutral
-Script=01000936
+Script=01001272
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -12717,7 +12717,7 @@ Full=yes
 Name=B006@P3
 Group=-1
 House=Neutral
-Script=01000937
+Script=01001273
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -12751,7 +12751,7 @@ Full=yes
 Name=B006@P4
 Group=-1
 House=Neutral
-Script=01000938
+Script=01001274
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -12814,36 +12814,40 @@ TransportsReturnOnUnload=no
 AreTeamMembersRecruitable=no
 
 [01000935]
-0=16,90
-1=0,7
-2=0,5
-3=0,2
-4=6,2
-Name=BFRTA
+0=14,0
+1=16,90
+2=0,7
+3=0,5
+4=0,2
+5=6,3
+Name=BFRTA1
 
 [01000936]
-0=16,91
-1=0,7
-2=0,5
-3=0,2
-4=6,2
-Name=BFRTB
+0=14,0
+1=16,91
+2=0,7
+3=0,5
+4=0,2
+5=6,3
+Name=BFRTB1
 
 [01000937]
-0=16,92
-1=0,7
-2=0,5
-3=0,2
-4=6,2
-Name=BFRTC
+0=14,0
+1=16,92
+2=0,7
+3=0,5
+4=0,2
+5=6,3
+Name=BFRTC1
 
 [01000938]
-0=16,93
-1=0,7
-2=0,5
-3=0,2
-4=6,2
-Name=BFRTD
+0=14,0
+1=16,93
+2=0,7
+3=0,5
+4=0,2
+5=6,3
+Name=BFRTD1
 
 [01000939]
 Max=5
@@ -15060,6 +15064,38 @@ Name=Clone@C
 2=6,2
 Name=Clone@D
 
+[01001271]
+0=16,90
+1=0,7
+2=0,5
+3=0,2
+4=6,2
+Name=BFRTA2
+
+[01001272]
+0=16,91
+1=0,7
+2=0,5
+3=0,2
+4=6,2
+Name=BFRTB2
+
+[01001273]
+0=16,92
+1=0,7
+2=0,5
+3=0,2
+4=6,2
+Name=BFRTC2
+
+[01001274]
+0=16,93
+1=0,7
+2=0,5
+3=0,2
+4=6,2
+Name=BFRTD2
+
 [20mmRapidEx]
 ROF=40
 Anim=GUNFIRE
@@ -15395,7 +15431,7 @@ VeteranAbilities=STRONGER,FIREPOWER,ROF
 01001010=2,80,1,01000496,0,0,0,0,O,80,1,01000497,0,0,0,0,P
 01001012=2,80,1,01000498,0,0,0,0,Q,80,1,01000499,0,0,0,0,R
 01001014=2,80,1,01000498,0,0,0,0,Q,80,1,01000499,0,0,0,0,R
-01001016=1,119,0,12,0,0,0,0,A
+01001016=2,2,0,12,0,0,0,0,A,119,0,12,0,0,0,0,A
 01001018=1,53,2,01001020,0,0,0,0,A
 01001020=2,11,4,NOSTR:You Must Kill All,0,0,0,0,A,11,4,NOSTR:In Order To WIN....,0,0,0,0,A
 01001022=1,107,1,01000881,0,0,0,0,AP
@@ -17060,9 +17096,9 @@ SubjectToElevation=no
 01000683=1,13,0,305
 01000685=2,13,0,15,36,0,3
 01000687=1,13,0,305
-01000694=2,13,0,1380,36,0,0
-01000696=2,13,0,1880,36,0,0
-01000698=2,13,0,2380,36,0,0
+01000694=2,13,0,1350,36,0,0
+01000696=2,13,0,1850,36,0,0
+01000698=2,13,0,2350,36,0,0
 01000700=2,13,0,2890,36,0,0
 01000702=2,13,0,3865,36,0,0
 01000704=2,13,0,2400,36,0,0
@@ -17101,19 +17137,19 @@ SubjectToElevation=no
 01000782=2,51,0,45,36,0,3
 01000784=2,13,0,3700,36,0,0
 01000786=1,13,0,3610
-01000788=2,13,0,1380,36,0,1
-01000790=2,13,0,1380,36,0,2
-01000792=2,13,0,1380,36,0,3
-01000794=1,13,0,1380
-01000796=2,13,0,1880,36,0,1
-01000798=2,13,0,1880,36,0,2
+01000788=2,13,0,1350,36,0,1
+01000790=2,13,0,1350,36,0,2
+01000792=2,13,0,1350,36,0,3
+01000794=1,13,0,1350
+01000796=2,13,0,1850,36,0,1
+01000798=2,13,0,1850,36,0,2
 01000800=2,13,0,3860,36,0,0
-01000802=2,13,0,1880,36,0,3
-01000804=1,13,0,1880
-01000806=2,13,0,2380,36,0,1
-01000808=2,13,0,2380,36,0,2
-01000810=2,13,0,2380,36,0,3
-01000812=1,13,0,2380
+01000802=2,13,0,1850,36,0,3
+01000804=1,13,0,1850
+01000806=2,13,0,2350,36,0,1
+01000808=2,13,0,2350,36,0,2
+01000810=2,13,0,2350,36,0,3
+01000812=1,13,0,2350
 01000814=2,13,0,2890,36,0,1
 01000816=2,13,0,4020,36,0,0
 01000818=2,13,0,2890,36,0,2
@@ -17285,7 +17321,7 @@ SubjectToElevation=no
 01001269=1,13,0,3100
 
 [FA2spVersionControl]
-Version=861
+Version=862
 
 [FLAKT]
 Prerequisite=NAHAND
@@ -20288,6 +20324,10 @@ RadarInvisible=yes
 72=01001266
 73=01001267
 74=01001268
+75=01001271
+76=01001272
+77=01001273
+78=01001274
 
 [Special]
 IQ=0
@@ -22005,4 +22045,4 @@ BuildLimit=10
 TargetDistanceCoefficient=-1
 
 [Digest]
-1=PNZ/KT3wlDgdOzAj0oUDeDkohHw=
+1=Yq1GDyKs6uxFrK3PLMVAbMaWd9k=
