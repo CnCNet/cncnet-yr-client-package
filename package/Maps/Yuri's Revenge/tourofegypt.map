@@ -1570,10 +1570,10 @@ DestroyableBridges=yes
 1021910=Neutral,INREDLMP,256,77,16,0,None,0,0,1,0,0,None,None,None,0,0
 1021911=Neutral,INREDLMP,256,79,78,0,None,0,0,1,0,0,None,None,None,0,0
 1021912=Neutral,INBLULMP,256,53,51,0,None,0,0,1,0,0,None,None,None,0,0
-1021913=Neutral,CAEGYP02,256,36,61,0,None,0,0,1,0,0,None,None,None,0,0
-1021914=Neutral,CAEGYP02,256,72,96,0,None,0,0,1,0,0,None,None,None,0,0
-1021915=Neutral,CAEGYP02,256,60,31,0,None,0,0,1,0,0,None,None,None,0,0
-1021916=Neutral,CAEGYP02,256,104,73,0,None,0,0,1,0,0,None,None,None,0,0
+1021913=Neutral,CAEGYPT_YRO,256,36,61,0,None,0,0,1,0,0,None,None,None,0,0
+1021914=Neutral,CAEGYPT_YRO,256,72,96,0,None,0,0,1,0,0,None,None,None,0,0
+1021915=Neutral,CAEGYPT_YRO,256,60,31,0,None,0,0,1,0,0,None,None,None,0,0
+1021916=Neutral,CAEGYPT_YRO,256,104,73,0,None,0,0,1,0,0,None,None,None,0,0
 
 [Tags]
 0988F75C=0,@Sounds,0988AF3C
