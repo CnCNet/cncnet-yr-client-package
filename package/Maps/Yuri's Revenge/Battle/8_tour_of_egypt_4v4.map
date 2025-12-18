@@ -2084,14 +2084,14 @@ DestroyableBridges=yes
 
 [Structures]
 0=Neutral,INBLULMP,256,55,116,64,None,1,0,1,0,0,None,None,None,0,0
-1=Neutral,CAEGYPT_YRO,256,96,121,64,None,1,0,1,0,0,None,None,None,0,0
-2=Neutral,CAEGYPT_YRO,256,76,101,0,None,0,0,1,0,0,None,None,None,0,0
-3=Neutral,CAEGYPT_YRO,256,54,79,64,None,1,0,1,0,0,None,None,None,0,0
-4=Neutral,CAEGYPT_YRO,256,128,95,64,None,1,0,1,0,0,None,None,None,0,0
-8=Neutral,CAEGYPT_YRO,256,33,57,0,None,0,0,1,0,0,None,None,None,0,0
-10=Neutral,CAEGYPT_YRO,256,59,30,0,None,0,0,1,0,0,None,None,None,0,0
-11=Neutral,CAEGYPT_YRO,256,107,76,0,None,0,0,1,0,0,None,None,None,0,0
-16=Neutral,CAEGYPT_YRO,256,78,49,64,None,1,0,1,0,0,None,None,None,0,0
+1=Neutral,CAEGYP02,256,96,121,64,None,1,0,1,0,0,None,None,None,0,0
+2=Neutral,CAEGYP02,256,76,101,0,None,0,0,1,0,0,None,None,None,0,0
+3=Neutral,CAEGYP02,256,54,79,64,None,1,0,1,0,0,None,None,None,0,0
+4=Neutral,CAEGYP02,256,128,95,64,None,1,0,1,0,0,None,None,None,0,0
+8=Neutral,CAEGYP02,256,33,57,0,None,0,0,1,0,0,None,None,None,0,0
+10=Neutral,CAEGYP02,256,59,30,0,None,0,0,1,0,0,None,None,None,0,0
+11=Neutral,CAEGYP02,256,107,76,0,None,0,0,1,0,0,None,None,None,0,0
+16=Neutral,CAEGYP02,256,78,49,64,None,1,0,1,0,0,None,None,None,0,0
 18=Neutral,CAMSC02,256,119,116,64,None,1,0,1,0,0,None,None,None,0,0
 19=Neutral,CAMSC02,256,122,113,64,None,1,0,1,0,0,None,None,None,0,0
 20=Neutral,CAMSC05,256,119,117,64,None,1,0,1,0,0,None,None,None,0,0
