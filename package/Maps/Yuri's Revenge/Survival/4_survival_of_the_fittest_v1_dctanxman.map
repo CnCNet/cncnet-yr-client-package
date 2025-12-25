@@ -1051,7 +1051,7 @@ GuardSlower=no
 OnTransOnly=no
 AvoidThreats=no
 LooseRecruit=yes
-VeteranLevel=2
+VeteranLevel=1
 IsBaseDefense=no
 UseTransportOrigin=no
 MindControlDecision=0
@@ -1085,7 +1085,7 @@ GuardSlower=no
 OnTransOnly=no
 AvoidThreats=no
 LooseRecruit=yes
-VeteranLevel=2
+VeteranLevel=1
 IsBaseDefense=no
 UseTransportOrigin=no
 MindControlDecision=0
@@ -1119,7 +1119,7 @@ GuardSlower=no
 OnTransOnly=no
 AvoidThreats=no
 LooseRecruit=yes
-VeteranLevel=2
+VeteranLevel=1
 IsBaseDefense=no
 UseTransportOrigin=no
 MindControlDecision=0
@@ -1153,7 +1153,7 @@ GuardSlower=no
 OnTransOnly=no
 AvoidThreats=no
 LooseRecruit=yes
-VeteranLevel=2
+VeteranLevel=1
 IsBaseDefense=no
 UseTransportOrigin=no
 MindControlDecision=0
@@ -1187,7 +1187,7 @@ GuardSlower=no
 OnTransOnly=no
 AvoidThreats=no
 LooseRecruit=yes
-VeteranLevel=2
+VeteranLevel=1
 IsBaseDefense=no
 UseTransportOrigin=no
 MindControlDecision=0
@@ -1221,7 +1221,7 @@ GuardSlower=no
 OnTransOnly=no
 AvoidThreats=no
 LooseRecruit=yes
-VeteranLevel=2
+VeteranLevel=1
 IsBaseDefense=no
 UseTransportOrigin=no
 MindControlDecision=0
@@ -1255,7 +1255,7 @@ GuardSlower=no
 OnTransOnly=no
 AvoidThreats=no
 LooseRecruit=yes
-VeteranLevel=2
+VeteranLevel=1
 IsBaseDefense=no
 UseTransportOrigin=no
 MindControlDecision=0
@@ -1289,7 +1289,7 @@ GuardSlower=no
 OnTransOnly=no
 AvoidThreats=no
 LooseRecruit=yes
-VeteranLevel=2
+VeteranLevel=1
 IsBaseDefense=no
 UseTransportOrigin=no
 MindControlDecision=0
@@ -1665,15 +1665,14 @@ Group=-1
 0=1,BFRT
 1=1,SHK
 2=3,GGI
-3=1,GHOST
+3=1,BORIS
 Name=B002
 Group=-1
 
 [01000149]
 0=1,BFRT
 1=3,YURI
-2=1,GGI
-3=1,TANY
+2=2,GGI
 Name=B003
 Group=-1
 
@@ -1690,7 +1689,7 @@ Group=-1
 1=3,DCTANXMANMIND
 2=3,DCTANXMANSREF
 3=3,GGI
-4=3,YURIPR
+4=1,YURIPR
 Name=B005
 Group=-1
 
@@ -1727,11 +1726,10 @@ Name=Power
 
 [01000157]
 0=14,0
-1=16,99
-2=0,7
-3=0,5
-4=0,2
-5=6,3
+1=0,7
+2=0,5
+3=0,2
+4=6,2
 Name=BFRT1
 
 [01000158]
@@ -11370,7 +11368,7 @@ Full=no
 Name=B001@D
 Group=-1
 House=Neutral
-Script=01000650
+Script=01000157
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11423,11 +11421,10 @@ Name=Air@32
 Name=Air@33
 
 [01000650]
-0=14,0
-1=0,7
-2=0,5
-3=0,2
-4=6,2
+0=0,7
+1=0,5
+2=0,2
+3=6,1
 Name=BFRT2
 
 [01000656]
@@ -11572,7 +11569,7 @@ Full=no
 Name=B002@D
 Group=-1
 House=Neutral
-Script=01000650
+Script=01000157
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11742,7 +11739,7 @@ Full=no
 Name=B003@D
 Group=-1
 House=Neutral
-Script=01000650
+Script=01000157
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11772,11 +11769,11 @@ AreTeamMembersRecruitable=no
 
 [01000668]
 Max=5
-Full=no
+Full=yes
 Name=B004@P1
 Group=-1
 House=Neutral
-Script=01000935
+Script=01001271
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11806,11 +11803,11 @@ AreTeamMembersRecruitable=no
 
 [01000669]
 Max=5
-Full=no
+Full=yes
 Name=B004@P2
 Group=-1
 House=Neutral
-Script=01000936
+Script=01001272
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11840,11 +11837,11 @@ AreTeamMembersRecruitable=no
 
 [01000670]
 Max=5
-Full=no
+Full=yes
 Name=B004@P3
 Group=-1
 House=Neutral
-Script=01000937
+Script=01001273
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11874,11 +11871,11 @@ AreTeamMembersRecruitable=no
 
 [01000671]
 Max=5
-Full=no
+Full=yes
 Name=B004@P4
 Group=-1
 House=Neutral
-Script=01000938
+Script=01001274
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11908,7 +11905,7 @@ AreTeamMembersRecruitable=no
 
 [01000672]
 Max=5
-Full=no
+Full=yes
 Name=B004@D
 Group=-1
 House=Neutral
@@ -11942,11 +11939,11 @@ AreTeamMembersRecruitable=no
 
 [01000673]
 Max=5
-Full=no
+Full=yes
 Name=B005@P1
 Group=-1
 House=Neutral
-Script=01000935
+Script=01001271
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -11976,11 +11973,11 @@ AreTeamMembersRecruitable=no
 
 [01000674]
 Max=5
-Full=no
+Full=yes
 Name=B005@P2
 Group=-1
 House=Neutral
-Script=01000936
+Script=01001272
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -12010,11 +12007,11 @@ AreTeamMembersRecruitable=no
 
 [01000675]
 Max=5
-Full=no
+Full=yes
 Name=B005@P3
 Group=-1
 House=Neutral
-Script=01000937
+Script=01001273
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -12044,11 +12041,11 @@ AreTeamMembersRecruitable=no
 
 [01000676]
 Max=5
-Full=no
+Full=yes
 Name=B005@P4
 Group=-1
 House=Neutral
-Script=01000938
+Script=01001274
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -12078,7 +12075,7 @@ AreTeamMembersRecruitable=no
 
 [01000677]
 Max=5
-Full=no
+Full=yes
 Name=B005@D
 Group=-1
 House=Neutral
@@ -12469,7 +12466,7 @@ Name=V3Attack2
 
 [01000864]
 0=1,DCTANXMANBFRT
-1=2,DCTANXMANMIND
+1=3,DCTANXMANMIND
 2=3,DCTANXMANSREF
 3=5,GGI
 4=3,YURIPR
@@ -12648,11 +12645,11 @@ AreTeamMembersRecruitable=no
 
 [01000886]
 Max=5
-Full=no
+Full=yes
 Name=B006@P1
 Group=-1
 House=Neutral
-Script=01000935
+Script=01001271
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -12682,11 +12679,11 @@ AreTeamMembersRecruitable=no
 
 [01000887]
 Max=5
-Full=no
+Full=yes
 Name=B006@P2
 Group=-1
 House=Neutral
-Script=01000936
+Script=01001272
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -12716,11 +12713,11 @@ AreTeamMembersRecruitable=no
 
 [01000888]
 Max=5
-Full=no
+Full=yes
 Name=B006@P3
 Group=-1
 House=Neutral
-Script=01000937
+Script=01001273
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -12750,11 +12747,11 @@ AreTeamMembersRecruitable=no
 
 [01000889]
 Max=5
-Full=no
+Full=yes
 Name=B006@P4
 Group=-1
 House=Neutral
-Script=01000938
+Script=01001274
 Whiner=no
 Droppod=no
 Suicide=yes
@@ -12784,7 +12781,7 @@ AreTeamMembersRecruitable=no
 
 [01000890]
 Max=5
-Full=no
+Full=yes
 Name=B006@D
 Group=-1
 House=Neutral
@@ -12823,7 +12820,7 @@ AreTeamMembersRecruitable=no
 3=0,5
 4=0,2
 5=6,3
-Name=BFRTA
+Name=BFRTA1
 
 [01000936]
 0=14,0
@@ -12832,7 +12829,7 @@ Name=BFRTA
 3=0,5
 4=0,2
 5=6,3
-Name=BFRTB
+Name=BFRTB1
 
 [01000937]
 0=14,0
@@ -12841,7 +12838,7 @@ Name=BFRTB
 3=0,5
 4=0,2
 5=6,3
-Name=BFRTC
+Name=BFRTC1
 
 [01000938]
 0=14,0
@@ -12850,7 +12847,7 @@ Name=BFRTC
 3=0,5
 4=0,2
 5=6,3
-Name=BFRTD
+Name=BFRTD1
 
 [01000939]
 Max=5
@@ -15067,6 +15064,38 @@ Name=Clone@C
 2=6,2
 Name=Clone@D
 
+[01001271]
+0=16,90
+1=0,7
+2=0,5
+3=0,2
+4=6,2
+Name=BFRTA2
+
+[01001272]
+0=16,91
+1=0,7
+2=0,5
+3=0,2
+4=6,2
+Name=BFRTB2
+
+[01001273]
+0=16,92
+1=0,7
+2=0,5
+3=0,2
+4=6,2
+Name=BFRTC2
+
+[01001274]
+0=16,93
+1=0,7
+2=0,5
+3=0,2
+4=6,2
+Name=BFRTD2
+
 [20mmRapidEx]
 ROF=40
 Anim=GUNFIRE
@@ -15402,7 +15431,7 @@ VeteranAbilities=STRONGER,FIREPOWER,ROF
 01001010=2,80,1,01000496,0,0,0,0,O,80,1,01000497,0,0,0,0,P
 01001012=2,80,1,01000498,0,0,0,0,Q,80,1,01000499,0,0,0,0,R
 01001014=2,80,1,01000498,0,0,0,0,Q,80,1,01000499,0,0,0,0,R
-01001016=1,119,0,12,0,0,0,0,A
+01001016=2,2,0,12,0,0,0,0,A,119,0,12,0,0,0,0,A
 01001018=1,53,2,01001020,0,0,0,0,A
 01001020=2,11,4,NOSTR:You Must Kill All,0,0,0,0,A,11,4,NOSTR:In Order To WIN....,0,0,0,0,A
 01001022=1,107,1,01000881,0,0,0,0,AP
@@ -15620,7 +15649,7 @@ TargetDistanceCoefficient=-1
 Name=[4] Survival Of The Fittest V1 - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-Multi-MCV ~ Enabled@-Build AA Or ~ Lose@-First 4 Waves ~ Infantry@@-Game Speed ~ 30fps@-Single Player or Multi Players@@------------------------------@--Difficulty = Very Hard--@------------------------------@@By Dctanxman® ~Official Final Version©
+Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-Multi-MCV ~ Enabled@-Build AA Or ~ Lose@-First 4 Waves ~ Infantry@@-Game Speed ~ 30fps@-Single Player or Multi Players@@----------------------------@--Difficulty = Very Hard--@----------------------------@@By Dctanxman® ~Official Final Version©
 GameMode=standard
 HomeCell=98
 InitTime=10000
@@ -16052,7 +16081,7 @@ AllowedToStartInMultiplayer=no
 ROT=5
 Cost=1750
 Name=Apocalypse
-Size=10000
+Size=9999
 Armor=heavy
 Image=MTNK
 Owner=Russians,Confederation,Africans,Arabs
@@ -16062,7 +16091,7 @@ Crewed=no
 Points=60
 Turret=yes
 UIName=NOSTR:Upgraded Apocalypse
-Weight=10000
+Weight=9999
 Crusher=yes
 Primary=120mmx
 Soylent=1750
@@ -16353,7 +16382,7 @@ AllowedToStartInMultiplayer=no
 ROT=5
 Cost=1400
 Name=War Miner
-Size=10000
+Size=9999
 Armor=medium
 Image=HARV
 Owner=Russians,Confederation,Africans,Arabs
@@ -16363,7 +16392,7 @@ Crewed=no
 Points=55
 Turret=yes
 UIName=NOSTR:Upgraded War Miner
-Weight=10000
+Weight=9999
 Crusher=yes
 Nominal=yes
 Primary=20mmRapid
@@ -16415,7 +16444,7 @@ AllowedToStartInMultiplayer=no
 ROT=5
 Cost=750
 Name=Howitzer
-Size=3
+Size=9999
 Armor=light
 Image=HWTZ
 Owner=British,French,Germans,Americans,Alliance
@@ -16424,7 +16453,7 @@ Speed=5
 Points=25
 Turret=no
 UIName=NOSTR:Upgraded Howitzer
-Weight=4
+Weight=9999
 Crusher=yes
 Primary=HowitzerGunE
 Soylent=750
@@ -17070,15 +17099,15 @@ SubjectToElevation=no
 01000694=2,13,0,1350,36,0,0
 01000696=2,13,0,1850,36,0,0
 01000698=2,13,0,2350,36,0,0
-01000700=2,13,0,2850,36,0,0
-01000702=2,13,0,3800,36,0,0
+01000700=2,13,0,2890,36,0,0
+01000702=2,13,0,3865,36,0,0
 01000704=2,13,0,2400,36,0,0
 01000718=2,13,0,3190,36,0,0
 01000720=2,13,0,2700,36,0,0
 01000722=2,13,0,3190,36,0,1
 01000724=2,13,0,3190,36,0,2
 01000726=2,13,0,3190,36,0,3
-01000728=2,13,0,4852,36,0,0
+01000728=2,13,0,4900,36,0,0
 01000730=2,51,0,45,36,0,0
 01000732=2,13,0,1110,36,0,1
 01000734=2,13,0,1110,36,0,2
@@ -17121,19 +17150,19 @@ SubjectToElevation=no
 01000808=2,13,0,2350,36,0,2
 01000810=2,13,0,2350,36,0,3
 01000812=1,13,0,2350
-01000814=2,13,0,2850,36,0,1
+01000814=2,13,0,2890,36,0,1
 01000816=2,13,0,4020,36,0,0
-01000818=2,13,0,2850,36,0,2
-01000820=2,13,0,2850,36,0,3
-01000822=1,13,0,2850
-01000824=2,13,0,3800,36,0,1
-01000826=2,13,0,3800,36,0,2
-01000828=2,13,0,3800,36,0,3
-01000830=1,13,0,3800
+01000818=2,13,0,2890,36,0,2
+01000820=2,13,0,2890,36,0,3
+01000822=1,13,0,2890
+01000824=2,13,0,3865,36,0,1
+01000826=2,13,0,3865,36,0,2
+01000828=2,13,0,3865,36,0,3
+01000830=1,13,0,3865
 01000832=2,13,0,4210,36,0,0
-01000834=2,13,0,4852,36,0,1
-01000836=2,13,0,4852,36,0,2
-01000838=2,13,0,4852,36,0,3
+01000834=2,13,0,4900,36,0,1
+01000836=2,13,0,4900,36,0,2
+01000838=2,13,0,4900,36,0,3
 01000840=2,13,0,1445,36,0,0
 01000842=1,13,0,10
 01000846=7,13,0,5300,61,2,0,DCTANXMANHARV,61,2,0,DCTANXMANAPOCC,61,2,0,DCTANXMANCMIN,61,2,0,DCTANXMANTELE,61,2,0,DCTANXMANHOWI,61,2,0,DCTANXMANAPOC
@@ -17285,14 +17314,14 @@ SubjectToElevation=no
 01001251=2,13,0,4950,36,0,1
 01001253=2,13,0,4950,36,0,2
 01001255=2,13,0,4950,36,0,3
-01001257=2,13,0,4865,36,0,0
-01001259=2,13,0,4865,36,0,1
-01001261=2,13,0,4865,36,0,2
-01001263=2,13,0,4865,36,0,3
+01001257=2,13,0,4920,36,0,0
+01001259=2,13,0,4920,36,0,1
+01001261=2,13,0,4920,36,0,2
+01001263=2,13,0,4920,36,0,3
 01001269=1,13,0,3100
 
 [FA2spVersionControl]
-Version=859
+Version=862
 
 [FLAKT]
 Prerequisite=NAHAND
@@ -17324,9 +17353,11 @@ Projectile=FlakProj
 
 [ForcedOptions]
 chkNoSpy=false
+chkCrates=true
 chkNoYuri=false
 chkRA2Mode=false
 cmbCredits=0
+chkBrutalAI=false
 chkMultiEng=false
 chkNoFrance=false
 chkRedeplMCV=true
@@ -17338,16 +17369,14 @@ chkBuildOffAlly=false
 chkDestrBridges=false
 chkNoDogEngiEat=false
 chkNoStolenTech=false
+cmbGameSpeedCap=2
 cmbStartingUnits=0
+chkNoYuriNoFrance=false
 cmbCratesModifier=1
 chkNoSpawnPreviews=false
 chkDisableGameSpeed=true
 cmbGameSpeedCapSkirmish=2
 cmbGameSpeedCapMultiplayer=2
-chkCrates=true
-chkNoYuriNoFrance=false
-cmbGameSpeedCap=2
-chkBrutalAI=false
 
 [French]
 IQ=0
@@ -20295,6 +20324,10 @@ RadarInvisible=yes
 72=01001266
 73=01001267
 74=01001268
+75=01001271
+76=01001272
+77=01001273
+78=01001274
 
 [Special]
 IQ=0
@@ -22012,4 +22045,4 @@ BuildLimit=10
 TargetDistanceCoefficient=-1
 
 [Digest]
-1=+lrry0vO8V4KWFos3jI34WVtsJo=
+1=Yq1GDyKs6uxFrK3PLMVAbMaWd9k=
