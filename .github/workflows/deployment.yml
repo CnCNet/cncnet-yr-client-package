@@ -8,6 +8,7 @@ on:
     branches:
       - develop
       - pre-release
+      - legacy
       - feature/*
       - hotfix/*
 
