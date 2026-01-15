@@ -1,5 +1,5 @@
 [Basic]
-Name=[8] Oceania (Author's Mod) ; v6.1n for CNCNET. With day-night cycle. Map created in 2019 with FinalAlert 2. Updated in 2025
+Name=[8] Oceania (Author's Mod) ; v6.1.1n for CNCNET. With day-night cycle. Map created in 2019 with FinalAlert 2. Updated in 2025
 Author=CCCP84 ; Andrey Lesiak
 ; Day-Night Cycle by CCCP84. Made in 2022. v1.2 - 60 min
 GameMode=standard
@@ -937,6 +937,8 @@ Points=200
 
 [CombatDamage]
 IronCurtainDuration=1500
+V3EliteWarhead=V3EWH
+DMislEliteWarhead=DMISLEWH
 
 [IronCurtainSpecial]
 RechargeTime=20

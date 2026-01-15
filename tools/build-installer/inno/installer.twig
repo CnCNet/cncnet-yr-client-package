@@ -199,11 +199,11 @@ function DefaultDir(Param: String): String;
 var
   gamepath: String;
 begin
-  gamepath:=ExtractFilePath(ExpandConstant('{reg:HKLM\{cm:GameRegEng},InstallPath|{cm:DefaultGamePathEng}}'));
+  gamepath:=ExtractFilePath(ExpandConstant('{reg:HKLM32\{cm:GameRegEng},InstallPath|{cm:DefaultGamePathEng}}'));
   if (not FileExists(gamepath+ExpandConstant('\{cm:CheckFile}'))) then
-    gamepath:=ExpandConstant('{reg:HKLM\{cm:TFDReg},r2_folder|{pf}\{cm:TFDDirEnglish}}');
+    gamepath:=ExpandConstant('{reg:HKLM32\{cm:TFDReg},r2_folder|{pf}\{cm:TFDDirEnglish}}');
   if (not FileExists(gamepath+ExpandConstant('\{cm:CheckFile}'))) then
-    gamepath:=ExpandConstant('{reg:HKLM\{cm:OriginReg},Install Dir|{pf}\{cm:OriginDir}}');
+    gamepath:=ExpandConstant('{reg:HKLM32\{cm:OriginReg},Install Dir|{pf}\{cm:OriginDir}}');
   if (not FileExists(gamepath+ExpandConstant('\{cm:CheckFile}'))) then
     gamepath:=ExpandConstant('{pf}\{cm:TFDDirEnglish}');
   if (not FileExists(gamepath+ExpandConstant('\{cm:CheckFile}'))) then

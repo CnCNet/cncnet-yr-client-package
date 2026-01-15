@@ -23,6 +23,7 @@
 /package/movmd03.mix
 /package/multi.mix
 /package/multimd.mix
+/package/stats.dmp
 /package/QM/*.txt
 /package/Qt/QM/
 /package/ra2.mix
@@ -47,4 +48,15 @@
 /package.tar.gz
 /tools/node_modules
 /Client/
-package/Map Editor/FinalSun.ini
+/package/Map Editor/FinalSun.ini
+
+/package/cameo.mix
+/package/cameomd.mix
+/package/cncnet.fnt
+/package/game.fnt
+/package/grfxtxt.shp
+/package/ra2.csf
+/package/ra2md.csf
+/package/stringtable*.csf
+/package/subtitle.txt
+/package/subtitlemd.txt

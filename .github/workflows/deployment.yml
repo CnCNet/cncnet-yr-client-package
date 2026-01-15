@@ -8,6 +8,7 @@ on:
     branches:
       - develop
       - pre-release
+      - legacy
       - feature/*
       - hotfix/*
 
@@ -37,7 +38,17 @@ jobs:
           submodules: true
           fetch-depth: 0 # required for gitversion
 
+      # Restore Tools NPM Libs from Cache
+      - name: Restore Tools NPM Libs from Cache
+        id: npm-cache
+        uses: actions/cache@v4
+        with:
+          path: tools/node_modules
+          key: ${{ runner.os }}-node-tools-${{ hashFiles('tools/package-lock.json', 'tools/package.json') }}
+          restore-keys: ${{ runner.os }}-node-tools-
+
       - name: Install Tools NPM Libs
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         working-directory: tools
         run: npm ci
 
@@ -102,21 +113,21 @@ jobs:
       # Upload package archive (tar.gz) to any relevant releases for current tag
       # If there is no release/tag, this will not do anything
       - name: Upload Package Release Asset (tar.gz)
-        if: github.event_name == 'release'
+        if: github.event_name == 'release' && github.event.action == 'published'
         working-directory: tools
         run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName "package_${{env.GitVersion_SemVer}} (tar.gz)" --assetPath ../package.tar.gz
 
       # Upload package archive (zip) to any relevant releases for current tag
       # If there is no release/tag, this will not do anything
       - name: Upload Package Release Asset (zip)
-        if: github.event_name == 'release'
+        if: github.event_name == 'release' && github.event.action == 'published'
         working-directory: tools
         run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName "package_${{env.GitVersion_SemVer}} (zip)" --assetPath ../package.zip
 
       # Upload installer to any relevant releases for current tag
       # If there is no release/tag, this will not do anything
       - name: Upload Installer Release Asset
-        if: github.event_name == 'release'
+        if: github.event_name == 'release' && github.event.action == 'published'
         working-directory: tools
         run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName "CnCNet5_YR_Installer_${{env.GitVersion_SemVer}} (exe)" --assetPath ../CnCNet5_YR_Installer.exe
 
@@ -135,9 +146,17 @@ jobs:
         with:
           name: package
 
+      # Download the installer artifact (only for published releases)
+      - name: Get installer artifact
+        if: github.event_name == 'release' && github.event.action == 'published'
+        uses: actions/download-artifact@v4
+        with:
+          name: installer
+
       # Deploy the package to the server
       - name: Deploy package
-        uses: appleboy/scp-action@master
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
+        uses: appleboy/scp-action@7179e72a3fa4d4c33870a471708fda724fae7596
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -150,7 +169,8 @@ jobs:
 
       # Extract the deployed package on the server
       - name: Extract the deployed package
-        uses: appleboy/ssh-action@v0.1.7
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
+        uses: appleboy/ssh-action@d91a1af6f57cd4478ceee14d7705601dafabaa19
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -163,15 +183,31 @@ jobs:
             rm ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/package.tar.gz
             chmod 777 --recursive ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/*
 
+      # Upload the installer executable to the server
+      - name: Upload installer
+        # This should be done for published releases only!
+        if: github.event_name == 'release' && github.event.action == 'published'
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
+        uses: appleboy/scp-action@7179e72a3fa4d4c33870a471708fda724fae7596
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          passphrase: ${{ secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          overwrite: true
+          source: "CnCNet5_YR_Installer.exe"
+          target: "${{ secrets.PUBLICDOWNLOADFOLDER }}CnCNet5_YR_Installer.exe"
+
       # Create/update a mirror link for client update purposes, using the GitVersion pre release label as the link name.
       # See the file "GitVersion.yml" for more details on the name that will be used for a given branch.
       # Ex: if the branch name is "develop", it will create a link of "dev" to point to the directory "updates/X.Y.Z-dev".
       # Then, client users can use the path "/updates/games/yr/develop/" for their UpdaterConfig.ini file.
       # This will keep develop and feature branch update mirror links up to date as soon as the deploy has occurred.
       - name: Update mirror link
-        uses: appleboy/ssh-action@v0.1.7
-        # RUN ON NON-RELEASES ONLY. RELEASE VERSION LINKS SHOULD CONTINUE TO BE UPDATED MANUALLY, FOR NOW.
-        if: github.event_name != 'release'
+        if: needs.build-package.outputs.mirrorLinkName != ''
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
+        uses: appleboy/ssh-action@d91a1af6f57cd4478ceee14d7705601dafabaa19
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}

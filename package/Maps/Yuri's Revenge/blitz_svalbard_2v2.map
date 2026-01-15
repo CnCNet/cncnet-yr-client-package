@@ -3082,7 +3082,7 @@ TiberiumExplosive=no
 DestroyableBridges=yes
 
 [Structures]
-0=Neutral,CALA03,256,96,133,64,None,1,0,1,0,0,None,None,None,0,0
+0=Neutral,CALA03A,256,96,133,64,None,1,0,1,0,0,None,None,None,0,0
 1=Neutral,CAMSC06,256,97,136,64,None,1,0,1,0,0,None,None,None,0,0
 2=Neutral,CAOILD6,256,130,63,64,01000005,1,0,1,0,0,None,None,None,0,0
 3=Neutral,CAOILD6,256,63,134,64,01000001,1,0,1,0,0,None,None,None,0,0
