@@ -52,149 +52,148 @@ jobs:
         if ($currentVersion -eq $downloadVersion)
         {
           echo "Update is not required"
+          exit
+        }
+        
+        echo "Update required"
+
+        # Check if branch exist
+        $branch_exist = 'false'
+        gh pr list | Where-Object {$_.Contains('${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}')} | ForEach-Object { $branch_exist = 'true' }
+        if ($branch_exist -eq 'true')
+        {
+          echo "Branch ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }} already exist. Skip updating."
+          exit
+        }
+        
+        # Configure git
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+        # Make update branch
+        git checkout -b ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}
+        
+        # Delete old binaries, unpack archive, remove archive
+        rm -r -fo "$clientDir\Resources\Binaries"
+        rm -r -fo "$clientDir\Resources\BinariesNET8"
+        7z x xna-cncnet-client-*.7z -y -oTEMPORARY
+        cp -r -fo "TEMPORARY\Resources\*" "$clientDir\Resources\"
+        rm -r -fo TEMPORARY
+        rm xna-cncnet-client-*.7z
+
+        # Commit changes
+        git add *
+        git commit -m "${{ env.COMMIT_MESSAGE }}"
+
+        # Path to the updateexec file
+        $updateExecPath = "$clientDir\updateexec"
+
+        # Check if the updateexec file exists
+        if (-Not (Test-Path -Path $updateExecPath))
+        {
+          echo "The file 'updateexec' does not exist. Skip updating [Delete] section."
         }
         else
         {
-          echo "Update required"
+          # Get the deleted and moved files from git diff
+          $deletedFiles = git diff --diff-filter=D --name-status HEAD~1 HEAD | Where-Object { $_.StartsWith('D') } | ForEach-Object { $_.Substring(1).Trim().Replace('/', '\') }
+          $deletedFiles += [Environment]::NewLine
+          $deletedFiles += git diff --diff-filter=R --name-status --diff-filter=R HEAD~1 HEAD | Where-Object { $_.StartsWith('R100') } | ForEach-Object { $_.Substring(4).Trim().Split(' ')[0].Replace('/', '\') }
+          $deletedFiles = $deletedFiles.Trim().Trim([Environment]::NewLine)
 
-          # Check if branch exist
-          $branch_exist = 'false'
-          gh pr list | Where-Object {$_.Contains('${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}')} | ForEach-Object { $branch_exist = 'true' }
-          if ($branch_exist -eq 'true')
+          # Skip update if there is no deleted files
+          if ($deletedFiles -eq [String]::Empty)
           {
-            echo "Branch ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }} already exist. Skip updating."
+            echo "Delete files list is empty. Skip updating 'updateexec'."
           }
           else
           {
-            # Configure git
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-
-            # Make update branch
-            git checkout -b ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}
-            
-            # Delete old binaries, unpack archive, remove archive
-            rm -r -fo "$clientDir\Resources\Binaries"
-            rm -r -fo "$clientDir\Resources\BinariesNET8"
-            7z x xna-cncnet-client-*.7z -y -oTEMPORARY
-            cp -r -fo "TEMPORARY\Resources\*" "$clientDir\Resources\"
-            rm -r -fo TEMPORARY
-            rm xna-cncnet-client-*.7z
-
-            # Commit changes
-            git commit -am "${{ env.COMMIT_MESSAGE }}"
-
-            # Path to the updateexec file
-            $updateExecPath = "$clientDir\updateexec"
-
-            # Check if the updateexec file exists
-            if (-Not (Test-Path -Path $updateExecPath))
+            # If exclude is empty, ignore
+            if ($exclude.Length -ne 0)
             {
-              echo "The file 'updateexec' does not exist. Skip updating [Delete] section."
-            }
-            else
-            {
-              # Get the deleted and moved files from git diff
-              $deletedFiles = git diff --diff-filter=D --name-status HEAD~1 HEAD | Where-Object { $_.StartsWith('D') } | ForEach-Object { $_.Substring(1).Trim().Replace('/', '\') }
-              $deletedFiles += [Environment]::NewLine
-              $deletedFiles += git diff --diff-filter=R --name-status --diff-filter=R HEAD~1 HEAD | Where-Object { $_.StartsWith('R100') } | ForEach-Object { $_.Substring(4).Trim().Split(' ')[0].Replace('/', '\') }
-              $deletedFiles = $deletedFiles.Trim().Trim([Environment]::NewLine)
-
-              # Skip update if there is no deleted files
-              if ($deletedFiles -eq [String]::Empty)
+              # Clearing delete files from exclude path
+              $tmp = ""
+              foreach($delete_file in $deletedFiles)
               {
-                echo "Delete files list is empty. Skip updating 'updateexec'."
-              }
-              else
-              {
-                # If exclude is empty, ignore
-                if ($exclude.Length -ne 0)
+                if ($delete_file.StartsWith($exclude + '\'))
                 {
-                  # Clearing delete files from exclude path
-                  $tmp = ""
-                  foreach($delete_file in $deletedFiles)
-                  {
-                    if ($delete_file.StartsWith($exclude + '\'))
-                    {
-                      $tmp += ($delete_file.Remove(0, ($exclude.Length + 1)))
-                      $tmp += [Environment]::NewLine
-                    }
-                    else
-                    {
-                      $tmp += $delete_file
-                      $tmp += [Environment]::NewLine
-                    }
-                  }
-                  $deletedFiles = $tmp
-                }
-
-                # Check if there are any deleted files
-                if ($deletedFiles.Count -eq 0)
-                {
-                    echo "No deleted files found in the git diff. Skip updating [Delete] section."
+                  $tmp += ($delete_file.Remove(0, ($exclude.Length + 1)))
+                  $tmp += [Environment]::NewLine
                 }
                 else
                 {
-                  # Read the content of the updateexec file
-                  $updateexecContent_old = Get-Content -Path $updateExecPath
-                  $updateexecContent_new = ""
-
-                  # Find the [Delete] section and its position
-                  $deleteSectionIndex = $updateexecContent_old.IndexOf("[Delete]")
-
-                  # If not exist, create
-                  if ($deleteSectionIndex -eq -1)
-                  {
-                    $updateexecContent_old += [Environment]::NewLine
-                    $updateexecContent_old += "[Delete]"
-                    $deleteSectionIndex = $updateexecContent_old.IndexOf("[Delete]")
-                  }
-
-                  # Exclude path from string for config
-                  $exclude = "${{ env.CLIENT_PATH }}"
-
-                  # Iterate all content of old updateexec
-                  foreach($old_line in $updateexecContent_old)
-                  {
-                    $index = $updateexecContent_old.IndexOf($old_line)
-                    $updateexecContent_new += $old_line + [Environment]::NewLine
-
-                    # If we find section [Delete], add new deleted files
-                    if ($deleteSectionIndex -eq $index)
-                    {
-                      $updateexecContent_new += "; ${{ steps.download.outputs.tag_name }} (auto-generated entries for removed/renamed files)" + [Environment]::NewLine
-                      
-                      foreach($new_delete in $deletedFiles)
-                      {
-                        $updateexecContent_new += $new_delete + [Environment]::NewLine
-                      }
-
-                      $updateexecContent_new += "; end entries" + [Environment]::NewLine + [Environment]::NewLine
-                    }
-                  }
-
-                  # Save the modified content back to the file
-                  $updateexecContent_new | Set-Content -Path $updateExecPath
+                  $tmp += $delete_file
+                  $tmp += [Environment]::NewLine
                 }
               }
+              $deletedFiles = $tmp
             }
 
-            # Commit changes if there exist updateexec and client binaries have new deleted files
-            git commit --amend -am "${{ env.COMMIT_MESSAGE }}"
+            # Check if there are any deleted files
+            if ($deletedFiles.Count -eq 0)
+            {
+                echo "No deleted files found in the git diff. Skip updating [Delete] section."
+            }
+            else
+            {
+              # Read the content of the updateexec file
+              $updateexecContent_old = Get-Content -Path $updateExecPath
+              $updateexecContent_new = ""
 
-            # Push changes
-            git push --force origin ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}
+              # Find the [Delete] section and its position
+              $deleteSectionIndex = $updateexecContent_old.IndexOf("[Delete]")
 
-            # This timeout is for the remote server to index received content 
-            # https://stackoverflow.com/questions/74842935/powershell-batch-script-timeout-error-input-redirection-is-not-supported-exiti
-            Start-Job {
-              # Simulate calling a batch file (cmd /c)
-              # inside of which the `start` call is made,
-              # waiting for 5 seconds in this example.
-              cmd /c start /min timeout.exe 10
-            } | Receive-Job -Wait -AutoRemoveJob
+              # If not exist, create
+              if ($deleteSectionIndex -eq -1)
+              {
+                $updateexecContent_old += [Environment]::NewLine
+                $updateexecContent_old += "[Delete]"
+                $deleteSectionIndex = $updateexecContent_old.IndexOf("[Delete]")
+              }
 
-            # Open a PR
-            gh pr create -B ${{ env.TARGET_BRANCH }} -H ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }} --title '${{ env.PR_TITLE }} ${{ steps.download.outputs.tag_name }}' --body '${{ env.PR_BODY }}'
+              # Exclude path from string for config
+              $exclude = "${{ env.CLIENT_PATH }}"
+
+              # Iterate all content of old updateexec
+              foreach($old_line in $updateexecContent_old)
+              {
+                $index = $updateexecContent_old.IndexOf($old_line)
+                $updateexecContent_new += $old_line + [Environment]::NewLine
+
+                # If we find section [Delete], add new deleted files
+                if ($deleteSectionIndex -eq $index)
+                {
+                  $updateexecContent_new += "; ${{ steps.download.outputs.tag_name }} (auto-generated entries for removed/renamed files)" + [Environment]::NewLine
+                  
+                  foreach($new_delete in $deletedFiles)
+                  {
+                    $updateexecContent_new += $new_delete + [Environment]::NewLine
+                  }
+
+                  $updateexecContent_new += "; end entries" + [Environment]::NewLine + [Environment]::NewLine
+                }
+              }
+
+              # Save the modified content back to the file
+              $updateexecContent_new | Set-Content -Path $updateExecPath
+            }
           }
         }
+
+        # Commit changes if there exist updateexec and client binaries have new deleted files
+        git commit --amend -am "${{ env.COMMIT_MESSAGE }}"
+
+        # Push changes
+        git push --force origin ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}
+
+        # This timeout is for the remote server to index received content 
+        # https://stackoverflow.com/questions/74842935/powershell-batch-script-timeout-error-input-redirection-is-not-supported-exiti
+        Start-Job {
+          # Simulate calling a batch file (cmd /c)
+          # inside of which the `start` call is made,
+          # waiting for 5 seconds in this example.
+          cmd /c start /min timeout.exe 10
+        } | Receive-Job -Wait -AutoRemoveJob
+
+        # Open a PR
+        gh pr create -B ${{ env.TARGET_BRANCH }} -H ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }} --title '${{ env.PR_TITLE }} ${{ steps.download.outputs.tag_name }}' --body '${{ env.PR_BODY }}'
