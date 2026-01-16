@@ -1,4 +1,14 @@
 [Delete]
+; 2.12.17 (auto-generated entries for removed/renamed files)
+package\Resources\Binaries\OpenGL\System.Private.Uri.dll
+package\Resources\Binaries\Windows\System.Private.Uri.dll
+package\Resources\BinariesNET8\OpenGL\System.Text.Json.dll
+package\Resources\BinariesNET8\UniversalGL\System.Text.Json.dll
+package\Resources\BinariesNET8\Windows\System.Text.Json.dll
+package\Resources\BinariesNET8\XNA\System.Text.Json.dll
+
+; end entries
+
 Syringe.exe
 cncnet.mix
 cncnet5.dll
