@@ -82,7 +82,7 @@ jobs:
         rm xna-cncnet-client-*.7z
 
         # Commit changes
-        git add *
+        git add -A
         git commit -m "${{ env.COMMIT_MESSAGE }}"
 
         # Path to the updateexec file
