@@ -96,7 +96,7 @@ jobs:
         rm icon-changer*.zip
 
         # Commit changes
-        git add *
+        git add -A
         git commit -m "${{ env.COMMIT_MESSAGE }}"
 
         # Push changes
