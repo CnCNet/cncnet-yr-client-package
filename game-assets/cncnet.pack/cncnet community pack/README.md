@@ -9,7 +9,7 @@ Everything should be free for public use and have no copy right restrictions. If
 
 **If you're unsure if it's ok to share, don't add them.**
 
-All assets put in this folder need to be declared inside `art_community.ini` within `cncnet.pack`. We should never touch `artmd.ini` to avoid affecting the vanilla game.
+All assets put in this folder need to be declared inside `art_cncnet.ini` within `cncnet.pack`. We should never touch `artmd.ini` to avoid affecting the vanilla game.
 
 Using these assets require `.map` file modifications.
 
