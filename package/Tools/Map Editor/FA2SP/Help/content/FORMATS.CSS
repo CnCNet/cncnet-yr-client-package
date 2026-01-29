@@ -1,0 +1,20 @@
+.newskasten { font-familiy:Verdana, Arial, Helvetica, sans-serif; font-size:18pt; color:red; border-width:2px; border-color:black; border-style:solid; width:100%; text-align:center}
+.newstext { font-familiy:Verdana, Arial, Helvetica, sans-serif; font-size:12pt; color:black; }
+.links { font-familiy:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; font-weight:bold;  color:black; text-align:center; border-style:solid; border-width:2px; margin-left:10%;  width:90%; }
+.linksrahmen { }
+.kleinertext { font-family:Verdana,Arial,Helvetica,sans-serif; font-size:8pt; }
+.hostedby { font-family:Verdana,Arial,Helvetica,sans-serif; font-size:10pt; }
+.affiliates { font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; font-weight:bold;  color:black; text-align:center; border-style:solid; border-width:2px; margin-left:10%;  width:90%;  }
+.staff { font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; font-weight:bold;  color:black; text-align:center; border-style:solid; border-width:2px; margin-left:10%;  width:90%;  }
+.navheader { font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10pt; font-weight:bold;  color:black; text-align:center; border-style:solid; border-width:2px; margin-left:10%;  width:90%;   }
+.download { font-family:Verdana, Arial, Helvetica, sans-serif; font-size:18pt; color:black; }
+.maptable { font-family:Verdana, Arial, Helvetica, sans-serif; font-size:8pt; color:black; }
+.NewPostingDate { font-family:Verdana, Arial, Helvetice, sans-serif; font-size:16pt; }
+.heading { font-size:16pt; text-align:center }
+.smalluhead { font-size:13pt; text-align:center }
+p, li, td, tr, table { font-family:Verdana,Arial,Helvetica,sans-serif; font-size:11pt; }
+a:link { color:#FF0000; font-weight:bold; text-decoration:none }
+a:visited { color:#990000;  font-weight:bold; text-decoration:none}
+a:active { color:#00AA00; font-weight:bold; text-decoration:none }
+a:hover { color:#00AA00; font-weight:bold; text-decoration:none }	
+body { margin-left:5px; margin-right:5px; margin-top:5px; margin-bottom:5px }

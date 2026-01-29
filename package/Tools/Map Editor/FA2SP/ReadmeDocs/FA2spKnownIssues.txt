@@ -1,0 +1,16 @@
+
+FA2sp DLL:
+
+Generic:
+- When Sidebar features (BrowserRedraw=yes) is enabled, the change owner list isn't updated when Houses list changes in map either by selecting Prepare standard houses when creating new singleplayer map or changes made with Houses windows like add new house etc. Map can be saved (Ctrl+S) and opened again (Ctrl+O) to get sidebar updated. Or BrowserRedraw in FAData.ini can be set to no to disable this feature and use original sidebar.
+- Currently, on script window open does not show the first script by default.
+
+Vertical layout (VerticalLayout=yes):
+- Adjusting left sidebar size affects the right sidebar as well and right sidebar doesn't refresh the content automatically. Click on the other tabs to get it refreshed.
+
+UI Style:
+- Brush size dropdown is placed on the right side by default. Can double-click the divider/mover to get it back at left position. 
+- Application background setting doesn't get applied for panel backgrounds like the legacy UI had it.
+- Tips of the day window doesn't show images and text is not shown by default.
+- Dialogs and Menu etc. UI resources are part of the DLL, so to change those, compiling the DLL would be needed. Modiying FinalAlert2YR.dat with resource hacker tools doesn't work anymore.
+- Older systems (Windows XP) may not be compatible.

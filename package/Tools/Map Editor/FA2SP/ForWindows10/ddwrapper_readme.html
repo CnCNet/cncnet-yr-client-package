@@ -1,0 +1,144 @@
+
+<html><head><title>ddwrapper</title></head><body>
+<a href="http://bitpatch.com/">www.bitpatch.com</a><br><br>
+
+<table align=center cellpadding=10 cellspacing=10 border=1 width="100%">
+<tr><td align=center colspan=2>
+Aqrit's ddwrapper<br>
+</td><tr><td  colspan=2>
+ddwrapper works by providing a proxy DLL, which the application connects to and treats like the real DDRAW.DLL. It intercepts ddraw calls and performs various actions before forwarding to the real DirectDraw interface.<br><br>
+
+<b>*** Usage ***</b><br>
+Extract the included ddraw.dll and aqrit.cfg files to the same directory as your target executable.<bR>
+Edit the config file as wanted. ( see below for possible options )<br>
+<br>
+Warning: Do NOT overwrite your system ddraw.dll!<br>
+Warning: Windows likes to "virtualize" the config file if it resides within the "Program Files" directory.<br>
+<br>
+You may also like <a href="http://sourceforge.net/p/dxwnd/">DxWnd</a> or Microsoft Application Compatibility Toolkit (ACT)<br>
+
+
+</td></tr>
+
+<tr>
+<td valign=top><dl><dt><b>BltMirror</b></dt><dd>0 = off</dd><dd>1 = on</dd><dd>2 = auto select</dd></dl></td>
+<td>
+DDBLTFX_MIRRORLEFTRIGHT and DDBLTFX_MIRRORUPDOWN flags are unsupported on Windows 2000 and later and are never passed to the driver.
+[<a href="http://msdn.microsoft.com/en-us/library/windows/hardware/ff550474">Microsoft</a>]<br>
+<br>
+Use GDI32.StretchBlt() to mirror onto an intermediate surface which is then passed to Blt().  
+Not Need if using DirectDraw's Hardware Emulation Layer.<br><br>
+</td>
+</tr>
+
+<tr>
+<td valign=top><dl><dt><b>BltNoTearing</b></dt><dd>0 = off</dd><dd>1 = on</dd></dl></td>
+<td>DDBLTFX_NOTEARING flag is unsupported on Windows 2000 and later and is never passed to the driver.
+[<a href="http://msdn.microsoft.com/en-us/library/windows/hardware/ff550474">Microsoft</a>]<br>
+<br>
+If DDBLTFX_NOTEARING then WaitForVerticalBlank() before the Blt(). (also see FakeVsync)<br><br></td>
+</tr>
+
+<tr><td valign=top><dl><dt><b>ColorFix</b></dt><dd>0 = off</dd><dd>1 = on</dd></dl></td>
+<td>8-bit color palette entires are not shared properly on Windows Vista and later, which results in psychedelic colors.<br><br>Sets an undocumented hack by modifing an internal DirectDraw structure. 
+<i>((DDRAWI_DIRECTDRAW_INT*)->lpLcl->dwAppHackFlags|=0x800)</i><br>
+It does NOT work for all games.  Enabling this option may cause an error if ddraw's internal structures have changed. (like Wine)<br>
+<dl>
+<dt>An alternative if this setting isn't helping:</dt>
+<dd>Open TaskMgr.exe and end the explorer.exe process</dd>
+<dd>Launch your executable from the task manager's run menu</dd>
+<dd>After exiting the game you may restart explorer.exe from the task manager's run menu</dd>
+</dl> 
+</td>
+</tr>
+
+<tr>
+<td valign=top><dl><dt><b>DisableHighDpiScaling</b></dt><dd>0 = off</dd><dd>1 = on</dd></dl></td>
+<td>
+Applications that do not handle the [new] high DPI case are likely to exhibit visual artifacts. [<a href="http://msdn.microsoft.com/en-us/library/dd371771%28v=vs.85%29.aspx">Microsoft</a>]<br><br>
+SetProcessDPIAware() to prevent scaling.<br><br>
+</td>
+</tr>
+
+<tr>
+<td valign=top><dl><dt><b>FakeVsync</b></dt><dd>0 = off</dd><dd>1 = on</dd><dd>2 = auto select</dd></dl></td>
+<td>
+DirectDraw's Hardware Emulation Layer does not emulate vsync.<br><br>
+Sleep() awhile everytime the application asks for vsync to prevent the game from running too fast.<br><br>
+</td>
+</tr>
+
+<tr>
+<td valign=top><dl><dt><b>FakeVsyncInterval</b></dt><dd>0 = default</dd><dd>[n] = ms</dd></dl></td>
+<td>
+Milliseconds between vertical blanking intervals for FakeVsync.<br><br>
+<b>FakeVsyncInterval = 18</b> would equate roughly to 55 fps. <i>( 1000 / 18 = 55 )</i><br><br>
+<table border=1><tr><td><b>Milliseconds</b></td><td><b>Frames-Per-Second</b></td></tr><tr><td>14</td><td>71</td></tr><tr><td>15</td><td>66</td></tr><tr><td>16 ( default )</td><td>62</td></tr><tr><td>17</td><td>58</td></tr><tr><td>18</td><td>55</td></tr></table>
+</td>
+</tr>
+
+<tr>
+<td valign=top><dl><dt><b>ForceBltNoTearing</b></dt><dd>0 = off</dd><dd>1 = on</dd></dl></td>
+<td> 
+Attempt to impose vsync on an application. (to slow it down)<br><br> 
+Add a DDBLTFX_NOTEARING flag to all of the primary surface's Blt operations. (also see FakeVsync, BltNoTearing)<br><br>
+</td>
+</tr>
+
+<tr>
+<td valign=top><dl><dt><b>ForceDirectDrawEmulation</b></dt><dd>0 = off</dd><dd>1 = on</dd><dd>2 = on + error lie</dd></dl></td>
+<td>Use DirectDraw's Hardware Emulation Layer for all features.<br><br>
+<i>DDCREATE_EMULATIONONLY</i>
+<ul>
+<li>Pitch vs Width Issues [<a href="http://msdn.microsoft.com/en-us/library/aa911077.aspx">Microsoft</a>]</li>
+<li>Circumvent driver specific issues</li>
+<li>Doesn't allow surfaces in video memory</li>
+</ul> 
+Setting "2" - CreateSurface() calls that fail with DDERR_NODIRECTDRAWHW will report DDERR_OUTOFVIDEOMEMORY instead.
+</td>
+</tr>
+
+<tr>
+<td valign=top><dl><dt><b>NoVideoMemory</b></dt><dd>0 = off</dd><dd>1 = on, threaded</dd><dd>2 = on, WM_TIMER</dd></dl></td>
+<td> 
+Try to create all the application's drawing surfaces in system memory ( Not video memory ).
+Fake the game's primary surface in system memory, Blt() to the real primary periodically. <br><br>
+<dl><dt>Solves the following issues:</dt>
+<dd>Directly accessing a video memory surface after it has been Unlocked() may causes problems.</dd>
+<dd>Lock() and Unlock() on a video memory surface may be slow.</dd>
+<dd>The HEL doesn't Flip() the primary surface correctly. [<a href="http://msdn.microsoft.com/en-us/library/ms923376.aspx">Microsoft</a>]</dd>
+<dd>The HEL fails to Lock() the primary surface.</dd></dl>
+( Also see ForceDirectDrawEmulation )<br><br>
+</td>
+</tr>
+
+<tr>
+<td valign=top><dl><dt><b>ShowFPS</b></dt><dd>0 = off</dd><dd>1 = Flip</dd><dd>2 = Blt</dd><dd>4 = BltFast</dd><dd>8 = Unlock</dd></dl></td>
+<td> 
+Display the roughly estimated rate of frames-per-second ( FPS ) in the top-left corner of the game window.
+Games can use several methods to display frames.
+Flip() is the only method that could not be called several times per frame.
+To track multiple methods add their identifiers together.
+<br><br>
+To track all methods set <b>ShowFPS = 15</b>  <i>( 1 + 2 + 4 + 8 = 15 )</i>
+</td>
+</tr>
+
+<tr>
+<td valign=top><dl><dt><b>SingleProcAffinity</b></dt><dd>0 = off</dd><dd>1 = on</dd></dl></td>
+<td>
+Force all threads in a process to run on a single processor/core.<br><br>
+SetProcessAffinityMask()/SetThreadAffinityMask() may fix timing issues, but may impede performance.
+Useful to have applied to games of the DirectDraw era, though there may be no threading issues with DiretDraw itself.  It is best to not use NoVideoMemory=1 with this option.<br><br>
+</td>
+</tr>
+</table>
+<br>
+
+<center>
+Windows and DirectDraw are either registered trademarks or trademarks of Microsoft Corporation in the United States and/or other countries. 
+Bitpatch.com is not affiliated with anyone.<br>
+</center>
+</body></html>
+
+ 

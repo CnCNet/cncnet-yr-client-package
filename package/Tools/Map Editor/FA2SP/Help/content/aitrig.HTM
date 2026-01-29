@@ -1,0 +1,57 @@
+<!doctype html public "-//w3c//dtd html 3.2//en">
+
+<html>
+
+<head>
+		<title>
+		</title>
+		<link rel=stylesheet type="text/css" href="formats.css">
+	</head>
+	
+	<body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
+		
+		<p class="heading" align="center">
+		<br>
+		8.  AI Triggers
+		</p>
+	<p>	
+
+AI Triggers are used by the game to decide which units AI players build in both singleplayer and multiplayer maps. Similar to normal triggers
+they are based on a certain event. In contrast, the action is always building a team. While normal triggers often do not work
+as expected in multiplayer maps, AI triggers can be used very good to achieve the same results.<br>
+To use AI triggers you need to know how to make Taskforces, Scripts and Teamtypes which are covered in several tutorials in this manual.
+You should read these tutorials before making AI triggers.<br><br>
+Let´s take a look at the AI trigger editor:<br>
+<img src="Pics/aitrig.jpg"><br><br>
+This is an example for a typical AI Trigger. Let´s take a closer look at the different options:<br><br>
+Enabled: Do not forget to check this if the AI trigger shall be used<br><br>
+Type: This specifies the general event type for the AI Trigger. You can choose between several different types,
+The selected one specifies that the house that accesses the AI trigger must have a certain amount of certain objects.
+The exact amount, and the object type, is specified later on.<br><br>
+Name: Just a descriptive name of the AI Trigger<br><br>
+House: Usually this should be all, except you want only a certain house to access the AI trigger<br><br>
+Teamtypes: They specify the teams that shall be created as result of the AI trigger<br><br>
+Multi-Side: Specify if this trigger is for Everybody, Soviets, Allies or Yuri<br><br>
+Base defense: If this is checked, this AI trigger may be used even if the house doesn´t have a hated enemy yet<br><br>
+Available in Skirmish: Check this, and the AI trigger may be used in multiplayer games<br><br>
+Easy, Medium, Hard: In which difficulty modes is this AI trigger available?<br><br>
+Weight: Starting weight of the AI trigger. As higher, as more likely it is that the house decides to build the teamtype<br><br>
+MinWeight: The minimum weight that this AI trigger must have<br><br>
+MaxWeight: The maximum weight that this AI trigger can have<br><br>
+For the AI trigger types 0, 1, 4 and 7 the following applies:<br><br>
+Use Condition, Number and Unittype to select the values that are needed for the AI trigger to fire.
+<br><br><br>
+The AI trigger you see here does the following:<br>
+Once the current enemy of the AI trigger house has at least 1 Allied Battle Lab, build the teamtype
+"10 Apoc Attack Base". The AI trigger is useable by all Soviet houses in both singleplayer and 
+multiplayer games, in all difficulty levels. Weight isn´t very high, so it may happen that the house
+does decide that this AI trigger isn´t as important as other AI triggers and probably won´t fire it.
+Note that the trigger will only fire if the house´s current enemy is Allied, as Soviet enemies
+cannot have an Allied Battle Lab.
+
+</p>
+
+
+</body>
+
+</html>

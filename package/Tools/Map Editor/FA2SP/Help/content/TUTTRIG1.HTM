@@ -1,0 +1,44 @@
+<!doctype html public "-//w3c//dtd html 3.2//en">
+
+<html>
+
+<head>
+		<title>
+		</title>
+		<link rel=stylesheet type="text/css" href="formats.css">
+	</head>
+	
+	<body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
+		
+		<p class="heading" align="center">
+		<br>
+		7.  General Triggers Tutorial 	</p>
+	<p>	
+A trigger is a cause-and-effect action for RA2 to perform while the user is playing a map. Each trigger has an event and an action associated with it. A simple trigger used for debugging (or just fun :-) will reveal the entire map.
+<br><br>
+Single player maps always contain <a href="triggers.htm">Triggers</a>. In this tutorial we’ll create a trigger that will show the whole map to the player 20 “time units” after the human house is attacked.  We’ll assume that the human player is American and that your map and the houses are already set up.
+<br><br><br>
+
+<b><i>Step 1: Begin</i></b><br><br>
+To reach the <a href="triggers.htm">trigger editor</a>, click on Edit->Trigger editor (you might need to disable Beginner Mode first in the options menu). Click on "New trigger" to create a new trigger. You’ll see that a trigger called "New trigger" is selected now. To make things easier we’ll now rename this trigger to an appropriate term. Enter "Player attacked -> Show map" as the name in the trigger options tab.
+<br><br><br>
+
+<i><b>Step 2: Set Parameters</b></i><br><br>
+Now click on "Events". The events dialog will appear with no events listed as we haven’t created any yet. Click on "New event". Event 0 will automatically be selected. Now you have to select the event type. We use "6 House attacked by anybody". An event description appears, and the parameter list contains one parameter: "House". Select "House" (it should already be selected) and then look at the parameter value. It’s automatically set to "0 Americans". We’ll leave it as it is, although you can for example set it to "1 Americans" (that will make the trigger fire when America is attacked by anybody, including the player!). If we leave the trigger this way it will fire immediately after America has been attacked  -but we want the game to wait 20 time units. To do this, click on "New event". Select "13 Time elapsed" and enter 20 as parameter value for the Time parameter.
+<br><br><br>
+
+<i><b>Step 3: Set Up The Action</b></i><br><br>
+This trigger won’t do anything yet, as we haven’t yet set up any action yet. To change this, click on "Actions". This dialog works almost exactly as the events dialog. Click on "New action". Now select "16 Reveal all map" as action type. Enter 60 as duration parameter. 
+<br><br><br>
+
+<i><b>Step 4: Save Your Map</b></i><br><br>
+Save your map (if you save it as ALL01t.MAP it will be used as first standard Allied mission of the campaign). Look to the <a href="tutsp.htm">singleplayer topic</a> for more information about how to play singleplayer missions.
+
+
+
+</p>
+
+
+</body>
+
+</html>
