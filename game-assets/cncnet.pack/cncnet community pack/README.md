@@ -9,9 +9,7 @@ Everything should be free for public use and have no copy right restrictions. If
 
 **If you're unsure if it's ok to share, don't add them.**
 
-All assets put in this folder need to be declared inside `art_cncnet.ini` within `cncnet.pack`. We should never touch `artmd.ini` to avoid affecting the vanilla game.
+All assets put in this folder need to be declared inside `art_cncnet.ini` within `game-assets\cncnet.pack`. We should never touch `artmd.ini` to avoid affecting the vanilla game.
 
-Using these assets require `.map` file modifications.
-
-For example, if you're adding new animations you must add to the `[Animations]` list within your map file. We do **NOT** modify `rulesmd.ini` for map modders.
+Using these assets require `.map` file modifications. Place all necessary rules code inside `rules_cncnet.ini` with techlevel of -1(or 11 depending on use case). Then inside the map file, change tech level to your desired usecase. WAE has been modified to support reading this file automatically.
 ```
