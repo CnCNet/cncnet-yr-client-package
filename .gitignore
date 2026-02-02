@@ -10,6 +10,7 @@
 /package/debug/
 /package/langmd.mix
 /package/language.mix
+/package/Map Editor/**
 /package/Maps/Custom/*.map
 /package/Maps/Custom/*.png
 /package/Maps/Custom/*.yrm
@@ -59,8 +60,3 @@
 /package/stringtable*.csf
 /package/subtitle.txt
 /package/subtitlemd.txt
-FinalSun.ini
-package/Tools/Map Editor/FA2SP/FA2sp.log
-package/Tools/Map Editor/FA2SP/finalalert2log.txt
-package/Tools/Map Editor/FA2SP/syringe.log
-package/Tools/Map Editor/WAE/MapEditorLog.log
