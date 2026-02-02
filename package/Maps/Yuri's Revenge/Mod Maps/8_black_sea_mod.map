@@ -1,5 +1,5 @@
 [Basic]
-Name=[8] Black Sea (Author's Mod) ; v6.1n for CNCNET. With day-night cycle. Map created in 2020 with FinalAlert 2. Updated in 2025. Based on map "Diamond Quarry". Special Thanks to McPwny
+Name=[8] Black Sea (Author's Mod) ; v6.1.1n for CNCNET. With day-night cycle. Map created in 2020 with FinalAlert 2. Updated in 2025. Based on map "Diamond Quarry". Special Thanks to McPwny
 Author=CCCP84 ; Andrey Lesiak
 ; Day-Night Cycle by CCCP84. Made in 2022. v1.2 - 30 min
 GameMode=standard
@@ -652,7 +652,7 @@ Shadow=0
 Prerequisite=NACNST,PROC
 
 [NAPSIS]
-FreeUnit=LIMO
+SensorsSight=17
 
 [TESLA]
 NavalTargeting=5
