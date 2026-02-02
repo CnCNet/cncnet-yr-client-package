@@ -60,3 +60,7 @@
 /package/stringtable*.csf
 /package/subtitle.txt
 /package/subtitlemd.txt
+package/Tools/Map Editor/FA2SP/FA2sp.log
+package/Tools/Map Editor/FA2SP/finalalert2log.txt
+package/Tools/Map Editor/FA2SP/syringe.log
+package/Tools/Map Editor/WAE/MapEditorLog.log
