@@ -1,0 +1,33 @@
+<!doctype html public "-//w3c//dtd html 3.2//en">
+
+<html>
+
+<head>
+		<title>
+		</title>
+		<link rel=stylesheet type="text/css" href="formats.css">
+	</head>
+	
+	<body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
+		
+		<p class="heading" align="center">
+		<br>
+		Creating a tunnel tutorial	</p>
+	<p>	
+<font color="#ff0000">Note: Tunnels seem to only work for TS, not RA2</font><br><br>
+For this tutorial I assume you already know how to <a href="tutt.htm">edit terrain</a>. This one will explain to you how you can create own tunnel tubes, e.g. that units can move through the tunnels. The tunnel entrances you create with the terrain browser don´t allow the units to pass through automatically, as you may have seen if you tried it! Because of this I´ve implemented a simple version of tube editing, allowing you to specify the start and ending position of the tube. This early version doesn´t support custom curves yet but only automatic curves, and therefore can only be used for connecting two entrances that are divided by another low cliff. As TS/RA2 doesn´t support connecting two entrances in different directions this shouldn´t matter that much. For the standard case it should definitly work!
+Ok, here first 2 pictures of a tunnel in TS and the same tunnel in FinalSun:<br><br>
+<img src="pics/tun1.jpg"><br><br>
+<img src="pics/tun2.jpg"><br><br>
+As you see, the 2 pictures look quite the same except the tunnels. Scroll to the cliff in that you want to insert a tunnel. Then, use the terrain browser to set the entrances of the tunnel. I´ve marked them with 1 and 2, these are those for dirt terrain. You can of course also uses paved and track tunnels, that doesn´t make any difference. The tunnel entrance that is behind the cliff must fit exactly on the cliff, so that the cliff is not visible anymore! This may look strange in FinalSun, but it is displayed fine in Tiberian Sun.
+For tunnel 1 it is also needed to select a tunnel side (another tileset), but you don´t have to do anything about the top of the tunnel entrance, leave it as it is. <br>
+Then use the new tunnel->add tunnel function in the object browser at the left. Click on the left field of tunnel 1 (it is marked with red in the screenshot), and move the cursor with pressed left mouse button the the top left field of tunnel 2. You need to exactly use one of the top tiles of tunnel 2. They look a bit different than the normal ground tiles and they are exactly there where the cliff should be (later in TS)!
+Release the mouse button, ant the red line you see in the screenshot will be displayed. Do the same for the 2 other parts (if you want to). You don´t need to do this but I recommend it, else only one unit would fit through the tunnel.<br>
+Try the map in TS/RA2 and find out if a unit can move through *both* ends of the tunnel. If it can only move through one or none, you made a mistake.<br><br>
+</p>
+
+
+
+</body>
+
+</html>

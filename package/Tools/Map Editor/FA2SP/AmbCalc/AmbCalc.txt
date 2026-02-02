@@ -1,0 +1,4 @@
+
+This tool converts the ambient value to decimal value and vice-versa that gets used in map actions of 71 and 72 of Tiberian Sun and Red Alert 2 games.
+
+Link: https://ppmforums.com/post-580764/day-night-loop-settings/#580764
