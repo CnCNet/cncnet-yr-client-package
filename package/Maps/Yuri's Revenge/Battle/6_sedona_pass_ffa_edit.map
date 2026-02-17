@@ -982,12 +982,11 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[6] Sedona Pass (FFA Edit)
+Name=[6] Sedona Pass FFA
 Theme=No theme
-Briefing=SpySat is off due to recon errors
 Author=Westwood, FFA Edit by Burg
 Percent=0
-GameMode=standard,Free for All
+GameMode=standard,Battle
 InitTime=10000
 Official=yes
 EndOfGame=no
