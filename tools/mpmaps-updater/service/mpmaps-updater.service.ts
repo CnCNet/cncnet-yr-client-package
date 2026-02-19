@@ -77,9 +77,12 @@ export class MpMapsUpdaterService {
             return mapObjA.section[sortKey] > mapObjB.section[sortKey] ? 1 : -1;
         });
 
-        const multiMapsSection: { [key: number]: string } = {}
-        for (let i = 0; i < sortedMapSections.length; i++) {
-            multiMapsSection[i] = sortedMapSections[i].mapKey;
+        // Use the map path as the key to produce stable, minimal diffs.
+        // The CnCNet client reads all keys in [MultiMaps] regardless of format —
+        // they do not need to be sequential integers.
+        const multiMapsSection: { [key: string]: string } = {};
+        for (const sortedMap of sortedMapSections) {
+            multiMapsSection[sortedMap.mapKey] = sortedMap.mapKey;
         }
 
         mpMapsIniFile.setMultiMapsSection(multiMapsSection);
