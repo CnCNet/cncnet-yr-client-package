@@ -7319,7 +7319,7 @@ MaxNumberOccupants=10
 
 [NACLON]
 Crewed=no
-DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbris10lg,Dbris10sm
+DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbrs10lg,Dbrs10sm
 
 [NACNST]
 Crewed=no
@@ -7341,7 +7341,7 @@ Strength=1000
 
 [NAMISL]
 Crewed=no
-DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbris10lg,Dbris10sm
+DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbrs10lg,Dbrs10sm
 
 [NANRCT]
 TechLevel=-1
@@ -7362,7 +7362,7 @@ PsychicDetectionRadius=0
 
 [NARADR]
 Crewed=no
-DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbris10lg,Dbris10sm
+DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbrs10lg,Dbrs10sm
 SuperWeapon=none
 Prerequisite=NACNST,NAHAND
 
@@ -7372,7 +7372,7 @@ TechLevel=-1
 [NATBNK]
 Cost=800
 Adjacent=4
-DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbris10lg,Dbris10sm
+DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbrs10lg,Dbrs10sm
 ThreatPosed=50
 Prerequisite=CNST
 
@@ -7387,7 +7387,7 @@ TechLevel=-1
 [NAWEAP]
 Crewed=no
 Capturable=no
-DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
+DebrisAnims=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
 Prerequisite=NAHAND,NACNST
 
 [NAYARD]
@@ -8485,7 +8485,7 @@ Crewed=no
 
 [YAGRND]
 Crewed=no
-DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbris10lg,Dbris10sm
+DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbrs10lg,Dbrs10sm
 ThreatPosed=100
 
 [YAPOWR]

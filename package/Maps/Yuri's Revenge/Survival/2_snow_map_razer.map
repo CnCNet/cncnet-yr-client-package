@@ -396,7 +396,7 @@ AllowedToStartInMultiplayer=no
 [ATESLA]
 VHPScan=Strong
 Trainable=yes
-DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
+DebrisAnims=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
 ElitePrimary=PrismShotE
 EliteAbilities=STRONGER,FIREPOWER,ROF
 VeteranAbilities=STRONGER,FIREPOWER,ROF
@@ -1363,7 +1363,7 @@ Crewed=no
 [GAPILL]
 Primary=Vulcan2
 Trainable=yes
-DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
+DebrisAnims=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
 ElitePrimary=ZRAZERVulcan2
 EliteAbilities=STRONGER,FIREPOWER,ROF
 VeteranAbilities=STRONGER,FIREPOWER,ROF
@@ -2938,17 +2938,17 @@ LocalSize=1,8,63,80
 Cost=1200
 Adjacent=4
 Strength=1000
-DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris10lg,Dbris10sm
+DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbrs10lg,Dbrs10sm
 HasRadialIndicator=true
 MaxNumberOccupants=10
 
 [NACLON]
 Crewed=no
-DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbris10lg,Dbris10sm
+DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbrs10lg,Dbrs10sm
 
 [NACNST]
 Crewed=no
-DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
+DebrisAnims=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
 NeedsEngineer=yes
 UndeploysInto=AMCV
 
@@ -2983,7 +2983,7 @@ HasRadialIndicator=true
 
 [NAMISL]
 Crewed=no
-DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbris10lg,Dbris10sm
+DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbrs10lg,Dbrs10sm
 NeedsEngineer=yes
 
 [NANRCT]
@@ -3005,7 +3005,7 @@ PsychicDetectionRadius=0
 
 [NARADR]
 Crewed=no
-DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbris10lg,Dbris10sm
+DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbrs10lg,Dbrs10sm
 SuperWeapon=none
 Prerequisite=NACNST,NAHAND
 
@@ -3024,7 +3024,7 @@ HasRadialIndicator=true
 [NATBNK]
 Cost=800
 Adjacent=4
-DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbris10lg,Dbris10sm
+DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbrs10lg,Dbrs10sm
 ThreatPosed=50
 Prerequisite=CNST
 
@@ -3038,7 +3038,7 @@ TechLevel=-1
 [NAWEAP]
 Crewed=no
 Capturable=no
-DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
+DebrisAnims=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
 Prerequisite=NAHAND,NACNST
 
 [NAYARD]
@@ -7834,7 +7834,7 @@ NeedsEngineer=yes
 
 [YAGRND]
 Crewed=no
-DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbris10lg,Dbris10sm
+DebrisAnims=Dbris3sm,Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg,Dbrs10lg,Dbrs10sm
 ThreatPosed=100
 
 [YAPOWR]
