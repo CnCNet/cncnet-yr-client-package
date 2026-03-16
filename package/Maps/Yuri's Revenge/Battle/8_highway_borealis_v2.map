@@ -1369,7 +1369,7 @@ DefaultMirageDisguises=TREE17,TREE19,TREE20,TREE21,TREE22,TREE23,TREE24,TREE25,T
 Name=[8] Highway Borealis
 Author=Madness
 Percent=0
-GameMode=Standard,Battle
+GameMode=standard,battle
 HomeCell=98
 InitTime=10000
 Official=no
@@ -1397,7 +1397,7 @@ TiberiumDeathToVisceroid=no
 TeamStartMapping0=A,A,A,A,B,B,B,B
 TeamStartMapping1=A,x,x,A,B,x,x,B
 TeamStartMapping2=x,A,A,x,x,B,B,x
-TeamStartMapping0Name=8v8 LvR
+TeamStartMapping0Name=4v4 LvR
 TeamStartMapping1Name=2v2 LvR Corners
 TeamStartMapping2Name=2v2 LvR Center
 
