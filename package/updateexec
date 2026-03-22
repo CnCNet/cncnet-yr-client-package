@@ -1,14 +1,10 @@
 [Delete]
-; 2.12.17 (auto-generated entries for removed/renamed files)
 package\Resources\Binaries\OpenGL\System.Private.Uri.dll
 package\Resources\Binaries\Windows\System.Private.Uri.dll
 package\Resources\BinariesNET8\OpenGL\System.Text.Json.dll
 package\Resources\BinariesNET8\UniversalGL\System.Text.Json.dll
 package\Resources\BinariesNET8\Windows\System.Text.Json.dll
 package\Resources\BinariesNET8\XNA\System.Text.Json.dll
-
-; end entries
-
 cncnet5.dll
 Resources\SpriteFont2.xnb
 Resources\SpriteFont3.xnb
@@ -595,9 +591,10 @@ Maps\Custom\ac73bca7ae2bc519a92341abf9891fb1acb68681.map
 Map Editor\FinalSun.ini
 Maps\Yuri's Revenge\2_Nexus_City_v2_release.map
 Maps\Yuri's Revenge\2_Nexus_City_v2_release.png
+Maps\Yuri's Revenge\Survival\3_battle_in_new_york_feras.map
+Maps\Yuri's Revenge\Survival\3_battle_in_new_york_feras.png
 
 [DeleteFolder]
 Maps\Yuri's Revenge\CTF
 Maps\Yuri's Revenge\Demolition
 do_not_remove_this_line
-
