@@ -1,6 +1,5 @@
 import { parse } from 'path';
 import { IIniObject, IniValue, parse as parseIni, stringify as stringifyIni } from 'js-ini';
-import { constants } from '../constants';
 import * as util from 'util';
 import { readFile, writeFile } from 'fs';
 
@@ -8,13 +7,15 @@ export class IniFile {
     protected filePath: string;
     protected fileName: string;
     protected fileExt: string;
+    protected packagePath: string;
     public data: IIniObject;
 
-    private constructor(filePath: string, data: IIniObject) {
+    private constructor(filePath: string, data: IIniObject, packagePath: string) {
         const parsed = parse(filePath);
         this.filePath = filePath;
         this.fileName = parsed.name;
         this.fileExt = parsed.ext;
+        this.packagePath = packagePath;
         this.data = data;
     }
 
@@ -23,7 +24,7 @@ export class IniFile {
      */
     public async stringify(): Promise<string> {
         return stringifyIni(this.data, {
-            skipUndefined: true // don't write keys that have no values
+            skipUndefined: true, // don't write keys that have no values
         });
     }
 
@@ -38,14 +39,14 @@ export class IniFile {
      * Create an instance of this file.
      * @param {string} filePath the path at which this file should be read from or written to
      */
-    public static async createAsync(filePath: string): Promise<IniFile> {
+    public static async createAsync(filePath: string, packagePath: string): Promise<IniFile> {
         const content = await util.promisify(readFile)(filePath, {
-            encoding: 'utf-8'
+            encoding: 'utf-8',
         });
         const iniObject = parseIni(content, {
-            autoTyping: false
+            autoTyping: false,
         });
-        return new IniFile(filePath, iniObject);
+        return new IniFile(filePath, iniObject, packagePath);
     }
 
     /**
@@ -146,13 +147,17 @@ export class IniFile {
      * @return {string}
      */
     public getMpMapsKey(): string {
-        return this.filePath.slice(constants.paths.package.length + 1, -this.fileExt.length);
+        return this.normalizeMpMapsPath(this.filePath.slice(this.packagePath.length + 1, -this.fileExt.length));
     }
 
     /**
      * @return {string}
      */
     public getPackageRelativePath(): string {
-        return this.filePath.slice(constants.paths.package.length + 1);
+        return this.filePath.slice(this.packagePath.length + 1);
+    }
+
+    private normalizeMpMapsPath(relativePath: string): string {
+        return relativePath.replace(/[\\/]/g, '\\');
     }
 }

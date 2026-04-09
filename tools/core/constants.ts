@@ -21,6 +21,6 @@ export const coreConstants = {
         // the /package/INI directory
         ini: iniPath,
         // the path to the /package/INI/MPMaps.ini file
-        mpMapsIni: mpMapsIniPath
-    }
-}
+        mpMapsIni: mpMapsIniPath,
+    },
+};

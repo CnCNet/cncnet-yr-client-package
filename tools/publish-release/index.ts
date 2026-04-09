@@ -1,3 +1,4 @@
-import { PublishReleaseService } from './services';
+import { PublishReleaseService } from './services/publish-release.service';
 
-PublishReleaseService.run();
+PublishReleaseService.run() //
+    .catch(console.error);

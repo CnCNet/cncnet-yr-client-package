@@ -1,14 +1,25 @@
 import { resolve } from 'path';
 
-const versionWriterBinary = resolve(__dirname, 'bin/VersionWriter.exe');
-const repoRoot = resolve(__dirname, '../../');
-const packagePath = resolve(repoRoot, 'package');
+export function createConstants(workingDir: string) {
+    const resolvedWorkingDir = resolve(workingDir);
+    const versionWriterBinary = resolve(__dirname, 'bin/VersionWriter.exe');
+    const runnerBinary = resolve(resolvedWorkingDir, 'VersionWriter.runtime.exe');
+    const versionConfigPath = resolve(resolvedWorkingDir, 'versionconfig.ini');
+    const winePrefixPath = resolve(__dirname, '.wine');
 
-const constants = {
-    paths: {
-        versionWriterBinary,
-        packagePath
-    }
+    return {
+        commands: {
+            mono: 'mono',
+            wine: 'wine',
+        },
+        paths: {
+            versionWriterBinary,
+            runnerBinary,
+            workingDir: resolvedWorkingDir,
+            versionConfigPath,
+            winePrefixPath,
+        },
+    };
 }
 
-export { constants };
+export type VersionWriterConstants = ReturnType<typeof createConstants>;

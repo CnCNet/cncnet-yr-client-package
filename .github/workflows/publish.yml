@@ -14,19 +14,25 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
       # Restore Tools NPM Libs from Cache
       - name: Restore Tools NPM Libs from Cache
         id: npm-cache
         uses: actions/cache@v4
         with:
           path: tools/node_modules
-          key: ${{ runner.os }}-node-tools-${{ hashFiles('tools/package-lock.json', 'tools/package.json') }}
-          restore-keys: ${{ runner.os }}-node-tools-
+          key: ${{ runner.os }}-node-tools-prod-${{ hashFiles('tools/package-lock.json', 'tools/package.json') }}
+          restore-keys: ${{ runner.os }}-node-tools-prod-
 
       - name: Install Tools NPM Libs
         if: steps.npm-cache.outputs.cache-hit != 'true'
         working-directory: tools
-        run: npm ci
+        run: npm ci --omit=dev
 
       # This looks for the latest release in our repo and does the following:
       # - updates our /live mirror path to point to it

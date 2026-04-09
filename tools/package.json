@@ -1,40 +1,37 @@
 {
   "name": "cncnet-yr-client-package-tools",
-  "version": "1.0.0",
+  "private": true,
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "compile-ts-tools": "tsc",
-    "release-asset-uploader": "ts-node release-asset-uploader",
-    "release-tag-validator": "ts-node release-tag-validator",
-    "build-installer": "ts-node build-installer",
-    "mix-packer": "ts-node mix-packer",
-    "mpmaps-updater": "ts-node mpmaps-updater",
-    "version-writer": "ts-node version-writer",
-    "publish-release": "ts-node publish-release",
-    "map-name-case-fix": "ts-node map-name-case-fix",
-    "test-release-asset-uploader": "ts-node release-asset-uploader/test.ts",
-    "test-release-tag-validator": "ts-node release-tag-validator/test.ts",
-    "test-publish-release": "ts-node publish-release/test.ts"
-  },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@actions/core": "^1.10.0",
-    "@actions/github": "^5.1.1",
-    "@octokit/core": "^4.2.0",
-    "@types/fs-extra": "^11.0.4",
-    "@types/node": "^18.14.0",
-    "commander": "^10.0.0",
-    "fast-folder-size": "^2.2.0",
-    "fs-extra": "^11.1.1",
-    "glob": "^10.3.3",
-    "irc": "^0.5.2",
-    "js-ini": "^1.6.0",
-    "ssh2": "^1.11.0",
-    "ts-node": "^10.9.1",
-    "tsconfig-paths": "^4.1.2",
-    "twig": "^1.16.0",
-    "typescript": "^4.9.5"
+  "workspaces": [
+    "core",
+    "build-installer",
+    "map-name-case-fix",
+    "mix-packer",
+    "mpmaps-updater",
+    "publish-release",
+    "release-asset-uploader",
+    "release-tag-validator",
+    "version-writer"
+  ],
+  "scripts": {
+    "map-name-case-fix": "npm run start --workspace map-name-case-fix -- --workingDir ../../package",
+    "mpmaps-updater": "npm run start --workspace mpmaps-updater -- --workingDir ../../package",
+    "mix-packer": "npm run start --workspace mix-packer -- --inDir ../../game-assets --outDir ../../package",
+    "version-writer": "npm run start --workspace version-writer -- --workingDir ../../package",
+    "build-installer": "npm run start --workspace build-installer -- --workingDir ../../package",
+    "release-tag-validator": "npm run start --workspace release-tag-validator",
+    "test-release-tag-validator": "npm run test --workspace release-tag-validator",
+    "release-asset-uploader": "npm run start --workspace release-asset-uploader",
+    "test-release-asset-uploader": "npm run test --workspace release-asset-uploader",
+    "publish-release": "npm run start --workspace publish-release",
+    "test-publish-release": "npm run test --workspace publish-release"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1"
+  },
+  "engines": {
+    "node": ">= 24"
   }
 }
