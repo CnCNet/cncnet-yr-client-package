@@ -1,6 +1,7 @@
+import { PublishReleaseOptionValues } from 'cncnet-core/class/publish-release-option-values.class';
+
 import { PublishReleaseService } from './services/publish-release.service';
 import { testPublishRelease } from './test-data/test-publish-release';
-import { PublishReleaseOptionValues } from 'cncnet-core/class/publish-release-option-values.class';
 
 const mockGitHub = {
     rest: {
@@ -46,4 +47,7 @@ PublishReleaseService.run(testPublishRelease, {
             console.log(`Mock IRC postUpdateMessage for release ${releaseVersion}`);
         },
     }),
-}).catch(console.error);
+}).catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+});

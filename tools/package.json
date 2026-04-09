@@ -1,6 +1,7 @@
 {
   "name": "cncnet-yr-client-package-tools",
   "private": true,
+  "type": "module",
   "description": "",
   "author": "",
   "license": "ISC",

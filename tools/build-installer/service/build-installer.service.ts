@@ -1,23 +1,28 @@
-import { spawn } from 'child_process';
-import { BuildInstallerConstants, createConstants } from 'build-installer/constants';
-import * as Twig from 'twig';
-import { access, readFile, writeFile } from 'fs';
-import { mkdir } from 'fs/promises';
-import { TemplateModel } from 'build-installer/class/template-model.class';
-import { parse as parseIni } from 'js-ini';
 import { parseArgs } from 'util';
-import * as util from 'util';
-import { resolve } from 'path';
+import * as childProcess from 'child_process';
+import * as fs from 'fs';
+import * as fsPromises from 'fs/promises';
+import * as path from 'path';
 
-interface BuildCommandOptions {
+import { parse as parseIni, type IIniObjectSection } from 'js-ini';
+import Twig from 'twig';
+
+import { createConstants } from 'build-installer/constants';
+import { type TemplateModel } from 'build-installer/class/template-model.class';
+
+interface IBuildCommandOptions {
     command: string;
     args: string[];
     env?: NodeJS.ProcessEnv;
     useWindowsPaths: boolean;
 }
 
+function isIniSection(value: unknown): value is IIniObjectSection {
+    return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
 export class BuildInstallerService {
-    private constants: BuildInstallerConstants;
+    private constants: ReturnType<typeof createConstants>;
 
     public constructor(private workingDir: string) {
         this.constants = createConstants(workingDir);
@@ -58,7 +63,7 @@ export class BuildInstallerService {
             Twig.renderFile(this.constants.paths.installerTemplate, templateModel, (err, content) => {
                 if (err) throw err;
 
-                writeFile(this.constants.paths.installerScript, content, (err) => {
+                fs.writeFile(this.constants.paths.installerScript, content, (err) => {
                     if (err) throw err;
 
                     console.log(`Installer script written to '${this.constants.paths.installerScript}'`);
@@ -92,13 +97,22 @@ export class BuildInstallerService {
     }
 
     private async getAppVersion(): Promise<string> {
-        const versionContent = await util.promisify(readFile)(this.constants.paths.versionFilePath, {
+        const versionContent = await fsPromises.readFile(this.constants.paths.versionFilePath, {
             encoding: 'utf-8',
         });
+
         const versionIni = parseIni(versionContent, {
             autoTyping: false,
         });
-        return versionIni['DTA']['Version'];
+
+        const dtaSection = versionIni['DTA'];
+
+        if (!isIniSection(dtaSection)) {
+            return 'undefined';
+        }
+
+        const version = dtaSection['Version'];
+        return typeof version === 'string' ? version : 'undefined';
     }
 
     private async getInstallDeleteFiles(): Promise<string[]> {
@@ -116,7 +130,7 @@ export class BuildInstallerService {
     }
 
     private async getUpdateExecFileEntries(file: string): Promise<string[]> {
-        const content = await util.promisify(readFile)(file, { encoding: 'utf-8' });
+        const content = await fsPromises.readFile(file, { encoding: 'utf-8' });
         const ini = parseIni(content, {
             autoTyping: false,
             // tell the parser to read this as a list of strings without keys
@@ -130,10 +144,10 @@ export class BuildInstallerService {
             .filter(this.isValidDeleteEntry)
             .filter(async (entry) => {
                 try {
-                    const entryPath = resolve(this.constants.paths.packagePath, entry);
+                    const entryPath = path.resolve(this.constants.paths.packagePath, entry);
                     // if this succeeds, then the file or dir currently exists in /package dir
                     // it probably shouldn't exist in preupdateexec or updateexec files
-                    await util.promisify(access)(entryPath);
+                    await fsPromises.access(entryPath);
                     console.warn(`File in '${file}' delete list, but still in repo: '${entryPath}'`);
                     return false;
                 } catch (e) {
@@ -143,7 +157,7 @@ export class BuildInstallerService {
     }
 
     private isValidDeleteEntry(entry: string): boolean {
-        return entry && entry !== 'do_not_remove_this_line';
+        return Boolean(entry && entry !== 'do_not_remove_this_line');
     }
 
     private async checkForRequiredFilesAsync(): Promise<void> {
@@ -161,7 +175,7 @@ export class BuildInstallerService {
 
     private async checkForRequiredFileAsync(filePath: string): Promise<void> {
         try {
-            await util.promisify(access)(filePath);
+            await fsPromises.access(filePath);
         } catch (error) {
             if (filePath === this.constants.paths.dependencyInstallerPath) {
                 throw new Error(
@@ -174,7 +188,7 @@ export class BuildInstallerService {
         }
     }
 
-    private async getBuildCommandOptions(): Promise<BuildCommandOptions> {
+    private async getBuildCommandOptions(): Promise<IBuildCommandOptions> {
         if (process.platform === 'win32') {
             return {
                 command: this.constants.paths.installerBinary,
@@ -190,12 +204,12 @@ export class BuildInstallerService {
         throw new Error(`Unsupported platform for build-installer: ${process.platform}`);
     }
 
-    private async getLinuxBuildCommandOptions(): Promise<BuildCommandOptions> {
+    private async getLinuxBuildCommandOptions(): Promise<IBuildCommandOptions> {
         if (!(await this.isCommandAvailable(this.constants.commands.wine, ['--version']))) {
             throw new Error('build-installer requires wine on Linux, but it was not found in PATH.');
         }
 
-        await mkdir(this.constants.paths.winePrefixPath, { recursive: true });
+        await fsPromises.mkdir(this.constants.paths.winePrefixPath, { recursive: true });
         console.log(`Running ISCC.exe via wine with local prefix '${this.constants.paths.winePrefixPath}'`);
 
         return {
@@ -215,7 +229,7 @@ export class BuildInstallerService {
 
     private async isCommandAvailable(command: string, args: string[]): Promise<boolean> {
         return await new Promise((resolvePromise) => {
-            const child = spawn(command, args, {
+            const child = childProcess.spawn(command, args, {
                 stdio: 'ignore',
             });
 
@@ -234,10 +248,10 @@ export class BuildInstallerService {
         });
     }
 
-    private async buildInstaller(commandOptions: BuildCommandOptions): Promise<void> {
+    private async buildInstaller(commandOptions: IBuildCommandOptions): Promise<void> {
         console.log(`Building installer from script '${this.constants.paths.installerScript}'`);
         await new Promise<void>((resolvePromise, reject) => {
-            const inno = spawn(commandOptions.command, commandOptions.args, {
+            const inno = childProcess.spawn(commandOptions.command, commandOptions.args, {
                 cwd: this.constants.paths.innoBinPath,
                 env: commandOptions.env,
             });

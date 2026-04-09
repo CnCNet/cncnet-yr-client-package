@@ -1,4 +1,7 @@
 import { PublishReleaseService } from './services/publish-release.service';
 
 PublishReleaseService.run() //
-    .catch(console.error);
+    .catch((error) => {
+        console.error(error);
+        process.exitCode = 1;
+    });

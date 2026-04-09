@@ -42,6 +42,7 @@
 /package/VersionWriter.exe
 
 .idea/*
+.vscode/*
 /CnCNet5_YR_Installer.exe
 /gitversion.json
 /logs

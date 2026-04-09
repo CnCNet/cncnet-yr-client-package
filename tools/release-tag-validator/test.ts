@@ -7,11 +7,19 @@ import { testBadReleaseTagContext } from './test-data/test-bad-release-tag-conte
 import { testGoodReleaseTagContext } from './test-data/test-good-release-tag-context';
 import { testNonReleaseContext } from './test-data/test-non-release-context';
 
-ReleaseTagValidatorService.run(testGoodReleaseTagContext);
-ReleaseTagValidatorService.run(testNonReleaseContext);
+async function run(): Promise<void> {
+    await ReleaseTagValidatorService.run(testGoodReleaseTagContext);
+    await ReleaseTagValidatorService.run(testNonReleaseContext);
 
-try {
-    ReleaseTagValidatorService.run(testBadReleaseTagContext);
-} catch (e) {
-    console.error(e);
+    try {
+        await ReleaseTagValidatorService.run(testBadReleaseTagContext);
+    } catch (e) {
+        console.error(e);
+    }
 }
+
+run() //
+    .catch((error) => {
+        console.error(error);
+        process.exitCode = 1;
+    });

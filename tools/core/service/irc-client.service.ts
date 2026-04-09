@@ -1,5 +1,6 @@
-import { Client } from 'irc';
-import { IrcServerConfig } from 'cncnet-core/class/irc-server-config.class';
+import { Client, type IMessage } from 'irc';
+
+import { type IIrcServerConfig } from 'cncnet-core/interface/irc-server-config.interface';
 
 const timeout = 60000; // 1 minute
 /**
@@ -9,13 +10,12 @@ export class IrcClientService {
     private client: Client;
 
     /**
-     *
-     * @param config
+     * @param config the IRC server connection settings
      * @param channel the channel to post this update message to
      * @param releaseVersion the release version to include in the update message
      */
     public constructor(
-        private config: IrcServerConfig,
+        private config: IIrcServerConfig,
         private channel: string,
         private releaseVersion: string,
     ) {
@@ -65,7 +65,7 @@ export class IrcClientService {
      * @private
      */
     private async waitForAuthNotice(): Promise<void> {
-        const messageHandler = async (message: string) => {
+        const messageHandler = async (message: IMessage) => {
             if (await this.isAuthorizedMessage(message)) {
                 this.client.removeListener('raw', messageHandler);
                 console.log('Authorized.');
@@ -79,7 +79,7 @@ export class IrcClientService {
         this.client.addListener('raw', messageHandler.bind(this));
     }
 
-    private async isAuthorizedMessage(message: any): Promise<boolean> {
+    private async isAuthorizedMessage(message: IMessage): Promise<boolean> {
         return (
             message.command === 'NOTICE' &&
             message.args.length > 1 &&
@@ -88,7 +88,7 @@ export class IrcClientService {
         );
     }
 
-    private async isIncorrectPasswordMessage(message: any): Promise<boolean> {
+    private async isIncorrectPasswordMessage(message: IMessage): Promise<boolean> {
         return (
             message.command === 'NOTICE' &&
             message.args.length > 1 &&
@@ -116,9 +116,9 @@ export class IrcClientService {
     private async sendUpdateMessage(): Promise<void> {
         const updateMessage = `UPDATE ${this.releaseVersion}`;
         console.log(`Sending update message: ${updateMessage}...`);
-        this.client.ctcp(this.channel, null, updateMessage);
+        this.client.ctcp(this.channel, 'notice', updateMessage);
         console.log('Disconnecting...');
-        this.client.disconnect();
+        this.client.disconnect('Closing session', () => undefined);
         process.exit(0);
     }
 

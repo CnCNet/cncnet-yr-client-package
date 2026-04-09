@@ -4,6 +4,7 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "noEmit": true,
+    "verbatimModuleSyntax": true,
     "paths": {
       "build-installer/*": ["./build-installer/*"],
       "cncnet-core/*": ["./core/*"],

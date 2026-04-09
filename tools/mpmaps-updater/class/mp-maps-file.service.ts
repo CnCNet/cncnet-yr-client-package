@@ -1,10 +1,11 @@
-import { join } from 'path';
+import * as path from 'path';
+
 import { IniFile } from './ini-file.class';
 
 export class MpMapsFileService {
     public constructor(
         private packagePath: string,
-        private mpMapsIniPath: string = join(packagePath, 'INI', 'MPMaps.ini'),
+        private mpMapsIniPath: string = path.join(packagePath, 'INI', 'MPMaps.ini'),
     ) {}
 
     public async getMpMapsIniFileAsync(): Promise<IniFile> {

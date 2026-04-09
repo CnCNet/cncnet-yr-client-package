@@ -1,11 +1,14 @@
-import { IrcServerConfig } from 'cncnet-core/class/irc-server-config.class';
+import { context as githubContext } from '@actions/github';
+
+import { type IIrcServerConfig } from 'cncnet-core/interface/irc-server-config.interface';
 import { PublishReleaseOptionValues } from 'cncnet-core/class/publish-release-option-values.class';
 import { AbstractRepoService } from 'cncnet-core/service/abstract-repo.service';
 import { IrcClientService } from 'cncnet-core/service/irc-client.service';
 import { SshClientService } from 'cncnet-core/service/ssh-client.service';
-import { Context } from '@actions/github/lib/context';
 
 const tagRegex = /^yr-(?<major>\d+).(?<minor>\d+)(?:\.(?<patch>\d+))*$/;
+
+type PublishReleaseContext = Pick<typeof githubContext, 'repo'>;
 
 type PublishReleaseGitHub = {
     rest: {
@@ -55,7 +58,7 @@ export class PublishReleaseService extends AbstractRepoService<PublishReleaseOpt
         this.createIrcClient =
             dependencies.createIrcClient ||
             ((options, releaseVersion) => {
-                const config: IrcServerConfig = {
+                const config: IIrcServerConfig = {
                     server: options.ircServer,
                     userName: options.ircUserName,
                     nick: options.ircNick,
@@ -68,11 +71,14 @@ export class PublishReleaseService extends AbstractRepoService<PublishReleaseOpt
             });
     }
 
-    public static run(context?: any | Context, dependencies?: PublishReleaseDependencies): Promise<void> {
-        return new PublishReleaseService(dependencies).run(context || new Context());
+    public static async run(
+        context: PublishReleaseContext = githubContext,
+        dependencies?: PublishReleaseDependencies,
+    ): Promise<void> {
+        return new PublishReleaseService(dependencies).run(context);
     }
 
-    private async run(context: any | Context): Promise<void> {
+    private async run(context: PublishReleaseContext): Promise<void> {
         const releaseVersion = await this.getLatestReleaseNumber(context);
 
         await this.publishReleaseVersionOnServer(releaseVersion);
@@ -80,13 +86,13 @@ export class PublishReleaseService extends AbstractRepoService<PublishReleaseOpt
     }
 
     /**
-     * Gets the latest release number for the latest release. It does this by getting the latest release from Github,
-     * then parsing the "tag" for that lease in our expected format of "yr-x.y" or "yr-x.y.z".
+     * Gets the latest release number for the latest release. It does this by getting the latest release from GitHub,
+     * then parsing the tag for that release in our expected format of "yr-x.y" or "yr-x.y.z",
      * where "x.y" or "x.y.z" is the release number.
-     * @param context
+     * @param context the repository information used to query the latest release
      * @private
      */
-    private async getLatestReleaseNumber(context: any | Context): Promise<string> {
+    private async getLatestReleaseNumber(context: PublishReleaseContext): Promise<string> {
         const github = this.getRequiredGitHub();
         const response = await github.rest.repos.getLatestRelease({
             owner: context.repo.owner,
@@ -107,7 +113,7 @@ export class PublishReleaseService extends AbstractRepoService<PublishReleaseOpt
     /**
      * Publishes the specified release number.
      * This creates or modifies the "live" link to point to the directory for the specified release version.
-     * @param releaseVersion
+     * @param releaseVersion the release version to publish on the server
      * @private
      */
     private async publishReleaseVersionOnServer(releaseVersion: string): Promise<void> {
@@ -129,7 +135,7 @@ export class PublishReleaseService extends AbstractRepoService<PublishReleaseOpt
     /**
      * Parses the tag name into a release version in the form "x.y" or "x.y.z"
      *
-     * @param tagName Tag name to be parsed. It should be in the form "yr-x.y.z"
+     * @param tagName the tag name to parse, expected in the form "yr-x.y.z"
      * @private
      */
     private async getReleaseVersionForTag(tagName: string): Promise<string> {
