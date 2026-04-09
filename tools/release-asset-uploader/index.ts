@@ -1,3 +1,4 @@
-﻿import { ReleaseAssetUploaderService } from './service';
+﻿import { ReleaseAssetUploaderService } from './service/release-asset-uploader.service';
 
-ReleaseAssetUploaderService.run();
+ReleaseAssetUploaderService.run() //
+    .catch(console.error);

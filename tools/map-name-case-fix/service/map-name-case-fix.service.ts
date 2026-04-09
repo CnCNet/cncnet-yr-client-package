@@ -1,26 +1,43 @@
-import { MpMapsFileService } from '@cncnet-core/class/mp-maps-file.service';
+import { MpMapsFileService } from 'mpmaps-updater/class/mp-maps-file.service';
 import * as path from 'path';
-import { coreConstants } from '@cncnet-core/constants';
 import { readdirSync } from 'fs';
 import * as fs from 'fs';
+import { parseArgs } from 'util';
 
 interface MapKeyPairing {
-    mapKey: string,
+    mapKey: string;
     imageName: string;
 }
 
 export class MapNameCaseFixService {
-
     private mpMapsFileService: MpMapsFileService;
     private mapDirectoryFiles: string[];
     private mapDirectoryFilesLower: string[];
+    private yrMapsPath: string;
 
-    public constructor() {
-        this.mpMapsFileService = new MpMapsFileService();
+    public constructor(private workingDir: string) {
+        this.workingDir = path.resolve(workingDir);
+        this.yrMapsPath = path.join(this.workingDir, 'Maps', `Yuri's Revenge`);
+        this.mpMapsFileService = new MpMapsFileService(this.workingDir);
     }
 
     public static run(): void {
-        new MapNameCaseFixService().run();
+        const { values } = parseArgs({
+            options: {
+                workingDir: {
+                    type: 'string',
+                    short: 'w',
+                },
+            },
+        });
+
+        if (!values.workingDir) {
+            console.error('Missing required argument: --workingDir');
+            console.error('Example: npm run map-name-case-fix -- --workingDir /path/to/package');
+            process.exit(1);
+        }
+
+        new MapNameCaseFixService(values.workingDir).run();
     }
 
     private async run(): Promise<void> {
@@ -28,10 +45,10 @@ export class MapNameCaseFixService {
         // compare keys found in MPMaps.ini to filenames for *.map and *.png files
         await this.loadMapDirectoryFilesAsync();
         const invalidMapPairings: MapKeyPairing[] = (await this.mpMapsFileService.getMapKeysAsync())
-            .map(mapKey => this.getInvalidMapPairing(mapKey))
-            .filter(pairing => !!pairing);
+            .map((mapKey) => this.getInvalidMapPairing(mapKey))
+            .filter((pairing) => !!pairing);
 
-        invalidMapPairings.forEach(pairing => this.fixInvalidMapKey(pairing));
+        invalidMapPairings.forEach((pairing) => this.fixInvalidMapKey(pairing));
         console.log(`processed ${invalidMapPairings.length} invalid map(s)`);
     }
 
@@ -43,24 +60,24 @@ export class MapNameCaseFixService {
 
         // console.log('fix', oldName, newName);
 
-        fs.renameSync(oldName, newName)
+        fs.renameSync(oldName, newName);
     }
 
     private async loadMapDirectoryFilesAsync(): Promise<void> {
-        this.mapDirectoryFiles = await this.readDirAsync(coreConstants.paths.yrMaps);
-        this.mapDirectoryFilesLower = this.mapDirectoryFiles.map(f => f.toLowerCase());
+        this.mapDirectoryFiles = await this.readDirAsync(this.yrMapsPath);
+        this.mapDirectoryFilesLower = this.mapDirectoryFiles.map((f) => f.toLowerCase());
     }
 
     private async readDirAsync(filePath: string): Promise<string[]> {
         const files = [];
-        readdirSync(filePath, {withFileTypes: true}).map(async (f) => {
+        readdirSync(filePath, { withFileTypes: true }).map(async (f) => {
             if (f.isFile()) {
                 files.push(path.join(filePath, f.name));
                 return;
             }
 
             files.push(...(await this.readDirAsync(path.join(filePath, f.name))));
-        })
+        });
 
         return files;
     }
@@ -69,10 +86,13 @@ export class MapNameCaseFixService {
         const mapFilePreviewImg = this.getMapKeyImagePath(mapKey);
         const fileLowerIndex = this.mapDirectoryFilesLower.indexOf(mapFilePreviewImg.toLowerCase());
 
-        if (this.mapDirectoryFiles.indexOf(mapFilePreviewImg) === -1 && this.mapDirectoryFilesLower.indexOf(mapFilePreviewImg.toLowerCase()) !== -1) {
+        if (
+            this.mapDirectoryFiles.indexOf(mapFilePreviewImg) === -1 &&
+            this.mapDirectoryFilesLower.indexOf(mapFilePreviewImg.toLowerCase()) !== -1
+        ) {
             return {
                 mapKey,
-                imageName: this.mapDirectoryFiles[fileLowerIndex]
+                imageName: this.mapDirectoryFiles[fileLowerIndex],
             };
         }
 
@@ -80,7 +100,7 @@ export class MapNameCaseFixService {
     }
 
     private getMapKeyImagePath(mapKey: string): string {
-        const mapFileBase = path.join(coreConstants.paths.yrMaps, mapKey.substring(mapKey.lastIndexOf('\\') + 1));
+        const mapFileBase = path.join(this.yrMapsPath, mapKey.substring(mapKey.lastIndexOf('\\') + 1));
         return `${mapFileBase}.png`;
     }
 }

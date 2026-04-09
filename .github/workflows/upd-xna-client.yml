@@ -28,7 +28,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         lfs: true
-    
+
     - name: Download Latest Release
       id: download
       uses: robinraju/release-downloader@v1
@@ -45,7 +45,7 @@ jobs:
         $clientDir = $repoDir + "\${{ env.CLIENT_PATH }}"
         $currentVersion = (Get-Item -Path "$clientDir\Resources\clientdx.exe").VersionInfo.FileVersion -Replace "\.0$", ""
         $downloadVersion = '${{ steps.download.outputs.tag_name }}'
-        
+
         echo "Current client version: '$currentVersion'"
         echo "Downloaded client version: '$downloadVersion'"
 
@@ -54,7 +54,7 @@ jobs:
           echo "Update is not required"
           exit
         }
-        
+
         echo "Update required"
 
         # Check if branch exist
@@ -65,14 +65,14 @@ jobs:
           echo "Branch ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }} already exist. Skip updating."
           exit
         }
-        
+
         # Configure git
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
 
         # Make update branch
         git checkout -b ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}
-        
+
         # Delete old binaries, unpack archive, remove archive
         rm -r -fo "$clientDir\Resources\Binaries"
         rm -r -fo "$clientDir\Resources\BinariesNET8"
@@ -164,7 +164,7 @@ jobs:
                 if ($deleteSectionIndex -eq $index)
                 {
                   $updateexecContent_new += "; ${{ steps.download.outputs.tag_name }} (auto-generated entries for removed/renamed files)" + [Environment]::NewLine
-                  
+
                   foreach($new_delete in $deletedFiles)
                   {
                     $updateexecContent_new += $new_delete + [Environment]::NewLine
@@ -186,7 +186,7 @@ jobs:
         # Push changes
         git push --force origin ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}
 
-        # This timeout is for the remote server to index received content 
+        # This timeout is for the remote server to index received content
         # https://stackoverflow.com/questions/74842935/powershell-batch-script-timeout-error-input-redirection-is-not-supported-exiti
         Start-Job {
           # Simulate calling a batch file (cmd /c)
