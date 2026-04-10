@@ -1,12 +1,12 @@
-import { resolve } from 'path';
+import * as path from 'path';
 
 export function createConstants(workingDir: string) {
-    const packagePath = resolve(workingDir);
-    const mapsPath = resolve(packagePath, 'Maps');
-    const yrMapsPath = resolve(mapsPath, `Yuri's Revenge`);
-    const iniPath = resolve(packagePath, 'INI');
-    const mpMapsIniPath = resolve(iniPath, 'MPMaps.ini');
-    const updateExecPath = resolve(packagePath, 'updateexec');
+    const packagePath = path.resolve(workingDir);
+    const mapsPath = path.resolve(packagePath, 'Maps');
+    const yrMapsPath = path.resolve(mapsPath, `Yuri's Revenge`);
+    const iniPath = path.resolve(packagePath, 'INI');
+    const mpMapsIniPath = path.resolve(iniPath, 'MPMaps.ini');
+    const updateExecPath = path.resolve(packagePath, 'updateexec');
 
     return {
         regex: {
@@ -46,5 +46,3 @@ export function createConstants(workingDir: string) {
         },
     };
 }
-
-export type MpMapsUpdaterConstants = ReturnType<typeof createConstants>;

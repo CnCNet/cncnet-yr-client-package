@@ -2,8 +2,8 @@
 import { Command } from 'commander';
 
 export class ReleaseAssetUploaderOptionValues extends AbstractOptionValues {
-    assetPath: string;
-    assetName: string;
+    assetPath!: string;
+    assetName!: string;
 
     static parse(): ReleaseAssetUploaderOptionValues {
         return new Command()

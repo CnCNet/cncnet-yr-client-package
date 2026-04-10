@@ -1,8 +1,9 @@
-import { Client } from 'ssh2';
-import { SshConfig } from 'cncnet-core/class/ssh-config.class';
+import { Client, type ClientChannel } from 'ssh2';
+
+import { type ISshConfig } from 'cncnet-core/interface/ssh-config.interface';
 
 export class SshClientService {
-    constructor(private sshConfig: SshConfig) {}
+    constructor(private sshConfig: ISshConfig) {}
 
     public async executeCommands(commands: string[]): Promise<void> {
         const conn = new Client();
@@ -15,7 +16,7 @@ export class SshClientService {
                     .on('close', () => {
                         conn.end();
                     })
-                    .on('data', (data) => {
+                    .on('data', (_data: Buffer | string) => {
                         // only uncomment for debugging purposes
                         // console.log(data.toString());
                     });

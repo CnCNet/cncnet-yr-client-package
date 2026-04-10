@@ -1,8 +1,12 @@
-﻿import { Context } from '@actions/github/lib/context';
+import * as fs from 'fs';
+import * as path from 'path';
+
+import { context as githubContext } from '@actions/github';
+
 import { ReleaseAssetUploaderOptionValues } from 'cncnet-core/class/release-asset-uploader-option-values.class';
 import { AbstractRepoService } from 'cncnet-core/service/abstract-repo.service';
-import { existsSync, readFileSync } from 'fs';
-import { resolve } from 'path';
+
+type ReleaseAssetUploaderContext = Pick<typeof githubContext, 'ref' | 'repo'>;
 
 type ReleaseAssetUploaderGitHub = {
     rest: {
@@ -36,15 +40,18 @@ export class ReleaseAssetUploaderService extends AbstractRepoService<ReleaseAsse
         }
     }
 
-    public static run(context?: Context | any, dependencies?: ReleaseAssetUploaderDependencies): Promise<void> {
-        return new ReleaseAssetUploaderService(dependencies).run(context || new Context());
+    public static async run(
+        context: ReleaseAssetUploaderContext = githubContext,
+        dependencies?: ReleaseAssetUploaderDependencies,
+    ): Promise<void> {
+        return new ReleaseAssetUploaderService(dependencies).run(context);
     }
 
     protected getOptionValues(): ReleaseAssetUploaderOptionValues {
         return ReleaseAssetUploaderOptionValues.parse();
     }
 
-    private async run(context: any | Context): Promise<void> {
+    private async run(context: ReleaseAssetUploaderContext): Promise<void> {
         const tagName = super.getTagName(context.ref);
         if (!tagName) {
             console.log('No tag/release to upload asset to');
@@ -69,12 +76,12 @@ export class ReleaseAssetUploaderService extends AbstractRepoService<ReleaseAsse
             return;
         }
 
-        const fullAssetPath = resolve(process.cwd(), assetPath);
+        const fullAssetPath = path.resolve(process.cwd(), assetPath);
         console.log(`Checking to see if asset exists at ${fullAssetPath}`);
-        if (!existsSync(fullAssetPath)) throw `Asset does not exist at: ${fullAssetPath}`;
+        if (!fs.existsSync(fullAssetPath)) throw `Asset does not exist at: ${fullAssetPath}`;
 
         console.log(`Reading asset file data`);
-        const data: unknown = readFileSync(fullAssetPath);
+        const data: unknown = fs.readFileSync(fullAssetPath);
 
         console.log(`Uploading asset to release`);
         const uploadResponse = await github.rest.repos.uploadReleaseAsset({

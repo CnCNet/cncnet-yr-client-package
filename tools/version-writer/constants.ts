@@ -1,11 +1,13 @@
-import { resolve } from 'path';
+import * as path from 'path';
+import * as url from 'url';
 
 export function createConstants(workingDir: string) {
-    const resolvedWorkingDir = resolve(workingDir);
-    const versionWriterBinary = resolve(__dirname, 'bin/VersionWriter.exe');
-    const runnerBinary = resolve(resolvedWorkingDir, 'VersionWriter.runtime.exe');
-    const versionConfigPath = resolve(resolvedWorkingDir, 'versionconfig.ini');
-    const winePrefixPath = resolve(__dirname, '.wine');
+    const currentDir = path.dirname(url.fileURLToPath(import.meta.url));
+    const resolvedWorkingDir = path.resolve(workingDir);
+    const versionWriterBinary = path.resolve(currentDir, 'bin/VersionWriter.exe');
+    const runnerBinary = path.resolve(resolvedWorkingDir, 'VersionWriter.runtime.exe');
+    const versionConfigPath = path.resolve(resolvedWorkingDir, 'versionconfig.ini');
+    const winePrefixPath = path.resolve(currentDir, '.wine');
 
     return {
         commands: {
@@ -21,5 +23,3 @@ export function createConstants(workingDir: string) {
         },
     };
 }
-
-export type VersionWriterConstants = ReturnType<typeof createConstants>;

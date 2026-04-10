@@ -1,18 +1,17 @@
-import { MpMapsFileService } from 'mpmaps-updater/class/mp-maps-file.service';
-import * as path from 'path';
-import { readdirSync } from 'fs';
-import * as fs from 'fs';
 import { parseArgs } from 'util';
+import * as fs from 'fs';
+import * as path from 'path';
 
-interface MapKeyPairing {
+import { MpMapsFileService } from 'mpmaps-updater/class/mp-maps-file.service';
+interface IMapKeyPairing {
     mapKey: string;
     imageName: string;
 }
 
 export class MapNameCaseFixService {
     private mpMapsFileService: MpMapsFileService;
-    private mapDirectoryFiles: string[];
-    private mapDirectoryFilesLower: string[];
+    private mapDirectoryFiles: string[] = [];
+    private mapDirectoryFilesLower: string[] = [];
     private yrMapsPath: string;
 
     public constructor(private workingDir: string) {
@@ -44,7 +43,7 @@ export class MapNameCaseFixService {
         // scan MPMaps.ini file for eligible maps
         // compare keys found in MPMaps.ini to filenames for *.map and *.png files
         await this.loadMapDirectoryFilesAsync();
-        const invalidMapPairings: MapKeyPairing[] = (await this.mpMapsFileService.getMapKeysAsync())
+        const invalidMapPairings: IMapKeyPairing[] = (await this.mpMapsFileService.getMapKeysAsync())
             .map((mapKey) => this.getInvalidMapPairing(mapKey))
             .filter((pairing) => !!pairing);
 
@@ -52,7 +51,7 @@ export class MapNameCaseFixService {
         console.log(`processed ${invalidMapPairings.length} invalid map(s)`);
     }
 
-    private fixInvalidMapKey(mapKeyPairing: MapKeyPairing): void {
+    private fixInvalidMapKey(mapKeyPairing: IMapKeyPairing): void {
         const mapFilePreviewImg = this.getMapKeyImagePath(mapKeyPairing.mapKey);
 
         const oldName = mapKeyPairing.imageName;
@@ -68,9 +67,9 @@ export class MapNameCaseFixService {
         this.mapDirectoryFilesLower = this.mapDirectoryFiles.map((f) => f.toLowerCase());
     }
 
-    private async readDirAsync(filePath: string): Promise<string[]> {
-        const files = [];
-        readdirSync(filePath, { withFileTypes: true }).map(async (f) => {
+    private async readDirAsync(filePath: string): Promise<Array<string>> {
+        const files: Array<string> = [];
+        fs.readdirSync(filePath, { withFileTypes: true }).map(async (f) => {
             if (f.isFile()) {
                 files.push(path.join(filePath, f.name));
                 return;
@@ -82,7 +81,7 @@ export class MapNameCaseFixService {
         return files;
     }
 
-    private getInvalidMapPairing(mapKey: string): MapKeyPairing {
+    private getInvalidMapPairing(mapKey: string): IMapKeyPairing | null {
         const mapFilePreviewImg = this.getMapKeyImagePath(mapKey);
         const fileLowerIndex = this.mapDirectoryFilesLower.indexOf(mapFilePreviewImg.toLowerCase());
 

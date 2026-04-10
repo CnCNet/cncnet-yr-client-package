@@ -1,17 +1,18 @@
-import { spawn } from 'child_process';
-import { createConstants, VersionWriterConstants } from 'version-writer/constants';
-import { access, copyFile, mkdir, rm } from 'fs/promises';
-import { resolve } from 'path';
 import { parseArgs } from 'util';
+import * as childProcess from 'child_process';
+import * as fsPromises from 'fs/promises';
+import * as path from 'path';
 
-interface CommandOptions {
+import { createConstants } from 'version-writer/constants';
+
+interface ICommandOptions {
     command: string;
     args: string[];
     env?: NodeJS.ProcessEnv;
 }
 
 export class VersionWriterService {
-    private constants: VersionWriterConstants;
+    private constants: ReturnType<typeof createConstants>;
 
     public constructor(private workingDir: string) {
         this.constants = createConstants(workingDir);
@@ -50,15 +51,15 @@ export class VersionWriterService {
     }
 
     private async validateWorkingDir(): Promise<void> {
-        await access(this.constants.paths.workingDir);
-        await access(this.constants.paths.versionConfigPath);
+        await fsPromises.access(this.constants.paths.workingDir);
+        await fsPromises.access(this.constants.paths.versionConfigPath);
     }
 
     private async prepareRunnerBinary(): Promise<void> {
-        await copyFile(this.constants.paths.versionWriterBinary, this.constants.paths.runnerBinary);
+        await fsPromises.copyFile(this.constants.paths.versionWriterBinary, this.constants.paths.runnerBinary);
     }
 
-    private async getCommandOptions(): Promise<CommandOptions> {
+    private async getCommandOptions(): Promise<ICommandOptions> {
         if (process.platform === 'win32') {
             return {
                 command: this.constants.paths.runnerBinary,
@@ -73,7 +74,7 @@ export class VersionWriterService {
         throw new Error(`Unsupported platform for version-writer: ${process.platform}`);
     }
 
-    private async getLinuxCommandOptions(): Promise<CommandOptions> {
+    private async getLinuxCommandOptions(): Promise<ICommandOptions> {
         if (await this.isCommandAvailable(this.constants.commands.mono, ['--version'])) {
             console.log('Running VersionWriter.exe via mono');
             return {
@@ -83,7 +84,7 @@ export class VersionWriterService {
         }
 
         if (await this.isCommandAvailable(this.constants.commands.wine, ['--version'])) {
-            await mkdir(this.constants.paths.winePrefixPath, { recursive: true });
+            await fsPromises.mkdir(this.constants.paths.winePrefixPath, { recursive: true });
             console.log(
                 `Running VersionWriter.exe via wine with local prefix '${this.constants.paths.winePrefixPath}'`,
             );
@@ -108,7 +109,7 @@ export class VersionWriterService {
 
     private async isCommandAvailable(command: string, args: string[]): Promise<boolean> {
         return await new Promise((resolvePromise) => {
-            const child = spawn(command, args, {
+            const child = childProcess.spawn(command, args, {
                 stdio: 'ignore',
             });
 
@@ -127,9 +128,9 @@ export class VersionWriterService {
         });
     }
 
-    private async runCommand(options: CommandOptions): Promise<void> {
+    private async runCommand(options: ICommandOptions): Promise<void> {
         await new Promise<void>((resolvePromise, reject) => {
-            const versionWriter = spawn(options.command, options.args, {
+            const versionWriter = childProcess.spawn(options.command, options.args, {
                 cwd: this.constants.paths.workingDir,
                 env: options.env,
             });
@@ -162,13 +163,13 @@ export class VersionWriterService {
     }
 
     private async deleteRunnerBinary(): Promise<void> {
-        return rm(this.constants.paths.runnerBinary, {
+        return fsPromises.rm(this.constants.paths.runnerBinary, {
             force: true,
         });
     }
 
     private async deleteVersionWriterCopiedFiles(): Promise<void> {
-        return rm(resolve(this.constants.paths.workingDir, 'VersionWriter-CopiedFiles'), {
+        return fsPromises.rm(path.resolve(this.constants.paths.workingDir, 'VersionWriter-CopiedFiles'), {
             force: true,
             recursive: true,
         });

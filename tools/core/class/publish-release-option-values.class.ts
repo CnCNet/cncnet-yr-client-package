@@ -1,19 +1,20 @@
-import { AbstractOptionValues } from './abstract-option-values.class';
 import { Command } from 'commander';
 
+import { AbstractOptionValues } from './abstract-option-values.class';
+
 export class PublishReleaseOptionValues extends AbstractOptionValues {
-    sshHost: string;
-    sshPort: number;
-    sshUsername: string;
-    sshKeyBase64: string;
-    sshPassphrase: string;
-    yrGamePath: string;
-    ircServer: string;
-    ircChannel: string;
-    ircNick: string;
-    ircUserName: string;
-    ircPassword: string;
-    ircRealName: string;
+    sshHost!: string;
+    sshPort!: number;
+    sshUsername!: string;
+    sshKeyBase64!: string;
+    sshPassphrase!: string;
+    yrGamePath!: string;
+    ircServer!: string;
+    ircChannel!: string;
+    ircNick!: string;
+    ircUserName!: string;
+    ircPassword!: string;
+    ircRealName!: string;
 
     static parse(): PublishReleaseOptionValues {
         return new Command()

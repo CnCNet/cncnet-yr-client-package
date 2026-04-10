@@ -1,7 +1,8 @@
-import * as fs from 'fs-extra';
 import * as path from 'path';
+
+import fastFolderSizeSync from 'fast-folder-size/sync';
+import fs from 'fs-extra';
 import * as glob from 'glob';
-const fastFolderSizeSync = require('fast-folder-size/sync') as (target: string) => number;
 
 function toPosixPath(pathStr: string) {
     return pathStr.replace(/\\/g, '/');

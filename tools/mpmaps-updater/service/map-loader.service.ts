@@ -1,7 +1,7 @@
-import { readdir, stat } from 'fs';
-import * as util from 'util';
-import { IniFile } from 'mpmaps-updater/class/ini-file.class';
+import * as fsPromises from 'fs/promises';
 import * as path from 'path';
+
+import { IniFile } from 'mpmaps-updater/class/ini-file.class';
 
 export class MapLoaderService {
     public constructor(
@@ -16,13 +16,13 @@ export class MapLoaderService {
 
     private async getMapFilesFromDirAsync(dir: string): Promise<IniFile[]> {
         const maps: IniFile[] = [];
-        const dirFiles: string[] = await util.promisify(readdir)(dir, {
+        const dirFiles: string[] = await fsPromises.readdir(dir, {
             encoding: 'utf-8',
         });
 
         for (const fileOrDir of dirFiles) {
             const fileOrDirPath = path.join(dir, fileOrDir);
-            const stats = await util.promisify(stat)(fileOrDirPath);
+            const stats = await fsPromises.stat(fileOrDirPath);
             if (stats.isDirectory()) {
                 maps.push(...(await this.getMapFilesFromDirAsync(fileOrDirPath)));
             } else if (this.isMapFile(fileOrDir)) {

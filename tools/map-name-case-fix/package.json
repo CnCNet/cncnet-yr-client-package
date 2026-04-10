@@ -2,6 +2,7 @@
   "name": "map-name-case-fix",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "main": "./index.ts",
   "scripts": {
     "start": "tsx index.ts"

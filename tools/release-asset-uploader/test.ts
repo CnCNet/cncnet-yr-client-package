@@ -2,10 +2,12 @@
  * This is a simple script to test the action.
  */
 
+import * as fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
+
 import { ReleaseAssetUploaderOptionValues } from 'cncnet-core/class/release-asset-uploader-option-values.class';
-import { mkdtempSync, rmSync, writeFileSync } from 'fs';
-import { tmpdir } from 'os';
-import { join } from 'path';
+
 import { ReleaseAssetUploaderService } from './service/release-asset-uploader.service';
 import { testPackageContext } from './test-data/test-package';
 
@@ -48,10 +50,10 @@ const mockGitHub = {
 };
 
 async function run(): Promise<void> {
-    const tempDir = mkdtempSync(join(tmpdir(), 'release-asset-uploader-test-'));
-    const assetPath = join(tempDir, 'test-asset.txt');
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'release-asset-uploader-test-'));
+    const assetPath = path.join(tempDir, 'test-asset.txt');
 
-    writeFileSync(assetPath, 'test release asset uploader payload');
+    fs.writeFileSync(assetPath, 'test release asset uploader payload');
 
     const testOptionValues = {
         assetName: 'test-asset.txt',
@@ -64,11 +66,15 @@ async function run(): Promise<void> {
             optionValues: testOptionValues,
         });
     } finally {
-        rmSync(tempDir, {
+        fs.rmSync(tempDir, {
             recursive: true,
             force: true,
         });
     }
 }
 
-run().catch(console.error);
+run() //
+    .catch((error) => {
+        console.error(error);
+        process.exitCode = 1;
+    });

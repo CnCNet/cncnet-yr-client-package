@@ -1,7 +1,8 @@
-import MIXFile from './MIXFile';
-import ExFS from './ExFS';
-import * as path from 'path';
 import { parseArgs } from 'util';
+import * as path from 'path';
+
+import ExFS from './ExFS';
+import MIXFile from './MIXFile';
 
 function getOptions() {
     const { values } = parseArgs({

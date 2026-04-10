@@ -1,8 +1,9 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
 import CRC32 from './CRC32';
 import ExBuffer from './ExBuffer';
 import ExFS from './ExFS';
-import * as path from 'path';
-import * as fs from 'fs';
 
 export default class MIXFile {
     folderPath: string;

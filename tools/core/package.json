@@ -2,9 +2,10 @@
   "name": "cncnet-core",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "tsx": "^4.21.0",
-    "@actions/github": "^6.0.1",
+    "@actions/github": "^9.1.0",
     "commander": "^12.1.0",
     "irc": "^0.5.2",
     "ssh2": "^1.17.0"
