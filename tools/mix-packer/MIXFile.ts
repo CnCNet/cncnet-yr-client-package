@@ -1,8 +1,9 @@
-import CRC32 from "./CRC32";
-import ExBuffer from "./ExBuffer";
-import ExFS from "./ExFS";
-import * as path from "path";
-import * as fs from "fs";
+import * as fs from 'fs';
+import * as path from 'path';
+
+import CRC32 from './CRC32';
+import ExBuffer from './ExBuffer';
+import ExFS from './ExFS';
 
 export default class MIXFile {
     folderPath: string;
@@ -52,17 +53,17 @@ export default class MIXFile {
     }
 
     addLocalMixDatabase() {
-        const fileName = "local mix database.dat";
+        const fileName = 'local mix database.dat';
 
         const fileList = Array.from(this.includedFilesID.values()).map((el) => el.fileName);
         fileList.push(fileName);
         fileList.sort();
 
-        const body = fileList.join("\x00");
+        const body = fileList.join('\x00');
         const size = 0x34 + body.length + 1;
 
         const fileBuffer = Buffer.alloc(size, 0);
-        fileBuffer.write("XCC by Olaf van der Spek", 0);
+        fileBuffer.write('XCC by Olaf van der Spek', 0);
         fileBuffer.writeInt32BE(0x1a041727, 0x18);
         fileBuffer.writeInt32BE(0x10198000, 0x1c);
 

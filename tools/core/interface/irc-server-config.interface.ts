@@ -1,4 +1,4 @@
-export class IrcServerConfig {
+export interface IIrcServerConfig {
     server: string;
     nick: string;
     userName: string;

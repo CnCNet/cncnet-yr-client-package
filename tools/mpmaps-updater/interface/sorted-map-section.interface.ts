@@ -1,6 +1,6 @@
-import { IniValue } from 'js-ini';
+import { type IIniObjectSection } from 'js-ini';
 
-export interface SortedMapSection {
+export interface ISortedMapSection {
     mapKey: string;
-    section: IniValue;
+    section: IIniObjectSection;
 }

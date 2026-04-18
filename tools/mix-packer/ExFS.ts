@@ -1,10 +1,11 @@
-import * as fs from "fs-extra";
-import * as path from "path";
-import * as glob from "glob";
-const fastFolderSizeSync = require("fast-folder-size/sync") as (target: string) => number;
+import * as path from 'path';
+
+import fastFolderSizeSync from 'fast-folder-size/sync';
+import fs from 'fs-extra';
+import * as glob from 'glob';
 
 function toPosixPath(pathStr: string) {
-    return pathStr.replace(/\\/g, "/");
+    return pathStr.replace(/\\/g, '/');
 }
 
 export default class ExFS {
@@ -14,12 +15,12 @@ export default class ExFS {
             absolute: true,
         };
 
-        const globPattern = toPosixPath(path.join(folderPath, "**", "*.mix"));
+        const globPattern = toPosixPath(path.join(folderPath, '**', '*.mix'));
 
         const fileArray = glob.sync(globPattern, globOptions);
         fileArray.forEach((item) => {
             fs.removeSync(item);
-            console.log("delete " + item);
+            console.log('delete ' + item);
         });
     }
 
@@ -29,18 +30,18 @@ export default class ExFS {
             absolute: true,
             ignore: [
                 //
-                toPosixPath(path.join(folderPath, "**", "*.md")),
-                toPosixPath(path.join(folderPath, "*.pack", "**")),
+                toPosixPath(path.join(folderPath, '**', '*.md')),
+                toPosixPath(path.join(folderPath, '*.pack', '**')),
             ],
         };
 
-        const globPattern = toPosixPath(path.join(folderPath, "**"));
+        const globPattern = toPosixPath(path.join(folderPath, '**'));
 
         return glob.sync(globPattern, globOptions).sort();
     }
 
     static GetPackArray(folderPath: string) {
-        const globPattern = toPosixPath(path.join(folderPath, "**", "*.pack"));
+        const globPattern = toPosixPath(path.join(folderPath, '**', '*.pack'));
 
         let result = glob.sync(globPattern);
 
@@ -59,7 +60,7 @@ export default class ExFS {
             return fastFolderSizeSync(folderPath) || 0;
         } catch {
             try {
-                const globPattern = toPosixPath(path.join(folderPath, "**", "*"));
+                const globPattern = toPosixPath(path.join(folderPath, '**', '*'));
                 const filesList = glob.sync(globPattern, { nodir: true, absolute: true });
 
                 let totalSize = 0;

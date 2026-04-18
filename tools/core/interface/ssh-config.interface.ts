@@ -1,4 +1,4 @@
-export class SshConfig {
+export interface ISshConfig {
     host: string;
     port: number;
     username: string;

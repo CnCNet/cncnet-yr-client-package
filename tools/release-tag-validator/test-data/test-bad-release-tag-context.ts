@@ -1,4 +1,4 @@
 ﻿export const testBadReleaseTagContext = {
     eventName: 'release',
-    ref: 'refs/tags/foobar'
+    ref: 'refs/tags/foobar',
 };

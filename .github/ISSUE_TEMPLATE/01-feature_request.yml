@@ -10,7 +10,7 @@ body:
     attributes:
       value: |
         Thanks for suggesting a new feature! Please fill out the details below to help us understand your request.
-        
+
   - type: textarea
     id: problem-description
     attributes:

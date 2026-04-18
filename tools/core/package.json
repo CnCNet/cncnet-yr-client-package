@@ -1,0 +1,19 @@
+{
+  "name": "cncnet-core",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "tsx": "^4.21.0",
+    "@actions/github": "^9.1.0",
+    "commander": "^12.1.0",
+    "irc": "^0.5.2",
+    "ssh2": "^1.17.0"
+  },
+  "devDependencies": {
+    "@types/irc": "^0.5.4",
+    "@types/node": "^24.12.2",
+    "@types/ssh2": "^1.15.5",
+    "typescript": "^6.0.2"
+  }
+}

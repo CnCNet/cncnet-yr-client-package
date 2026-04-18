@@ -1,0 +1,19 @@
+{
+  "name": "mpmaps-updater",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "scripts": {
+    "start": "tsx index.ts"
+  },
+  "dependencies": {
+    "tsx": "^4.21.0",
+    "cncnet-core": "1.0.0",
+    "js-ini": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.2",
+    "typescript": "^6.0.2"
+  }
+}

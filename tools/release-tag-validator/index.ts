@@ -1,3 +1,7 @@
-﻿import { ReleaseTagValidatorService } from './service';
+﻿import { ReleaseTagValidatorService } from './service/release-tag-validator.service';
 
-ReleaseTagValidatorService.run();
+ReleaseTagValidatorService.run() //
+    .catch((error) => {
+        console.error(error);
+        process.exitCode = 1;
+    });
