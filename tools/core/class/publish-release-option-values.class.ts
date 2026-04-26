@@ -1,22 +1,23 @@
-import { AbstractOptionValues } from '@cncnet-core/class/abstract-option-values.class';
-import { program } from 'commander';
+import { Command } from 'commander';
+
+import { AbstractOptionValues } from './abstract-option-values.class';
 
 export class PublishReleaseOptionValues extends AbstractOptionValues {
-    sshHost: string;
-    sshPort: number;
-    sshUsername: string;
-    sshKeyBase64: string;
-    sshPassphrase: string;
-    yrGamePath: string;
-    ircServer: string;
-    ircChannel: string;
-    ircNick: string;
-    ircUserName: string;
-    ircPassword: string;
-    ircRealName: string;
+    sshHost!: string;
+    sshPort!: number;
+    sshUsername!: string;
+    sshKeyBase64!: string;
+    sshPassphrase!: string;
+    yrGamePath!: string;
+    ircServer!: string;
+    ircChannel!: string;
+    ircNick!: string;
+    ircUserName!: string;
+    ircPassword!: string;
+    ircRealName!: string;
 
     static parse(): PublishReleaseOptionValues {
-        return program
+        return new Command()
             .option('--token <token>')
             .option('--sshHost <sshHost>')
             .option('--sshPort <sshPort>')

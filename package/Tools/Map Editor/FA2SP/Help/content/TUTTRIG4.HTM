@@ -1,0 +1,63 @@
+<!doctype html public "-//w3c//dtd html 3.2//en">
+
+<html>
+
+<head>
+		<title>
+		</title>
+		<link rel=stylesheet type="text/css" href="formats.css">
+	</head>
+	
+	<body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
+		
+		<p class="heading" align="center">
+		<br>
+	10.  Trigger Tutorial (Intermediate)  </p>
+	<p>	
+
+
+<b>Creating & Using Triggers</b><br><br>
+Triggers may have more than just one event or action associated with them. If a trigger has multiple events all of them must be true simultaneously in order for the trigger to fire. An example of this is a complex win trigger using many different events.
+<br><br><br>
+
+<b>Step 1: Add A New Variable</b><br><br>
+Trigger: Create a win trigger requiring both destruction of the enemy and evacuation to a dust off point<br><br>
+Under the Edit menu, select "Local Variables". Add a new variable "0" with the description "Enemy Destroyed" and set its initial value to "0".
+<br><br><br>
+
+<b>Step 2: Set Up The Trigger</b><br><br>
+Set up a trigger with the following parameters:<br><br>
+a. Name: "Enemy player killed"<br>
+b. Event: "11 House completely destroyed", parameter the enemy house<br>
+c. Actions: <br>
+<img src="pics/wayp.jpg" height=1 width=20>      -  "11 Display text message", parameter "1 Objective 1 completed!"<br>
+<img src="pics/wayp.jpg" height=1 width=20>      -  "56 Set Local", parameter "0 Enemies Destroyed,0"
+<br><br><br>
+
+<b>Step 3: Set Up Win Trigger</b><br><br>
+Set up the win trigger with the following parameters:<br><br>
+a. Name: "American Win"<br>
+b. Events: <br>
+<img src="pics/wayp.jpg" height=1 width=20>      -  "36 Local is set", parameter "0 Enemies Destroyed,0"<br>
+<img src="pics/wayp.jpg" height=1 width=20>      -  "1 Celltag entered", parameter "0 American"<br>
+c. Actions:<br>
+<img src="pics/wayp.jpg" height=1 width=20>      -  "11 Display text message", parameter "2 Objective 2    completed!"<br>
+<img src="pics/wayp.jpg" height=1 width=20>      -  "1 Win game", parameter "0 Americans"
+<br><br><br>
+
+
+<b>Step 4: Create Celltags</b><br><br>
+Create one or more celltags with the property "01000008 American Win 1" where the evacuation point will be. The "Americans" will now "win [the] game" when any "celltag [is] entered" and the enemy "house [has been] completely destroyed".<br>
+To create the celltags, you can also use the "Place trigger" button in the trigger editor and place the celltags by clicking on the map<br><br>
+
+Now you've set up a multi-part trigger! <br><br><br><br>
+
+
+<font size=1>Original tutorial writer: Thalassicus</font> 
+
+
+
+</p>
+</body>
+
+</html>

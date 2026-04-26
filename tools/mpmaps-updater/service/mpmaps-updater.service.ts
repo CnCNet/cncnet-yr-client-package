@@ -1,24 +1,48 @@
-import { access, constants as fsConstants, readFile, writeFileSync } from 'fs';
-import { constants } from '../constants';
-import { MapLoaderService } from './map-loader.service';
-import { IniFile } from '../class';
-import { SortedMapSection } from '../interface';
-import * as util from 'util';
-import { IIniObject, parse as parseIni, stringify } from 'js-ini';
-import { MpMapsFileService } from '@cncnet-core/class/mp-maps-file.service';
+import { parseArgs } from 'util';
+import * as fsPromises from 'fs/promises';
+
+import { parse as parseIni, stringify } from 'js-ini';
+import type { IIniObject, IIniObjectSection } from 'js-ini';
+
+import { createConstants } from 'mpmaps-updater/constants';
+import { IniFile } from 'mpmaps-updater/class/ini-file.class';
+import { MapLoaderService } from 'mpmaps-updater/service/map-loader.service';
+import { MpMapsFileService } from 'mpmaps-updater/class/mp-maps-file.service';
+import { type ISortedMapSection } from 'mpmaps-updater/interface/sorted-map-section.interface';
+
+function isIniSection(value: unknown): value is IIniObjectSection {
+    return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
 
 export class MpMapsUpdaterService {
+    private constants: ReturnType<typeof createConstants>;
 
     private mpMapsIniFileService: MpMapsFileService;
     private mapLoaderService: MapLoaderService;
 
-    public static run(): void {
-        new MpMapsUpdaterService().run().catch(console.error);
+    constructor(private workingDir: string) {
+        this.constants = createConstants(workingDir);
+        this.mpMapsIniFileService = new MpMapsFileService(this.constants.paths.package);
+        this.mapLoaderService = new MapLoaderService(this.constants.paths.package, this.constants.paths.maps);
     }
 
-    constructor() {
-        this.mpMapsIniFileService = new MpMapsFileService();
-        this.mapLoaderService = new MapLoaderService();
+    public static run(): void {
+        const { values } = parseArgs({
+            options: {
+                workingDir: {
+                    type: 'string',
+                    short: 'w',
+                },
+            },
+        });
+
+        if (!values.workingDir) {
+            console.error('Missing required argument: --workingDir');
+            console.error('Example: npm run mpmaps-updater -- --workingDir /path/to/package');
+            process.exit(1);
+        }
+
+        new MpMapsUpdaterService(values.workingDir).run().catch(console.error);
     }
 
     /**
@@ -48,99 +72,157 @@ export class MpMapsUpdaterService {
         await this.updateMultiMaps(mpMapsIniFile, addedMapFiles, removedMapKeys);
     }
 
-    private async updateMultiMaps(mpMapsIniFile: IniFile, addedMapIniFiles: IniFile[], removedMapKeys: string[]): Promise<void> {
-        const addedMapKeys = addedMapIniFiles.map(m => m.getMpMapsKey());
+    private async updateMultiMaps(
+        mpMapsIniFile: IniFile,
+        addedMapIniFiles: IniFile[],
+        removedMapKeys: string[],
+    ): Promise<void> {
+        const addedMapKeys = addedMapIniFiles.map((m) => m.getMpMapsKey());
         const allMapKeys = mpMapsIniFile
             // get all existing map keys from [MultiMaps]
             .getMultiMapsValues()
             // filter out those that were removed
-            .filter(mpMapKey => removedMapKeys.indexOf(mpMapKey) === -1)
+            .filter((mpMapKey) => removedMapKeys.indexOf(mpMapKey) === -1)
             // add new ones
             .concat(addedMapKeys);
 
         // This is the property of each map that we sort on when ordering them in the [MultiMaps] section.
         // This will also dictate how they are default sorted in the client game lobby.
         const sortKey: string = 'Description';
-        const sortedMapSections: SortedMapSection[] = allMapKeys.map(mapKey => {
-            // create simple array of objects for each map key and the map section in the MPMaps.ini file
-            return {
-                mapKey,
-                section: mpMapsIniFile.getSection(mapKey)
-            }
-        }).filter((m, index, allMaps) => {
-            // create unique array
-            return allMaps.findIndex(_m => _m.mapKey === m.mapKey) === index;
-        }).sort((mapObjA: any, mapObjB: any) => {
-            // sort the simple array by "sortKey" above
-            if (mapObjA.section[sortKey] === mapObjB.section[sortKey])
-                return 0;
-            return mapObjA.section[sortKey] > mapObjB.section[sortKey] ? 1 : -1;
-        });
+        const sortedMapSections: ISortedMapSection[] = allMapKeys
+            .map((mapKey): ISortedMapSection | null => {
+                const section = mpMapsIniFile.getSection(mapKey);
+                if (!isIniSection(section)) {
+                    return null;
+                }
 
-        const multiMapsSection: { [key: number]: string } = {}
-        for (let i = 0; i < sortedMapSections.length; i++) {
-            multiMapsSection[i] = sortedMapSections[i].mapKey;
+                // create simple array of objects for each map key and the map section in the MPMaps.ini file
+                return {
+                    mapKey,
+                    section,
+                };
+            })
+            .filter((mapSection): mapSection is ISortedMapSection => mapSection !== null)
+            .filter((m, index, allMaps) => {
+                // create unique array
+                return allMaps.findIndex((_m) => _m.mapKey === m.mapKey) === index;
+            })
+            .sort((mapObjA, mapObjB) => {
+                // sort the simple array by "sortKey" above
+                const valueA = mapObjA.section[sortKey];
+                const valueB = mapObjB.section[sortKey];
+                if (valueA === valueB) return 0;
+                return String(valueA) > String(valueB) ? 1 : -1;
+            });
+
+        // Use the map path as the key to produce stable, minimal diffs.
+        // The CnCNet client reads all keys in [MultiMaps] regardless of format —
+        // they do not need to be sequential integers.
+        const multiMapsSection: { [key: string]: string } = {};
+        for (const sortedMap of sortedMapSections) {
+            multiMapsSection[sortedMap.mapKey] = sortedMap.mapKey;
         }
 
         mpMapsIniFile.setMultiMapsSection(multiMapsSection);
     }
 
-    private async getNewMapSection(mapIniFile: IniFile): Promise<any> {
-        const newSection = Object.assign({}, mapIniFile.getMapSection() || {}, mapIniFile.getBasicSection() || {}, mapIniFile);
-        const headerSection = mapIniFile.getHeaderSection() || {};
-        const maxWaypoints = parseInt(headerSection['NumberStartingPoints']) || constants.maxWaypoints;
+    private async getNewMapSection(mapIniFile: IniFile): Promise<IIniObjectSection> {
+        const newSection: IIniObjectSection = Object.assign(
+            {},
+            this.getOptionalIniSection(mapIniFile.getMapSection()),
+            this.getOptionalIniSection(mapIniFile.getBasicSection()),
+        );
+        const headerSection = this.getOptionalIniSection(mapIniFile.getHeaderSection());
+        const rawMaxWaypoints = headerSection['NumberStartingPoints'];
+        const parsedMaxWaypoints =
+            typeof rawMaxWaypoints === 'string' ? Number.parseInt(rawMaxWaypoints, 10) : Number.NaN;
+        const maxWaypoints =
+            Number.isFinite(parsedMaxWaypoints) && parsedMaxWaypoints > 0
+                ? parsedMaxWaypoints
+                : this.constants.maxWaypoints;
         const waypoints = mapIniFile.getWaypointsSectionValues();
         for (let i = 0; i < maxWaypoints; i++) {
-            newSection[`Waypoint${i}`] = waypoints[i];
+            const waypoint = waypoints[i];
+            if (waypoint !== undefined) {
+                newSection[`Waypoint${i}`] = waypoint;
+            }
         }
 
-        return await this.normalizeSection(newSection);
+        return await this.normalizeSection(mapIniFile, newSection);
     }
 
-    private async normalizeSection(newSection: any): Promise<any> {
+    private async normalizeSection(mapIniFile: IniFile, newSection: IIniObjectSection): Promise<IIniObjectSection> {
         console.log('Normalizing new map section');
+        const gameMode = this.getRequiredSectionValue(mapIniFile, newSection, 'GameMode');
+        const maxPlayer = this.getRequiredSectionValue(mapIniFile, newSection, 'MaxPlayer');
+        const name = this.getRequiredSectionValue(mapIniFile, newSection, 'Name');
+
         // map files declare this as 'GameMode'. MPMaps.ini declares this as 'GameModes'.
-        newSection['GameModes'] = newSection['GameMode'].replace('Standard', 'Battle');
-        newSection['MinPlayers'] = 1;   //allow 1 person to launch the game, to practice/preview the map (this is existing behavior from previous script)
-        newSection['MaxPlayers'] = newSection['MaxPlayer'];
+        newSection['GameModes'] = gameMode.replace(/standard/gi, 'Battle');
+        newSection['MinPlayers'] = 1; //allow 1 person to launch the game, to practice/preview the map (this is existing behavior from previous script)
+        newSection['MaxPlayers'] = maxPlayer;
         newSection['EnforceMaxPlayers'] = 'True';
-        newSection['Description'] = newSection['Name'];
+        newSection['Description'] = name;
         delete newSection['Name'];
 
         // only pull properties that we've whitelisted
-        for (let key of Object.keys(newSection)) {
-            if (!constants.newMapSectionWhitelist.find(item => new RegExp(`^${item}$`).test(key)))
+        for (const key of Object.keys(newSection)) {
+            if (!this.constants.newMapSectionWhitelist.find((item) => new RegExp(`^${item}$`).test(key))) {
                 delete newSection[key];
+            }
         }
 
         await this.normalizeGameModes(newSection);
 
         // sort properties alphabetically;
-        return Object.keys(newSection).sort((a, b) => {
-            return a > b ? 1 : -1;
-        }).reduce((obj, key) => {
-            obj[key] = newSection[key];
-            return obj;
-        }, {});
+        return Object.keys(newSection)
+            .sort((a, b) => {
+                return a > b ? 1 : -1;
+            })
+            .reduce<IIniObjectSection>((obj, key) => {
+                obj[key] = newSection[key];
+                return obj;
+            }, {});
     }
 
-    private async normalizeGameModes(section: any): Promise<void> {
-        const gameModes = section['GameModes'].split(',') || [];
+    private getRequiredSectionValue(mapIniFile: IniFile, section: IIniObjectSection, key: string): string {
+        const value = section[key];
+        if (typeof value === 'string' && value.trim()) {
+            return value;
+        }
+
+        throw new Error(
+            `Map '${mapIniFile.getPackageRelativePath()}' is missing required '${key}' metadata in its [Basic] or [Map] section.`,
+        );
+    }
+
+    private async normalizeGameModes(section: IIniObjectSection): Promise<void> {
+        const gameModesValue = section['GameModes'];
+        const gameModes = typeof gameModesValue === 'string' ? gameModesValue.split(',') : [];
         for (let i = 0; i < gameModes.length; i++) {
             gameModes[i] = await this.normalizeGameMode(gameModes[i]);
         }
         section['GameModes'] = gameModes.join(',');
     }
 
+    private getOptionalIniSection(value: unknown): IIniObjectSection {
+        return isIniSection(value) ? value : {};
+    }
+
     private async normalizeGameMode(gameMode: string): Promise<string> {
-        return gameMode.split(/\s+/).map(a => `${a.slice(0, 1).toUpperCase()}${a.slice(1)}`).join(' ');
+        return gameMode
+            .split(/\s+/)
+            .map((a) => `${a.slice(0, 1).toUpperCase()}${a.slice(1)}`)
+            .join(' ');
     }
 
     private async addNewMapIniFiles(mpMapsIniFile: IniFile, mapIniFiles: IniFile[]): Promise<IniFile[]> {
         console.log('Checking for added maps');
         const mpMapKeys = mpMapsIniFile.getMultiMapsValues();
         // find all map files that so not have an entry in MPMaps.ini [MultiMaps] OR do not have a section of their own in MPMaps.ini
-        const addedMapIniFiles = mapIniFiles.filter(m => mpMapKeys.indexOf(m.getMpMapsKey()) === -1 || !mpMapsIniFile.getSection(m.getMpMapsKey()));
+        const addedMapIniFiles = mapIniFiles.filter(
+            (m) => mpMapKeys.indexOf(m.getMpMapsKey()) === -1 || !mpMapsIniFile.getSection(m.getMpMapsKey()),
+        );
 
         if (!addedMapIniFiles.length) {
             console.log('No maps added');
@@ -166,15 +248,15 @@ export class MpMapsUpdaterService {
 
     /**
      * If .map files are removed from the repo, we must also remove them from the MPMaps.ini file.
-     * @param {IniFile} mpMapsIniFile the file to remove maps from
-     * @param {IniFile[]} mapIniFiles the list of maps found on the system
-     * @return {string[]} missing map keys
+     * @param mpMapsIniFile the file to remove maps from
+     * @param mapIniFiles the list of maps found on the system
+     * @returns the missing map keys
      */
     private async removeMissingMaps(mpMapsIniFile: IniFile, mapIniFiles: IniFile[]): Promise<string[]> {
         console.log('Checking for removed maps');
-        const mapKeys = mapIniFiles.map(m => m.getMpMapsKey());
+        const mapKeys = mapIniFiles.map((m) => m.getMpMapsKey());
         const mpMapKeys = mpMapsIniFile.getMultiMapsValues();
-        const missingMapKeys = mpMapKeys.filter(mapKey => mapKeys.indexOf(mapKey) === -1);
+        const missingMapKeys = mpMapKeys.filter((mapKey) => mapKeys.indexOf(mapKey) === -1);
 
         if (!missingMapKeys.length) {
             console.log('No maps removed');
@@ -195,7 +277,11 @@ export class MpMapsUpdaterService {
      * @param missingMapKeys the maps that should be removed from the MPMaps.ini file
      * @private
      */
-    private async removeMissingMapKeys(mpMapsIniFile: IniFile, currentMapKeys: string[], missingMapKeys: string[]): Promise<void> {
+    private async removeMissingMapKeys(
+        mpMapsIniFile: IniFile,
+        currentMapKeys: string[],
+        missingMapKeys: string[],
+    ): Promise<void> {
         for (let missingMapKey of missingMapKeys) {
             currentMapKeys.splice(currentMapKeys.indexOf(missingMapKey), 1);
             console.log(`Clearing map key from MPMaps.ini: '${missingMapKey}'`);
@@ -205,48 +291,45 @@ export class MpMapsUpdaterService {
 
     /**
      * This adds entries to the updateexec file in the [Delete] section for all removed maps
-     * @param {string[]} missingMapKeys
+     * @param missingMapKeys the map keys that should be added to the delete list
      */
     private async addRemovedMapsToUpdateExec(missingMapKeys: string[]): Promise<void> {
         const updateExecIniFile = await this.getUpdateExecIniFile();
-        const deleteFiles = updateExecIniFile[constants.updateExecSections.deleteFile] as string[];
-        const keysToAdd = missingMapKeys.map(key => [
-            `${key}.map`,
-            `${key}.png`
-        ]).flat();
+        const deleteFiles = updateExecIniFile[this.constants.updateExecSections.deleteFile] as string[];
+        const keysToAdd = missingMapKeys.map((key) => [`${key}.map`, `${key}.png`]).flat();
 
         for (let mapKey of keysToAdd) {
             deleteFiles.push(mapKey);
         }
 
-        updateExecIniFile[constants.updateExecSections.deleteFile] = deleteFiles;
+        updateExecIniFile[this.constants.updateExecSections.deleteFile] = deleteFiles;
 
         await this.writeUpdateExecIniFile(updateExecIniFile);
     }
 
     /**
-     * Get the content of the existing updateexec file as an IIniObject
+     * Get the content of the existing updateexec file.
      */
     private async getUpdateExecIniFile(): Promise<IIniObject> {
-        const updateExecContent = await util.promisify(readFile)(constants.paths.updateExec, {
-            encoding: 'utf-8'
+        const updateExecContent = await fsPromises.readFile(this.constants.paths.updateExec, {
+            encoding: 'utf-8',
         });
         return parseIni(updateExecContent, {
             autoTyping: false,
             dataSections: [
-                constants.updateExecSections.deleteFile,
-                constants.updateExecSections.deleteFolder
-            ]
+                this.constants.updateExecSections.deleteFile,
+                this.constants.updateExecSections.deleteFolder,
+            ],
         });
     }
 
     /**
      * Write out data to the updateexec file
-     * @param {IIniObject} data
+     * @param data the INI object content to write
      */
     private async writeUpdateExecIniFile(data: IIniObject): Promise<void> {
         const updateExecContent = stringify(data, {}).trim();
-        writeFileSync(constants.paths.updateExec, updateExecContent, 'utf8');
+        await fsPromises.writeFile(this.constants.paths.updateExec, updateExecContent, 'utf8');
     }
 
     /**
@@ -256,10 +339,7 @@ export class MpMapsUpdaterService {
      */
     private async checkForRequiredFilesAsync(): Promise<void> {
         console.log('Checking for required files');
-        for (const path of [
-            constants.paths.maps,
-            constants.paths.mpMapsIni
-        ]) {
+        for (const path of [this.constants.paths.maps, this.constants.paths.mpMapsIni]) {
             await this.checkForRequiredFileAsync(path);
         }
     }
@@ -270,11 +350,11 @@ export class MpMapsUpdaterService {
      * @private
      */
     private async checkForRequiredFileAsync(fileOrDirPath: string): Promise<void> {
-        access(fileOrDirPath, fsConstants.F_OK, err => {
-            if (err) {
-                console.error(`Unable to access file ${fileOrDirPath}`);
-                throw err;
-            }
-        });
+        try {
+            await fsPromises.access(fileOrDirPath);
+        } catch (error) {
+            console.error(`Unable to access file ${fileOrDirPath}`);
+            throw error;
+        }
     }
 }

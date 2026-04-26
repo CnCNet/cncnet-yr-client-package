@@ -1,12 +1,15 @@
-﻿{
+{
   "compilerOptions": {
     "target": "ES2022",
-    "moduleResolution": "Node",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "verbatimModuleSyntax": true,
     "paths": {
-      "@cncnet-core/*": ["core/*"]
+      "build-installer/*": ["./build-installer/*"],
+      "cncnet-core/*": ["./core/*"],
+      "mpmaps-updater/*": ["./mpmaps-updater/*"],
+      "version-writer/*": ["./version-writer/*"]
     }
-  },
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
   }
 }
