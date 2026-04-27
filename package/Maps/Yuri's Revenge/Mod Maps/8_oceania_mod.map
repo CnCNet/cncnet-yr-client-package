@@ -14,9 +14,6 @@ PurifierBonus=.2
 SpyPowerBlackout=4000
 V3RocketPitchFinal=.4
 
-[AudioVisual]
-RadialIndicatorVisibility=ally
-
 [CrateRules]
 CrateRegen=5
 UnitCrateVehicleCap=-1
