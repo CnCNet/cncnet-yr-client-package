@@ -155,15 +155,13 @@ Damage=300
 [TERROR]
 Pip=red
 Cost=600
-Strength=100
 Primary=MakeupKit
 Ammo=1
 Reload=7400
 Secondary=TerrorBomb
 NoAmmoWeapon=1
+CanRetaliate=1
 C4=Yes
-Crushable=0
-ImmuneToRadiation=1
 
 [TerrorBomb]
 Damage=300
