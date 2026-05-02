@@ -7,7 +7,7 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {},
     ".NETCoreApp,Version=v8.0/win-x86": {
-      "clientxna/2.12.18": {
+      "clientxna/2.12.19-beta0070": {
         "dependencies": {
           "ClientGUI": "1.0.0",
           "ClientUpdater": "1.0.0",
@@ -18,13 +18,18 @@
           "SixLabors.ImageSharp": "2.1.11",
           "System.Management": "8.0.0",
           "lzo.net": "0.0.6",
-          "Microsoft.Xna.Framework": "4.0.0.0",
-          "Microsoft.Xna.Framework.Game": "4.0.0.0",
-          "Microsoft.Xna.Framework.Graphics": "4.0.0.0",
           "Rampastring.XNAUI.WindowsXNA.Reference": "0.1.0.0"
         },
         "runtime": {
           "clientxna.dll": {}
+        }
+      },
+      "Cyotek.Drawing.BitmapFont/2.0.4": {
+        "runtime": {
+          "lib/net5.0/Cyotek.Drawing.BitmapFont.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.0.4.0"
+          }
         }
       },
       "DiscordRichPresence/1.2.1.24": {
@@ -43,6 +48,110 @@
           "lib/netstandard2.0/Facepunch.Steamworks.Win64.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "2.4.1.0"
+          }
+        }
+      },
+      "FontStashSharp.Base/1.2.2": {
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.Base.dll": {
+            "assemblyVersion": "1.2.2.0",
+            "fileVersion": "1.2.2.0"
+          }
+        }
+      },
+      "FontStashSharp.Rasterizers.StbTrueTypeSharp/1.2.2": {
+        "dependencies": {
+          "FontStashSharp.Base": "1.2.2",
+          "StbTrueTypeSharp": "1.26.12"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.Rasterizers.StbTrueTypeSharp.dll": {
+            "assemblyVersion": "1.2.2.0",
+            "fileVersion": "1.2.2.0"
+          }
+        }
+      },
+      "FontStashSharp.TextShapers.HarfBuzz/1.2.2": {
+        "dependencies": {
+          "FontStashSharp.Base": "1.2.2",
+          "HarfBuzzSharp": "8.3.1.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.TextShapers.HarfBuzz.dll": {
+            "assemblyVersion": "1.2.2.0",
+            "fileVersion": "1.2.2.0"
+          }
+        }
+      },
+      "FontStashSharp.XNA/1.5.2": {
+        "dependencies": {
+          "Cyotek.Drawing.BitmapFont": "2.0.4",
+          "FontStashSharp.Base": "1.2.2",
+          "FontStashSharp.Rasterizers.StbTrueTypeSharp": "1.2.2",
+          "StbImageSharp": "2.30.15"
+        },
+        "runtime": {
+          "lib/net48/FontStashSharp.XNA.dll": {
+            "assemblyVersion": "1.5.2.0",
+            "fileVersion": "1.5.2.0"
+          },
+          "lib/net48/Microsoft.Xna.Framework.Avatar.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.30901.0"
+          },
+          "lib/net48/Microsoft.Xna.Framework.Game.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.30901.0"
+          },
+          "lib/net48/Microsoft.Xna.Framework.GamerServices.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.30901.0"
+          },
+          "lib/net48/Microsoft.Xna.Framework.Graphics.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.30901.0"
+          },
+          "lib/net48/Microsoft.Xna.Framework.Input.Touch.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.30901.0"
+          },
+          "lib/net48/Microsoft.Xna.Framework.Net.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.30901.0"
+          },
+          "lib/net48/Microsoft.Xna.Framework.Storage.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.30901.0"
+          },
+          "lib/net48/Microsoft.Xna.Framework.Video.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.30901.0"
+          },
+          "lib/net48/Microsoft.Xna.Framework.Xact.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.30901.0"
+          },
+          "lib/net48/Microsoft.Xna.Framework.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.30901.0"
+          }
+        }
+      },
+      "HarfBuzzSharp/8.3.1.2": {
+        "dependencies": {
+          "HarfBuzzSharp.NativeAssets.Win32": "8.3.1.2"
+        },
+        "runtime": {
+          "lib/net8.0/HarfBuzzSharp.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "8.3.1.2"
+          }
+        }
+      },
+      "HarfBuzzSharp.NativeAssets.Win32/8.3.1.2": {
+        "native": {
+          "runtimes/win-x86/native/libHarfBuzzSharp.dll": {
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -489,6 +598,22 @@
           }
         }
       },
+      "StbImageSharp/2.30.15": {
+        "runtime": {
+          "lib/netstandard2.0/StbImageSharp.dll": {
+            "assemblyVersion": "2.30.15.0",
+            "fileVersion": "2.30.15.0"
+          }
+        }
+      },
+      "StbTrueTypeSharp/1.26.12": {
+        "runtime": {
+          "lib/netstandard2.0/StbTrueTypeSharp.dll": {
+            "assemblyVersion": "1.26.12.0",
+            "fileVersion": "1.26.12.0"
+          }
+        }
+      },
       "System.Management/8.0.0": {
         "runtime": {
           "runtimes/win/lib/net8.0/System.Management.dll": {
@@ -535,8 +660,8 @@
         },
         "runtime": {
           "ClientCore.dll": {
-            "assemblyVersion": "2.12.18.0",
-            "fileVersion": "2.12.18.0"
+            "assemblyVersion": "2.12.19.0",
+            "fileVersion": "2.12.19.0"
           }
         }
       },
@@ -548,8 +673,8 @@
         },
         "runtime": {
           "ClientGUI.dll": {
-            "assemblyVersion": "2.12.18.0",
-            "fileVersion": "2.12.18.0"
+            "assemblyVersion": "2.12.19.0",
+            "fileVersion": "2.12.19.0"
           }
         }
       },
@@ -560,21 +685,23 @@
         },
         "runtime": {
           "ClientUpdater.dll": {
-            "assemblyVersion": "2.12.18.0",
-            "fileVersion": "2.12.18.0"
+            "assemblyVersion": "2.12.19.0",
+            "fileVersion": "2.12.19.0"
           }
         }
       },
       "Rampastring.Tools/1.0.0": {
         "runtime": {
           "Rampastring.Tools.dll": {
-            "assemblyVersion": "2.0.7.0",
-            "fileVersion": "2.0.7.0"
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
       "Rampastring.XNAUI.WindowsXNA/1.0.0": {
         "dependencies": {
+          "FontStashSharp.TextShapers.HarfBuzz": "1.2.2",
+          "FontStashSharp.XNA": "1.5.2",
           "Rampastring.Tools": "1.0.0",
           "SixLabors.ImageSharp": "2.1.11",
           "TextCopy": "6.2.1"
@@ -585,30 +712,6 @@
           }
         }
       },
-      "Microsoft.Xna.Framework/4.0.0.0": {
-        "runtime": {
-          "Microsoft.Xna.Framework.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.30901.0"
-          }
-        }
-      },
-      "Microsoft.Xna.Framework.Game/4.0.0.0": {
-        "runtime": {
-          "Microsoft.Xna.Framework.Game.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.30901.0"
-          }
-        }
-      },
-      "Microsoft.Xna.Framework.Graphics/4.0.0.0": {
-        "runtime": {
-          "Microsoft.Xna.Framework.Graphics.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.30901.0"
-          }
-        }
-      },
       "Rampastring.XNAUI.WindowsXNA.Reference/0.1.0.0": {
         "runtime": {
           "Rampastring.XNAUI.WindowsXNA.dll": {
@@ -616,30 +719,21 @@
             "fileVersion": "0.1.0.0"
           }
         }
-      },
-      "Microsoft.Xna.Framework.GamerServices/4.0.0.0": {
-        "runtime": {
-          "Microsoft.Xna.Framework.GamerServices.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.30901.0"
-          }
-        }
-      },
-      "Microsoft.Xna.Framework.Input.Touch/4.0.0.0": {
-        "runtime": {
-          "Microsoft.Xna.Framework.Input.Touch.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.0.30901.0"
-          }
-        }
       }
     }
   },
   "libraries": {
-    "clientxna/2.12.18": {
+    "clientxna/2.12.19-beta0070": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Cyotek.Drawing.BitmapFont/2.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iA6WehGVdMUuNbfsQQDq/Bt+mMd/OqHjiMUtKFLIQd/0pyYh4ehT7FEjTxN9/4OXNKQZsp9bAJgltP2nnswUJg==",
+      "path": "cyotek.drawing.bitmapfont/2.0.4",
+      "hashPath": "cyotek.drawing.bitmapfont.2.0.4.nupkg.sha512"
     },
     "DiscordRichPresence/1.2.1.24": {
       "type": "package",
@@ -654,6 +748,48 @@
       "sha512": "sha512-zR9R5CywbvGBuV7CWAkZ3sFLHrThLmOWOg+DzVfupQ4LOR9NboEjGEt9GOPMNYbcDx+cvUaU7NdHQ5h4eWJQpQ==",
       "path": "facepunch.steamworks/2.4.1",
       "hashPath": "facepunch.steamworks.2.4.1.nupkg.sha512"
+    },
+    "FontStashSharp.Base/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-t2PT+/Sat9WPLm4AVYU1Aa/PrOgNQ4npSUGDHTYufXzLUHxrN3+BaRhAU0DZXkJNfuGCS5iKaQNopNXe9ES24g==",
+      "path": "fontstashsharp.base/1.2.2",
+      "hashPath": "fontstashsharp.base.1.2.2.nupkg.sha512"
+    },
+    "FontStashSharp.Rasterizers.StbTrueTypeSharp/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OoXoGkxNMhyQeYR/wjeN6Bs8Guea7FisKXLcVJdeNtSYT+5iKxIh4ETi9x9OIk7GEQtNbE0yVhG3rb8RS04Kmg==",
+      "path": "fontstashsharp.rasterizers.stbtruetypesharp/1.2.2",
+      "hashPath": "fontstashsharp.rasterizers.stbtruetypesharp.1.2.2.nupkg.sha512"
+    },
+    "FontStashSharp.TextShapers.HarfBuzz/1.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9MXdX1zGopokXEPVbQ0uIaDF1thXYUimojhtD4jcJvCYWVhHNzIaAL7LZAnEmeVA4RyfxwDmyfHMMS9liv2g7w==",
+      "path": "fontstashsharp.textshapers.harfbuzz/1.2.2",
+      "hashPath": "fontstashsharp.textshapers.harfbuzz.1.2.2.nupkg.sha512"
+    },
+    "FontStashSharp.XNA/1.5.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ad/oZ7Sqcc4K3EYFwHmccwEnIf7WPWPh7D43DEuTsoFZ6kNph5weP9zss/YpVmE51vT1qkZFdpLL8xXGAi9unw==",
+      "path": "fontstashsharp.xna/1.5.2",
+      "hashPath": "fontstashsharp.xna.1.5.2.nupkg.sha512"
+    },
+    "HarfBuzzSharp/8.3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fqZTo17dEIn/u/YZ1A6avsmF8BYoLSvDsHm+uDp38wortckHWZhJ5pMwJW97xTeOZ9/oxqwUQfRMkf6ni9s5Gw==",
+      "path": "harfbuzzsharp/8.3.1.2",
+      "hashPath": "harfbuzzsharp.8.3.1.2.nupkg.sha512"
+    },
+    "HarfBuzzSharp.NativeAssets.Win32/8.3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qmYJsYtOPVeLg7NQoKO5fq1oc5mRKzdgxBXWICx0R03epZ1RIsuzgWRFhVNN0br3c+J+9rIQhy0SXdBwVv0ebA==",
+      "path": "harfbuzzsharp.nativeassets.win32/8.3.1.2",
+      "hashPath": "harfbuzzsharp.nativeassets.win32.8.3.1.2.nupkg.sha512"
     },
     "ImeSharp/1.4.1": {
       "type": "package",
@@ -907,6 +1043,20 @@
       "path": "sixlabors.imagesharp/2.1.11",
       "hashPath": "sixlabors.imagesharp.2.1.11.nupkg.sha512"
     },
+    "StbImageSharp/2.30.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7QqbupVhz2kcFUPTgMw4iHR9rYDHGundzzee19Mwmd1typ2Lnv8EVJcLJxlkeBM2+4ex0NwsMtdbGSJctp1XCQ==",
+      "path": "stbimagesharp/2.30.15",
+      "hashPath": "stbimagesharp.2.30.15.nupkg.sha512"
+    },
+    "StbTrueTypeSharp/1.26.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hCc6/OsfcPa5VsLECcEU2m78WOshBrKwK42nAodSm9Z5wH68f7n66SoiRLCdGCkDaqbWz2TlX4zYHIjogj1HJA==",
+      "path": "stbtruetypesharp/1.26.12",
+      "hashPath": "stbtruetypesharp.1.26.12.nupkg.sha512"
+    },
     "System.Management/8.0.0": {
       "type": "package",
       "serviceable": true,
@@ -960,32 +1110,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Xna.Framework/4.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Xna.Framework.Game/4.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Xna.Framework.Graphics/4.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Rampastring.XNAUI.WindowsXNA.Reference/0.1.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Xna.Framework.GamerServices/4.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Xna.Framework.Input.Touch/4.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
