@@ -212,6 +212,11 @@
             Gets the current text shaping settings.
             </summary>
         </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.GetFontRenderingSettings">
+            <summary>
+            Gets the current font rendering settings.
+            </summary>
+        </member>
         <member name="M:Rampastring.XNAUI.FontManagement.FontManager.IsTextShapingEnabled">
             <summary>
             Checks if text shaping is currently enabled.
@@ -222,7 +227,7 @@
             Creates a new FontSystem with current text shaping settings.
             </summary>
         </member>
-        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.LoadFonts(Microsoft.Xna.Framework.Content.ContentManager)">
+        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.LoadFonts(Microsoft.Xna.Framework.Content.ContentManager,System.Nullable{System.Single})">
             <summary>
             Loads fonts from the first Fonts.ini found in asset search paths.
             </summary>
@@ -241,8 +246,13 @@
             - For SpriteFonts: Load the .xnb file
             </para>
             </remarks>
+            <param name="fontResolutionFactor">
+            When non-null, overrides any <c>FontResolutionFactor</c> from <c>[FontRendering]</c>
+            in <c>Fonts.ini</c>. Used by <see cref="M:Rampastring.XNAUI.Renderer.ReloadFontsForScale(System.Single)"/> to keep TTF
+            glyphs sharp when the render target is upscaled.
+            </param>
         </member>
-        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.LoadFontsFromIni(System.String,Microsoft.Xna.Framework.Content.ContentManager,System.String,System.String)">
+        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.LoadFontsFromIni(System.String,Microsoft.Xna.Framework.Content.ContentManager,System.String,System.String,System.Nullable{System.Single})">
             <summary>
             Loads fonts from a specific Fonts.ini file.
             </summary>
@@ -270,6 +280,48 @@
             <summary>
             Loads legacy SpriteFonts (SpriteFont0, SpriteFont1, etc.) from a search path.
             This method appends new fonts to the existing font list instead of replacing it.
+            </summary>
+        </member>
+        <member name="T:Rampastring.XNAUI.FontManagement.FontRenderingSettings">
+            <summary>
+            Configuration for FontStashSharp glyph rasterization.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.FontRenderingSettings.KernelWidth">
+            <summary>
+            Horizontal blur kernel size used by FontStashSharp when rasterizing glyphs.
+            Maps to <c>FontSystemSettings.KernelWidth</c>. Must be non-negative.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.FontRenderingSettings.KernelHeight">
+            <summary>
+            Vertical blur kernel size used by FontStashSharp when rasterizing glyphs.
+            Maps to <c>FontSystemSettings.KernelHeight</c>. Must be non-negative.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.FontRenderingSettings.FontResolutionFactor">
+            <summary>
+            Multiplier applied to the rasterization size of each glyph.
+            Values > 1 produce sharper output when text is drawn at scales above 1.0
+            at the cost of a larger atlas footprint.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.FontRenderingSettings.TextureWidth">
+            <summary>
+            Width of each FontStashSharp atlas page, in pixels.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.FontRenderingSettings.TextureHeight">
+            <summary>
+            Height of each FontStashSharp atlas page, in pixels.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.FontRenderingSettings.GlyphRenderResult">
+            <summary>
+            How rasterized glyph pixels are produced.
+            <see cref="F:FontStashSharp.GlyphRenderResult.Premultiplied"/> matches a premultiplied-alpha SpriteBatch,
+            <see cref="F:FontStashSharp.GlyphRenderResult.NonPremultiplied"/> matches AlphaBlend, and
+            <see cref="F:FontStashSharp.GlyphRenderResult.NoAntialiasing"/> produces hard 1-bit edges for pixel-art fonts.
             </summary>
         </member>
         <member name="T:Rampastring.XNAUI.FontManagement.TextShapingSettings">
@@ -513,6 +565,13 @@
         <member name="M:Rampastring.XNAUI.PlatformSpecific.WindowsGameWindowManager.AllowClosing">
             <summary>
             Allows the user to close the game form by Alt-F4.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.Renderer.ReloadFontsForScale(System.Single)">
+            <summary>
+            Reloads fonts with a new resolution factor matching the given scale ratio,
+            so TTF glyphs are rasterized at native display quality rather than being
+            scaled up from the render resolution.
             </summary>
         </member>
         <member name="M:Rampastring.XNAUI.Renderer.GetFontList">

@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "clientdx/2.12.19-beta0070": {
+      "clientdx/2.12.19-pullrequest0948-0118": {
         "dependencies": {
           "ClientGUI": "1.0.0",
           "ClientUpdater": "1.0.0",
@@ -17,7 +17,7 @@
           "SixLabors.ImageSharp": "2.1.11",
           "System.Management": "8.0.0",
           "lzo.net": "0.0.6",
-          "Rampastring.XNAUI.WindowsDX.Reference": "0.1.0.0"
+          "Rampastring.XNAUI.WindowsDX.Reference": "3.1.10.0"
         },
         "runtime": {
           "clientdx.dll": {}
@@ -50,49 +50,49 @@
           }
         }
       },
-      "FontStashSharp.Base/1.2.2": {
+      "FontStashSharp.Base/1.2.3": {
         "runtime": {
           "lib/netstandard2.0/FontStashSharp.Base.dll": {
-            "assemblyVersion": "1.2.2.0",
-            "fileVersion": "1.2.2.0"
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
           }
         }
       },
-      "FontStashSharp.MonoGame/1.5.2": {
+      "FontStashSharp.MonoGame/1.5.5": {
         "dependencies": {
           "Cyotek.Drawing.BitmapFont": "2.0.4",
-          "FontStashSharp.Base": "1.2.2",
-          "FontStashSharp.Rasterizers.StbTrueTypeSharp": "1.2.2",
+          "FontStashSharp.Base": "1.2.3",
+          "FontStashSharp.Rasterizers.StbTrueTypeSharp": "1.2.3",
           "StbImageSharp": "2.30.15"
         },
         "runtime": {
           "lib/netstandard2.0/FontStashSharp.MonoGame.dll": {
-            "assemblyVersion": "1.5.2.0",
-            "fileVersion": "1.5.2.0"
+            "assemblyVersion": "1.5.5.0",
+            "fileVersion": "1.5.5.0"
           }
         }
       },
-      "FontStashSharp.Rasterizers.StbTrueTypeSharp/1.2.2": {
+      "FontStashSharp.Rasterizers.StbTrueTypeSharp/1.2.3": {
         "dependencies": {
-          "FontStashSharp.Base": "1.2.2",
+          "FontStashSharp.Base": "1.2.3",
           "StbTrueTypeSharp": "1.26.12"
         },
         "runtime": {
           "lib/netstandard2.0/FontStashSharp.Rasterizers.StbTrueTypeSharp.dll": {
-            "assemblyVersion": "1.2.2.0",
-            "fileVersion": "1.2.2.0"
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
           }
         }
       },
-      "FontStashSharp.TextShapers.HarfBuzz/1.2.2": {
+      "FontStashSharp.TextShapers.HarfBuzz/1.2.3": {
         "dependencies": {
-          "FontStashSharp.Base": "1.2.2",
+          "FontStashSharp.Base": "1.2.3",
           "HarfBuzzSharp": "8.3.1.2"
         },
         "runtime": {
           "lib/netstandard2.0/FontStashSharp.TextShapers.HarfBuzz.dll": {
-            "assemblyVersion": "1.2.2.0",
-            "fileVersion": "1.2.2.0"
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
           }
         }
       },
@@ -892,15 +892,15 @@
       "Rampastring.Tools/1.0.0": {
         "runtime": {
           "Rampastring.Tools.dll": {
-            "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.1.0.0"
+            "assemblyVersion": "2.0.7.0",
+            "fileVersion": "2.0.7.0"
           }
         }
       },
       "Rampastring.XNAUI.WindowsDX/1.0.0": {
         "dependencies": {
-          "FontStashSharp.MonoGame": "1.5.2",
-          "FontStashSharp.TextShapers.HarfBuzz": "1.2.2",
+          "FontStashSharp.MonoGame": "1.5.5",
+          "FontStashSharp.TextShapers.HarfBuzz": "1.2.3",
           "MonoGame.Framework.WindowsDX": "3.8.1.303",
           "Rampastring.Tools": "1.0.0",
           "SixLabors.ImageSharp": "2.1.11",
@@ -912,18 +912,18 @@
           }
         }
       },
-      "Rampastring.XNAUI.WindowsDX.Reference/0.1.0.0": {
+      "Rampastring.XNAUI.WindowsDX.Reference/3.1.10.0": {
         "runtime": {
           "Rampastring.XNAUI.WindowsDX.dll": {
-            "assemblyVersion": "0.1.0.0",
-            "fileVersion": "0.1.0.0"
+            "assemblyVersion": "3.1.10.0",
+            "fileVersion": "3.1.10.0"
           }
         }
       }
     }
   },
   "libraries": {
-    "clientdx/2.12.19-beta0070": {
+    "clientdx/2.12.19-pullrequest0948-0118": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -945,37 +945,37 @@
     "Facepunch.Steamworks/2.4.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-zR9R5CywbvGBuV7CWAkZ3sFLHrThLmOWOg+DzVfupQ4LOR9NboEjGEt9GOPMNYbcDx+cvUaU7NdHQ5h4eWJQpQ==",
+      "sha512": "sha512-WmQIpBQYMDZctu5M9n0zFf4aKBRAj1khaKEEJ3wsVSoQL6ReCkJQl1pleG3zDiQ0dmUA7DGnR19ppmaJV1teIg==",
       "path": "facepunch.steamworks/2.4.1",
       "hashPath": "facepunch.steamworks.2.4.1.nupkg.sha512"
     },
-    "FontStashSharp.Base/1.2.2": {
+    "FontStashSharp.Base/1.2.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-t2PT+/Sat9WPLm4AVYU1Aa/PrOgNQ4npSUGDHTYufXzLUHxrN3+BaRhAU0DZXkJNfuGCS5iKaQNopNXe9ES24g==",
-      "path": "fontstashsharp.base/1.2.2",
-      "hashPath": "fontstashsharp.base.1.2.2.nupkg.sha512"
+      "sha512": "sha512-kw8ovakGHz8jCah+H5M7qI8aOvtESF0jQRpcpubXUMsSid86dRO6DoDPlh+Tk/XAW5a3XgzGDgsHfeZTfZTr+Q==",
+      "path": "fontstashsharp.base/1.2.3",
+      "hashPath": "fontstashsharp.base.1.2.3.nupkg.sha512"
     },
-    "FontStashSharp.MonoGame/1.5.2": {
+    "FontStashSharp.MonoGame/1.5.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+bhbAZ52L2fIWTRrHnSCNccB7ArKVH6Wa7c/kzO4YybrzXxgmDbLjuOwS49FgN9qsEp/7/Xqalc3YyquXs9uwA==",
-      "path": "fontstashsharp.monogame/1.5.2",
-      "hashPath": "fontstashsharp.monogame.1.5.2.nupkg.sha512"
+      "sha512": "sha512-UTHcfF2qLr06SWl69BCfDw/cguzGPPzICRuJ8xmh/vKHYya9OgrJXglhKU8GRsUmEpv/hc6gwXd4wICgF8c9Qg==",
+      "path": "fontstashsharp.monogame/1.5.5",
+      "hashPath": "fontstashsharp.monogame.1.5.5.nupkg.sha512"
     },
-    "FontStashSharp.Rasterizers.StbTrueTypeSharp/1.2.2": {
+    "FontStashSharp.Rasterizers.StbTrueTypeSharp/1.2.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OoXoGkxNMhyQeYR/wjeN6Bs8Guea7FisKXLcVJdeNtSYT+5iKxIh4ETi9x9OIk7GEQtNbE0yVhG3rb8RS04Kmg==",
-      "path": "fontstashsharp.rasterizers.stbtruetypesharp/1.2.2",
-      "hashPath": "fontstashsharp.rasterizers.stbtruetypesharp.1.2.2.nupkg.sha512"
+      "sha512": "sha512-xjzgWeiaODbW7DR/kI05V7C3CVtDvtB+4TrgX4EKNpRGzxb42vsvXKWrXORQWU2LCLnPPqdBNNSgtRujnpK2ww==",
+      "path": "fontstashsharp.rasterizers.stbtruetypesharp/1.2.3",
+      "hashPath": "fontstashsharp.rasterizers.stbtruetypesharp.1.2.3.nupkg.sha512"
     },
-    "FontStashSharp.TextShapers.HarfBuzz/1.2.2": {
+    "FontStashSharp.TextShapers.HarfBuzz/1.2.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9MXdX1zGopokXEPVbQ0uIaDF1thXYUimojhtD4jcJvCYWVhHNzIaAL7LZAnEmeVA4RyfxwDmyfHMMS9liv2g7w==",
-      "path": "fontstashsharp.textshapers.harfbuzz/1.2.2",
-      "hashPath": "fontstashsharp.textshapers.harfbuzz.1.2.2.nupkg.sha512"
+      "sha512": "sha512-XNqav6B77iq1JaN+O+vy7bGE2jEhM5ySMMnNZyFBGDPtd5Fi1PWew6DmVqzvqHDksVdAuGzXWmYd82ODIwQb5A==",
+      "path": "fontstashsharp.textshapers.harfbuzz/1.2.3",
+      "hashPath": "fontstashsharp.textshapers.harfbuzz.1.2.3.nupkg.sha512"
     },
     "HarfBuzzSharp/8.3.1.2": {
       "type": "package",
@@ -1422,7 +1422,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Rampastring.XNAUI.WindowsDX.Reference/0.1.0.0": {
+    "Rampastring.XNAUI.WindowsDX.Reference/3.1.10.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
