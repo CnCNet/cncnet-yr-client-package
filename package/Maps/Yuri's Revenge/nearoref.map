@@ -1,3 +1,9 @@
+; Written by the World-Altering Editor (WAE)
+; all comments have been truncated
+; github.com/CnCNet/WorldAlteringEditor
+; if you wish to support the editor, you can subscribe at patreon.com/rampastring
+; or buy me a coffee at ko-fi.com/rampastring
+
 [Preview]
 Size=0,0,150,48
 
@@ -353,6 +359,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+DefaultRepairableStructures=no
 
 [Alliance]
 IQ=0
@@ -364,6 +371,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+DefaultRepairableStructures=no
 
 [Americans]
 IQ=0
@@ -375,6 +383,7 @@ NodeCount=0
 TechLevel=0
 PercentBuilt=0
 PlayerControl=yes
+DefaultRepairableStructures=no
 
 [Arabs]
 IQ=0
@@ -386,6 +395,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+DefaultRepairableStructures=no
 
 [Basic]
 Name=
@@ -428,6 +438,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+DefaultRepairableStructures=no
 
 [Confederation]
 IQ=0
@@ -439,6 +450,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+DefaultRepairableStructures=no
 
 [French]
 IQ=0
@@ -450,6 +462,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+DefaultRepairableStructures=no
 
 [GDI]
 IQ=0
@@ -461,6 +474,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+DefaultRepairableStructures=no
 
 [General]
 DefaultMirageDisguises=TREE19,TREE21,TREE23
@@ -475,6 +489,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+DefaultRepairableStructures=no
 
 [Header]
 Width=75
@@ -528,6 +543,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+DefaultRepairableStructures=no
 
 [Nod]
 IQ=0
@@ -539,6 +555,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+DefaultRepairableStructures=no
 
 [Ranking]
 ParTimeEasy=00:01:00
@@ -559,6 +576,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+DefaultRepairableStructures=no
 
 [Special]
 IQ=0
@@ -570,6 +588,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+DefaultRepairableStructures=no
 
 [SpecialFlags]
 Inert=no
@@ -596,6 +615,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
+DefaultRepairableStructures=no
 
 [Digest]
 1=upyTb1N/pw1/EWWIh3qTmnRcQ6A=
@@ -1175,45 +1195,44 @@ PlayerControl=no
 [OverlayPack]
 1=BQAAIP4AIP+AYQAAIP5OBP/+BQBm/vsB//4GAGb++QH//ggAZv73Af/+CgBm/vYB//4FAG
 2=aB//4FAGb+9QH//gsAZv71Af/+CgBm/vgB//4IAGb++QH//gcAZv76Af/+BQBm/v0B/4Fm
-3=/q0H/4AWAQAg/m4I/4JmZv7+Af+DZmZm/skB/4NmZmb+MAD//gUAZv7HAf/+BABm/iYA//
+3=/q0H/4AKAQAg/m4I/4JmZv7+Af+DZmZm/skB/4NmZmb+MAD//gUAZv7HAf/+BABm/iYA//
 4=4EABv+BAD//ggAZv7FAf/+BwBm/iQA//4IABv+CQBm/sMB//4JAGb+IwD//ggAG/4KAGb+
 5=wQH//gUAZoH//gQAZv4jAP/+CAAb/gsAZv7BAf/+CgBm/iIA/4QbGxv//gQAG4NmZv/+BA
-6=Bmgf/+BABm/rQB/4Eb/gsA//4KAGb+JAD//gYAG4L///4KAGb+wQH//gkAZv4HAP+DGxsb
-7=/hoA//4GABuC///+CwBm/rUB/4Eb/goA//4KAGb+BgD/gxsbG/4aAP+GGxv/4+Pj/s8B//
-8=4HAGb+BwD/gxv/G/4dAP+D1tnY/pUB/4CpAQAg/i8A/4Eb/gsA//4EAGb+BgD//gYAG/4d
-9=AP+D2NnZ/toB//4GABv+HQD/g9nZ2f7aAf/+BgAb/h0A/4PW2dn+xQH/gRv+FAD//gYAG/
-10=4dAP+D2dnY/sEB/4Fm/hgA//4GABv+HQD/g9fY2f7AAf+DZmZm/gYA/4Eb/hAA//4GABv+
-11=HQD/g9bY1/6/Af/+BgBm/hUA/4YbG//j4+P+HQD/g9fY2f6+Af/+CQBm/hQA/4Ub/9fY1v
-12=4dAP+D1tnW/r0B//4KAGb+FgD/g9jW2f4dAP+D2NjX/r0B//4EAGaB//4FAGb+FgD/g9fW
-13=1v4dAP+D1tjW/r0B//4KAGb+FgD/g9fY2P4dAP+D2NjW/r0B//4KAGb+FgD/g9bY1/4dAP
-14=+D2NfZ/r4B//4IAGb+BgD//gQAG/4NAP+D2NbW/h0A/4Pl5eX+vwH//gcAZv4GAP/+BQAb
-15=/gwA/4PY2Nf+HAD//gkAG/67Af/+BgBm/gYA//4GABv+CwD/g9jY1v4ZAP/+DAAb/rsB/4
-16=Fm/goA//4FABuC/xv+CwD/g9jX1v4ZAP/+DAAb/pAB/4CoAQAg/jUA//4IABv+CwD/g9fX
-17=2P4ZAP/+DAAb/sUB/4gbG/8bGxv/G/4LAP+D19fZ/tUB/4IbG/4TAP/+BwAb/gwA/4PW19
-18=j+1QH/gxsbG/4TAP/+BgAb/gwA/4PZ2dj+0AH//gsAG/4SAP+E4+PjG/4MAP+D2dfX/tAB
-19=//4MABv+EQD/g9jY2P4NAP+D2djW/s8B//4NABv+EQD/g9bW1v4NAP+D2djY/tIB/4MbGx
-20=v+GAD/g9jY2P4NAP+D2dnZ/tIB/4MbGxv+GAD/g9bW1v4NAP+D19bZ/tIB/4Pj4+P+GAD/
-21=g9nZ2f4OAP+B7P7TAf+D19bX/hgA/4PX19f+DQD//gUAG/7QAf+D2dnZ/hgA/4PZ2dn+DQ
-22=D//gUAG/4RAP+DZmZm/rwB/4PZ2Nb+GAD/g9fX1/4NAP/+BQAb/hAA//4EAGb+vAH/g9fZ
-23=1v4YAP+D1tbW/gsA//4IABv+DgD//gYAZv67Af+D2dnX/hgA/4PX19f+CwD//gcAG/4NAP
-24=/+CQBm/roB/4PY19f+GAD/g9bW1v4NAP/+BQAb/g0A//4JAGb+nQH/gLUBACD+HQD/g9fX
-25=2f4YAP+D1tbW/g0A//4EABv+DQD//gsAZv65Af+D1tjY/hgA/4PW1tb+DQD//gQAG/4NAP
-26=/+CwBm/rkB/4PW2dj+GAD/g9nZ2f4NAP+DGxsb/g8A/4RmZmb//gUAZv66Af+D19fW/hgA
-27=/4PY2Nj+HwD//ggAZv67Af+D2dnX/hgA/4PW1tb+IAD//gYAZv68Af+D1tnX/hgA/4PW1t
-28=b+IQD//gQAZv69Af+D19fX/hgA/4PY2Nj+IgD/gmZm/r4B/4Pl5eX+GAD/g+Xl5f7SAf/+
-29=DABm/gQA/4MbGxv+GAD/gxsbG/7TAf/+BABmh/9mZmb/Zmb+BAD/gxsbG/4YAP+DGxsb/t
-30=QB//4KAGb+CwAb/hAA//4KABv+0gH//gkAZv4MABv+DwD//goAG/7TAf/+CQBm/gsAG/4P
-31=AP/+CgAb/gkA//4GAGb+xQH/hGZmZv/+BABmhv///xsbG/4YAP+DGxsb/gsA//4LAGb+wg
-32=H//ggAZoX//xsbG/4YAP+DGxsb/gsA//4LAGb+wwH//gcAZoX//xsbG/4YAP+DGxsb/gwA
-33=//4LAGb+rgH/gFsAACD+FQD//gYAZv4eAP+CGxv+DQD//goAZv7EAf/+BABm/i4A//4GAG
-34=aE/2ZmZv7FAf+DZmZm/i8A//4JAGb++AH/gmb//gYAZv76Af/+BQBm/v0B/4JmZv6wFf+A
-35=agAAIP41BP+CZmb+/AH//gUAZv76Af/+CABm/vgB//4JAGb+9gH//goAZv72Af/+CgBm/v
-36=cB//4EAGaB//4EAGb+9wH//gkAZv74Af/+CABm/vkB//4GAGb++gH//gUAZv78Af+DZmZm
-37=/sgF/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAA
-38=Ag/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AF
-39=AAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4
-40=AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg
-41=/4AFAAAg/gAg/4A=
+6=Bmgf/+BABm/sAB//4KAGb+JAD//gYAG4L///4KAGb+wQH//gkAZv4HAP+DGxsb/hoA//4G
+7=ABuC///+CwBm/sAB//4KAGb+BgD/gxsbG/4aAP+GGxv/4+Pj/s8B//4HAGb+BwD/gxv/G/
+8=4dAP+D1tnY/pUB/4CXAQAg/jsA//4EAGb+BgD//gYAG/4dAP+D2NnZ/toB//4GABv+HQD/
+9=g9nZ2f7aAf/+BgAb/h0A/4PW2dn+2gH//gYAG/4dAP+D2dnY/sEB/4Fm/hgA//4GABv+HQ
+10=D/g9fY2f7AAf+DZmZm/hcA//4GABv+HQD/g9bY1/6/Af/+BgBm/hUA/4YbG//j4+P+HQD/
+11=g9fY2f6+Af/+CQBm/hQA/4Ub/9fY1v4dAP+D1tnW/r0B//4KAGb+FgD/g9jW2f4dAP+D2N
+12=jX/r0B//4EAGaB//4FAGb+FgD/g9fW1v4dAP+D1tjW/r0B//4KAGb+FgD/g9fY2P4dAP+D
+13=2NjW/r0B//4KAGb+FgD/g9bY1/4dAP+D2NfZ/r4B//4IAGb+BgD//gQAG/4NAP+D2NbW/h
+14=0A/4Pl5eX+vwH//gcAZv4GAP/+BQAb/gwA/4PY2Nf+HAD//gkAG/67Af/+BgBm/gYA//4G
+15=ABv+CwD/g9jY1v4ZAP/+DAAb/rsB/4Fm/goA//4FABuC/xv+CwD/g9jX1v4ZAP/+DAAb/p
+16=AB/4CoAQAg/jUA//4IABv+CwD/g9fX2P4ZAP/+DAAb/sUB/4gbG/8bGxv/G/4LAP+D19fZ
+17=/tUB/4IbG/4TAP/+BwAb/gwA/4PW19j+1QH/gxsbG/4TAP/+BgAb/gwA/4PZ2dj+0AH//g
+18=sAG/4SAP+E4+PjG/4MAP+D2dfX/tAB//4MABv+EQD/g9jY2P4NAP+D2djW/s8B//4NABv+
+19=EQD/g9bW1v4NAP+D2djY/tIB/4MbGxv+GAD/g9jY2P4NAP+D2dnZ/tIB/4MbGxv+GAD/g9
+20=bW1v4NAP+D19bZ/tIB/4Pj4+P+GAD/g9nZ2f4OAP+B7P7TAf+D19bX/hgA/4PX19f+DQD/
+21=/gUAG/7QAf+D2dnZ/hgA/4PZ2dn+DQD//gUAG/4RAP+DZmZm/rwB/4PZ2Nb+GAD/g9fX1/
+22=4NAP/+BQAb/hAA//4EAGb+vAH/g9fZ1v4YAP+D1tbW/gsA//4IABv+DgD//gYAZv67Af+D
+23=2dnX/hgA/4PX19f+CwD//gcAG/4NAP/+CQBm/roB/4PY19f+GAD/g9bW1v4NAP/+BQAb/g
+24=0A//4JAGb+nQH/gLUBACD+HQD/g9fX2f4YAP+D1tbW/g0A//4EABv+DQD//gsAZv65Af+D
+25=1tjY/hgA/4PW1tb+DQD//gQAG/4NAP/+CwBm/rkB/4PW2dj+GAD/g9nZ2f4NAP+DGxsb/g
+26=8A/4RmZmb//gUAZv66Af+D19fW/hgA/4PY2Nj+HwD//ggAZv67Af+D2dnX/hgA/4PW1tb+
+27=IAD//gYAZv68Af+D1tnX/hgA/4PW1tb+IQD//gQAZv69Af+D19fX/hgA/4PY2Nj+IgD/gm
+28=Zm/r4B/4Pl5eX+GAD/g+Xl5f7SAf/+DABm/gQA/4MbGxv+GAD/gxsbG/7TAf/+BABmh/9m
+29=Zmb/Zmb+BAD/gxsbG/4YAP+DGxsb/tQB//4KAGb+CwAb/hAA//4KABv+0gH//gkAZv4MAB
+30=v+DwD//goAG/7TAf/+CQBm/gsAG/4PAP/+CgAb/gkA//4GAGb+xQH/hGZmZv/+BABmhv//
+31=/xsbG/4YAP+DGxsb/gsA//4LAGb+wgH//ggAZoX//xsbG/4YAP+DGxsb/gsA//4LAGb+ww
+32=H//gcAZoX//xsbG/4YAP+DGxsb/gwA//4LAGb+rgH/gFsAACD+FQD//gYAZv4eAP+CGxv+
+33=DQD//goAZv7EAf/+BABm/i4A//4GAGaE/2ZmZv7FAf+DZmZm/i8A//4JAGb++AH/gmb//g
+34=YAZv76Af/+BQBm/v0B/4JmZv6wFf+AagAAIP41BP+CZmb+/AH//gUAZv76Af/+CABm/vgB
+35=//4JAGb+9gH//goAZv72Af/+CgBm/vcB//4EAGaB//4EAGb+9wH//gkAZv74Af/+CABm/v
+36=kB//4GAGb++gH//gUAZv78Af+DZmZm/sgF/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg
+37=/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/g
+38=Ag/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg
+39=/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAA
+40=Ag/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4AFAAAg/gAg/4A=
 
 [OverlayDataPack]
 1=BQAAIP4AIACAjgAAIP5OBACFBAcHBwb++wEAhggLCwsKB/75AQCCBwr+BAALggoH/vcBAI
