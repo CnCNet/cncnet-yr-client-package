@@ -3,7 +3,8 @@
 /package/**/*.SAV
 /package/BINKW32.DLL
 /package/Blowfish.dll
-/package/Client/
+/package/Client/*
+!/package/Client/tunnel_cache
 /package/cncnet.mix
 /package/ddraw.dll
 /package/ddraw.ini
