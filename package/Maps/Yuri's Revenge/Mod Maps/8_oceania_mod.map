@@ -359,7 +359,8 @@ Soylent=450
 Soylent=1050
 
 [APOC]
-Soylent=1312
+Cost=2000
+Soylent=1500
 NavalTargeting=5
 
 [120mmx]
