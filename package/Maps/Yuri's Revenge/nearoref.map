@@ -359,7 +359,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
-DefaultRepairableStructures=no
+
 
 [Alliance]
 IQ=0
@@ -371,7 +371,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
-DefaultRepairableStructures=no
+
 
 [Americans]
 IQ=0
@@ -383,7 +383,7 @@ NodeCount=0
 TechLevel=0
 PercentBuilt=0
 PlayerControl=yes
-DefaultRepairableStructures=no
+
 
 [Arabs]
 IQ=0
@@ -395,7 +395,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
-DefaultRepairableStructures=no
+
 
 [Basic]
 Name=
@@ -438,7 +438,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
-DefaultRepairableStructures=no
+
 
 [Confederation]
 IQ=0
@@ -450,7 +450,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
-DefaultRepairableStructures=no
+
 
 [French]
 IQ=0
@@ -462,7 +462,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
-DefaultRepairableStructures=no
+
 
 [GDI]
 IQ=0
@@ -474,7 +474,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
-DefaultRepairableStructures=no
+
 
 [General]
 DefaultMirageDisguises=TREE19,TREE21,TREE23
@@ -489,7 +489,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
-DefaultRepairableStructures=no
+
 
 [Header]
 Width=75
@@ -543,7 +543,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
-DefaultRepairableStructures=no
+
 
 [Nod]
 IQ=0
@@ -555,7 +555,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
-DefaultRepairableStructures=no
+
 
 [Ranking]
 ParTimeEasy=00:01:00
@@ -576,7 +576,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
-DefaultRepairableStructures=no
+
 
 [Special]
 IQ=0
@@ -588,7 +588,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
-DefaultRepairableStructures=no
+
 
 [SpecialFlags]
 Inert=no
@@ -615,7 +615,7 @@ NodeCount=0
 TechLevel=1
 PercentBuilt=0
 PlayerControl=no
-DefaultRepairableStructures=no
+
 
 [Digest]
 1=upyTb1N/pw1/EWWIh3qTmnRcQ6A=

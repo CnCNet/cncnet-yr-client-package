@@ -446,7 +446,7 @@ Color=Gold
 Allies=Americans
 PercentBuilt=0
 NodeCount=0
-DefaultRepairableStructures=no
+
 
 [Alliance]
 Country=Alliance
@@ -459,7 +459,7 @@ Color=Gold
 Allies=Alliance
 PercentBuilt=0
 NodeCount=0
-DefaultRepairableStructures=no
+
 
 [French]
 Country=French
@@ -472,7 +472,7 @@ Color=Gold
 Allies=French
 PercentBuilt=0
 NodeCount=0
-DefaultRepairableStructures=no
+
 
 [Germans]
 Country=Germans
@@ -485,7 +485,7 @@ Color=Gold
 Allies=Germans
 PercentBuilt=0
 NodeCount=0
-DefaultRepairableStructures=no
+
 
 [British]
 Country=British
@@ -498,7 +498,7 @@ Color=Gold
 Allies=British
 PercentBuilt=0
 NodeCount=0
-DefaultRepairableStructures=no
+
 
 [Africans]
 Country=Africans
@@ -511,7 +511,7 @@ Color=DarkRed
 Allies=Africans
 PercentBuilt=0
 NodeCount=0
-DefaultRepairableStructures=no
+
 
 [Arabs]
 Country=Arabs
@@ -524,7 +524,7 @@ Color=DarkRed
 Allies=Arabs
 PercentBuilt=0
 NodeCount=0
-DefaultRepairableStructures=no
+
 
 [Confederation]
 Country=Confederation
@@ -537,7 +537,7 @@ Color=DarkRed
 Allies=Confederation
 PercentBuilt=0
 NodeCount=0
-DefaultRepairableStructures=no
+
 
 [Russians]
 Country=Russians
@@ -550,7 +550,7 @@ Color=DarkRed
 Allies=Russians
 PercentBuilt=0
 NodeCount=0
-DefaultRepairableStructures=no
+
 
 [GDI]
 Country=GDI
@@ -563,7 +563,7 @@ Color=Gold
 Allies=GDI
 PercentBuilt=0
 NodeCount=0
-DefaultRepairableStructures=no
+
 
 [Nod]
 Country=Nod
@@ -576,7 +576,7 @@ Color=Gold
 Allies=Nod
 PercentBuilt=0
 NodeCount=0
-DefaultRepairableStructures=no
+
 
 [Neutral]
 Country=Neutral
@@ -589,7 +589,7 @@ Color=Grey
 Allies=Neutral
 PercentBuilt=0
 NodeCount=0
-DefaultRepairableStructures=no
+
 
 [Special]
 Country=Special
@@ -602,7 +602,7 @@ Color=Grey
 Allies=Special
 PercentBuilt=0
 NodeCount=0
-DefaultRepairableStructures=no
+
 
 [Ranking]
 ParTimeEasy=00:01:00
