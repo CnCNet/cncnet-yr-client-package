@@ -7,7 +7,7 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {},
     ".NETCoreApp,Version=v8.0/win-x86": {
-      "clientxna/2.12.19-beta0078": {
+      "clientxna/2.12.19-beta0090": {
         "dependencies": {
           "ClientGUI": "1.0.0",
           "ClientUpdater": "1.0.0",
@@ -723,7 +723,7 @@
     }
   },
   "libraries": {
-    "clientxna/2.12.19-beta0078": {
+    "clientxna/2.12.19-beta0090": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
