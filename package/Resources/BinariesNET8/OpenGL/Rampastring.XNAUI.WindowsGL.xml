@@ -304,14 +304,6 @@
             This method appends new fonts to the existing font list instead of replacing it.
             </summary>
         </member>
-        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.GetFontVerticalCenteringValue(System.Int32)">
-            <summary>
-            Returns the value <c>V</c> to plug into <c>(controlHeight - V) / 2</c> for
-            vertical centering. NOT a geometric font height — see
-            <see cref="M:Rampastring.XNAUI.FontManagement.IFont.GetVerticalCenteringValue"/> for the per-font-type semantics.
-            The value does not vary with the text being drawn (no descender-induced shift).
-            </summary>
-        </member>
         <member name="T:Rampastring.XNAUI.FontManagement.FontRenderingSettings">
             <summary>
             Configuration for FontStashSharp glyph rasterization.
@@ -352,23 +344,6 @@
             <see cref="F:FontStashSharp.GlyphRenderResult.Premultiplied"/> matches a premultiplied-alpha SpriteBatch,
             <see cref="F:FontStashSharp.GlyphRenderResult.NonPremultiplied"/> matches AlphaBlend, and
             <see cref="F:FontStashSharp.GlyphRenderResult.NoAntialiasing"/> produces hard 1-bit edges for pixel-art fonts.
-            </summary>
-        </member>
-        <member name="M:Rampastring.XNAUI.FontManagement.IFont.GetVerticalCenteringValue">
-            <summary>
-            Returns the value <c>V</c> to plug into <c>(controlHeight - V) / 2</c> for
-            vertical centering. This is NOT a geometric font height — it is the value
-            each implementation chooses so that the centering formula produces the
-            correct visual result for that font type.
-            </summary>
-        </member>
-        <member name="M:Rampastring.XNAUI.FontManagement.SpriteFontWrapper.GetVerticalCenteringValue">
-            <summary>
-            Returns the value <c>V</c> to plug into <c>(controlHeight - V) / 2</c> for
-            vertical centering. For XNA SpriteFont this is <c>LineSpacing</c>: it is the
-            constant value that <c>MeasureString(text).Y</c> always returns for SpriteFont
-            regardless of text content, so this preserves the pre-PR centering behavior
-            exactly (SpriteFont has no descender-induced shift to fix, unlike TTF).
             </summary>
         </member>
         <member name="T:Rampastring.XNAUI.FontManagement.TextShapingSettings">
@@ -2214,6 +2189,14 @@
             If set, the drop-down is opened upwards rather than downwards.
             </summary>
         </member>
+        <member name="P:Rampastring.XNAUI.XNAControls.XNADropDown.ShowEllipsisOnOverflow">
+            <summary>
+            When the selected item's text is too wide for the closed control, it is always
+            cut off at the last fully fitting character so it does not visually overrun the
+            control's bounds. If this property is enabled, an ellipsis ("...") is appended
+            to indicate that the text has been truncated.
+            </summary>
+        </member>
         <member name="F:Rampastring.XNAUI.XNAControls.XNADropDown.expandedListWidth">
             <summary>
             The width of the open dropdown list. Computed in <see cref="M:Rampastring.XNAUI.XNAControls.XNADropDown.OpenDropDown"/> as the
@@ -2287,8 +2270,9 @@
         </member>
         <member name="M:Rampastring.XNAUI.XNAControls.XNADropDown.GetDisplayTextForSelectedItem(Rampastring.XNAUI.XNAControls.XNADropDownItem,System.Int32)">
             <summary>
-            Gets the display text for the selected item.
-            Truncates with ellipsis if required.
+            Gets the display text for the selected item, fitted to the control's bounds so
+            it does not visually overrun the control. Appends an ellipsis to indicate
+            truncation when <see cref="P:Rampastring.XNAUI.XNAControls.XNADropDown.ShowEllipsisOnOverflow"/> is enabled.
             </summary>
         </member>
         <member name="M:Rampastring.XNAUI.XNAControls.XNADropDown.Draw(Microsoft.Xna.Framework.GameTime)">
