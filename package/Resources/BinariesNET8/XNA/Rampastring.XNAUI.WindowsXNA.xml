@@ -171,11 +171,6 @@
             Plays this sound if it's enabled.
             </summary>
         </member>
-        <member name="M:Rampastring.XNAUI.EnhancedSoundEffect.Dispose">
-            <summary>
-            Disposes the sound effect.
-            </summary>
-        </member>
         <member name="M:Rampastring.XNAUI.PrioritizedSoundInstance.Update(Microsoft.Xna.Framework.GameTime)">
             <summary>
             Updates the priority of the sound. Returns true if the sound effect is
@@ -183,6 +178,228 @@
             </summary>
             <param name="gameTime">Tells how much time has passed since the previous frame.</param>
             <returns>True if the sound effect is still playing, otherwise false.</returns>
+        </member>
+        <member name="M:Rampastring.XNAUI.Extensions.ContentManagerExtensions.SetRootDirectory(Microsoft.Xna.Framework.Content.ContentManager,System.String)">
+            <summary>
+            Sets the root directory for the ContentManager with XNA vs MonoGame differences.
+            </summary>
+            <param name="contentManager">The ContentManager instance.</param>
+            <param name="rootDirectory">The new root directory path.</param>
+        </member>
+        <member name="T:Rampastring.XNAUI.Extensions.StringExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.Extensions.StringExtensions.SubstringSurrogateAware(System.String,System.Int32,System.Int32)">
+            <summary>
+            Returns a substring of this string starting at <paramref name="start"/> and containing at most
+            <paramref name="maxLength"/> UTF-16 code units, ensuring the result does not end with an orphaned high surrogate.
+            </summary>
+            <param name="str">The string to slice.</param>
+            <param name="start">The zero-based start index of the substring.</param>
+            <param name="maxLength">Maximum number of UTF-16 code units to include in the result. Must be non-negative.</param>
+            <returns>The safe substring.</returns>
+        </member>
+        <member name="T:Rampastring.XNAUI.FontManagement.FontManager">
+            <summary>
+            Manages font loading and rendering for the UI system.
+            Supports both SpriteFont and TrueType fonts with automatic fallback.
+            </summary>
+            <remarks>
+            <para>
+            For TrueType fonts, FontManager creates a separate FontSystem for each font index.
+            Each FontSystem has a primary font (specified via Path) and optional per-font fallback
+            chain (via Fallback=N pointing to another font index). When a character is not found in
+            the primary font, it falls back through the chain in order.
+            </para>
+            <para>
+            The Fonts.ini file format supports:
+            <list type="bullet">
+            <item>[TextShaping] - Optional HarfBuzz text shaping configuration</item>
+            <item>[Fonts] - Font index definitions with Size, Type, optional Path, and optional Fallback</item>
+            </list>
+            </para>
+            </remarks>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.FontManager.UseLegacySpriteFonts">
+            <summary>
+            When set before <see cref="M:Rampastring.XNAUI.FontManagement.FontManager.LoadFonts(Microsoft.Xna.Framework.Content.ContentManager,System.Nullable{System.Single})"/> runs, skips the Fonts.ini search and
+            loads only legacy SpriteFontN.xnb assets. Lets clients offer an opt-out from
+            TrueType rendering.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.GetTextShapingSettings">
+            <summary>
+            Gets the current text shaping settings.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.GetFontRenderingSettings">
+            <summary>
+            Gets the current font rendering settings.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.IsTextShapingEnabled">
+            <summary>
+            Checks if text shaping is currently enabled.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.CreateFontSystem">
+            <summary>
+            Creates a new FontSystem with current text shaping settings.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.LoadFonts(Microsoft.Xna.Framework.Content.ContentManager,System.Nullable{System.Single})">
+            <summary>
+            Loads fonts from the first Fonts.ini found in asset search paths.
+            </summary>
+            <remarks>
+            <para>
+            Loading happens in two phases:
+            </para>
+            <para>
+            Phase 1: Load configuration from the first Fonts.ini:
+            - [TextShaping] settings
+            - [Fonts] definitions (type, path, size, fallback)
+            </para>
+            <para>
+            Phase 2: Create font indexes:
+            - For TrueType fonts: Create a FontSystem with primary font first, then follow the per-font fallback chain
+            - For SpriteFonts: Load the .xnb file
+            </para>
+            </remarks>
+            <param name="fontResolutionFactor">
+            When non-null, overrides any <c>FontResolutionFactor</c> from <c>[FontRendering]</c>
+            in <c>Fonts.ini</c>. Used by <see cref="M:Rampastring.XNAUI.Renderer.ReloadFontsForScale(System.Single)"/> to keep TTF
+            glyphs sharp when the render target is upscaled.
+            </param>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.LoadFontsFromIni(System.String,Microsoft.Xna.Framework.Content.ContentManager,System.String,System.String,System.Nullable{System.Single})">
+            <summary>
+            Loads fonts from a specific Fonts.ini file.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.CreateFontIndexesFromIni(Rampastring.Tools.IniFile,Microsoft.Xna.Framework.Content.ContentManager,System.String,System.String)">
+            <summary>
+            Creates FontIndex entries from a Fonts.ini file.
+            For each TrueType font, creates a separate FontSystem with the primary font first,
+            then follows the per-font fallback chain to add additional fonts.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.CreateTrueTypeFontIndex(System.Int32,Rampastring.XNAUI.FontManagement.FontManager.FontConfig,System.Collections.Generic.List{Rampastring.XNAUI.FontManagement.FontManager.FontConfig},System.String)">
+            <summary>
+            Creates a TrueType font index with its own FontSystem.
+            The FontSystem contains the primary font first, then fonts from
+            the fallback chain (each <c>[FontN]</c> can point to another via <c>Fallback=X</c>).
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.LoadSpriteFont(Microsoft.Xna.Framework.Content.ContentManager,System.String,System.String)">
+            <summary>
+            Loads a SpriteFont and adds it to the font list.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.LoadLegacySpriteFonts(Microsoft.Xna.Framework.Content.ContentManager,System.String,System.String)">
+            <summary>
+            Loads legacy SpriteFonts (SpriteFont0, SpriteFont1, etc.) from a search path.
+            This method appends new fonts to the existing font list instead of replacing it.
+            </summary>
+        </member>
+        <member name="T:Rampastring.XNAUI.FontManagement.FontRenderingSettings">
+            <summary>
+            Configuration for FontStashSharp glyph rasterization.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.FontRenderingSettings.KernelWidth">
+            <summary>
+            Horizontal blur kernel size used by FontStashSharp when rasterizing glyphs.
+            Maps to <c>FontSystemSettings.KernelWidth</c>. Must be non-negative.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.FontRenderingSettings.KernelHeight">
+            <summary>
+            Vertical blur kernel size used by FontStashSharp when rasterizing glyphs.
+            Maps to <c>FontSystemSettings.KernelHeight</c>. Must be non-negative.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.FontRenderingSettings.FontResolutionFactor">
+            <summary>
+            Multiplier applied to the rasterization size of each glyph.
+            Values > 1 produce sharper output when text is drawn at scales above 1.0
+            at the cost of a larger atlas footprint.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.FontRenderingSettings.TextureWidth">
+            <summary>
+            Width of each FontStashSharp atlas page, in pixels.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.FontRenderingSettings.TextureHeight">
+            <summary>
+            Height of each FontStashSharp atlas page, in pixels.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.FontRenderingSettings.GlyphRenderResult">
+            <summary>
+            How rasterized glyph pixels are produced.
+            <see cref="F:FontStashSharp.GlyphRenderResult.Premultiplied"/> matches a premultiplied-alpha SpriteBatch,
+            <see cref="F:FontStashSharp.GlyphRenderResult.NonPremultiplied"/> matches AlphaBlend, and
+            <see cref="F:FontStashSharp.GlyphRenderResult.NoAntialiasing"/> produces hard 1-bit edges for pixel-art fonts.
+            </summary>
+        </member>
+        <member name="T:Rampastring.XNAUI.FontManagement.TextShapingSettings">
+            <summary>
+            Configuration for HarfBuzz text shaping.
+            Text shaping is required for complex scripts (Arabic, Hebrew, Hindi, etc.)
+            and proper rendering of emoji sequences and ligatures.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.TextShapingSettings.Enabled">
+            <summary>
+            Enable HarfBuzz text shaping for complex scripts.
+            When enabled, text will be properly shaped for languages that require it.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.TextShapingSettings.EnableBiDi">
+            <summary>
+            Enable bidirectional text support for mixed LTR/RTL text.
+            Only applies when Enabled is true.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.FontManagement.TextShapingSettings.CacheSize">
+            <summary>
+            Size of the shaped text cache.
+            Higher values use more memory but reduce shaping overhead for repeated text.
+            Default: 100
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.TTFFontWrapper.GetVerticalCenteringValue">
+            <summary>
+            Returns the value <c>V</c> to plug into <c>(controlHeight - V) / 2</c> for
+            vertical centering. NOT a geometric height: this is <c>top + bottom</c> of the
+            cap glyph 'H' from the draw origin (i.e. <c>minY + maxY</c> from FontStashSharp's
+            <c>TextBounds</c>), chosen so the cap-glyph midpoint lands at <c>controlHeight / 2</c>
+            independent of descenders. The geometric glyph height would be <c>maxY - minY</c>.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.TTFFontWrapper.HasCharacter(System.Char)">
+            <summary>
+            For TTF fonts, this always returns true because FontStashSharp can dynamically
+            generate glyphs for any character. If a glyph is not available in the font file,
+            a replacement glyph (like � or ?) will be rendered instead.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.TTFFontWrapper.GetSafeString(System.String)">
+            <summary>
+            Returns a sanitized string safe for rendering. It replaces unpaired surrogates
+            with U+FFFD so FontStashSharp's UTF-16 -> UTF-32 conversion does not throw.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.TTFFontWrapper.SanitizeStringForRendering(System.String)">
+            <summary>
+            Replaces unpaired UTF-16 surrogates with U+FFFD. Returns the original
+            string reference unchanged when the input is already valid (the common case),
+            to avoid allocations on the rendering hot path.
+            </summary>
         </member>
         <member name="T:Rampastring.XNAUI.ConstructorNotFoundException">
             <summary>
@@ -388,16 +605,12 @@
             Allows the user to close the game form by Alt-F4.
             </summary>
         </member>
-        <member name="T:Rampastring.XNAUI.Renderer">
+        <member name="M:Rampastring.XNAUI.Renderer.ReloadFontsForScale(System.Single)">
             <summary>
-            Provides static methods for drawing.
+            Reloads fonts with a new resolution factor matching the given scale ratio,
+            so TTF glyphs are rasterized at native display quality rather than being
+            scaled up from the render resolution.
             </summary>
-        </member>
-        <member name="M:Rampastring.XNAUI.Renderer.LoadFonts(Microsoft.Xna.Framework.Content.ContentManager)">
-            <summary>
-            Clears all potentially existing loaded fonts and then loads fonts from asset loader directories.
-            </summary>
-            <param name="contentManager">A XNA/MonoGame ContentManager instance.</param>
         </member>
         <member name="M:Rampastring.XNAUI.Renderer.GetFontList">
             <summary>
@@ -406,16 +619,15 @@
         </member>
         <member name="M:Rampastring.XNAUI.Renderer.GetSafeString(System.String,System.Int32)">
             <summary>
-            Returns a version of the given string where all characters that don't
-            appear in the given font have been replaced with question marks.
+            Returns a version of the given string that the font renderer can safely display without crashing.
             </summary>
             <param name="str">The string.</param>
             <param name="fontIndex">The index of the font.</param>
         </member>
         <member name="M:Rampastring.XNAUI.Renderer.GetStringWithLimitedWidth(System.String,System.Int32,System.Int32)">
             <summary>
-            Returns a that has had its width limited to a specific number.
-            Characters that'd cross over the width have been cut.
+            Returns a string that has had its width limited to a specific number.
+            Characters that would cross over the width have been cut.
             </summary>
             <param name="str">The string to limit.</param>
             <param name="fontIndex">The index of the font to use.</param>
@@ -681,6 +893,12 @@
         <member name="P:Rampastring.XNAUI.WindowManager.ActiveControl">
             <summary>
             The control, of the highest generation, that the mouse cursor is currently positioned on.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.WindowManager.FocusedControl">
+            <summary>
+            If specified, the control blocks other controls on the screen
+            from being interacted with. Defaults to null.
             </summary>
         </member>
         <member name="M:Rampastring.XNAUI.WindowManager.SetRenderResolution(System.Int32,System.Int32)">
@@ -1144,16 +1362,37 @@
             Raised when the mouse cursor enters the control's area.
             </summary>
         </member>
+        <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.PreviewMouseLeftDown">
+            <summary>
+            Raised during the tunneling phase when the left mouse button is pressed down.
+            Fires on ancestors from outermost to innermost before <see cref="E:Rampastring.XNAUI.XNAControls.XNAControl.MouseLeftDown"/> bubbles.
+            If handled, the bubbling phase is suppressed.
+            </summary>
+        </member>
         <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.MouseLeftDown">
             <summary>
             Raised once when the left mouse button is pressed down while the
             cursor is inside the control's area.
             </summary>
         </member>
+        <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.PreviewMouseRightDown">
+            <summary>
+            Raised during the tunneling phase when the right mouse button is pressed down.
+            Fires on ancestors from outermost to innermost before <see cref="E:Rampastring.XNAUI.XNAControls.XNAControl.MouseRightDown"/> bubbles.
+            If handled, the bubbling phase is suppressed.
+            </summary>
+        </member>
         <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.MouseRightDown">
             <summary>
             Raised once when the right mouse button is pressed down while the
             cursor is inside the control's area.
+            </summary>
+        </member>
+        <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.PreviewMouseMiddleDown">
+            <summary>
+            Raised during the tunneling phase when the middle mouse button is pressed down.
+            Fires on ancestors from outermost to innermost before <see cref="E:Rampastring.XNAUI.XNAControls.XNAControl.MouseMiddleDown"/> bubbles.
+            If handled, the bubbling phase is suppressed.
             </summary>
         </member>
         <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.MouseMiddleDown">
@@ -1177,6 +1416,20 @@
             Raised each frame when the mouse cursor is inside the control's area.
             </summary>
         </member>
+        <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.PreviewMouseScrolled">
+            <summary>
+            Raised during the tunneling phase when the scroll wheel is used to scroll vertically.
+            Fires on ancestors from outermost to innermost before <see cref="E:Rampastring.XNAUI.XNAControls.XNAControl.MouseScrolled"/> bubbles.
+            If handled, the bubbling phase is suppressed.
+            </summary>
+        </member>
+        <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.PreviewMouseScrolledHorizontally">
+            <summary>
+            Raised during the tunneling phase when the scroll wheel is used to scroll horizontally.
+            Fires on ancestors from outermost to innermost before <see cref="E:Rampastring.XNAUI.XNAControls.XNAControl.MouseScrolledHorizontally"/> bubbles.
+            If handled, the bubbling phase is suppressed.
+            </summary>
+        </member>
         <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.MouseScrolled">
             <summary>
             Raised when the scroll wheel is used to scroll vertically
@@ -1187,6 +1440,13 @@
             <summary>
             Raised when the scroll wheel is used to scroll horizontally
             while the cursor is inside the control.
+            </summary>
+        </member>
+        <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.PreviewLeftClick">
+            <summary>
+            Raised during the tunneling phase when the left mouse button is clicked.
+            Fires on ancestors from outermost to innermost before <see cref="E:Rampastring.XNAUI.XNAControls.XNAControl.LeftClick"/> bubbles.
+            If handled, the bubbling phase is suppressed.
             </summary>
         </member>
         <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.LeftClick">
@@ -1201,10 +1461,24 @@
             time-frame while the cursor is inside the control's area.
             </summary>
         </member>
+        <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.PreviewRightClick">
+            <summary>
+            Raised during the tunneling phase when the right mouse button is clicked.
+            Fires on ancestors from outermost to innermost before <see cref="E:Rampastring.XNAUI.XNAControls.XNAControl.RightClick"/> bubbles.
+            If handled, the bubbling phase is suppressed.
+            </summary>
+        </member>
         <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.RightClick">
             <summary>
             Raised when the right mouse button is clicked (pressed and released)
             while the cursor is inside the control's area.
+            </summary>
+        </member>
+        <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.PreviewMiddleClick">
+            <summary>
+            Raised during the tunneling phase when the middle mouse button is clicked.
+            Fires on ancestors from outermost to innermost before <see cref="E:Rampastring.XNAUI.XNAControls.XNAControl.MiddleClick"/> bubbles.
+            If handled, the bubbling phase is suppressed.
             </summary>
         </member>
         <member name="E:Rampastring.XNAUI.XNAControls.XNAControl.MiddleClick">
@@ -1746,10 +2020,24 @@
             Called when the mouse cursor leaves the control's client rectangle.
             </summary>
         </member>
+        <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnPreviewMouseLeftDown(Rampastring.XNAUI.InputEventArgs)">
+            <summary>
+            Called during the tunneling phase when the left mouse button is pressed down.
+            Fires on ancestors from outermost to innermost before <see cref="M:Rampastring.XNAUI.XNAControls.XNAControl.OnMouseLeftDown(Rampastring.XNAUI.InputEventArgs)"/>.
+            Set <see cref="P:Rampastring.XNAUI.InputEventArgs.Handled"/> to true to suppress the bubbling phase.
+            </summary>
+        </member>
         <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnMouseLeftDown(Rampastring.XNAUI.InputEventArgs)">
             <summary>
             Called once when the left mouse button is pressed down while the cursor
             is on the control.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnPreviewMouseRightDown(Rampastring.XNAUI.InputEventArgs)">
+            <summary>
+            Called during the tunneling phase when the right mouse button is pressed down.
+            Fires on ancestors from outermost to innermost before <see cref="M:Rampastring.XNAUI.XNAControls.XNAControl.OnMouseRightDown(Rampastring.XNAUI.InputEventArgs)"/>.
+            Set <see cref="P:Rampastring.XNAUI.InputEventArgs.Handled"/> to true to suppress the bubbling phase.
             </summary>
         </member>
         <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnMouseRightDown(Rampastring.XNAUI.InputEventArgs)">
@@ -1758,33 +2046,61 @@
             is on the control.
             </summary>
         </member>
+        <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnPreviewMouseMiddleDown(Rampastring.XNAUI.InputEventArgs)">
+            <summary>
+            Called during the tunneling phase when the middle mouse button is pressed down.
+            Fires on ancestors from outermost to innermost before <see cref="M:Rampastring.XNAUI.XNAControls.XNAControl.OnMouseMiddleDown(Rampastring.XNAUI.InputEventArgs)"/>.
+            Set <see cref="P:Rampastring.XNAUI.InputEventArgs.Handled"/> to true to suppress the bubbling phase.
+            </summary>
+        </member>
         <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnMouseMiddleDown(Rampastring.XNAUI.InputEventArgs)">
             <summary>
             Called once when the middle mouse button is pressed down while the cursor
             is on the control.
             </summary>
         </member>
+        <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnPreviewLeftClick(Rampastring.XNAUI.InputEventArgs)">
+            <summary>
+            Called during the tunneling phase when the left mouse button is clicked.
+            Fires on ancestors from outermost to innermost before <see cref="M:Rampastring.XNAUI.XNAControls.XNAControl.OnLeftClick(Rampastring.XNAUI.InputEventArgs)"/>.
+            Set <see cref="P:Rampastring.XNAUI.InputEventArgs.Handled"/> to true to suppress the bubbling phase.
+            </summary>
+        </member>
         <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnLeftClick(Rampastring.XNAUI.InputEventArgs)">
             <summary>
-            Called when the left mouse button has been 
+            Called when the left mouse button has been
             clicked on the control's client rectangle.
             </summary>
         </member>
         <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnDoubleLeftClick(Rampastring.XNAUI.InputEventArgs)">
             <summary>
-            Called when the left mouse button has been 
+            Called when the left mouse button has been
             clicked twice on the control's client rectangle.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnPreviewRightClick(Rampastring.XNAUI.InputEventArgs)">
+            <summary>
+            Called during the tunneling phase when the right mouse button is clicked.
+            Fires on ancestors from outermost to innermost before <see cref="M:Rampastring.XNAUI.XNAControls.XNAControl.OnRightClick(Rampastring.XNAUI.InputEventArgs)"/>.
+            Set <see cref="P:Rampastring.XNAUI.InputEventArgs.Handled"/> to true to suppress the bubbling phase.
             </summary>
         </member>
         <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnRightClick(Rampastring.XNAUI.InputEventArgs)">
             <summary>
-            Called when the right mouse button has been 
+            Called when the right mouse button has been
             clicked on the control's client rectangle.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnPreviewMiddleClick(Rampastring.XNAUI.InputEventArgs)">
+            <summary>
+            Called during the tunneling phase when the middle mouse button is clicked.
+            Fires on ancestors from outermost to innermost before <see cref="M:Rampastring.XNAUI.XNAControls.XNAControl.OnMiddleClick(Rampastring.XNAUI.InputEventArgs)"/>.
+            Set <see cref="P:Rampastring.XNAUI.InputEventArgs.Handled"/> to true to suppress the bubbling phase.
             </summary>
         </member>
         <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnMiddleClick(Rampastring.XNAUI.InputEventArgs)">
             <summary>
-            Called when the middle mouse button has been 
+            Called when the middle mouse button has been
             clicked on the control's client rectangle.
             </summary>
         </member>
@@ -1799,9 +2115,23 @@
             client rectangle.
             </summary>
         </member>
+        <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnPreviewMouseScrolled(Rampastring.XNAUI.InputEventArgs)">
+            <summary>
+            Called during the tunneling phase when the scroll wheel has been scrolled vertically.
+            Fires on ancestors from outermost to innermost before <see cref="M:Rampastring.XNAUI.XNAControls.XNAControl.OnMouseScrolled(Rampastring.XNAUI.InputEventArgs)"/>.
+            Set <see cref="P:Rampastring.XNAUI.InputEventArgs.Handled"/> to true to suppress the bubbling phase.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnPreviewMouseScrolledHorizontally(Rampastring.XNAUI.InputEventArgs)">
+            <summary>
+            Called during the tunneling phase when the scroll wheel has been scrolled horizontally.
+            Fires on ancestors from outermost to innermost before <see cref="M:Rampastring.XNAUI.XNAControls.XNAControl.OnMouseScrolledHorizontally(Rampastring.XNAUI.InputEventArgs)"/>.
+            Set <see cref="P:Rampastring.XNAUI.InputEventArgs.Handled"/> to true to suppress the bubbling phase.
+            </summary>
+        </member>
         <member name="M:Rampastring.XNAUI.XNAControls.XNAControl.OnMouseScrolled(Rampastring.XNAUI.InputEventArgs)">
             <summary>
-            Called when the scroll wheel has been scrolled on the 
+            Called when the scroll wheel has been scrolled on the
             control's client rectangle.
             </summary>
         </member>
@@ -1878,6 +2208,41 @@
             If set, the drop-down is opened upwards rather than downwards.
             </summary>
         </member>
+        <member name="P:Rampastring.XNAUI.XNAControls.XNADropDown.ShowEllipsisOnOverflow">
+            <summary>
+            When the selected item's text is too wide for the closed control, it is always
+            cut off at the last fully fitting character so it does not visually overrun the
+            control's bounds. If this property is enabled, an ellipsis ("...") is appended
+            to indicate that the text has been truncated.
+            </summary>
+        </member>
+        <member name="F:Rampastring.XNAUI.XNAControls.XNADropDown.expandedListWidth">
+            <summary>
+            The width of the open dropdown list. Computed in <see cref="M:Rampastring.XNAUI.XNAControls.XNADropDown.OpenDropDown"/> as the
+            maximum of <see cref="P:Rampastring.XNAUI.XNAControls.XNAControl.Width"/> and the widest item's content width, so
+            wide items remain fully visible when the list is expanded.
+            </summary>
+        </member>
+        <member name="F:Rampastring.XNAUI.XNAControls.XNADropDown.closedWidth">
+            <summary>
+            Stores the control width used when the dropdown is closed so it can be restored
+            after the expanded list has temporarily widened the control. Null when no closed
+            width has been captured yet, so a legitimate <see cref="P:Rampastring.XNAUI.XNAControls.XNAControl.Width"/> of 0
+            is preserved instead of being treated as "not captured".
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.XNAControls.XNADropDown.SyncWidthToDropDownState">
+            <summary>
+            Ensures the framework-visible control width matches the actual visible dropdown
+            width while the list is open, and restores the original width when the list closes.
+            </summary>
+        </member>
+        <member name="P:Rampastring.XNAUI.XNAControls.XNADropDown.CurrentDisplayWidth">
+            <summary>
+            Current visible width of the control, accounting for whether the dropdown list
+            is open and may be wider than the closed-state <see cref="P:Rampastring.XNAUI.XNAControls.XNAControl.Width"/>.
+            </summary>
+        </member>
         <member name="M:Rampastring.XNAUI.XNAControls.XNADropDown.AddItem(Rampastring.XNAUI.XNAControls.XNADropDownItem)">
             <summary>
             Adds an item into the drop-down.
@@ -1915,6 +2280,18 @@
         <member name="M:Rampastring.XNAUI.XNAControls.XNADropDown.GetItemIndexOnCursor">
             <summary>
             Returns the index of the item that the cursor currently points to.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.XNAControls.XNADropDown.InvalidateDisplayTextCache">
+            <summary>
+            Invalidates the cached display text.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.XNAControls.XNADropDown.GetDisplayTextForSelectedItem(Rampastring.XNAUI.XNAControls.XNADropDownItem,System.Int32)">
+            <summary>
+            Gets the display text for the selected item, fitted to the control's bounds so
+            it does not visually overrun the control. Appends an ellipsis to indicate
+            truncation when <see cref="P:Rampastring.XNAUI.XNAControls.XNADropDown.ShowEllipsisOnOverflow"/> is enabled.
             </summary>
         </member>
         <member name="M:Rampastring.XNAUI.XNAControls.XNADropDown.Draw(Microsoft.Xna.Framework.GameTime)">

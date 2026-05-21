@@ -6,14 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "clientdx/2.12.18": {
+      "clientdx/2.13.0": {
         "dependencies": {
           "ClientGUI": "1.0.0",
           "ClientUpdater": "1.0.0",
           "DiscordRichPresence": "1.2.1.24",
           "Facepunch.Steamworks": "2.4.1",
           "Microsoft.Extensions.Hosting": "8.0.0",
-          "OpenMcdf": "2.4.1",
+          "OpenMcdf": "3.1.4",
           "SixLabors.ImageSharp": "2.1.11",
           "System.Management": "8.0.0",
           "lzo.net": "0.0.6",
@@ -21,6 +21,14 @@
         },
         "runtime": {
           "clientdx.dll": {}
+        }
+      },
+      "Cyotek.Drawing.BitmapFont/2.0.4": {
+        "runtime": {
+          "lib/net5.0/Cyotek.Drawing.BitmapFont.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.0.4.0"
+          }
         }
       },
       "DiscordRichPresence/1.2.1.24": {
@@ -39,6 +47,92 @@
           "lib/netstandard2.0/Facepunch.Steamworks.Win64.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "2.4.1.0"
+          }
+        }
+      },
+      "FontStashSharp.Base/1.2.3": {
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.Base.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
+          }
+        }
+      },
+      "FontStashSharp.MonoGame/1.5.5": {
+        "dependencies": {
+          "Cyotek.Drawing.BitmapFont": "2.0.4",
+          "FontStashSharp.Base": "1.2.3",
+          "FontStashSharp.Rasterizers.StbTrueTypeSharp": "1.2.3",
+          "StbImageSharp": "2.30.15"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.MonoGame.dll": {
+            "assemblyVersion": "1.5.5.0",
+            "fileVersion": "1.5.5.0"
+          }
+        }
+      },
+      "FontStashSharp.Rasterizers.StbTrueTypeSharp/1.2.3": {
+        "dependencies": {
+          "FontStashSharp.Base": "1.2.3",
+          "StbTrueTypeSharp": "1.26.12"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.Rasterizers.StbTrueTypeSharp.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
+          }
+        }
+      },
+      "FontStashSharp.TextShapers.HarfBuzz/1.2.3": {
+        "dependencies": {
+          "FontStashSharp.Base": "1.2.3",
+          "HarfBuzzSharp": "8.3.1.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.TextShapers.HarfBuzz.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
+          }
+        }
+      },
+      "HarfBuzzSharp/8.3.1.2": {
+        "dependencies": {
+          "HarfBuzzSharp.NativeAssets.Win32": "8.3.1.2",
+          "HarfBuzzSharp.NativeAssets.macOS": "8.3.1.2"
+        },
+        "runtime": {
+          "lib/net8.0/HarfBuzzSharp.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "8.3.1.2"
+          }
+        }
+      },
+      "HarfBuzzSharp.NativeAssets.macOS/8.3.1.2": {
+        "runtimeTargets": {
+          "runtimes/osx/native/libHarfBuzzSharp.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "HarfBuzzSharp.NativeAssets.Win32/8.3.1.2": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/libHarfBuzzSharp.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libHarfBuzzSharp.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libHarfBuzzSharp.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -548,11 +642,11 @@
           }
         }
       },
-      "OpenMcdf/2.4.1": {
+      "OpenMcdf/3.1.4": {
         "runtime": {
-          "lib/netstandard2.0/OpenMcdf.dll": {
-            "assemblyVersion": "2.4.1.0",
-            "fileVersion": "2.4.1.0"
+          "lib/net8.0/OpenMcdf.dll": {
+            "assemblyVersion": "3.1.4.0",
+            "fileVersion": "3.1.4.0"
           }
         }
       },
@@ -695,6 +789,22 @@
           }
         }
       },
+      "StbImageSharp/2.30.15": {
+        "runtime": {
+          "lib/netstandard2.0/StbImageSharp.dll": {
+            "assemblyVersion": "2.30.15.0",
+            "fileVersion": "2.30.15.0"
+          }
+        }
+      },
+      "StbTrueTypeSharp/1.26.12": {
+        "runtime": {
+          "lib/netstandard2.0/StbTrueTypeSharp.dll": {
+            "assemblyVersion": "1.26.12.0",
+            "fileVersion": "1.26.12.0"
+          }
+        }
+      },
       "System.Management/8.0.0": {
         "runtime": {
           "lib/net8.0/System.Management.dll": {
@@ -749,8 +859,8 @@
         },
         "runtime": {
           "ClientCore.dll": {
-            "assemblyVersion": "2.12.18.0",
-            "fileVersion": "2.12.18.0"
+            "assemblyVersion": "2.13.0.0",
+            "fileVersion": "2.13.0.0"
           }
         }
       },
@@ -762,8 +872,8 @@
         },
         "runtime": {
           "ClientGUI.dll": {
-            "assemblyVersion": "2.12.18.0",
-            "fileVersion": "2.12.18.0"
+            "assemblyVersion": "2.13.0.0",
+            "fileVersion": "2.13.0.0"
           }
         }
       },
@@ -774,8 +884,8 @@
         },
         "runtime": {
           "ClientUpdater.dll": {
-            "assemblyVersion": "2.12.18.0",
-            "fileVersion": "2.12.18.0"
+            "assemblyVersion": "2.13.0.0",
+            "fileVersion": "2.13.0.0"
           }
         }
       },
@@ -789,6 +899,8 @@
       },
       "Rampastring.XNAUI.WindowsDX/1.0.0": {
         "dependencies": {
+          "FontStashSharp.MonoGame": "1.5.5",
+          "FontStashSharp.TextShapers.HarfBuzz": "1.2.3",
           "MonoGame.Framework.WindowsDX": "3.8.1.303",
           "Rampastring.Tools": "1.0.0",
           "SixLabors.ImageSharp": "2.1.11",
@@ -811,10 +923,17 @@
     }
   },
   "libraries": {
-    "clientdx/2.12.18": {
+    "clientdx/2.13.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Cyotek.Drawing.BitmapFont/2.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iA6WehGVdMUuNbfsQQDq/Bt+mMd/OqHjiMUtKFLIQd/0pyYh4ehT7FEjTxN9/4OXNKQZsp9bAJgltP2nnswUJg==",
+      "path": "cyotek.drawing.bitmapfont/2.0.4",
+      "hashPath": "cyotek.drawing.bitmapfont.2.0.4.nupkg.sha512"
     },
     "DiscordRichPresence/1.2.1.24": {
       "type": "package",
@@ -829,6 +948,55 @@
       "sha512": "sha512-zR9R5CywbvGBuV7CWAkZ3sFLHrThLmOWOg+DzVfupQ4LOR9NboEjGEt9GOPMNYbcDx+cvUaU7NdHQ5h4eWJQpQ==",
       "path": "facepunch.steamworks/2.4.1",
       "hashPath": "facepunch.steamworks.2.4.1.nupkg.sha512"
+    },
+    "FontStashSharp.Base/1.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kw8ovakGHz8jCah+H5M7qI8aOvtESF0jQRpcpubXUMsSid86dRO6DoDPlh+Tk/XAW5a3XgzGDgsHfeZTfZTr+Q==",
+      "path": "fontstashsharp.base/1.2.3",
+      "hashPath": "fontstashsharp.base.1.2.3.nupkg.sha512"
+    },
+    "FontStashSharp.MonoGame/1.5.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UTHcfF2qLr06SWl69BCfDw/cguzGPPzICRuJ8xmh/vKHYya9OgrJXglhKU8GRsUmEpv/hc6gwXd4wICgF8c9Qg==",
+      "path": "fontstashsharp.monogame/1.5.5",
+      "hashPath": "fontstashsharp.monogame.1.5.5.nupkg.sha512"
+    },
+    "FontStashSharp.Rasterizers.StbTrueTypeSharp/1.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xjzgWeiaODbW7DR/kI05V7C3CVtDvtB+4TrgX4EKNpRGzxb42vsvXKWrXORQWU2LCLnPPqdBNNSgtRujnpK2ww==",
+      "path": "fontstashsharp.rasterizers.stbtruetypesharp/1.2.3",
+      "hashPath": "fontstashsharp.rasterizers.stbtruetypesharp.1.2.3.nupkg.sha512"
+    },
+    "FontStashSharp.TextShapers.HarfBuzz/1.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XNqav6B77iq1JaN+O+vy7bGE2jEhM5ySMMnNZyFBGDPtd5Fi1PWew6DmVqzvqHDksVdAuGzXWmYd82ODIwQb5A==",
+      "path": "fontstashsharp.textshapers.harfbuzz/1.2.3",
+      "hashPath": "fontstashsharp.textshapers.harfbuzz.1.2.3.nupkg.sha512"
+    },
+    "HarfBuzzSharp/8.3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fqZTo17dEIn/u/YZ1A6avsmF8BYoLSvDsHm+uDp38wortckHWZhJ5pMwJW97xTeOZ9/oxqwUQfRMkf6ni9s5Gw==",
+      "path": "harfbuzzsharp/8.3.1.2",
+      "hashPath": "harfbuzzsharp.8.3.1.2.nupkg.sha512"
+    },
+    "HarfBuzzSharp.NativeAssets.macOS/8.3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+0NtlZSQA540z6VpVoajXldvAOuj5D+BWceh70U3YApxcpUKD/5hjdbdzvyhRaTSTCSZNjRxeaWpBpgJ1U1YcQ==",
+      "path": "harfbuzzsharp.nativeassets.macos/8.3.1.2",
+      "hashPath": "harfbuzzsharp.nativeassets.macos.8.3.1.2.nupkg.sha512"
+    },
+    "HarfBuzzSharp.NativeAssets.Win32/8.3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qmYJsYtOPVeLg7NQoKO5fq1oc5mRKzdgxBXWICx0R03epZ1RIsuzgWRFhVNN0br3c+J+9rIQhy0SXdBwVv0ebA==",
+      "path": "harfbuzzsharp.nativeassets.win32/8.3.1.2",
+      "hashPath": "harfbuzzsharp.nativeassets.win32.8.3.1.2.nupkg.sha512"
     },
     "ImeSharp/1.4.1": {
       "type": "package",
@@ -1096,12 +1264,12 @@
       "path": "newtonsoft.json.bson/1.0.2",
       "hashPath": "newtonsoft.json.bson.1.0.2.nupkg.sha512"
     },
-    "OpenMcdf/2.4.1": {
+    "OpenMcdf/3.1.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0XVhI+P6pe80xYntIeF6H4F7AIL4ZolMTI5vkm3QUt9XTnRJht6CNYk1eSfI8YInRble6cw91ypF5llPXzKD/A==",
-      "path": "openmcdf/2.4.1",
-      "hashPath": "openmcdf.2.4.1.nupkg.sha512"
+      "sha512": "sha512-ncchtCh9YKqutHTlUCrr1llXA65ijGOCjXBM0mL1+WaGouApWDEACWbBHGzuYcAvB+rgW6IgO4AKgmZ2v1moNA==",
+      "path": "openmcdf/3.1.4",
+      "hashPath": "openmcdf.3.1.4.nupkg.sha512"
     },
     "SharpDX/4.0.1": {
       "type": "package",
@@ -1186,6 +1354,20 @@
       "sha512": "sha512-tUvsejgzUmEbES114yLseRxmFiYlQbH5RyaYXUQsEL7ksDo1/kW+ZL1EfD6iSUfxj7LHU8p110oFvSrRfsaWSQ==",
       "path": "sixlabors.imagesharp/2.1.11",
       "hashPath": "sixlabors.imagesharp.2.1.11.nupkg.sha512"
+    },
+    "StbImageSharp/2.30.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7QqbupVhz2kcFUPTgMw4iHR9rYDHGundzzee19Mwmd1typ2Lnv8EVJcLJxlkeBM2+4ex0NwsMtdbGSJctp1XCQ==",
+      "path": "stbimagesharp/2.30.15",
+      "hashPath": "stbimagesharp.2.30.15.nupkg.sha512"
+    },
+    "StbTrueTypeSharp/1.26.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hCc6/OsfcPa5VsLECcEU2m78WOshBrKwK42nAodSm9Z5wH68f7n66SoiRLCdGCkDaqbWz2TlX4zYHIjogj1HJA==",
+      "path": "stbtruetypesharp/1.26.12",
+      "hashPath": "stbtruetypesharp.1.26.12.nupkg.sha512"
     },
     "System.Management/8.0.0": {
       "type": "package",
