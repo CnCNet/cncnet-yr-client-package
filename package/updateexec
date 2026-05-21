@@ -5,11 +5,10 @@ package\Resources\Binaries\XNA\Ude.NetStandard.dll
 package\Resources\BinariesNET8\UniversalGL\Ude.NetStandard.dll
 package\Resources\BinariesNET8\Windows\Ude.NetStandard.dll
 package\Resources\BinariesNET8\XNA\Ude.NetStandard.dll
-
-package\Resources\Binaries\OpenGL\Ude.NetStandard.dll	package\Resources\Binaries\Ude.NetStandard.dll
-package\Resources\Binaries\steam_api64.dll	package\Resources\Binaries\x64\steam_api64.dll
-package\Resources\BinariesNET8\steam_api64.dll	package\Resources\BinariesNET8\OpenGL\runtimes\win-x64\native\steam_api64.dll
-package\Resources\BinariesNET8\OpenGL\Ude.NetStandard.dll	package\Resources\BinariesNET8\Ude.NetStandard.dll
+package\Resources\Binaries\OpenGL\Ude.NetStandard.dll
+package\Resources\Binaries\steam_api64.dll
+package\Resources\BinariesNET8\steam_api64.dll
+package\Resources\BinariesNET8\OpenGL\Ude.NetStandard.dll
 ; end entries
 
 package\Resources\Binaries\OpenGL\System.Private.Uri.dll
