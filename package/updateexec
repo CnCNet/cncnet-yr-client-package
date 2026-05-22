@@ -1,4 +1,16 @@
 [Delete]
+; 2.13.0 (auto-generated entries for removed/renamed files)
+package\Resources\Binaries\Windows\Ude.NetStandard.dll
+package\Resources\Binaries\XNA\Ude.NetStandard.dll
+package\Resources\BinariesNET8\UniversalGL\Ude.NetStandard.dll
+package\Resources\BinariesNET8\Windows\Ude.NetStandard.dll
+package\Resources\BinariesNET8\XNA\Ude.NetStandard.dll
+package\Resources\Binaries\OpenGL\Ude.NetStandard.dll
+package\Resources\Binaries\steam_api64.dll
+package\Resources\BinariesNET8\steam_api64.dll
+package\Resources\BinariesNET8\OpenGL\Ude.NetStandard.dll
+; end entries
+
 package\Resources\Binaries\OpenGL\System.Private.Uri.dll
 package\Resources\Binaries\Windows\System.Private.Uri.dll
 package\Resources\BinariesNET8\OpenGL\System.Text.Json.dll
@@ -602,3 +614,4 @@ Maps\Yuri's Revenge\Survival\4_defend_liberty_v2_dctanxman.png
 Maps\Yuri's Revenge\CTF
 Maps\Yuri's Revenge\Demolition
 do_not_remove_this_line
+

@@ -267,6 +267,14 @@
             <param name="firstIni">The first INI file.</param>
             <param name="secondIni">The second INI file.</param>
         </member>
+        <member name="P:Rampastring.Tools.IniFile.DisallowDesktopIni">
+            <summary>
+            Gets or sets a value that determines whether reading from or writing to a file
+            named "desktop.ini" (in any directory) is forbidden. When set to <see langword="true"/>,
+            any such attempt throws an <see cref="T:System.InvalidOperationException"/>.
+            Defaults to <see langword="false"/>.
+            </summary>
+        </member>
         <member name="M:Rampastring.Tools.IniFile.#ctor">
             <summary>
             Creates a new INI file instance.
