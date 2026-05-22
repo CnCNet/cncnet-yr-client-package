@@ -80,6 +80,10 @@ jobs:
         # replace the second line in the file with the proper version number (X.Y.Z-dev.N)
         run: sed -i "2 s/.*/${{env.GitVersion_SemVer}}/" ./package/versionconfig.ini
 
+      - name: Refresh tunnel cache
+        if: github.event_name == 'release'
+        run: curl -fsSL https://cncnet.org/master-list -o package/Client/tunnel_cache
+
       - name: Pack Game Assets
         working-directory: tools
         run: npm run mix-packer
