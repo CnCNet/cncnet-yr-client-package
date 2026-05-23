@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "clientdx/2.12.19-beta0108": {
+      "clientdx/2.13.0": {
         "dependencies": {
           "ClientGUI": "1.0.0",
           "ClientUpdater": "1.0.0",
@@ -859,8 +859,8 @@
         },
         "runtime": {
           "ClientCore.dll": {
-            "assemblyVersion": "2.12.19.0",
-            "fileVersion": "2.12.19.0"
+            "assemblyVersion": "2.13.0.0",
+            "fileVersion": "2.13.0.0"
           }
         }
       },
@@ -872,8 +872,8 @@
         },
         "runtime": {
           "ClientGUI.dll": {
-            "assemblyVersion": "2.12.19.0",
-            "fileVersion": "2.12.19.0"
+            "assemblyVersion": "2.13.0.0",
+            "fileVersion": "2.13.0.0"
           }
         }
       },
@@ -884,16 +884,16 @@
         },
         "runtime": {
           "ClientUpdater.dll": {
-            "assemblyVersion": "2.12.19.0",
-            "fileVersion": "2.12.19.0"
+            "assemblyVersion": "2.13.0.0",
+            "fileVersion": "2.13.0.0"
           }
         }
       },
       "Rampastring.Tools/1.0.0": {
         "runtime": {
           "Rampastring.Tools.dll": {
-            "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.1.0.0"
+            "assemblyVersion": "2.0.7.0",
+            "fileVersion": "2.0.7.0"
           }
         }
       },
@@ -923,7 +923,7 @@
     }
   },
   "libraries": {
-    "clientdx/2.12.19-beta0108": {
+    "clientdx/2.13.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
