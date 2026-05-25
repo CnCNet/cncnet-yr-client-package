@@ -19,7 +19,16 @@ export interface SyncSettings {
   mpMapsIniPath: string;
   tempDirectory: string;
   download: DownloadSettings;
+  imageOptimization: ImageOptimizationSettings;
   logging: LoggingSettings;
+}
+
+export interface ImageOptimizationSettings {
+  enabled: boolean;
+  minFileSizeKB: number;
+  quality: number;
+  maxWidth?: number;
+  maxHeight?: number;
 }
 
 export interface DownloadSettings {

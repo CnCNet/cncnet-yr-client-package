@@ -5,8 +5,11 @@ import { parse as parseIni } from 'js-ini';
 import type { LadderPoolConfig } from '../interface/config.interface.js';
 import type { MapDownloadService } from './map-download.service.js';
 import type { MapHashService } from './map-hash.service.js';
+import { ImageOptimizerService, type ImageOptimizationOptions } from './image-optimizer.service.js';
 
 export class MapExtractionService {
+  private readonly imageOptimizer: ImageOptimizerService;
+
   constructor(
     private readonly downloadService: MapDownloadService,
     private readonly hashService: MapHashService,
@@ -17,8 +20,11 @@ export class MapExtractionService {
     private readonly maxRetries: number,
     private readonly retryDelayMs: number,
     private readonly timeoutMs: number,
+    private readonly imageOptimizationSettings: ImageOptimizationOptions,
     private readonly dryRun: boolean = false
-  ) {}
+  ) {
+    this.imageOptimizer = new ImageOptimizerService(imageOptimizationSettings);
+  }
 
   async extractAndNameMap(
     hash: string,
@@ -138,6 +144,9 @@ export class MapExtractionService {
           this.timeoutMs
         );
         console.log(`    Saved image to: ${imagePath}`);
+
+        // Optimize the image
+        await this.imageOptimizer.optimizeImage(imagePath);
       } catch (error) {
         console.warn(
           `    [WARN] Failed to download preview image for ${mapName}:`,

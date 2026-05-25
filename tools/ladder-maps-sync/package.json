@@ -12,7 +12,8 @@
     "cncnet-core": "1.0.0",
     "js-ini": "^1.6.0",
     "adm-zip": "^0.5.10",
-    "commander": "^12.1.0"
+    "commander": "^12.1.0",
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
     "@types/node": "^24.12.2",

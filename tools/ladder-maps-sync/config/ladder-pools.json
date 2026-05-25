@@ -45,6 +45,13 @@
       "retryDelayMs": 1000,
       "timeoutMs": 30000
     },
+    "imageOptimization": {
+      "enabled": true,
+      "minFileSizeKB": 500,
+      "quality": 85,
+      "maxWidth": 768,
+      "maxHeight": 768
+    },
     "logging": {
       "level": "info",
       "file": "logs/ladder-maps-sync.log"

@@ -68,6 +68,7 @@ export class MpMapsUpdaterService {
     private async mergeMapsKeys(mpMapsIniFile: IniFile, mapIniFiles: IniFile[]): Promise<void> {
         console.log('Merging MPMaps.ini file with .map files');
         const addedMapFiles: IniFile[] = await this.addNewMapIniFiles(mpMapsIniFile, mapIniFiles);
+        await this.updateExistingMapSections(mpMapsIniFile, mapIniFiles);
         const removedMapKeys: string[] = await this.removeMissingMaps(mpMapsIniFile, mapIniFiles);
         await this.updateMultiMaps(mpMapsIniFile, addedMapFiles, removedMapKeys);
     }
@@ -151,6 +152,39 @@ export class MpMapsUpdaterService {
         return await this.normalizeSection(mapIniFile, newSection);
     }
 
+    /**
+     * Clean up map description by removing version info and redundant suffixes
+     * Examples:
+     *   "[4] Village Swing v0.9 blitz QM (no preview)" -> "[4] Village Swing"
+     *   "[4] Tubac v3 - Blitz 2v2" -> "[4] Tubac"
+     *   "Boom v2" -> "Boom"
+     */
+    private cleanDescription(description: string): string {
+        let cleaned = description;
+
+        // Remove version info (v0.9, v3, v12.8, etc.) and everything after it
+        cleaned = cleaned.replace(/\s+v\d+(\.\d+)*.*$/i, '');
+
+        // Remove common ladder/mode suffixes (case insensitive)
+        // Remove "- Blitz 2v2", "- blitz", etc.
+        cleaned = cleaned.replace(/\s*-?\s*(blitz\s*(2v2)?|qm|ladder)\s*$/gi, '');
+
+        // Remove parenthetical notes at the end (e.g., "(no preview)")
+        cleaned = cleaned.replace(/\s*\([^)]*\)\s*$/g, '');
+
+        // Remove "blitz" or "Blitz" in the middle or end (not part of the actual map name)
+        // But be careful not to remove it if it's part of the core name
+        cleaned = cleaned.replace(/\s+(blitz|qm|ladder)\s*$/gi, '');
+
+        // Clean up multiple spaces and trim
+        cleaned = cleaned.replace(/\s+/g, ' ').trim();
+
+        // Remove trailing punctuation like " -" or ","
+        cleaned = cleaned.replace(/[\s\-,]+$/, '');
+
+        return cleaned;
+    }
+
     private async normalizeSection(mapIniFile: IniFile, newSection: IIniObjectSection): Promise<IIniObjectSection> {
         console.log('Normalizing new map section');
         const gameMode = this.getRequiredSectionValue(mapIniFile, newSection, 'GameMode');
@@ -162,7 +196,7 @@ export class MpMapsUpdaterService {
         newSection['MinPlayers'] = 1; //allow 1 person to launch the game, to practice/preview the map (this is existing behavior from previous script)
         newSection['MaxPlayers'] = maxPlayer;
         newSection['EnforceMaxPlayers'] = 'True';
-        newSection['Description'] = name;
+        newSection['Description'] = this.cleanDescription(name);
         delete newSection['Name'];
 
         // only pull properties that we've whitelisted
@@ -173,6 +207,9 @@ export class MpMapsUpdaterService {
         }
 
         await this.normalizeGameModes(newSection);
+
+        // Detect and append additional GameModes based on filename patterns
+        await this.detectLadderGameModes(mapIniFile, newSection);
 
         // sort properties alphabetically;
         return Object.keys(newSection)
@@ -216,6 +253,78 @@ export class MpMapsUpdaterService {
             .join(' ');
     }
 
+    /**
+     * Detects additional GameModes based on ladder maps metadata or filename patterns.
+     * This handles maps downloaded from ladder pools that don't have the correct GameMode in their file.
+     * For Blitz maps, replaces GameModes entirely instead of appending.
+     */
+    private async detectLadderGameModes(mapIniFile: IniFile, section: IIniObjectSection): Promise<void> {
+        const mpMapsKey = mapIniFile.getMpMapsKey();
+        const filename = mpMapsKey.split(/[\\/]/).pop() || '';
+
+        // Get current GameModes as array
+        const gameModesValue = section['GameModes'];
+        const gameModes = typeof gameModesValue === 'string' ? gameModesValue.split(',').map(g => g.trim()) : [];
+
+        let ladderGameMode: string | null = null;
+
+        // First, try to get GameMode from ladder maps metadata
+        const metadata = await this.loadLadderMapsMetadata();
+        if (metadata) {
+            const mapMetadata = metadata.maps[filename];
+            if (mapMetadata) {
+                ladderGameMode = mapMetadata.gameMode;
+                console.log(`  Detected ladder GameMode from metadata for '${filename}': ${ladderGameMode}`);
+            }
+        }
+
+        // Fallback to pattern matching for ladder maps (if metadata not found)
+        if (!ladderGameMode) {
+            // blitz_*_2v2 pattern
+            if (/^blitz_.+_2v2$/i.test(filename)) {
+                ladderGameMode = 'Blitz 2v2';
+            }
+            // blitz_* pattern (but NOT ending in _2v2)
+            else if (/^blitz_.+/i.test(filename) && !/2v2$/i.test(filename)) {
+                ladderGameMode = 'Blitz';
+            }
+            // \d+_* pattern (YR Ladder or RA2 Ladder) - ONLY if in metadata or explicitly marked
+            // NOTE: We no longer auto-detect {number}_{name} patterns to avoid false positives
+            // These should be tracked via metadata from ladder-maps-sync
+
+            if (ladderGameMode) {
+                console.log(`  Detected ladder GameMode from filename pattern '${filename}': ${ladderGameMode}`);
+            }
+        }
+
+        // Apply the ladder GameMode if detected
+        if (ladderGameMode) {
+            // For Blitz maps, REPLACE GameModes entirely (don't append to Battle)
+            if (ladderGameMode.startsWith('Blitz')) {
+                section['GameModes'] = ladderGameMode;
+            }
+            // For other ladder maps (YR/RA2), append if not already present
+            else if (!gameModes.includes(ladderGameMode)) {
+                gameModes.push(ladderGameMode);
+                section['GameModes'] = gameModes.join(',');
+            }
+        }
+    }
+
+    /**
+     * Load ladder maps metadata file (if exists)
+     */
+    private async loadLadderMapsMetadata(): Promise<any> {
+        try {
+            const metadataPath = `${this.constants.paths.package}/INI/ladder-maps-metadata.json`;
+            const content = await fsPromises.readFile(metadataPath, 'utf-8');
+            return JSON.parse(content);
+        } catch (error) {
+            // Metadata file doesn't exist or can't be read - that's okay, it's optional
+            return null;
+        }
+    }
+
     private async addNewMapIniFiles(mpMapsIniFile: IniFile, mapIniFiles: IniFile[]): Promise<IniFile[]> {
         console.log('Checking for added maps');
         const mpMapKeys = mpMapsIniFile.getMultiMapsValues();
@@ -244,6 +353,111 @@ export class MpMapsUpdaterService {
         const mpMapsKey = mapIniFile.getMpMapsKey();
         console.log(`Adding map section to MPMaps.ini: '${mpMapsKey}'`);
         mpMapsIniFile.setMapSection(mpMapsKey, newMapSection);
+    }
+
+    /**
+     * Update existing map sections with ladder GameModes and cleaned descriptions
+     */
+    private async updateExistingMapSections(mpMapsIniFile: IniFile, mapIniFiles: IniFile[]): Promise<void> {
+        console.log('Checking for existing maps to update');
+        const mpMapKeys = mpMapsIniFile.getMultiMapsValues();
+
+        // Find maps that exist in both MPMaps.ini and on disk
+        const existingMapFiles = mapIniFiles.filter(
+            (mapFile) => mpMapKeys.includes(mapFile.getMpMapsKey()) && mpMapsIniFile.getSection(mapFile.getMpMapsKey())
+        );
+
+        if (!existingMapFiles.length) {
+            console.log('No existing maps to update');
+            return;
+        }
+
+        let updatedCount = 0;
+
+        for (const mapIniFile of existingMapFiles) {
+            const mpMapsKey = mapIniFile.getMpMapsKey();
+            const section = mpMapsIniFile.getSection(mpMapsKey);
+
+            if (!isIniSection(section)) {
+                continue;
+            }
+
+            let updated = false;
+
+            // Update Description if needed (clean it)
+            const currentDescription = section['Description'];
+            if (typeof currentDescription === 'string') {
+                const cleanedDescription = this.cleanDescription(currentDescription);
+                if (cleanedDescription !== currentDescription) {
+                    section['Description'] = cleanedDescription;
+                    updated = true;
+                }
+            }
+
+            // Update GameModes if ladder GameMode is missing or incorrect
+            const filename = mpMapsKey.split(/[\\/]/).pop() || '';
+            const currentGameModes = typeof section['GameModes'] === 'string'
+                ? section['GameModes'].split(',').map(g => g.trim())
+                : [];
+
+            // Check if we need to add/replace with ladder GameMode
+            const ladderGameMode = await this.detectMissingLadderGameMode(filename);
+            if (ladderGameMode) {
+                // For Blitz maps, REPLACE GameModes entirely (not append)
+                if (ladderGameMode.startsWith('Blitz')) {
+                    if (section['GameModes'] !== ladderGameMode) {
+                        section['GameModes'] = ladderGameMode;
+                        updated = true;
+                        console.log(`  Updated '${filename}' with GameMode: ${ladderGameMode}`);
+                    }
+                }
+                // For other ladder maps (YR/RA2), append if not already present
+                else if (!currentGameModes.includes(ladderGameMode)) {
+                    currentGameModes.push(ladderGameMode);
+                    section['GameModes'] = currentGameModes.join(',');
+                    updated = true;
+                    console.log(`  Updated '${filename}' with GameMode: ${ladderGameMode}`);
+                }
+            }
+
+            if (updated) {
+                mpMapsIniFile.setMapSection(mpMapsKey, section);
+                updatedCount++;
+            }
+        }
+
+        if (updatedCount > 0) {
+            console.log(`${updatedCount} existing map(s) updated`);
+        } else {
+            console.log('No existing maps needed updates');
+        }
+    }
+
+    /**
+     * Detect ladder GameMode for a filename (without appending to existing GameModes)
+     * Returns the ladder GameMode if detected, null otherwise
+     */
+    private async detectMissingLadderGameMode(filename: string): Promise<string | null> {
+        // First, try to get GameMode from ladder maps metadata
+        const metadata = await this.loadLadderMapsMetadata();
+        if (metadata) {
+            const mapMetadata = metadata.maps[filename];
+            if (mapMetadata) {
+                return mapMetadata.gameMode;
+            }
+        }
+
+        // Fallback to pattern matching for ladder maps
+        // blitz_*_2v2 pattern
+        if (/^blitz_.+_2v2$/i.test(filename)) {
+            return 'Blitz 2v2';
+        }
+        // blitz_* pattern (but NOT ending in _2v2)
+        else if (/^blitz_.+/i.test(filename) && !/2v2$/i.test(filename)) {
+            return 'Blitz';
+        }
+
+        return null;
     }
 
     /**
