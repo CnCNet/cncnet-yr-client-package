@@ -1,0 +1,53 @@
+{
+  "ladderPools": [
+    {
+      "name": "RA2",
+      "gameMode": "RA2 Ladder",
+      "apiEndpoint": "https://ladder.cncnet.org/api/v1/qm/ladder/ra2/maps/public",
+      "fileNamePattern": "{players}_{mapname}",
+      "enabled": true,
+      "description": "Red Alert 2 Ladder Maps"
+    },
+    {
+      "name": "YR",
+      "gameMode": "YR Ladder",
+      "apiEndpoint": "https://ladder.cncnet.org/api/v1/qm/ladder/yr/maps/public",
+      "fileNamePattern": "{players}_{mapname}",
+      "enabled": true,
+      "description": "Yuri's Revenge Ladder Maps"
+    },
+    {
+      "name": "blitz",
+      "gameMode": "Blitz",
+      "apiEndpoint": "https://ladder.cncnet.org/api/v1/qm/ladder/blitz/maps/public",
+      "fileNamePattern": "blitz_{mapname}",
+      "enabled": true,
+      "description": "Blitz 1v1 Ladder Maps"
+    },
+    {
+      "name": "blitz-2v2",
+      "gameMode": "Blitz 2v2",
+      "apiEndpoint": "https://ladder.cncnet.org/api/v1/qm/ladder/blitz-2v2/maps/public",
+      "fileNamePattern": "blitz_{mapname}",
+      "enabled": true,
+      "description": "Blitz 2v2 Ladder Maps"
+    }
+  ],
+  "settings": {
+    "mapDatabaseUrl": "https://mapdb.cncnet.org/yr",
+    "mapImageBaseUrl": "https://ladder.cncnet.org/images/maps/yr",
+    "mapsDirectory": "package/Maps/Yuri's Revenge",
+    "mpMapsIniPath": "package/INI/MPMaps.ini",
+    "tempDirectory": ".temp",
+    "download": {
+      "maxConcurrent": 5,
+      "maxRetries": 3,
+      "retryDelayMs": 1000,
+      "timeoutMs": 30000
+    },
+    "logging": {
+      "level": "info",
+      "file": "logs/ladder-maps-sync.log"
+    }
+  }
+}
