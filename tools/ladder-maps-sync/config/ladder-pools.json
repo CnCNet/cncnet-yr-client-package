@@ -28,7 +28,7 @@
       "name": "blitz-2v2",
       "gameMode": "Blitz 2v2",
       "apiEndpoint": "https://ladder.cncnet.org/api/v1/qm/ladder/blitz-2v2/maps/public",
-      "fileNamePattern": "blitz_{mapname}",
+      "fileNamePattern": "blitz_{mapname}_2v2",
       "enabled": true,
       "description": "Blitz 2v2 Ladder Maps"
     }

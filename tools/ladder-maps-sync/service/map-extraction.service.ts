@@ -28,7 +28,14 @@ export class MapExtractionService {
   ): Promise<string> {
     if (this.dryRun) {
       // In dry-run mode, just simulate the operation
-      const sanitizedName = this.sanitizeMapName(mapName);
+      const extractedName = this.extractMapName(mapName);
+      let sanitizedName = this.sanitizeMapName(extractedName);
+
+      // Additional check: if sanitized name starts with a number followed by underscore, remove it
+      if (/^\d+_/.test(sanitizedName)) {
+        sanitizedName = sanitizedName.replace(/^\d+_/, '');
+      }
+
       const finalFileName = this.generateFileName(
         ladderPool.fileNamePattern,
         2, // Default to 2 players for dry-run
@@ -94,7 +101,13 @@ export class MapExtractionService {
     // 6. Extract and sanitize map name
     const rawMapName = mapIni.Basic?.Name || mapName;
     const extractedName = this.extractMapName(rawMapName);
-    const sanitizedName = this.sanitizeMapName(extractedName);
+    let sanitizedName = this.sanitizeMapName(extractedName);
+
+    // Additional check: if sanitized name starts with a number followed by underscore,
+    // it means the extraction didn't catch it - remove it now
+    if (/^\d+_/.test(sanitizedName)) {
+      sanitizedName = sanitizedName.replace(/^\d+_/, '');
+    }
 
     // 7. Generate final filename
     const finalFileName = this.generateFileName(
@@ -171,18 +184,45 @@ export class MapExtractionService {
   }
 
   private extractMapName(rawName: string): string {
-    // Remove player count prefix like "[2] " or "(4) " or "2 - "
-    return rawName.replace(/^[\[\(]?\d+[\]\)\-\s]+\s*/, '').trim();
+    // Remove player count prefix in various formats:
+    // [2] Map Name, (4) Map Name, 2 - Map Name, 2_map_name, etc.
+    let cleaned = rawName;
+
+    // Remove patterns like: [2], (2), [2] -, (2) -, 2-, 2), 2], etc.
+    cleaned = cleaned.replace(/^[\[\(]?\d+[\]\)\-\s:]+\s*/g, '');
+
+    // Remove number at start followed by underscore (e.g., "2_map_name" -> "map_name")
+    cleaned = cleaned.replace(/^\d+_/, '');
+
+    // If there's still a number at the start followed by space, remove it
+    cleaned = cleaned.replace(/^\d+\s+/, '');
+
+    return cleaned.trim();
   }
 
   private sanitizeMapName(mapName: string): string {
+    let cleaned = mapName.toLowerCase();
+
+    // Remove all occurrences of "blitz" (will be added as prefix by pattern)
+    cleaned = cleaned.replace(/[\s\-_]*blitz[\s\-_]*/gi, ' ');
+
+    // Remove all occurrences of "2v2" (will be added as suffix for 2v2 maps)
+    cleaned = cleaned.replace(/[\s\-_]*2v2[\s\-_]*/gi, ' ');
+
+    // Remove version annotations (v1, v2, v11.3, v12.8, etc.)
+    cleaned = cleaned.replace(/[\s\-_]*v\d+(\.\d+)*[\s\-_]*/gi, ' ');
+
+    // Trim and collapse whitespace
+    cleaned = cleaned.trim();
+
+    // Standard sanitization
     return (
-      mapName
-        .toLowerCase()
+      cleaned
         .replace(/\s+/g, '_') // Spaces to underscores
         .replace(/[^a-z0-9_\-\.]/g, '') // Remove special chars
         .replace(/_+/g, '_') // Collapse multiple underscores
         .replace(/^_+|_+$/g, '') // Trim underscores from edges
+        .replace(/^-+|-+$/g, '') // Trim dashes from edges
     );
   }
 
