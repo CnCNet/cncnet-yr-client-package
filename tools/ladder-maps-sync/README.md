@@ -141,7 +141,7 @@ Maps are named according to ladder-specific patterns:
 | RA2 | `{players}_{mapname}` | `2_arabian_oasis.map` |
 | YR | `{players}_{mapname}` | `2_cloud_nine.map` |
 | Blitz | `blitz_{mapname}` | `blitz_boom.map` |
-| Blitz 2v2 | `blitz_{mapname}` | `blitz_caladan.map` |
+| Blitz 2v2 | `blitz_{mapname}_2v2` | `blitz_caladan_2v2.map` |
 
 Map names are:
 - Extracted from the map file's `[Basic]->Name` field

@@ -206,9 +206,19 @@ export class LadderMapsSyncService {
 
         // Check if this map's hash is in the ladder
         if (!ladderMapHashes.has(localMap.hash)) {
-          // Check if this map belongs to this game mode
-          const mapKey = localMap.filename.replace('.map', '');
-          if (ladderManagedMaps[mapKey]) {
+          // Check if this map belongs to this ladder based on filename pattern or MPMaps.ini
+          const mapFilename = localMap.filename.replace('.map', '');
+
+          // Check if exists in MPMaps.ini (keys may have path prefix like "Maps\Yuri's Revenge\")
+          const inMPMapsIni = Object.keys(ladderManagedMaps).some(
+            (key) => key === mapFilename || key.endsWith(`\\${mapFilename}`) || key.endsWith(`/${mapFilename}`)
+          );
+
+          const belongsToLadder =
+            inMPMapsIni || // In MPMaps.ini with matching GameMode
+            this.matchesLadderPattern(localMap.filename, ladderPool); // Matches filename pattern
+
+          if (belongsToLadder) {
             const logPrefix = this.dryRun ? '[DRY RUN] Would delete' : '[DELETE]';
             console.log(`  ${logPrefix} ${localMap.filename} (removed from ladder)`);
             if (!this.dryRun) {
@@ -339,6 +349,33 @@ export class LadderMapsSyncService {
       );
       throw error;
     }
+  }
+
+  private matchesLadderPattern(filename: string, ladderPool: LadderPoolConfig): boolean {
+    // Remove .map extension
+    const baseName = filename.replace('.map', '');
+
+    // Check if the filename matches the ladder's pattern
+    const pattern = ladderPool.fileNamePattern;
+
+    // For patterns with {players}_{mapname}
+    if (pattern.includes('{players}')) {
+      // Match: <number>_<anything>
+      return /^\d+_.+/.test(baseName);
+    }
+
+    // For blitz patterns
+    if (pattern.startsWith('blitz_')) {
+      if (pattern.endsWith('_2v2')) {
+        // Match: blitz_<anything>_2v2
+        return /^blitz_.+_2v2$/.test(baseName);
+      } else {
+        // Match: blitz_<anything> but NOT ending in _2v2
+        return /^blitz_.+/.test(baseName) && !baseName.endsWith('_2v2');
+      }
+    }
+
+    return false;
   }
 
   private printSyncResult(ladderName: string, result: SyncResult): void {
