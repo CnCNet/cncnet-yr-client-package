@@ -32,9 +32,62 @@ npx tsx index.ts
 
 ```bash
 npx tsx index.ts --help          # Show help
-npx tsx index.ts --ladder blitz  # Sync specific ladder (not yet implemented)
-npx tsx index.ts --dry-run       # Preview changes (not yet implemented)
+npx tsx index.ts --ladder blitz  # Sync only the blitz ladder
+npx tsx index.ts --ladder YR     # Sync only the YR ladder
+npx tsx index.ts --dry-run       # Preview changes without modifying files
+npx tsx index.ts --dry-run --ladder blitz  # Preview blitz ladder changes only
 npx tsx index.ts --force         # Force redownload (not yet implemented)
+```
+
+#### --dry-run Mode
+
+Dry-run mode allows you to preview what changes would be made without actually modifying any files:
+
+- Fetches current map lists from the API (read-only)
+- Shows which maps would be downloaded, updated, or deleted
+- Does not download any files
+- Does not modify MPMaps.ini
+- Clearly marks all operations with `[DRY RUN]` prefix
+
+**Example:**
+```bash
+npx tsx index.ts --dry-run --ladder blitz
+```
+
+Output will show:
+```
+=== DRY RUN MODE ===
+No files will be modified. This is a preview only.
+
+[DRY RUN] Would download Boom v2 (96a90c35...)
+[DRY RUN] Would download ZIP: https://mapdb.cncnet.org/yr/96a90c35...
+[DRY RUN] Final filename: blitz_boom_v2.map
+...
+```
+
+#### --ladder Filter
+
+The `--ladder` option allows you to sync only a specific ladder instead of all enabled ladders:
+
+**Valid ladder names:**
+- `RA2` - Red Alert 2 Ladder
+- `YR` - Yuri's Revenge Ladder
+- `blitz` - Blitz 1v1 Ladder
+- `blitz-2v2` - Blitz 2v2 Ladder
+
+**Example:**
+```bash
+# Sync only blitz maps
+npx tsx index.ts --ladder blitz
+
+# Preview YR ladder changes
+npx tsx index.ts --dry-run --ladder YR
+```
+
+If you specify an invalid ladder name, the tool will show an error with available options:
+```
+[FATAL ERROR] Ladder 'invalid' not found or not enabled.
+Available ladders: RA2, YR, blitz, blitz-2v2
 ```
 
 ## Configuration
@@ -113,6 +166,8 @@ These directories are kept for debugging and are excluded from git via `.gitigno
 
 ## Output Example
 
+### Normal Sync
+
 ```
 === Ladder Maps Sync ===
 
@@ -145,6 +200,53 @@ Found 4 enabled ladder pool(s)
   MPMaps.ini updated successfully
 
 === Sync Complete ===
+```
+
+### Dry-Run Mode
+
+```
+=== DRY RUN MODE ===
+No files will be modified. This is a preview only.
+
+Starting Ladder Maps Sync...
+
+Filtering to specific ladder: blitz
+
+
+=== Ladder Maps Sync ===
+
+Found 1 enabled ladder pool(s)
+
+
+--- Syncing ladder: blitz (GameMode: Blitz) ---
+  Fetching maps from API...
+  Found 45 maps in ladder API
+  Found 109 existing Blitz maps
+  Processing 45 ladder maps...
+  [DRY RUN] Would download Boom v2 (96a90c35...)
+    [DRY RUN] Would download ZIP: https://mapdb.cncnet.org/yr/96a90c35...
+    [DRY RUN] Would extract and process map file
+    [DRY RUN] Final filename: blitz_boom_v2.map
+    [DRY RUN] Would copy to: package/Maps/Yuri's Revenge/blitz_boom_v2.map
+    [DRY RUN] Would download image: https://ladder.cncnet.org/images/maps/yr/a7fa8688...
+  Checking for removed maps...
+
+  Results for blitz:
+    Total in ladder: 45
+    Existing (up to date): 0
+    Downloaded (new): 45
+    Updated: 0
+    Deleted: 0
+    Failed: 0
+
+--- MPMaps updater ---
+  [DRY RUN] Would run: npm run mpmaps-updater
+
+=== Sync Complete ===
+
+
+=== DRY RUN COMPLETE ===
+No files were modified. Run without --dry-run to apply changes.
 ```
 
 ## Architecture
@@ -180,8 +282,8 @@ ladder-maps-sync/
 
 ## Future Enhancements
 
-- [ ] Implement `--ladder` flag to sync specific ladders
-- [ ] Implement `--dry-run` mode for previewing changes
+- [x] Implement `--ladder` flag to sync specific ladders ✅
+- [x] Implement `--dry-run` mode for previewing changes ✅
 - [ ] Implement `--force` mode for redownloading all maps
 - [ ] Add parallel downloads (currently sequential)
 - [ ] Add progress indicators for downloads

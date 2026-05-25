@@ -3,6 +3,8 @@ import { pipeline } from 'stream/promises';
 import { Readable } from 'stream';
 
 export class MapDownloadService {
+  constructor(private readonly dryRun: boolean = false) {}
+
   private async fetchWithRetry(
     url: string,
     maxRetries: number,
@@ -53,6 +55,11 @@ export class MapDownloadService {
     retryDelayMs: number = 1000,
     timeoutMs: number = 30000
   ): Promise<void> {
+    if (this.dryRun) {
+      // In dry-run mode, just log what would be downloaded
+      return;
+    }
+
     const response = await this.fetchWithRetry(url, maxRetries, retryDelayMs, timeoutMs);
 
     if (!response.body) {
