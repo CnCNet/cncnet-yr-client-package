@@ -16,7 +16,8 @@ export class MapExtractionService {
     private readonly mapsDirectory: string,
     private readonly maxRetries: number,
     private readonly retryDelayMs: number,
-    private readonly timeoutMs: number
+    private readonly timeoutMs: number,
+    private readonly dryRun: boolean = false
   ) {}
 
   async extractAndNameMap(
@@ -25,6 +26,27 @@ export class MapExtractionService {
     imageHash: string,
     ladderPool: LadderPoolConfig
   ): Promise<string> {
+    if (this.dryRun) {
+      // In dry-run mode, just simulate the operation
+      const sanitizedName = this.sanitizeMapName(mapName);
+      const finalFileName = this.generateFileName(
+        ladderPool.fileNamePattern,
+        2, // Default to 2 players for dry-run
+        sanitizedName
+      );
+
+      console.log(`    [DRY RUN] Would download ZIP: ${this.mapDatabaseUrl}/${hash}.zip`);
+      console.log(`    [DRY RUN] Would extract and process map file`);
+      console.log(`    [DRY RUN] Final filename: ${finalFileName}.map`);
+      console.log(`    [DRY RUN] Would copy to: ${join(this.mapsDirectory, finalFileName + '.map')}`);
+
+      if (imageHash) {
+        console.log(`    [DRY RUN] Would download image: ${this.mapImageBaseUrl}/${imageHash}.png`);
+      }
+
+      return finalFileName;
+    }
+
     const tempDownloadsDir = join(this.tempDirectory, 'downloads');
     const tempExtractedDir = join(this.tempDirectory, 'extracted', hash);
 
