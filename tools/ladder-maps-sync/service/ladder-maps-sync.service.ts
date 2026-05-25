@@ -12,6 +12,7 @@ import { MapDownloadService } from './map-download.service.js';
 import { MapHashService } from './map-hash.service.js';
 import { MapExtractionService } from './map-extraction.service.js';
 import { ConfigService } from './config.service.js';
+import { LadderMapsMetadataService } from './ladder-maps-metadata.service.js';
 
 export class LadderMapsSyncService {
   private readonly ladderApiService: LadderApiService;
@@ -31,6 +32,11 @@ export class LadderMapsSyncService {
   async syncAllLadders(ladderFilter: string | null = null): Promise<Map<string, SyncResult>> {
     const config = await this.configService.loadConfig();
     const results = new Map<string, SyncResult>();
+
+    // Initialize metadata service (points to package/ directory)
+    const packageDir = join(process.cwd(), '..', '..', 'package');
+    const metadataService = new LadderMapsMetadataService(packageDir);
+    await metadataService.load();
 
     let enabledLadders = this.configService.getEnabledLadderPools(config);
 
@@ -56,10 +62,17 @@ export class LadderMapsSyncService {
 
     for (const ladderPool of enabledLadders) {
       console.log(`\n--- Syncing ladder: ${ladderPool.name} (GameMode: ${ladderPool.gameMode}) ---`);
-      const result = await this.syncLadder(ladderPool, config);
+      const result = await this.syncLadder(ladderPool, config, metadataService);
       results.set(ladderPool.name, result);
 
       this.printSyncResult(ladderPool.name, result);
+    }
+
+    // Save metadata after all ladders are synced
+    if (!this.dryRun) {
+      console.log('\n--- Saving ladder maps metadata ---');
+      await metadataService.save();
+      console.log(`  Metadata saved to: ${metadataService.getMetadataPath()}`);
     }
 
     // Run MPMaps updater once after all ladders are synced
@@ -78,7 +91,8 @@ export class LadderMapsSyncService {
 
   private async syncLadder(
     ladderPool: LadderPoolConfig,
-    config: LadderMapsConfig
+    config: LadderMapsConfig,
+    metadataService: LadderMapsMetadataService
   ): Promise<SyncResult> {
     const result: SyncResult = {
       totalMapsInLadder: 0,
@@ -124,6 +138,7 @@ export class LadderMapsSyncService {
         config.settings.download.maxRetries,
         config.settings.download.retryDelayMs,
         config.settings.download.timeoutMs,
+        config.settings.imageOptimization,
         this.dryRun
       );
 
@@ -141,6 +156,16 @@ export class LadderMapsSyncService {
 
         if (localMap && localMap.hash === ladderMap.hash) {
           // Map exists and hash matches - up to date
+          // Still track it in metadata so mpmaps-updater knows it's a ladder map
+          if (!this.dryRun) {
+            await metadataService.addOrUpdateMap(
+              localMap.filename.replace('.map', ''),
+              ladderMap.hash,
+              ladderPool.gameMode,
+              ladderPool.name,
+              ladderMap.map.name
+            );
+          }
           result.existingMaps++;
         } else if (localMap && localMap.hash !== ladderMap.hash) {
           // Hash mismatch - map was updated
@@ -152,12 +177,24 @@ export class LadderMapsSyncService {
             await this.deleteMapFiles(localMap);
           }
           try {
-            await mapExtractionService.extractAndNameMap(
+            const finalFileName = await mapExtractionService.extractAndNameMap(
               ladderMap.hash,
               ladderMap.map.name,
               ladderMap.map.image_hash,
               ladderPool
             );
+
+            // Track metadata for this ladder map
+            if (!this.dryRun) {
+              await metadataService.addOrUpdateMap(
+                finalFileName,
+                ladderMap.hash,
+                ladderPool.gameMode,
+                ladderPool.name,
+                ladderMap.map.name
+              );
+            }
+
             result.updatedMaps++;
           } catch (error) {
             if (!this.dryRun) {
@@ -173,12 +210,24 @@ export class LadderMapsSyncService {
           const logPrefix = this.dryRun ? '[DRY RUN] Would download' : '[NEW]';
           console.log(`  ${logPrefix} ${ladderMap.map.name} (${ladderMap.hash.substring(0, 8)}...)`);
           try {
-            await mapExtractionService.extractAndNameMap(
+            const finalFileName = await mapExtractionService.extractAndNameMap(
               ladderMap.hash,
               ladderMap.map.name,
               ladderMap.map.image_hash,
               ladderPool
             );
+
+            // Track metadata for this ladder map
+            if (!this.dryRun) {
+              await metadataService.addOrUpdateMap(
+                finalFileName,
+                ladderMap.hash,
+                ladderPool.gameMode,
+                ladderPool.name,
+                ladderMap.map.name
+              );
+            }
+
             result.downloadedMaps++;
           } catch (error) {
             if (!this.dryRun) {
@@ -223,6 +272,8 @@ export class LadderMapsSyncService {
             console.log(`  ${logPrefix} ${localMap.filename} (removed from ladder)`);
             if (!this.dryRun) {
               await this.deleteMapFiles(localMap);
+              // Remove from metadata
+              await metadataService.removeMap(localMap.filename);
             }
             result.deletedMaps++;
           }
