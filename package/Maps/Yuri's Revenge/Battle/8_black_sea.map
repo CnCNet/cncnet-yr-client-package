@@ -1,5 +1,5 @@
 [Basic]
-Name=[8] Black Sea ; v6.1 for CNCNET. Map created in 2020 with FinalAlert 2. Updated in 2025. Based on map "Diamond Quarry". Special Thanks to McPwny
+Name=[8] Black Sea ; v6.2 for CNCNET. Map created in 2020 with FinalAlert 2. Updated in 2026. Based on map "Diamond Quarry". Special Thanks to McPwny
 Author=CCCP84 ; Andrey Lesiak
 GameMode=standard
 MaxPlayer=8
@@ -3536,7 +3536,7 @@ IonGreen=.7
 7=Neutral,BUS,256,48,129,0,Sleep,None,0,-1,0,-1,0,0
 8=Neutral,SUVW,256,47,129,128,Sleep,None,0,-1,0,-1,0,0
 9=Neutral,TAXI,256,32,93,128,Sleep,None,0,-1,0,-1,0,0
-10=Neutral,TRUCKB,256,32,92,128,Sleep,None,0,-1,0,-1,0,0
+10=Neutral,TRUCKB,256,35,92,128,Sleep,None,0,-1,0,-1,0,0
 11=Neutral,SUVW,256,31,87,128,Sleep,None,0,-1,0,-1,0,0
 12=Neutral,FV,256,48,57,32,Guard,01000001,0,-1,0,-1,1,0
 13=Neutral,CONA,256,52,58,64,Guard,01000001,0,-1,0,-1,1,0
