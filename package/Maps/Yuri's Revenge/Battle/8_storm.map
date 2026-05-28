@@ -90,11 +90,27 @@ Strength=300
 [CAARMY04]
 Strength=300
 
+[CABARR01]
+HealthBar.Hide=1
+
+[CABARR02]
+HealthBar.Hide=1
+
+[CAMISC01]
+HealthBar.Hide=1
+
+[CAMISC02]
+HealthBar.Hide=1
+
 [GAGATE_A]
 Strength=300
 Unsellable=1
 ClickRepairable=0
 Selectable=0
+HealthBar.Hide=1
+
+[CAFARM02]
+HealthBar.Hide=1
 
 [CAFRMB]
 Strength=100
@@ -102,42 +118,54 @@ MaxDebris=0
 MinDebris=0
 CanBeOccupied=0
 Selectable=0
+HealthBar.Hide=1
 
 [CAPARK01]
 Strength=100
 DamageSound=BuildingMetalDamaged
 DieSound=BuildingMetalDamaged
 Selectable=0
+HealthBar.Hide=1
 
 [CAPARK02]
 Strength=150
 DamageSound=BuildingMetalDamaged
 DieSound=BuildingMetalDamaged
 Selectable=0
+HealthBar.Hide=1
 
 [CAMISC03]
 MaxDebris=0
 MinDebris=0
 Selectable=0
+HealthBar.Hide=1
+
+[CAMISC04]
+HealthBar.Hide=1
 
 [CASIN01N]
 Image=CASIN03E
 Strength=100
+HealthBar.Hide=1
 
 [CASIN01E]
 Image=CAMISC01
+HealthBar.Hide=1
 
 [CASIN01W]
 Image=CAMISC02
+HealthBar.Hide=1
 
 [CAMISC05]
 Strength=400
 Selectable=0
+HealthBar.Hide=1
 
 [CAMSC11]
 Strength=100
 DamageSound=BuildingMetalDamaged
 DieSound=BuildingMetalDamaged
+HealthBar.Hide=1
 
 [CAMSC04]
 Sight=7

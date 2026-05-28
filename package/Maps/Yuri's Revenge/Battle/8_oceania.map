@@ -7,6 +7,7 @@ NewINIFormat=4
 
 [CAMSC06]
 Selectable=0
+HealthBar.Hide=1
 
 [CAMSC04]
 Sight=7
