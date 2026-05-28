@@ -4,6 +4,8 @@
 export interface LadderMapMetadata {
   /** SHA-1 hash of the map file */
   hash: string;
+  /** Stable map ID from ladder API for tracking updates */
+  mapId: number;
   /** Ladder GameMode (e.g., "Blitz", "Blitz 2v2", "YR Ladder", "RA2 Ladder") */
   gameMode: string;
   /** Source ladder pool name (e.g., "blitz", "blitz-2v2", "YR", "RA2") */

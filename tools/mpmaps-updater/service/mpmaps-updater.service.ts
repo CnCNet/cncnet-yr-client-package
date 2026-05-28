@@ -19,6 +19,7 @@ export class MpMapsUpdaterService {
 
     private mpMapsIniFileService: MpMapsFileService;
     private mapLoaderService: MapLoaderService;
+    private ladderMapsMetadataCache: any | null = null;
 
     constructor(private workingDir: string) {
         this.constants = createConstants(workingDir);
@@ -313,14 +314,22 @@ export class MpMapsUpdaterService {
 
     /**
      * Load ladder maps metadata file (if exists)
+     * Uses caching to avoid repeated file I/O
      */
     private async loadLadderMapsMetadata(): Promise<any> {
+        // Return cached metadata if already loaded
+        if (this.ladderMapsMetadataCache !== null) {
+            return this.ladderMapsMetadataCache;
+        }
+
         try {
             const metadataPath = `${this.constants.paths.package}/INI/ladder-maps-metadata.json`;
             const content = await fsPromises.readFile(metadataPath, 'utf-8');
-            return JSON.parse(content);
+            this.ladderMapsMetadataCache = JSON.parse(content);
+            return this.ladderMapsMetadataCache;
         } catch (error) {
             // Metadata file doesn't exist or can't be read - that's okay, it's optional
+            this.ladderMapsMetadataCache = null;
             return null;
         }
     }

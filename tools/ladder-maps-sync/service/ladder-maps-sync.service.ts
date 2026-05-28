@@ -148,11 +148,22 @@ export class LadderMapsSyncService {
       // 4. Process each ladder map
       console.log(`  Processing ${ladderMaps.length} ladder maps...`);
       for (const ladderMap of ladderMaps) {
-        const localMap = await this.findLocalMapByHash(
-          ladderMap.hash,
-          localMaps,
-          this.mapHashService
-        );
+        // Find existing map by mapId in metadata (stable identifier)
+        const existingFilename = await metadataService.findMapByMapId(ladderMap.map.id);
+        let localMap: LocalMapFile | null = null;
+
+        if (existingFilename) {
+          // Find the local file
+          localMap = localMaps.find(m => m.filename === `${existingFilename}.map`) || null;
+          if (localMap && !localMap.hash) {
+            // Compute hash if not already computed
+            try {
+              localMap.hash = await this.mapHashService.computeFileHash(localMap.fullPath);
+            } catch {
+              localMap = null; // Treat as non-existent if we can't read it
+            }
+          }
+        }
 
         if (localMap && localMap.hash === ladderMap.hash) {
           // Map exists and hash matches - up to date
@@ -161,6 +172,7 @@ export class LadderMapsSyncService {
             await metadataService.addOrUpdateMap(
               localMap.filename.replace('.map', ''),
               ladderMap.hash,
+              ladderMap.map.id,
               ladderPool.gameMode,
               ladderPool.name,
               ladderMap.map.name
@@ -173,10 +185,8 @@ export class LadderMapsSyncService {
           console.log(
             `  ${logPrefix} ${ladderMap.map.name} (${localMap.hash?.substring(0, 8)}... -> ${ladderMap.hash.substring(0, 8)}...)`
           );
-          if (!this.dryRun) {
-            await this.deleteMapFiles(localMap);
-          }
           try {
+            // Download and verify new map first before deleting old one
             const finalFileName = await mapExtractionService.extractAndNameMap(
               ladderMap.hash,
               ladderMap.map.name,
@@ -184,11 +194,19 @@ export class LadderMapsSyncService {
               ladderPool
             );
 
+            // Only delete old map after successful download
+            if (!this.dryRun) {
+              await this.deleteMapFiles(localMap);
+              // Remove old metadata entry (will be replaced with new one below)
+              await metadataService.removeMap(localMap.filename);
+            }
+
             // Track metadata for this ladder map
             if (!this.dryRun) {
               await metadataService.addOrUpdateMap(
                 finalFileName,
                 ladderMap.hash,
+                ladderMap.map.id,
                 ladderPool.gameMode,
                 ladderPool.name,
                 ladderMap.map.name
@@ -222,6 +240,7 @@ export class LadderMapsSyncService {
               await metadataService.addOrUpdateMap(
                 finalFileName,
                 ladderMap.hash,
+                ladderMap.map.id,
                 ladderPool.gameMode,
                 ladderPool.name,
                 ladderMap.map.name
@@ -255,17 +274,12 @@ export class LadderMapsSyncService {
 
         // Check if this map's hash is in the ladder
         if (!ladderMapHashes.has(localMap.hash)) {
-          // Check if this map belongs to this ladder based on filename pattern or MPMaps.ini
+          // Only delete maps that are explicitly tracked in ladder metadata for this ladder pool
           const mapFilename = localMap.filename.replace('.map', '');
+          const mapMetadata = await metadataService.getMapMetadata(mapFilename);
 
-          // Check if exists in MPMaps.ini (keys may have path prefix like "Maps\Yuri's Revenge\")
-          const inMPMapsIni = Object.keys(ladderManagedMaps).some(
-            (key) => key === mapFilename || key.endsWith(`\\${mapFilename}`) || key.endsWith(`/${mapFilename}`)
-          );
-
-          const belongsToLadder =
-            inMPMapsIni || // In MPMaps.ini with matching GameMode
-            this.matchesLadderPattern(localMap.filename, ladderPool); // Matches filename pattern
+          // Check if this map belongs to this ladder pool and is tracked in metadata
+          const belongsToLadder = mapMetadata && mapMetadata.ladder === ladderPool.name;
 
           if (belongsToLadder) {
             const logPrefix = this.dryRun ? '[DRY RUN] Would delete' : '[DELETE]';
@@ -356,8 +370,12 @@ export class LadderMapsSyncService {
 
       // Check if this map belongs to the target game mode
       const gameModes = (section as any).GameModes as string | undefined;
-      if (gameModes && gameModes.includes(gameMode)) {
-        maps[key] = section;
+      if (gameModes) {
+        // Split on commas and compare trimmed tokens for exact equality
+        const gameModeList = gameModes.split(',').map(gm => gm.trim());
+        if (gameModeList.includes(gameMode)) {
+          maps[key] = section;
+        }
       }
     }
 
@@ -381,9 +399,6 @@ export class LadderMapsSyncService {
 
   private async runMpMapsUpdater(): Promise<void> {
     try {
-      const mpmapsUpdaterDir = join(process.cwd(), '..', 'mpmaps-updater');
-      const workingDir = join(process.cwd(), '..', '..');
-
       console.log(`  Running npm run mpmaps-updater from tools directory...`);
 
       // Run from the tools directory (parent of ladder-maps-sync)

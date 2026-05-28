@@ -40,7 +40,6 @@
     "mpMapsIniPath": "package/INI/MPMaps.ini",
     "tempDirectory": ".temp",
     "download": {
-      "maxConcurrent": 5,
       "maxRetries": 3,
       "retryDelayMs": 1000,
       "timeoutMs": 30000

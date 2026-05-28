@@ -32,7 +32,6 @@ export interface ImageOptimizationSettings {
 }
 
 export interface DownloadSettings {
-  maxConcurrent: number;
   maxRetries: number;
   retryDelayMs: number;
   timeoutMs: number;

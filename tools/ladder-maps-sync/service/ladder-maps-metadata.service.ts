@@ -59,6 +59,7 @@ export class LadderMapsMetadataService {
   async addOrUpdateMap(
     filename: string,
     hash: string,
+    mapId: number,
     gameMode: string,
     ladder: string,
     originalName?: string
@@ -70,6 +71,7 @@ export class LadderMapsMetadataService {
 
     metadata.maps[mapKey] = {
       hash,
+      mapId,
       gameMode,
       ladder,
       downloadedAt: new Date().toISOString(),
@@ -117,6 +119,32 @@ export class LadderMapsMetadataService {
   async isLadderMap(filename: string): Promise<boolean> {
     const mapMeta = await this.getMapMetadata(filename);
     return mapMeta !== null;
+  }
+
+  /**
+   * Find map filename by mapId
+   */
+  async findMapByMapId(mapId: number): Promise<string | null> {
+    const metadata = await this.load();
+
+    for (const [filename, mapMeta] of Object.entries(metadata.maps)) {
+      if (mapMeta.mapId === mapId) {
+        return filename;
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * Check if map metadata exists (for deletion safety)
+   */
+  hasMap(filename: string): boolean {
+    if (!this.metadata) {
+      return false;
+    }
+    const mapKey = filename.replace(/\.map$/i, '');
+    return mapKey in this.metadata.maps;
   }
 
   /**
