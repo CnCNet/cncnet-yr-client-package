@@ -7,6 +7,7 @@ export function createConstants(workingDir: string) {
     const iniPath = path.resolve(packagePath, 'INI');
     const mpMapsIniPath = path.resolve(iniPath, 'MPMaps.ini');
     const updateExecPath = path.resolve(packagePath, 'updateexec');
+    const ladderMapsMetadataPath = path.resolve(packagePath, '..', 'tools', 'ladder-maps-sync', 'ladder-maps-metadata.json');
 
     return {
         regex: {
@@ -23,6 +24,7 @@ export function createConstants(workingDir: string) {
             ini: iniPath,
             mpMapsIni: mpMapsIniPath,
             updateExec: updateExecPath,
+            ladderMapsMetadata: ladderMapsMetadataPath,
         },
         newMapSectionWhitelist: [
             'Name',

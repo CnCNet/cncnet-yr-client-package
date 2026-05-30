@@ -12,8 +12,8 @@ export class LadderMapsMetadataService {
   private metadata: LadderMapsMetadataFile | null = null;
 
   constructor(packageDir: string) {
-    // Store metadata in package/INI/ directory alongside MPMaps.ini
-    this.metadataPath = join(packageDir, 'INI', 'ladder-maps-metadata.json');
+    // Store metadata in tools/ladder-maps-sync/ directory
+    this.metadataPath = join(packageDir, '..', 'tools', 'ladder-maps-sync', 'ladder-maps-metadata.json');
   }
 
   /**

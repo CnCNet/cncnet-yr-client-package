@@ -333,8 +333,7 @@ export class MpMapsUpdaterService {
         }
 
         try {
-            const metadataPath = `${this.constants.paths.package}/INI/ladder-maps-metadata.json`;
-            const content = await fsPromises.readFile(metadataPath, 'utf-8');
+            const content = await fsPromises.readFile(this.constants.paths.ladderMapsMetadata, 'utf-8');
             this.ladderMapsMetadataCache = JSON.parse(content);
             return this.ladderMapsMetadataCache;
         } catch (error) {
