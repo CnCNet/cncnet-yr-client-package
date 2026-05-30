@@ -155,16 +155,21 @@ export class MpMapsUpdaterService {
 
     /**
      * Clean up map description by removing version info and redundant suffixes
-     * Examples:
+     * Examples (ladder maps):
      *   "[4] Village Swing v0.9 blitz QM (no preview)" -> "[4] Village Swing"
      *   "[4] Tubac v3 - Blitz 2v2" -> "[4] Tubac"
      *   "Boom v2" -> "Boom"
+     * Examples (non-ladder maps):
+     *   "[4] Custom Map v0.9 (no preview)" -> "[4] Custom Map v0.9"
      */
-    private cleanDescription(description: string): string {
+    private cleanDescription(description: string, isLadderMap: boolean = false): string {
         let cleaned = description;
 
         // Remove version info (v0.9, v3, v12.8, etc.) and everything after it
-        cleaned = cleaned.replace(/\s+v\d+(\.\d+)*.*$/i, '');
+        // Only for ladder maps - preserve version info for custom/regular maps
+        if (isLadderMap) {
+            cleaned = cleaned.replace(/\s+v\d+(\.\d+)*.*$/i, '');
+        }
 
         // Remove common ladder/mode suffixes (case insensitive)
         // Remove "- Blitz 2v2", "- blitz", etc.
@@ -192,12 +197,17 @@ export class MpMapsUpdaterService {
         const maxPlayer = this.getRequiredSectionValue(mapIniFile, newSection, 'MaxPlayer');
         const name = this.getRequiredSectionValue(mapIniFile, newSection, 'Name');
 
+        // Determine if this is a ladder map
+        const mpMapsKey = mapIniFile.getMpMapsKey();
+        const filename = mpMapsKey.split(/[\\/]/).pop() || '';
+        const isLadderMap = (await this.detectMissingLadderGameMode(filename)) !== null;
+
         // map files declare this as 'GameMode'. MPMaps.ini declares this as 'GameModes'.
         newSection['GameModes'] = gameMode.replace(/standard/gi, 'Battle');
         newSection['MinPlayers'] = 1; //allow 1 person to launch the game, to practice/preview the map (this is existing behavior from previous script)
         newSection['MaxPlayers'] = maxPlayer;
         newSection['EnforceMaxPlayers'] = 'True';
-        newSection['Description'] = this.cleanDescription(name);
+        newSection['Description'] = this.cleanDescription(name, isLadderMap);
         delete newSection['Name'];
 
         // only pull properties that we've whitelisted
@@ -393,10 +403,15 @@ export class MpMapsUpdaterService {
 
             let updated = false;
 
+            // Determine if this is a ladder map
+            const filename = mpMapsKey.split(/[\\/]/).pop() || '';
+            const ladderGameMode = await this.detectMissingLadderGameMode(filename);
+            const isLadderMap = ladderGameMode !== null;
+
             // Update Description if needed (clean it)
             const currentDescription = section['Description'];
             if (typeof currentDescription === 'string') {
-                const cleanedDescription = this.cleanDescription(currentDescription);
+                const cleanedDescription = this.cleanDescription(currentDescription, isLadderMap);
                 if (cleanedDescription !== currentDescription) {
                     section['Description'] = cleanedDescription;
                     updated = true;
@@ -404,13 +419,11 @@ export class MpMapsUpdaterService {
             }
 
             // Update GameModes if ladder GameMode is missing or incorrect
-            const filename = mpMapsKey.split(/[\\/]/).pop() || '';
             const currentGameModes = typeof section['GameModes'] === 'string'
                 ? section['GameModes'].split(',').map(g => g.trim())
                 : [];
 
             // Check if we need to add/replace with ladder GameMode
-            const ladderGameMode = await this.detectMissingLadderGameMode(filename);
             if (ladderGameMode) {
                 // For Blitz maps, REPLACE GameModes entirely (not append)
                 if (ladderGameMode.startsWith('Blitz')) {
