@@ -47,6 +47,7 @@
 /CnCNet5_YR_Installer.exe
 /gitversion.json
 /logs
+/.temp
 /package.tar.gz
 /tools/node_modules
 /Client/
@@ -69,3 +70,11 @@ package/Tools/Map Editor/WAE/MapEditorLog.log
 package/Tools/Map Editor/WAE/MapEditorSettings.ini
 package/Tools/Map Editor/WAE/UserData/MissingTranslationValues.ini
 package/KeyboardMD.ini
+/.claude/**
+/spawn.ini
+/spawnmap.ini
+/ddraw.ini
+/ddraw.dll
+/RA2MD.ini
+/version_u
+/docs/specs/

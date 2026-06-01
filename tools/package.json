@@ -8,6 +8,7 @@
   "workspaces": [
     "core",
     "build-installer",
+    "ladder-maps-sync",
     "map-name-case-fix",
     "mix-packer",
     "mpmaps-updater",
@@ -17,6 +18,7 @@
     "version-writer"
   ],
   "scripts": {
+    "ladder-maps-sync": "npm run start --workspace ladder-maps-sync",
     "map-name-case-fix": "npm run start --workspace map-name-case-fix -- --workingDir ../../package",
     "mpmaps-updater": "npm run start --workspace mpmaps-updater -- --workingDir ../../package",
     "mix-packer": "npm run start --workspace mix-packer -- --inDir ../../game-assets --outDir ../../package",

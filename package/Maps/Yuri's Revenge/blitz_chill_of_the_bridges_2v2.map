@@ -204,19 +204,12 @@ Prerequisite=GAPILE,GACNST
 AIBasePlanningSide=-1
 BuildTimeMultiplier=1.15
 
-[NAYARD]
-Name=SNY Soviet Shipyard
-Prerequisite=PROC,POWER,NACNST
-Insignificant=yes
-AIBasePlanningSide=-1
-TechLevel=11
-
 [GAYARD]
 Name=Allied Shipyard
+TechLevel=-1
 Prerequisite=PROC,POWER,GACNST
 Insignificant=yes
 AIBasePlanningSide=-1
-TechLevel=11
 
 [GHOST]
 Name=ANS NS Allied Navy SEAL
@@ -308,7 +301,7 @@ TechLevel=2
 BaseNormal=yes
 BuildLimit=-12
 Capturable=false
-DebrisAnims=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
+DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
 Unsellable=true
 AIBuildThis=yes
 DeathWeapon=OilExplosion
@@ -353,6 +346,13 @@ Capturable=false
 Prerequisite=NAHAND,NACNST
 AIBasePlanningSide=-1
 BuildTimeMultiplier=1.15
+
+[NAYARD]
+Name=SNY Soviet Shipyard
+TechLevel=-1
+Prerequisite=PROC,POWER,NACNST
+Insignificant=yes
+AIBasePlanningSide=-1
 
 [ORCA]
 Name=Intruder

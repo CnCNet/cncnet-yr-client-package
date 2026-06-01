@@ -222,7 +222,7 @@ BuildTimeMultiplier=1.15
 
 [GAYARD]
 Name=ANY Allied Shipyard
-TechLevel=11
+TechLevel=-1
 Prerequisite=PROC,POWER,GACNST
 Insignificant=yes
 AIBasePlanningSide=-1
@@ -319,7 +319,7 @@ TechLevel=2
 BaseNormal=yes
 BuildLimit=-12
 Capturable=false
-DebrisAnims=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
+DebrisAnim=Dbris1sm,Dbris1lg,Dbris4sm,Dbris5sm,Dbris4lg,Dbris7sm,Dbris8sm,Dbris5lg,Dbris4lg
 Unsellable=true
 AIBuildThis=yes
 DeathWeapon=OilExplosion
@@ -367,7 +367,7 @@ BuildTimeMultiplier=1.15
 
 [NAYARD]
 Name=SNY Soviet Shipyard
-TechLevel=11
+TechLevel=-1
 Prerequisite=PROC,POWER,NACNST
 Insignificant=yes
 AIBasePlanningSide=-1
