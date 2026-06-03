@@ -26,9 +26,9 @@
     "build-installer": "npm run start --workspace build-installer -- --workingDir ../../package",
     "release-tag-validator": "npm run start --workspace release-tag-validator",
     "test-release-tag-validator": "npm run test --workspace release-tag-validator",
-    "release-asset-uploader": "npm run start --workspace release-asset-uploader",
+    "release-asset-uploader": "npm run start --workspace release-asset-uploader --",
     "test-release-asset-uploader": "npm run test --workspace release-asset-uploader",
-    "publish-release": "npm run start --workspace publish-release",
+    "publish-release": "npm run start --workspace publish-release --",
     "test-publish-release": "npm run test --workspace publish-release"
   },
   "devDependencies": {
