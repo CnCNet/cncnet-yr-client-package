@@ -78,6 +78,7 @@ Please look at `[razer_survival_options]` within `MPMaps.ini` if you want forced
     - 0 = Vanilla AI (default behavior).
     - 1 = Brutal AI (more challenging, based on RA2/YR Brutal AI).
     - 2 = Extreme AI (more challenging, based on RAZER changes).
+    - 3 = Nightmare AI (Beta)  - (more challenging than Extreme AI with more cheats specifically just for the AI)
 
 ### Crates
 - **Crates Modifier**: Disabled (`cmbCratesModifier=0`)

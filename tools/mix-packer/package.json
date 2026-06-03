@@ -1,0 +1,21 @@
+{
+  "name": "mix-packer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "start": "tsx index.ts"
+  },
+  "dependencies": {
+    "tsx": "^4.21.0",
+    "fast-folder-size": "^2.4.0",
+    "fs-extra": "^11.3.4",
+    "glob": "^13.0.6"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^24.12.2",
+    "typescript": "^6.0.2"
+  }
+}

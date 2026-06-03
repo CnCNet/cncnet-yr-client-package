@@ -1343,10 +1343,10 @@ PercentBuilt=0
 PlayerControl=no
 
 [Basic]
-Name=[4] Lost Lake - Blitz v5
+Name=[4] Lost Lake - Blitz v4
 Theme=No theme
 Percent=0
-GameMode=Blitz 2v2
+GameMode=standard
 InitTime=10000
 Official=yes
 EndOfGame=no

@@ -106,6 +106,7 @@ Speed=10
 [AMCV]
 Speed=7
 Maxdebris=1
+ImmuneToPsionics=yes
 
 [AMRADR]
 Explosion=INVISO
@@ -781,6 +782,7 @@ AnimList=INVISO
 [PCV]
 Speed=10
 Maxdebris=1
+ImmuneToPsionics=yes
 
 [PDPLANE]
 Image=SHAD
@@ -860,6 +862,7 @@ Speed=6
 [SMCV]
 Speed=9
 Maxdebris=1
+ImmuneToPsionics=yes
 
 [SMIN]
 Speed=8

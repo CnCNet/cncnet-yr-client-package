@@ -1,0 +1,159 @@
+<!doctype html public "-//w3c//dtd html 3.2//en">
+
+<html>
+
+<head>
+
+		<title>
+		</title>
+		<link rel=stylesheet type="text/css" href="formats.css">
+	</head>
+	
+	<body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
+		
+		<p class="heading" align="center">
+		<br>
+		5. Editing Terrain
+		</p>
+	<p>	
+You can access the terrain editing features using the "Terrain" and "Map tools" menu or using the terrain toolbar. 
+Below you’ll find the terrain toolbar and special tools bar:
+<br><br>
+<img src="pics/bar3.jpg"><img src="pics/bar2.jpg"><br>
+<table><tr><td width=16></td><td width=19>1</td>
+<td width=19>2</td>
+<td width=19>3</td>
+<td width=19>4</td>
+<td width=20>5</td>
+<td width=19>6</td>
+<td width=20>7</td>
+<td width=19>8</td>
+<td width=19>9</td>
+<td width=19>10</td>
+<td width=12></td>
+<td width=19>11</td>
+<td width=23>12</td>
+<td width=19>13</td>
+<td width=19>14</td>
+
+</tr>
+</table>
+<br><br>
+
+Here the different icons from left to right:<br><br>
+1. Raise ground <i>(uses brush size)</i><br>
+2. Lower ground <i>(uses brush size)</i><br>
+3. Flatten ground <i>(uses brush size)</i><br>
+4. Hide tileset<br>
+5. Show all tilesets<br>
+6. Hide single field<br>
+7. Show all fields.<br>
+8. Raise single tile (be careful) <i>(uses brush size)</i><br>
+9. Lower single tile (be careful) <i>(uses brush size)</i><br>
+10. Framework Mode<br>
+11. Paint cliff front<br>
+12. Paint cliff back<br>
+13. AutoLevel<br>
+14. AutoShore <br><br>
+Note:  #8 and #9 are not recommended and therefore not documented below. 
+<br><br>
+
+
+<b>1. Raise Ground:</b> Click on Raise Ground, and then on the IsoView where you want to raise the ground on your map. The user interface is fairly self-descriptive, but you’ll have to take care of some important things.  
+Try out the <a href="tutt.htm">terrain editing tutorial</a> for those. 
+<u>If you use features #1 or #2 on "non-morphable" terrain (terrain that is always plain or flat, like water, streets and cliffs), 
+then the following facts apply:</u><br><bR>
+<table><tr>
+<td width=40></td>
+<td>
+a)	<i>CTRL key not pressed while clicking:</i> The complete tile will be raised without modifying any other tile. For example if you used the terrain browser to place some cliff parts (=tiles), only one of these parts will be raised.
+<br><br>
+b)	<i>Pressing down CTRL key while clicking:</i> Whole surface filled with this tileset/terraintype will be raised, this may take some seconds! Please do not boot FinalAlert 2: Yuri's Revenge(tm), as this may take quite long if the surface is big!
+<br>
+
+</td></tr></table>
+<br><br>
+<b>2. Lower Ground:</b> Lower ground works like raise ground (even for non-morphable terrain and CTRL key).
+
+<br><br>
+<b>3. Flatten Ground:</b> Flatten ground uses the height of the tile you clicked on when last you clicked the mouse button.  It also sets every tile you move to the height of this tile if you hold down the mouse button. Flatten ground does not raise "non-morphable" terrain  but it may use "non-morphable" terrain to choose the height. <i>Uses brush size</i>
+
+<br><br>
+<b>4. Hide Tileset:</b> Hide tileset can be used to hide map features.  For example, cliffs can be hidden so that you can access the ground behind the cliff with your mouse. Just click on a cliff and the whole cliff (and every other cliff) will be made invisible. Works with every terrain type. Instead of the graphic a small green rect is shown to represent the fields (but they will not be accessible with your mouse).
+
+<br><br>
+<b>5. Show All Tilesets:</b> Shows every tileset.
+
+<br><br>
+<b>6. Hide Single Field:</b> Works like #4, but only hides one single field of the map.
+
+<br><br>
+<b>7. Show All Fields:</b> Shows every field hidden by #6.
+
+<br><br>
+<b>8.  Raise Single Tile:</b>  This feature is not documented.  Use at your own risk.
+
+<br><br>
+<b>9.  Lower Single Tile:</b> This feature is not documented.  Use at your own risk.
+
+<br><br>
+<b>10. Framework mode:</b> Enables Framework mode. This mode will make the IsoView to display tiles like cliffs using representating graphics that allow you to judge the map appearance much easier.
+
+<br><br>
+<b>11. Paint Cliff Front:</b> Select this tool to make cliff fronts and then move your mouse into the IsoView where you want your cliff to begin. Hold down the mouse button and then move the mouse to the end of the cliff. Release the button when the cliff is where you want it to be
+
+<br><br>
+<b>12. Paint Cliff Back:</b> Same like #10, but for the back of cliffs.
+
+<br><br>
+Note: In the New Urban theater, there are 2 cliff types. To switch between those 2 cliff types, press the "A" key.
+<br>
+
+<br><br>
+<b>13. Autolevel:</b> AutoLevel is just an icon for the MapTools->AutoLevel menu described above.
+
+<br><br>
+<b>14. Autoshore:</b> AutoShore is just an icon for the MapTools->AutoShore menu described above
+
+<br><br>
+<b>Painting Terrain and Placing Tiles and Overlays</b>
+<br><br>
+This feature allows you to place the different terrain types like cliffs, water, sand, tunnel entrances or waterfalls.  It also allows you to place overlays.
+<br><br>
+If you want to place terrain/tiles, select the type of terrain you want to place in the left window on the Main Screen. After you selected a folder, many different pictures will appear at the bottom of the screen. Click on a picture to select it and then move your mouse into the IsoView.  Move it to where you want it to be, and click. <u>If you hold down the shift button</u> you can move your mouse around and place many tiles at once. Only do this if you want to fill a large area with similar tiles - for example, water. <u>If you hold down the CTRL key while placing the tile</u>, the area of the map will be filled with the tile. This is useful for placing water also. <i>Uses brush size</i>
+<br><br>
+You can use the Page Up and Page Down keys to change the tile placement height.
+<br><br>
+You can use:<br>
+MapTools->AutoLevel to automatically raise the ground inside a cliff<br>
+MapTools->Paint cliffs to paint cliff fronts and backs using a drag system <bR>
+MapTools->AutoShore to automatically create shores that connect grass and water.<br>
+<br><br>
+
+<b>Using Arrow Keys to Navigate Tilesets</b><br><br>
+You can scroll through the tiles and tilesets using the arrow keys on your keyboard.  First select any tile in the terrain browser to activate the terrain painting mode.  Now, move the mouse onto the map and press:<br><br>
+<table> <tr> <td width=30></td>
+<td>Left arror<br>Right arrow<br>Up arrow<br>Down arrow</td>
+<td width=80 align=center>-<br>-<br>-<br>-</td>
+<td>
+  	One tile back in current tileset<br>
+   One tile forward in current tileset<br>
+   	One tileset back<br>
+   One tileset forward
+</td>
+</tr>
+</table>
+
+<br><br>
+This is useful for placing cliffs, water, and things like that.<br><br>
+
+
+If you want to place overlay (like Ore and mid parts of bridges), select the overlay you want in the right box then continue like with placing terrain/tiles.
+<br><br>
+If you made a mistake, you can use Edit->Undo to reverse the last changes made to the terrain and overlays (not units and objects).
+<br><br>
+You can use Edit->Copy to copy parts of the map into the clipboard and use Edit->Paste to paste them into the map. After clicking on Edit->Copy, click on 2 points in the map that define the region to be copied, then Edit->Paste to activate the paste mode. Be aware that this even works for different maps and between FinalSun<->FinalAlert 2: Yuri's Revenge <font size=1>TM</font>. You can use the page up and page down keys to change the height of the inserted area.
+</p>
+</body>
+
+</html>

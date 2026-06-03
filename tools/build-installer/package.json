@@ -1,0 +1,20 @@
+{
+  "name": "build-installer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "scripts": {
+    "start": "tsx index.ts"
+  },
+  "dependencies": {
+    "js-ini": "^1.6.0",
+    "tsx": "^4.21.0",
+    "twig": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.2",
+    "@types/twig": "^1.12.17",
+    "typescript": "^6.0.2"
+  }
+}

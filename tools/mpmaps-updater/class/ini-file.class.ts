@@ -1,20 +1,26 @@
-import { parse } from 'path';
-import { IIniObject, IniValue, parse as parseIni, stringify as stringifyIni } from 'js-ini';
-import { constants } from '../constants';
-import * as util from 'util';
-import { readFile, writeFile } from 'fs';
+import * as fsPromises from 'fs/promises';
+import * as path from 'path';
+
+import { parse as parseIni, stringify as stringifyIni } from 'js-ini';
+import type { IIniObject, IIniObjectSection, IniValue } from 'js-ini';
+
+function isIniSection(value: unknown): value is IIniObjectSection {
+    return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
 
 export class IniFile {
     protected filePath: string;
     protected fileName: string;
     protected fileExt: string;
+    protected packagePath: string;
     public data: IIniObject;
 
-    private constructor(filePath: string, data: IIniObject) {
-        const parsed = parse(filePath);
+    private constructor(filePath: string, data: IIniObject, packagePath: string) {
+        const parsed = path.parse(filePath);
         this.filePath = filePath;
         this.fileName = parsed.name;
         this.fileExt = parsed.ext;
+        this.packagePath = packagePath;
         this.data = data;
     }
 
@@ -23,7 +29,7 @@ export class IniFile {
      */
     public async stringify(): Promise<string> {
         return stringifyIni(this.data, {
-            skipUndefined: true // don't write keys that have no values
+            skipUndefined: true, // don't write keys that have no values
         });
     }
 
@@ -31,28 +37,28 @@ export class IniFile {
      * Write this file to disk.
      */
     public async writeAsync(): Promise<void> {
-        await util.promisify(writeFile)(this.filePath, (await this.stringify()).trim());
+        await fsPromises.writeFile(this.filePath, (await this.stringify()).trim());
     }
 
     /**
      * Create an instance of this file.
-     * @param {string} filePath the path at which this file should be read from or written to
+     * @param filePath the path at which this file should be read from or written to
      */
-    public static async createAsync(filePath: string): Promise<IniFile> {
-        const content = await util.promisify(readFile)(filePath, {
-            encoding: 'utf-8'
+    public static async createAsync(filePath: string, packagePath: string): Promise<IniFile> {
+        const content = await fsPromises.readFile(filePath, {
+            encoding: 'utf-8',
         });
         const iniObject = parseIni(content, {
-            autoTyping: false
+            autoTyping: false,
         });
-        return new IniFile(filePath, iniObject);
+        return new IniFile(filePath, iniObject, packagePath);
     }
 
     /**
      * Adds/sets the map section to the file, by header
      * Example: [Maps\Yuri's Revenge\hillbtwn]
-     * @param {string} mpMapKey The key to write, ex: Maps\Yuri's Revenge\hillbtwn
-     * @param {IniValue} iniValue The object to write
+     * @param mpMapKey The key to write, ex: Maps\Yuri's Revenge\hillbtwn
+     * @param iniValue The object to write
      */
     public setMapSection(mpMapKey: string, iniValue: IniValue): void {
         this.data[mpMapKey] = iniValue;
@@ -60,7 +66,6 @@ export class IniFile {
 
     /**
      * Deletes a map section the MPMaps.ini file. This would be done when a map has been removed from the repo.
-     * @param {string} mpMapKey
      */
     public deleteMapSection(mpMapKey: string): void {
         delete this.data[mpMapKey];
@@ -68,7 +73,7 @@ export class IniFile {
 
     /**
      * Sets the object of the entire [MultiMaps] section
-     * @param {IniValue} iniValue
+     * @param iniValue The object to write to the [MultiMaps] section.
      */
     public setMultiMapsSection(iniValue: IniValue): void {
         this.data['MultiMaps'] = iniValue;
@@ -76,7 +81,6 @@ export class IniFile {
 
     /**
      * Get the object at the [MultiMaps] section.
-     * @return {IniValue}
      */
     public getMultiMapsSection(): IniValue {
         return this.getSection('MultiMaps');
@@ -84,8 +88,6 @@ export class IniFile {
 
     /**
      * Gets the [Basic] section of the file. This is most commonly used for .map files.
-     *
-     * @return {IniValue}
      */
     public getBasicSection(): IniValue {
         return this.getSection('Basic');
@@ -93,8 +95,6 @@ export class IniFile {
 
     /**
      * Gets the [Header] section of the file. This is most commonly used for .map files.
-     *
-     * @return {IniValue}
      */
     public getHeaderSection(): IniValue {
         return this.getSection('Header');
@@ -102,8 +102,7 @@ export class IniFile {
 
     /**
      * Get any data section by name
-     * @param {string} sectionName
-     * @return {IniValue}
+     * @param sectionName the name of the section to retrieve
      */
     public getSection(sectionName: string): IniValue {
         return this.data[sectionName];
@@ -111,22 +110,22 @@ export class IniFile {
 
     /**
      * Gets the [Waypoints] section of the file. This is most commonly used for .map files.
-     * @return {IniValue}
      */
     public getWaypointsSection(): IniValue {
         return this.getSection('Waypoints');
     }
 
-    /**
-     * @return {string[]}
-     */
     public getWaypointsSectionValues(): string[] {
-        return Object.values(this.getWaypointsSection());
+        const section = this.getWaypointsSection();
+        if (!isIniSection(section)) {
+            return [];
+        }
+
+        return Object.values(section).filter((value): value is string => typeof value === 'string');
     }
 
     /**
      * Gets the [Map] section of the file. This is most commonly used for .map files.
-     * @return {IniValue}
      */
     public getMapSection(): IniValue {
         return this.getSection('Map');
@@ -134,25 +133,29 @@ export class IniFile {
 
     /**
      * Gets the values of each key in the [MultiMaps] section
-     * @return {string[]}
      */
     public getMultiMapsValues(): string[] {
-        return Object.values(this.getMultiMapsSection());
+        const section = this.getMultiMapsSection();
+        if (!isIniSection(section)) {
+            return [];
+        }
+
+        return Object.values(section).filter((value): value is string => typeof value === 'string');
     }
 
     /**
      * Can be used to generate the key used for a given map.
      * Example: Maps\Yuri's Revenge\hillbtwn
-     * @return {string}
      */
     public getMpMapsKey(): string {
-        return this.filePath.slice(constants.paths.package.length + 1, -this.fileExt.length);
+        return this.normalizeMpMapsPath(this.filePath.slice(this.packagePath.length + 1, -this.fileExt.length));
     }
 
-    /**
-     * @return {string}
-     */
     public getPackageRelativePath(): string {
-        return this.filePath.slice(constants.paths.package.length + 1);
+        return this.filePath.slice(this.packagePath.length + 1);
+    }
+
+    private normalizeMpMapsPath(relativePath: string): string {
+        return relativePath.replace(/[\\/]/g, '\\');
     }
 }

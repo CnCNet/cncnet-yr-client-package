@@ -3,7 +3,8 @@
 /package/**/*.SAV
 /package/BINKW32.DLL
 /package/Blowfish.dll
-/package/Client/
+/package/Client/*
+!/package/Client/tunnel_cache
 /package/cncnet.mix
 /package/ddraw.dll
 /package/ddraw.ini
@@ -42,9 +43,11 @@
 /package/VersionWriter.exe
 
 .idea/*
+.vscode/*
 /CnCNet5_YR_Installer.exe
 /gitversion.json
 /logs
+/.temp
 /package.tar.gz
 /tools/node_modules
 /Client/
@@ -60,3 +63,18 @@
 /package/stringtable*.csf
 /package/subtitle.txt
 /package/subtitlemd.txt
+package/Tools/Map Editor/FA2SP/FA2sp.log
+package/Tools/Map Editor/FA2SP/finalalert2log.txt
+package/Tools/Map Editor/FA2SP/syringe.log
+package/Tools/Map Editor/WAE/MapEditorLog.log
+package/Tools/Map Editor/WAE/MapEditorSettings.ini
+package/Tools/Map Editor/WAE/UserData/MissingTranslationValues.ini
+package/KeyboardMD.ini
+/.claude/**
+/spawn.ini
+/spawnmap.ini
+/ddraw.ini
+/ddraw.dll
+/RA2MD.ini
+/version_u
+/docs/specs/

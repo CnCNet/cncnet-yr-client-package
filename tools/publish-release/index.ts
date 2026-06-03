@@ -1,3 +1,7 @@
-import { PublishReleaseService } from './services';
+import { PublishReleaseService } from './services/publish-release.service';
 
-PublishReleaseService.run();
+PublishReleaseService.run() //
+    .catch((error) => {
+        console.error(error);
+        process.exitCode = 1;
+    });

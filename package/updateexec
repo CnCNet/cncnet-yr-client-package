@@ -1,14 +1,19 @@
 [Delete]
-; 2.12.17 (auto-generated entries for removed/renamed files)
+package\Resources\Binaries\Windows\Ude.NetStandard.dll
+package\Resources\Binaries\XNA\Ude.NetStandard.dll
+package\Resources\BinariesNET8\UniversalGL\Ude.NetStandard.dll
+package\Resources\BinariesNET8\Windows\Ude.NetStandard.dll
+package\Resources\BinariesNET8\XNA\Ude.NetStandard.dll
+package\Resources\Binaries\OpenGL\Ude.NetStandard.dll
+package\Resources\Binaries\steam_api64.dll
+package\Resources\BinariesNET8\steam_api64.dll
+package\Resources\BinariesNET8\OpenGL\Ude.NetStandard.dll
 package\Resources\Binaries\OpenGL\System.Private.Uri.dll
 package\Resources\Binaries\Windows\System.Private.Uri.dll
 package\Resources\BinariesNET8\OpenGL\System.Text.Json.dll
 package\Resources\BinariesNET8\UniversalGL\System.Text.Json.dll
 package\Resources\BinariesNET8\Windows\System.Text.Json.dll
 package\Resources\BinariesNET8\XNA\System.Text.Json.dll
-
-; end entries
-
 cncnet5.dll
 Resources\SpriteFont2.xnb
 Resources\SpriteFont3.xnb
@@ -586,9 +591,59 @@ Maps\Custom\a488fba207efc7910d994a546d410b876bf2dfef.map
 Maps\Custom\[8]The Oil With Bonus ASIA NEW [NO NUKE] [TEAM]_a57eb7f72e06cffdc8959323f32253a98f4c0886.map
 Maps\Custom\c6b170a2b81b664b4a145bf71374eaa35df78ca6.map
 Maps\Custom\4020a9788445bab5091c4aa192c4c437b7588c81.map
+Maps\Custom\c2ec13697f909e1c84bd75231f8e84307b1104ef.map
+Maps\Custom\eee7082810c16cc6c45cc0dee79eaba438885f0a.map
+Maps\Custom\3672f2f53ce448c765b0003bb84460e07a9002de.map
+Maps\Custom\a9ad0b29a6c259bc6df175c2f1660dc9d440dbdd.map
+Maps\Custom\e8d27178ecc4968402fc5c8bdd2736eddd5ed44a.map
+Maps\Custom\ac73bca7ae2bc519a92341abf9891fb1acb68681.map
+Map Editor\FinalSun.ini
+Maps\Yuri's Revenge\2_Nexus_City_v2_release.map
+Maps\Yuri's Revenge\2_Nexus_City_v2_release.png
+Maps\Yuri's Revenge\Survival\3_battle_in_new_york_feras.map
+Maps\Yuri's Revenge\Survival\3_battle_in_new_york_feras.png
+Maps\Yuri's Revenge\Survival\4_defend_liberty_v1_dctanxman.map
+Maps\Yuri's Revenge\Survival\4_defend_liberty_v1_dctanxman.png
+Maps\Yuri's Revenge\Survival\4_defend_liberty_v2_dctanxman.map
+Maps\Yuri's Revenge\Survival\4_defend_liberty_v2_dctanxman.png
+Maps\Yuri's Revenge\blitz_fjord_2v2.map
+Maps\Yuri's Revenge\blitz_fjord_2v2.png
+Maps\Yuri's Revenge\blitz_artavin_2v2.map
+Maps\Yuri's Revenge\blitz_artavin_2v2.png
+Maps\Yuri's Revenge\blitz_ardee_bay_2v2.map
+Maps\Yuri's Revenge\blitz_ardee_bay_2v2.png
+Maps\Yuri's Revenge\blitz_boom_2v2.map
+Maps\Yuri's Revenge\blitz_boom_2v2.png
+Maps\Yuri's Revenge\blitz_carnival_2v2.map
+Maps\Yuri's Revenge\blitz_carnival_2v2.png
+Maps\Yuri's Revenge\blitz_dawn_of_peril_2v2.map
+Maps\Yuri's Revenge\blitz_dawn_of_peril_2v2.png
+Maps\Yuri's Revenge\blitz_dogwater_2v2.map
+Maps\Yuri's Revenge\blitz_dogwater_2v2.png
+Maps\Yuri's Revenge\blitz_zeddo_2v2.map
+Maps\Yuri's Revenge\blitz_zeddo_2v2.png
+Maps\Yuri's Revenge\blitz_jungle_of_vietnam_2v2.map
+Maps\Yuri's Revenge\blitz_jungle_of_vietnam_2v2.png
+Maps\Yuri's Revenge\blitz_montana_dmz_2v2.map
+Maps\Yuri's Revenge\blitz_montana_dmz_2v2.png
+Maps\Yuri's Revenge\blitz_park_of_vytautas_2v2.map
+Maps\Yuri's Revenge\blitz_park_of_vytautas_2v2.png
+Maps\Yuri's Revenge\blitz_split_level_2v2.map
+Maps\Yuri's Revenge\blitz_split_level_2v2.png
+Maps\Yuri's Revenge\blitz_stormy_lukez.map
+Maps\Yuri's Revenge\blitz_stormy_lukez.png
+Maps\Yuri's Revenge\blitz_strategic_compass_2v2.map
+Maps\Yuri's Revenge\blitz_strategic_compass_2v2.png
+Maps\Yuri's Revenge\blitz_trabzon_2v2.map
+Maps\Yuri's Revenge\blitz_trabzon_2v2.png
+Maps\Yuri's Revenge\blitz_village_swing_2v2.map
+Maps\Yuri's Revenge\blitz_village_swing_2v2.png
+Maps\Yuri's Revenge\blitz_ying_yang_2v2.map
+Maps\Yuri's Revenge\blitz_ying_yang_2v2.png
+Maps\Yuri's Revenge\blitz_the_pit_2v2_3v3.map
+Maps\Yuri's Revenge\blitz_the_pit_2v2_3v3.png
 
 [DeleteFolder]
 Maps\Yuri's Revenge\CTF
 Maps\Yuri's Revenge\Demolition
 do_not_remove_this_line
-

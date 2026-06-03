@@ -206,7 +206,7 @@ BuildTimeMultiplier=1.15
 
 [GAYARD]
 Name=Allied Shipyard
-TechLevel=11
+TechLevel=-1
 Prerequisite=PROC,POWER,GACNST
 Insignificant=yes
 AIBasePlanningSide=-1
@@ -349,7 +349,7 @@ BuildTimeMultiplier=1.15
 
 [NAYARD]
 Name=SNY Soviet Shipyard
-TechLevel=11
+TechLevel=-1
 Prerequisite=PROC,POWER,NACNST
 Insignificant=yes
 AIBasePlanningSide=-1

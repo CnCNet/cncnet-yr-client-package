@@ -1,5 +1,5 @@
 [Basic]
-Name=[8] Storm (Author's Mod) ; v6.1.1n for CNCNET. With day-night cycle. Map created in 2016 with FinalAlert 2. Updated in 2025
+Name=[8] Storm (Author's Mod) ; v6.2n for CNCNET. With day-night cycle. Map created in 2016 with FinalAlert 2. Updated in 2026
 Author=CCCP84 ; Andrey Lesiak
 ; Day-Night Cycle by CCCP84. Made in 2022. v1.2 - 45 min
 GameMode=standard
@@ -13,9 +13,6 @@ VeteranRatio=5
 PurifierBonus=.2
 SpyPowerBlackout=3000
 V3RocketPitchFinal=.4
-
-[AudioVisual]
-RadialIndicatorVisibility=ally
 
 [CrateRules]
 CrateRegen=5
@@ -45,7 +42,6 @@ Firepower=10,FIREPOWR,1,2.0
 SubjectToBuildings=1
 
 [E1]
-Pip=white
 OccupyPip=Persongreen
 NavalTargeting=5
 
@@ -53,7 +49,6 @@ NavalTargeting=5
 Range=8
 
 [CLEG]
-Pip=red
 Cost=1200
 Soylent=600
 Bombable=0
@@ -74,7 +69,6 @@ NavalTargeting=5
 Verses=100%,100%,70%,60%,40%,40%,75%,50%,25%,100%,50%
 
 [SNIPE]
-Pip=red
 Cost=1600
 Soylent=800
 Points=40
@@ -88,14 +82,16 @@ Range=25
 [HollowPoint]
 Verses=200%,100%,100%,0%,0%,0%,0%,0%,0%,0%,0%
 
-[HollowPoint2]
-Verses=100%,100%,100%,0%,0%,0%,0%,0%,0%,15%,0%
+[DoublePistols]
+Warhead=HollowPoint2
 
-[HollowPoint3]
-Verses=200%,100%,100%,0%,0%,0%,0%,0%,0%,15%,0%
+[DoublePistolsE]
+Warhead=HollowPoint2
+
+[HollowPoint2]
+Verses=200%,100%,100%,0%,0%,0%,0%,0%,0%,10%,0%
 
 [CCOMAND]
-Pip=red
 Points=50
 Bombable=0
 
@@ -103,29 +99,24 @@ Bombable=0
 Verses=200%,100%,75%,0%,0%,0%,0%,0%,0%,15%,0%
 
 [PTROOP]
-Pip=red
 NavalTargeting=5
 
 [SPY]
-Pip=blue
 Cost=2000
 Soylent=1000
 Points=80
 
 [E2]
-Pip=white
 OccupyPip=Persongreen
 NavalTargeting=5
 
 [FLAKT]
-Pip=white
 NavalTargeting=5
 
 [CRFlakGuyGun]
 Range=8
 
 [SHK]
-Pip=white
 NavalTargeting=5
 
 [ElectricBolt]
@@ -135,7 +126,6 @@ Range=4
 Range=8
 
 [DESO]
-Pip=red
 Strength=170
 NavalTargeting=5
 
@@ -152,17 +142,14 @@ Range=8
 Damage=300
 
 [TERROR]
-Pip=red
 Cost=600
-Strength=100
 Primary=MakeupKit
 Ammo=1
 Reload=7400
 Secondary=TerrorBomb
 NoAmmoWeapon=1
+CanRetaliate=1
 C4=Yes
-Crushable=0
-ImmuneToRadiation=1
 
 [TerrorBomb]
 Damage=300
@@ -179,7 +166,6 @@ AnimList=XGRYSML1,XGRYSML2,EXPLOSML,XGRYMED1,XGRYMED2,EXPLOMED,EXPLOLRG,TWLT070
 RadLevel=0
 
 [YURI]
-Pip=red
 Points=30
 NavalTargeting=5
 
@@ -245,7 +231,6 @@ FireOnce=1
 Projectile=PsychicControl
 
 [CIVAN]
-Pip=red
 Bombable=0
 
 [ENGINEER]
@@ -286,9 +271,6 @@ CrateGoodie=0
 RequiredHouses=YuriCountry
 [YACNST]
 SolidHeight=1
-
-[Cannon]
-SubjectToBuildings=1
 
 [MTNK]
 Soylent=525
@@ -349,7 +331,8 @@ Soylent=450
 Soylent=1050
 
 [APOC]
-Soylent=1312
+Cost=2000
+Soylent=1500
 NavalTargeting=5
 
 [120mmx]
@@ -489,6 +472,26 @@ Report=GrandCannonAttack
 Warhead=GrandCannonWH
 Projectile=GrandCannonBall
 MinimumRange=3
+
+[LIMO]
+Cost=500
+Soylent=500
+Armor=heavy
+Strength=350
+Image=MRJ
+Speed=3
+Turret=1
+UIName=NOSTR:Submarine Detector
+Sensors=1
+MoveSound=0
+VoiceMove=GenSovVehicleMove
+TurretAnim=MRJTUR
+CrateGoodie=1
+TurretSpins=1
+VoiceSelect=GenSovVehicleSelect
+SensorsSight=18
+Insignificant=0
+ImmuneToRadiation=1
 
 [PICK]
 Size=3
@@ -718,8 +721,8 @@ Cost=3000
 Prerequisite=NAWEAP,NARADR,NACNST
 
 [NANRCT]
-Cost=1500
-Points=50
+Cost=2000
+Points=70
 
 [NARADR]
 Prerequisite=NACNST,PROC
@@ -731,7 +734,7 @@ Points=30
 [NAPSIS]
 PsychicDetectionRadius=20
 DetectDisguiseRange=20
-SensorsSight=22
+SensorsSight=20
 
 [NAYARD]
 Cost=2000
@@ -838,19 +841,27 @@ Strength=300
 [CAARMY04]
 Strength=300
 
-[CAPOL01S]
-Image=CABARR01
-Strength=600
+[CABARR01]
+HealthBar.Hide=1
 
-[CAPOL01W]
-Image=CABARR02
-Strength=600
+[CABARR02]
+HealthBar.Hide=1
+
+[CAMISC01]
+HealthBar.Hide=1
+
+[CAMISC02]
+HealthBar.Hide=1
 
 [GAGATE_A]
 Strength=300
 Unsellable=1
 ClickRepairable=0
 Selectable=0
+HealthBar.Hide=1
+
+[CAFARM02]
+HealthBar.Hide=1
 
 [CAFRMB]
 Strength=100
@@ -858,42 +869,54 @@ MaxDebris=0
 MinDebris=0
 CanBeOccupied=0
 Selectable=0
+HealthBar.Hide=1
 
 [CAPARK01]
 Strength=100
 DamageSound=BuildingMetalDamaged
 DieSound=BuildingMetalDamaged
 Selectable=0
+HealthBar.Hide=1
 
 [CAPARK02]
 Strength=150
 DamageSound=BuildingMetalDamaged
 DieSound=BuildingMetalDamaged
 Selectable=0
+HealthBar.Hide=1
 
 [CAMISC03]
 MaxDebris=0
 MinDebris=0
 Selectable=0
+HealthBar.Hide=1
+
+[CAMISC04]
+HealthBar.Hide=1
 
 [CASIN01N]
 Image=CASIN03E
 Strength=100
+HealthBar.Hide=1
 
 [CASIN01E]
 Image=CAMISC01
+HealthBar.Hide=1
 
 [CASIN01W]
 Image=CAMISC02
+HealthBar.Hide=1
 
 [CAMISC05]
 Strength=400
 Selectable=0
+HealthBar.Hide=1
 
 [CAMSC11]
 Strength=100
 DamageSound=BuildingMetalDamaged
 DieSound=BuildingMetalDamaged
+HealthBar.Hide=1
 
 [CAMSC04]
 Sight=7
@@ -8673,34 +8696,34 @@ IonGreen=.7
 109=Neutral,CAPARK01,256,211,303,64,None,0,0,0,0,0,None,None,None,0,0
 110=Neutral,CASIN01N,256,208,311,64,None,0,0,0,0,0,None,None,None,0,0
 111=Neutral,CASIN01N,256,208,310,64,None,0,0,0,0,0,None,None,None,0,0
-112=Neutral,CAPOL01W,256,154,118,64,None,0,0,0,0,0,None,None,None,0,0
-113=Neutral,CAPOL01S,256,158,121,64,None,0,0,0,0,0,None,None,None,0,0
-114=Neutral,CAPOL01W,256,162,122,64,None,0,0,0,0,0,None,None,None,0,0
-115=Neutral,CAPOL01W,256,166,125,64,None,0,0,0,0,0,None,None,None,0,0
-116=Neutral,CAPOL01S,256,171,127,64,None,0,0,0,0,0,None,None,None,0,0
+112=Neutral,CABARR02,256,154,118,64,None,0,0,0,0,0,None,None,None,0,0
+113=Neutral,CABARR01,256,158,121,64,None,0,0,0,0,0,None,None,None,0,0
+114=Neutral,CABARR02,256,162,122,64,None,0,0,0,0,0,None,None,None,0,0
+115=Neutral,CABARR02,256,166,125,64,None,0,0,0,0,0,None,None,None,0,0
+116=Neutral,CABARR01,256,171,127,64,None,0,0,0,0,0,None,None,None,0,0
 117=Neutral,CAARMY03,256,156,115,64,None,0,0,0,0,0,None,None,None,0,0
 118=Neutral,CAARMY03,256,168,122,64,None,0,0,0,0,0,None,None,None,0,0
 119=Neutral,CAMIAM04,256,162,119,64,None,0,0,0,0,0,None,None,None,0,0
-120=Neutral,CAPOL01S,256,237,178,64,None,0,0,0,0,0,None,None,None,0,0
-121=Neutral,CAPOL01W,256,236,181,64,None,0,0,0,0,0,None,None,None,0,0
-122=Neutral,CAPOL01W,256,239,175,64,None,0,0,0,0,0,None,None,None,0,0
-123=Neutral,CAPOL01W,256,242,174,64,None,0,0,0,0,0,None,None,None,0,0
+120=Neutral,CABARR01,256,237,178,64,None,0,0,0,0,0,None,None,None,0,0
+121=Neutral,CABARR02,256,236,181,64,None,0,0,0,0,0,None,None,None,0,0
+122=Neutral,CABARR02,256,239,175,64,None,0,0,0,0,0,None,None,None,0,0
+123=Neutral,CABARR02,256,242,174,64,None,0,0,0,0,0,None,None,None,0,0
 124=Neutral,CAMIAM04,256,241,180,64,None,0,0,0,0,0,None,None,None,0,0
-125=Neutral,CAPOL01W,256,276,232,64,None,0,0,0,0,0,None,None,None,0,0
-126=Neutral,CAPOL01S,256,181,223,64,None,0,0,0,0,0,None,None,None,0,0
-127=Neutral,CAPOL01W,256,185,223,64,None,0,0,0,0,0,None,None,None,0,0
-128=Neutral,CAPOL01S,256,85,146,64,None,0,0,0,0,0,None,None,None,0,0
-129=Neutral,CAPOL01S,256,214,126,64,None,0,0,0,0,0,None,None,None,0,0
-130=Neutral,CAPOL01S,256,217,125,64,None,0,0,0,0,0,None,None,None,0,0
+125=Neutral,CABARR02,256,276,232,64,None,0,0,0,0,0,None,None,None,0,0
+126=Neutral,CABARR01,256,181,223,64,None,0,0,0,0,0,None,None,None,0,0
+127=Neutral,CABARR02,256,185,223,64,None,0,0,0,0,0,None,None,None,0,0
+128=Neutral,CABARR01,256,85,146,64,None,0,0,0,0,0,None,None,None,0,0
+129=Neutral,CABARR01,256,214,126,64,None,0,0,0,0,0,None,None,None,0,0
+130=Neutral,CABARR01,256,217,125,64,None,0,0,0,0,0,None,None,None,0,0
 131=Neutral,GAGATE_A,256,207,290,64,01000000,0,0,0,0,0,None,None,None,0,0
 132=Neutral,CAMIAM04,256,206,289,64,None,0,0,0,0,0,None,None,None,0,0
-133=Neutral,CAPOL01S,256,93,211,64,None,0,0,0,0,0,None,None,None,0,0
-134=Neutral,CAPOL01W,256,101,210,64,None,0,0,0,0,0,None,None,None,0,0
-135=Neutral,CAPOL01S,256,156,234,64,None,0,0,0,0,0,None,None,None,0,0
-136=Neutral,CAPOL01S,256,136,180,0,None,1,0,1,0,0,None,None,None,0,0
-137=Neutral,CAPOL01W,256,137,178,0,None,1,0,1,0,0,None,None,None,0,0
-138=Neutral,CAPOL01W,256,123,188,0,None,1,0,1,0,0,None,None,None,0,0
-139=Neutral,CAPOL01S,256,122,185,0,None,1,0,1,0,0,None,None,None,0,0
+133=Neutral,CABARR01,256,93,211,64,None,0,0,0,0,0,None,None,None,0,0
+134=Neutral,CABARR02,256,101,210,64,None,0,0,0,0,0,None,None,None,0,0
+135=Neutral,CABARR01,256,156,234,64,None,0,0,0,0,0,None,None,None,0,0
+136=Neutral,CABARR01,256,136,180,0,None,1,0,1,0,0,None,None,None,0,0
+137=Neutral,CABARR02,256,137,178,0,None,1,0,1,0,0,None,None,None,0,0
+138=Neutral,CABARR02,256,123,188,0,None,1,0,1,0,0,None,None,None,0,0
+139=Neutral,CABARR01,256,122,185,0,None,1,0,1,0,0,None,None,None,0,0
 140=Neutral,CAMSC04,256,181,173,0,01000001,1,0,1,0,0,None,None,None,0,0
 141=Neutral,CAMSC04,256,189,174,0,01000001,1,0,1,0,0,None,None,None,0,0
 142=Neutral,CAMSC04,256,179,173,0,01000001,1,0,1,0,0,None,None,None,0,0

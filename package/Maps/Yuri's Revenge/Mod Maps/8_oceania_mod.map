@@ -1,5 +1,5 @@
 [Basic]
-Name=[8] Oceania (Author's Mod) ; v6.1.1n for CNCNET. With day-night cycle. Map created in 2019 with FinalAlert 2. Updated in 2025
+Name=[8] Oceania (Author's Mod) ; v6.2n for CNCNET. With day-night cycle. Map created in 2019 with FinalAlert 2. Updated in 2026
 Author=CCCP84 ; Andrey Lesiak
 ; Day-Night Cycle by CCCP84. Made in 2022. v1.2 - 60 min
 GameMode=standard
@@ -13,9 +13,6 @@ VeteranRatio=5
 PurifierBonus=.2
 SpyPowerBlackout=4000
 V3RocketPitchFinal=.4
-
-[AudioVisual]
-RadialIndicatorVisibility=ally
 
 [CrateRules]
 CrateRegen=5
@@ -45,7 +42,6 @@ Firepower=10,FIREPOWR,1,2.0
 SubjectToBuildings=1
 
 [E1]
-Pip=white
 OccupyPip=Persongreen
 NavalTargeting=5
 
@@ -53,7 +49,6 @@ NavalTargeting=5
 Range=8
 
 [CLEG]
-Pip=red
 Cost=1200
 Soylent=600
 Bombable=0
@@ -75,7 +70,6 @@ NavalTargeting=5
 Verses=100%,100%,70%,60%,40%,40%,75%,50%,25%,100%,50%
 
 [SNIPE]
-Pip=red
 Cost=1800
 Soylent=900
 Points=50
@@ -89,14 +83,16 @@ Range=25
 [HollowPoint]
 Verses=200%,100%,100%,0%,0%,0%,0%,0%,0%,0%,0%
 
-[HollowPoint2]
-Verses=100%,100%,100%,0%,0%,0%,0%,0%,0%,15%,0%
+[DoublePistols]
+Warhead=HollowPoint2
 
-[HollowPoint3]
-Verses=200%,100%,100%,0%,0%,0%,0%,0%,0%,15%,0%
+[DoublePistolsE]
+Warhead=HollowPoint2
+
+[HollowPoint2]
+Verses=200%,100%,100%,0%,0%,0%,0%,0%,0%,10%,0%
 
 [CCOMAND]
-Pip=red
 Points=50
 Bombable=0
 
@@ -104,29 +100,24 @@ Bombable=0
 Verses=200%,100%,75%,0%,0%,0%,0%,0%,0%,15%,0%
 
 [PTROOP]
-Pip=red
 NavalTargeting=5
 
 [SPY]
-Pip=blue
 Cost=3000
 Soylent=1500
 Points=100
 
 [E2]
-Pip=white
 OccupyPip=Persongreen
 NavalTargeting=5
 
 [FLAKT]
-Pip=white
 NavalTargeting=5
 
 [CRFlakGuyGun]
 Range=8
 
 [SHK]
-Pip=white
 NavalTargeting=5
 
 [ElectricBolt]
@@ -136,7 +127,6 @@ Range=4
 Range=8
 
 [DESO]
-Pip=red
 Strength=170
 NavalTargeting=5
 
@@ -153,17 +143,14 @@ Range=8
 Damage=300
 
 [TERROR]
-Pip=red
 Cost=600
-Strength=100
 Primary=MakeupKit
 Ammo=1
 Reload=7400
 Secondary=TerrorBomb
 NoAmmoWeapon=1
+CanRetaliate=1
 C4=Yes
-Crushable=0
-ImmuneToRadiation=1
 
 [TerrorBomb]
 Damage=300
@@ -180,7 +167,6 @@ AnimList=XGRYSML1,XGRYSML2,EXPLOSML,XGRYMED1,XGRYMED2,EXPLOMED,EXPLOLRG,TWLT070
 RadLevel=0
 
 [YURI]
-Pip=red
 Points=30
 NavalTargeting=5
 
@@ -246,7 +232,6 @@ FireOnce=1
 Projectile=PsychicControl
 
 [CIVAN]
-Pip=red
 Bombable=0
 
 [ENGINEER]
@@ -301,9 +286,6 @@ RequiredHouses=YuriCountry
 Cost=4000
 Points=120
 SolidHeight=1
-
-[Cannon]
-SubjectToBuildings=1
 
 [MTNK]
 Soylent=525
@@ -364,7 +346,8 @@ Soylent=450
 Soylent=1050
 
 [APOC]
-Soylent=1312
+Cost=2000
+Soylent=1500
 NavalTargeting=5
 
 [120mmx]
@@ -505,6 +488,26 @@ Report=GrandCannonAttack
 Warhead=GrandCannonWH
 Projectile=GrandCannonBall
 MinimumRange=3
+
+[LIMO]
+Cost=500
+Soylent=500
+Armor=heavy
+Strength=350
+Image=MRJ
+Speed=3
+Turret=1
+UIName=NOSTR:Submarine Detector
+Sensors=1
+MoveSound=0
+VoiceMove=GenSovVehicleMove
+TurretAnim=MRJTUR
+CrateGoodie=1
+TurretSpins=1
+VoiceSelect=GenSovVehicleSelect
+SensorsSight=18
+Insignificant=0
+ImmuneToRadiation=1
 
 ;   = = = = = = = = = = air units = = = = = = = = = =
 
@@ -721,8 +724,8 @@ Prerequisite=NAWEAP,NARADR,NACNST
 Points=120
 
 [NANRCT]
-Cost=2000
-Points=80
+Cost=3000
+Points=100
 
 [NARADR]
 Prerequisite=NACNST,PROC
@@ -734,7 +737,7 @@ Points=60
 [NAPSIS]
 PsychicDetectionRadius=20
 DetectDisguiseRange=20
-SensorsSight=22
+SensorsSight=20
 
 [NAYARD]
 Cost=3000
@@ -766,7 +769,7 @@ Cost=4000
 Points=100
 
 [YAYARD]
-Cost=2000
+Cost=3000
 
 ;   = = = = = = = = = = tech and other struct = = = = = = = = = =
 
@@ -802,8 +805,15 @@ NavalTargeting=5
 SolidHeight=1
 NavalTargeting=5
 
+[CABARR01]
+HealthBar.Hide=1
+
+[CABARR02]
+HealthBar.Hide=1
+
 [CAMSC06]
 Selectable=0
+HealthBar.Hide=1
 
 [CAMSC08]
 Strength=500
@@ -816,14 +826,6 @@ NavalTargeting=5
 [CAMIAM04]
 Strength=300
 MaxNumberOccupants=5
-
-[CAPOL01S]
-Image=CABARR01
-Strength=600
-
-[CAPOL01W]
-Image=CABARR02
-Strength=600
 
 [CAMSC04]
 Sight=7
@@ -10484,7 +10486,6 @@ Size=0,0,216,166
 83283=TREE21
 83284=TREE02
 84137=TREE19
-84142=TREE20
 84144=TREE23
 84164=TREE24
 84179=TREE03
@@ -10501,6 +10502,7 @@ Size=0,0,216,166
 84286=TREE06
 84287=TREE18
 84288=TREE13
+85141=TREE20
 85144=TREE24
 85156=TREE19
 85160=TREE23
@@ -10584,6 +10586,7 @@ Size=0,0,216,166
 89265=TREE02
 89266=TREE24
 89280=TREE07
+89281=TREE22
 89290=TREE16
 89292=TREE19
 90171=TREE08
@@ -10596,8 +10599,6 @@ Size=0,0,216,166
 90257=TREE20
 90259=TREE02
 90264=TREE03
-90282=TREE24
-90283=TREE22
 90289=TREE21
 91167=TREE24
 91168=TREE22
@@ -10613,6 +10614,7 @@ Size=0,0,216,166
 91261=TREE07
 91264=TREE17
 91281=TREE17
+91283=TREE24
 91288=TREE10
 92152=TREE16
 92164=TREE04
@@ -15798,6 +15800,7 @@ Size=0,0,216,166
 271262=TREE23
 271269=TREE21
 271288=TREE08
+271330=TREE20
 271331=TREE24
 271333=TREE21
 271339=TREE21
@@ -15830,7 +15833,6 @@ Size=0,0,216,166
 272313=TREE04
 272329=TREE19
 272331=TREE23
-272332=TREE20
 272337=TREE07
 272338=TREE05
 272343=TREE13
@@ -15880,7 +15882,7 @@ Size=0,0,216,166
 274285=TREE05
 274310=TREE02
 274330=TREE17
-274332=TREE10
+274331=TREE10
 274337=TREE09
 274338=TREE17
 274341=TREE04
@@ -16541,6 +16543,7 @@ Size=0,0,216,166
 332248=TREE03
 332251=TREE24
 332271=TREE23
+332273=TREE22
 333157=TREE16
 333162=TREE08
 333170=TREE23
@@ -16555,12 +16558,10 @@ Size=0,0,216,166
 333254=TREE20
 333257=TREE23
 333270=TREE08
-333271=TREE24
-333272=TREE22
 334130=TREE21
 334131=TREE22
 334132=TREE24
-334138=TREE09
+334139=TREE09
 334151=TREE02
 334173=TREE01
 334184=TREE01
@@ -16582,10 +16583,10 @@ Size=0,0,216,166
 335224=TREE17
 335235=TREE03
 335238=TREE01
+335270=TREE24
 335271=TREE04
 335279=TREE19
 336132=TREE01
-336136=TREE18
 336144=TREE08
 336169=TREE14
 336173=TREE18
@@ -16594,12 +16595,12 @@ Size=0,0,216,166
 336190=TREE21
 336247=TREE17
 336258=TREE17
-336269=TREE16
-336273=TREE18
+336268=TREE16
 336277=TREE21
 336278=TREE24
 337133=TREE19
 337134=TREE10
+337137=TREE18
 337139=TREE22
 337142=TREE05
 337148=TREE12
@@ -16627,6 +16628,7 @@ Size=0,0,216,166
 338265=TREE19
 338267=TREE10
 338274=TREE06
+338275=TREE18
 338277=TREE20
 338278=TREE04
 339135=TREE04
@@ -18476,9 +18478,9 @@ IonGreen=.7
 58=Neutral,ALL,256,233,239,0,Stop,160,None,0,36,0,1,0
 
 [Structures]
-0=Neutral,CAPOL01W,256,85,267,64,None,0,0,0,0,0,None,None,None,0,0
-1=Neutral,CAPOL01S,256,82,265,64,None,0,0,0,0,0,None,None,None,0,0
-2=Neutral,CAPOL01W,256,77,262,64,None,0,0,0,0,0,None,None,None,0,0
+0=Neutral,CABARR02,256,85,267,64,None,0,0,0,0,0,None,None,None,0,0
+1=Neutral,CABARR01,256,82,265,64,None,0,0,0,0,0,None,None,None,0,0
+2=Neutral,CABARR02,256,77,262,64,None,0,0,0,0,0,None,None,None,0,0
 3=Neutral,NALASR,256,80,261,96,01000000,1,0,1,0,0,None,None,None,1,0
 4=Neutral,NALASR,256,76,263,96,01000000,1,0,1,0,0,None,None,None,1,0
 5=Neutral,CAOILD,256,79,268,64,01000000,0,0,0,0,0,None,None,None,1,0
@@ -18489,9 +18491,9 @@ IonGreen=.7
 10=Neutral,CAMSC09,256,103,267,64,None,0,0,0,0,0,None,None,None,0,0
 11=Neutral,CAMSC08,256,99,244,64,None,0,0,0,0,0,None,None,None,0,0
 12=Neutral,CAMSC09,256,96,231,64,None,0,0,0,0,0,None,None,None,0,0
-13=Neutral,CAPOL01W,256,84,158,64,None,0,0,0,0,0,None,None,None,0,0
-14=Neutral,CAPOL01S,256,82,162,64,None,0,0,0,0,0,None,None,None,0,0
-15=Neutral,CAPOL01W,256,78,165,64,None,0,0,0,0,0,None,None,None,0,0
+13=Neutral,CABARR02,256,84,158,64,None,0,0,0,0,0,None,None,None,0,0
+14=Neutral,CABARR01,256,82,162,64,None,0,0,0,0,0,None,None,None,0,0
+15=Neutral,CABARR02,256,78,165,64,None,0,0,0,0,0,None,None,None,0,0
 16=Neutral,NALASR,256,80,167,32,01000001,1,0,1,0,0,None,None,None,1,0
 17=Neutral,NALASR,256,76,163,64,01000001,1,0,1,0,0,None,None,None,1,0
 18=Neutral,CAOILD,256,79,158,64,01000001,0,0,0,0,0,None,None,None,1,0
@@ -18519,9 +18521,9 @@ IonGreen=.7
 40=Neutral,CAMSC04,256,17,212,0,01000040,0,0,0,0,0,None,None,None,0,0
 41=Neutral,CAOILD,256,123,218,64,None,0,0,0,0,0,None,None,None,1,0
 42=Neutral,CAOILD,256,121,207,64,None,0,0,0,0,0,None,None,None,1,0
-43=Neutral,CAPOL01W,256,156,83,64,None,0,0,0,0,0,None,None,None,0,0
-44=Neutral,CAPOL01S,256,158,84,64,None,0,0,0,0,0,None,None,None,0,0
-45=Neutral,CAPOL01W,256,162,81,64,None,0,0,0,0,0,None,None,None,0,0
+43=Neutral,CABARR02,256,156,83,64,None,0,0,0,0,0,None,None,None,0,0
+44=Neutral,CABARR01,256,158,84,64,None,0,0,0,0,0,None,None,None,0,0
+45=Neutral,CABARR02,256,162,81,64,None,0,0,0,0,0,None,None,None,0,0
 46=Neutral,NALASR,256,169,79,192,01000002,1,0,1,0,0,None,None,None,1,0
 47=Neutral,NALASR,256,165,75,160,01000002,1,0,1,0,0,None,None,None,1,0
 48=Neutral,CAOILD,256,158,78,64,01000002,0,0,0,0,0,None,None,None,1,0
@@ -18532,9 +18534,9 @@ IonGreen=.7
 53=Neutral,CAMSC09,256,161,96,64,None,0,0,0,0,0,None,None,None,0,0
 54=Neutral,CAMSC08,256,185,99,64,None,0,0,0,0,0,None,None,None,0,0
 55=Neutral,CAMSC09,256,199,93,64,None,0,0,0,0,0,None,None,None,0,0
-56=Neutral,CAPOL01W,256,268,85,64,None,0,0,0,0,0,None,None,None,0,0
-57=Neutral,CAPOL01S,256,265,81,64,None,0,0,0,0,0,None,None,None,0,0
-58=Neutral,CAPOL01W,256,262,78,64,None,0,0,0,0,0,None,None,None,0,0
+56=Neutral,CABARR02,256,268,85,64,None,0,0,0,0,0,None,None,None,0,0
+57=Neutral,CABARR01,256,265,81,64,None,0,0,0,0,0,None,None,None,0,0
+58=Neutral,CABARR02,256,262,78,64,None,0,0,0,0,0,None,None,None,0,0
 59=Neutral,NALASR,256,260,79,96,01000003,1,0,1,0,0,None,None,None,1,0
 60=Neutral,NALASR,256,264,75,128,01000003,1,0,1,0,0,None,None,None,1,0
 61=Neutral,CAOILD,256,270,79,64,01000003,0,0,0,0,0,None,None,None,1,0
@@ -18559,9 +18561,9 @@ IonGreen=.7
 80=Neutral,CAMSC04,256,214,15,0,01000041,0,0,0,0,0,None,None,None,0,0
 81=Neutral,CAOILD,256,212,124,64,None,0,0,0,0,0,None,None,None,1,0
 82=Neutral,CAOILD,256,225,121,64,None,0,0,0,0,0,None,None,None,1,0
-83=Neutral,CAPOL01W,256,337,153,64,None,0,0,0,0,0,None,None,None,0,0
-84=Neutral,CAPOL01S,256,340,155,64,None,0,0,0,0,0,None,None,None,0,0
-85=Neutral,CAPOL01W,256,340,158,64,None,0,0,0,0,0,None,None,None,0,0
+83=Neutral,CABARR02,256,337,153,64,None,0,0,0,0,0,None,None,None,0,0
+84=Neutral,CABARR01,256,340,155,64,None,0,0,0,0,0,None,None,None,0,0
+85=Neutral,CABARR02,256,340,158,64,None,0,0,0,0,0,None,None,None,0,0
 86=Neutral,NALASR,256,343,162,224,01000004,1,0,1,0,0,None,None,None,1,0
 87=Neutral,NALASR,256,345,158,224,01000004,1,0,1,0,0,None,None,None,1,0
 88=Neutral,CAOILD,256,336,157,64,01000004,0,0,0,0,0,None,None,None,1,0
@@ -18572,9 +18574,9 @@ IonGreen=.7
 93=Neutral,CAMSC08,256,319,152,64,None,0,0,0,0,0,None,None,None,0,0
 94=Neutral,CAMSC09,256,323,174,64,None,0,0,0,0,0,None,None,None,0,0
 95=Neutral,CAMSC08,256,326,189,64,None,0,0,0,0,0,None,None,None,0,0
-96=Neutral,CAPOL01S,256,339,255,64,None,0,0,0,0,0,None,None,None,0,0
-97=Neutral,CAPOL01W,256,343,253,64,None,0,0,0,0,0,None,None,None,0,0
-98=Neutral,CAPOL01S,256,344,250,64,None,0,0,0,0,0,None,None,None,0,0
+96=Neutral,CABARR01,256,339,255,64,None,0,0,0,0,0,None,None,None,0,0
+97=Neutral,CABARR02,256,343,253,64,None,0,0,0,0,0,None,None,None,0,0
+98=Neutral,CABARR01,256,344,250,64,None,0,0,0,0,0,None,None,None,0,0
 99=Neutral,NALASR,256,341,250,160,01000005,1,0,1,0,0,None,None,None,1,0
 100=Neutral,NALASR,256,346,254,192,01000005,1,0,1,0,0,None,None,None,1,0
 101=Neutral,CAOILD,256,336,253,64,01000005,0,0,0,0,0,None,None,None,1,0
@@ -18610,9 +18612,9 @@ IonGreen=.7
 131=Neutral,CAMSC04,256,408,213,0,01000042,0,0,0,0,0,None,None,None,0,0
 132=Neutral,CAOILD,256,296,202,64,None,0,0,0,0,0,None,None,None,1,0
 133=Neutral,CAOILD,256,300,211,64,None,0,0,0,0,0,None,None,None,1,0
-134=Neutral,CAPOL01W,256,258,337,64,None,0,0,0,0,0,None,None,None,0,0
-135=Neutral,CAPOL01S,256,255,339,64,None,0,0,0,0,0,None,None,None,0,0
-136=Neutral,CAPOL01W,256,254,342,64,None,0,0,0,0,0,None,None,None,0,0
+134=Neutral,CABARR02,256,258,337,64,None,0,0,0,0,0,None,None,None,0,0
+135=Neutral,CABARR01,256,255,339,64,None,0,0,0,0,0,None,None,None,0,0
+136=Neutral,CABARR02,256,254,342,64,None,0,0,0,0,0,None,None,None,0,0
 137=Neutral,NALASR,256,255,345,0,01000006,1,0,1,0,0,None,None,None,1,0
 138=Neutral,NALASR,256,250,341,32,01000006,1,0,1,0,0,None,None,None,1,0
 139=Neutral,CAOILD,256,253,336,64,01000006,0,0,0,0,0,None,None,None,1,0
@@ -18623,9 +18625,9 @@ IonGreen=.7
 144=Neutral,CAMSC08,256,256,318,64,None,0,0,0,0,0,None,None,None,0,0
 145=Neutral,CAMSC09,256,236,323,64,None,0,0,0,0,0,None,None,None,0,0
 146=Neutral,CAMSC08,256,221,327,64,None,0,0,0,0,0,None,None,None,0,0
-147=Neutral,CAPOL01S,256,154,339,64,None,0,0,0,0,0,None,None,None,0,0
-148=Neutral,CAPOL01W,256,156,339,64,None,0,0,0,0,0,None,None,None,0,0
-149=Neutral,CAPOL01W,256,157,342,64,None,0,0,0,0,0,None,None,None,0,0
+147=Neutral,CABARR01,256,154,339,64,None,0,0,0,0,0,None,None,None,0,0
+148=Neutral,CABARR02,256,156,339,64,None,0,0,0,0,0,None,None,None,0,0
+149=Neutral,CABARR02,256,157,342,64,None,0,0,0,0,0,None,None,None,0,0
 150=Neutral,NALASR,256,161,341,192,01000007,1,0,1,0,0,None,None,None,1,0
 151=Neutral,NALASR,256,157,344,224,01000007,1,0,1,0,0,None,None,None,1,0
 152=Neutral,CAOILD,256,155,335,64,01000007,0,0,0,0,0,None,None,None,1,0

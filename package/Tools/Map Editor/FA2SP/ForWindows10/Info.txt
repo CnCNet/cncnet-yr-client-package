@@ -1,0 +1,5 @@
+
+For Windows 10 with latest patch, if there are problems like FA2 showing blank white screen then use this ddraw wrapper.
+
+Setup:
+- copy aqrit.cfg and ddraw.dll to FA2 directory.
