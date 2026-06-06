@@ -98,7 +98,7 @@ jobs:
           # Get the deleted and moved files from git diff
           $deletedFiles = git diff --diff-filter=D --name-status HEAD~1 HEAD | Where-Object { $_.StartsWith('D') } | ForEach-Object { $_.Substring(1).Trim().Replace('/', '\') }
           $deletedFiles += [Environment]::NewLine
-          $deletedFiles += git diff --diff-filter=R --name-status --diff-filter=R HEAD~1 HEAD | Where-Object { $_.StartsWith('R100') } | ForEach-Object { $_.Substring(4).Trim().Split(' ')[0].Replace('/', '\') }
+          $deletedFiles += git diff --diff-filter=R --name-status --diff-filter=R HEAD~1 HEAD | Where-Object { $_.StartsWith('R100') } | ForEach-Object { $_.Substring(4).Trim().Split('	')[0].Replace('/', '\') }
           $deletedFiles = $deletedFiles.Trim().Trim([Environment]::NewLine)
 
           # Skip update if there is no deleted files

@@ -1,7 +1,7 @@
 [Basic]
-Name=[8] Black Sea (Author's Mod) ; v6.1.1n for CNCNET. With day-night cycle. Map created in 2020 with FinalAlert 2. Updated in 2025. Based on map "Diamond Quarry". Special Thanks to McPwny
+Name=[8] Black Sea (Author's Mod) ; v6.2n for CNCNET. With day-night cycle. Map created in 2020 with FinalAlert 2. Updated in 2026. Based on map "Diamond Quarry". Special Thanks to McPwny
 Author=CCCP84 ; Andrey Lesiak
-; Day-Night Cycle by CCCP84. Made in 2022. v1.2 - 30 min
+; Day-Night Cycle by CCCP84. Made in 2022. v1.2 - 45 min
 GameMode=standard
 MaxPlayer=8
 NewINIFormat=4
@@ -14,12 +14,19 @@ SpyPowerBlackout=2000
 DMislAltitude=1196
 DMislTurnRate=.1
 
-[AudioVisual]
-RadialIndicatorVisibility=ally
-
 [CrateRules]
 UnitCrateVehicleCap=-1
 CrateOnlyOnLand=1
+
+[Powerups]
+Unit=40,<none>,0
+Armor=15,ARMOR,1,1.5
+Money=0,MONEY,1,2000
+Speed=15,SPEED,1,1.2
+Reveal=5,REVEAL,1
+Veteran=20,VETERAN,1,1
+HealBase=5,HEALALL,1
+Firepower=10,FIREPOWR,1,2.0
 
 [Warheads]
 110=PATMS
@@ -34,12 +41,10 @@ CrateOnlyOnLand=1
 SubjectToBuildings=1
 
 [E1]
-Pip=white
 OccupyPip=Persongreen
 NavalTargeting=5
 
 [CLEG]
-Pip=red
 Cost=1200
 Soylent=600
 Bombable=0
@@ -58,20 +63,21 @@ NavalTargeting=5
 [SNIPE]
 Cost=1500
 Soylent=750
-Pip=red
 Points=50
 
 [HollowPoint]
 Verses=200%,100%,100%,0%,0%,0%,0%,0%,0%,0%,0%
 
-[HollowPoint2]
-Verses=100%,100%,100%,0%,0%,0%,0%,0%,0%,15%,0%
+[DoublePistols]
+Warhead=HollowPoint2
 
-[HollowPoint3]
-Verses=200%,100%,100%,0%,0%,0%,0%,0%,0%,15%,0%
+[DoublePistolsE]
+Warhead=HollowPoint2
+
+[HollowPoint2]
+Verses=200%,100%,100%,0%,0%,0%,0%,0%,0%,10%,0%
 
 [CCOMAND]
-Pip=red
 Points=50
 Bombable=0
 
@@ -79,33 +85,27 @@ Bombable=0
 Verses=200%,100%,75%,0%,0%,0%,0%,0%,0%,15%,0%
 
 [PTROOP]
-Pip=red
 NavalTargeting=5
 
 [SPY]
-Pip=blue
 Cost=2000
 Soylent=1000
 Points=100
 
 [E2]
-Pip=white
 OccupyPip=Persongreen
 NavalTargeting=5
 
 [FLAKT]
-Pip=white
 NavalTargeting=5
 
 [SHK]
-Pip=white
 NavalTargeting=5
 
 [ElectricBolt]
 Range=4
 
 [DESO]
-Pip=red
 Strength=170
 NavalTargeting=5
 
@@ -118,17 +118,14 @@ Range=8
 Damage=300
 
 [TERROR]
-Pip=red
 Cost=800
-Strength=100
 Primary=MakeupKit
 Ammo=1
 Reload=7400
 Secondary=TerrorBomb
 NoAmmoWeapon=1
+CanRetaliate=1
 C4=Yes
-Crushable=0
-ImmuneToRadiation=1
 
 [TerrorBomb]
 Damage=300
@@ -145,7 +142,6 @@ AnimList=XGRYSML1,XGRYSML2,EXPLOSML,XGRYMED1,XGRYMED2,EXPLOMED,EXPLOLRG,TWLT070
 RadLevel=0
 
 [YURI]
-Pip=red
 Points=30
 NavalTargeting=5
 
@@ -211,7 +207,6 @@ FireOnce=1
 Projectile=PsychicControl
 
 [CIVAN]
-Pip=red
 Bombable=0
 
 [ENGINEER]
@@ -248,9 +243,6 @@ CrateGoodie=0
 RequiredHouses=YuriCountry
 [YACNST]
 SolidHeight=1
-
-[Cannon]
-SubjectToBuildings=1
 
 [MTNK]
 Soylent=525
@@ -448,6 +440,7 @@ LeaveTransportSound=ExitTransport
 Armor=light
 Strength=250
 Selectable=0
+HealthBar.Hide=1
 ImmuneToPsionics=1
 ImmuneToRadiation=1
 
@@ -464,6 +457,7 @@ ImmuneToRadiation=1
 Armor=heavy
 Strength=350
 Selectable=0
+HealthBar.Hide=1
 ImmuneToPsionics=1
 ImmuneToRadiation=1
 
@@ -471,6 +465,7 @@ ImmuneToRadiation=1
 Armor=light
 Strength=250
 Selectable=0
+HealthBar.Hide=1
 ImmuneToPsionics=1
 ImmuneToRadiation=1
 
@@ -478,6 +473,7 @@ ImmuneToRadiation=1
 Armor=light
 Strength=250
 Selectable=0
+HealthBar.Hide=1
 ImmuneToPsionics=1
 ImmuneToRadiation=1
 
@@ -485,6 +481,7 @@ ImmuneToRadiation=1
 Armor=light
 Strength=250
 Selectable=0
+HealthBar.Hide=1
 ImmuneToPsionics=1
 ImmuneToRadiation=1
 
@@ -492,6 +489,7 @@ ImmuneToRadiation=1
 Armor=heavy
 Strength=350
 Selectable=0
+HealthBar.Hide=1
 ImmuneToPsionics=1
 ImmuneToRadiation=1
 
@@ -499,6 +497,7 @@ ImmuneToRadiation=1
 Armor=light
 Strength=250
 Selectable=0
+HealthBar.Hide=1
 ImmuneToPsionics=1
 ImmuneToRadiation=1
 
@@ -651,9 +650,6 @@ Shadow=0
 [NARADR]
 Prerequisite=NACNST,PROC
 
-[NAPSIS]
-SensorsSight=17
-
 [TESLA]
 NavalTargeting=5
 
@@ -678,6 +674,14 @@ Range=13
 [GAGATE_A]
 Strength=300
 Selectable=0
+HealthBar.Hide=1
+Unsellable=1
+ClickRepairable=0
+
+[GAGATE_B]
+Strength=300
+Selectable=0
+HealthBar.Hide=1
 Unsellable=1
 ClickRepairable=0
 
@@ -716,24 +720,28 @@ Crushable=0
 Strength=400
 BaseNormal=1
 Selectable=0
+HealthBar.Hide=1
 EligibileForAllyBuilding=1
 
 [CAUSFGL]
 Strength=400
 BaseNormal=1
 Selectable=0
+HealthBar.Hide=1
 EligibileForAllyBuilding=1
 
 [CAGEFGL]
 Strength=400
 BaseNormal=1
 Selectable=0
+HealthBar.Hide=1
 EligibileForAllyBuilding=1
 
 [CARUFGL]
 Strength=400
 BaseNormal=1
 Selectable=0
+HealthBar.Hide=1
 EligibileForAllyBuilding=1
 
 [CAHSE05]
@@ -769,21 +777,28 @@ MaxDebris=0
 MinDebris=0
 CanBeOccupied=0
 Selectable=0
+HealthBar.Hide=1
 
 [CAMISC05]
 Strength=400
 Selectable=0
+HealthBar.Hide=1
 
 [CAPARK01]
 Strength=100
 DamageSound=BuildingMetalDamaged
 DieSound=BuildingMetalDamaged
 Selectable=0
+HealthBar.Hide=1
+
+[CABARR02]
+HealthBar.Hide=1
 
 [CAMSC11]
 Strength=100
 DamageSound=BuildingMetalDamaged
 DieSound=BuildingMetalDamaged
+HealthBar.Hide=1
 
 [CAMSC12A]
 Immune=1
@@ -3141,9 +3156,9 @@ Size=0,0,216,166
 21=/oEHMi+BBxQ3EBVCGd39BYIACBBuIjz/gwGZBAABgSwxzkHP3ywGI/VwLYEHI8shz+P3BY
 22=QABggKImz/hgGYBoIAJerxCUP/cBGCBAcV+IEEBgUQBOkmCv+CAZoCMAGBHO4gCkoDzUEI
 23=5CYIUDLqYQD+VgEA4mgEz0AI0VEMGALqaAwj/+toDv5RAQCCBwgltMAcAPUlCslHAM9PAN
-24=x6DoMDBwrjJwT+VwEADfoZvYEFDATl8w8puf9FAFEQgwMKCcGNAC4J/ncBAMAfAoYKBhcM
+24=x6DoMDBwrjJwT+VwEADfoZvYEFDATl8w8puf9FAFEQgwMKAcGNAC4J/ncBAMAfAoYKBhcM
 25=ABHmlwoh49FoEu9kEmCB/noBAMEfAutpFC/l/0oAUBTBjgDuaRb+SgEA8JoWwSUI/0cAUB
-26=aDCgQE/34BmhYRf4cKBgUKABUM6iIS0WYG8GQYgg8FEoH/fAGdFEl/ggUZ55cKOAHPnhqB
+26=aDCgUE/34BmhYRf4cKBgUKABUM6iIS0WYG8GQYgg8FEoH/fAGdFEl/ggUZ55cKOAHPnhqB
 27=CBIA6p4awmQMwFUE/nsBAAF/Ec/nIRLWSRSBBwIA7JsOwpcMgQbCXgr+XwEAgH0BACCBAN
 28=YAAIMGBwQABdcAANEIAAAFgQcQBYMEBwdgOoMHCAcwFelqAAB7/oUBAIEF6vIBEfWCBwgQ
 29=CYMLCwhBw4IHCgAR52YAhAQGAAYARoIDDP6FAQDqHwAx54IGCAA1ggQIA/VB/4ELAAp0Dt
@@ -4125,7 +4140,7 @@ IonGreen=.7
 7=Neutral,BUS,256,48,129,0,Sleep,None,0,-1,0,-1,0,0
 8=Neutral,SUVW,256,47,129,128,Sleep,None,0,-1,0,-1,0,0
 9=Neutral,TAXI,256,32,93,128,Sleep,None,0,-1,0,-1,0,0
-10=Neutral,TRUCKB,256,32,92,128,Sleep,None,0,-1,0,-1,0,0
+10=Neutral,TRUCKB,256,35,92,128,Sleep,None,0,-1,0,-1,0,0
 11=Neutral,SUVW,256,31,87,128,Sleep,None,0,-1,0,-1,0,0
 12=Neutral,FV,256,48,57,32,Guard,01000001,0,-1,0,-1,1,0
 13=Neutral,CONA,256,52,58,64,Guard,01000001,0,-1,0,-1,1,0
@@ -4139,11 +4154,9 @@ IonGreen=.7
 21=Neutral,FV,256,58,50,160,Guard,01000002,0,-1,0,-1,1,0
 22=Neutral,FV,256,125,48,96,Guard,01000003,0,-1,0,-1,1,0
 23=Neutral,FV,256,131,58,224,Guard,01000004,0,-1,0,-1,1,0
-24=Neutral,PICK,256,153,90,0,Guard,01000004,0,-1,0,-1,1,0
-25=Neutral,PICK,256,152,91,128,Guard,01000005,0,-1,0,-1,1,0
-26=Neutral,FV,256,134,126,160,Guard,01000005,0,-1,0,-1,1,0
-27=Neutral,FV,256,124,131,32,Guard,01000006,0,-1,0,-1,1,0
-28=Neutral,FV,256,56,133,224,Guard,01000007,0,-1,0,-1,1,0
+24=Neutral,FV,256,134,126,160,Guard,01000005,0,-1,0,-1,1,0
+25=Neutral,FV,256,124,131,32,Guard,01000006,0,-1,0,-1,1,0
+26=Neutral,FV,256,56,133,224,Guard,01000007,0,-1,0,-1,1,0
 
 [Structures]
 0=Neutral,GAPILL,256,47,126,64,01000000,1,0,1,0,0,None,None,None,1,0
@@ -4172,156 +4185,158 @@ IonGreen=.7
 23=Neutral,CABUNK02,256,30,94,64,None,0,0,0,0,0,None,None,None,0,0
 24=Neutral,CABUNK02,256,30,88,64,None,0,0,0,0,0,None,None,None,0,0
 25=Neutral,CAMSC11,256,28,102,64,None,0,0,0,0,0,None,None,None,0,0
-26=Neutral,CAAIRP,256,43,90,64,None,0,0,0,0,0,None,None,None,1,0
-27=Neutral,GAPILL,256,56,46,64,01000002,1,0,1,0,0,None,None,None,1,0
-28=Neutral,GAPILL,256,54,42,64,01000002,1,0,1,0,0,None,None,None,1,0
-29=Neutral,CAUSFGL,256,60,48,64,01000002,1,0,1,0,0,None,None,None,0,0
-30=Neutral,GAGATE_A,256,52,47,64,01000002,0,0,0,0,0,None,None,None,0,0
-31=Neutral,GAGATE_A,256,58,42,64,01000002,0,0,0,0,0,None,None,None,0,0
-32=Neutral,CABUNK01,256,59,46,64,None,0,0,0,0,0,None,None,None,0,0
-33=Neutral,CABHUT,256,57,49,64,None,0,0,0,0,0,None,None,None,0,0
-34=Neutral,CAMIAM04,256,60,51,64,None,0,0,0,0,0,None,None,None,0,0
-35=Neutral,CAMIAM04,256,60,43,64,None,0,0,0,0,0,None,None,None,0,0
-36=Neutral,CAMIAM04,256,57,43,64,None,0,0,0,0,0,None,None,None,0,0
-37=Neutral,CAARMY03,256,68,51,64,None,0,0,0,0,0,None,None,None,0,0
-38=Neutral,CAOILD,256,73,48,64,None,0,0,0,0,0,None,None,None,1,0
-39=Neutral,CAOILD,256,75,27,64,None,0,0,0,0,0,None,None,None,1,0
-40=Neutral,GAPILL,256,122,55,64,01000003,1,0,1,0,0,None,None,None,1,0
-41=Neutral,GAPILL,256,120,52,64,01000003,1,0,1,0,0,None,None,None,1,0
-42=Neutral,CAUSFGL,256,122,47,64,01000003,0,0,0,0,0,None,None,None,0,0
-43=Neutral,GAGATE_A,256,120,51,64,01000003,0,0,0,0,0,None,None,None,0,0
-44=Neutral,CABUNK01,256,120,47,64,None,0,0,0,0,0,None,None,None,0,0
-45=Neutral,CABHUT,256,124,49,64,None,0,0,0,0,0,None,None,None,0,0
-46=Neutral,CAMIAM04,256,123,47,64,None,0,0,0,0,0,None,None,None,0,0
-47=Neutral,CAMIAM04,256,119,47,64,None,0,0,0,0,0,None,None,None,0,0
-48=Neutral,CAMIAM04,256,119,50,64,None,0,0,0,0,0,None,None,None,0,0
-49=Neutral,CAARMY01,256,122,42,64,None,0,0,0,0,0,None,None,None,0,0
-50=Neutral,CAARMY03,256,115,51,64,None,0,0,0,0,0,None,None,None,0,0
-51=Neutral,CAOILD,256,109,48,64,None,0,0,0,0,0,None,None,None,1,0
-52=Neutral,CAOILD,256,107,29,64,None,0,0,0,0,0,None,None,None,1,0
-53=Neutral,CAEURO05,256,92,15,64,01000009,1,0,1,0,0,None,None,None,1,0
-54=Neutral,CABUNK01,256,88,30,64,None,0,0,0,0,0,None,None,None,0,0
-55=Neutral,CABUNK01,256,94,30,64,None,0,0,0,0,0,None,None,None,0,0
-56=Neutral,GAGATE_A,256,90,30,64,01000002,0,0,0,0,0,None,None,None,0,0
-57=Neutral,CAAIRP,256,90,43,64,None,0,0,0,0,0,None,None,None,1,0
-58=Neutral,GAPILL,256,134,57,64,01000004,1,0,1,0,0,None,None,None,1,0
-59=Neutral,GAPILL,256,139,58,64,01000004,1,0,1,0,0,None,None,None,1,0
-60=Neutral,CAGEFGL,256,136,62,64,01000004,0,0,0,0,0,None,None,None,0,0
-61=Neutral,GAGATE_A,256,137,61,64,01000004,0,0,0,0,0,None,None,None,0,0
-62=Neutral,CABUNK02,256,135,60,64,None,0,0,0,0,0,None,None,None,0,0
-63=Neutral,CABHUT,256,133,57,64,None,0,0,0,0,0,None,None,None,0,0
-64=Neutral,CAARMY01,256,131,64,64,None,0,0,0,0,0,None,None,None,0,0
-65=Neutral,CAARMY03,256,142,61,64,None,0,0,0,0,0,None,None,None,0,0
-66=Neutral,CAOILD,256,133,72,64,None,0,0,0,0,0,None,None,None,1,0
-67=Neutral,CAOILD,256,152,74,64,None,0,0,0,0,0,None,None,None,1,0
-68=Neutral,GAPILL,256,127,121,64,01000005,1,0,1,0,0,None,None,None,1,0
-69=Neutral,GAPILL,256,131,122,64,01000005,1,0,1,0,0,None,None,None,1,0
-70=Neutral,CAGEFGL,256,135,119,64,01000005,0,0,0,0,0,None,None,None,0,0
-71=Neutral,GAGATE_A,256,130,119,64,01000005,0,0,0,0,0,None,None,None,0,0
-72=Neutral,CABUNK01,256,134,121,64,None,0,0,0,0,0,None,None,None,0,0
-73=Neutral,CABHUT,256,133,125,64,None,0,0,0,0,0,None,None,None,0,0
-74=Neutral,CAARMY01,256,139,123,64,None,0,0,0,0,0,None,None,None,0,0
-75=Neutral,CAARMY03,256,133,114,64,None,0,0,0,0,0,None,None,None,0,0
-76=Neutral,CAOILD,256,133,108,64,None,0,0,0,0,0,None,None,None,1,0
-77=Neutral,CAOILD,256,152,107,64,None,0,0,0,0,0,None,None,None,1,0
-78=Neutral,CAEURO05,256,169,92,64,01000010,1,0,1,0,0,None,None,None,1,0
-79=Neutral,CABUNK01,256,151,87,64,None,0,0,0,0,0,None,None,None,0,0
-80=Neutral,CABUNK01,256,151,94,64,None,0,0,0,0,0,None,None,None,0,0
-81=Neutral,CAAIRP,256,136,90,64,None,0,0,0,0,0,None,None,None,1,0
-82=Neutral,NALASR,256,126,134,0,01000006,1,0,1,0,0,None,None,None,1,0
-83=Neutral,NALASR,256,128,137,0,01000006,1,0,1,0,0,None,None,None,1,0
-84=Neutral,CARUFGL,256,122,134,64,01000006,0,0,0,0,0,None,None,None,0,0
-85=Neutral,GAGATE_A,256,127,134,64,01000006,0,0,0,0,0,None,None,None,0,0
-86=Neutral,CABUNK02,256,122,135,64,None,0,0,0,0,0,None,None,None,0,0
-87=Neutral,CABHUT,256,125,133,64,None,0,0,0,0,0,None,None,None,0,0
-88=Neutral,CAHSE06,256,121,138,64,None,0,0,0,0,0,None,None,None,0,0
-89=Neutral,CAARMY02,256,114,134,64,None,0,0,0,0,0,None,None,None,0,0
-90=Neutral,CAFRMB,256,120,138,64,None,0,0,0,0,0,None,None,None,0,0
-91=Neutral,CAMISC05,256,123,142,64,None,0,0,0,0,0,None,None,None,0,0
-92=Neutral,CAOILD,256,108,133,64,None,0,0,0,0,0,None,None,None,1,0
-93=Neutral,CAOILD,256,107,152,64,None,0,0,0,0,0,None,None,None,1,0
-94=Neutral,NALASR,256,61,127,160,01000007,1,0,1,0,0,None,None,None,1,0
-95=Neutral,NALASR,256,59,131,224,01000007,1,0,1,0,0,None,None,None,1,0
-96=Neutral,CARUFGL,256,62,127,64,01000007,0,0,0,0,0,None,None,None,0,0
-97=Neutral,GAGATE_A,256,60,131,64,01000007,0,0,0,0,0,None,None,None,0,0
-98=Neutral,CABUNK02,256,60,134,64,None,0,0,0,0,0,None,None,None,0,0
-99=Neutral,CABHUT,256,57,133,64,None,0,0,0,0,0,None,None,None,0,0
-100=Neutral,CAHSE05,256,63,134,64,None,0,0,0,0,0,None,None,None,0,0
-101=Neutral,CAPARK01,256,62,136,64,None,0,0,0,0,0,None,None,None,0,0
-102=Neutral,CAARMY04,256,67,132,64,None,0,0,0,0,0,None,None,None,0,0
-103=Neutral,CAOILD,256,72,133,64,None,0,0,0,0,0,None,None,None,1,0
-104=Neutral,CAOILD,256,74,152,64,None,0,0,0,0,0,None,None,None,1,0
-105=Neutral,CAEURO05,256,92,169,64,01000011,1,0,1,0,0,None,None,None,1,0
-106=Neutral,CABUNK02,256,94,151,64,None,0,0,0,0,0,None,None,None,0,0
-107=Neutral,CABUNK02,256,87,151,64,None,0,0,0,0,0,None,None,None,0,0
-108=Neutral,GAGATE_A,256,89,152,64,01000006,0,0,0,0,0,None,None,None,0,0
-109=Neutral,CAAIRP,256,90,136,64,None,0,0,0,0,0,None,None,None,1,0
-110=Neutral,CAMSC12A,256,7,92,0,None,0,0,0,0,0,None,None,None,0,0
-111=Neutral,CAMSC12A,256,13,98,0,None,0,0,0,0,0,None,None,None,0,0
-112=Neutral,INREDLMP,256,44,99,0,01984030,0,0,1,0,0,None,None,None,0,0
-113=Neutral,INREDLMP,256,72,53,0,01984030,0,0,1,0,0,None,None,None,0,0
-114=Neutral,INREDLMP,256,129,72,0,01984030,0,0,1,0,0,None,None,None,0,0
-115=Neutral,INREDLMP,256,97,137,0,01984030,0,0,1,0,0,None,None,None,0,0
-116=Neutral,INREDLMP,256,97,96,0,01984030,0,0,1,0,0,None,None,None,0,0
-117=Neutral,INGRNLMP,256,99,85,0,01984034,0,0,1,0,0,None,None,None,0,0
-118=Neutral,INGRNLMP,256,54,71,0,01984034,0,0,1,0,0,None,None,None,0,0
-119=Neutral,INGRNLMP,256,72,129,0,01984034,0,0,1,0,0,None,None,None,0,0
-120=Neutral,INBLULMP,256,56,113,0,01984032,0,0,1,0,0,None,None,None,0,0
-121=Neutral,INBLULMP,256,111,54,0,01984032,0,0,1,0,0,None,None,None,0,0
-122=Neutral,INBLULMP,256,126,112,0,01984032,0,0,1,0,0,None,None,None,0,0
-123=Neutral,INYELWLAMP,256,83,98,0,01984032,0,0,1,0,0,None,None,None,0,0
-124=Neutral,INYELWLAMP,256,42,85,0,01984032,0,0,1,0,0,None,None,None,0,0
-125=Neutral,INYELWLAMP,256,83,41,0,01984032,0,0,1,0,0,None,None,None,0,0
-126=Neutral,INYELWLAMP,256,141,83,0,01984032,0,0,1,0,0,None,None,None,0,0
-127=Neutral,INYELWLAMP,256,110,128,0,01984032,0,0,1,0,0,None,None,None,0,0
-128=Neutral,INBLULMP,256,86,86,0,01984032,0,0,1,0,0,None,None,None,0,0
-129=Neutral,TEMDAYLAMP,256,69,110,0,01984032,0,0,1,0,0,None,None,None,0,0
-130=Neutral,TEMDAYLAMP,256,69,68,0,01984032,0,0,1,0,0,None,None,None,0,0
-131=Neutral,TEMDAYLAMP,256,110,69,0,01984032,0,0,1,0,0,None,None,None,0,0
-132=Neutral,TEMDAYLAMP,256,109,109,0,01984032,0,0,1,0,0,None,None,None,0,0
-133=Neutral,TEMDAYLAMP,256,88,113,0,01984032,0,0,1,0,0,None,None,None,0,0
-134=Neutral,TEMDAYLAMP,256,113,89,0,01984032,0,0,1,0,0,None,None,None,0,0
-135=Neutral,TEMDAYLAMP,256,88,65,0,01984032,0,0,1,0,0,None,None,None,0,0
-136=Neutral,TEMDAYLAMP,256,66,87,0,01984032,0,0,1,0,0,None,None,None,0,0
-137=Neutral,INGRNLMP,256,96,37,0,01984034,0,0,1,0,0,None,None,None,0,0
-138=Neutral,INGRNLMP,256,143,96,0,01984034,0,0,1,0,0,None,None,None,0,0
-139=Neutral,INBLULMP,256,87,143,0,01984032,0,0,1,0,0,None,None,None,0,0
-140=Neutral,INORANLAMP,256,47,77,0,01984032,0,0,1,0,0,None,None,None,0,0
-141=Neutral,INORANLAMP,256,79,136,0,01984032,0,0,1,0,0,None,None,None,0,0
-142=Neutral,INORANLAMP,256,133,100,0,01984032,0,0,1,0,0,None,None,None,0,0
-143=Neutral,INORANLAMP,256,100,44,0,01984032,0,0,1,0,0,None,None,None,0,0
-144=Neutral,INORANLAMP,256,85,92,0,01984032,0,0,1,0,0,None,None,None,0,0
-145=Neutral,TEMDUSLAMP,256,91,100,0,01984034,0,0,1,0,0,None,None,None,0,0
-146=Neutral,TEMDUSLAMP,256,93,83,0,01984034,0,0,1,0,0,None,None,None,0,0
-147=Neutral,TEMDUSLAMP,256,54,66,0,01984034,0,0,1,0,0,None,None,None,0,0
-148=Neutral,TEMDUSLAMP,256,38,91,0,01984034,0,0,1,0,0,None,None,None,0,0
-149=Neutral,TEMDUSLAMP,256,49,80,0,01984034,0,0,1,0,0,None,None,None,0,0
-150=Neutral,TEMDUSLAMP,256,51,107,0,01984034,0,0,1,0,0,None,None,None,0,0
-151=Neutral,TEMDUSLAMP,256,66,124,0,01984034,0,0,1,0,0,None,None,None,0,0
-152=Neutral,TEMDUSLAMP,256,89,141,0,01984034,0,0,1,0,0,None,None,None,0,0
-153=Neutral,TEMDUSLAMP,256,100,132,0,01984034,0,0,1,0,0,None,None,None,0,0
-154=Neutral,TEMDUSLAMP,256,114,124,0,01984034,0,0,1,0,0,None,None,None,0,0
-155=Neutral,TEMDUSLAMP,256,128,110,0,01984034,0,0,1,0,0,None,None,None,0,0
-156=Neutral,TEMDUSLAMP,256,144,87,0,01984034,0,0,1,0,0,None,None,None,0,0
-157=Neutral,TEMDUSLAMP,256,124,66,0,01984034,0,0,1,0,0,None,None,None,0,0
-158=Neutral,TEMDUSLAMP,256,104,46,0,01984034,0,0,1,0,0,None,None,None,0,0
-159=Neutral,TEMDUSLAMP,256,92,38,0,01984034,0,0,1,0,0,None,None,None,0,0
-160=Neutral,TEMDUSLAMP,256,78,46,0,01984034,0,0,1,0,0,None,None,None,0,0
-161=Neutral,TEMDUSLAMP,256,64,54,0,01984034,0,0,1,0,0,None,None,None,0,0
-162=Neutral,TEMNITLAMP,256,98,91,0,01984036,0,0,1,0,0,None,None,None,0,0
-163=Neutral,TEMNITLAMP,256,48,104,0,01984036,0,0,1,0,0,None,None,None,0,0
-164=Neutral,TEMNITLAMP,256,50,73,0,01984036,0,0,1,0,0,None,None,None,0,0
-165=Neutral,TEMNITLAMP,256,73,47,0,01984036,0,0,1,0,0,None,None,None,0,0
-166=Neutral,TEMNITLAMP,256,105,48,0,01984036,0,0,1,0,0,None,None,None,0,0
-167=Neutral,TEMNITLAMP,256,133,76,0,01984036,0,0,1,0,0,None,None,None,0,0
-168=Neutral,TEMNITLAMP,256,131,102,0,01984036,0,0,1,0,0,None,None,None,0,0
-169=Neutral,TEMNITLAMP,256,103,131,0,01984036,0,0,1,0,0,None,None,None,0,0
-170=Neutral,TEMNITLAMP,256,74,131,0,01984036,0,0,1,0,0,None,None,None,0,0
-171=Neutral,TEMMORLAMP,256,46,91,0,01984038,0,0,1,0,0,None,None,None,0,0
-172=Neutral,TEMMORLAMP,256,91,46,0,01984038,0,0,1,0,0,None,None,None,0,0
-173=Neutral,TEMMORLAMP,256,135,90,0,01984038,0,0,1,0,0,None,None,None,0,0
-174=Neutral,TEMMORLAMP,256,91,135,0,01984038,0,0,1,0,0,None,None,None,0,0
-175=Neutral,TEMMORLAMP,256,85,96,0,01984038,0,0,1,0,0,None,None,None,0,0
+26=Neutral,CABARR02,256,36,92,0,None,0,0,0,0,0,None,None,None,0,0
+27=Neutral,CAAIRP,256,43,90,64,None,0,0,0,0,0,None,None,None,1,0
+28=Neutral,GAPILL,256,56,46,64,01000002,1,0,1,0,0,None,None,None,1,0
+29=Neutral,GAPILL,256,54,42,64,01000002,1,0,1,0,0,None,None,None,1,0
+30=Neutral,CAUSFGL,256,60,48,64,01000002,1,0,1,0,0,None,None,None,0,0
+31=Neutral,GAGATE_A,256,52,47,64,01000002,0,0,0,0,0,None,None,None,0,0
+32=Neutral,GAGATE_A,256,58,42,64,01000002,0,0,0,0,0,None,None,None,0,0
+33=Neutral,CABUNK01,256,59,46,64,None,0,0,0,0,0,None,None,None,0,0
+34=Neutral,CABHUT,256,57,49,64,None,0,0,0,0,0,None,None,None,0,0
+35=Neutral,CAMIAM04,256,60,51,64,None,0,0,0,0,0,None,None,None,0,0
+36=Neutral,CAMIAM04,256,60,43,64,None,0,0,0,0,0,None,None,None,0,0
+37=Neutral,CAMIAM04,256,57,43,64,None,0,0,0,0,0,None,None,None,0,0
+38=Neutral,CAARMY03,256,68,51,64,None,0,0,0,0,0,None,None,None,0,0
+39=Neutral,CAOILD,256,73,48,64,None,0,0,0,0,0,None,None,None,1,0
+40=Neutral,CAOILD,256,75,27,64,None,0,0,0,0,0,None,None,None,1,0
+41=Neutral,GAPILL,256,122,55,64,01000003,1,0,1,0,0,None,None,None,1,0
+42=Neutral,GAPILL,256,120,52,64,01000003,1,0,1,0,0,None,None,None,1,0
+43=Neutral,CAUSFGL,256,122,47,64,01000003,0,0,0,0,0,None,None,None,0,0
+44=Neutral,GAGATE_A,256,120,51,64,01000003,0,0,0,0,0,None,None,None,0,0
+45=Neutral,CABUNK01,256,120,47,64,None,0,0,0,0,0,None,None,None,0,0
+46=Neutral,CABHUT,256,124,49,64,None,0,0,0,0,0,None,None,None,0,0
+47=Neutral,CAMIAM04,256,123,47,64,None,0,0,0,0,0,None,None,None,0,0
+48=Neutral,CAMIAM04,256,119,47,64,None,0,0,0,0,0,None,None,None,0,0
+49=Neutral,CAMIAM04,256,119,50,64,None,0,0,0,0,0,None,None,None,0,0
+50=Neutral,CAARMY01,256,122,42,64,None,0,0,0,0,0,None,None,None,0,0
+51=Neutral,CAARMY03,256,115,51,64,None,0,0,0,0,0,None,None,None,0,0
+52=Neutral,CAOILD,256,109,48,64,None,0,0,0,0,0,None,None,None,1,0
+53=Neutral,CAOILD,256,107,29,64,None,0,0,0,0,0,None,None,None,1,0
+54=Neutral,CAEURO05,256,92,15,64,01000009,1,0,1,0,0,None,None,None,1,0
+55=Neutral,CABUNK01,256,88,30,64,None,0,0,0,0,0,None,None,None,0,0
+56=Neutral,CABUNK01,256,94,30,64,None,0,0,0,0,0,None,None,None,0,0
+57=Neutral,GAGATE_A,256,90,30,64,01000002,0,0,0,0,0,None,None,None,0,0
+58=Neutral,CAAIRP,256,90,43,64,None,0,0,0,0,0,None,None,None,1,0
+59=Neutral,GAPILL,256,134,57,64,01000004,1,0,1,0,0,None,None,None,1,0
+60=Neutral,GAPILL,256,139,58,64,01000004,1,0,1,0,0,None,None,None,1,0
+61=Neutral,CAGEFGL,256,136,62,64,01000004,0,0,0,0,0,None,None,None,0,0
+62=Neutral,GAGATE_A,256,137,61,64,01000004,0,0,0,0,0,None,None,None,0,0
+63=Neutral,CABUNK02,256,135,60,64,None,0,0,0,0,0,None,None,None,0,0
+64=Neutral,CABHUT,256,133,57,64,None,0,0,0,0,0,None,None,None,0,0
+65=Neutral,CAARMY01,256,131,64,64,None,0,0,0,0,0,None,None,None,0,0
+66=Neutral,CAARMY03,256,142,61,64,None,0,0,0,0,0,None,None,None,0,0
+67=Neutral,CAOILD,256,133,72,64,None,0,0,0,0,0,None,None,None,1,0
+68=Neutral,CAOILD,256,152,74,64,None,0,0,0,0,0,None,None,None,1,0
+69=Neutral,GAPILL,256,127,121,64,01000005,1,0,1,0,0,None,None,None,1,0
+70=Neutral,GAPILL,256,131,122,64,01000005,1,0,1,0,0,None,None,None,1,0
+71=Neutral,CAGEFGL,256,135,119,64,01000005,0,0,0,0,0,None,None,None,0,0
+72=Neutral,GAGATE_A,256,130,119,64,01000005,0,0,0,0,0,None,None,None,0,0
+73=Neutral,CABUNK01,256,134,121,64,None,0,0,0,0,0,None,None,None,0,0
+74=Neutral,CABHUT,256,133,125,64,None,0,0,0,0,0,None,None,None,0,0
+75=Neutral,CAARMY01,256,139,123,64,None,0,0,0,0,0,None,None,None,0,0
+76=Neutral,CAARMY03,256,133,114,64,None,0,0,0,0,0,None,None,None,0,0
+77=Neutral,CAOILD,256,133,108,64,None,0,0,0,0,0,None,None,None,1,0
+78=Neutral,CAOILD,256,152,107,64,None,0,0,0,0,0,None,None,None,1,0
+79=Neutral,CAEURO05,256,169,92,64,01000010,1,0,1,0,0,None,None,None,1,0
+80=Neutral,CABUNK01,256,151,87,64,None,0,0,0,0,0,None,None,None,0,0
+81=Neutral,CABUNK01,256,151,94,64,None,0,0,0,0,0,None,None,None,0,0
+82=Neutral,GAGATE_B,256,152,89,0,01000005,0,0,0,0,0,None,None,None,0,0
+83=Neutral,CAAIRP,256,136,90,64,None,0,0,0,0,0,None,None,None,1,0
+84=Neutral,NALASR,256,126,134,0,01000006,1,0,1,0,0,None,None,None,1,0
+85=Neutral,NALASR,256,128,137,0,01000006,1,0,1,0,0,None,None,None,1,0
+86=Neutral,CARUFGL,256,122,134,64,01000006,0,0,0,0,0,None,None,None,0,0
+87=Neutral,GAGATE_A,256,127,134,64,01000006,0,0,0,0,0,None,None,None,0,0
+88=Neutral,CABUNK02,256,122,135,64,None,0,0,0,0,0,None,None,None,0,0
+89=Neutral,CABHUT,256,125,133,64,None,0,0,0,0,0,None,None,None,0,0
+90=Neutral,CAHSE06,256,121,138,64,None,0,0,0,0,0,None,None,None,0,0
+91=Neutral,CAARMY02,256,114,134,64,None,0,0,0,0,0,None,None,None,0,0
+92=Neutral,CAFRMB,256,120,138,64,None,0,0,0,0,0,None,None,None,0,0
+93=Neutral,CAMISC05,256,123,142,64,None,0,0,0,0,0,None,None,None,0,0
+94=Neutral,CAOILD,256,108,133,64,None,0,0,0,0,0,None,None,None,1,0
+95=Neutral,CAOILD,256,107,152,64,None,0,0,0,0,0,None,None,None,1,0
+96=Neutral,NALASR,256,61,127,160,01000007,1,0,1,0,0,None,None,None,1,0
+97=Neutral,NALASR,256,59,131,224,01000007,1,0,1,0,0,None,None,None,1,0
+98=Neutral,CARUFGL,256,62,127,64,01000007,0,0,0,0,0,None,None,None,0,0
+99=Neutral,GAGATE_A,256,60,131,64,01000007,0,0,0,0,0,None,None,None,0,0
+100=Neutral,CABUNK02,256,60,134,64,None,0,0,0,0,0,None,None,None,0,0
+101=Neutral,CABHUT,256,57,133,64,None,0,0,0,0,0,None,None,None,0,0
+102=Neutral,CAHSE05,256,63,134,64,None,0,0,0,0,0,None,None,None,0,0
+103=Neutral,CAPARK01,256,62,136,64,None,0,0,0,0,0,None,None,None,0,0
+104=Neutral,CAARMY04,256,67,132,64,None,0,0,0,0,0,None,None,None,0,0
+105=Neutral,CAOILD,256,72,133,64,None,0,0,0,0,0,None,None,None,1,0
+106=Neutral,CAOILD,256,74,152,64,None,0,0,0,0,0,None,None,None,1,0
+107=Neutral,CAEURO05,256,92,169,64,01000011,1,0,1,0,0,None,None,None,1,0
+108=Neutral,CABUNK02,256,94,151,64,None,0,0,0,0,0,None,None,None,0,0
+109=Neutral,CABUNK02,256,87,151,64,None,0,0,0,0,0,None,None,None,0,0
+110=Neutral,GAGATE_A,256,89,152,64,01000006,0,0,0,0,0,None,None,None,0,0
+111=Neutral,CAAIRP,256,90,136,64,None,0,0,0,0,0,None,None,None,1,0
+112=Neutral,CAMSC12A,256,7,92,0,None,0,0,0,0,0,None,None,None,0,0
+113=Neutral,CAMSC12A,256,13,98,0,None,0,0,0,0,0,None,None,None,0,0
+114=Neutral,INREDLMP,256,44,99,0,01984030,0,0,1,0,0,None,None,None,0,0
+115=Neutral,INREDLMP,256,72,53,0,01984030,0,0,1,0,0,None,None,None,0,0
+116=Neutral,INREDLMP,256,129,72,0,01984030,0,0,1,0,0,None,None,None,0,0
+117=Neutral,INREDLMP,256,97,137,0,01984030,0,0,1,0,0,None,None,None,0,0
+118=Neutral,INREDLMP,256,97,96,0,01984030,0,0,1,0,0,None,None,None,0,0
+119=Neutral,INGRNLMP,256,99,85,0,01984034,0,0,1,0,0,None,None,None,0,0
+120=Neutral,INGRNLMP,256,54,71,0,01984034,0,0,1,0,0,None,None,None,0,0
+121=Neutral,INGRNLMP,256,72,129,0,01984034,0,0,1,0,0,None,None,None,0,0
+122=Neutral,INBLULMP,256,56,113,0,01984032,0,0,1,0,0,None,None,None,0,0
+123=Neutral,INBLULMP,256,111,54,0,01984032,0,0,1,0,0,None,None,None,0,0
+124=Neutral,INBLULMP,256,126,112,0,01984032,0,0,1,0,0,None,None,None,0,0
+125=Neutral,INYELWLAMP,256,83,98,0,01984032,0,0,1,0,0,None,None,None,0,0
+126=Neutral,INYELWLAMP,256,42,85,0,01984032,0,0,1,0,0,None,None,None,0,0
+127=Neutral,INYELWLAMP,256,83,41,0,01984032,0,0,1,0,0,None,None,None,0,0
+128=Neutral,INYELWLAMP,256,141,83,0,01984032,0,0,1,0,0,None,None,None,0,0
+129=Neutral,INYELWLAMP,256,110,128,0,01984032,0,0,1,0,0,None,None,None,0,0
+130=Neutral,INBLULMP,256,86,86,0,01984032,0,0,1,0,0,None,None,None,0,0
+131=Neutral,TEMDAYLAMP,256,69,110,0,01984032,0,0,1,0,0,None,None,None,0,0
+132=Neutral,TEMDAYLAMP,256,69,68,0,01984032,0,0,1,0,0,None,None,None,0,0
+133=Neutral,TEMDAYLAMP,256,110,69,0,01984032,0,0,1,0,0,None,None,None,0,0
+134=Neutral,TEMDAYLAMP,256,109,109,0,01984032,0,0,1,0,0,None,None,None,0,0
+135=Neutral,TEMDAYLAMP,256,88,113,0,01984032,0,0,1,0,0,None,None,None,0,0
+136=Neutral,TEMDAYLAMP,256,113,89,0,01984032,0,0,1,0,0,None,None,None,0,0
+137=Neutral,TEMDAYLAMP,256,88,65,0,01984032,0,0,1,0,0,None,None,None,0,0
+138=Neutral,TEMDAYLAMP,256,66,87,0,01984032,0,0,1,0,0,None,None,None,0,0
+139=Neutral,INGRNLMP,256,96,37,0,01984034,0,0,1,0,0,None,None,None,0,0
+140=Neutral,INGRNLMP,256,143,96,0,01984034,0,0,1,0,0,None,None,None,0,0
+141=Neutral,INBLULMP,256,87,143,0,01984032,0,0,1,0,0,None,None,None,0,0
+142=Neutral,INORANLAMP,256,47,77,0,01984032,0,0,1,0,0,None,None,None,0,0
+143=Neutral,INORANLAMP,256,79,136,0,01984032,0,0,1,0,0,None,None,None,0,0
+144=Neutral,INORANLAMP,256,133,100,0,01984032,0,0,1,0,0,None,None,None,0,0
+145=Neutral,INORANLAMP,256,100,44,0,01984032,0,0,1,0,0,None,None,None,0,0
+146=Neutral,INORANLAMP,256,85,92,0,01984032,0,0,1,0,0,None,None,None,0,0
+147=Neutral,TEMDUSLAMP,256,91,100,0,01984034,0,0,1,0,0,None,None,None,0,0
+148=Neutral,TEMDUSLAMP,256,93,83,0,01984034,0,0,1,0,0,None,None,None,0,0
+149=Neutral,TEMDUSLAMP,256,54,66,0,01984034,0,0,1,0,0,None,None,None,0,0
+150=Neutral,TEMDUSLAMP,256,38,91,0,01984034,0,0,1,0,0,None,None,None,0,0
+151=Neutral,TEMDUSLAMP,256,49,80,0,01984034,0,0,1,0,0,None,None,None,0,0
+152=Neutral,TEMDUSLAMP,256,51,107,0,01984034,0,0,1,0,0,None,None,None,0,0
+153=Neutral,TEMDUSLAMP,256,66,124,0,01984034,0,0,1,0,0,None,None,None,0,0
+154=Neutral,TEMDUSLAMP,256,89,141,0,01984034,0,0,1,0,0,None,None,None,0,0
+155=Neutral,TEMDUSLAMP,256,100,132,0,01984034,0,0,1,0,0,None,None,None,0,0
+156=Neutral,TEMDUSLAMP,256,114,124,0,01984034,0,0,1,0,0,None,None,None,0,0
+157=Neutral,TEMDUSLAMP,256,128,110,0,01984034,0,0,1,0,0,None,None,None,0,0
+158=Neutral,TEMDUSLAMP,256,144,87,0,01984034,0,0,1,0,0,None,None,None,0,0
+159=Neutral,TEMDUSLAMP,256,124,66,0,01984034,0,0,1,0,0,None,None,None,0,0
+160=Neutral,TEMDUSLAMP,256,104,46,0,01984034,0,0,1,0,0,None,None,None,0,0
+161=Neutral,TEMDUSLAMP,256,92,38,0,01984034,0,0,1,0,0,None,None,None,0,0
+162=Neutral,TEMDUSLAMP,256,78,46,0,01984034,0,0,1,0,0,None,None,None,0,0
+163=Neutral,TEMDUSLAMP,256,64,54,0,01984034,0,0,1,0,0,None,None,None,0,0
+164=Neutral,TEMNITLAMP,256,98,91,0,01984036,0,0,1,0,0,None,None,None,0,0
+165=Neutral,TEMNITLAMP,256,48,104,0,01984036,0,0,1,0,0,None,None,None,0,0
+166=Neutral,TEMNITLAMP,256,50,73,0,01984036,0,0,1,0,0,None,None,None,0,0
+167=Neutral,TEMNITLAMP,256,73,47,0,01984036,0,0,1,0,0,None,None,None,0,0
+168=Neutral,TEMNITLAMP,256,105,48,0,01984036,0,0,1,0,0,None,None,None,0,0
+169=Neutral,TEMNITLAMP,256,133,76,0,01984036,0,0,1,0,0,None,None,None,0,0
+170=Neutral,TEMNITLAMP,256,131,102,0,01984036,0,0,1,0,0,None,None,None,0,0
+171=Neutral,TEMNITLAMP,256,103,131,0,01984036,0,0,1,0,0,None,None,None,0,0
+172=Neutral,TEMNITLAMP,256,74,131,0,01984036,0,0,1,0,0,None,None,None,0,0
+173=Neutral,TEMMORLAMP,256,46,91,0,01984038,0,0,1,0,0,None,None,None,0,0
+174=Neutral,TEMMORLAMP,256,91,46,0,01984038,0,0,1,0,0,None,None,None,0,0
+175=Neutral,TEMMORLAMP,256,135,90,0,01984038,0,0,1,0,0,None,None,None,0,0
+176=Neutral,TEMMORLAMP,256,91,135,0,01984038,0,0,1,0,0,None,None,None,0,0
+177=Neutral,TEMMORLAMP,256,85,96,0,01984038,0,0,1,0,0,None,None,None,0,0
 1984=Neutral,INGALITE,256,92,92,0,01984000,0,0,0,0,0,None,None,None,0,0
 
 [Tags]
@@ -4339,7 +4354,7 @@ IonGreen=.7
 01000011=0,Reveal SpySat3,01000113
 01000012=0,Create Teams,01000114
 01000013=0,Destroy Teams,01000115
-01984000=2,Day-Night Cycle by CCCP84 v1.2 - 30 min,01984100
+01984000=2,Day-Night Cycle by CCCP84 v1.2 - 45 min,01984100
 01984030=2,Sounds Bright,01984300
 01984032=2,Sounds Dusk,01984302
 01984034=2,Sounds Dark,01984304
@@ -4364,7 +4379,7 @@ IonGreen=.7
 01000114=nod,<none>,Create Teams,0,1,1,1,0
 01000115=nod,<none>,Destroy Teams,0,1,1,1,0
 01984100=nod,01984101,000 Cycle begins. Daylight,0,1,1,1,1
-01984101=nod,01984102,001 Day duration ~21 min. After starts evening,1,1,1,1,1
+01984101=nod,01984102,001 Day duration ~34 min. After starts evening,1,1,1,1,1
 01984102=nod,01984103,002,1,1,1,1,1
 01984103=nod,01984104,003,1,1,1,1,1
 01984104=nod,01984105,004,1,1,1,1,1
@@ -4441,7 +4456,7 @@ IonGreen=.7
 01984175=nod,01984176,075,1,1,1,1,1
 01984176=nod,01984177,076,1,1,1,1,1
 01984177=nod,01984178,077 Darkest values,1,1,1,1,1
-01984178=nod,01984179,078 Night duration ~1.5 min. After starts morning,1,1,1,1,1
+01984178=nod,01984179,078 Night duration ~2 min. After starts morning,1,1,1,1,1
 01984179=nod,01984180,079,1,1,1,1,1
 01984180=nod,01984181,080,1,1,1,1,1
 01984181=nod,01984182,081,1,1,1,1,1
@@ -4553,7 +4568,7 @@ IonGreen=.7
 01000114=1,13,0,1
 01000115=1,13,0,4
 01984100=1,13,0,6 ; 25 ticks = 6 sec
-01984101=1,13,0,5096 ; day ~21 min
+01984101=1,13,0,8426 ; day ~34 min
 01984102=1,13,0,8
 01984103=1,13,0,8
 01984104=1,13,0,8
@@ -4566,102 +4581,102 @@ IonGreen=.7
 01984111=1,13,0,8
 01984112=1,13,0,8
 01984113=1,13,0,8
-01984114=1,13,0,12
+01984114=1,13,0,16
 01984115=1,13,0,36
 01984116=1,13,0,36
 01984117=1,13,0,36
 01984118=1,13,0,36
-01984119=1,13,0,18
-01984120=1,13,0,10
-01984121=1,13,0,12
-01984122=1,13,0,10
-01984123=1,13,0,10
-01984124=1,13,0,10
-01984125=1,13,0,10
-01984126=1,13,0,12
-01984127=1,13,0,12
-01984128=1,13,0,18
-01984129=1,13,0,18
-01984130=1,13,0,18
-01984131=1,13,0,10
-01984132=1,13,0,10
-01984133=1,13,0,10
-01984134=1,13,0,12
-01984135=1,13,0,10
-01984136=1,13,0,10
-01984137=1,13,0,18
-01984138=1,13,0,18
-01984139=1,13,0,18
-01984140=1,13,0,10
-01984141=1,13,0,18
-01984142=1,13,0,18
-01984143=1,13,0,18
-01984144=1,13,0,12
-01984145=1,13,0,12
-01984146=1,13,0,12
-01984147=1,13,0,18
-01984148=1,13,0,10
-01984149=1,13,0,18
-01984150=1,13,0,18
-01984151=1,13,0,18
-01984152=1,13,0,18
-01984153=1,13,0,12
-01984154=1,13,0,10
+01984119=1,13,0,24
+01984120=1,13,0,12
+01984121=1,13,0,16
+01984122=1,13,0,12
+01984123=1,13,0,12
+01984124=1,13,0,12
+01984125=1,13,0,12
+01984126=1,13,0,16
+01984127=1,13,0,16
+01984128=1,13,0,24
+01984129=1,13,0,24
+01984130=1,13,0,24
+01984131=1,13,0,12
+01984132=1,13,0,12
+01984133=1,13,0,12
+01984134=1,13,0,16
+01984135=1,13,0,12
+01984136=1,13,0,12
+01984137=1,13,0,24
+01984138=1,13,0,24
+01984139=1,13,0,24
+01984140=1,13,0,12
+01984141=1,13,0,24
+01984142=1,13,0,24
+01984143=1,13,0,24
+01984144=1,13,0,16
+01984145=1,13,0,16
+01984146=1,13,0,16
+01984147=1,13,0,24
+01984148=1,13,0,12
+01984149=1,13,0,24
+01984150=1,13,0,24
+01984151=1,13,0,24
+01984152=1,13,0,24
+01984153=1,13,0,16
+01984154=1,13,0,12
 01984155=1,13,0,48
-01984156=1,13,0,12
-01984157=1,13,0,12
-01984158=1,13,0,12
-01984159=1,13,0,12
-01984160=1,13,0,18
+01984156=1,13,0,16
+01984157=1,13,0,16
+01984158=1,13,0,16
+01984159=1,13,0,16
+01984160=1,13,0,24
 01984161=1,13,0,36
 01984162=1,13,0,36
-01984163=1,13,0,12
-01984164=1,13,0,12
-01984165=1,13,0,10
-01984166=1,13,0,10
-01984167=1,13,0,12
-01984168=1,13,0,12
-01984169=1,13,0,18
-01984170=1,13,0,12
-01984171=1,13,0,12
-01984172=1,13,0,12
-01984173=1,13,0,12
-01984174=1,13,0,10
-01984175=1,13,0,10
-01984176=1,13,0,12
-01984177=1,13,0,12
-01984178=1,13,0,300 ; night ~1.5 min
-01984179=1,13,0,12
-01984180=1,13,0,12
-01984181=1,13,0,10
+01984163=1,13,0,16
+01984164=1,13,0,16
+01984165=1,13,0,12
+01984166=1,13,0,12
+01984167=1,13,0,16
+01984168=1,13,0,16
+01984169=1,13,0,24
+01984170=1,13,0,16
+01984171=1,13,0,16
+01984172=1,13,0,16
+01984173=1,13,0,16
+01984174=1,13,0,12
+01984175=1,13,0,12
+01984176=1,13,0,16
+01984177=1,13,0,16
+01984178=1,13,0,400 ; night ~2 min
+01984179=1,13,0,16
+01984180=1,13,0,16
+01984181=1,13,0,12
 01984182=1,13,0,36
 01984183=1,13,0,36
-01984184=1,13,0,12
+01984184=1,13,0,16
 01984185=1,13,0,64
-01984186=1,13,0,12
-01984187=1,13,0,18
-01984188=1,13,0,18
-01984189=1,13,0,18
-01984190=1,13,0,18
-01984191=1,13,0,12
+01984186=1,13,0,16
+01984187=1,13,0,24
+01984188=1,13,0,24
+01984189=1,13,0,24
+01984190=1,13,0,24
+01984191=1,13,0,16
 01984192=1,13,0,64
-01984193=1,13,0,18
+01984193=1,13,0,24
 01984194=1,13,0,48
-01984195=1,13,0,12
-01984196=1,13,0,18
+01984195=1,13,0,16
+01984196=1,13,0,24
 01984197=1,13,0,64
-01984198=1,13,0,12
-01984199=1,13,0,18
-01984200=1,13,0,12
-01984201=1,13,0,12
-01984202=1,13,0,12
+01984198=1,13,0,16
+01984199=1,13,0,24
+01984200=1,13,0,16
+01984201=1,13,0,16
+01984202=1,13,0,16
 01984203=1,13,0,48
-01984204=1,13,0,10
-01984205=1,13,0,10
-01984206=1,13,0,10
+01984204=1,13,0,12
+01984205=1,13,0,12
+01984206=1,13,0,12
 01984207=1,13,0,8
 01984208=1,13,0,8
-01984209=1,13,0,10
+01984209=1,13,0,12
 01984210=1,13,0,8
 01984211=1,13,0,8
 01984212=1,13,0,8

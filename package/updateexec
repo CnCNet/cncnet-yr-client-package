@@ -1,4 +1,13 @@
 [Delete]
+package\Resources\Binaries\Windows\Ude.NetStandard.dll
+package\Resources\Binaries\XNA\Ude.NetStandard.dll
+package\Resources\BinariesNET8\UniversalGL\Ude.NetStandard.dll
+package\Resources\BinariesNET8\Windows\Ude.NetStandard.dll
+package\Resources\BinariesNET8\XNA\Ude.NetStandard.dll
+package\Resources\Binaries\OpenGL\Ude.NetStandard.dll
+package\Resources\Binaries\steam_api64.dll
+package\Resources\BinariesNET8\steam_api64.dll
+package\Resources\BinariesNET8\OpenGL\Ude.NetStandard.dll
 package\Resources\Binaries\OpenGL\System.Private.Uri.dll
 package\Resources\Binaries\Windows\System.Private.Uri.dll
 package\Resources\BinariesNET8\OpenGL\System.Text.Json.dll
@@ -597,6 +606,42 @@ Maps\Yuri's Revenge\Survival\4_defend_liberty_v1_dctanxman.map
 Maps\Yuri's Revenge\Survival\4_defend_liberty_v1_dctanxman.png
 Maps\Yuri's Revenge\Survival\4_defend_liberty_v2_dctanxman.map
 Maps\Yuri's Revenge\Survival\4_defend_liberty_v2_dctanxman.png
+Maps\Yuri's Revenge\blitz_fjord_2v2.map
+Maps\Yuri's Revenge\blitz_fjord_2v2.png
+Maps\Yuri's Revenge\blitz_artavin_2v2.map
+Maps\Yuri's Revenge\blitz_artavin_2v2.png
+Maps\Yuri's Revenge\blitz_ardee_bay_2v2.map
+Maps\Yuri's Revenge\blitz_ardee_bay_2v2.png
+Maps\Yuri's Revenge\blitz_boom_2v2.map
+Maps\Yuri's Revenge\blitz_boom_2v2.png
+Maps\Yuri's Revenge\blitz_carnival_2v2.map
+Maps\Yuri's Revenge\blitz_carnival_2v2.png
+Maps\Yuri's Revenge\blitz_dawn_of_peril_2v2.map
+Maps\Yuri's Revenge\blitz_dawn_of_peril_2v2.png
+Maps\Yuri's Revenge\blitz_dogwater_2v2.map
+Maps\Yuri's Revenge\blitz_dogwater_2v2.png
+Maps\Yuri's Revenge\blitz_zeddo_2v2.map
+Maps\Yuri's Revenge\blitz_zeddo_2v2.png
+Maps\Yuri's Revenge\blitz_jungle_of_vietnam_2v2.map
+Maps\Yuri's Revenge\blitz_jungle_of_vietnam_2v2.png
+Maps\Yuri's Revenge\blitz_montana_dmz_2v2.map
+Maps\Yuri's Revenge\blitz_montana_dmz_2v2.png
+Maps\Yuri's Revenge\blitz_park_of_vytautas_2v2.map
+Maps\Yuri's Revenge\blitz_park_of_vytautas_2v2.png
+Maps\Yuri's Revenge\blitz_split_level_2v2.map
+Maps\Yuri's Revenge\blitz_split_level_2v2.png
+Maps\Yuri's Revenge\blitz_stormy_lukez.map
+Maps\Yuri's Revenge\blitz_stormy_lukez.png
+Maps\Yuri's Revenge\blitz_strategic_compass_2v2.map
+Maps\Yuri's Revenge\blitz_strategic_compass_2v2.png
+Maps\Yuri's Revenge\blitz_trabzon_2v2.map
+Maps\Yuri's Revenge\blitz_trabzon_2v2.png
+Maps\Yuri's Revenge\blitz_village_swing_2v2.map
+Maps\Yuri's Revenge\blitz_village_swing_2v2.png
+Maps\Yuri's Revenge\blitz_ying_yang_2v2.map
+Maps\Yuri's Revenge\blitz_ying_yang_2v2.png
+Maps\Yuri's Revenge\blitz_the_pit_2v2_3v3.map
+Maps\Yuri's Revenge\blitz_the_pit_2v2_3v3.png
 
 [DeleteFolder]
 Maps\Yuri's Revenge\CTF
