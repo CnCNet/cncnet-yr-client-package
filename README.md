@@ -26,7 +26,7 @@ This package is an add-on to the [XNA CnCNet Client](https://github.com/CnCNet/x
 * [CnCNet Spawner for YR](https://github.com/CnCNet/yrpp-spawner) (GNU GPLv3)
 * [Ares](https://ares-developers.github.io/Ares-docs/) (BSD 4-clause)
 * [Phobos](https://github.com/Phobos-developers/Phobos) (GNU GPLv3)
-* [Syringe](https://github.com/CnCNet/Syringe) (GNU LGPLv3)
+* [SyringeEx](https://github.com/Phobos-developers/SyringeEx) (GNU LGPLv3)
 
 ### Development
 
