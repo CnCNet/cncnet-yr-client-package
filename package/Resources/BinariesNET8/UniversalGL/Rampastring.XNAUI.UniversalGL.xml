@@ -268,15 +268,25 @@
             - For SpriteFonts: Load the .xnb file
             </para>
             </remarks>
-            <param name="fontResolutionFactor">
-            When non-null, overrides any <c>FontResolutionFactor</c> from <c>[FontRendering]</c>
-            in <c>Fonts.ini</c>. Used by <see cref="M:Rampastring.XNAUI.Renderer.ReloadFontsForScale(System.Single)"/> to keep TTF
-            glyphs sharp when the render target is upscaled.
+            <param name="contentManager">Content manager used to load SpriteFont assets.</param>
+            <param name="minimumFontResolutionFactor">
+            Optional minimum rasterization factor required by the display scale. The value
+            configured in <c>Fonts.ini</c> is preserved when it is higher.
             </param>
         </member>
         <member name="M:Rampastring.XNAUI.FontManagement.FontManager.LoadFontsFromIni(System.String,Microsoft.Xna.Framework.Content.ContentManager,System.String,System.String,System.Nullable{System.Single})">
             <summary>
             Loads fonts from a specific Fonts.ini file.
+            </summary>
+        </member>
+        <member name="M:Rampastring.XNAUI.FontManagement.FontManager.IsNativeTextShaperAvailable">
+            <summary>
+            Probes whether the native HarfBuzz library can actually be loaded in the current process.
+            The managed HarfBuzzSharp assembly can load successfully while its native counterpart
+            (libHarfBuzzSharp) cannot - for example when the native binary was not deployed, or when the
+            .NET Framework build runs from a path that cannot be represented in the system ANSI code page.
+            Detecting this once, up front, lets the font system fall back to unshaped rendering with a
+            clear log entry instead of throwing in the middle of font loading.
             </summary>
         </member>
         <member name="M:Rampastring.XNAUI.FontManagement.FontManager.CreateFontIndexesFromIni(Rampastring.Tools.IniFile,Microsoft.Xna.Framework.Content.ContentManager,System.String,System.String)">
@@ -521,9 +531,8 @@
         </member>
         <member name="M:Rampastring.XNAUI.Renderer.ReloadFontsForScale(System.Single)">
             <summary>
-            Reloads fonts with a new resolution factor matching the given scale ratio,
-            so TTF glyphs are rasterized at native display quality rather than being
-            scaled up from the render resolution.
+            Reloads TTF fonts when the final display scale needs a higher-resolution
+            glyph atlas. A higher factor explicitly configured in Fonts.ini is retained.
             </summary>
         </member>
         <member name="M:Rampastring.XNAUI.Renderer.GetFontList">
