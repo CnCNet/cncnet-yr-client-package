@@ -7,7 +7,7 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {},
     ".NETCoreApp,Version=v8.0/win-x86": {
-      "clientxna/2.13.0": {
+      "clientxna/2.13.1": {
         "dependencies": {
           "ClientGUI": "1.0.0",
           "ClientUpdater": "1.0.0",
@@ -660,8 +660,8 @@
         },
         "runtime": {
           "ClientCore.dll": {
-            "assemblyVersion": "2.13.0.0",
-            "fileVersion": "2.13.0.0"
+            "assemblyVersion": "2.13.1.0",
+            "fileVersion": "2.13.1.0"
           }
         }
       },
@@ -673,8 +673,8 @@
         },
         "runtime": {
           "ClientGUI.dll": {
-            "assemblyVersion": "2.13.0.0",
-            "fileVersion": "2.13.0.0"
+            "assemblyVersion": "2.13.1.0",
+            "fileVersion": "2.13.1.0"
           }
         }
       },
@@ -685,8 +685,8 @@
         },
         "runtime": {
           "ClientUpdater.dll": {
-            "assemblyVersion": "2.13.0.0",
-            "fileVersion": "2.13.0.0"
+            "assemblyVersion": "2.13.1.0",
+            "fileVersion": "2.13.1.0"
           }
         }
       },
@@ -702,6 +702,7 @@
         "dependencies": {
           "FontStashSharp.TextShapers.HarfBuzz": "1.2.3",
           "FontStashSharp.XNA": "1.5.5",
+          "HarfBuzzSharp": "8.3.1.2",
           "Rampastring.Tools": "1.0.0",
           "SixLabors.ImageSharp": "2.1.11",
           "TextCopy": "6.2.1"
@@ -723,7 +724,7 @@
     }
   },
   "libraries": {
-    "clientxna/2.13.0": {
+    "clientxna/2.13.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

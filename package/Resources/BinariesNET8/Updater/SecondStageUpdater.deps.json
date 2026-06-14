@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "SecondStageUpdater/2.13.0": {
+      "SecondStageUpdater/2.13.1": {
         "dependencies": {
           "Rampastring.Tools": "1.0.0"
         },
@@ -25,7 +25,7 @@
     }
   },
   "libraries": {
-    "SecondStageUpdater/2.13.0": {
+    "SecondStageUpdater/2.13.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
