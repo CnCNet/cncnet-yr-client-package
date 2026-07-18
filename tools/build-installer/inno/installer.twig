@@ -78,7 +78,7 @@ Name: "{app}\Uninstall CnCNet"; Filename: "{uninstallexe}"
 Name: "runyrdiag"; Description: "Run the diagnostic tool to automatically fix common game launch issues (recommended)"
 
 [Run]
-Filename: "{app}\YRDiag.exe";Flags:nowait;Description:"Running the diagnostic tool..."; Tasks: runyrdiag
+Filename: "{app}\YRDiag.exe"; WorkingDir: "{app}"; Description:"Running the diagnostic tool. Waiting you to read the output and close the tool..."; Tasks: runyrdiag; Flags: waituntilterminated
 Filename: "{app}\CnCNetYRLauncher.exe"; WorkingDir: "{app}"; Description: "{cm:LaunchProgram,Yuris Revenge}"; Flags: nowait postinstall runascurrentuser skipifsilent
 
 [INI]
