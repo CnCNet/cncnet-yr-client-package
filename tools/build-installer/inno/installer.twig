@@ -67,13 +67,15 @@ Source: *; DestDir: "{app}"; Excludes: "{{ excludedInstallerFiles }}"; Flags: re
 Source: version; DestDir: "{app}";
 ; explicitly list "gamemd-spawn.exe" file so that an error is thrown if it does not exist
 Source: gamemd-spawn.exe; DestDir: "{app}";
+; explicitly list "YRDiag.exe" file so that an error is thrown if it does not exist
+Source: YRDiag.exe; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{commondesktop}\Yuri's Revenge CnCNet"; Filename: "{app}\CnCNetYRLauncher.exe"; Check: not RunsOnWine
 Name: "{app}\Uninstall CnCNet"; Filename: "{uninstallexe}"
 
 [Tasks]
-Name: "runyrdiag"; Description: "Run the diagnostic tool to automatically fix common game launch issues (recommended)"; Flags: checked
+Name: "runyrdiag"; Description: "Run the diagnostic tool to automatically fix common game launch issues (recommended)"
 
 [Run]
 Filename: "{app}\YRDiag.exe";Flags:nowait;Description:"Running the diagnostic tool..."; Tasks: runyrdiag
