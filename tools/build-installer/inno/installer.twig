@@ -35,7 +35,8 @@ DefaultDirName={code:DefaultDir}
 DisableProgramGroupPage=yes
 DisableReadyPage=yes
 DisableWelcomePage=yes
-DisableFinishedPage=yes
+; Disabling the finished page results in the installer automatically runs CnCNet YR without asking the user, which is not ideal. Moreover, the diagnostic tool, which runs before the finished page, needs some time to complete. As a result, automatically running CnCNet YR too early can cause issues. Therefore, we keep the finished page enabled.
+DisableFinishedPage=no
 AllowNoIcons=yes
 OutputBaseFilename={{ outputBaseFilename }}
 Compression=lzma2/max
@@ -78,7 +79,7 @@ Name: "{app}\Uninstall CnCNet"; Filename: "{uninstallexe}"
 Name: "runyrdiag"; Description: "Run the diagnostic tool to automatically fix common game launch issues (recommended)"
 
 [Run]
-Filename: "{app}\YRDiag.exe";Flags:nowait;Description:"Running the diagnostic tool..."; Tasks: runyrdiag
+Filename: "{app}\YRDiag.exe"; WorkingDir: "{app}"; Tasks: runyrdiag
 Filename: "{app}\CnCNetYRLauncher.exe"; WorkingDir: "{app}"; Description: "{cm:LaunchProgram,Yuris Revenge}"; Flags: nowait postinstall runascurrentuser skipifsilent
 
 [INI]
