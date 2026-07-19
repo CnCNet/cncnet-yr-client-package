@@ -35,7 +35,8 @@ DefaultDirName={code:DefaultDir}
 DisableProgramGroupPage=yes
 DisableReadyPage=yes
 DisableWelcomePage=yes
-DisableFinishedPage=yes
+; Disabling the finished page results in the installer automatically runs CnCNet YR without asking the user, which is not ideal. Moreover, the diagnostic tool, which runs before the finished page, needs some time to complete. As a result, automatically running CnCNet YR too early can cause issues. Therefore, we keep the finished page enabled.
+DisableFinishedPage=no
 AllowNoIcons=yes
 OutputBaseFilename={{ outputBaseFilename }}
 Compression=lzma2/max
@@ -67,14 +68,20 @@ Source: *; DestDir: "{app}"; Excludes: "{{ excludedInstallerFiles }}"; Flags: re
 Source: version; DestDir: "{app}";
 ; explicitly list "gamemd-spawn.exe" file so that an error is thrown if it does not exist
 Source: gamemd-spawn.exe; DestDir: "{app}";
+; explicitly list "YRDiag.exe" file so that an error is thrown if it does not exist
+Source: YRDiag.exe; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{commondesktop}\Yuri's Revenge CnCNet"; Filename: "{app}\CnCNetYRLauncher.exe"; Check: not RunsOnWine
 Name: "{app}\Uninstall CnCNet"; Filename: "{uninstallexe}"
 
+[Tasks]
+Name: "runyrdiag"; Description: "Run the diagnostic tool to automatically fix common game launch issues (recommended)"
+
 [Run]
-Filename: "{app}\CnCNetYRLauncher.exe"; WorkingDir: "{app}"; Description: "{cm:LaunchProgram,Yuris Revenge}"; Flags: nowait postinstall runascurrentuser skipifsilent
- 
+Filename: "{app}\YRDiag.exe"; WorkingDir: "{app}"; Tasks: runyrdiag; Flags:nowait
+Filename: "{app}\CnCNetYRLauncher.exe"; WorkingDir: "{app}"; Description: "{cm:LaunchProgram,Yuri's Revenge}"; Flags: nowait postinstall runascurrentuser skipifsilent
+
 [INI]
 Filename: "{app}\RA2MD.ini"; Section: "Video"; Key: "UseGraphicsPatch"; String: "Yes"; MinVersion: 6.2
 Filename: "{app}\RA2MD.ini"; Section: "Options"; Key: "Win8Compat"; String: "Yes"; MinVersion: 6.2
