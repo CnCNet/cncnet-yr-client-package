@@ -9832,10 +9832,10 @@ Anim=INVISO
 01001039=1,14,0,4476,0,0,0,0,A
 01001041=1,14,0,4477,0,0,0,0,A
 01001043=1,14,0,4478,0,0,0,0,A
-01001045=6,11,4,NOSTR:Destroy The Laboratory,0,0,0,0,A,11,4,NOSTR:Before Time Has Expired,0,0,0,0,A,112,0,0,0,0,0,0,DI,41,0,475,0,0,0,0,DJ,53,2,01001047,0,0,0,0,A,53,2,01001049,0,0,0,0,A
+01001045=6,11,4,NOSTR:Destroy The Laboratory,0,0,0,0,A,11,4,NOSTR:Before Time Has Expired,0,0,0,0,A,53,2,01001049,0,0,0,0,A,41,0,475,0,0,0,0,DJ,53,2,01001047,0,0,0,0,A,55,0,5,0,0,0,0,DI
 01001047=1,41,0,475,0,0,0,0,DJ
 01001049=2,54,2,01001047,0,0,0,0,A,54,2,01001049,0,0,0,0,A
-01001054=6,11,4,NOSTR:Destroy The Laboratory,0,0,0,0,A,11,4,NOSTR:Before Time Has Expired,0,0,0,0,A,112,0,0,0,0,0,0,DI,41,0,475,0,0,0,0,DJ,53,2,01001047,0,0,0,0,A,53,2,01001049,0,0,0,0,A
+01001054=6,11,4,NOSTR:Destroy The Laboratory,0,0,0,0,A,11,4,NOSTR:Before Time Has Expired,0,0,0,0,A,53,2,01001049,0,0,0,0,A,41,0,475,0,0,0,0,DJ,53,2,01001047,0,0,0,0,A,55,0,5,0,0,0,0,DI
 01001056=2,125,10,CAMIAM04,0,0,0,0,BO,53,2,01001064,0,0,0,0,A
 01001058=2,125,10,CAMIAM04,0,0,0,0,BP,53,2,01001066,0,0,0,0,A
 01001060=2,125,10,CAMIAM04,0,0,0,0,BQ,53,2,01001068,0,0,0,0,A
@@ -9951,7 +9951,7 @@ TargetDistanceCoefficient=-1
 Name=[4] Marathon (4)MapsIn(1) - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing==============================@    Welcome To Marathon@  The First Ever 4 Maps In 1@=============================@@Human Spots 1 & 2 & 3 & 4 - AI Spot 5@----------------------------------------------@-Short Game OFF@-All Spots Must Be Occupied@-To Progress Onto Each Map@@-Map 1 - Protect the White House@-Map 2 - Destroy the Einstein Lab@-Map 3 - Survive The Timer@-Map 4 - Protect The Flag & Survive@@@By Dctanxman - Special Thanks To C1thunder ~Official Final Version©
+Briefing==============================@    Welcome To Marathon@  The First Ever 4 Maps In 1@=============================@@Human Spots 1 & 2 & 3 & 4 - AI Spot 5@----------------------------------------------@-Short Game OFF@-All Spots Must Be Occupied@-To Progress Onto Each Map@@-Map 1 - Protect the White House@-Map 2 - Destroy the Einstein Lab@-Map 3 - Survive The Timer@-Map 4 - Protect The Flag & Survive@@@By Dctanxman - Special Thanks To C1thunder@Survival Game Mode Version
 GameMode=standard
 HomeCell=98
 InitTime=10000
@@ -10435,10 +10435,10 @@ Range=10
 Damage=400
 
 [CombatDamage]
-V3EliteWarhead=V3EWH
-DMislEliteWarhead=DMISLEWH
-CMislEliteWarhead=CMISLEWH
 BridgeStrength=2000000
+V3EliteWarhead=V3EWH
+CMislEliteWarhead=CMISLEWH
+DMislEliteWarhead=DMISLEWH
 
 [Confederation]
 IQ=0
@@ -11229,7 +11229,7 @@ AnimList=INVISO
 01001097=2,13,0,60,36,0,3
 
 [FA2spVersionControl]
-Version=525
+Version=526
 
 [FLAKT]
 Speed=6
@@ -11287,9 +11287,11 @@ Anim=INVISO
 
 [ForcedOptions]
 chkNoSpy=false
+chkCrates=true
 chkNoYuri=false
 chkRA2Mode=false
 cmbCredits=0
+chkBrutalAI=true
 chkMultiEng=false
 chkNoFrance=false
 chkRedeplMCV=false
@@ -11301,18 +11303,16 @@ chkBuildOffAlly=false
 chkDestrBridges=false
 chkNoDogEngiEat=false
 chkNoStolenTech=false
+chkSuperWeapons=false
+cmbGameSpeedCap=2
 chkIngameAllying=false
 cmbStartingUnits=10
+chkNoYuriNoFrance=false
 cmbCratesModifier=1
 chkNoSpawnPreviews=false
 cmbGameSpeedCapSkirmish=2
 cmbSuperWeaponsModifier=3
 cmbGameSpeedCapMultiplayer=2
-chkCrates=true
-chkSuperWeapons=false
-chkNoYuriNoFrance=false
-cmbGameSpeedCap=2
-chkBrutalAI=true
 
 [French]
 IQ=0
@@ -22446,4 +22446,4 @@ ImmuneToPsionics=yes
 TargetDistanceCoefficient=-1
 
 [Digest]
-1=5q2U1LMNqMyvdK99zcE7AekQOxg=
+1=paf8X13bMOz/WwoToIOi+Acoqb0=

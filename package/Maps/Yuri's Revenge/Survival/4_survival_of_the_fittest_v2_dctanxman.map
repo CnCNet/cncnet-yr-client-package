@@ -15499,7 +15499,7 @@ VeteranAbilities=STRONGER,FIREPOWER,ROF
 01000031=2,119,0,4479,0,0,0,0,A,121,0,12,0,0,0,0,A
 01000033=2,80,1,01000013,0,0,0,0,K,80,1,01000014,0,0,0,0,L
 01000035=2,27,0,499,0,0,0,0,A,103,4,MISSION:C13Timer,0,0,0,0,A
-01000037=3,27,0,4700,0,0,0,0,A,103,4,vox:csof013,0,0,0,0,A,53,2,01000638,0,0,0,0,A
+01000037=3,27,0,4400,0,0,0,0,A,103,4,NOSTR:Final Wave Arrives In,0,0,0,0,A,53,2,01000638,0,0,0,0,A
 01000039=2,56,0,1,0,0,0,0,A,54,2,01000909,0,0,0,0,A
 01000049=5,57,0,1,0,0,0,0,A,11,4,NOSTR:Player_2 Isnt The Fittest,0,0,0,0,A,53,2,01000879,0,0,0,0,A,53,2,01001177,0,0,0,0,A,11,4,NOSTR:Hit The Gym Scrawny Runt,0,0,0,0,A
 01000059=2,56,0,2,0,0,0,0,A,54,2,01000911,0,0,0,0,A
@@ -15765,7 +15765,7 @@ VeteranAbilities=STRONGER,FIREPOWER,ROF
 01001014=2,80,1,01000498,0,0,0,0,Q,80,1,01000499,0,0,0,0,R
 01001016=2,2,0,12,0,0,0,0,A,119,0,12,0,0,0,0,A
 01001018=1,53,2,01001020,0,0,0,0,A
-01001020=2,11,4,NOSTR:You Must Kill All,0,0,0,0,A,11,4,NOSTR:In Order To WIN....,0,0,0,0,A
+01001020=2,11,4,NOSTR:You Must Kill All Units..,0,0,0,0,A,11,4,NOSTR:To Be Victorious!!!,0,0,0,0,A
 01001022=1,107,1,01000881,0,0,0,0,AP
 01001024=1,107,1,01000882,0,0,0,0,AR
 01001026=1,107,1,01000883,0,0,0,0,AT
@@ -15855,6 +15855,7 @@ VeteranAbilities=STRONGER,FIREPOWER,ROF
 01001277=2,107,1,01000888,0,0,0,0,JL,107,1,01000888,0,0,0,0,JQ
 01001279=2,107,1,01000889,0,0,0,0,JU,107,1,01000889,0,0,0,0,IS
 01001285=1,11,4,NOSTR:V3 Launchers Soon,0,0,0,0,A
+01001291=2,27,0,599,0,0,0,0,A,103,4,NOSTR:Kill All Units To Win,0,0,0,0,A
 
 [Africans]
 IQ=0
@@ -15981,7 +15982,7 @@ TargetDistanceCoefficient=-1
 Name=[4] Survival Of The Fittest V2 - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-Multi-MCV ~ Enabled@-Build AA Or ~ Lose@-First 4 Waves ~ Infantry@@-Game Speed ~ 30fps@-Single Player or Multi Players@@----------------------------@--Difficulty = Very Hard--@----------------------------@@By Dctanxman® ~Official Final Version©
+Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-Multi-MCV ~ Enabled@-Build AA Or ~ Lose@-First 4 Waves ~ Infantry@@-Game Speed ~ 30fps@-Single Player or Multi Players@@-Very Hard Map@-For Pro Players Only@@By Dctanxman® ~Survival Game Mode Version
 GameMode=standard
 HomeCell=98
 InitTime=10000
@@ -16141,8 +16142,8 @@ MinDebris=1
 TechLevel=-1
 BaseNormal=no
 Capturable=false
-DebrisAnims=Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg
 Selectable=no
+DebrisAnims=Dbris4lg,Dbris4sm,Dbris6sm,Dbris7lg,Dbris7sm,Dbris8sm,Dbris9lg
 DestroyAnim=CAPR01DM
 LeaveRubble=yes
 LegalTarget=no
@@ -17497,7 +17498,7 @@ SubjectToElevation=no
 01000838=2,13,0,4900,36,0,3
 01000840=2,13,0,1445,36,0,0
 01000842=1,13,0,10
-01000846=7,13,0,5200,61,2,0,DCTANXMANHARV,61,2,0,DCTANXMANAPOCC,61,2,0,DCTANXMANCMIN,61,2,0,DCTANXMANTELE,61,2,0,DCTANXMANHOWI,61,2,0,DCTANXMANAPOC
+01000846=7,13,0,5000,61,2,0,DCTANXMANHARV,61,2,0,DCTANXMANAPOCC,61,2,0,DCTANXMANCMIN,61,2,0,DCTANXMANTELE,61,2,0,DCTANXMANHOWI,61,2,0,DCTANXMANAPOC
 01000848=2,13,0,4205,36,0,0
 01000850=1,13,0,15
 01000852=1,13,0,25
@@ -17508,7 +17509,7 @@ SubjectToElevation=no
 01000862=2,13,0,4915,36,0,3
 01000865=2,13,0,4400,36,0,0
 01000867=2,13,0,2250,36,0,0
-01000869=1,13,0,5650
+01000869=1,13,0,5525
 01000871=2,13,0,2250,36,0,1
 01000873=2,13,0,2250,36,0,2
 01000875=2,13,0,2250,36,0,3
@@ -17560,8 +17561,8 @@ SubjectToElevation=no
 01001012=2,13,0,4408,36,0,3
 01001014=2,13,0,4416,36,0,3
 01001016=1,13,0,35
-01001018=1,13,0,5195
-01001020=1,13,0,150
+01001018=1,13,0,4995
+01001020=1,13,0,62
 01001022=2,51,0,45,36,0,0
 01001024=2,51,0,45,36,0,1
 01001026=2,51,0,45,36,0,2
@@ -17651,9 +17652,10 @@ SubjectToElevation=no
 01001277=2,13,0,4920,36,0,2
 01001279=2,13,0,4920,36,0,3
 01001285=1,13,0,3100
+01001291=1,13,0,4925
 
 [FA2spVersionControl]
-Version=886
+Version=887
 
 [FLAKT]
 Prerequisite=NAHAND
@@ -17685,7 +17687,6 @@ Projectile=FlakProj
 
 [ForcedOptions]
 chkNoSpy=false
-chkCrates=true
 chkNoYuri=false
 chkRA2Mode=false
 cmbCredits=0
@@ -21124,6 +21125,7 @@ TargetDistanceCoefficient=-1
 01001278=0,B006-C2 1,01001277
 01001280=0,B006-D2 1,01001279
 01001286=0,015-SW 1,01001285
+01001292=0,Timer-END 1,01001291
 
 [TaskForces]
 0=01000010
@@ -21980,6 +21982,7 @@ IsElectricBolt=true
 01001277=Neutral,<none>,B006-C2,0,1,1,1,0
 01001279=Neutral,<none>,B006-D2,0,1,1,1,0
 01001285=Neutral,<none>,015-SW,0,1,1,1,0
+01001291=Neutral,<none>,Timer-END,0,1,1,1,0
 
 [Units]
 0=Neutral,CAR,256,111,213,64,Guard,01000024,0,-1,0,-1,1,0
@@ -22425,4 +22428,4 @@ BuildLimit=10
 TargetDistanceCoefficient=-1
 
 [Digest]
-1=ovor5jOIggwmymEaQwch9JAlzxw=
+1=KDkrxGDd09+eDkhzD7Jh1ycfCp0=
