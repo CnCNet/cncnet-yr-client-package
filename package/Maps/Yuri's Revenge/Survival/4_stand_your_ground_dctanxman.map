@@ -2442,7 +2442,7 @@ TargetDistanceCoefficient=-1
 Name=[4] Stand Your Ground - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-Protect Center Flag With AA@-Garrison All Structures Or Lose@-Load Battlefortress With Infantry & Vehicles@@------------------------@--Difficulty = Hard--@------------------------@@By Dctanxman® ~Official Final Version©
+Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-Protect Center Flag With AA@-Garrison All Structures Or Lose@-Load Battlefortress With Infantry & Vehicles@@-----------------------@--Difficulty = Hard--@-----------------------@@By Dctanxman® ~Survival Game Mode Version
 GameMode=standard
 HomeCell=98
 InitTime=10000

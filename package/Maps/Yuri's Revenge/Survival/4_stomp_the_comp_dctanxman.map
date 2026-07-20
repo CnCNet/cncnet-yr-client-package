@@ -3482,7 +3482,7 @@ TargetDistanceCoefficient=-1
 Name=[4] Stomp The Comp - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spots 5 & 6 & 7 - AI Only@----------------------------------@@*Super Battle Bunkers - All Sides*@-GuardianGI@-FlakTrooper@-TeslaTrooper@@*Super Battlefortress - All Sides*@-Tanks Load Into Battlefortress@@-Map Can Be Played Single/Multi Player@@------------------------@--Difficulty = Hard--@------------------------@@By Dctanxman® ~Official Final Version©
+Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spots 5 & 6 & 7 - AI Only@----------------------------------@@*Super Battle Bunkers - All Sides*@-GuardianGI@-FlakTrooper@-TeslaTrooper@@*Super Battlefortress - All Sides*@-Tanks Load Into Battlefortress@@-Map Can Be Played Single/Multi Player@@-----------------------@--Difficulty = Hard--@-----------------------@@By Dctanxman® ~Survival Game Mode Version
 GameMode=standard
 HomeCell=98
 InitTime=10000

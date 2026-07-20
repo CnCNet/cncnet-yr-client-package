@@ -2724,7 +2724,7 @@ TargetDistanceCoefficient=-1
 Name=[4] The Maelstrom - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-Destroy The Psychic Beacons@@------------------------@--Difficulty = Hard--@------------------------@@By Dctanxman® ~Official Final Version©
+Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-Destroy The Psychic Beacons@@-----------------------@--Difficulty = Hard--@-----------------------@@By Dctanxman® ~Survival Game Mode Version
 GameMode=standard
 HomeCell=98
 InitTime=10000

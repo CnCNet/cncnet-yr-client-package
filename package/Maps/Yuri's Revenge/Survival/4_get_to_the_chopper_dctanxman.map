@@ -1780,14 +1780,14 @@ MaxDebris=1
 01000012=3,53,2,01000078,0,0,0,0,A,21,6,EVA_MissionAccomplished,0,0,0,0,A,54,2,01000016,0,0,0,0,A
 01000014=6,53,2,01000082,0,0,0,0,A,53,2,01000212,0,0,0,0,A,53,2,01000092,0,0,0,0,A,53,2,01000195,0,0,0,0,A,53,2,01000214,0,0,0,0,A,53,2,01000216,0,0,0,0,A
 01000016=2,53,2,01000080,0,0,0,0,A,21,6,EVA_MissionFailed,0,0,0,0,A
-01000018=2,27,0,2800,0,0,0,0,A,103,4,NOSTR:Get To The Chopper,0,0,0,0,A
+01000018=2,27,0,2800,0,0,0,0,A,103,4,NOSTR:You Lose IN,0,0,0,0,A
 01000020=5,121,0,4475,0,0,0,0,A,121,0,4476,0,0,0,0,A,121,0,4477,0,0,0,0,A,121,0,4478,0,0,0,0,A,119,0,13,0,0,0,0,A
 01000028=1,80,1,01000023,0,0,0,0,BI
 01000030=1,80,1,01000023,0,0,0,0,BI
 01000039=1,80,1,01000118,0,0,0,0,AJ
 01000041=1,80,1,01000118,0,0,0,0,AJ
 01000043=3,11,4,NOSTR:At All Cost Protect The,0,0,0,0,A,11,4,NOSTR:Communication Center,0,0,0,0,A,11,4,NOSTR:Or Reinforcements Stop,0,0,0,0,A
-01000045=2,11,4,NOSTR:Get To The Chopper,0,0,0,0,A,11,4,NOSTR:Before Time Expires,0,0,0,0,A
+01000045=3,11,4,NOSTR:Get To The Chopper,0,0,0,0,A,11,4,NOSTR:Before Time Expires,0,0,0,0,A,55,0,5,0,0,0,0,T
 01000047=4,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A,11,4,NOSTR:You Can Download,0,0,0,0,A,11,4,NOSTR:All My Original Maps,0,0,0,0,A,11,4,NOSTR:On...CnCnet.org/forums,0,0,0,0,A
 01000049=6,107,1,01000051,0,0,0,0,U,107,1,01000051,0,0,0,0,V,107,1,01000051,0,0,0,0,W,107,1,01000051,0,0,0,0,X,107,1,01000051,0,0,0,0,Y,107,1,01000051,0,0,0,0,Z
 01000055=7,107,1,01000052,0,0,0,0,U,107,1,01000052,0,0,0,0,V,107,1,01000052,0,0,0,0,W,107,1,01000052,0,0,0,0,X,107,1,01000052,0,0,0,0,Y,107,1,01000052,0,0,0,0,Z,107,1,01000052,0,0,0,0,CL
@@ -1804,10 +1804,10 @@ MaxDebris=1
 01000090=4,80,1,01000089,0,0,0,0,AA,80,1,01000089,0,0,0,0,AB,80,1,01000089,0,0,0,0,AC,80,1,01000089,0,0,0,0,AD
 01000092=5,11,4,NOSTR:The Communication Center,0,0,0,0,A,11,4,NOSTR:Has Been Destroyed,0,0,0,0,A,11,4,NOSTR:All Reinforcements,0,0,0,0,A,11,4,NOSTR:Have Been Disabled,0,0,0,0,A,112,0,0,0,0,0,0,AD
 01000094=7,107,1,01000096,0,0,0,0,Y,107,1,01000096,0,0,0,0,V,107,1,01000096,0,0,0,0,W,107,1,01000096,0,0,0,0,Z,107,1,01000096,0,0,0,0,AO,107,1,01000096,0,0,0,0,AP,107,1,01000096,0,0,0,0,CL
-01000098=2,11,4,NOSTR:Welcome.To..,0,0,0,0,A,11,4,NOSTR:Get To The Chopper,0,0,0,0,A
+01000098=2,11,4,NOSTR:Welcome To..,0,0,0,0,A,11,4,NOSTR:Get To The Chopper,0,0,0,0,A
 01000100=1,41,0,475,0,0,0,0,E
 01000104=7,107,1,01000103,0,0,0,0,U,107,1,01000103,0,0,0,0,V,107,1,01000103,0,0,0,0,W,107,1,01000103,0,0,0,0,X,107,1,01000103,0,0,0,0,Y,107,1,01000103,0,0,0,0,Z,21,6,EVA_ArmorBattallianDetected,0,0,0,0,A
-01000106=3,112,0,0,0,0,0,0,T,11,4,NOSTR:You Are Too Slow,0,0,0,0,A,11,4,NOSTR:Guard Forces Have Spawned,0,0,0,0,A
+01000106=8,11,4,NOSTR:Guard Forces Have Spawned,0,0,0,0,A,11,4,NOSTR:You Are Too Slow,0,0,0,0,A,55,0,5,0,0,0,0,AE,55,0,5,0,0,0,0,AF,55,0,5,0,0,0,0,AG,55,0,5,0,0,0,0,AH,55,0,5,0,0,0,0,AI,55,0,5,0,0,0,0,AR
 01000110=5,107,1,01000109,0,0,0,0,AO,107,1,01000109,0,0,0,0,AP,107,1,01000109,0,0,0,0,AQ,107,1,01000109,0,0,0,0,AR,21,6,EVA_EnemyAirArmadaDetected,0,0,0,0,A
 01000112=1,14,0,4479,0,0,0,0,A
 01000122=3,54,2,01000057,0,0,0,0,A,54,2,01000059,0,0,0,0,A,53,2,01000127,0,0,0,0,A
@@ -1941,7 +1941,7 @@ AnimList=INVISO
 Name=[4] Get To The Chopper - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-Destroy The Chopper Before The Timer Ends@-Protect The Communication Center@@-Map Can Be Played Single Player or Mutli Players@@------------------------@--Difficulty = Easy--@------------------------@@By Dctanxman® ~Official Final Version©
+Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-Destroy The Chopper Before The Timer Ends@-Protect The Communication Center@@-Map Can Be Played Single Player or Multi Players@@-----------------------@--Difficulty = Easy--@-----------------------@@By Dctanxman® ~Survival Game Mode Version
 GameMode=standard
 HomeCell=98
 InitTime=10000
@@ -2130,14 +2130,14 @@ AnimList=INVISO
 01000030=2,13,0,300,36,0,0
 01000039=2,13,0,11,36,0,0
 01000041=2,13,0,300,36,0,0
-01000043=1,13,0,18
+01000043=1,13,0,32
 01000045=1,13,0,500
 01000047=1,13,0,505
 01000049=1,13,0,120
 01000055=1,13,0,150
 01000057=1,13,0,250
 01000059=1,13,0,300
-01000061=1,13,0,16
+01000061=1,13,0,30
 01000065=1,13,0,1300
 01000072=2,13,0,10,36,0,0
 01000074=2,13,0,300,36,0,0
@@ -2148,7 +2148,7 @@ AnimList=INVISO
 01000090=1,13,0,150
 01000092=1,13,0,1
 01000094=1,13,0,150
-01000098=1,13,0,35
+01000098=1,13,0,80
 01000100=1,13,0,3
 01000104=1,13,0,725
 01000106=1,13,0,2
@@ -2199,19 +2199,21 @@ AnimList=INVISO
 01000214=1,8,0,0
 01000216=1,8,0,0
 01000218=1,13,0,300
-01000220=1,13,0,30
+01000220=1,13,0,50
 
 [FA2spVersionControl]
-Version=97
+Version=109
 
 [FLAKT]
 Speed=6
 
 [ForcedOptions]
 chkNoSpy=false
+chkCrates=true
 chkNoYuri=false
 chkRA2Mode=false
 cmbCredits=0
+chkBrutalAI=true
 chkMultiEng=false
 chkNoFrance=false
 chkRedeplMCV=false
@@ -2223,15 +2225,13 @@ chkBuildOffAlly=false
 chkDestrBridges=false
 chkNoDogEngiEat=false
 chkNoStolenTech=false
+chkSuperWeapons=true
 chkIngameAllying=false
 cmbStartingUnits=10
+chkNoYuriNoFrance=false
 cmbCratesModifier=1
 chkNoSpawnPreviews=false
 cmbSuperWeaponsModifier=2
-chkCrates=true
-chkSuperWeapons=true
-chkNoYuriNoFrance=false
-chkBrutalAI=true
 
 [French]
 IQ=0
@@ -5711,4 +5711,4 @@ MaxDebris=1
 JumpjetSpeed=10
 
 [Digest]
-1=kYuVI/GQUWLeoiKk1j55woGdUTk=
+1=z7bKczqN9WiveFVxYVYAgqGqimc=

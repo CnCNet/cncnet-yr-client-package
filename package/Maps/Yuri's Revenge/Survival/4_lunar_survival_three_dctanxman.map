@@ -13302,7 +13302,7 @@ TargetDistanceCoefficient=-1
 Name=[4] Lunar Survival III - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-First Wave Is Air@-Multi-MCV@@------------------------------@--Difficulty = Very Hard--@------------------------------@@By Dctanxman® ~Official Final Version©
+Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-First Wave Is Air@-Multi-MCV@@-----------------------------@--Difficulty = Very Hard--@-----------------------------@@By Dctanxman® ~Survival Game Mode Version
 GameMode=standard
 HomeCell=98
 InitTime=10000

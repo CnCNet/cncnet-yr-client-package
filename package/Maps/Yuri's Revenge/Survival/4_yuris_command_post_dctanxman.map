@@ -1503,7 +1503,7 @@ Damage=80000
 Name=[4] Yuri's Command Post - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-Use Boris & Tanya To Defeat The Yuri Prime@-Beware Of Those Sniper Towers@@-Map Can Be Played Single Player or Mutli Players@@------------------------@--Difficulty = Easy--@------------------------@@By Dctanxman® ~Official Final Version©
+Briefing=Human Spots 1 & 2 & 3 & 4@--------------------------------@AI Spot 5@-----------@@-Use Boris & Tanya To Defeat The Yuri Prime@-Beware Of Those Sniper Towers@@-Map Can Be Played Single Player or Multi Players@@-----------------------@--Difficulty = Easy--@-----------------------@@By Dctanxman® ~Survival Game Mode Version
 GameMode=standard
 HomeCell=98
 InitTime=10000

@@ -8078,7 +8078,7 @@ TargetDistanceCoefficient=-1
 Name=[2] Survive Death R3 - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing=Human Spots 1 & 2@-----------------------@AI Spot 3@-----------@@-Short Game Must Be Off@-Build Oil For $$$@@-This Map Has Three Rounds@-Lose Everything after Each Round@-Each Round Gets Harder@-Round 1: Allied MCV@-Round 2: Allied & Soviet MCV@-Round 3: Allied & Soviet & Yuri MCV@@------------------------------@--Difficulty = Very Hard--@------------------------------@@By Dctanxman® ~Official Final Version©
+Briefing=Human Spots 1 & 2@-----------------------@AI Spot 3@-----------@@-Short Game Must Be Off@-Build Oil For $$$@@-This Map Has Three Rounds@-Lose Everything after Each Round@-Each Round Gets Harder@-Round 1: Allied MCV@-Round 2: Allied & Soviet MCV@-Round 3: Allied & Soviet & Yuri MCV@@-----------------------------@--Difficulty = Very Hard--@-----------------------------@@By Dctanxman® ~Survival Game Mode Version
 GameMode=standard
 HomeCell=98
 InitTime=10000

@@ -2837,7 +2837,7 @@ TargetDistanceCoefficient=-1
 Name=[5] Battle Fortress Revenge - Dctanxman
 Author=Dctanxman
 Percent=0
-Briefing=Human Spots 1 & 2 & 3 & 4 & 5@-------------------------------------@AI Spot 6@-----------@@-Flying Battlefortress@-Custom Paradrops@@------------------------@--Difficulty = Easy--@------------------------@@By Dctanxman® ~Official Final Version©
+Briefing=Human Spots 1 & 2 & 3 & 4 & 5@-------------------------------------@AI Spot 6@-----------@@-Flying Battlefortress@-Custom Paradrops@@-----------------------@--Difficulty = Easy--@-----------------------@@By Dctanxman® ~Survival Game Mode Version
 GameMode=standard
 HomeCell=98
 InitTime=10000
