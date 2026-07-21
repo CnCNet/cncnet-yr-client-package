@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "clientdx/2.13.2": {
+      "clientdx/2.13.3": {
         "dependencies": {
           "ClientGUI": "1.0.0",
           "ClientUpdater": "1.0.0",
@@ -859,8 +859,8 @@
         },
         "runtime": {
           "ClientCore.dll": {
-            "assemblyVersion": "2.13.2.0",
-            "fileVersion": "2.13.2.0"
+            "assemblyVersion": "2.13.3.0",
+            "fileVersion": "2.13.3.0"
           }
         }
       },
@@ -872,8 +872,8 @@
         },
         "runtime": {
           "ClientGUI.dll": {
-            "assemblyVersion": "2.13.2.0",
-            "fileVersion": "2.13.2.0"
+            "assemblyVersion": "2.13.3.0",
+            "fileVersion": "2.13.3.0"
           }
         }
       },
@@ -884,8 +884,8 @@
         },
         "runtime": {
           "ClientUpdater.dll": {
-            "assemblyVersion": "2.13.2.0",
-            "fileVersion": "2.13.2.0"
+            "assemblyVersion": "2.13.3.0",
+            "fileVersion": "2.13.3.0"
           }
         }
       },
@@ -924,7 +924,7 @@
     }
   },
   "libraries": {
-    "clientdx/2.13.2": {
+    "clientdx/2.13.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
