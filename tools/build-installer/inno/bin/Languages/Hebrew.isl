@@ -12,13 +12,11 @@ LanguageCodePage=1255
 ; If the language you are translating to requires special font faces or
 ; sizes, uncomment any of the following entries and change them accordingly.
 ;DialogFontName=
-;DialogFontSize=8
-;WelcomeFontName=Tahoma
-;WelcomeFontSize=11
-;TitleFontName=Arial
-;TitleFontSize=29
-;CopyrightFontName=Arial
-;CopyrightFontSize=8
+;DialogFontSize=9
+;DialogFontBaseScaleWidth=7
+;DialogFontBaseScaleHeight=15
+;WelcomeFontName=Segoe UI
+;WelcomeFontSize=14
 RightToLeft=yes
 
 [Messages]
@@ -44,7 +42,7 @@ LastErrorMessage=%1.%n%nשגיאה %2: %3
 SetupFileMissing=לא ניתן לאתר את הקובץ %1 בתיקיית ההתקנה. אנא תקן את הבעיה או נסה שוב עם עותק חדש של התוכנה.
 SetupFileCorrupt=קבצי ההתקנה קטועים. אנא נסה להתקין עם עותק חדש של התוכנה.
 SetupFileCorruptOrWrongVer=קבצי ההתקנה קטועים, או שאינם תואמים לגירסה זו של תוכנת ההתקנה. אנא תקן את הבעיה או התקן את התוכנה מהתקנה חדשה.
-InvalidParameter=הוכנס פרמט לא חוקי לשורת הפקודה:%n%n%1
+InvalidParameter=הוכנס פרמטר לא חוקי לשורת הפקודה:%n%n%1
 SetupAlreadyRunning=התקנה אחרת כבר עובדת.
 WindowsVersionNotSupported=תוכנה זו אינה נתמכת במערכת ההפעלה שלך.
 WindowsServicePackRequired=התוכנה דורשת שיהיה מותקן %1 חבילת עדכונים %2 או יותר.
@@ -52,17 +50,17 @@ NotOnThisPlatform=תוכנה זו לא תפעל על %1.
 OnlyOnThisPlatform=תוכנה זו חייבת לפעול על %1.
 OnlyOnTheseArchitectures=ניתן להתקין תוכנה זו רק על גירסאות של 'חלונות' שתוכננות לארכיטקטורות מעבד אלו:%n%n%1
 WinVersionTooLowError=תוכנה זו מצריכה %1 לפחות בגרסה %2.
-WinVersionTooHighError=לא ניתן להתקין תוכנה זו על %1 בגירסה %2 או מאוחרת יותר
+WinVersionTooHighError=לא ניתן להתקין תוכנה זו על %1 בגירסה %2 או מאוחרת יותר.
 AdminPrivilegesRequired=אתה חייב להתחבר כמנהל המחשב כדי להתקין תוכנה זו.
 PowerUserPrivilegesRequired=עליך להתחבר כמנהל המחשב, או כחבר של קבוצת 'משתמשי על' כדי להתקין תוכנה זו.
 SetupAppRunningError=תוכנת ההתקנה איבחנה כי %1 כרגע פועלת ברקע.%n%nאנא סגור את כל החלונות שלה, ולחץ על 'אישור' להמשך, או 'ביטול' ליציאה.
 UninstallAppRunningError=תוכנת ההסרה איבחנה כי %1 כרגע פועלת ברקע.%n%nאנא סגור את כל החלונות שלה, ולחץ על 'אישור' להמשך, או 'ביטול' ליציאה.
 
 ; *** Startup questions
-PrivilegesRequiredOverrideTitle=בחר את מצה ההתקנה
+PrivilegesRequiredOverrideTitle=בחר את מצב ההתקנה
 PrivilegesRequiredOverrideInstruction=בחר מצב התקנה
 PrivilegesRequiredOverrideText1=%1 יכול להיות מותקן עבור כל המשתמשים (נדרש הרשאות מנהל), או עבורך בלבד.
-PrivilegesRequiredOverrideText2=%1 יכול להיות מותקן עבורך בלבד, או עבור על המשתמשים (נדרש הרשאות מנהל).
+PrivilegesRequiredOverrideText2=%1 יכול להיות מותקן עבורך בלבד, או עבור כל המשתמשים (נדרש הרשאות מנהל).
 PrivilegesRequiredOverrideAllUsers=התקן עבור &כל המשתמשים
 PrivilegesRequiredOverrideAllUsersRecommended=התקן עבור &כל המשתמשים (מומלץ)
 PrivilegesRequiredOverrideCurrentUser=התקן רק &עבורי
@@ -77,7 +75,7 @@ ExitSetupTitle=יציאה מההתקנה
 ExitSetupMessage=ההתקנה עוד לא הסתיימה. אם תצא ממנה עכשיו, התוכנה לא תותקן על מחשבך.%n%nבאפשרותך להפעיל את תוכנת ההתקנה בזמן אחר כדי לסיים את תהליך ההתקנה.%n%nהאם אתה בטוח שברצונך לצאת?
 AboutSetupMenuItem=&אודות ההתקנה...
 AboutSetupTitle=אודות ההתקנה
-AboutSetupMessage=%1 גירסה  %2%n%3%n%n%1 דף הבית:%n%4
+AboutSetupMessage=%1 גירסה %2%n%3%n%n%1 דף הבית:%n%4
 AboutSetupNote=
 TranslatorNote=סטילגאר
 
@@ -104,7 +102,7 @@ SelectLanguageLabel=בחר את שפת ההתקנה של תוכנת ההתקנה
 ClickNext=לחץ על 'הבא' כדי להמשיך בתהליך ההתקנה, או 'ביטול' ליציאה.
 BeveledLabel=
 BrowseDialogTitle=בחר תיקיה
-BrowseDialogLabel=בחר תיקיה מהרשימה ולחץ על 'אישור'
+BrowseDialogLabel=בחר תיקיה מהרשימה ולחץ על 'אישור'.
 NewFolderName=תיקיה חדשה
 
 ; *** "Welcome" wizard page
@@ -130,7 +128,7 @@ WizardInfoBefore=מידע
 InfoBeforeLabel=אנא קרא את המידע החשוב הבא לפני המשך ההתקנה.
 InfoBeforeClickLabel=כשתהיה מוכן להמשיך בהתקנה, לחץ על 'הבא'.
 WizardInfoAfter=מידע
-InfoAfterLabel=אנא קרא את המידע החשוב הבא לפני המשך ההתקנה
+InfoAfterLabel=אנא קרא את המידע החשוב הבא לפני המשך ההתקנה.
 InfoAfterClickLabel=כשתהיה מוכן להמשיך בהתקנה, לחץ על 'הבא'.
 
 ; *** "User Information" wizard page
@@ -154,7 +152,7 @@ InvalidPath=עליך לספק נתיב מלא עם אות הכונן; לדוגמ
 InvalidDrive=הכונן או שיתופית ה-UNC שבחרת לא קיימים או שאינם נגישים. אנא בחר כונן או שיתופית אחרים.
 DiskSpaceWarningTitle=שטח פנוי אינו מספיק
 DiskSpaceWarning=דרוש לפחות %1KB שטח דיסק פנוי להתקנה, אך לכונן שנבחר יש רק %2KB זמינים. האם ברצונך להמשיך למרות זאת?
-DirNameTooLong=שם התיקיה או נתיבה ארוך מדי
+DirNameTooLong=שם התיקיה או נתיבה ארוך מדי.
 InvalidDirName=שם התיקיה איננו חוקי.
 BadDirName32=שם התיקיה אינו יכול לכלול תווים אלו:%n%n%1
 DirExistsTitle=התיקיה קיימת
@@ -188,7 +186,7 @@ SelectStartMenuFolderDesc=היכן למקם את קיצורי הדרך לתוכ�
 SelectStartMenuFolderLabel3=תוכנת ההתקנה תיצור קיצורי דרך לתוכנה בתיקיה הבאה בתפריט ה'התחל'.
 SelectStartMenuFolderBrowseLabel=להמשך, לחץ על 'הבא'. אם ברצונך לבחור תיקיה אחרת להתקנה, לחץ על 'עיון'.
 MustEnterGroupName=אתה חייב לציין שם תיקיה.
-GroupNameTooLong=שם התיקיה או נתיבה ארוך מדי
+GroupNameTooLong=שם התיקיה או נתיבה ארוך מדי.
 InvalidGroupName=שם התיקיה אינו בר-תוקף.
 BadGroupName=שם התיקיה אינו יכול לכלול תווים אלו:%n%n%1
 NoProgramGroupCheck2=&אל תיצור תיקיה בתפריט 'התחל'
@@ -197,7 +195,7 @@ NoProgramGroupCheck2=&אל תיצור תיקיה בתפריט 'התחל'
 WizardReady=מוכן להתקנה
 ReadyLabel1=תוכנת ההתקנה מוכנה כעת להתקין את [name] על מחשבך.
 ReadyLabel2a=לחץ על 'התקן' להמשיך בהתקנה, או 'חזור' אם ברצונך לשנות הגדרות כלשהן.
-ReadyLabel2b=לחץ על 'התקן' כדי להמשיך בהתקנה
+ReadyLabel2b=לחץ על 'התקן' כדי להמשיך בהתקנה.
 ReadyMemoUserInfo=פרטי המשתמש:
 ReadyMemoDir=מיקום יעד:
 ReadyMemoType=סוג ההתקנה:
@@ -237,7 +235,7 @@ ApplicationsFound2=היישומים הבאים עושים שימוש בקבצי�
 CloseApplications=&סגור יישומים אוטומטית
 DontCloseApplications=&אל תסגור יישומים אלו
 ErrorCloseApplications=המתקין אינו יכול לסגור אוטומטית את התהליכים. מומלץ שתסגור את כל התוכניות שעושות שימוש בקבצים שנדרשים לעדכון על ידי תהליך ההתקנה ולאחר מכן תמשיך בהתקנה.
-PrepareToInstallNeedsRestart=לצורך השלמת ההתקנה נדרש הפעלה מחדש של המערכת. לאחר שהמחשב יופעל מחדש, הפעל שום את המתקין לצורך השלמת ההתקנה של [name].%n%nתרצה להפעיל מחדש כעת?
+PrepareToInstallNeedsRestart=לצורך השלמת ההתקנה נדרש הפעלה מחדש של המערכת. לאחר שהמחשב יופעל מחדש, הפעל שוב את המתקין לצורך השלמת ההתקנה של [name].%n%nתרצה להפעיל מחדש כעת?
 
 ; *** "Installing" wizard page
 WizardInstalling=מתקין
@@ -312,7 +310,7 @@ SourceDoesntExist=קובץ המקור "%1" אינו קיים
 SourceVerificationFailed=אימות קובץ המקור נכשל: %1
 VerificationSignatureDoesntExist=קובץ החותמת "%1" אינו קיים
 VerificationSignatureInvalid=קובץ החותמת "%1" אינו חוקי
-VerificationKeyNotFound=קובץ החותמת "%1" משצמש במפתח שאינו מוכר
+VerificationKeyNotFound=קובץ החותמת "%1" משתמש במפתח שאינו מוכר
 VerificationFileNameIncorrect=שם הקובץ אינו חוקי
 VerificationFileTagIncorrect=התגית של הקובץ אינה חוקית
 VerificationFileSizeIncorrect=גודל הקובץ אינו חוקי
@@ -327,7 +325,7 @@ FileExistsOverwriteExisting=&החלף את הקובץ הקיים
 FileExistsKeepExisting=&שמור את הקובץ הקיים
 FileExistsOverwriteOrKeepAll=&עשה זאת גם בקבצים הכפולים הבאים
 ExistingFileNewerSelectAction=בחר פעולה
-ExistingFileNewer2=הקובץ הקיים חדש יותר מהקובץ שאותו אתה מנסה להתקין
+ExistingFileNewer2=הקובץ הקיים חדש יותר מהקובץ שאותו אתה מנסה להתקין.
 ExistingFileNewerOverwriteExisting=&החלף את הקובץ הקיים
 ExistingFileNewerKeepExisting=&שמור את הקובץ הקיים (מומלץ)
 ExistingFileNewerOverwriteOrKeepAll=&עשה זאת גם בקבצים הכפולים הבאים
