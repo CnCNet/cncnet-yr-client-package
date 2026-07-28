@@ -9,7 +9,7 @@
 ; two periods being displayed).
 
 [LangOptions]
-; The following three entries are very important. Be sure to read and 
+; The following three entries are very important. Be sure to read and
 ; understand the '[LangOptions] section' topic in the help file.
 LanguageName=தமிழ்
 LanguageID=$0449
@@ -22,10 +22,6 @@ LanguageCodePage=0
 ;DialogFontSize=12
 ;WelcomeFontName=TACBarathi
 ;WelcomeFontSize=12
-;TitleFontName=TACBarathi
-;TitleFontSize=29
-;CopyrightFontName=TACBarathi
-;CopyrightFontSize=12
 
 [Messages]
 
@@ -62,8 +58,8 @@ WinVersionTooLowError=இந்த நிரலுக்கு %1 பதிப�
 WinVersionTooHighError=இந்த நிரலை %1 பதிப்பு %2 அல்லது அதற்குப் பிறகு நிறுவ முடியாது.
 AdminPrivilegesRequired=இந்த நிரலை நிறுவும் போது நீங்கள் நிர்வாகியாக உள்நுழைய வேண்டும்.
 PowerUserPrivilegesRequired=இந்த நிரலை நிறுவும் போது நீங்கள் ஒரு நிர்வாகியாகவோ அல்லது ஆற்றல் பயனர்கள் குழுவின் உறுப்பினராகவோ உள்நுழைந்திருக்க வேண்டும்.
-SetupAppRunningError=%1 தற்போது இயங்குகிறது என்பதை அமைவு கண்டறிந்துள்ளது.%n%n அதன் எல்லா நிகழ்வுகளையும் இப்போது மூடு, பின்னர் தொடர சரி என்பதைக் சொடுக்குக அல்லது வெளியேற ரத்துசெய்.
-UninstallAppRunningError=%1 தற்போது இயங்குகிறது என்பதை நிறுவல் நீக்குதல் கண்டறிந்துள்ளது.%n%n அதன் எல்லா நிகழ்வுகளையும் இப்போது மூடு, பின்னர் தொடர சரி என்பதைக் சொடுக்குக, அல்லது வெளியேற ரத்துசெய்.
+SetupAppRunningError=%1 தற்போது இயங்குகிறது என்பதை அமைவு கண்டறிந்துள்ளது.%n%nஅதன் எல்லா நிகழ்வுகளையும் இப்போது மூடு, பின்னர் தொடர சரி என்பதைக் சொடுக்குக, அல்லது வெளியேற ரத்துசெய்.
+UninstallAppRunningError=%1 தற்போது இயங்குகிறது என்பதை நிறுவல் நீக்குதல் கண்டறிந்துள்ளது.%n%nஅதன் எல்லா நிகழ்வுகளையும் இப்போது மூடு, பின்னர் தொடர சரி என்பதைக் சொடுக்குக, அல்லது வெளியேற ரத்துசெய்.
 
 ; *** Startup questions
 PrivilegesRequiredOverrideTitle=அமைவு நிறுவல் பயன்முறையைத் தேர்ந்தெடுக்கவும்
@@ -85,7 +81,7 @@ ExitSetupMessage=அமைப்பு முழுமையடையவில�
 AboutSetupMenuItem=அமைப்பு பற்றி...
 AboutSetupTitle=அமைப்பு பற்றி
 AboutSetupMessage=%1 பதிப்பு %2%n%3%n%n%1 முகப்பு பக்கம்:%n%4
-AboutSetupNote=அமைப்பு குறிப்பு
+AboutSetupNote=
 TranslatorNote=தமிழ்நேரக்குழு(https://TamilNeram.github.io)
 
 ; *** Buttons
@@ -135,10 +131,10 @@ LicenseNotAccepted=நான் ஒப்பந்தத்தை ஏற்க�
 ; *** "Information" wizard pages
 WizardInfoBefore=தகவல்
 InfoBeforeLabel=தொடர்வதற்கு முன் பின்வரும் முக்கியமான தகவல்களைப் படியுங்கள்.
-InfoBeforeClickLabel=அமைப்பைத் தொடர நீங்கள் தயாராக இருக்கும்போது, ​​அடுத்து என்பதைக் சொடுக்குக.
+InfoBeforeClickLabel=அமைப்பைத் தொடர நீங்கள் தயாராக இருக்கும்போது, அடுத்து என்பதைக் சொடுக்குக.
 WizardInfoAfter=தகவல்
 InfoAfterLabel=தொடர்வதற்கு முன் பின்வரும் முக்கியமான தகவல்களைப் படியுங்கள்.
-InfoAfterClickLabel=அமைப்பைத் தொடர நீங்கள் தயாராக இருக்கும்போது, ​​அடுத்து என்பதைக் சொடுக்குக.
+InfoAfterClickLabel=அமைப்பைத் தொடர நீங்கள் தயாராக இருக்கும்போது, அடுத்து என்பதைக் சொடுக்குக.
 
 ; *** "User Information" wizard page
 WizardUserInfo=பயனர் செய்தி
@@ -154,13 +150,13 @@ SelectDirDesc=[name] எங்கே நிறுவப்பட வேண்ட
 SelectDirLabel3=அமைவு பின்வரும் கோப்புறையில் [name] நிறுவப்படும்.
 SelectDirBrowseLabel=தொடர, அடுத்து என்பதைக் சொடுக்குக. நீங்கள் வேறு கோப்புறையைத் தேர்ந்தெடுக்க விரும்பினால், உலாவு என்பதைக் சொடுக்குக.
 DiskSpaceGBLabel=இலவச வட்டு இடத்தின் குறைந்தபட்சம் [gb] சிபை தேவை.
-DiskSpaceMBLabel=இலவச வட்டு இடத்தின் குறைந்தபட்சம் [mb] மெபை தேவை. 
+DiskSpaceMBLabel=இலவச வட்டு இடத்தின் குறைந்தபட்சம் [mb] மெபை தேவை.
 CannotInstallToNetworkDrive=பிணைய இயக்ககத்திற்கு அமைவு நிறுவ முடியாது.
 CannotInstallToUNCPath=அமைவு ஒரு யுஎன்சி பாதையில் நிறுவ முடியாது.
-InvalidPath=இயக்கி எழுத்துடன் முழு பாதையை உள்ளிட வேண்டும்; எடுத்துக்காட்டாக:%n%nசி:\ பயனபாடு%n%nஅல்லது ஒரு யுஎன்சி வடிவத்தில் பாதை:%n%n\\சேவையகம்\பகிர்
+InvalidPath=இயக்கி எழுத்துடன் முழு பாதையை உள்ளிட வேண்டும்; எடுத்துக்காட்டாக:%n%nசி:\பயனபாடு%n%nஅல்லது ஒரு யுஎன்சி வடிவத்தில் பாதை:%n%n\\சேவையகம்\பகிர்
 InvalidDrive=நீங்கள் தேர்ந்தெடுத்த இயக்கி அல்லது யுஎன்சி பகிர்வு இல்லை அல்லது அணுக முடியாது. மற்றொன்றைத் தேர்ந்தெடுக்கவும்.
 DiskSpaceWarningTitle=போதுமான வட்டு இடம் இல்லை
-DiskSpaceWarning=அமைப்புக்கு நிறுவ குறைந்தபட்சம்  %1 கிபை இலவச இடம் தேவைப்படுகிறது, ஆனால் தேர்ந்தெடுக்கப்பட்ட இயக்ககத்தில் %2 கிபை மட்டுமே கிடைக்கிறது. %n%nநீங்கள் எப்படியும் தொடர விரும்புகிறீர்களா?
+DiskSpaceWarning=அமைப்புக்கு நிறுவ குறைந்தபட்சம் %1 கிபை இலவச இடம் தேவைப்படுகிறது, ஆனால் தேர்ந்தெடுக்கப்பட்ட இயக்ககத்தில் %2 கிபை மட்டுமே கிடைக்கிறது.%n%nநீங்கள் எப்படியும் தொடர விரும்புகிறீர்களா?
 DirNameTooLong=கோப்புறை பெயர் அல்லது பாதை மிக நீளமானது.
 InvalidDirName=கோப்புறை பெயர் செல்லுபடியாகாது.
 BadDirName32=கோப்புறை பெயர்கள் பின்வரும் எழுத்துக்களில் எதையும் சேர்க்க முடியாது:%n%n%1
@@ -187,7 +183,7 @@ ComponentsDiskSpaceMBLabel=தற்போதைய தேர்வுக்க�
 ; *** "Select Additional Tasks" wizard page
 WizardSelectTasks=கூடுதல் பணிகளைத் தேர்ந்தெடுக்கவும்
 SelectTasksDesc=எந்த கூடுதல் பணிகள் செய்யப்பட வேண்டும்?
-SelectTasksLabel2=[name]நிறுவும் போது நீங்கள் அமைக்க விரும்பும் கூடுதல் பணிகளைத் தேர்ந்தெடுக்கவும், பின்னர் அடுத்து என்பதைக் சொடுக்குக.
+SelectTasksLabel2=[name] நிறுவும் போது நீங்கள் அமைக்க விரும்பும் கூடுதல் பணிகளைத் தேர்ந்தெடுக்கவும், பின்னர் அடுத்து என்பதைக் சொடுக்குக.
 
 ; *** "Select Start Menu Folder" wizard page
 WizardSelectProgramGroup=தொடக்க பட்டியல் கோப்புறையைத் தேர்ந்தெடுக்கவும்
@@ -221,7 +217,7 @@ ErrorDownloadAborted=பதிவிறக்கம் நிறுத்தப�
 ErrorDownloadFailed=பதிவிறக்கம் தோல்வியுற்றது: %1 %2
 ErrorDownloadSizeFailed=அளவு தோல்வியுற்றது: %1 %2
 ; ErrorFileHash1=கோப்பு ஆச் தோல்வியுற்றது: %1
-; ErrorFileHash2=தவறான கோப்பு ஆச்: எதிர்பார்க்கப்பட்டது %1,காணப்பட்டது %2 
+; ErrorFileHash2=தவறான கோப்பு ஆச்: எதிர்பார்க்கப்பட்டது %1,காணப்பட்டது %2
 ErrorProgress=தவறான முன்னேற்றம்: %2 இல் %1
 ErrorFileSize=தவறான கோப்பு அளவு: எதிர்பார்க்கப்பட்டது %1, காணப்பட்டது %2
 
@@ -251,15 +247,15 @@ PrepareToInstallNeedsRestart=அமைவு உங்கள் கணினி�
 
 ; *** "Installing" wizard page
 WizardInstalling=நிறுவுகிறது
-InstallingLabel=உங்கள் கணினியில் அமைவு [name] நிறுவும் போது காத்திருங்கள்
+InstallingLabel=உங்கள் கணினியில் அமைவு [name] நிறுவும் போது காத்திருங்கள்.
 
 ; *** "Setup Completed" wizard page
 FinishedHeadingLabel=[name] அமைவு வழிகாட்டி நிறைவு
-FinishedLabelNoIcons=அமைவு உங்கள் கணினியில் [name] நிறுவலை முடித்துவிட்டது. 
+FinishedLabelNoIcons=அமைவு உங்கள் கணினியில் [name] நிறுவலை முடித்துவிட்டது.
 FinishedLabel=அமைவு உங்கள் கணினியில் [name] நிறுவலை முடித்துவிட்டது. நிறுவப்பட்ட குறுக்குவழிகளைத் தேர்ந்தெடுப்பதன் மூலம் பயன்பாடு தொடங்கப்படலாம்.
 ClickFinish=அமைப்பிலிருந்து வெளியேற முடி என்பதைக் சொடுக்கவும்.
 FinishedRestartLabel=[name] நிறுவலை முடிக்க, அமைவு உங்கள் கணினியை மறுதொடக்கம் செய்ய வேண்டும். இப்போது மறுதொடக்கம் செய்ய விரும்புகிறீர்களா?
-FinishedRestartMessage=[name] நிறுவலை முடிக்க, அமைவு உங்கள் கணினியை மறுதொடக்கம் செய்ய வேண்டும்.%n%n நீங்கள் இப்போது மறுதொடக்கம் செய்ய விரும்புகிறீர்களா?
+FinishedRestartMessage=[name] நிறுவலை முடிக்க, அமைவு உங்கள் கணினியை மறுதொடக்கம் செய்ய வேண்டும்.%n%nநீங்கள் இப்போது மறுதொடக்கம் செய்ய விரும்புகிறீர்களா?
 ShowReadmeCheck=ஆம், நான் என்னைபடி கோப்பைக் காண விரும்புகிறேன்
 YesRadio=ஆம், இப்போது கணினியை மறுதொடக்கம் செய்
 NoRadio=இல்லை, நான் பின்னர் கணினியை மறுதொடக்கம் செய்வேன்
@@ -270,13 +266,13 @@ RunEntryShellExec=காண்க %1
 
 ; *** "Setup Needs the Next Disk" stuff
 ChangeDiskTitle=அமைப்பிற்கு அடுத்த வட்டு தேவை
-SelectDiskLabel2=தயவுசெய்து வட்டு%1 ஐச் செருகவும், பிறகு சரி என்பதைக் சொடுக்கவும்.%n%nஇந்த வட்டில் உள்ள கோப்புகளை கீழே காட்டப்பட்டுள்ளதைத் தவிர வேறு கோப்புறையில் காண்டால், சரியான பாதையை உள்ளிடவும் அல்லது உலாவலைக் சொடுக்கவும்.
+SelectDiskLabel2=தயவுசெய்து வட்டு %1 ஐச் செருகவும், பிறகு சரி என்பதைக் சொடுக்கவும்.%n%nஇந்த வட்டில் உள்ள கோப்புகளை கீழே காட்டப்பட்டுள்ளதைத் தவிர வேறு கோப்புறையில் காண்டால், சரியான பாதையை உள்ளிடவும் அல்லது உலாவலைக் சொடுக்கவும்.
 PathLabel=பாதை:
 FileNotInDir2="%1" கோப்பை "%2" இல் கண்டுபிடிக்க முடியவில்லை. சரியான வட்டை செருகவும் அல்லது மற்றொரு கோப்புறையைத் தேர்ந்தெடுக்கவும்.
 SelectDirectoryLabel=அடுத்த வட்டின் இருப்பிடத்தைக் குறிப்பிடவும்.
 
 ; *** Installation phase messages
-SetupAborted=அமைவு முடிக்கப்படவில்லை.%n%nசிக்கலை சரிசெய்து மீண்டும் அமைப்பை இயக்கவும்..
+SetupAborted=அமைவு முடிக்கப்படவில்லை.%n%nசிக்கலை சரிசெய்து மீண்டும் அமைப்பை இயக்கவும்.
 AbortRetryIgnoreSelectAction=செயலைத் தேர்ந்தெடுக்கவும்
 AbortRetryIgnoreRetry=மீண்டும் முயற்சிக்கவும்
 AbortRetryIgnoreIgnore=பிழையை புறக்கணித்து தொடரவும்
@@ -307,9 +303,9 @@ ErrorFunctionFailedWithMessage=%1 தோல்வியுற்றது; க�
 ErrorExecutingProgram=கோப்பை இயக்க முடியவில்லை:%n%1
 
 ; *** Registry errors
-ErrorRegOpenKey=பதிவேட்டில்  திறவுகோல் திறப்புப் பிழை:%n%1 \%2
-ErrorRegCreateKey=பதிவேட்டில் திறவுகோல் உருவாக்கும் பிழை:%n%1 \%2
-ErrorRegWriteKey=பதிவேட்டில் திறவுகோல் எழுதுதல் பிழை:%n%1 \%2
+ErrorRegOpenKey=பதிவேட்டில் திறவுகோல் திறப்புப் பிழை:%n%1\%2
+ErrorRegCreateKey=பதிவேட்டில் திறவுகோல் உருவாக்கும் பிழை:%n%1\%2
+ErrorRegWriteKey=பதிவேட்டில் திறவுகோல் எழுதுதல் பிழை:%n%1\%2
 
 ; *** INI errors
 ErrorIniEntry="%1" கோப்பில் ஐஎன்ஐ உள்ளீட்டை உருவாக்குவது பிழை.
@@ -322,11 +318,11 @@ SourceDoesntExist=மூல கோப்பு "%1" இல்லை
 SourceVerificationFailed=மூலக் கோப்பின் சரிபார்ப்பு தோல்வியடைந்தது: %1
 VerificationSignatureDoesntExist="%1" என்ற கையொப்பக் கோப்பு இல்லை
 VerificationSignatureInvalid="%1" என்ற கையொப்பக் கோப்பு செல்லாதது
-VerificationKeyNotFound="%1" என்ற கையொப்பக் கோப்பு அறியப்படாத ஒரு விசையைப் பயன்படுத்துகிறது.
-VerificationFileNameIncorrect=கோப்பின் பெயர் தவறானது.
-VerificationFileTagIncorrect=கோப்பின் குறிச்சொல் தவறானது.
-VerificationFileSizeIncorrect=கோப்பின் அளவு தவறானது.
-VerificationFileHashIncorrect=கோப்பின் கொத்து தவறானது.
+VerificationKeyNotFound="%1" என்ற கையொப்பக் கோப்பு அறியப்படாத ஒரு விசையைப் பயன்படுத்துகிறது
+VerificationFileNameIncorrect=கோப்பின் பெயர் தவறானது
+VerificationFileTagIncorrect=கோப்பின் குறிச்சொல் தவறானது
+VerificationFileSizeIncorrect=கோப்பின் அளவு தவறானது
+VerificationFileHashIncorrect=கோப்பின் கொத்து தவறானது
 ExistingFileReadOnly2=தற்போதுள்ள கோப்பை மாற்ற முடியாது, ஏனெனில் அது படிக்க மட்டும் குறிக்கப்பட்டுள்ளது.
 ExistingFileReadOnlyRetry=படிக்க மட்டும் பண்புக்கூறு அகற்றி மீண்டும் முயற்சிக்கவும்
 ExistingFileReadOnlyKeepExisting=இருக்கும் கோப்பை வைத்திருங்கள்
@@ -375,7 +371,7 @@ UninstallUnsupportedVer=நிறுவல் நீக்குபவரின�
 UninstallUnknownEntry=நீக்குதல் பதிவில் அறியப்படாத நுழைவு (%1) எதிர்கொள்ளப்பட்டது
 ConfirmUninstall=%1 மற்றும் அதன் அனைத்து கூறுகளையும் முழுவதுமாக அகற்ற விரும்புகிறீர்களா?
 UninstallOnlyOnWin64=இந்த நிறுவலை 64-இரும சாளரங்களில் மட்டுமே நீக்க முடியும்.
-OnlyAdminCanUninstall=இந்த நிறுவலை நிர்வாக சலுகைகளைக் கொண்ட பயனரால் மட்டுமே  நீக்க முடியும்.
+OnlyAdminCanUninstall=இந்த நிறுவலை நிர்வாக சலுகைகளைக் கொண்ட பயனரால் மட்டுமே நீக்க முடியும்.
 UninstallStatusLabel=உங்கள் கணினியிலிருந்து %1 அகற்றப்படும் போது காத்திருங்கள்.
 UninstalledAll=உங்கள் கணினியிலிருந்து %1 வெற்றிகரமாக அகற்றப்பட்டது.
 UninstalledMost=%1 நீக்குதல் முழுமையானது.%n%nசில கூறுகளை அகற்ற முடியவில்லை. இவற்றை கைமுறையாக அகற்றலாம்.
@@ -384,7 +380,7 @@ UninstallDataCorrupted="%1" கோப்பு சிதைந்துள்ள
 
 ; *** Uninstallation phase messages
 ConfirmDeleteSharedFileTitle=பகிரப்பட்ட கோப்பை அகற்றவா?
-ConfirmDeleteSharedFile2=எந்தவொரு நிரலாலும் பின்வரும் பகிரப்பட்ட கோப்பு இனி பயன்பாட்டில் இல்லை என்பதை கணினி குறிக்கிறது. இந்த பகிரப்பட்ட கோப்பை நீக்க விரும்புகிறீர்களா?%n%nஎந்த நிரல்களும் இந்த கோப்பைப் பயன்படுத்தி , அது அகற்றப்பட்டால், அந்த நிரல்கள் சரியாக செயல்படாது. உங்களுக்குத் தெரியாவிட்டால், உங்கள் கணினியில் கோப்பை விட்டு வெளியேறுவது இல்லை என்பதைத் தேர்வுசெய்க.
+ConfirmDeleteSharedFile2=எந்தவொரு நிரலாலும் பின்வரும் பகிரப்பட்ட கோப்பு இனி பயன்பாட்டில் இல்லை என்பதை கணினி குறிக்கிறது. இந்த பகிரப்பட்ட கோப்பை நீக்க விரும்புகிறீர்களா?%n%nஎந்த நிரல்களும் இந்த கோப்பைப் பயன்படுத்தி, அது அகற்றப்பட்டால், அந்த நிரல்கள் சரியாக செயல்படாது. உங்களுக்குத் தெரியாவிட்டால், உங்கள் கணினியில் கோப்பை விட்டு வெளியேறுவது இல்லை என்பதைத் தேர்வுசெய்க.
 SharedFileNameLabel=கோப்பு பெயர்:
 SharedFileLocationLabel=இடம்:
 WizardUninstalling=நீக்குதல் நிலை
@@ -392,7 +388,7 @@ StatusUninstalling=%1ஐ நீக்குகிறது...
 
 ; *** Shutdown block reasons
 ShutdownBlockReasonInstallingApp=%1ஐ நிறுவுகிறது.
-ShutdownBlockReasonUninstallingApp=%1ஐ நீக்குகிறது....
+ShutdownBlockReasonUninstallingApp=%1ஐ நீக்குகிறது.
 
 ; The custom messages below aren't used by Setup itself, but if you make
 ; use of them in your scripts, you'll want to translate them.

@@ -23,13 +23,11 @@ LanguageCodePage=1251
 ; If the language you are translating to requires special font faces or
 ; sizes, uncomment any of the following entries and change them accordingly.
 ;DialogFontName=
-;DialogFontSize=8
-;WelcomeFontName=Verdana
-;WelcomeFontSize=12
-;TitleFontName=Arial
-;TitleFontSize=29
-;CopyrightFontName=Arial
-;CopyrightFontSize=8
+;DialogFontSize=9
+;DialogFontBaseScaleWidth=7
+;DialogFontBaseScaleHeight=15
+;WelcomeFontName=Segoe UI
+;WelcomeFontSize=14
 
 [Messages]
 
@@ -53,7 +51,7 @@ HelpTextNote=
 ; *** Startup error messages
 LastErrorMessage=%1.%n%nПомилка %2: %3
 SetupFileMissing=Файл %1 відсутній у теці встановлення. Будь ласка, виправте цю помилку або отримайте нову копію програми.
-SetupFileCorrupt=Файли встановлення пошкоджені. Будь ласка, завантажте нову копію програми.
+SetupFileCorrupt=Файли встановлення пошкоджені. Будь ласка, отримайте нову копію програми.
 SetupFileCorruptOrWrongVer=Файли встановлення пошкоджені або несумісні з цією версією програми встановлення. Будь ласка, виправте цю помилку або отримайте нову копію програми.
 InvalidParameter=Командний рядок містить неприпустимий параметр:%n%n%1
 SetupAlreadyRunning=Програма встановлення вже запущена.
@@ -64,8 +62,8 @@ OnlyOnThisPlatform=Цю програму можна запускати лише 
 OnlyOnTheseArchitectures=Ця програма може бути встановлена лише на комп'ютерах під управлінням Windows для наступних архітектур процесорів:%n%n%1
 WinVersionTooLowError=Ця програма вимагає %1 версії %2 або більш пізню версію.
 WinVersionTooHighError=Ця програма не може бути встановлена на %1 версії %2 або більш пізню версію.
-AdminPrivilegesRequired=Щоб встановити цю програму ви повинні увійти до системи як адміністратор.
-PowerUserPrivilegesRequired=Щоб встановити цю програму ви повинні увійти до системи як адміністратор або як член групи «Досвідчені користувачі».
+AdminPrivilegesRequired=Щоб встановити цю програму, ви повинні увійти до системи як адміністратор.
+PowerUserPrivilegesRequired=Щоб встановити цю програму, ви повинні увійти до системи як адміністратор або як член групи «Досвідчені користувачі».
 SetupAppRunningError=Виявлено, що %1 вже запущено.%n%nБудь ласка, закрийте всі копії програми та натисніть «OK» для продовження, або «Скасувати» для виходу.
 UninstallAppRunningError=Виявлено, що %1 вже запущено.%n%nБудь ласка, закрийте всі копії програми та натисніть «OK» для продовження, або «Скасувати» для виходу.
 
@@ -115,7 +113,7 @@ SelectLanguageLabel=Виберіть мову, яка буде використ�
 ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.
 BeveledLabel=
 BrowseDialogTitle=Огляд тек
-BrowseDialogLabel=Виберіть теку зі списку та натисніть «ОК».
+BrowseDialogLabel=Виберіть теку зі списку та натисніть «OK».
 NewFolderName=Нова тека
 
 ; *** "Welcome" wizard page
@@ -131,7 +129,7 @@ IncorrectPassword=Ви ввели неправильний пароль. Буд�
 
 ; *** "License Agreement" wizard page
 WizardLicense=Ліцензійна угода
-LicenseLabel=Будь ласка, прочитайте ліцензійну угоду.
+LicenseLabel=Будь ласка, прочитайте наступну важливу інформацію, перш ніж продовжити.
 LicenseLabel3=Будь ласка, прочитайте ліцензійну угоду. Ви повинні прийняти умови цієї угоди, перш ніж продовжити встановлення.
 LicenseAccepted=Я &приймаю умови угоди
 LicenseNotAccepted=Я &не приймаю умови угоди
@@ -176,7 +174,7 @@ DirDoesntExist=Тека:%n%n%1%n%nне існує. Ви бажаєте ство�
 ; *** "Select Components" wizard page
 WizardSelectComponents=Вибір компонентів
 SelectComponentsDesc=Які компоненти ви бажаєте встановити?
-SelectComponentsLabel2=Виберіть компоненти, які ви бажаєте встановити; зніміть відмітку з компонентів які ви не бажаєте встановлювати. Натисніть «Далі», щоб продовжити.
+SelectComponentsLabel2=Виберіть компоненти, які ви бажаєте встановити; зніміть відмітку з компонентів, які ви не бажаєте встановлювати. Натисніть «Далі», щоб продовжити.
 FullInstallation=Повне встановлення
 ; if possible don't translate 'Compact' as 'Minimal' (I mean 'Minimal' in your language)
 CompactInstallation=Компактне встановлення
@@ -191,7 +189,7 @@ ComponentsDiskSpaceMBLabel=Даний вибір вимагає щонаймен
 ; *** "Select Additional Tasks" wizard page
 WizardSelectTasks=Вибір додаткових завдань
 SelectTasksDesc=Які додаткові завдання ви бажаєте виконати?
-SelectTasksLabel2=Виберіть додаткові завдання які програма встановлення [name] повинна виконати, потім натисніть «Далі».
+SelectTasksLabel2=Виберіть додаткові завдання, які програма встановлення [name] повинна виконати, потім натисніть «Далі».
 
 ; *** "Select Start Menu Folder" wizard page
 WizardSelectProgramGroup=Вибір теки в меню «Пуск»
@@ -235,7 +233,7 @@ ErrorExtractionFailed=Помилка розпакування: %1
 
 ; *** Archive extraction failure details
 ArchiveIncorrectPassword=Пароль невірний
-ArchiveIsCorrupted=Архів зіпсований
+ArchiveIsCorrupted=Архів пошкоджений
 ArchiveUnsupportedFormat=Формат архіву не підтримується
 
 ; *** "Preparing to Install" wizard page
@@ -248,7 +246,7 @@ ApplicationsFound2=Наступні програми використовуют�
 CloseApplications=&Автоматично закрити програми
 DontCloseApplications=&Не закривати програми
 ErrorCloseApplications=Програма встановлення не може автоматично закрити всі програми. Рекомендується закрити всі програми, що використовують файли, які повинні бути оновлені програмою встановлення, перш ніж продовжити.
-PrepareToInstallNeedsRestart=Програмі встановлення необхідно перезавантажити ваш ПК. Після перезавантаження ПК, запустіть встановлення знову для завершення встановлення [name]%n%nВи бажаєте перезавантажити зараз?
+PrepareToInstallNeedsRestart=Програмі встановлення необхідно перезавантажити ваш ПК. Після перезавантаження ПК, запустіть встановлення знову для завершення встановлення [name].%n%nВи бажаєте перезавантажити зараз?
 
 ; *** "Installing" wizard page
 WizardInstalling=Встановлення
@@ -323,7 +321,7 @@ SourceDoesntExist=Вихідний файл "%1" не існує
 SourceVerificationFailed=Перевірка вихідного файлу не вдалася: %1
 VerificationSignatureDoesntExist=Файл підпису "%1" не існує
 VerificationSignatureInvalid=Файл підпису "%1" є недійсним
-VerificationKeyNotFound=Файл підпису "%1" "%1" використовує невідомий ключ
+VerificationKeyNotFound=Файл підпису "%1" використовує невідомий ключ
 VerificationFileNameIncorrect=Ім'я файлу невірне
 VerificationFileTagIncorrect=Тег файлу невірний
 VerificationFileSizeIncorrect=Розмір файлу невірний
@@ -338,7 +336,7 @@ FileExistsOverwriteExisting=&Замінити існуючий файл
 FileExistsKeepExisting=&Зберегти існуючий файл
 FileExistsOverwriteOrKeepAll=&Повторити дію для всіх подальших конфліктів
 ExistingFileNewerSelectAction=Виберіть дію
-ExistingFileNewer2=Існуючий файл новіший, ніж встановлюваємий.
+ExistingFileNewer2=Існуючий файл новіший, ніж встановлюваний.
 ExistingFileNewerOverwriteExisting=&Замінити існуючий файл
 ExistingFileNewerKeepExisting=&Зберегти існуючий файл (рекомендується)
 ExistingFileNewerOverwriteOrKeepAll=&Повторити дію для всіх подальших конфліктів
@@ -411,4 +409,4 @@ AssocFileExtension=&Асоціювати %1 з розширенням файлу
 AssocingFileExtension=Асоціювання %1 з розширенням файлу %2...
 AutoStartProgramGroupDescription=Автозавантаження:
 AutoStartProgram=Автоматично завантажувати %1
-AddonHostProgramNotFound=%1 не знайдений у вказаній вами теці%n%nВи все одно бажаєте продовжити?
+AddonHostProgramNotFound=%1 не знайдений у вказаній вами теці.%n%nВи все одно бажаєте продовжити?
