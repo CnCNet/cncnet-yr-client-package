@@ -520,25 +520,9 @@
             If yes, the input event is not forwarded on to parent controls.
             </summary>
         </member>
-        <member name="T:Rampastring.XNAUI.PlatformSpecific.FileDropEventArgs">
-            <summary>
-            Event arguments for files dropped onto the game window.
-            </summary>
-        </member>
-        <member name="P:Rampastring.XNAUI.PlatformSpecific.FileDropEventArgs.FilePaths">
-            <summary>
-            The full paths of the dropped files.
-            </summary>
-        </member>
         <member name="T:Rampastring.XNAUI.PlatformSpecific.WindowsGameWindowManager">
             <summary>
             Manages the game window on Windows.
-            </summary>
-        </member>
-        <member name="E:Rampastring.XNAUI.PlatformSpecific.WindowsGameWindowManager.FilesDropped">
-            <summary>
-            Raised when one or more files are dropped onto the game window.
-            The event argument contains the full paths of the dropped files.
             </summary>
         </member>
         <member name="M:Rampastring.XNAUI.PlatformSpecific.WindowsGameWindowManager.CenterOnScreen">
@@ -825,12 +809,6 @@
             <summary>
             Raised when the size of the game window has been changed by the user or the operating system.
             This event is not raised by calling <see cref="M:Rampastring.XNAUI.WindowManager.InitGraphicsMode(System.Int32,System.Int32,System.Boolean)"/>.
-            </summary>
-        </member>
-        <member name="E:Rampastring.XNAUI.WindowManager.FilesDropped">
-            <summary>
-            Raised when one or more files are dropped onto the game window.
-            Only supported on WinForms-based engine configurations.
             </summary>
         </member>
         <member name="P:Rampastring.XNAUI.WindowManager.Cursor">
@@ -3440,13 +3418,6 @@
         <member name="T:Rampastring.XNAUI.XNAUIConstants">
             <summary>
             A class that contains constants reused across different XNAUI elements.
-            </summary>
-        </member>
-        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
-            <summary>
-            Polyfill for the compiler-required <c>IsExternalInit</c> type, which is needed for
-            <c>init</c>-only setters and records but is not present in .NET Framework / .NET Standard.
-            Only compiled for target frameworks older than .NET 5.
             </summary>
         </member>
         <member name="T:Windows.Win32.PInvoke">
