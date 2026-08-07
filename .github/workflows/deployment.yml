@@ -9,6 +9,7 @@ on:
       - develop
       - pre-release
       - legacy
+      - canary
       - feature/*
       - hotfix/*
 
