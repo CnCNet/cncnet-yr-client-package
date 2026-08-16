@@ -48,6 +48,6 @@ export function createConstants(workingDir: string) {
             updateExecFilePath,
             winePrefixPath,
         },
-        excludedInstallerFiles: [preUpdateExecFilename, updateExecFilename, 'versionconfig.ini', 'RA2MD.ini'],
+        excludedInstallerFiles: [preUpdateExecFilename, updateExecFilename, 'versionconfig.ini', 'RA2MD.INI'],
     };
 }

@@ -28,7 +28,7 @@
 /package/QM/*.txt
 /package/Qt/QM/
 /package/ra2.mix
-/package/RA2MD.ini
+/package/RA2MD.INI
 /package/ra2md.mix
 /package/ra2mode.mix
 /package/Saved Games/*.SAV
@@ -75,6 +75,6 @@ package/KeyboardMD.ini
 /spawnmap.ini
 /ddraw.ini
 /ddraw.dll
-/RA2MD.ini
+/RA2MD.INI
 /version_u
 /docs/specs/
