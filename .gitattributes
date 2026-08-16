@@ -1,7 +1,5 @@
 # Shell scripts require LF
 *.sh  text eol=lf
-package/YRLauncherUnix.sh text eol=lf
-package/Resources/YRLauncherUnix.sh text eol=lf
 *.ps1 eol=lf
 
 # Batch scripts require CRLF
