@@ -7633,7 +7633,7 @@ MinDebris=1
 [Actions]
 01000188=1,14,0,4475,0,0,0,0,A
 01000190=1,14,0,4476,0,0,0,0,A
-01000194=4,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A,11,4,NOSTR:You Can Download,0,0,0,0,A,11,4,NOSTR:All My Original Maps,0,0,0,0,A,11,4,NOSTR:On...CnCnet.org/forums,0,0,0,0,A
+01000194=1,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A
 01000196=2,27,0,300,0,0,0,0,A,103,4,MISSION:C13Timer,0,0,0,0,
 01000198=4,27,0,1010,0,0,0,0,A,103,4,vox:csof013,0,0,0,0,A,21,6,EVA_TimerStarted,0,0,0,0,A,11,4,NOSTR:Round One Started,0,0,0,0,A
 01000202=4,11,4,Welcome.To.Survive.Death.R3,0,0,0,0,A,11,4,This.Map.Has.Three.Rounds,0,0,0,0,A,11,4,Each.Round.Gets.harder,0,0,0,0,A,11,4,Can.You.Survive.Three.Rounds,0,0,0,0,A
@@ -7969,6 +7969,38 @@ Insignificant=yes
 RadarInvisible=yes
 ProduceCashDelay=100
 ProduceCashAmount=20
+
+[CAOILD]
+Cost=300
+Name=Tech Oil Derrick
+Armor=steel
+Owner=Americans,Alliance,French,Germans,British,Africans,Arabs,Confederation,Russians,YuriCountry
+Sight=6
+Points=5
+UIName=Name:CAOILD
+Nominal=yes
+BuildCat=Tech
+Explodes=no
+Strength=1000
+Explosion=INVISO
+MaxDebris=2
+MinDebris=1
+TechLevel=1
+Capturable=no
+Unsellable=yes
+DeathWeapon=OilExplosion
+DebrisAnims=DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM,DBRIS6SM,DBRIS7LG,DBRIS7SM
+LeaveRubble=no
+SelfHealing=yes
+Prerequisite=BARRACKS
+RadarVisible=yes
+WorkingSound=OilDerrickLoop
+Insignificant=no
+NeedsEngineer=no
+CaptureEvaEvent=EVA_OilRefineryCaptured
+ProduceCashDelay=40
+ProduceCashAmount=120
+ProduceCashStartup=0
 
 [CAOS]
 Speed=10
@@ -8372,7 +8404,7 @@ AnimList=INVISO
 01000664=1,13,0,13
 
 [FA2spVersionControl]
-Version=145
+Version=147
 
 [FLAKT]
 Speed=6
@@ -8386,9 +8418,11 @@ TargetDistanceCoefficient=-1
 
 [ForcedOptions]
 chkNoSpy=false
+chkCrates=true
 chkNoYuri=false
 chkRA2Mode=false
 cmbCredits=0
+chkBrutalAI=true
 chkMultiEng=false
 chkNoFrance=false
 chkRedeplMCV=true
@@ -8400,18 +8434,16 @@ chkBuildOffAlly=false
 chkDestrBridges=false
 chkNoDogEngiEat=false
 chkNoStolenTech=false
+chkSuperWeapons=false
+cmbGameSpeedCap=2
 chkIngameAllying=false
 cmbStartingUnits=10
+chkNoYuriNoFrance=false
 cmbCratesModifier=1
 chkNoSpawnPreviews=false
 cmbGameSpeedCapSkirmish=2
 cmbSuperWeaponsModifier=2
 cmbGameSpeedCapMultiplayer=2
-chkCrates=true
-chkSuperWeapons=false
-chkNoYuriNoFrance=false
-cmbGameSpeedCap=2
-chkBrutalAI=true
 
 [French]
 IQ=0
@@ -8430,7 +8462,7 @@ Crewed=no
 Explosion=INVISO
 MaxDebris=2
 MinDebris=1
-Prerequisite=NAPSYB,GACNST
+Prerequisite=CAOILD,GACNST
 RequiredHouses=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
 ForbiddenHouses=Neutral
 
@@ -8451,7 +8483,7 @@ Crewed=no
 Explosion=INVISO
 MaxDebris=2
 MinDebris=1
-Prerequisite=NAPSYB,GACNST
+Prerequisite=CAOILD,GACNST
 
 [GAFWLL]
 Explosion=INVISO
@@ -8523,7 +8555,7 @@ Crewed=no
 Explosion=INVISO
 MaxDebris=2
 MinDebris=1
-Prerequisite=NAPSYB,GACNST
+Prerequisite=CAOILD,GACNST
 
 [GAWALL]
 Explosion=INVISO
@@ -9569,7 +9601,7 @@ Crewed=no
 Explosion=INVISO
 MaxDebris=2
 MinDebris=1
-Prerequisite=NAPSYB,NACNST
+Prerequisite=CAOILD,NACNST
 
 [NAFLAK]
 Explosion=INVISO
@@ -9625,43 +9657,12 @@ Explosion=INVISO
 MaxDebris=2
 MinDebris=1
 
-[NAPSYB]
-Cost=300
-Name=Tech Oil Derrick
-Armor=steel
-Image=CAOILD
-Owner=Americans,Alliance,French,Germans,British,Africans,Arabs,Confederation,Russians,YuriCountry
-Sight=6
-Points=5
-UIName=NOSTR:Oil Derrick
-Nominal=yes
-BuildCat=Tech
-Explodes=no
-Strength=1000
-Explosion=INVISO
-MaxDebris=2
-MinDebris=1
-TechLevel=1
-Capturable=no
-Unsellable=yes
-DeathWeapon=OilExplosion
-DebrisAnims=DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM,DBRIS6SM,DBRIS7LG,DBRIS7SM
-LeaveRubble=no
-SelfHealing=yes
-Prerequisite=BARRACKS
-RadarVisible=yes
-WorkingSound=OilDerrickLoop
-Insignificant=no
-NeedsEngineer=no
-ProduceCashDelay=40
-ProduceCashAmount=120
-
 [NARADR]
 Crewed=no
 Explosion=INVISO
 MaxDebris=2
 MinDebris=1
-Prerequisite=NAPSYB,NACNST
+Prerequisite=CAOILD,NACNST
 
 [NAREFN]
 Explosion=INVISO
@@ -9690,7 +9691,7 @@ Crewed=no
 Explosion=INVISO
 MaxDebris=2
 MinDebris=1
-Prerequisite=NAPSYB,NACNST
+Prerequisite=CAOILD,NACNST
 
 [NAWALL]
 Explosion=INVISO
@@ -9969,7 +9970,7 @@ TargetDistanceCoefficient=-1
 [Tags]
 01000189=0,GiveAR1 1,01000188
 01000191=0,GiveB_Enemy 1,01000190
-01000195=2,CnCnet 1,01000194
+01000195=2,T4 1,01000194
 01000197=0,TimerAR1 1,01000196
 01000199=0,TimerR1 1,01000198
 01000203=0,T1 1,01000202
@@ -10409,7 +10410,7 @@ TargetDistanceCoefficient=-1
 [Triggers]
 01000188=Americans,<none>,GiveAR1,0,1,1,1,0
 01000190=Americans,<none>,GiveB_Enemy,0,1,1,1,0
-01000194=Americans,<none>,CnCnet,0,1,1,1,0
+01000194=Americans,<none>,T4,0,1,1,1,0
 01000196=Americans,<none>,TimerAR1,0,1,1,1,0
 01000198=Americans,<none>,TimerR1,0,1,1,1,0
 01000202=Americans,<none>,T1,0,1,1,1,0
@@ -10687,7 +10688,7 @@ Crewed=no
 Explosion=INVISO
 MaxDebris=2
 MinDebris=1
-Prerequisite=NAPSYB,YACNST
+Prerequisite=CAOILD,YACNST
 
 [YAPOWR]
 Power=1000
@@ -10720,7 +10721,7 @@ Crewed=no
 Explosion=INVISO
 MaxDebris=2
 MinDebris=1
-Prerequisite=NAPSYB,YACNST
+Prerequisite=CAOILD,YACNST
 
 [YAWEAP]
 Crewed=no
@@ -10775,4 +10776,4 @@ JumpjetSpeed=10
 TargetDistanceCoefficient=-1
 
 [Digest]
-1=FPO82ZmftflQsv77dk+cEkPr8Og=
+1=TfZKkQey30CnZZ/7OAOmRnJRuOc=

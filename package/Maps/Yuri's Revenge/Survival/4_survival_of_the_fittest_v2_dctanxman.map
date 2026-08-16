@@ -1659,9 +1659,8 @@ Group=-1
 
 [01000148]
 0=1,BFRT
-1=1,SHK
-2=3,GGI
-3=1,BORIS
+1=4,GGI
+2=1,BORIS
 Name=B002
 Group=-1
 
@@ -15703,7 +15702,7 @@ VeteranAbilities=STRONGER,FIREPOWER,ROF
 01000842=4,53,2,01000008,0,0,0,0,A,53,2,01000039,0,0,0,0,A,53,2,01000059,0,0,0,0,A,53,2,01000063,0,0,0,0,A
 01000846=4,53,2,01000850,0,0,0,0,A,53,2,01000852,0,0,0,0,A,53,2,01001016,0,0,0,0,A,54,2,01001020,0,0,0,0,A
 01000848=2,80,1,01000482,0,0,0,0,K,80,1,01000483,0,0,0,0,L
-01000850=5,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A,11,4,NOSTR:You Can Download,0,0,0,0,A,11,4,NOSTR:All My Original Maps,0,0,0,0,A,11,4,NOSTR:On...CnCnet.org/forums,0,0,0,0,A,21,6,EVA_MissionAccomplished,0,0,0,0,A
+01000850=2,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A,21,6,EVA_MissionAccomplished,0,0,0,0,A
 01000852=4,11,4,NOSTR:Thanks For Playing,0,0,0,0,A,11,4,NOSTR:Survival Of The Fittest,0,0,0,0,A,19,7,Cheer,0,0,0,0,A,11,4,NOSTR:Good Game!!!,0,0,0,0,A
 01000854=3,11,4,NOSTR:Welcome To.....,0,0,0,0,A,11,4,NOSTR:Survival Of The Fittest,0,0,0,0,A,11,4,NOSTR:Made By Dctanxman,0,0,0,0,A
 01000856=2,107,1,01000472,0,0,0,0,CW,107,1,01000472,0,0,0,0,CX
@@ -17655,7 +17654,7 @@ SubjectToElevation=no
 01001291=1,13,0,4925
 
 [FA2spVersionControl]
-Version=887
+Version=888
 
 [FLAKT]
 Prerequisite=NAHAND
@@ -22428,4 +22427,4 @@ BuildLimit=10
 TargetDistanceCoefficient=-1
 
 [Digest]
-1=KDkrxGDd09+eDkhzD7Jh1ycfCp0=
+1=7wezWgkwLhWJx4e5/2H+99Uy1JY=

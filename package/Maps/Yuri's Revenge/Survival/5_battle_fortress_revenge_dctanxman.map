@@ -2404,6 +2404,50 @@ OnlyTargetHouseEnemy=no
 TransportsReturnOnUnload=no
 AreTeamMembersRecruitable=no
 
+[01000397]
+Max=5
+Full=yes
+Name=Wave-FinalBF
+Group=-1
+House=<Player @ F>
+Script=01000002
+Whiner=no
+Droppod=no
+Suicide=no
+Loadable=yes
+Prebuild=no
+Priority=5
+Waypoint=A
+Annoyance=no
+IonImmune=no
+Recruiter=no
+Reinforce=no
+TaskForce=01000398
+TechLevel=0
+Aggressive=no
+Autocreate=yes
+GuardSlower=no
+OnTransOnly=no
+AvoidThreats=no
+LooseRecruit=no
+VeteranLevel=1
+IsBaseDefense=no
+UseTransportOrigin=no
+MindControlDecision=0
+OnlyTargetHouseEnemy=no
+TransportsReturnOnUnload=no
+AreTeamMembersRecruitable=no
+
+[01000398]
+0=1,BFRT
+1=5,GGI
+2=2,BORIS
+3=5,SHK
+4=5,SNIPE
+5=5,FLAKT
+Name=Wave-FinalBF
+Group=-1
+
 [ADOG]
 Speed=10
 
@@ -2577,6 +2621,65 @@ Speed=10
 0ECCFA7C-G=yes
 0ECCFCAC-G=yes
 
+[AMBU]
+ROT=5
+Cost=800
+Name=NOSTR:Repair Vehicle
+Size=2
+Armor=light
+Image=REPAIR
+Owner=British,French,Germans,Americans,Alliance,Russians,Confederation,Africans,Arabs,YuriCountry
+Sight=8
+Speed=6
+Crewed=no
+Points=20
+Turret=no
+UIName=NOSTR:Repair Vehicle
+Weight=.5
+Crusher=no
+Primary=RepairGun
+Soylent=200
+Category=AFV
+DieSound=TerrorDroneDie
+Explodes=no
+IsTilter=no
+Strength=3000
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+Locomotor={4A582741-9839-11d1-B709-00A024DDAFD1}
+MaxDebris=3
+MoveSound=TerrorDroneMoveLoop
+TechLevel=-1
+Trainable=no
+VoiceMove=TerrorDroneMove
+Bunkerable=no
+Accelerates=false
+CrateGoodie=yes
+DebrisTypes=TIRE
+SelfHealing=yes
+ThreatPosed=10
+VoiceAttack=TerrorDroneAttackCommand
+VoiceSelect=TerrorDroneSelect
+MovementZone=Destroyer
+Parasiteable=no
+Prerequisite=WEAP,RADAR
+ZFudgeColumn=8
+ZFudgeTunnel=13
+Insignificant=no
+DebrisMaximums=6
+NavalTargeting=6
+ImmuneToPsionics=no
+ImmuneToRadiation=no
+ReselectIfLimboed=yes
+AccelerationFactor=5
+DefaultToGuardArea=yes
+TargetZoneScanType=any
+DeaccelerationFactor=5
+SuppressionThreshold=5
+DamageParticleSystems=SparkSys,SmallGreySSys
+IsSelectableCombatant=yes
+TargetDistanceCoefficient=-1
+AllowedToStartInMultiplayer=no
+
 [APOC]
 Speed=8
 TargetDistanceCoefficient=-1
@@ -2642,7 +2745,7 @@ TargetDistanceCoefficient=-1
 01000188=8,107,1,01000156,0,0,0,0,AE,107,1,01000156,0,0,0,0,AF,107,1,01000156,0,0,0,0,AG,107,1,01000156,0,0,0,0,AH,107,1,01000156,0,0,0,0,AI,107,1,01000156,0,0,0,0,AJ,107,1,01000156,0,0,0,0,AK,107,1,01000156,0,0,0,0,AL
 01000190=1,119,0,4480,0,0,0,0,A
 01000192=2,11,4,NOSTR:Welcome To..,0,0,0,0,A,11,4,NOSTR:Battle Fortress Revenge,0,0,0,0,A
-01000194=4,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A,11,4,NOSTR:You Can Download,0,0,0,0,A,11,4,NOSTR:All My Original Maps,0,0,0,0,A,11,4,NOSTR:On...CnCnet.org/forums,0,0,0,0,A
+01000194=1,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A
 01000196=10,54,2,01000252,0,0,0,0,A,54,2,01000254,0,0,0,0,A,54,2,01000258,0,0,0,0,A,54,2,01000264,0,0,0,0,A,54,2,01000268,0,0,0,0,A,54,2,01000349,0,0,0,0,A,54,2,01000353,0,0,0,0,A,54,2,01000357,0,0,0,0,A,54,2,01000361,0,0,0,0,A,54,2,01000365,0,0,0,0,A
 01000198=7,95,0,0,0,0,0,0,CH,95,0,0,0,0,0,0,CI,95,0,0,0,0,0,0,CJ,95,0,0,0,0,0,0,CK,95,0,0,0,0,0,0,CL,19,7,NukeSiren,0,0,0,0,A,53,2,01000202,0,0,0,0,A
 01000200=1,6,0,4480,0,0,0,0,A
@@ -2736,6 +2839,10 @@ TargetDistanceCoefficient=-1
 01000389=4,41,0,475,0,0,0,0,AO,41,0,475,0,0,0,0,AP,41,0,475,0,0,0,0,AQ,41,0,475,0,0,0,0,AR
 01000391=3,54,2,01000389,0,0,0,0,A,47,0,0,0,0,0,0,A,53,2,01000393,0,0,0,0,A
 01000393=1,145,0,0,0,0,0,0,A
+01000395=16,107,1,01000397,0,0,0,0,AE,107,1,01000397,0,0,0,0,AF,107,1,01000397,0,0,0,0,AG,107,1,01000397,0,0,0,0,AH,107,1,01000397,0,0,0,0,AI,107,1,01000397,0,0,0,0,AJ,107,1,01000397,0,0,0,0,AK,107,1,01000397,0,0,0,0,AL,107,1,01000397,0,0,0,0,U,107,1,01000397,0,0,0,0,V,107,1,01000397,0,0,0,0,W,107,1,01000397,0,0,0,0,X,107,1,01000397,0,0,0,0,Y,107,1,01000397,0,0,0,0,Z,107,1,01000397,0,0,0,0,AA,107,1,01000397,0,0,0,0,AB
+01000399=16,107,1,01000397,0,0,0,0,AE,107,1,01000397,0,0,0,0,AF,107,1,01000397,0,0,0,0,AG,107,1,01000397,0,0,0,0,AH,107,1,01000397,0,0,0,0,AI,107,1,01000397,0,0,0,0,AJ,107,1,01000397,0,0,0,0,AK,107,1,01000397,0,0,0,0,AL,107,1,01000397,0,0,0,0,U,107,1,01000397,0,0,0,0,V,107,1,01000397,0,0,0,0,W,107,1,01000397,0,0,0,0,X,107,1,01000397,0,0,0,0,Y,107,1,01000397,0,0,0,0,Z,107,1,01000397,0,0,0,0,AA,107,1,01000397,0,0,0,0,AB
+01000401=16,107,1,01000397,0,0,0,0,AE,107,1,01000397,0,0,0,0,AF,107,1,01000397,0,0,0,0,AG,107,1,01000397,0,0,0,0,AH,107,1,01000397,0,0,0,0,AI,107,1,01000397,0,0,0,0,AJ,107,1,01000397,0,0,0,0,AK,107,1,01000397,0,0,0,0,AL,107,1,01000397,0,0,0,0,U,107,1,01000397,0,0,0,0,V,107,1,01000397,0,0,0,0,W,107,1,01000397,0,0,0,0,X,107,1,01000397,0,0,0,0,Y,107,1,01000397,0,0,0,0,Z,107,1,01000397,0,0,0,0,AA,107,1,01000397,0,0,0,0,AB
+01000403=1,21,6,Unit_Sofia_BattleFortress,0,0,0,0,A
 
 [Africans]
 IQ=0
@@ -2794,11 +2901,11 @@ ChronoInSound=Dummy
 0=Created by Dctanxman
 
 [BFRT]
-Name=Battle Fortress
-UIName=NOSTR:Flying Battlefortress
 Cost=1000
+Name=Battle Fortress
 Sight=13
 Turret=yes
+UIName=NOSTR:Flying Battlefortress
 Fighter=yes
 JumpJet=yes
 Landable=yes
@@ -2820,6 +2927,7 @@ JumpjetWobbles=.01
 JumpJetTurnRate=10
 JumpjetDeviation=1
 ConsideredAircraft=yes
+TargetDistanceCoefficient=-1
 Experience.PromotePassengers=yes
 
 [BORIS]
@@ -3134,6 +3242,28 @@ TargetDistanceCoefficient=-1
 [ENGINEER]
 Speed=7
 
+[ElectricBolt]
+ROF=160
+Range=3
+Speed=100
+Damage=100
+Report=TeslaTroopAttack
+Warhead=Shock
+Projectile=InvisibleHigh
+AssaultAnim=UCELEC
+IsElectricBolt=true
+
+[ElectricBoltE]
+ROF=150
+Range=6
+Speed=100
+Damage=120
+Report=TeslaTroopEliteAttack
+Warhead=Shock
+Projectile=InvisibleHigh
+AssaultAnim=UCELEC
+IsElectricBolt=true
+
 [Events]
 01000043=1,8,0,0
 01000045=1,8,0,0
@@ -3289,9 +3419,13 @@ Speed=7
 01000389=1,13,0,3
 01000391=1,13,0,25
 01000393=1,13,0,2
+01000395=1,13,0,3900
+01000399=1,13,0,3960
+01000401=1,13,0,4020
+01000403=1,13,0,60
 
 [FA2spVersionControl]
-Version=171
+Version=181
 
 [FLAKT]
 Speed=8
@@ -3305,9 +3439,11 @@ TargetDistanceCoefficient=-1
 
 [ForcedOptions]
 chkNoSpy=false
+chkCrates=true
 chkNoYuri=false
 chkRA2Mode=false
 cmbCredits=0
+chkBrutalAI=true
 chkMultiEng=false
 chkNoFrance=false
 chkRedeplMCV=false
@@ -3319,15 +3455,13 @@ chkBuildOffAlly=false
 chkDestrBridges=false
 chkNoDogEngiEat=false
 chkNoStolenTech=false
+chkSuperWeapons=true
 chkIngameAllying=false
 cmbStartingUnits=10
+chkNoYuriNoFrance=false
 cmbCratesModifier=1
 chkNoSpawnPreviews=false
 cmbSuperWeaponsModifier=1
-chkCrates=true
-chkSuperWeapons=true
-chkNoYuriNoFrance=false
-chkBrutalAI=true
 
 [French]
 IQ=0
@@ -3538,6 +3672,7 @@ Capturable=true
 DeployTime=.044
 AIBuildThis=yes
 DebrisAnims=DBRIS1LG,DBRIS1SM,DBRIS2LG,DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM,DBRIS6SM,DBRIS7LG,DBRIS7SM
+SuperWeapon=RepairDroneSpecial
 ThreatPosed=0
 Prerequisite=PROC,GAPILE,GACNST
 WeaponsFactory=yes
@@ -3573,6 +3708,7 @@ Capturable=true
 DeployTime=.044
 AIBuildThis=yes
 DebrisAnims=DBRIS1LG,DBRIS1SM,DBRIS2LG,DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM,DBRIS6SM,DBRIS7LG,DBRIS7SM
+SuperWeapon=RepairDroneSpecial
 ThreatPosed=0
 Prerequisite=PROC,GAPILE,GACNST
 WeaponsFactory=yes
@@ -3608,6 +3744,7 @@ Capturable=true
 DeployTime=.044
 AIBuildThis=yes
 DebrisAnims=DBRIS1LG,DBRIS1SM,DBRIS2LG,DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM,DBRIS6SM,DBRIS7LG,DBRIS7SM
+SuperWeapon=RepairDroneSpecial
 ThreatPosed=0
 Prerequisite=PROC,GAPILE,GACNST
 WeaponsFactory=yes
@@ -3643,6 +3780,7 @@ Capturable=true
 DeployTime=.044
 AIBuildThis=yes
 DebrisAnims=DBRIS1LG,DBRIS1SM,DBRIS2LG,DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM,DBRIS6SM,DBRIS7LG,DBRIS7SM
+SuperWeapon=RepairDroneSpecial
 ThreatPosed=0
 Prerequisite=PROC,GAPILE,GACNST
 WeaponsFactory=yes
@@ -3678,6 +3816,7 @@ Capturable=true
 DeployTime=.044
 AIBuildThis=yes
 DebrisAnims=DBRIS1LG,DBRIS1SM,DBRIS2LG,DBRIS4LG,DBRIS4SM,DBRIS5LG,DBRIS5SM,DBRIS6SM,DBRIS7LG,DBRIS7SM
+SuperWeapon=RepairDroneSpecial
 ThreatPosed=0
 Prerequisite=PROC,GAPILE,GACNST
 WeaponsFactory=yes
@@ -5840,6 +5979,51 @@ Damage=10000
 Speed=40
 LegalTarget=no
 
+[RepairDroneSpecial]
+Name=Repair Drone
+Type=AmerParaDrop
+Range=1.5
+Action=Custom
+Cursor=Airstrike
+UIName=NOSTR:Repair Drone
+NoCursor=NoDeploy
+EVA.Ready=EVA_ReinforcementsReady
+IsPowered=true
+ShowTimer=no
+Text.Ready=NOSTR:Ready
+Money.Amount=-3000
+ParaDrop.Num=1
+RechargeTime=4
+SW.Animation=CHEMISLE
+SW.Deferment=30
+SidebarImage=YENGICON
+UIDescription=NOSTR:Calls in a repair drone to heal nearby units.
+LineMultiplier=1
+Message.Launch=
+ParaDrop.Count=1
+ParaDrop.Types=AMBU
+SW.AITargeting=None
+SW.AlwaysGranted=no
+ParaDrop.Aircraft=PDPLANE
+SW.FireIntoShroud=no
+SW.RequiresTarget=land
+Message.FirerColor=yes
+SW.AnimationHeight=30
+SW.CreateRadarEvent=no
+DisableableFromShell=no
+FlashSidebarTabFrames=60
+
+[RepairGun]
+ROF=80
+Range=1.8
+Speed=100
+Damage=-100
+Report=IFVRepair
+Warhead=Mechanical
+Projectile=Invisible
+UseSparkParticles=yes
+AttachedParticleSystem=WeldingSys
+
 [Russians]
 IQ=0
 Edge=North
@@ -6052,6 +6236,9 @@ DestroyableBridges=yes
 139=Neutral,NAFLAK,256,146,50,64,None,1,0,1,0,0,None,None,None,0,0
 140=Neutral,NAFLAK,256,151,45,64,None,1,0,1,0,0,None,None,None,0,0
 
+[SuperWeaponTypes]
+5000=RepairDroneSpecial
+
 [TANY]
 Speed=11
 BuildLimit=10
@@ -6137,7 +6324,7 @@ TargetDistanceCoefficient=-1
 01000189=0,31-Wave1 1,01000188
 01000191=0,WIN 1,01000190
 01000193=0,T1 1,01000192
-01000195=2,CnCnet 1,01000194
+01000195=2,T2 1,01000194
 01000197=0,39-DisableBarracks 1,01000196
 01000199=0,41-Nuke-Players-2 1,01000198
 01000201=2,Hunt 1,01000200
@@ -6231,6 +6418,10 @@ TargetDistanceCoefficient=-1
 01000390=2,43-Nuke-Anim 1,01000389
 01000392=0,43-Nuke-End 1,01000391
 01000394=0,Home 1,01000393
+01000396=0,32-FinalWave3 1,01000395
+01000400=0,32-FinalWave4 1,01000399
+01000402=0,32-FinalWave5 1,01000401
+01000404=0,Speech 1,01000403
 
 [TaskForces]
 0=01000003
@@ -6268,6 +6459,7 @@ TargetDistanceCoefficient=-1
 32=01000169
 33=01000275
 34=01000383
+35=01000398
 
 [TeamTypes]
 0=01000023
@@ -6313,6 +6505,7 @@ TargetDistanceCoefficient=-1
 40=01000285
 41=01000286
 42=01000384
+43=01000397
 
 [Triggers]
 01000043=Americans,<none>,Give-A,0,1,1,1,0
@@ -6375,7 +6568,7 @@ TargetDistanceCoefficient=-1
 01000188=Americans,<none>,31-Wave1,0,1,1,1,0
 01000190=Americans,<none>,WIN,1,1,1,1,0
 01000192=Americans,<none>,T1,0,1,1,1,0
-01000194=Americans,<none>,CnCnet,0,1,1,1,0
+01000194=Americans,<none>,T2,0,1,1,1,0
 01000196=Americans,<none>,39-DisableBarracks,0,1,1,1,0
 01000198=Americans,<none>,41-Nuke-Players-2,1,1,1,1,0
 01000200=Americans,<none>,Hunt,1,1,1,1,0
@@ -6469,6 +6662,10 @@ TargetDistanceCoefficient=-1
 01000389=Americans,<none>,43-Nuke-Anim,1,1,1,1,0
 01000391=Americans,<none>,43-Nuke-End,1,1,1,1,0
 01000393=Americans,<none>,Home,1,1,1,1,0
+01000395=Americans,<none>,32-FinalWave3,0,1,1,1,0
+01000399=Americans,<none>,32-FinalWave4,0,1,1,1,0
+01000401=Americans,<none>,32-FinalWave5,0,1,1,1,0
+01000403=Americans,<none>,Speech,0,1,1,1,0
 
 [V3]
 Speed=8
@@ -6594,4 +6791,4 @@ JumpjetSpeed=10
 TargetDistanceCoefficient=-1
 
 [Digest]
-1=xJcJqSwac+MttI9zHDE/NNRHFF4=
+1=qKfSuVdJAiAi2DM26O/2NXejqWA=

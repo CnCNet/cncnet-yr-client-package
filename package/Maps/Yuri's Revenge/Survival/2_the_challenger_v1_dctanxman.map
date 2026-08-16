@@ -1921,9 +1921,8 @@ Group=-1
 
 [01000148]
 0=1,BFRT
-1=1,SHK
-2=3,GGI
-3=1,GHOST
+1=4,GGI
+2=1,GHOST
 Name=B002
 Group=-1
 
@@ -16159,7 +16158,7 @@ VeteranAbilities=STRONGER,FIREPOWER,ROF
 01000969=3,107,1,01000881,0,0,0,0,AE,107,1,01000882,0,0,0,0,AG,107,1,01000885,0,0,0,0,AF
 01000971=2,2,0,12,0,0,0,0,A,119,0,12,0,0,0,0,A
 01000973=2,6,0,12,0,0,0,0,A,11,4,NOSTR:All Remaining Hunt!!!,0,0,0,0,A
-01000975=5,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A,11,4,NOSTR:You Can Download,0,0,0,0,A,11,4,NOSTR:All My Original Maps,0,0,0,0,A,11,4,NOSTR:On...CnCnet.org/forums,0,0,0,0,A,21,6,EVA_MissionAccomplished,0,0,0,0,A
+01000975=2,11,4,NOSTR:Map Made By Dctanxman,0,0,0,0,A,21,6,EVA_MissionAccomplished,0,0,0,0,A
 01000977=4,11,4,NOSTR:Thanks For Playing,0,0,0,0,A,11,4,NOSTR:The Challenger-V2,0,0,0,0,A,19,7,Cheer,0,0,0,0,A,11,4,NOSTR:Good Game!!!,0,0,0,0,A
 01000979=2,21,6,EVA_EnemyInfantryBattalionDetected,0,0,0,0,A,11,4,NOSTR:01_Conscripts,0,0,0,0,A
 01000981=2,19,7,GIAttackCommand,0,0,0,0,A,11,4,NOSTR:02_GIs,0,0,0,0,A
@@ -18414,7 +18413,7 @@ SubjectToElevation=no
 01001323=1,13,0,5600
 
 [FA2spVersionControl]
-Version=766
+Version=767
 
 [FLAKT]
 TargetDistanceCoefficient=-1
@@ -23389,4 +23388,4 @@ BuildLimit=10
 TargetDistanceCoefficient=-1
 
 [Digest]
-1=PpQZ/y2k4Adb1j1zEkaxgBh1kbc=
+1=aIS6X4H4jjUcnUPqeEdMdcNpHII=
