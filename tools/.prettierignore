@@ -1,3 +1,0 @@
-# Ignore hidden directories at the repo root and below.
-.*/
-**/.*/
