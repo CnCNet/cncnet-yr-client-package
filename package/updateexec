@@ -590,6 +590,16 @@ Resources\BinariesNET8\UniversalGL\DTAConfig.pdb
 Resources\BinariesNET8\XNA\DTAConfig.dll
 Resources\BinariesNET8\XNA\DTAConfig.pdb
 Resources\Config\UpdaterConfig_Ares.ini
+Resources\BinariesNET8\XNA\Ude.NetStandard.dll
+Resources\BinariesNET8\Windows\Ude.NetStandard.dll
+Resources\BinariesNET8\UniversalGL\Ude.NetStandard.dll
+Resources\BinariesNET8\OpenGL\Ude.NetStandard.dll
+Resources\BinariesNET8\steam_api64.dll
+Resources\Binaries\XNA\Ude.NetStandard.dll
+Resources\Binaries\Windows\Ude.NetStandard.dll
+Resources\Binaries\OpenGL\Ude.NetStandard.dll
+Resources\Binaries\steam_api64.dll
+Resources\PlayerExtraOptionsPanel.ini
 
 [DeleteFolder]
 Maps\Yuri's Revenge\CTF
