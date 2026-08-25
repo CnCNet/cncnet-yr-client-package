@@ -1,3 +1,6 @@
 [submodule "tools/build-installer/inno/libs/InnoDependencyInstaller"]
 	path = tools/build-installer/inno/libs/InnoDependencyInstaller
 	url = https://github.com/DomGries/InnoDependencyInstaller
+[submodule "tools"]
+	path = tools
+	url = https://github.com/CnCNet/cncnet-package-tools
