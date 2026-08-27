@@ -35,6 +35,7 @@ jobs:
       with:
         repository: CnCNet/xna-cncnet-client
         latest: true
+        preRelease: true
         fileName: xna-cncnet-client*
 
     - name: Create Update Branch
