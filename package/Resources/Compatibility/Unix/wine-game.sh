@@ -1,2 +1,2 @@
 #!/bin/sh
-${WINE:=wine} Syringe.exe $@
+exec "${WINE:=wine}" Syringe.exe "$@"
