@@ -1,0 +1,80 @@
+/game-assets/**/*.mix
+
+/package/**/*.SAV
+/package/BINKW32.DLL
+/package/Blowfish.dll
+/package/Client/*
+!/package/Client/tunnel_cache
+/package/cncnet.mix
+/package/ddraw.dll
+/package/ddraw.ini
+/package/debug/
+/package/langmd.mix
+/package/language.mix
+/package/Map Editor/**
+/package/Maps/Custom/*.map
+/package/Maps/Custom/*.png
+/package/Maps/Custom/*.yrm
+/package/Maps/Custom/*.zip
+/package/maps01.mix
+/package/maps02.mix
+/package/mapsmd03.mix
+/package/movies01.mix
+/package/movies02.mix
+/package/movmd03.mix
+/package/multi.mix
+/package/multimd.mix
+/package/stats.dmp
+/package/QM/*.txt
+/package/Qt/QM/
+/package/ra2.mix
+/package/RA2MD.INI
+/package/ra2md.mix
+/package/ra2mode.mix
+/package/Saved Games/*.SAV
+/package/spawn.ini
+/package/spawnmap.ini
+/package/syringe.log
+/package/theme.mix
+/package/thememd.mix
+/package/version
+/package/version_u
+/package/VersionWriter-CopiedFiles
+/package/VersionWriter.exe
+
+.idea/*
+.vscode/*
+/CnCNet5_YR_Installer.exe
+/gitversion.json
+/logs
+/.temp
+/package.tar.gz
+/tools/node_modules
+/Client/
+/package/Map Editor/FinalSun.ini
+
+/package/cameo.mix
+/package/cameomd.mix
+/package/cncnet.fnt
+/package/game.fnt
+/package/grfxtxt.shp
+/package/ra2.csf
+/package/ra2md.csf
+/package/stringtable*.csf
+/package/subtitle.txt
+/package/subtitlemd.txt
+package/Tools/Map Editor/FA2SP/FA2sp.log
+package/Tools/Map Editor/FA2SP/finalalert2log.txt
+package/Tools/Map Editor/FA2SP/syringe.log
+package/Tools/Map Editor/WAE/MapEditorLog.log
+package/Tools/Map Editor/WAE/MapEditorSettings.ini
+package/Tools/Map Editor/WAE/UserData/MissingTranslationValues.ini
+package/KeyboardMD.ini
+/.claude/**
+/spawn.ini
+/spawnmap.ini
+/ddraw.ini
+/ddraw.dll
+/RA2MD.INI
+/version_u
+/docs/specs/

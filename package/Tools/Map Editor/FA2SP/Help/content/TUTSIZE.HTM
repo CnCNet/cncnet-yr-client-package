@@ -1,0 +1,62 @@
+<!doctype html public "-//w3c//dtd html 3.2//en">
+
+<html>
+
+<head>
+		<title>
+		</title>
+		<link rel=stylesheet type="text/css" href="formats.css">
+	</head>
+	
+	<body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
+		
+		<p class="heading" align="center">
+		<br>
+		15.  Changing the Visible Portion of the Map (Intermediate) 
+	</p>
+	<p>
+
+The visible portion of the map is what the player can see and move to. Many maps change this throughout the course of a mission, to ensure that a player completes one objective at a time. One such level is the Allied mission (Allied 5) in Europe, where you must destroy the nuclear missile silos. The mission begins with only half of itself visible and expands to include new objectives.  In this tutorial we will attempt to show only the top half of a map.
+<br><br><br>
+
+<b>Step 1: Understanding Map Dimensions</b><br><br>
+Under the Edit menu, select Map.  There is one editable text box in the middle. This is the visible portion of the map, symbolized by the blue line on the IsoView. The top text box shows the actual editable dimensions of the map, symbolized by the red line in the IsoView. In order, the dimensions are:
+<br><br>
+a. Left edge of the visible map.<br>
+b. Top edge of the visible map.<br>
+c.  Width of the remaining portion of the map.<br>
+d. Height of the remaining portion of the map.<br>
+e. Format: "LeftEdge,TopEdge,Width,Height"<br><br><br>
+
+<b>Step 2: Set The Height, Width And Edges</b><br><br>
+In the second text box, type the following:<br><br>
+a. Set the left edge at 0 (closest you can get to the left side)<br>
+b. Set the top edge at 4. DO NOT set the top edge less than 4, or graphic errors will occur.<br>
+c. Look at the top text box and find the width. Set the visible width to this number as well.<br>
+d. Look at the top text box and find the height. Set the visible height to this number, divided by 2. Exact calculations of the middle are not required, you can approximate.<br>
+The left visibility border is now at the far left, the right border is at the far right, the top is as close as it can get to the top of the map, and only the top half of the map is visible.
+<br><br><br>
+
+If you would like to change the visible portion of any map to only the bottom half during gameplay:<br><br><br>
+
+<b>Step 1: Create A New Trigger</b><br><br>
+This tutorial assumes that the player will use a local variable '5 ResizeMap' to trigger the map's resizing. Under the Edit menu, open the Trigger Editor. Create a new trigger with the following attributes:
+<br><br>
+<b>a. Name:</b> "Resize Map 1"<br>
+<b>b. Repeating:</b> No<br>
+<b>c. Event:</b> "36-Local is set", parameter "5 ResizeMap,0"<br>
+<b>d. Action:</b> "40 Resize visible map", parameters:<br>
+ <img src="pics/wayp.jpg" height=1 width=20>	-  Top = [Map height divided by 2 (middle of map)]<br>
+ <img src="pics/wayp.jpg" height=1 width=20>	-  Left = 0<br>
+ <img src="pics/wayp.jpg" height=1 width=20>	-  Right = [Map width]<br>
+ <img src="pics/wayp.jpg" height=1 width=20>	-  Bottom = [Map height divided by two (when added to Top is the same as the bottom half of the map)]<br><br><br><br>
+
+
+
+<font size=1>Original tutorial writer: Thalassicus</font>
+</p>
+
+
+</body>
+
+</html>

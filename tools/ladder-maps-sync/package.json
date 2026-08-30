@@ -1,0 +1,23 @@
+{
+  "name": "ladder-maps-sync",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "scripts": {
+    "start": "tsx index.ts"
+  },
+  "dependencies": {
+    "tsx": "^4.21.0",
+    "cncnet-core": "1.0.0",
+    "js-ini": "^1.6.0",
+    "adm-zip": "^0.5.10",
+    "commander": "^12.1.0",
+    "sharp": "^0.33.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.2",
+    "@types/adm-zip": "^0.5.5",
+    "typescript": "^6.0.2"
+  }
+}

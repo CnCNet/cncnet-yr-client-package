@@ -1,0 +1,469 @@
+<!doctype html public "-//w3c//dtd html 3.2//en">
+
+<html>
+
+<head>
+		<title>
+		</title>
+		<link rel=stylesheet type="text/css" href="formats.css">
+	</head>
+	
+	<body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
+		
+		<p class="heading" align="center">
+		<br>
+		10.  FinalAlert2: YR<font size=1>TM</font> User Scripts
+		</p>
+	<p>	
+  FinalAlert 2 <font size=1>TM</font>: Yuri's Revenge introduces a completely new user script interpreter. These scripts are not the
+same like Scripttypes, but they are used solely by FinalAlert2: Yuri's Revenge<font size=1>TM</font> directly. They allow you to add new functionality to
+the editor!
+<br><br>
+To access the script editor, select Maptools->Tool Scripts. You can select the script you want to execute and click Run. The scripts
+already shipped with the editor are all safe and won´t cause any problems. However, if you run a self-made script or run a script
+you get from somewhere else, you should really save your map before running it, although FA2:YR´s interpreter is quite safe.<br><br>
+A good script to start with is "Add Reveal Map Debug Trigger". Run it, and then close the script interpreter again.
+Then go into Edit->Triggers, and check out the new trigger. Easy, isn´t it?
+<br><br>
+Every script should have a descriptive name. Try around with the different scripts, but save your map first.
+<br><br>
+We´ll now take a look at making own scripts. You should really know some programming before doing this,
+as the Script language is quite similar to programming. If you don´t know any programming, it might be difficult
+for you to understand the script language. Also, you should know about INI editing for maps, if you want to implement
+extended functionality.
+<br><br>
+At first, you should try to open a already existing script file. Use Windows Explorer to the Scripts subdirectory in your FA2:YR directory.
+The double click on "Add Reveal Map Debug Trigger.fscript". Select notepad as editor.
+<br><br>
+You´ll now see a typical script. It´s a small script to get you started. As you may have noticed,
+// is used for comments: The rest of the line is ignored. This is similar to C++. Any script contains only
+function calls and jumplines (no jumpline in this script however). There is no explicit variable
+declaration, but there are variables (example: %TriggerID% is filled with the ID of the trigger that has
+been added through the AddTrigger(); function). Note that for every function call,
+<b>all</b> parameters must be enclosed in ", and divided by commas. Now what does this script do?<br>
+AskContinue(); displays a Message Box and asks if the user wants to continue. If the user presses
+no, the script will quit. The AddTrigger(); call does the obvious: In the first parameter we specify
+a variable that will be filled with the trigger ID, in the second parameter we specify the 
+trigger INI line, in the third the event INI line, and in the fourth the action INI line. Now what are those INI lines?
+You can retrieve them if you make a new Trigger in the trigger editor, exactly as you want it to be. Then, you
+start FA2:YR´s INI editor in Edit->INI Editor and go to the Triggers section. There you search for your trigger (using the
+name you gave to it). Note the ID (the key name),
+and copy the content of the ID to the clipboard. You now have the trigger INI key, but not yet the events and actions INI keys.
+To retrieve those, go to the Events and Actions sections and copy the key values for the ID you noted. That´s it!<br>
+<br>
+Another feature are Jumplines. You define them using<br>
+:NameOfJumpline:<br>
+The JumpTo function is used to jump to this point of the script, which can be used to create loops.<br><br>
+Every function in FA2:YR´s script language except And(); and Or(); has a certain parameter count. For example, the AddTrigger function has 4 parameters.
+However, you may specify a 5th parameter! Now what does this mean? Well, it describes a boolean value (true/false, yes/no, 1/0).
+If this additional parameter is set, FA2:YR will only execute the function if this parameter is true (again, this does not apply to And(); and Or();). Very useful, especially for loops.
+You can of course use a variable for this parameter, which will be the case in most circumstances.<br><br>
+If you have read up to this point, you should now know about the basics of scripting FA2:YR. Be aware that some
+things might not work out exactly as you want because of FA2:YR<font size=1>TM</font>´s internal technical circumstances regarding Infantry,
+Structures, etc. If you look at the shipped scripts, you should find out how to do certain things, though.
+<br><br><br>
+
+List of predefined Variables (those <b>cannot</b> be overwritten using SetVariable(); or any other function!):<br><br>
+%WaypointCount% - Number of waypoints<br>
+%InfantryCount% - Number of infantry<br>
+%AircraftCount% - Number of aircraft<br>
+%UnitCount% - Number of vehicles<br>
+%TerrainCount% - Number of terrain objects<br>
+%Theater% - Map theater<br>
+%Width% - Map width<br>
+%Height% - Map height<br>
+%IsoSize% - equals width+height of map<br>
+%PlayerCount% - 1 for singleplayer maps, number of players for multiplayer maps<br>
+%HousesCount% - Number of houses defined<br>
+%CountriesCount% - Number of countries defined<br>
+%DeleteAllowed% - Is deleting currently allowed?<br>
+%AddAllowed% - Is adding objects & triggers currently allowed?<br>
+%SafeMode% - Is SafeMode enabled?<br><br><br>
+
+List of functions FA2:YR<font size=1>TM</font> supports (reminder: as you know, every function except And(); and Or(); can have an additional boolean parameter
+as described above):
+<br><br>
+  All normal parameters are written <i>inversed</i>, parameters that only take a variable are written <u>underlined</u>. Underlined
+parameters are usually filled with function output.<br>
+  <br><br>
+
+  Script specific:<br>
+  <br>
+  <b>JumpTo(</b><i>Jumpline</i><b>);</b><br>
+  Script jumps to Jumpline. Be careful with this function! You may cause infinite loops if you are not! Remember the possible
+  boolean parameter!
+  <br> 
+
+  <br>
+  <b>SetSafeMode(</b><i>Enabled, Reason</i><b>);</b><br>
+  Sets safe mode to Enabled which is "TRUE" or "FALSE". If you set safe mode to FALSE, which is required for setting
+  INI keys and other functions, the script will ask the user if he wants that and will display your Reason.
+  <br>
+
+  <br>
+  <b>AllowDelete(</b><b>);</b><br>
+  If your script wants to delete objects or triggers, you need to call this function. The script will, like SetSafeMode(); ask the user.
+  <br>
+
+  <br>
+  <b>AllowAdd(</b><b>);</b><br>
+  If your script wants to add objects or triggers, you need to call this function. The script will, like SetSafeMode(); ask the user.
+  <br>
+
+  <br>
+  <b>SetAutoUpdate(</b><i>Enabled</i><b>);</b><br>
+  Set AutoUpdate to FALSE for faster script execution. This will prevent FA2:YR to update the report window after every function call.
+  <br>
+
+  <br>
+  <b>RequiresMP(</b><b>);</b><br>
+  This script requires a multiplayer map. If the map is no multiplayer map, script will cancel.
+  <br>
+
+  <br>
+  <b>RequiresSP(</b><b>);</b><br>
+  This script requires a singleplayer map. If the map is no singleplayer map, script will cancel.
+  <br>
+
+  <br>
+  <b>Cancel();</b><br>
+  Cancels script. Usually used with a boolean parameter.
+  <br>
+
+
+<br><br>
+  Output:<br><br>
+  <b>AskContinue(</b><i>Message</i><b>);</b><br>
+  Shows a message box and exits script if user presses No, else continues.
+  <br>
+
+    <br>
+  <b>Message(</b><i>Message, Caption</i><b>);</b><br>
+  Shows a message box with specified Message and Caption
+  <br>
+
+  <br>
+  <b>Print(</b><i>Text</i><b>);</b><br>
+  Prints the specifed text into the report window.
+  <br>
+
+  <br><br>
+  User Input:<br><br>
+  <b>Ask(</b><u>Variable</u>,<i>Message, Caption</i><b>);</b><br>
+  Shows a message box sets Variable to "0" if user presses No, else sets Variable to "1".
+  <br>
+
+  <b>UInputGetInteger(</b><u>Variable</u>,<i>Message, Min, Max</i><b>);</b><br>
+  Shows a input box with specified Message. If Min and/or Max are not "", they specify the minimum and maximum value
+  necessary. Variable will be filled.
+  <br>
+
+  <b>UInputGetString(</b><u>Variable</u>,<i>Message</i><b>);</b><br>
+  Shows a input box with specified Message. Variable will be filled.
+  <br>
+
+  <b>UInputGetHouse(</b><u>Variable</u>,<i>Message</i><b>);</b><br>
+  Shows a dialog that allows the user to select a house. Variable will be filled.
+  <br>
+
+  <b>UInputGetCountry(</b><u>Variable</u>,<i>Message</i><b>);</b><br>
+  Shows a dialog that allows the user to select a country. Variable will be filled.
+  <br>
+
+  <b>UInputGetTrigger(</b><u>Variable</u>,<i>Message</i><b>);</b><br>
+  Shows a dialog that allows the user to select a trigger. Variable will be filled.
+  <br>
+
+  <b>UInputGetTag(</b><u>Variable</u>,<i>Message</i><b>);</b><br>
+  Shows a dialog that allows the user to select a tag. Variable will be filled.
+  <br>
+
+  <br><br>
+  Variable modification:<br>
+  <br>
+  <b>SetVariable(</b><u>Variable</u>,<i>Value</i><b>);</b><br>
+  Sets the specifed Variable to Value.
+  <br>
+
+  <br>
+  <b>Add(</b><u>Variable</u>,<i>Number</i><b>);</b><br>
+  Adds Number to Variable
+  <br>
+
+  <br>
+  <b>Substract(</b><u>Variable</u>,<i>Number</i><b>);</b><br>
+  Substracts Number from Variable
+  <br>
+
+  <br>
+  <b>Multi(</b><u>Variable</u>,<i>Number</i><b>);</b><br>
+  Multiplies Variable with Number
+  <br>
+
+  <br>
+  <b>Divide(</b><u>Variable</u>,<i>Number</i><b>);</b><br>
+  Divides Variable through Number
+  <br>
+
+  <br>
+  <b>Mod(</b><u>Variable</u>,<i>Number</i><b>);</b><br>
+  Divides Variable through Number, and puts the rest into Variable
+  <br>
+
+  <br>
+  <b>Insert(</b><u>Variable</u>,<i> Text, Position</i><b>);</b><br>
+  Inserts Text at Position into Variable
+  <br>
+
+  <br>
+  <b>Remove(</b><u>Variable</u>,<i>Start, Length</i><b>);</b><br>
+  Removes Length characters beginning Start from Variable
+  <br>
+
+  <br>
+  <b>Replace(</b><u>Variable</u>,<i>Old, New</i><b>);</b><br>
+  Replaces Old with New for Variable
+  <br>
+
+  <br>
+  <b>Trim(</b><u>Variable</u><b>);</b><br>
+  Removes spaces at the left and right of Variable
+  <br>
+
+  <br>
+  <b>Not(</b><u>Variable</u><b>);</b><br>
+  If Variable is true, Variable will be set to false. If Variable is false, Variable will be set to true.
+  <br>
+
+  <br>
+  <b>And(</b><u>Variable</u>, Value1, ...<b>);</b><br>
+  This function can take any amount of parameters, at least 2. Variable will be set if all of the following parameters are set to true.
+  <br>
+
+  <br>
+  <b>Or(</b><u>Variable</u>, Value1, ...<b>);</b><br>
+  This function can take any amount of parameters, at least 2. Variable will be set if any of the following parameters is set to true.
+  <br>
+
+  <br>
+  <b>Length(</b><u>Length</u>,<i>String</i><b>);</b><br>
+  Retrieves the Length of a string
+  <br>
+
+  <br>
+  <b>GetChar(</b><u>Char</u>,<i>String, Pos</i><b>);</b><br>
+  Retrieves a specific char from a string at Pos.
+  <br>
+
+  <br>
+  <b>Is(</b><i>Value1,Comparison,Value2</i>,<u>IsTrue</u><b>);</b><br>
+  Compares Value1 and Value2 and sets IsTrue if the comparison is true. Comparison modes:<br>
+  < Is Value1 smaller than Value2<br>
+  <= Is Value1 smaller than or equal to Value2<br>
+  = Is Value1 equal to Value2<br>
+  >= Is Value1 bigger than or equal to Value2<br>
+  > Is Value1 bigger than Value2<br>
+  != Is Value1 not equal to Value2<br>
+
+  <br>
+  <b>ToUpper(</b><u>Variable</u><b>);</b><br>
+  Changes Variable to upper case
+  <br>
+
+  <br>
+  <b>ToLower(</b><u>Variable</u><b>);</b><br>
+  Changes Variable to lower case
+  <br>
+
+  <br>
+  <b>GetRandom(</b><u>Variable</u><b>);</b><br>
+  Sets Variable to a random value between 0 and 32767.
+  <br>
+
+  <br><br>Support for Param type variables (example Variable="Param1, Param2, Param3"), like Trigger INI values etc.:<br>
+  <br>
+  <b>GetParam(</b><u>Param</u>,<i>ParamString, Pos</i><b>);</b><br>
+  Retrieves parameter Pos of ParamString, and puts it into Param
+  <br>
+
+  <br>
+  <b>SetParam(</b><u>ParamStringVariable</u>,<i>Pos, Value</i><b>);</b><br>
+  Changes parameter Pos of ParamStringVariable to Value.
+  <br>
+
+  <br>
+  <b>GetParamCount(</b><u>Count</u>,<i>ParamString</i><b>);</b><br>
+  Counts Parameter count of ParamString and puts it into Count.
+  <br>
+
+  <br><br>Map Editing functions:<br>
+
+  <br>
+  <b>SetIniKey(</b><i>Section,Key,NewValue</i><b>);</b><br>
+  Sets Key in Section to NewValue. Requires SetSafeMode(); to be called with Enabled=FALSE, and the user agreeing.
+  <br>
+
+  <br>
+  <b>GetIniKey(</b><u>Value</u>,<i>Section,Key</i><b>);</b><br>
+  Retrieves value from Key in Section and puts it into Value.
+  <br>
+
+  <br>
+  <b>GetHouse(</b><u>House</u>,<i>Index</i><b>);</b><br>
+  Retrieves House ID and puts it into House.
+  <br>
+
+  <br>
+  <b>GetCountry(</b><u>Country</u>,<i>Index</i><b>);</b><br>
+  Retrieves Country ID and puts it into Country.
+  <br>
+
+  <br>
+  <b>Resize(</b><i>Left, Top, Width, Height</i><b>);</b><br>
+  Resizes map. Max for Width and Height is 200. User is prompted before resizing map. Similar to the Resize Map dialog.
+  <br>
+
+  <br>
+  <b>AddTrigger(</b><u>NewTriggerID</u>,<i>TriggerINI, EventINI, ActionINI, AddTag</i><b>);</b><br>
+  Adds a trigger to the map using TriggerINI, EventINI and ActionINI, as they are saved in the map files. NewTriggerID will be set to the ID of the created trigger.
+  Set AddTag to "no" or "false" if you don´t want that a Tag is created automatically.
+  AllowAdd(); must be called before.
+  <br>
+
+  <br>
+  <b>AddAITrigger(</b><u>NewAITriggerID</u>,<i>AITriggerINI</i><b>);</b><br>
+  Adds an AI trigger to the map using AITriggerINI, as it is saved in the map files. NewAITriggerID will be set to the ID of the created trigger.
+  AllowAdd(); must be called before.
+  <br>
+
+  <br>
+  <b>AddTag(</b><u>NewTagID</u>,<i>TagINI</i><b>);</b><br>
+  Adds a tag to the map using TagINI, as it is saved in the map files. NewTagID will be set to the ID of the created tag.
+  AllowAdd(); must be called before.
+  <br>
+
+  <br>
+  <b>SetWaypoint(</b><i>ID, X, Y</i><b>);</b><br>
+  Sets the waypoint ID to the map position X,Y. If you don´t give an explicit ID but an empty ID, FA2:YR will automatically select
+  a free ID. If you set the ID to a already existing waypoint ID, SetWaypoint(); will fail except you called SetSafeMode(); with
+  Enabled set to FALSE, and the user agreeing.
+  <br>
+
+  <br>
+  <b>GetWaypointPos(</b><i>ID</i>,<u>X, Y</u><b>);</b><br>
+  Sets X and Y to the position values of Waypoint ID. If the waypoint ID does not exist, X and Y are both set to 0.
+  <br>
+
+  <br>
+  <b>GetFreeWaypoint(</b><u>ID</u><b>);</b><br>
+  Sets ID to the first free waypoint ID.
+  <br>
+
+  <br>
+  <b>AddTerrain(</b><i>Type, X, Y</i><b>);</b><br>
+  Adds new terrain to the map.<br>
+  AllowAdd(); must be called before.
+  <br>
+
+  <br>
+  <b>AddSmudge(</b><i>Type, X, Y</i><b>);</b><br>
+  Adds a smudge to the map.<br>
+  AllowAdd(); must be called before.
+  <br>
+
+  <br>
+  <b>AddInfantry(</b><i>INIString</i><b>);</b><br>
+  Adds a new infantry unit to the map. INIString must have 14 parameters. They are: House, Type, Strength, Y, X, SubPos, Action, Direction, Tag, Veteran, Group, On Bridge, Recruitable, AI Recruitable<br>
+  It´s best to copy the INIString out of a map using the List Objects script that is shipped with FA2:YR.<br>
+  AllowAdd(); must be called before.
+  <br>
+
+  <br>
+  <b>AddVehicle(</b><i>INIString</i><b>);</b><br>
+  Adds a new vehicle unit to the map. INIString must have 14 parameters. They are: House, Type, Strength, Y, X, Direction, Action, Tag, Veteran, Group, On Bridge, Follow ID, Recruitable, AI Recruitable<br>
+  It´s best to copy the INIString out of a map using the List Objects script that is shipped with FA2:YR.<br>
+  AllowAdd(); must be called before.
+  <br>
+
+  <br>
+  <b>AddAircraft(</b><i>INIString</i><b>);</b><br>
+  Adds a new aircraft unit to the map. INIString must have 12 parameters. They are: House, Type, Strength, Y, X, Direction, Action, Tag, Veteran, Group, Recruitable, AI Recruitable<br>
+  It´s best to copy the INIString out of a map using the List Objects script that is shipped with FA2:YR.<br>
+  AllowAdd(); must be called before.
+  <br>
+  
+  <br>
+  <b>AddStructure(</b><i>INIString</i><b>);</b><br>
+  Adds a new structure to the map. INIString must have 17 parameters. They are: House, Type, Strength, Y, X, Direction, Tag, Sellable, Rebuild, Energy, Upgrade Count, Spotlight mode, Upgrade 1, Upgrade 2, Upgrade 3, AI Repairs, Show Name<br>
+  It´s best to copy the INIString out of a map using the List Objects script that is shipped with FA2:YR.<br>
+  AllowAdd(); must be called before.
+  <br>
+
+  <br>
+  <b>DeleteTerrain(</b><i>Index</i><b>);</b><br>
+  Deletes terrain object. Index must be between 0 and %TerrainCount%-1.<br>
+  AllowDelete(); must be called before.
+  <br>
+
+  <br>
+  <b>DeleteInfantry(</b><i>Index</i><b>);</b><br>
+  Deletes infantry. Index must be between 0 and %InfantryCount%-1.<br>
+  AllowDelete(); must be called before.
+  <br>
+
+  <br>
+  <b>DeleteAircraft(</b><i>Index</i><b>);</b><br>
+  Deletes aircraft. Index must be between 0 and %AircraftCount%-1.<br>
+  AllowDelete(); must be called before.
+  <br>
+
+  <br>
+  <b>DeleteVehicle(</b><i>Index</i><b>);</b><br>
+  Deletes vehicles. Index must be between 0 and %VehicleCount%-1.<br>
+  AllowDelete(); must be called before.
+  <br>
+
+  <br>
+  <b>DeleteStructure(</b><i>Index</i><b>);</b><br>
+  Deletes structure. Index must be between 0 and %StructureCount%-1.<br>
+  AllowDelete(); must be called before.
+  <br>
+
+  <br>
+  <b>IsInfantryDeleted(</b><u>Deleted</u>,<i>Index</i><b>);</b><br>
+  Sets Deleted to true if Infantry Index is deleted.
+  <br>
+
+  <br>
+  <b>IsTerrainDeleted(</b><u>Deleted</u>,<i>Index</i><b>);</b><br>
+  Sets Deleted to true if Terrain Index is deleted.
+  <br>
+
+  <br>
+  <b>GetInfantry(</b><u>Data</u>,<i>Index</i><b>);</b><br>
+  Retrieves INI data of Infantry Index. Use IsInfantryDeleted(); to check if this infantry is deleted before (this
+  is necessary because of internal implementation details)! You can use data of deleted infantry though, although
+  this might not be senseful.
+  <br>
+
+  <br>
+  <b>GetAircraft(</b><u>Data</u>,<i>Index</i><b>);</b><br>
+  Retrieves INI data of Aircraft Index.
+  <br>
+
+  <br>
+  <b>GetStructure(</b><u>Data</u>,<i>Index</i><b>);</b><br>
+  Retrieves INI data of Structure Index.
+  <br>
+
+  <br>
+  <b>GetVehicle(</b><u>Data</u>,<i>Index</i><b>);</b><br>
+  Retrieves INI data of Vehicle Index.
+  <br>
+
+  <br>
+  <br>
+
+</body>
+
+</html>

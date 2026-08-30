@@ -1,0 +1,50 @@
+﻿<!--  
+Put this file into the root of the xna-cncnet-client repository before building it.
+When you build the client, this will copy over all necessary YR resources into the output path
+so that the client starts up with the YR theme.
+-->
+<Project>
+    <Target Name="CopyYRResources" AfterTargets="PrepareForRun" Condition="$(ProjectName) == 'DXMainClient'">
+        <PropertyGroup>
+            <!-- 
+            Change the value of YRSource to wherever you have the YR client repo checked out OR
+            you can use your installation path of YR for cncnet.
+            This path should be the same one that contains the file "gamemd.exe".
+
+            Example: c:\repos\cncnet-yr-client-package\package
+            -->
+            <YRSource></YRSource>
+
+            <!-- 
+            OPTIONAL
+            Change the value of YRGameInstallSource to wherever you have the game installed locally.
+            This is only necessary if YRSource above is not already set to the game installation path and 
+            you need to be able to launch the game from the client during development/while using the YR client repo for YRSource.
+
+            Example: c:\ra2InstallPath\Command and Conquer Red Alert II
+            -->
+            <YRGameInstallSource></YRGameInstallSource>
+
+            <YRStartupPath>$(OutputPath)..\..\..</YRStartupPath>
+        </PropertyGroup>
+        <ItemGroup Label="Game Install Resources" Condition="'$(YRGameInstallSource)' != ''">
+            <YRGameInstallResources Include="$(YRGameInstallSource)\**\*.*"/>
+        </ItemGroup>
+        <ItemGroup Label="YR Resources">
+            <YRResources Include="$(YRSource)\**\*.*"/>
+
+            <!-- We do not need these, because they should be coming from the DXMainClient build -->
+            <YRResources Remove="$(YRSource)\Resources\Binaries\**"/>
+
+            <!-- Exclude any other executables in Resources -->
+            <YRResources Remove="$(YRSource)\Resources\*.exe"/>
+        </ItemGroup>
+
+        <Message Text="Skipping copying game install resources..." Condition="'$(YRGameInstallSource)' == ''"/>
+        <Message Text="Copying game install resources from '$(YRGameInstallSource)' to '$(YRStartupPath)" Condition="'$(YRGameInstallSource)' != ''"/>
+        <Copy SourceFiles="@(YRGameInstallResources)" DestinationFolder="$(YRStartupPath)\%(RecursiveDir)" SkipUnchangedFiles="true" Condition="'$(YRGameInstallResources)' != ''"/>
+
+        <Message Text="Copying YR resources from '$(YRSource)' to '$(YRStartupPath)"/>
+        <Copy SourceFiles="@(YRResources)" DestinationFolder="$(YRStartupPath)\%(RecursiveDir)" SkipUnchangedFiles="true"/>
+    </Target>
+</Project>

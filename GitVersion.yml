@@ -1,0 +1,27 @@
+﻿tag-prefix: 'yr-'
+mode: ContinuousDeployment
+increment: Patch
+
+branches:
+  develop:
+    regex: ^develop
+    source-branches: [ 'develop' ]
+    tag: dev
+    
+  # Any new features that should be auto versioned should be in a branch under "feature/"
+  # Example: feature/net7 or feature/quakenet
+  # Features will increment the version by Minor.
+  feature:
+    regex: ^feature?[/-]
+    source-branches: [ 'develop' ]
+    tag: useBranchName
+    increment: Inherit
+    
+  # Any patches should be put under the "hotfix/" branch prefix.
+  # Example: hotfix/gamespawn-cloak-fix
+  # Hotfixes will increment the version by Patch.
+  hotfix:
+    regex: ^hotfix?[/-]
+    source-branches: [ 'develop' ]
+    tag: useBranchName
+    increment: Patch

@@ -1,0 +1,47 @@
+<!doctype html public "-//w3c//dtd html 3.2//en">
+
+<html>
+
+<head>
+		<title>
+		</title>
+		<link rel=stylesheet type="text/css" href="formats.css">
+	</head>
+	
+	<body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
+		
+		<p class="heading" align="center">
+		<br>
+	11.  Trigger & Tag Tutorial (Advanced)  </p>
+	<p>
+
+<b>Creating & Using Triggers and Tags</b><br><br>
+In addition to events and actions triggers also have a structure called a tag associated with them. Tags are identifiers for the triggers; they tag them for use. The trigger editor with FinalAlert 2: Yuri's Revenge <font size=1>TM</font> automatically sets up and handles tags for you, but it is important to understand their purpose to accomplish many tasks. One common such task is a trigger that will fire when an important unit is destroyed, such as Tanya.
+<br><br><br>
+
+<b>Step 1: Create A New Variable</b><br><br>
+Trigger: Set up a local lose variable after Tanya is killed<br>
+Create a new variable called "Tanya lost" using Edit->Local Variables
+<br><br><br>
+
+<b>Step 2: Create The Trigger</b><br><br>
+Create a trigger with the following attributes:<br>
+a. Name: "Tanya Killed"<br>
+b. Event: "48 Attached object destroyed"<br>
+c. Action: "56 Set local" parameter is the variable you created
+<br><br><br>
+
+<b>Step 3:  Adjust Tanya’s Attributes</b><br><br>
+Place Tanya on the map under the human player's control. Double-click on Tanya to bring up her unit attributes. Now change the "Attached Tag" property to "01000001 Tanya Killed 1".
+<br><br><br>
+
+Simple, isn't it? Structures and vehicles can also be attached to a tag, in addition to any Teams you have created. This is how the player wins when the Kremlin is destroyed (same event "attached object destroyed") or after a paradropped Yuri is killed. Many actions also use tags, such as action 14, "Give attached objects to house". 
+
+<br><br><br><br>
+<font size=1>Original tutorial writer: Thalassicus</font>
+
+</p>
+
+</body>
+
+</html>

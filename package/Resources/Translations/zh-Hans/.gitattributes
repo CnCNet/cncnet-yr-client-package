@@ -1,0 +1,3 @@
+# subtitle(md) file must be UTF-16 LE BOM. Both `working-tree-encoding=UTF-16` and `working-tree-encoding=UTF-16LE` do not work as intended.
+subtitle.txt binary
+subtitlemd.txt binary

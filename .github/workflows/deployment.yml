@@ -1,0 +1,229 @@
+name: build-and-deploy
+
+on:
+  # Run on push to any branches listed
+  # Any new features that should be auto built and deployed should be in a branch under "feature/"
+  # example: feature/net7 or feature/quakenet
+  push:
+    branches:
+      - develop
+      - pre-release
+      - legacy
+      - feature/*
+      - hotfix/*
+
+  # Run when there is a release published
+  release:
+    types: [published]
+
+  # Allows for this workflow to be run manually
+  workflow_dispatch:
+
+jobs:
+  # This job is responsible for building the package that will be deployed to the server.
+  # It is run in a windows container so that Version.exe and other Windows based tools are able to be executed.
+  build-package:
+    runs-on: windows-2022
+    environment: cncnet
+    outputs:
+      # This the fully qualified version string that is used for deploy purposes.
+      packageUploadVersion: ${{ env.GitVersion_MajorMinorPatch }}${{ env.GitVersion_PreReleaseLabelWithDash }}
+      mirrorLinkName: ${{ env.GitVersion_PreReleaseLabel }}
+
+    steps:
+      # Checkout the repo
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0 # required for gitversion
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      # Restore Tools NPM Libs from Cache
+      - name: Restore Tools NPM Libs from Cache
+        id: npm-cache
+        uses: actions/cache@v4
+        with:
+          path: tools/node_modules
+          key: ${{ runner.os }}-node-tools-prod-${{ hashFiles('tools/package-lock.json', 'tools/package.json') }}
+          restore-keys: ${{ runner.os }}-node-tools-prod-
+
+      - name: Install Tools NPM Libs
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        working-directory: tools
+        run: npm ci --omit=dev
+
+      # This step validates the format of the tag created, if this was a published release.
+      # Currently, it must be in the format "yr-X.Y" or "yr-X.Y.Z"
+      - name: Validate Tag Name
+        if: github.event_name == 'release'
+        working-directory: tools
+        run: |
+          npm run release-tag-validator
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.15
+        with:
+          versionSpec: "5.x"
+
+      # Run Gitversion - https://gitversion.net/docs/
+      - name: Run GitVersion
+        uses: gittools/actions/gitversion/execute@v0.9.15
+
+      # Update versionconfig.ini with gitversion version info
+      - name: Update versionconfig.ini
+        # replace the second line in the file with the proper version number (X.Y.Z-dev.N)
+        run: sed -i "2 s/.*/${{env.GitVersion_SemVer}}/" ./package/versionconfig.ini
+
+      - name: Refresh tunnel cache
+        if: github.event_name == 'release'
+        run: curl -fsSL https://cncnet.org/master-list -o package/Client/tunnel_cache
+
+      - name: Pack Game Assets
+        working-directory: tools
+        run: npm run mix-packer
+
+      - name: Version Writer
+        working-directory: tools
+        run: npm run version-writer
+
+      # Create package archive
+      - name: Create package artifact (tar.gz)
+        run: tar -C ./package -czvf package.tar.gz .
+
+      - name: Create package artifact (zip)
+        run: 7z.exe a package.zip ./package
+
+      # Create installer
+      - name: Build Installer
+        working-directory: tools
+        run: npm run build-installer
+
+      # Upload package archive as a workflow artifact
+      - name: Upload Package Workflow Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: package
+          path: ./package.tar.gz
+          if-no-files-found: error
+
+      # Upload installer as a workflow artifact
+      - name: Upload Installer Workflow Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: installer
+          path: ./CnCNet5_YR_Installer.exe
+          if-no-files-found: error
+
+      # Upload package archive (tar.gz) to any relevant releases for current tag
+      # If there is no release/tag, this will not do anything
+      - name: Upload Package Release Asset (tar.gz)
+        if: github.event_name == 'release' && github.event.action == 'published'
+        working-directory: tools
+        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName "package_${{env.GitVersion_SemVer}} (tar.gz)" --assetPath ${{ github.workspace }}/package.tar.gz
+
+      # Upload package archive (zip) to any relevant releases for current tag
+      # If there is no release/tag, this will not do anything
+      - name: Upload Package Release Asset (zip)
+        if: github.event_name == 'release' && github.event.action == 'published'
+        working-directory: tools
+        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName "package_${{env.GitVersion_SemVer}} (zip)" --assetPath ${{ github.workspace }}/package.zip
+
+      # Upload installer to any relevant releases for current tag
+      # If there is no release/tag, this will not do anything
+      - name: Upload Installer Release Asset
+        if: github.event_name == 'release' && github.event.action == 'published'
+        working-directory: tools
+        run: npm run release-asset-uploader -- --token ${{ secrets.GITHUB_TOKEN }} --assetName "CnCNet5_YR_Installer_${{env.GitVersion_SemVer}} (exe)" --assetPath ${{ github.workspace }}/CnCNet5_YR_Installer.exe
+
+  # This job downloads the package artifact from the previous job and deploys it to the server.
+  deploy-package:
+    # if previous job was successful
+    if: ${{ success() }}
+    runs-on: ubuntu-22.04
+    environment: cncnet
+    needs: build-package
+
+    steps:
+      # Download the package artifact from previous job
+      - name: Get artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: package
+
+      # Download the installer artifact (only for published releases)
+      - name: Get installer artifact
+        if: github.event_name == 'release' && github.event.action == 'published'
+        uses: actions/download-artifact@v4
+        with:
+          name: installer
+
+      # Deploy the package to the server
+      - name: Deploy package
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
+        uses: appleboy/scp-action@7179e72a3fa4d4c33870a471708fda724fae7596
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          passphrase: ${{ secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          overwrite: true
+          source: "package.tar.gz"
+          target: "${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/"
+
+      # Extract the deployed package on the server
+      - name: Extract the deployed package
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
+        uses: appleboy/ssh-action@d91a1af6f57cd4478ceee14d7705601dafabaa19
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          passphrase: ${{ secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}
+            tar -xzvf ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/package.tar.gz
+            rm ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/package.tar.gz
+            chmod 777 --recursive ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/*
+
+      # Upload the installer executable to the server
+      - name: Upload installer
+        # This should be done for published releases only!
+        if: github.event_name == 'release' && github.event.action == 'published'
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
+        uses: appleboy/scp-action@7179e72a3fa4d4c33870a471708fda724fae7596
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          passphrase: ${{ secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          overwrite: true
+          source: "CnCNet5_YR_Installer.exe"
+          target: "${{ secrets.PUBLICDOWNLOADFOLDER }}CnCNet5_YR_Installer.exe"
+
+      # Create/update a mirror link for client update purposes, using the GitVersion pre release label as the link name.
+      # See the file "GitVersion.yml" for more details on the name that will be used for a given branch.
+      # Ex: if the branch name is "develop", it will create a link of "dev" to point to the directory "updates/X.Y.Z-dev".
+      # Then, client users can use the path "/updates/games/yr/develop/" for their UpdaterConfig.ini file.
+      # This will keep develop and feature branch update mirror links up to date as soon as the deploy has occurred.
+      - name: Update mirror link
+        if: needs.build-package.outputs.mirrorLinkName != ''
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
+        uses: appleboy/ssh-action@d91a1af6f57cd4478ceee14d7705601dafabaa19
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          passphrase: ${{ secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ${{ secrets.SSH_PATH_GAMES_YR }}
+            ln -sfn updates/${{ needs.build-package.outputs.packageUploadVersion }} ${{ needs.build-package.outputs.mirrorLinkName }}

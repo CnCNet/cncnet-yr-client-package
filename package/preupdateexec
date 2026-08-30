@@ -1,0 +1,58 @@
+[Delete]
+Client\custom_map_cache
+Resources\Allied Theme\CnCNetLobby.ini
+Resources\Allied Theme\GenericWindow.ini
+Resources\Allied Theme\LANLobby.ini
+Resources\Allied Theme\LoadingScreen.ini
+Resources\Allied Theme\MultiplayerGameLobby.ini
+Resources\Allied Theme\OptionsWindow.ini
+Resources\Allied Theme\SkirmishLobby.ini
+Resources\Binaries\OpenGL\Rampastring.Tools.dll
+Resources\Binaries\Windows\Rampastring.Tools.dll
+Resources\Binaries\XNA\Rampastring.Tools.dll
+Resources\ClassicMode.mix
+Resources\Soviet Theme\CnCNetLobby.ini
+Resources\Soviet Theme\GenericWindow.ini
+Resources\Soviet Theme\LANLobby.ini
+Resources\Soviet Theme\LoadingScreen.ini
+Resources\Soviet Theme\MultiplayerGameLobby.ini
+Resources\Soviet Theme\OptionsWindow.ini
+Resources\Soviet Theme\SkirmishLobby.ini
+; Removing icon files before update to redownload with correct capitalization (important for case-sensitive filesystems, like on Linux)
+Resources\americaicon.png
+Resources\cubaicon.png
+Resources\franceicon.png
+Resources\germanyicon.png
+Resources\great britainicon.png
+Resources\iraqicon.png
+Resources\koreaicon.png
+Resources\libyaicon.png
+Resources\russiaicon.png
+Resources\yuriicon.png
+expandspawn01.mix
+expandspawn02.mix
+expandspawn09.mix
+ls800obs.shp
+mplsobs.pal
+spawner.xdp
+spawner2.xdp
+crate.des
+crate.lun
+crate.sno
+crate.tem
+crate.ubn
+crate.urb
+wcrate.des
+wcrate.lun
+wcrate.sno
+wcrate.tem
+wcrate.ubn
+wcrate.urb
+Resources\Binaries\Windows\Rampastring.Tools.dll
+Resources\Binaries\XNA\Rampastring.Tools.dll
+Resources\Binaries\OpenGL\Rampastring.Tools.dll
+
+[DeleteFolder]
+; Right now whole INI folder gets hashed, as a quick fix we do this to force re-download INI files
+INI\
+do_not_remove_this_line

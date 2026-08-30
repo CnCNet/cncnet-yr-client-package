@@ -1,0 +1,18 @@
+{
+  "name": "map-name-case-fix",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "scripts": {
+    "start": "tsx index.ts"
+  },
+  "dependencies": {
+    "tsx": "^4.21.0",
+    "mpmaps-updater": "1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.2",
+    "typescript": "^6.0.2"
+  }
+}

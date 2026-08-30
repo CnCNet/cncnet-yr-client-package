@@ -1,0 +1,1 @@
+Any custom maps you made or downloaded are to be placed in this directory. Custom maps need to have a .map extension. The game mode of custom maps is defined in [Basic] GameMode=.

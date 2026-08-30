@@ -1,0 +1,71 @@
+name: 'MacOS: Bug report'
+description: Create an issue that is happening on MacOS
+title: '[MacOS  Bug]: '
+labels: bug, MacOS
+assignees:
+  - ''
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened? / Steps to reproduce
+      description: What were you doing when the bug occurred?
+      placeholder: Tell us what you saw! eg. "I clicked on a building, paused it, unpaused it and it stayed paused."
+      value: "A clear and concise description of what the bug is."
+    validations:
+      required: true
+  - type: textarea
+    id: what-should-happen
+    attributes:
+      label: What should have happened?
+      description: What were you expecting to happen?
+      placeholder: Tell us what you expected to see! eg. "The building should have unpaused and started working again."
+      value: "A clear and concise description of what you expected to happen."
+    validations:
+      required: true
+  - type: dropdown
+    id: WindowsVersion
+    attributes:
+      label: What version of Windows are you using?
+      options:
+      - 15 Sequoia
+      - 14 Sonoma
+      - 13 Ventura
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: GameVersion
+    attributes:
+      label: What version of the game are you running?
+      description: Please tell us the current version of your game install
+      placeholder: 8.67.3
+      value: "8.67.3"
+    validations:
+      required: true
+  - type: dropdown
+    id: GameBranch
+    attributes:
+      label: What branch of the game are you using?
+      options:
+        - Live
+        - Dev
+        - Beta
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Client Log or Client Crash Log
+      description: Please copy and paste a log output. The file can be located in either "Client\client.log" or "Client\ClientCrashLogs\ClientCrashLog_%DATE%_%TIME%.txt" This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: markdown
+    attributes:
+      value: |
+        ## 📸 Screenshots (Optional)
+        If applicable, please upload screenshots by dragging and dropping them **into the GitHub comment box** after submitting this issue.
+        You can also upload them to an image hosting site (e.g., Imgur) and paste the link in a comment.
