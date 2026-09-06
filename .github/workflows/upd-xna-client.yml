@@ -11,11 +11,15 @@ on:
   schedule:
   - cron: "0 0 * * *" # Starts everyday at 00:00 UTC+0
 
+permissions:
+  contents: write
+  pull-requests: write
+  
 env:
   CLIENT_PATH: package # Do not add trailing slash
   UPDATE_BRANCH_NAME: update-client-binaries # The workflow adds the release tag after this value, i.e. "update-client-binaries-2.12.13"
   TARGET_BRANCH: develop # Into this branch workflow should create pull request for merge
-  COMMIT_MESSAGE: Update client binaries to the latest version
+  COMMIT_MESSAGE: Update client binaries to the version
   PR_TITLE: Update client binaries to the version # The workflow adds the release tag after this value, i.e. "Update client binaries to the version 2.12.13"
   PR_BODY: This is an automatic pull request to update client binaries to the latest release published in [CnCNet/xna-cncnet-client](https://github.com/CnCNet/xna-cncnet-client) repository.
 
@@ -25,28 +29,36 @@ jobs:
 
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v7
       with:
+        ref: ${{ env.TARGET_BRANCH }}
+        fetch-depth: 0
         lfs: true
-
+    
     - name: Download Latest Release
       id: download
-      uses: robinraju/release-downloader@v1
-      with:
-        repository: CnCNet/xna-cncnet-client
-        latest: true
-        preRelease: true
-        fileName: xna-cncnet-client*
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        $tag_name = (gh release list --repo CnCNet/xna-cncnet-client --exclude-drafts --limit 1 --json tagName --jq '.[0].tagName')
+        gh release download $tag_name --repo CnCNet/xna-cncnet-client --pattern "xna-cncnet-client-*"
+        
+        7z x xna-cncnet-client-*.7z -y -oTEMPORARY
+        rm xna-cncnet-client-*.7z
+        $product_version = (Get-Item -Path "TEMPORARY\Resources\clientdx.exe").VersionInfo.ProductVersion
 
-    - name: Create Update Branch
+        "product_version=$product_version" >> $env:GITHUB_OUTPUT
+        "tag_name=$tag_name" >> $env:GITHUB_OUTPUT
+
+    - name: Open PR
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         $repoDir = (Get-Location).Path
         $clientDir = $repoDir + "\${{ env.CLIENT_PATH }}"
-        $currentVersion = (Get-Item -Path "$clientDir\Resources\clientdx.exe").VersionInfo.FileVersion -Replace "\.0$", ""
-        $downloadVersion = '${{ steps.download.outputs.tag_name }}'
-
+        $currentVersion = (Get-Item -Path "$clientDir\Resources\clientdx.exe").VersionInfo.ProductVersion
+        $downloadVersion = '${{ steps.download.outputs.product_version }}'
+        
         echo "Current client version: '$currentVersion'"
         echo "Downloaded client version: '$downloadVersion'"
 
@@ -55,7 +67,7 @@ jobs:
           echo "Update is not required"
           exit
         }
-
+        
         echo "Update required"
 
         # Check if branch exist
@@ -66,25 +78,23 @@ jobs:
           echo "Branch ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }} already exist. Skip updating."
           exit
         }
-
+        
         # Configure git
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
 
         # Make update branch
         git checkout -b ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}
-
-        # Delete old binaries, unpack archive, remove archive
+        
+        # Delete old binaries, copy new one, remove temporary folder
         rm -r -fo "$clientDir\Resources\Binaries"
         rm -r -fo "$clientDir\Resources\BinariesNET8"
-        7z x xna-cncnet-client-*.7z -y -oTEMPORARY
         cp -r -fo "TEMPORARY\Resources\*" "$clientDir\Resources\"
         rm -r -fo TEMPORARY
-        rm xna-cncnet-client-*.7z
 
         # Commit changes
-        git add -A
-        git commit -m "${{ env.COMMIT_MESSAGE }}"
+        git add *
+        git commit -m "${{ env.COMMIT_MESSAGE }} ${{ steps.download.outputs.tag_name }}"
 
         # Path to the updateexec file
         $updateExecPath = "$clientDir\updateexec"
@@ -165,7 +175,7 @@ jobs:
                 if ($deleteSectionIndex -eq $index)
                 {
                   $updateexecContent_new += "; ${{ steps.download.outputs.tag_name }} (auto-generated entries for removed/renamed files)" + [Environment]::NewLine
-
+                  
                   foreach($new_delete in $deletedFiles)
                   {
                     $updateexecContent_new += $new_delete + [Environment]::NewLine
@@ -182,12 +192,12 @@ jobs:
         }
 
         # Commit changes if there exist updateexec and client binaries have new deleted files
-        git commit --amend -am "${{ env.COMMIT_MESSAGE }}"
+        git commit --amend -am "${{ env.COMMIT_MESSAGE }} ${{ steps.download.outputs.tag_name }}"
 
         # Push changes
         git push --force origin ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}
 
-        # This timeout is for the remote server to index received content
+        # This timeout is for the remote server to index received content 
         # https://stackoverflow.com/questions/74842935/powershell-batch-script-timeout-error-input-redirection-is-not-supported-exiti
         Start-Job {
           # Simulate calling a batch file (cmd /c)
