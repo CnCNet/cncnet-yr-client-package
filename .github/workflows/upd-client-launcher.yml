@@ -11,13 +11,17 @@ on:
   schedule:
   - cron: "0 0 * * *" # Starts everyday at 00:00 UTC+0
 
+permissions:
+  contents: write
+  pull-requests: write
+
 env:
   CLIENT_PATH: package # Do not add trailing slash
   LAUNCHER_NAME: CnCNetYRLauncher.exe # Full launcher filename
   ICON_NAME: clienticon.ico # Full icon filename in the Resources folder
   UPDATE_BRANCH_NAME: update-client-launcher # The workflow adds the release tag after this value, i.e. "update-client-launcher-2.12.13"
   TARGET_BRANCH: develop # Into this branch workflow should create pull request for merge
-  COMMIT_MESSAGE: Update client launcher to the latest version
+  COMMIT_MESSAGE: Update client launcher to the version
   PR_TITLE: Update client launcher to the version # The workflow adds the release tag after this value, i.e. "Update client binaries to the launcher 2.12.13"
   PR_BODY: This is an automatic pull request to update client launcher to the latest release published in [CnCNet/xna-cncnet-client-launcher](https://github.com/CnCNet/xna-cncnet-client-launcher) repository.
 
@@ -27,24 +31,34 @@ jobs:
 
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v7
       with:
+        ref: ${{ env.TARGET_BRANCH }}
+        fetch-depth: 0
         lfs: true
-
+    
     - name: Download Latest Release
       id: download
-      uses: robinraju/release-downloader@v1
-      with:
-        repository: CnCNet/xna-cncnet-client-launcher
-        latest: true
-        fileName: CnCNet*
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        $tag_name = (gh release list --repo CnCNet/xna-cncnet-client-launcher --exclude-drafts --limit 1 --json tagName --jq '.[0].tagName')
+        gh release download $tag_name --repo CnCNet/xna-cncnet-client-launcher --pattern "CnCNet*"
+
+        7z x CnCNet*.zip -y -oTEMPORARY
+        $product_version = (Get-Item -Path "TEMPORARY\CnCNet.LauncherStub.exe").VersionInfo.ProductVersion
+        rm CnCNet*.zip
+
+        "product_version=$product_version" >> $env:GITHUB_OUTPUT
+        "tag_name=$tag_name" >> $env:GITHUB_OUTPUT
 
     - name: Download Icon Changer
-      uses: robinraju/release-downloader@v1
-      with:
-        repository: stefanGaina/icon-changer
-        tag: 'v1.1.0'
-        fileName: icon-changer*
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        gh release download v1.1.0 --repo stefanGaina/icon-changer --pattern "icon-changer*"
+        7z x icon-changer*.zip
+        rm icon-changer*.zip
 
     - name: Open PR
       env:
@@ -53,8 +67,8 @@ jobs:
         $repoDir = (Get-Location).Path
         $clientDir = $repoDir + "\${{ env.CLIENT_PATH }}"
         $launcher = "${{ env.LAUNCHER_NAME }}"
-        $currentVersion = ((Get-Item -Path "$clientDir\$launcher").VersionInfo.ProductVersion).Split("+")[0] -Replace "\.0$", ""
-        $downloadVersion = '${{ steps.download.outputs.tag_name }}'.Trim("v")
+        $currentVersion = ((Get-Item -Path "$clientDir\$launcher").VersionInfo.ProductVersion)
+        $downloadVersion = '${{ steps.download.outputs.product_version }}'
 
         echo "Current launcher version: '$currentVersion'"
         echo "Downloaded launcher version: '$downloadVersion'"
@@ -75,7 +89,7 @@ jobs:
           echo "Branch ${{ env.UPDATE_BRANCH_NAME }}-$downloadVersion already exist. Skip updating."
           exit
         }
-
+        
         # Configure git
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -83,26 +97,23 @@ jobs:
         # Make update branch
         git checkout -b ${{ env.UPDATE_BRANCH_NAME }}-$downloadVersion
 
-        # Delete old binaries, unpack archive, remove archive
-        7z x CnCNet*.zip -y -oTEMPORARY
+        # Replace old binaries, remove unpacked folder
         mv -Force "TEMPORARY\CnCNet.LauncherStub.exe"        "${{ env.CLIENT_PATH }}\${{ env.LAUNCHER_NAME }}"
         mv -Force "TEMPORARY\CnCNet.LauncherStub.exe.config" "${{ env.CLIENT_PATH }}\${{ env.LAUNCHER_NAME }}.config"
         rm -r -fo TEMPORARY
-        rm CnCNet*.zip
 
-        7z x icon-changer*.zip
+        # Patch the client's launcher icon and remove the icon-changer
         & ./icon-changer.exe "${{ env.CLIENT_PATH }}\Resources\${{ env.ICON_NAME }}" "${{ env.CLIENT_PATH }}\${{ env.LAUNCHER_NAME }}"
         rm icon-changer.exe
-        rm icon-changer*.zip
 
         # Commit changes
-        git add -A
-        git commit -m "${{ env.COMMIT_MESSAGE }}"
+        git add *
+        git commit -m "${{ env.COMMIT_MESSAGE }} ${{ steps.download.outputs.tag_name }}"
 
         # Push changes
         git push --force origin ${{ env.UPDATE_BRANCH_NAME }}-$downloadVersion
 
-        # This timeout is for the remote server to index received content
+        # This timeout is for the remote server to index received content 
         # https://stackoverflow.com/questions/74842935/powershell-batch-script-timeout-error-input-redirection-is-not-supported-exiti
         Start-Job {
           # Simulate calling a batch file (cmd /c)
