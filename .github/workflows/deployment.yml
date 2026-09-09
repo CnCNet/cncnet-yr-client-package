@@ -19,6 +19,10 @@ on:
   # Allows for this workflow to be run manually
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.event_name == 'release' && github.event.action == 'published' && github.event.release.prerelease == false && 'stable-release-deployment' || format('{0}-{1}', github.workflow, github.run_id) }}
+  cancel-in-progress: false
+
 jobs:
   # This job is responsible for building the package that will be deployed to the server.
   # It is run in a windows container so that Version.exe and other Windows based tools are able to be executed.
@@ -223,7 +227,9 @@ jobs:
           # ln to create a dangling "live" link in the home directory, and still pass.
           script_stop: true
           script: |
-            cd -- "${{ secrets.SSH_PATH_GAMES_YR }}" && ln -sfn "updates/${{ needs.build-package.outputs.packageUploadVersion }}" live
+            cd -- "${{ secrets.SSH_PATH_GAMES_YR }}" &&
+            ln -s "updates/${{ needs.build-package.outputs.packageUploadVersion }}" "live.tmp.${{ github.run_id }}.${{ github.run_attempt }}" &&
+            mv -Tf "live.tmp.${{ github.run_id }}.${{ github.run_attempt }}" live
 
       # Upload the installer executable to the server
       - name: Upload installer
