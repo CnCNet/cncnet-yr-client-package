@@ -227,6 +227,9 @@ jobs:
           passphrase: ${{ secrets.SSH_PASS }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
+          # Without this the script runs without "set -e": a failed cd would leave the
+          # ln to create a dangling "live" link in the home directory, and still pass.
+          script_stop: true
           script: |
             cd -- "${{ secrets.SSH_PATH_GAMES_YR }}" && ln -sfn "updates/${{ needs.build-package.outputs.packageUploadVersion }}" live
 
