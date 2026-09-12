@@ -100,6 +100,264 @@
             appended strings.
             </summary>
         </member>
+        <member name="T:Rampastring.Tools.IIniFile">
+            <summary>
+            Provides operations for parsing, handling and writing INI files.
+            </summary>
+        </member>
+        <member name="P:Rampastring.Tools.IIniFile.AllowNewSections">
+            <summary>
+            Gets or sets a value that determines whether the parser should only parse
+            pre-determined (via <see cref="M:Rampastring.Tools.IIniFile.AddSection(System.String)"/>) sections or all sections in the INI file.
+            </summary>
+        </member>
+        <member name="P:Rampastring.Tools.IIniFile.FileName">
+            <summary>
+            Use <see cref="P:Rampastring.Tools.IniFile.FilePath"/> instead.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.AddSection(Rampastring.Tools.IniSection)">
+            <summary>
+            Adds a section into the INI file.
+            </summary>
+            <param name="section">The section to add.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.AddSection(System.String)">
+            <summary>
+            Creates and adds a section into the INI file.
+            </summary>
+            <param name="sectionName">The name of the section to add.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.RemoveSection(System.String)">
+            <summary>
+            Removes the given section from the INI file.
+            Uses case-insensitive string comparison when looking for the section.
+            </summary>
+            <param name="sectionName">The name of the section to remove.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.CombineSections(System.String,System.String)">
+            <summary>
+            Combines two INI sections, with the second section overriding
+            in case conflicting keys are present. The combined section
+            then over-writes the second section.
+            </summary>
+            <param name="firstSectionName">The name of the first INI section.</param>
+            <param name="secondSectionName">The name of the second INI section.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.EraseSectionKeys(System.String)">
+            <summary>
+            Erases all existing keys of a section.
+            Does nothing if the section does not exist.
+            </summary>
+            <param name="sectionName">The name of the section.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.GetBooleanValue(System.String,System.String,System.Boolean)">
+            <summary>
+            Returns a boolean value from the INI file.
+            </summary>
+            <param name="section">The name of the key's section.</param>
+            <param name="key">The name of the INI key.</param>
+            <param name="defaultValue">The value to return if the section or key wasn't found,
+            or converting the key's value to a boolean failed.</param>
+            <returns>The given key's value if the section and key was found and
+            the value is a valid boolean. Otherwise the given defaultValue.</returns>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.GetListValue``1(System.String,System.String,System.Char,System.Func{System.String,``0})">
+            <summary>
+            Parses and returns a list value in the INI file.
+            </summary>
+            <typeparam name="T">The type of the list elements.</typeparam>
+            <param name="section">The name of the INI section.</param>
+            <param name="key">The INI key.</param>
+            <param name="separator">The separator between the list elements.</param>
+            <param name="converter">The function that converts the list elements from strings to the given type.</param>
+            <returns>A list that contains the parsed elements.</returns>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.GetDoubleValue(System.String,System.String,System.Double)">
+            <summary>
+            Returns a double-precision floating point value from the INI file.
+            </summary>
+            <param name="section">The name of the key's section.</param>
+            <param name="key">The name of the INI key.</param>
+            <param name="defaultValue">The value to return if the section or key wasn't found,
+            or converting the key's value to a double failed.</param>
+            <returns>The given key's value if the section and key was found and
+            the value is a valid double. Otherwise the given defaultValue.</returns>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.GetIntValue(System.String,System.String,System.Int32)">
+            <summary>
+            Returns an integer value from the INI file.
+            </summary>
+            <param name="section">The name of the key's section.</param>
+            <param name="key">The name of the INI key.</param>
+            <param name="defaultValue">The value to return if the section or key wasn't found,
+            or converting the key's value to an integer failed.</param>
+            <returns>The given key's value if the section and key was found and
+            the value is a valid integer. Otherwise the given defaultValue.</returns>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.GetPathStringValue(System.String,System.String,System.String)">
+            <summary>
+            Parses and returns a path string from the INI file.
+            The path string has all of its directory separators ( / \ )
+            replaced with an environment-specific one.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.GetEnumValue``1(System.String,System.String,``0)">
+            <summary>
+            Parses and returns an enum value from the INI file.
+            </summary>
+            <typeparam name="T">The type of the enum.</typeparam>
+            <param name="section">The name of the key's INI section.</param>
+            <param name="key">The INI key.</param>
+            <param name="defaultValue">The value to return if the INI key doesn't exist
+            or has no valid value that would belong to the enum type.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.SetEnumValue``1(System.String,System.String,``0)">
+            <summary>
+            Sets the enum value of a key in a INI section.
+            If the section or key do not exist, they are created.
+            </summary>
+            <typeparam name="T">The type of the enum.</typeparam>
+            <param name="section">The name of the key's INI section.</param>
+            <param name="key">The INI key.</param>
+            <param name="value">The value of the INI key.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.GetSection(System.String)">
+            <summary>
+            Returns an INI section from the file, or null if the section doesn't exist.
+            </summary>
+            <param name="name">The name of the section.</param>
+            <returns>The section of the file; null if the section doesn't exist.</returns>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.GetSectionKeys(System.String)">
+            <summary>
+            Gets the names of all INI keys in the specified INI section.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.GetSections">
+            <summary>
+            Gets the names of all sections in the INI file.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.GetSingleValue(System.String,System.String,System.Single)">
+            <summary>
+            Returns a single-precision floating point value from the INI file.
+            </summary>
+            <param name="section">The name of the key's section.</param>
+            <param name="key">The name of the INI key.</param>
+            <param name="defaultValue">The value to return if the section or key wasn't found,
+            or converting the key's value to a float failed.</param>
+            <returns>The given key's value if the section and key was found and
+            the value is a valid float. Otherwise the given defaultValue.</returns>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.GetStringValue(System.String,System.String,System.String)">
+            <summary>
+            Returns a string value from the INI file.
+            </summary>
+            <param name="section">The name of the key's section.</param>
+            <param name="key">The name of the INI key.</param>
+            <param name="defaultValue">The value to return if the section or key wasn't found.</param>
+            <returns>The given key's value if the section and key was found. Otherwise the given defaultValue.</returns>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.KeyExists(System.String,System.String)">
+            <summary>
+            Checks whether a specific INI key exists in a specific INI section.
+            </summary>
+            <param name="sectionName">The name of the INI section.</param>
+            <param name="keyName">The name of the INI key.</param>
+            <returns>True if the key exists, otherwise false.</returns>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.RemoveKey(System.String,System.String)">
+            <summary>
+            Removes a key from the given section in the INI file.
+            </summary>
+            <param name="sectionName">The name of the section to remove the key from.</param>
+            <param name="key">The key to remove from the section.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.Reload">
+            <summary>
+            Clears all data from this IniFile instance and then re-parses the input INI file.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.SectionExists(System.String)">
+            <summary>
+            Checks whether a section exists. Returns true if the section
+            exists, otherwise returns false.
+            </summary>
+            <param name="sectionName">The name of the INI section.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.SetBooleanValue(System.String,System.String,System.Boolean)">
+            <summary>
+            Sets the boolean value of a key in the INI file.
+            </summary>
+            <param name="section">The name of the key's section.</param>
+            <param name="key">The name of the INI key.</param>
+            <param name="value">The value to set to the key.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.SetListValue``1(System.String,System.String,System.Collections.Generic.List{``0},System.Char)">
+            <summary>
+            Sets the list value of a key in the INI section.
+            The list elements are converted to strings using the list element's
+            ToString method and the given separator is applied between the elements.
+            </summary>
+            <typeparam name="T">The type of the list elements.</typeparam>
+            <param name="section">The INI section.</param>
+            <param name="key">The INI key.</param>
+            <param name="list">The list.</param>
+            <param name="separator">The separator between list elements.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.SetDoubleValue(System.String,System.String,System.Double)">
+            <summary>
+            Sets the double value of a specific key of a specific section in the INI file.
+            </summary>
+            <param name="section">The name of the key's section.</param>
+            <param name="key">The name of the INI key.</param>
+            <param name="value">The value to set to the key.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.SetIntValue(System.String,System.String,System.Int32)">
+            <summary>
+            Sets the integer value of a specific key of a specific section in the INI file.
+            </summary>
+            <param name="section">The name of the key's section.</param>
+            <param name="key">The name of the INI key.</param>
+            <param name="value">The value to set to the key.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.SetSingleValue(System.String,System.String,System.Single,System.Int32)">
+            <summary>
+            Sets the float value of a key in the INI file.
+            </summary>
+            <param name="section">The name of the key's section.</param>
+            <param name="key">The name of the INI key.</param>
+            <param name="value">The value to set to the key.</param>
+            <param name="decimals">Defines how many decimal places the stringified float should have.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.SetStringValue(System.String,System.String,System.String)">
+            <summary>
+            Sets the string value of a specific key of a specific section in the INI file.
+            </summary>
+            <param name="section">The name of the key's section.</param>
+            <param name="key">The name of the INI key.</param>
+            <param name="value">The value to set to the key.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.WriteIniFile">
+            <summary>
+            Writes the INI file to the path that was
+            given to the instance on creation.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.WriteIniFile(System.String)">
+            <summary>
+            Writes the INI file's contents to the specified path.
+            </summary>
+            <param name="filePath">The path of the file to write to.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniFile.WriteIniStream(System.IO.Stream)">
+            <summary>
+            Writes the INI file to a specified stream.
+            </summary>
+            <param name="stream">The stream to write the INI file to.</param>
+        </member>
         <member name="P:Rampastring.Tools.IIniSection.SectionName">
             <summary>
             Returns the name of the INI section.
@@ -253,10 +511,23 @@
             replaced with an environment-specific one.
             </summary>
         </member>
-        <member name="T:Rampastring.Tools.IniFile">
+        <member name="M:Rampastring.Tools.IIniSection.GetEnumValue``1(System.String,``0)">
             <summary>
-            A class for parsing, handling and writing INI files.
+            Parses and returns an enum value of a key in the INI section.
             </summary>
+            <typeparam name="T">The type of the enum.</typeparam>
+            <param name="key">The INI key.</param>
+            <param name="defaultValue">The value to return if the INI key doesn't exist
+            or has no valid value that would belong to the enum type.</param>
+        </member>
+        <member name="M:Rampastring.Tools.IIniSection.SetEnumValue``1(System.String,``0)">
+            <summary>
+            Sets the enum value of a key in the INI section.
+            If the key does not exist, it is created.
+            </summary>
+            <typeparam name="T">The type of the enum.</typeparam>
+            <param name="key">The INI key.</param>
+            <param name="value">The value of the INI key.</param>
         </member>
         <member name="M:Rampastring.Tools.IniFile.ConsolidateIniFiles(Rampastring.Tools.IniFile,Rampastring.Tools.IniFile)">
             <summary>
@@ -310,33 +581,15 @@
             <param name="encoding">The encoding of the INI file. Default for UTF-8.</param>
             <param name="applyBaseIni">Whether to parse potential INI file that the file is based on.</param>
         </member>
-        <member name="P:Rampastring.Tools.IniFile.AllowNewSections">
+        <member name="P:Rampastring.Tools.IniFile.FilePath">
             <summary>
-            Gets or sets a value that determines whether the parser should only parse 
-            pre-determined (via <see cref="M:Rampastring.Tools.IniFile.AddSection(System.String)"/>) sections or all sections in the INI file.
+            The path to the INI file on the file system, if any.
             </summary>
         </member>
         <member name="P:Rampastring.Tools.IniFile.Comment">
             <summary>
             Comment line to write to the INI file when it's written.
             </summary>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.Reload">
-            <summary>
-            Clears all data from this IniFile instance and then re-parses the input INI file.
-            </summary>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.WriteIniFile">
-            <summary>
-            Writes the INI file to the path that was
-            given to the instance on creation.
-            </summary>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.WriteIniStream(System.IO.Stream)">
-            <summary>
-            Writes the INI file to a specified stream.
-            </summary>
-            <param name="stream">The stream to write the INI file to.</param>
         </member>
         <member name="M:Rampastring.Tools.IniFile.WriteIniStream(System.IO.Stream,System.Text.Encoding)">
             <summary>
@@ -345,396 +598,15 @@
             <param name="stream">The stream to read the INI file from.</param>
             <param name="encoding">The encoding of the INI file. Default for UTF-8.</param>
         </member>
-        <member name="M:Rampastring.Tools.IniFile.WriteIniFile(System.String)">
-            <summary>
-            Writes the INI file's contents to the specified path.
-            </summary>
-            <param name="filePath">The path of the file to write to.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.AddSection(System.String)">
-            <summary>
-            Creates and adds a section into the INI file.
-            </summary>
-            <param name="sectionName">The name of the section to add.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.AddSection(Rampastring.Tools.IniSection)">
-            <summary>
-            Adds a section into the INI file.
-            </summary>
-            <param name="section">The section to add.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.RemoveSection(System.String)">
-            <summary>
-            Removes the given section from the INI file.
-            Uses case-insensitive string comparison when looking for the section.
-            </summary>
-            <param name="sectionName">The name of the section to remove.</param>
-        </member>
         <member name="M:Rampastring.Tools.IniFile.MoveSectionToFirst(System.String)">
             <summary>
             Moves a section's position to the first place in the INI file's section list.
             </summary>
             <param name="sectionName">The name of the INI section to move.</param>
         </member>
-        <member name="M:Rampastring.Tools.IniFile.EraseSectionKeys(System.String)">
-            <summary>
-            Erases all existing keys of a section.
-            Does nothing if the section does not exist.
-            </summary>
-            <param name="sectionName">The name of the section.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.CombineSections(System.String,System.String)">
-            <summary>
-            Combines two INI sections, with the second section overriding 
-            in case conflicting keys are present. The combined section
-            then over-writes the second section.
-            </summary>
-            <param name="firstSectionName">The name of the first INI section.</param>
-            <param name="secondSectionName">The name of the second INI section.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.GetStringValue(System.String,System.String,System.String)">
-            <summary>
-            Returns a string value from the INI file.
-            </summary>
-            <param name="section">The name of the key's section.</param>
-            <param name="key">The name of the INI key.</param>
-            <param name="defaultValue">The value to return if the section or key wasn't found.</param>
-            <returns>The given key's value if the section and key was found. Otherwise the given defaultValue.</returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.GetIntValue(System.String,System.String,System.Int32)">
-            <summary>
-            Returns an integer value from the INI file.
-            </summary>
-            <param name="section">The name of the key's section.</param>
-            <param name="key">The name of the INI key.</param>
-            <param name="defaultValue">The value to return if the section or key wasn't found,
-            or converting the key's value to an integer failed.</param>
-            <returns>The given key's value if the section and key was found and
-            the value is a valid integer. Otherwise the given defaultValue.</returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.GetDoubleValue(System.String,System.String,System.Double)">
-            <summary>
-            Returns a double-precision floating point value from the INI file.
-            </summary>
-            <param name="section">The name of the key's section.</param>
-            <param name="key">The name of the INI key.</param>
-            <param name="defaultValue">The value to return if the section or key wasn't found,
-            or converting the key's value to a double failed.</param>
-            <returns>The given key's value if the section and key was found and
-            the value is a valid double. Otherwise the given defaultValue.</returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.GetSingleValue(System.String,System.String,System.Single)">
-            <summary>
-            Returns a single-precision floating point value from the INI file.
-            </summary>
-            <param name="section">The name of the key's section.</param>
-            <param name="key">The name of the INI key.</param>
-            <param name="defaultValue">The value to return if the section or key wasn't found,
-            or converting the key's value to a float failed.</param>
-            <returns>The given key's value if the section and key was found and
-            the value is a valid float. Otherwise the given defaultValue.</returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.GetBooleanValue(System.String,System.String,System.Boolean)">
-            <summary>
-            Returns a boolean value from the INI file.
-            </summary>
-            <param name="section">The name of the key's section.</param>
-            <param name="key">The name of the INI key.</param>
-            <param name="defaultValue">The value to return if the section or key wasn't found,
-            or converting the key's value to a boolean failed.</param>
-            <returns>The given key's value if the section and key was found and
-            the value is a valid boolean. Otherwise the given defaultValue.</returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.GetListValue``1(System.String,System.String,System.Char,System.Func{System.String,``0})">
-            <summary>
-            Parses and returns a list value in the INI file.
-            </summary>
-            <typeparam name="T">The type of the list elements.</typeparam>
-            <param name="section">The name of the INI section.</param>
-            <param name="key">The INI key.</param>
-            <param name="separator">The separator between the list elements.</param>
-            <param name="converter">The function that converts the list elements from strings to the given type.</param>
-            <returns>A list that contains the parsed elements.</returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.GetPathStringValue(System.String,System.String,System.String)">
-            <summary>
-            Parses and returns a path string from the INI file.
-            The path string has all of its directory separators ( / \ )
-            replaced with an environment-specific one.
-            </summary>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.GetSection(System.String)">
-            <summary>
-            Returns an INI section from the file, or null if the section doesn't exist.
-            </summary>
-            <param name="name">The name of the section.</param>
-            <returns>The section of the file; null if the section doesn't exist.</returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.SetStringValue(System.String,System.String,System.String)">
-            <summary>
-            Sets the string value of a specific key of a specific section in the INI file.
-            </summary>
-            <param name="section">The name of the key's section.</param>
-            <param name="key">The name of the INI key.</param>
-            <param name="value">The value to set to the key.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.SetIntValue(System.String,System.String,System.Int32)">
-            <summary>
-            Sets the integer value of a specific key of a specific section in the INI file.
-            </summary>
-            <param name="section">The name of the key's section.</param>
-            <param name="key">The name of the INI key.</param>
-            <param name="value">The value to set to the key.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.SetDoubleValue(System.String,System.String,System.Double)">
-            <summary>
-            Sets the double value of a specific key of a specific section in the INI file.
-            </summary>
-            <param name="section">The name of the key's section.</param>
-            <param name="key">The name of the INI key.</param>
-            <param name="value">The value to set to the key.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.SetSingleValue(System.String,System.String,System.Single,System.Int32)">
-            <summary>
-            Sets the float value of a key in the INI file.
-            </summary>
-            <param name="section">The name of the key's section.</param>
-            <param name="key">The name of the INI key.</param>
-            <param name="value">The value to set to the key.</param>
-            <param name="decimals">Defines how many decimal places the stringified float should have.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.SetBooleanValue(System.String,System.String,System.Boolean)">
-            <summary>
-            Sets the boolean value of a key in the INI file.
-            </summary>
-            <param name="section">The name of the key's section.</param>
-            <param name="key">The name of the INI key.</param>
-            <param name="value">The value to set to the key.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.SetListValue``1(System.String,System.String,System.Collections.Generic.List{``0},System.Char)">
-            <summary>
-            Sets the list value of a key in the INI section.
-            The list elements are converted to strings using the list element's
-            ToString method and the given separator is applied between the elements.
-            </summary>
-            <typeparam name="T">The type of the list elements.</typeparam>
-            <param name="section">The INI section.</param>
-            <param name="key">The INI key.</param>
-            <param name="list">The list.</param>
-            <param name="separator">The separator between list elements.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.GetSectionKeys(System.String)">
-            <summary>
-            Gets the names of all INI keys in the specified INI section.
-            </summary>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.GetSections">
-            <summary>
-            Gets the names of all sections in the INI file.
-            </summary>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.SectionExists(System.String)">
-            <summary>
-            Checks whether a section exists. Returns true if the section
-            exists, otherwise returns false.
-            </summary>
-            <param name="sectionName">The name of the INI section.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.KeyExists(System.String,System.String)">
-            <summary>
-            Checks whether a specific INI key exists in a specific INI section.
-            </summary>
-            <param name="sectionName">The name of the INI section.</param>
-            <param name="keyName">The name of the INI key.</param>
-            <returns>True if the key exists, otherwise false.</returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniFile.RemoveKey(System.String,System.String)">
-            <summary>
-            Removes a key from the given section in the INI file.
-            </summary>
-            <param name="sectionName">The name of the section to remove the key from.</param>
-            <param name="key">The key to remove from the section.</param>
-        </member>
-        <member name="T:Rampastring.Tools.INIProperties.BoolProperty">
-            <summary>
-            A boolean to be parsed from an INI file.
-            </summary>
-        </member>
-        <member name="T:Rampastring.Tools.INIProperties.DoubleProperty">
-            <summary>
-            A double to be parsed from an INI file.
-            </summary>
-        </member>
-        <member name="T:Rampastring.Tools.INIProperties.IIniProperty">
-            <summary>
-            An interface for INI properties.
-            </summary>
-        </member>
-        <member name="T:Rampastring.Tools.INIProperties.IntProperty">
-            <summary>
-            An integer to be parsed from an INI file.
-            </summary>
-        </member>
-        <member name="T:Rampastring.Tools.INIProperties.StringProperty">
-            <summary>
-            A string to be parsed from an INI file.
-            </summary>
-        </member>
         <member name="T:Rampastring.Tools.IniSection">
             <summary>
             Represents a [section] in an INI file.
-            </summary>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.AddKey(System.String,System.String)">
-            <summary>
-            Adds a key to the INI section.
-            Throws a <see cref="T:System.InvalidOperationException"/> if the key already exists.
-            Use <see cref="M:Rampastring.Tools.IniSection.AddOrReplaceKey(System.String,System.String)"/> if you want to replace
-            an existing key instead.
-            </summary>
-            <param name="keyName">The name of the INI key.</param>
-            <param name="value">The value of the INI key.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.AddOrReplaceKey(System.String,System.String)">
-            <summary>
-            Adds a key to the INI section, or replaces the key's value if the key
-            already exists.
-            </summary>
-            <param name="keyName">The name of the INI key.</param>
-            <param name="value">The value of the INI key.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.RemoveKey(System.String)">
-            <summary>
-            Removes a key from the INI section.
-            Does not throw an exception if the key does not exist.
-            </summary>
-            <param name="keyName">The name of the INI key to remove.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.GetStringValue(System.String,System.String)">
-            <summary>
-            Returns a string value from the INI section.
-            </summary>
-            <param name="key">The name of the INI key.</param>
-            <param name="defaultValue">The value to return if the section or key wasn't found.</param>
-            <returns>The given key's value if the section and key was found. Otherwise the given defaultValue.</returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.GetIntValue(System.String,System.Int32)">
-            <summary>
-            Returns an integer value from the INI section.
-            </summary>
-            <param name="key">The name of the INI key.</param>
-            <param name="defaultValue">The value to return if the section or key wasn't found,
-            or converting the key's value to an integer failed.</param>
-            <returns>The given key's value if the section and key was found and
-            the value is a valid integer. Otherwise the given defaultValue.</returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.GetDoubleValue(System.String,System.Double)">
-            <summary>
-            Returns a double-precision floating point value from the INI section.
-            </summary>
-            <param name="key">The name of the INI key.</param>
-            <param name="defaultValue">The value to return if the section or key wasn't found,
-            or converting the key's value to a double failed.</param>
-            <returns>The given key's value if the section and key was found and
-            the value is a valid double. Otherwise the given defaultValue.</returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.GetSingleValue(System.String,System.Single)">
-            <summary>
-            Returns a single-precision floating point value from the INI section.
-            </summary>
-            <param name="key">The name of the INI key.</param>
-            <param name="defaultValue">The value to return if the section or key wasn't found,
-            or converting the key's value to a float failed.</param>
-            <returns>The given key's value if the section and key was found and
-            the value is a valid float. Otherwise the given defaultValue.</returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.SetStringValue(System.String,System.String)">
-            <summary>
-            Sets the string value of a key in the INI section.
-            If the key doesn't exist, it is created.
-            </summary>
-            <param name="key">The name of the INI key.</param>
-            <param name="value">The value of the INI key.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.SetIntValue(System.String,System.Int32)">
-            <summary>
-            Sets the integer value of a key in the INI section.
-            If the key doesn't exist, it is created.
-            </summary>
-            <param name="key">The name of the INI key.</param>
-            <param name="value">The value of the INI key.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.SetDoubleValue(System.String,System.Double)">
-            <summary>
-            Sets the double-precision floating point value of a key in the INI section.
-            If the key doesn't exist, it is created.
-            </summary>
-            <param name="key">The name of the INI key.</param>
-            <param name="value">The value of the INI key.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.SetFloatValue(System.String,System.Single)">
-            <summary>
-            Sets the single-precision floating point value of a key in the INI section.
-            If the key doesn't exist, it is created.
-            </summary>
-            <param name="key">The name of the INI key.</param>
-            <param name="value">The value of the INI key.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.SetBooleanValue(System.String,System.Boolean)">
-            <summary>
-            Sets the boolean value of a key in the INI section.
-            If the key doesn't exist, it is created.
-            Uses the <see cref="F:Rampastring.Tools.BooleanStringStyle.TRUEFALSE"/> boolean string style.
-            </summary>
-            <param name="key">The name of the INI key.</param>
-            <param name="value">The value of the INI key.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.SetBooleanValue(System.String,System.Boolean,Rampastring.Tools.BooleanStringStyle)">
-            <summary>
-            Sets the boolean value of a key in the INI section.
-            If the key doesn't exist, it is created.
-            </summary>
-            <param name="key">The name of the INI key.</param>
-            <param name="value">The value of the INI key.</param>
-            <param name="booleanStringStyle">The boolean string style.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.GetBooleanValue(System.String,System.Boolean)">
-            <summary>
-            Returns a boolean value from the INI section.
-            </summary>
-            <param name="key">The name of the INI key.</param>
-            <param name="defaultValue">The value to return if the section or key wasn't found,
-            or converting the key's value to a boolean failed.</param>
-            <returns>The given key's value if the section and key was found and
-            the value is a valid boolean. Otherwise the given defaultValue.</returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.SetListValue``1(System.String,System.Collections.Generic.List{``0},System.Char)">
-            <summary>
-            Sets the list value of a key in the INI section.
-            The list elements are converted to strings using the list element's
-            ToString method and the given separator is applied between the elements.
-            </summary>
-            <typeparam name="T">The type of the list elements.</typeparam>
-            <param name="key">The INI key.</param>
-            <param name="list">The list.</param>
-            <param name="separator">The separator between list elements.</param>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.GetListValue``1(System.String,System.Char,System.Func{System.String,``0})">
-            <summary>
-            Parses and returns a list value of a key in the INI section.
-            </summary>
-            <typeparam name="T">The type of the list elements.</typeparam>
-            <param name="key">The INI key.</param>
-            <param name="separator">The separator between the list elements.</param>
-            <param name="converter">The function that converts the list elements from strings to the given type.</param>
-            <returns>A list that contains the parsed elements.</returns>
-        </member>
-        <member name="M:Rampastring.Tools.IniSection.GetPathStringValue(System.String,System.String)">
-            <summary>
-            Parses and returns a path string from the INI section.
-            The path string has all of its directory separators ( / \ )
-            replaced with an environment-specific one.
             </summary>
         </member>
         <member name="M:Rampastring.Tools.IniSection.KeyExists(System.String)">
@@ -743,6 +615,75 @@
             </summary>
             <param name="key">The INI key.</param>
             <returns>True if the key exists in this section, otherwise false.</returns>
+        </member>
+        <member name="M:Rampastring.Tools.IniSection.Clone(System.String)">
+            <summary>
+            Creates and returns a deep clone of this INI section.
+            </summary>
+            <param name="clonedSectionName">The name given to the cloned section.</param>
+        </member>
+        <member name="T:Rampastring.Tools.IniSettings.IniSettings">
+            <summary>
+            Class for managing INI settings.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.IniSettings.IniSettings.#ctor">
+            <summary>
+            Parameterless constructor.
+            If you use this, make sure to set <see cref="P:Rampastring.Tools.IniSettings.IniSettings.SettingsIni"/> afterwards in derived class constructors.
+            </summary>
+        </member>
+        <member name="P:Rampastring.Tools.IniSettings.IniSettings.SettingsIni">
+            <summary>
+            The INI file associated with this settings instance.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.IniSettings.IniSettings.AddSetting``1(Rampastring.Tools.IniSettings.IIniLoadable)">
+            <summary>
+            Registers a setting into this settings instance.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.IniSettings.IniSettings.Clear">
+            <summary>
+            Clears all settings from this settings instance.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.IniSettings.IniSettings.LoadAll">
+            <summary>
+            Loads the potential user-defined values of all settings registered into this instance from the INI file.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.IniSettings.IniSettings.LoadDefaultValueOverrides(Rampastring.Tools.IniFile)">
+            <summary>
+            Overrides the default values of this instance's settings with values loaded from the provided INI file.
+            If a specific setting's value is not found from the INI file, the setting keeps its existing default value.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.IniSettings.IniSettings.WriteAll">
+            <summary>
+            Writes the potential user-defined values of all settings registered into this instance into the INI file.
+            Does not write the INI settings file itself; for that, call <see cref="M:Rampastring.Tools.IniSettings.IniSettings.SaveSettingsIni"/> afterwards.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.IniSettings.IniSettings.SaveSettingsIni">
+            <summary>
+            Writes the INI file to the file system. Requires that <see cref="P:Rampastring.Tools.IniSettings.IniSettings.SettingsIni"/> has a valid file path defined.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.IniSettings.IniSettings.PopulateWithReflection">
+             <summary>
+             Automatically fetches all members of this class instance that implement
+             <see cref="T:Rampastring.Tools.IniSettings.IIniLoadable"/> and adds them to this instance's list of settings.
+             </summary>
+             <remarks>Setting instances that are null at the time of calling this are ignored.
+            
+             The setting must have a public getter.</remarks>
+        </member>
+        <member name="T:Rampastring.Tools.IniSettings.SettingBase`1">
+            <summary>
+            Abstract base class for INI settings of all types.
+            </summary>
+            <typeparam name="T">The type of the setting.</typeparam>
         </member>
         <member name="T:Rampastring.Tools.Logger">
             <summary>
@@ -826,6 +767,33 @@
             </summary>
             <param name="str">The string.</param>
             <returns>A string that represents the input string's SHA1.</returns>
+        </member>
+        <member name="M:Rampastring.Tools.Utilities.BytesToHexString(System.Byte[],System.Boolean)">
+            <summary>
+            Converts a byte array to a hexadecimal string representation.
+            </summary>
+            <param name="value">The byte array to convert.</param>
+            <param name="capitalize">Indicates whether to capitalize the hexadecimal characters.</param>
+            <returns>A string that represents the byte array in hexadecimal format, without hyphens.</returns>
+        </member>
+        <member name="M:Rampastring.Tools.Utilities.BytesToHexString(System.Byte[],System.Int32,System.Boolean)">
+            <summary>
+            Converts a byte array to a hexadecimal string representation.
+            </summary>
+            <param name="value">The byte array to convert.</param>
+            <param name="startIndex">The index of the first byte to convert.</param>
+            <param name="capitalize">Indicates whether to capitalize the hexadecimal characters.</param>
+            <returns>A string that represents the byte array in hexadecimal format, without hyphens.</returns>
+        </member>
+        <member name="M:Rampastring.Tools.Utilities.BytesToHexString(System.Byte[],System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Converts a byte array to a hexadecimal string representation.
+            </summary>
+            <param name="value">The byte array to convert.</param>
+            <param name="startIndex">The index of the first byte to convert.</param>
+            <param name="length">The number of bytes to convert. Will trim the length if it exceeds the byte array's length.</param>
+            <param name="capitalize">Indicates whether to capitalize the hexadecimal characters.</param>
+            <returns>A string that represents the byte array in hexadecimal format, without hyphens.</returns>
         </member>
         <member name="M:Rampastring.Tools.WindowFlasher.FlashWindowEx(System.IntPtr)">
             <summary>
