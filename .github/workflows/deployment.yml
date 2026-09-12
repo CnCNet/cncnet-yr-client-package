@@ -19,6 +19,10 @@ on:
   # Allows for this workflow to be run manually
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.event_name == 'release' && github.event.action == 'published' && github.event.release.prerelease == false && 'stable-release-deployment' || format('{0}-{1}', github.workflow, github.run_id) }}
+  cancel-in-progress: false
+
 jobs:
   # This job is responsible for building the package that will be deployed to the server.
   # It is run in a windows container so that Version.exe and other Windows based tools are able to be executed.
@@ -187,16 +191,52 @@ jobs:
           passphrase: ${{ secrets.SSH_PASS }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
+          # Without this the script runs without "set -e". A partly-failed tar followed by
+          # a successful rm/chmod would report success, and the installer and live link
+          # would then be promoted against an incomplete package.
+          script_stop: true
           script: |
-            cd ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}
-            tar -xzvf ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/package.tar.gz
-            rm ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/package.tar.gz
-            chmod 777 --recursive ${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/*
+            cd -- "${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}"
+            tar -xzvf "${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/package.tar.gz"
+            rm "${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}/package.tar.gz"
+            chmod 777 --recursive "${{ secrets.SSH_PATH_UPDATES }}/${{ needs.build-package.outputs.packageUploadVersion }}"/*
+
+      # Point the stable ("live") update channel at the newly released version.
+      # Clients using UpdaterConfig_Live.ini read from "<games yr>/live", so this must be flipped
+      # in the same run as the installer upload. Otherwise fresh installs land on the new version
+      # while existing players stay on the old one, and the two cannot play together.
+      #
+      # This deliberately runs BEFORE the installer upload. If it fails, nothing is promoted.
+      # If it succeeds and the installer upload then fails, the public installer is merely
+      # stale: a new user installs the previous version and the updater immediately pulls them
+      # to this one. The opposite order has no such self-healing path.
+      #
+      # Guarded on prerelease == false because the "published" event also fires for GitHub
+      # pre-releases, which must never be pushed to the stable channel.
+      - name: Update live mirror link
+        if: github.event_name == 'release' && github.event.action == 'published' && github.event.release.prerelease == false
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
+        uses: appleboy/ssh-action@d91a1af6f57cd4478ceee14d7705601dafabaa19
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          passphrase: ${{ secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          # Without this the script runs without "set -e": a failed cd would leave the
+          # ln to create a dangling "live" link in the home directory, and still pass.
+          script_stop: true
+          script: |
+            cd -- "${{ secrets.SSH_PATH_GAMES_YR }}" &&
+            ln -s "updates/${{ needs.build-package.outputs.packageUploadVersion }}" "live.tmp.${{ github.run_id }}.${{ github.run_attempt }}" &&
+            mv -Tf "live.tmp.${{ github.run_id }}.${{ github.run_attempt }}" live
 
       # Upload the installer executable to the server
       - name: Upload installer
-        # This should be done for published releases only!
-        if: github.event_name == 'release' && github.event.action == 'published'
+        # This should be done for published, non-prerelease releases only!
+        # The "published" event also fires for GitHub pre-releases, which must not
+        # overwrite the installer offered on the public download page.
+        if: github.event_name == 'release' && github.event.action == 'published' && github.event.release.prerelease == false
         # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
         uses: appleboy/scp-action@7179e72a3fa4d4c33870a471708fda724fae7596
         with:
@@ -207,7 +247,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           overwrite: true
           source: "CnCNet5_YR_Installer.exe"
-          target: "${{ secrets.PUBLICDOWNLOADFOLDER }}CnCNet5_YR_Installer.exe"
+          target: "${{ secrets.PUBLICDOWNLOADFOLDER }}"
 
       # Create/update a mirror link for client update purposes, using the GitVersion pre release label as the link name.
       # See the file "GitVersion.yml" for more details on the name that will be used for a given branch.
@@ -225,5 +265,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd ${{ secrets.SSH_PATH_GAMES_YR }}
-            ln -sfn updates/${{ needs.build-package.outputs.packageUploadVersion }} ${{ needs.build-package.outputs.mirrorLinkName }}
+            cd -- "${{ secrets.SSH_PATH_GAMES_YR }}" && ln -sfn "updates/${{ needs.build-package.outputs.packageUploadVersion }}" "${{ needs.build-package.outputs.mirrorLinkName }}"
