@@ -21,7 +21,7 @@ env:
   TARGET_BRANCH: develop # Into this branch workflow should create pull request for merge
   COMMIT_MESSAGE: Update client binaries to the version
   PR_TITLE: Update client binaries to the version # The workflow adds the release tag after this value, i.e. "Update client binaries to the version 2.12.13"
-  PR_BODY: This is an automatic pull request to update client binaries to the latest release published in [CnCNet/xna-cncnet-client](https://github.com/CnCNet/xna-cncnet-client) repository.
+  PR_BODY: This is an automatic pull request to update client binaries to the latest release published in [CnCNet/xna-cncnet-client](https://github.com/CnCNet/xna-cncnet-client/releases/tag/@) repository.
 
 jobs:
   publish-update-pr:
@@ -56,7 +56,7 @@ jobs:
       run: |
         $repoDir = (Get-Location).Path
         $clientDir = $repoDir + "\${{ env.CLIENT_PATH }}"
-        $currentVersion = (Get-Item -Path "$clientDir\Resources\clientdx.exe").VersionInfo.ProductVersion
+        $currentVersion = (Test-Path "$clientDir\Resources\clientdx.exe") ? (Get-Item -Path "$clientDir\Resources\clientdx.exe").VersionInfo.ProductVersion : ""
         $downloadVersion = '${{ steps.download.outputs.product_version }}'
         
         echo "Current client version: '$currentVersion'"
@@ -207,4 +207,4 @@ jobs:
         } | Receive-Job -Wait -AutoRemoveJob
 
         # Open a PR
-        gh pr create -B ${{ env.TARGET_BRANCH }} -H ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }} --title '${{ env.PR_TITLE }} ${{ steps.download.outputs.tag_name }}' --body '${{ env.PR_BODY }}'
+        gh pr create -B ${{ env.TARGET_BRANCH }} -H ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }} --title '${{ env.PR_TITLE }} ${{ steps.download.outputs.tag_name }}' --body "${{ env.PR_BODY }}".Replace("@", "${{ steps.download.outputs.tag_name }}")
