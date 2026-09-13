@@ -23,7 +23,7 @@ env:
   TARGET_BRANCH: develop # Into this branch workflow should create pull request for merge
   COMMIT_MESSAGE: Update client launcher to the version
   PR_TITLE: Update client launcher to the version # The workflow adds the release tag after this value, i.e. "Update client binaries to the launcher 2.12.13"
-  PR_BODY: This is an automatic pull request to update client launcher to the latest release published in [CnCNet/xna-cncnet-client-launcher](https://github.com/CnCNet/xna-cncnet-client-launcher) repository.
+  PR_BODY: This is an automatic pull request to update client launcher to the latest release published in [CnCNet/xna-cncnet-client-launcher](https://github.com/CnCNet/xna-cncnet-client-launcher/releases/tag/@) repository.
 
 jobs:
   publish-update-pr:
@@ -67,7 +67,7 @@ jobs:
         $repoDir = (Get-Location).Path
         $clientDir = $repoDir + "\${{ env.CLIENT_PATH }}"
         $launcher = "${{ env.LAUNCHER_NAME }}"
-        $currentVersion = ((Get-Item -Path "$clientDir\$launcher").VersionInfo.ProductVersion)
+        $currentVersion = (Test-Path "$clientDir\$launcher") ? (Get-Item -Path "$clientDir\$launcher").VersionInfo.ProductVersion : ""
         $downloadVersion = '${{ steps.download.outputs.product_version }}'
 
         echo "Current launcher version: '$currentVersion'"
@@ -83,10 +83,10 @@ jobs:
 
         # Check if branch exist
         $branch_exist = 'false'
-        gh pr list | Where-Object {$_.Contains('${{ env.UPDATE_BRANCH_NAME }}-$downloadVersion')} | ForEach-Object { $branch_exist = 'true' }
+        gh pr list | Where-Object {$_.Contains('${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}')} | ForEach-Object { $branch_exist = 'true' }
         if ($branch_exist -eq 'true')
         {
-          echo "Branch ${{ env.UPDATE_BRANCH_NAME }}-$downloadVersion already exist. Skip updating."
+          echo "Branch ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }} already exist. Skip updating."
           exit
         }
         
@@ -95,7 +95,7 @@ jobs:
         git config user.email "github-actions[bot]@users.noreply.github.com"
 
         # Make update branch
-        git checkout -b ${{ env.UPDATE_BRANCH_NAME }}-$downloadVersion
+        git checkout -b ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}
 
         # Replace old binaries, remove unpacked folder
         mv -Force "TEMPORARY\CnCNet.LauncherStub.exe"        "${{ env.CLIENT_PATH }}\${{ env.LAUNCHER_NAME }}"
@@ -111,7 +111,7 @@ jobs:
         git commit -m "${{ env.COMMIT_MESSAGE }} ${{ steps.download.outputs.tag_name }}"
 
         # Push changes
-        git push --force origin ${{ env.UPDATE_BRANCH_NAME }}-$downloadVersion
+        git push --force origin ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }}
 
         # This timeout is for the remote server to index received content 
         # https://stackoverflow.com/questions/74842935/powershell-batch-script-timeout-error-input-redirection-is-not-supported-exiti
@@ -123,4 +123,4 @@ jobs:
         } | Receive-Job -Wait -AutoRemoveJob
 
         # Open a PR
-        gh pr create -B ${{ env.TARGET_BRANCH }} -H ${{ env.UPDATE_BRANCH_NAME }}-$downloadVersion --title '${{ env.PR_TITLE }} ${{ steps.download.outputs.tag_name }}' --body '${{ env.PR_BODY }}'
+        gh pr create -B ${{ env.TARGET_BRANCH }} -H ${{ env.UPDATE_BRANCH_NAME }}-${{ steps.download.outputs.tag_name }} --title '${{ env.PR_TITLE }} ${{ steps.download.outputs.tag_name }}' --body "${{ env.PR_BODY }}".Replace("@", "${{ steps.download.outputs.tag_name }}")
