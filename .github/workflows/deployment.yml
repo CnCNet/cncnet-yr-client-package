@@ -152,6 +152,12 @@ jobs:
     runs-on: ubuntu-22.04
     environment: cncnet
     needs: build-package
+    # Serialize deploys that target the same server directory (e.g. two quick pushes to develop
+    # both deploying "X.Y.Z-dev"). Otherwise one run's extract/rm races the other's upload.
+    # Builds still run in parallel; only the deploy to a given version waits its turn.
+    concurrency:
+      group: deploy-package-${{ needs.build-package.outputs.packageUploadVersion }}
+      cancel-in-progress: false
 
     steps:
       # Download the package artifact from previous job
