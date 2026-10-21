@@ -15,7 +15,7 @@
           "Facepunch.Steamworks": "2.4.1",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "OpenMcdf": "3.1.4",
-          "SixLabors.ImageSharp": "2.1.11",
+          "SixLabors.ImageSharp": "2.1.13",
           "System.Management": "8.0.0",
           "lzo.net": "0.0.6",
           "Rampastring.XNAUI.WindowsXNA.Reference": "0.1.0.0"
@@ -590,11 +590,11 @@
           }
         }
       },
-      "SixLabors.ImageSharp/2.1.11": {
+      "SixLabors.ImageSharp/2.1.13": {
         "runtime": {
           "lib/netcoreapp3.1/SixLabors.ImageSharp.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.1.11.0"
+            "fileVersion": "2.1.13.0"
           }
         }
       },
@@ -704,7 +704,7 @@
           "FontStashSharp.XNA": "1.5.5",
           "HarfBuzzSharp": "8.3.1.2",
           "Rampastring.Tools": "1.0.0",
-          "SixLabors.ImageSharp": "2.1.11",
+          "SixLabors.ImageSharp": "2.1.13",
           "TextCopy": "6.2.1"
         },
         "runtime": {
@@ -1037,12 +1037,12 @@
       "path": "sharpgen.runtime.com/2.0.0-beta.9",
       "hashPath": "sharpgen.runtime.com.2.0.0-beta.9.nupkg.sha512"
     },
-    "SixLabors.ImageSharp/2.1.11": {
+    "SixLabors.ImageSharp/2.1.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tUvsejgzUmEbES114yLseRxmFiYlQbH5RyaYXUQsEL7ksDo1/kW+ZL1EfD6iSUfxj7LHU8p110oFvSrRfsaWSQ==",
-      "path": "sixlabors.imagesharp/2.1.11",
-      "hashPath": "sixlabors.imagesharp.2.1.11.nupkg.sha512"
+      "sha512": "sha512-zmVHZR13XE477TBAVXE71VcMhqhiv1PbzMWIfuIDytVdBPl3KZlvYYBkqcuQSDdszVY2XHanW98VmDffoNzSSw==",
+      "path": "sixlabors.imagesharp/2.1.13",
+      "hashPath": "sixlabors.imagesharp.2.1.13.nupkg.sha512"
     },
     "StbImageSharp/2.30.15": {
       "type": "package",
