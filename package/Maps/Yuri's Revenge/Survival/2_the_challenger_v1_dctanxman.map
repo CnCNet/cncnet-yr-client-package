@@ -13684,7 +13684,7 @@ GuardSlower=no
 OnTransOnly=no
 AvoidThreats=no
 LooseRecruit=yes
-VeteranLevel=2
+VeteranLevel=3
 IsBaseDefense=no
 UseTransportOrigin=no
 MindControlDecision=0
@@ -13718,7 +13718,7 @@ GuardSlower=no
 OnTransOnly=no
 AvoidThreats=no
 LooseRecruit=yes
-VeteranLevel=2
+VeteranLevel=3
 IsBaseDefense=no
 UseTransportOrigin=no
 MindControlDecision=0
@@ -13752,7 +13752,7 @@ GuardSlower=no
 OnTransOnly=no
 AvoidThreats=no
 LooseRecruit=yes
-VeteranLevel=2
+VeteranLevel=3
 IsBaseDefense=no
 UseTransportOrigin=no
 MindControlDecision=0
@@ -13786,7 +13786,7 @@ GuardSlower=no
 OnTransOnly=no
 AvoidThreats=no
 LooseRecruit=yes
-VeteranLevel=2
+VeteranLevel=3
 IsBaseDefense=no
 UseTransportOrigin=no
 MindControlDecision=0
@@ -15803,6 +15803,151 @@ AreTeamMembersRecruitable=no
 2=6,1
 Name=BFRT2
 
+[01001325]
+Max=5
+Full=yes
+Name=025TP@80
+Group=-1
+House=Neutral
+Script=01000623
+Whiner=no
+Droppod=no
+Suicide=yes
+Loadable=no
+Prebuild=no
+Priority=5
+Waypoint=A
+Annoyance=no
+IonImmune=no
+Recruiter=no
+Reinforce=no
+TaskForce=01001329
+TechLevel=0
+Aggressive=yes
+Autocreate=yes
+GuardSlower=no
+OnTransOnly=no
+AvoidThreats=no
+LooseRecruit=no
+VeteranLevel=3
+IsBaseDefense=no
+UseTransportOrigin=no
+MindControlDecision=0
+OnlyTargetHouseEnemy=no
+TransportsReturnOnUnload=no
+AreTeamMembersRecruitable=no
+
+[01001326]
+Max=5
+Full=yes
+Name=025TP@81
+Group=-1
+House=Neutral
+Script=01000625
+Whiner=no
+Droppod=no
+Suicide=yes
+Loadable=no
+Prebuild=no
+Priority=5
+Waypoint=A
+Annoyance=no
+IonImmune=no
+Recruiter=no
+Reinforce=no
+TaskForce=01001329
+TechLevel=0
+Aggressive=yes
+Autocreate=yes
+GuardSlower=no
+OnTransOnly=no
+AvoidThreats=no
+LooseRecruit=no
+VeteranLevel=3
+IsBaseDefense=no
+UseTransportOrigin=no
+MindControlDecision=0
+OnlyTargetHouseEnemy=no
+TransportsReturnOnUnload=no
+AreTeamMembersRecruitable=no
+
+[01001327]
+Max=5
+Full=yes
+Name=025TP@82
+Group=-1
+House=Neutral
+Script=01000626
+Whiner=no
+Droppod=no
+Suicide=yes
+Loadable=no
+Prebuild=no
+Priority=5
+Waypoint=A
+Annoyance=no
+IonImmune=no
+Recruiter=no
+Reinforce=no
+TaskForce=01001329
+TechLevel=0
+Aggressive=yes
+Autocreate=yes
+GuardSlower=no
+OnTransOnly=no
+AvoidThreats=no
+LooseRecruit=no
+VeteranLevel=3
+IsBaseDefense=no
+UseTransportOrigin=no
+MindControlDecision=0
+OnlyTargetHouseEnemy=no
+TransportsReturnOnUnload=no
+AreTeamMembersRecruitable=no
+
+[01001328]
+Max=5
+Full=yes
+Name=026TP@83
+Group=-1
+House=Neutral
+Script=01000628
+Whiner=no
+Droppod=no
+Suicide=yes
+Loadable=no
+Prebuild=no
+Priority=5
+Waypoint=A
+Annoyance=no
+IonImmune=no
+Recruiter=no
+Reinforce=no
+TaskForce=01001329
+TechLevel=0
+Aggressive=yes
+Autocreate=yes
+GuardSlower=no
+OnTransOnly=no
+AvoidThreats=no
+LooseRecruit=no
+VeteranLevel=3
+IsBaseDefense=no
+UseTransportOrigin=no
+MindControlDecision=0
+OnlyTargetHouseEnemy=no
+TransportsReturnOnUnload=no
+AreTeamMembersRecruitable=no
+
+[01001329]
+0=1,LCRF
+1=2,APOC
+2=1,TAXI
+3=2,DCTANXMANFV
+4=2,PROPA
+Name=025-TP
+Group=-1
+
 [20mmRapidEx]
 ROF=50
 Anim=GUNFIRE
@@ -15825,6 +15970,7 @@ PatrolScan=.05
 BlockagePathDelay=20
 
 [AMCV]
+Soylent=2250
 Explosion=INVISO
 MaxDebris=1
 CrateGoodie=no
@@ -15844,7 +15990,7 @@ AnimList=INVISO
 ROT=5
 Cost=1750
 Name=Apocalypse
-Size=9999
+Size=10000
 Armor=heavy
 Image=Subtank
 Owner=Russians,Confederation,Africans,Arabs
@@ -15854,7 +16000,7 @@ Crewed=no
 Points=60
 Turret=yes
 UIName=NOSTR:Upgraded Apocalypse x2
-Weight=9999
+Weight=10000
 Crusher=yes
 Primary=120mmx
 Soylent=1750
@@ -16023,7 +16169,7 @@ VeteranAbilities=STRONGER,FIREPOWER,ROF
 01000688=10,80,1,01000381,0,0,0,0,K,80,1,01000382,0,0,0,0,L,80,1,01000381,0,0,0,0,M,80,1,01000382,0,0,0,0,N,80,1,01000385,0,0,0,0,O,80,1,01000386,0,0,0,0,P,80,1,01000389,0,0,0,0,Q,80,1,01000390,0,0,0,0,R,80,1,01000387,0,0,0,0,S,80,1,01000388,0,0,0,0,T
 01000690=10,80,1,01000383,0,0,0,0,U,80,1,01000384,0,0,0,0,V,80,1,01000383,0,0,0,0,W,80,1,01000384,0,0,0,0,X,80,1,01000385,0,0,0,0,Y,80,1,01000386,0,0,0,0,Z,80,1,01000389,0,0,0,0,AA,80,1,01000390,0,0,0,0,AB,80,1,01000387,0,0,0,0,AC,80,1,01000388,0,0,0,0,AD
 01000692=10,80,1,01000383,0,0,0,0,U,80,1,01000384,0,0,0,0,V,80,1,01000383,0,0,0,0,W,80,1,01000384,0,0,0,0,X,80,1,01000385,0,0,0,0,Y,80,1,01000386,0,0,0,0,Z,80,1,01000389,0,0,0,0,AA,80,1,01000390,0,0,0,0,AB,80,1,01000387,0,0,0,0,AC,80,1,01000388,0,0,0,0,AD
-01000694=2,107,1,01000633,0,0,0,0,AE,107,1,01000634,0,0,0,0,AG
+01000694=6,107,1,01000633,0,0,0,0,CM,107,1,01000634,0,0,0,0,AE,107,1,01000635,0,0,0,0,AG,107,1,01000636,0,0,0,0,CN,107,1,01000637,0,0,0,0,AF,107,1,01000637,0,0,0,0,O
 01000696=2,107,1,01000656,0,0,0,0,AE,107,1,01000657,0,0,0,0,AG
 01000698=2,107,1,01000663,0,0,0,0,AE,107,1,01000664,0,0,0,0,AG
 01000700=3,107,1,01000668,0,0,0,0,AE,107,1,01000669,0,0,0,0,AG,107,1,01000672,0,0,0,0,AF
@@ -16221,7 +16367,7 @@ VeteranAbilities=STRONGER,FIREPOWER,ROF
 01001095=2,107,1,01000357,0,0,0,0,CO,107,1,01000358,0,0,0,0,CP
 01001097=3,107,1,01000366,0,0,0,0,AI,107,1,01000365,0,0,0,0,AJ,107,1,01000364,0,0,0,0,AH
 01001099=3,107,1,01000885,0,0,0,0,AI,107,1,01000884,0,0,0,0,AJ,107,1,01000883,0,0,0,0,AH
-01001101=2,107,1,01000635,0,0,0,0,AH,107,1,01000636,0,0,0,0,AJ
+01001101=6,107,1,01000633,0,0,0,0,CO,107,1,01000634,0,0,0,0,AH,107,1,01000635,0,0,0,0,AJ,107,1,01000636,0,0,0,0,CP,107,1,01000637,0,0,0,0,AI,107,1,01000637,0,0,0,0,U
 01001103=2,107,1,01000660,0,0,0,0,AH,107,1,01000661,0,0,0,0,AJ
 01001105=2,107,1,01000665,0,0,0,0,AH,107,1,01000666,0,0,0,0,AJ
 01001107=3,107,1,01000670,0,0,0,0,AH,107,1,01000671,0,0,0,0,AJ,107,1,01000672,0,0,0,0,AI
@@ -16303,8 +16449,8 @@ VeteranAbilities=STRONGER,FIREPOWER,ROF
 01001297=2,11,4,NOSTR:Bomb Cars Again Soon...,0,0,0,0,A,19,7,DemoTruckSelect,0,0,0,0,A
 01001299=2,11,4,NOSTR:BOMB CARS DETECTED!!!,0,0,0,0,A,19,7,DemoTruckAttackCommand,0,0,0,0,A
 01001308=10,107,1,01001290,0,0,0,0,U,107,1,01001290,0,0,0,0,V,107,1,01001290,0,0,0,0,W,107,1,01001290,0,0,0,0,X,107,1,01001290,0,0,0,0,Y,107,1,01001290,0,0,0,0,Z,107,1,01001290,0,0,0,0,AA,107,1,01001290,0,0,0,0,AB,107,1,01001290,0,0,0,0,AC,107,1,01001290,0,0,0,0,AD
-01001310=2,80,1,01000422,0,0,0,0,BS,80,1,01000424,0,0,0,0,BT
-01001312=2,80,1,01000425,0,0,0,0,BU,80,1,01000427,0,0,0,0,BV
+01001310=2,80,1,01001325,0,0,0,0,BS,80,1,01001326,0,0,0,0,BT
+01001312=2,80,1,01001327,0,0,0,0,BU,80,1,01001328,0,0,0,0,BV
 01001314=1,54,2,01001310,0,0,0,0,A
 01001316=1,54,2,01001312,0,0,0,0,A
 01001318=2,107,1,01001290,0,0,0,0,CM,107,1,01001290,0,0,0,0,CN
@@ -16493,6 +16639,7 @@ RequiredHouses=British,French,Germans,Americans,Alliance
 TargetDistanceCoefficient=-1
 
 [BFRT]
+Soylent=1500
 Explosion=INVISO
 MaxDebris=1
 SizeLimit=1
@@ -16534,6 +16681,18 @@ VeinGrowthEnabled=yes
 TiberiumGrowthEnabled=yes
 IgnoreGlobalAITriggers=no
 TiberiumDeathToVisceroid=no
+
+[BlimpBombEe]
+ROF=50
+Burst=1
+Range=1.5
+Speed=20
+Damage=1000
+Report=KirovAttack
+Warhead=KTSTLEXP
+OmniFire=yes
+Projectile=BlimpBombP
+CellRangefinding=yes
 
 [British]
 IQ=0
@@ -16903,7 +17062,7 @@ UIName=NOSTR:Apocalypse
 Weight=3.5
 Crusher=yes
 Primary=120mmx
-Soylent=1750
+Soylent=1312
 VHPScan=Strong
 Category=AFV
 DieSound=GenVehicleDie
@@ -17072,7 +17231,7 @@ DieSound=
 Landable=yes
 OmniFire=yes
 PipScale=Ammo
-Strength=600
+Strength=1000
 Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
 Locomotor={4A582746-9839-11d1-B709-00A024DDAFD1}
 MaxDebris=1
@@ -18413,7 +18572,7 @@ SubjectToElevation=no
 01001323=1,13,0,5600
 
 [FA2spVersionControl]
-Version=767
+Version=773
 
 [FLAKT]
 TargetDistanceCoefficient=-1
@@ -20696,6 +20855,34 @@ SubjectToWalls=no
 SubjectToCliffs=no
 SubjectToElevation=no
 
+[LCRF]
+Name=Bomb Car
+Size=9999
+Naval=no
+Speed=6
+UIName=NOSTR:Upgraded Bomb Car
+Weight=9999
+Crusher=yes
+Primary=120mmxE
+Strength=5000
+Warpable=no
+Crushable=no
+Explosion=CRIVEXP
+MaxDebris=1
+TechLevel=-1
+OpenTopped=yes
+Passengers=100
+StupidHunt=no
+OmniCrusher=yes
+ThreatPosed=3
+MovementZone=AmphibiousDestroyer
+EliteAbilities=SELF_HEAL,STRONGER,FIREPOWER,ROF
+ImmuneToPsionics=yes
+VeteranAbilities=STRONGER,FIREPOWER,SIGHT,FASTER
+OmniCrushResistant=yes
+ImmuneToPsionicWeapons=yes
+TargetDistanceCoefficient=-1
+
 [LIMO]
 ROT=5
 Cost=1200
@@ -20809,7 +20996,7 @@ MaxDebris=1
 TargetDistanceCoefficient=-1
 
 [MammothTuskX]
-ROF=80
+ROF=40
 Burst=2
 Range=8
 Speed=20
@@ -20824,7 +21011,7 @@ Theater=Urban
 LocalSize=2,5,96,91
 
 [Maverick2EX]
-ROF=40
+ROF=20
 Burst=2
 Range=6
 Speed=90
@@ -20848,10 +21035,11 @@ InfiniteMindControl=yes
 [NABNKR]
 Cost=1000
 Adjacent=3
-Strength=1200
+Strength=1000
 Explosion=INVISO
 MaxDebris=2
 MinDebris=1
+BuildLimit=10
 ImmuneToPsionics=no
 MaxNumberOccupants=8
 
@@ -20914,8 +21102,7 @@ MinDebris=1
 
 [NANRCT]
 Crewed=no
-Explodes=no
-Explosion=INVISO
+Explodes=yes
 MaxDebris=2
 MinDebris=1
 
@@ -20963,6 +21150,7 @@ Adjacent=4
 Explosion=INVISO
 MaxDebris=2
 MinDebris=1
+BuildLimit=30
 Prerequisite=CNST
 
 [NATECH]
@@ -21076,6 +21264,7 @@ Verses=100%,100%,100%,100%,100%,100%,100%,100%,75%,100%,200%
 
 [PCV]
 Crewed=no
+Soylent=2250
 Explosion=INVISO
 MaxDebris=1
 CrateGoodie=no
@@ -21227,6 +21416,7 @@ TargetDistanceCoefficient=-1
 
 [SMCV]
 Crewed=no
+Soylent=2250
 Explosion=INVISO
 MaxDebris=1
 CrateGoodie=no
@@ -21321,7 +21511,7 @@ AnimList=INVISO
 [STANG]
 ROT=10
 Cost=2000
-Name=Kirov Airship
+Name=Kirov Head
 Size=50
 Armor=medium
 Image=CAHEAD
@@ -21330,12 +21520,12 @@ Sight=8
 Speed=5
 Crewed=no
 Points=100
-UIName=NOSTR:Upgraded Kirov
-Primary=BlimpBomb
+UIName=NOSTR:Kirov Head
+Primary=BlimpBombEe
 Soylent=2000
 Category=AirPower
 DieSound=
-Strength=6000
+Strength=8000
 AuxSound1=Dummy
 AuxSound2=Dummy
 Crashable=yes
@@ -21355,7 +21545,7 @@ ThreatPosed=30
 VoiceAttack=KirovAttackCommand
 VoiceSelect=KirovSelect
 BalloonHover=yes
-ElitePrimary=BlimpBombE
+ElitePrimary=BlimpBombEe
 JumpJetAccel=10
 JumpjetClimb=6
 JumpjetCrash=12
@@ -21671,7 +21861,7 @@ ZFudgeTunnel=13
 Insignificant=no
 EliteAbilities=SELF_HEAL,STRONGER,ROF
 OpportunityFire=yes
-CanPassiveAquire=no
+CanPassiveAquire=yes
 ImmuneToPsionics=yes
 VeteranAbilities=STRONGER,SIGHT,FASTER
 DamageSmokeOffset=100, 100, 275
@@ -21686,6 +21876,7 @@ AllowedToStartInMultiplayer=no
 [TELE]
 Explosion=INVISO
 MaxDebris=1
+BuildLimit=12
 TargetDistanceCoefficient=-1
 
 [TERROR]
@@ -22170,6 +22361,7 @@ TargetDistanceCoefficient=-1
 50=01001242
 51=01001301
 52=01001289
+53=01001329
 
 [TeamTypes]
 0=01000013
@@ -22606,6 +22798,10 @@ TargetDistanceCoefficient=-1
 431=01001305
 432=01001306
 433=01001290
+434=01001325
+435=01001326
+436=01001327
+437=01001328
 
 [TeslaFragmentX]
 ROF=80
@@ -23024,7 +23220,7 @@ IsElectricBolt=true
 [V3]
 Explosion=INVISO
 MaxDebris=1
-BuildLimit=25
+BuildLimit=10
 TargetDistanceCoefficient=-1
 
 [V3Launcher]
@@ -23388,4 +23584,4 @@ BuildLimit=10
 TargetDistanceCoefficient=-1
 
 [Digest]
-1=aIS6X4H4jjUcnUPqeEdMdcNpHII=
+1=rqscgeoR56sJZ9NEMwMiF5m2YZ0=
