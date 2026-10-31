@@ -8,6 +8,7 @@
   "workspaces": [
     "core",
     "build-installer",
+    "csf-converter",
     "ladder-maps-sync",
     "map-name-case-fix",
     "mix-packer",
@@ -18,6 +19,7 @@
     "version-writer"
   ],
   "scripts": {
+    "csf-converter": "npm run start --workspace csf-converter --",
     "ladder-maps-sync": "npm run start --workspace ladder-maps-sync",
     "map-name-case-fix": "npm run start --workspace map-name-case-fix -- --workingDir ../../package",
     "mpmaps-updater": "npm run start --workspace mpmaps-updater -- --workingDir ../../package",
