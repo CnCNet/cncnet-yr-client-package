@@ -27,6 +27,8 @@ String tables are stored in:
 | `game-assets/cncnet.pack/stringtableNN.ini`                     | English string table shipped with the CnCNet package.   |
 | `package/Resources/Translations/<language>/stringtableNN.ini`   | Translation of the corresponding English string table.  |
 
+A user can use [Ra2CsfToolsGUI](https://github.com/SadPencil/Ra2CsfToolsGUI) to convert between CSF and INI formats. This repo uses [Ra2CsfFileCLI](https://github.com/SadPencil/Ra2CsfFileCLI) to headlessly convert between CSF and INI formats.
+
 Please follow these rules:
 
 1. `stringtable00` is reserved for Ares and Phobos strings. A translation's
@@ -42,32 +44,7 @@ Please follow these rules:
 3. Review the `.ini` diff in your PR. Since the source is text, GitHub displays a
    readable diff and no separate CSF diff needs to be attached.
 
-A CI check for rule 2 is not implemented yet; reviewers are responsible for checking it.
-
-##### Converting between CSF and INI
-
-Use [`Ra2CsfFileCLI`](https://github.com/SadPencil/Ra2CsfFileCLI/releases/tag/v1.0.0)
-(requires .NET 8):
-
-```sh
-# Convert an existing CSF to the INI source format.
-dotnet Ra2CsfFileCLI.dll csf2ini path/to/stringtable01.csf
-
-# Convert the INI source back to the CSF format expected by the game.
-dotnet Ra2CsfFileCLI.dll ini2csf path/to/stringtable01.ini --force
-```
-
-To regenerate every `stringtable*.csf` from the committed `.ini` files, run (the CLI is
-vendored in `tools/csf-converter/`):
-
-```sh
-cd tools
-npm ci
-npm run csf-converter
-```
-
-The build workflow performs this conversion automatically. Generated `.csf` files are
-ignored by Git; never commit them. See `tools/csf-converter/README.md` for details.
+CI check for these rules is not implemented yet. Reviewers are responsible for checking it.
 
 All CnCNet projects including this one are contributed to on a volunteer effort.
 
