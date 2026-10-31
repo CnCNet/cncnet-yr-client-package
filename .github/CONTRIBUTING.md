@@ -29,9 +29,6 @@ CSF source files are stored in:
 
 A user can use [Ra2CsfToolsGUI](https://github.com/SadPencil/Ra2CsfToolsGUI) to convert between CSF and INI formats. This repo uses [Ra2CsfFileCLI](https://github.com/SadPencil/Ra2CsfFileCLI) to headlessly convert between CSF and INI formats.
 
-The rules below are about `stringtableNN.csf.ini` files. `ra2.csf.ini` and `ra2md.csf.ini`
-are the translated base game string tables and are converted in the same way.
-
 Please follow these rules:
 
 1. `stringtable00` is reserved for Ares and Phobos strings. A translation's
