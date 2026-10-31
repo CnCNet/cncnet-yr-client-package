@@ -1,0 +1,132 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Ra2CsfFileCLI/1.0.0": {
+        "dependencies": {
+          "SadPencil.Ra2CsfFile": "2.2.5",
+          "System.CommandLine": "2.0.14"
+        },
+        "runtime": {
+          "Ra2CsfFileCLI.dll": {}
+        }
+      },
+      "ini-parser-netstandard/2.5.2": {
+        "runtime": {
+          "lib/netstandard2.0/INIFileParser.dll": {
+            "assemblyVersion": "2.5.2.0",
+            "fileVersion": "2.5.2.0"
+          }
+        }
+      },
+      "NaturalStringExtensions/3.0.0": {
+        "runtime": {
+          "lib/net7.0/NaturalStringExtensions.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.0.0"
+          }
+        }
+      },
+      "SadPencil.Ra2CsfFile/2.2.5": {
+        "dependencies": {
+          "NaturalStringExtensions": "3.0.0",
+          "ini-parser-netstandard": "2.5.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SadPencil.Ra2CsfFile.dll": {
+            "assemblyVersion": "2.2.5.0",
+            "fileVersion": "2.2.5.0"
+          }
+        }
+      },
+      "System.CommandLine/2.0.14": {
+        "runtime": {
+          "lib/net8.0/System.CommandLine.dll": {
+            "assemblyVersion": "2.0.14.0",
+            "fileVersion": "2.0.1426.52326"
+          }
+        },
+        "resources": {
+          "lib/net8.0/cs/System.CommandLine.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net8.0/de/System.CommandLine.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0/es/System.CommandLine.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0/fr/System.CommandLine.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0/it/System.CommandLine.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0/ja/System.CommandLine.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net8.0/ko/System.CommandLine.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net8.0/pl/System.CommandLine.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0/pt-BR/System.CommandLine.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0/ru/System.CommandLine.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0/tr/System.CommandLine.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0/zh-Hans/System.CommandLine.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net8.0/zh-Hant/System.CommandLine.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Ra2CsfFileCLI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ini-parser-netstandard/2.5.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rTyGzgT/a+mD2HxopOGpb/yWWhu5TTPgF59XUlHjhlNv7dbt9DME/qozIR7HreVAVpNnZSqP9A8TeViK5s949g==",
+      "path": "ini-parser-netstandard/2.5.2",
+      "hashPath": "ini-parser-netstandard.2.5.2.nupkg.sha512"
+    },
+    "NaturalStringExtensions/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MeIWX8Yc67G0vd5uH9J1MKZS0KfPYI9p3WUWgq5PCtqeQMLNe3l8LmbwiqTT7XqSOcIeFyin+MLmYdgyc05QqQ==",
+      "path": "naturalstringextensions/3.0.0",
+      "hashPath": "naturalstringextensions.3.0.0.nupkg.sha512"
+    },
+    "SadPencil.Ra2CsfFile/2.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fqY/Ij3N3A0WiCVfPld91GDoL5HYooxCm4125AMrHfEI76ilxATZCsyoyyQaDTZy2u5nprtDOsRDkoIoOfkolA==",
+      "path": "sadpencil.ra2csffile/2.2.5",
+      "hashPath": "sadpencil.ra2csffile.2.2.5.nupkg.sha512"
+    },
+    "System.CommandLine/2.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-15fyVO4aG6poR6IKmhM74zf7PUzaU6FZAGm2d3SQSO9yIyGAeo44e6t9qeKjjaqyMEqYdqcb2G1B0gpLoDU2cA==",
+      "path": "system.commandline/2.0.14",
+      "hashPath": "system.commandline.2.0.14.nupkg.sha512"
+    }
+  }
+}

@@ -1,5 +1,9 @@
 /game-assets/**/*.mix
 
+# String table CSFs are generated from the committed .ini sources by tools/csf-converter.
+/game-assets/**/stringtable*.csf
+/package/Resources/Translations/**/stringtable*.csf
+
 /package/**/*.SAV
 /package/BINKW32.DLL
 /package/Blowfish.dll

@@ -14,6 +14,7 @@ Most utilities are run from the `tools` root via `npm run <script>`.
 
 | Script                           | Package                  | Short Description                                                                                                                                                          |
 | -------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npm run csf-converter`          | `csf-converter`          | Converts the committed `stringtable*.ini` files into the `.csf` files expected by the game. Requires `Ra2CsfFileCLI`; see `csf-converter/README.md`.                      |
 | `npm run map-name-case-fix`      | `map-name-case-fix`      | Fixes the filename casing of map preview `.png` files based on keys from `MPMaps.ini`.                                                                                     |
 | `npm run mpmaps-updater`         | `mpmaps-updater`         | Synchronizes `package/INI/MPMaps.ini` with maps from `package/Maps/Yuri's Revenge`, adds new maps, and removes missing ones.                                               |
 | `npm run mix-packer`             | `mix-packer`             | Packs `.pack` directories from `game-assets` into `.mix` archives and writes the result into `package/`.                                                                   |
@@ -33,6 +34,7 @@ Most utilities are run from the `tools` root via `npm run <script>`.
 
 ## Notes
 
+- `csf-converter` requires the .NET 8 runtime; `Ra2CsfFileCLI` is vendored in `csf-converter/Ra2CsfFileCLI`. The build workflow installs .NET automatically; for local setup see `csf-converter/README.md`.
 - `mix-packer` requires `--inDir` and `--outDir` when run directly. These arguments are already provided in the root script.
 - `build-installer`, `mpmaps-updater`, `map-name-case-fix`, and `version-writer` require `--workingDir` when run directly. The root scripts use `../../package`.
 - `release-tag-validator`, `release-asset-uploader`, and `publish-release` are intended to run in CI or in an environment with the required GitHub, SSH, and IRC parameters.

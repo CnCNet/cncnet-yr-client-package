@@ -32,6 +32,8 @@ export default class ExFS {
                 //
                 toPosixPath(path.join(folderPath, '**', '*.md')),
                 toPosixPath(path.join(folderPath, '*.pack', '**')),
+                // String tables are committed as .ini sources and converted to .csf before packing.
+                toPosixPath(path.join(folderPath, '**', 'stringtable*.ini')),
             ],
         };
 
