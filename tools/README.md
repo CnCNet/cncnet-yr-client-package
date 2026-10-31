@@ -14,7 +14,7 @@ Most utilities are run from the `tools` root via `npm run <script>`.
 
 | Script                           | Package                  | Short Description                                                                                                                                                          |
 | -------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `npm run csf-converter`          | `csf-converter`          | Converts CSF source `.csf.ini` files into the `.csf` files expected by the game. See `csf-converter/README.md`. |
+| `npm run csf-converter`          | `csf-converter`          | Converts CSF source `.csf.ini` files into the `.csf` files expected by the game. |
 | `npm run map-name-case-fix`      | `map-name-case-fix`      | Fixes the filename casing of map preview `.png` files based on keys from `MPMaps.ini`.                                                                                     |
 | `npm run mpmaps-updater`         | `mpmaps-updater`         | Synchronizes `package/INI/MPMaps.ini` with maps from `package/Maps/Yuri's Revenge`, adds new maps, and removes missing ones.                                               |
 | `npm run mix-packer`             | `mix-packer`             | Packs `.pack` directories from `game-assets` into `.mix` archives and writes the result into `package/`.                                                                   |
