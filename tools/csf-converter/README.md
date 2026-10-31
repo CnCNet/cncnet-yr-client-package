@@ -1,14 +1,15 @@
 # CSF Converter
 
-String tables are committed to this repository as readable `stringtable*.ini` files.
-This tool converts them into the binary `stringtable*.csf` files that the game reads.
-The conversion is performed automatically by the `build-and-deploy` workflow; generated
-`.csf` files are ignored by Git and must not be committed. The workflow also removes the
-source `.ini` files from the `package/` copy so that only `.csf` files are shipped.
+CSF string tables are committed to this repository as readable `.csf.ini` files (for
+example `stringtableNN.csf.ini`, `ra2.csf.ini`, and `ra2md.csf.ini`). This tool converts
+them into the binary `.csf` files that the game reads. The conversion is performed
+automatically by the `build-and-deploy` workflow; generated `.csf` files are ignored by
+Git and must not be committed. The workflow also removes the source `.csf.ini` files from
+the `package/` copy so that only `.csf` files are shipped.
 
 The actual conversion is done by
 [`Ra2CsfFileCLI`](https://github.com/SadPencil/Ra2CsfFileCLI). This package only locates
-the committed `.ini` files and invokes the CLI for each of them.
+the committed `.csf.ini` files and invokes the CLI for each of them.
 
 ## Setup
 
@@ -29,8 +30,10 @@ npm run csf-converter
 ```
 
 By default, the tool recursively scans `game-assets/` and
-`package/Resources/Translations/` for files named `stringtable*.ini` and writes a
-matching `.csf` file next to each of them. Existing `.csf` files are overwritten.
+`package/Resources/Translations/` for files whose names end with `.csf.ini` and writes
+the corresponding `.csf` file next to each of them. The `.ini` suffix is removed, so
+`stringtable00.csf.ini` becomes `stringtable00.csf`. Other `.ini` files in those
+directories are ignored. Existing `.csf` files are overwritten.
 
 Options:
 
@@ -53,11 +56,11 @@ npm run csf-converter -- --searchDir ../package/Resources/Translations/zh-Hans
 
 ## Converting a CSF back to INI
 
-`Ra2CsfFileCLI` writes the `.ini` next to the input file:
+Use the CLI's `--output` option so the result gets the `.csf.ini` suffix:
 
 ```sh
-dotnet Ra2CsfFileCLI/Ra2CsfFileCLI.dll csf2ini path/to/stringtable01.csf
+dotnet Ra2CsfFileCLI/Ra2CsfFileCLI.dll csf2ini path/to/stringtable01.csf --output path/to/stringtable01.csf.ini
 ```
 
-Review the resulting `.ini`, commit it, and delete the `.csf` file. Never commit generated
-`.csf` files.
+Review the resulting `.csf.ini`, commit it, and delete the `.csf` file. Never commit
+generated `.csf` files.

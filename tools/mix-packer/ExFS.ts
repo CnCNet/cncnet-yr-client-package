@@ -4,6 +4,8 @@ import fastFolderSizeSync from 'fast-folder-size/sync';
 import fs from 'fs-extra';
 import * as glob from 'glob';
 
+const CSF_SOURCE_FILE_SUFFIX = '.csf.ini';
+
 function toPosixPath(pathStr: string) {
     return pathStr.replace(/\\/g, '/');
 }
@@ -32,14 +34,16 @@ export default class ExFS {
                 //
                 toPosixPath(path.join(folderPath, '**', '*.md')),
                 toPosixPath(path.join(folderPath, '*.pack', '**')),
-                // String tables are committed as .ini sources and converted to .csf before packing.
-                toPosixPath(path.join(folderPath, '**', 'stringtable*.ini')),
             ],
         };
 
         const globPattern = toPosixPath(path.join(folderPath, '**'));
 
-        return glob.sync(globPattern, globOptions).sort();
+        // CSF sources end with .csf.ini and are converted to .csf before packing.
+        return glob
+            .sync(globPattern, globOptions)
+            .filter((filePath) => !filePath.toLowerCase().endsWith(CSF_SOURCE_FILE_SUFFIX))
+            .sort();
     }
 
     static GetPackArray(folderPath: string) {

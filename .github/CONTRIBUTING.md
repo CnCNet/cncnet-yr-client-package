@@ -16,23 +16,26 @@
 
 #### **Did you change a string table (CSF)?**
 
-The game reads string tables in the binary `.csf` format, but this repository stores
-them as readable `.ini` files. The `.csf` files are generated from the `.ini` files
-during the build and are **not** committed. Edit the `.ini` files instead.
+The game reads string tables in the binary `.csf` format, but this repository stores all
+of them as readable `.csf.ini` files. The `.csf` files are generated from these sources
+during the build and are **not** committed. Edit the `.csf.ini` files instead.
 
-String tables are stored in:
+CSF source files are stored in:
 
-| Path                                                            | Purpose                                                 |
-| --------------------------------------------------------------- | ------------------------------------------------------- |
-| `game-assets/cncnet.pack/stringtableNN.ini`                     | English string table shipped with the CnCNet package.   |
-| `package/Resources/Translations/<language>/stringtableNN.ini`   | Translation of the corresponding English string table.  |
+| Path | Purpose |
+| --- | --- |
+| `game-assets/cncnet.pack/` | English CSF sources, such as `stringtableNN.csf.ini`. |
+| `package/Resources/Translations/<language>/` | Translation CSF sources, such as `stringtableNN.csf.ini`, `ra2.csf.ini`, and `ra2md.csf.ini`. |
 
 A user can use [Ra2CsfToolsGUI](https://github.com/SadPencil/Ra2CsfToolsGUI) to convert between CSF and INI formats. This repo uses [Ra2CsfFileCLI](https://github.com/SadPencil/Ra2CsfFileCLI) to headlessly convert between CSF and INI formats.
+
+The rules below are about `stringtableNN.csf.ini` files. `ra2.csf.ini` and `ra2md.csf.ini`
+are the translated base game string tables and are converted in the same way.
 
 Please follow these rules:
 
 1. `stringtable00` is reserved for Ares and Phobos strings. A translation's
-   `stringtable00.ini` may contain **more** labels than the English file because
+   `stringtable00.csf.ini` may contain **more** labels than the English file because
    Phobos has hard-coded strings that only need translating. Do not remove labels
    that exist only in a translation.
 2. For every other string table (`stringtable01` and above), the English file and

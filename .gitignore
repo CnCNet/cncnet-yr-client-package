@@ -1,8 +1,8 @@
 /game-assets/**/*.mix
 
-# String table CSFs are generated from the committed .ini sources by tools/csf-converter.
-/game-assets/**/stringtable*.csf
-/package/Resources/Translations/**/stringtable*.csf
+# CSF string tables are generated from the committed .csf.ini sources by tools/csf-converter.
+/game-assets/**/*.csf
+/package/**/*.csf
 
 /package/**/*.SAV
 /package/BINKW32.DLL
@@ -62,9 +62,6 @@
 /package/cncnet.fnt
 /package/game.fnt
 /package/grfxtxt.shp
-/package/ra2.csf
-/package/ra2md.csf
-/package/stringtable*.csf
 /package/subtitle.txt
 /package/subtitlemd.txt
 package/Tools/Map Editor/FA2SP/FA2sp.log
