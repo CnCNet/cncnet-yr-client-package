@@ -39,8 +39,7 @@ Please follow these rules:
    each translation with the same number must contain exactly the same labels. If a
    PR adds, removes, or renames a label in the English file, update every matching
    translation file in the same PR. Add new labels with the English text as a
-   placeholder until a translator provides the translation. Missing or outdated labels
-   make players see missing text in game.
+   placeholder until a translator provides the translation.
 3. Review the `.ini` diff in your PR. Since the source is text, GitHub displays a
    readable diff and no separate CSF diff needs to be attached.
 
