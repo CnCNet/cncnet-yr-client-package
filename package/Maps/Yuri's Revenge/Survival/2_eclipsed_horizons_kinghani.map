@@ -538,13 +538,13 @@ AreTeamMembersRecruitable=no
 [01000018]
 0=16,50
 1=0,1
-2=6,1
+2=6,2
 Name=Attack Player A WP 50
 
 [01000021]
 0=16,51
 1=0,1
-2=6,3
+2=6,2
 Name=Attack Player B WP 51
 
 [01000024]
@@ -1031,7 +1031,8 @@ AreTeamMembersRecruitable=no
 
 [01000093]
 0=0,7
-1=6,1
+1=0,1
+2=6,3
 Name=Attack Base Defense
 
 [01000111]
@@ -2523,32 +2524,36 @@ AreTeamMembersRecruitable=no
 
 [01000367]
 0=0,7
-1=6,1
+1=0,1
+2=6,2
 Name=Attack Pl-A Def Buildings
 
 [01000368]
 0=0,1
-1=6,1
+1=6,2
 Name=Attack Pl-A Nearest Object
 
 [01000369]
 0=0,7
-1=6,1
+1=0,1
+2=6,1
 Name=Attack Pl-B Def Buildings
 
 [01000370]
 0=0,1
-1=6,1
+1=6,2
 Name=Attack Pl-B Nearest Object
 
 [01000371]
 0=0,9
-1=6,1
+1=0,1
+2=6,3
 Name=Attack Pl-A Power
 
 [01000372]
 0=0,9
-1=6,1
+1=0,1
+2=6,3
 Name=Attack Pl-B Power
 
 [01000373]
@@ -3092,61 +3097,61 @@ AreTeamMembersRecruitable=no
 [01000607]
 0=16,52
 1=0,1
-2=6,1
+2=6,2
 Name=Attack Player A WP 52
 
 [01000608]
 0=16,54
 1=0,1
-2=6,1
+2=6,2
 Name=Attack Player A WP 54
 
 [01000609]
 0=16,60
 1=0,1
-2=6,1
+2=6,2
 Name=Attack Player A WP 60
 
 [01000610]
 0=16,62
 1=0,1
-2=6,1
+2=6,2
 Name=Attack Player A WP 62
 
 [01000611]
 0=16,64
 1=0,1
-2=6,1
+2=6,2
 Name=Attack Player A WP 64
 
 [01000612]
 0=16,53
 1=0,1
-2=6,3
+2=6,2
 Name=Attack Player B WP 53
 
 [01000613]
 0=16,55
 1=0,1
-2=6,3
+2=6,2
 Name=Attack Player B WP 55
 
 [01000614]
 0=16,61
 1=0,1
-2=6,3
+2=6,2
 Name=Attack Player B WP 61
 
 [01000615]
 0=16,63
 1=0,1
-2=6,3
+2=6,2
 Name=Attack Player B WP 63
 
 [01000616]
 0=16,65
 1=0,1
-2=6,3
+2=6,2
 Name=Attack Player B WP 65
 
 [01000617]
@@ -11696,7 +11701,7 @@ Promote.VeteranSound=UpgradeDefenseVeteran
 01000321=6,80,1,01000345,0,0,0,0,M,80,1,01000785,0,0,0,0,M,80,1,01000786,0,0,0,0,M,80,1,01000787,0,0,0,0,L,80,1,01000788,0,0,0,0,L,80,1,01000789,0,0,0,0,L
 01000332=1,118,0,0,0,0,0,0,A
 01000334=2,27,0,700,0,0,0,0,A,103,4,NOSTR:Enemy_Tanks_in:,0,0,0,0,A
-01000336=3,27,0,297,0,0,0,0,A,103,4,NOSTR:Enemy_Intantry_in:,0,0,0,0,A,21,6,EVA_TimerStarted,0,0,0,0,A
+01000336=3,27,0,297,0,0,0,0,A,103,4,NOSTR:Enemy_Infantry_in:,0,0,0,0,A,21,6,EVA_TimerStarted,0,0,0,0,A
 01000338=2,27,0,640,0,0,0,0,A,103,4,NOSTR:Enemy_ICBM_in:,0,0,0,0,A
 01000340=2,27,0,710,0,0,0,0,A,103,4,NOSTR:Enemy_ICBM_2_in:,0,0,0,0,A
 01000342=2,27,0,1650,0,0,0,0,A,103,4,NOSTR:Enemy_Air_Battalion_in:,0,0,0,0,A
@@ -11880,6 +11885,7 @@ Promote.VeteranSound=UpgradeDefenseVeteran
 01000955=7,125,10,CAMIAM04,0,0,0,0,QR,125,10,CAMIAM04,0,0,0,0,QS,125,10,CAMIAM04,0,0,0,0,QT,125,10,CAMIAM04,0,0,0,0,QU,125,10,CAMIAM04,0,0,0,0,QV,125,10,CAMIAM04,0,0,0,0,QW,125,10,CAMIAM04,0,0,0,0,QX
 01000957=10,80,1,01000309,0,0,0,0,GY,80,1,01000309,0,0,0,0,GZ,80,1,01000309,0,0,0,0,HA,80,1,01000309,0,0,0,0,HB,80,1,01000309,0,0,0,0,HC,80,1,01000309,0,0,0,0,HN,80,1,01000309,0,0,0,0,HO,80,1,01000309,0,0,0,0,HP,80,1,01000309,0,0,0,0,HQ,80,1,01000309,0,0,0,0,HR
 01000959=10,80,1,01000290,0,0,0,0,GY,80,1,01000290,0,0,0,0,GZ,80,1,01000290,0,0,0,0,HA,80,1,01000290,0,0,0,0,HB,80,1,01000290,0,0,0,0,HC,80,1,01000290,0,0,0,0,HN,80,1,01000290,0,0,0,0,HO,80,1,01000290,0,0,0,0,HP,80,1,01000290,0,0,0,0,HQ,80,1,01000290,0,0,0,0,HR
+01000961=2,6,0,12,0,0,0,0,A,11,4,NOSTR:Hunting_Players,0,0,0,0,A
 
 [Africans]
 IQ=0
@@ -12004,7 +12010,7 @@ RadarInvisible=yes
 InvisibleInGame=yes
 
 [Basic]
-Name=[2] Eclipsed Horizons
+Name=[2] Eclipsed Horizons - KingHani
 Author=KingHani
 Percent=0
 Briefing=--Welcome to Eclipsed Horizons--@@Multi MCV Disabled@@New Add-ons:@@Allied: -Tank Destructor -Ion Cannon -Carpet Airstrike -Grand Cannon -Prism Technology@@Soviet: -Tesla Superiority(Shock Master, Tesla Tank, Tesla Charger, Advanced Tesla coils, Tesla Storm Device)@@Yuri: Yuri is now depending on celestial force(Meteor Tower, Master Cosmic, Gravity Magnetrons, chemical Bomb)
@@ -12172,6 +12178,9 @@ WorkingSound=PowerOff
 Insignificant=yes
 NeedsEngineer=no
 RadarInvisible=yes
+ProduceCashDelay=20
+ProduceCashAmount=250
+ProduceCashStartup=0
 
 [CAPARS01]
 Immune=yes
@@ -12191,11 +12200,6 @@ Selectable=no
 LegalTarget=no
 RadarVisible=no
 Insignificant=yes
-RadarInvisible=yes
-ProduceCashDelay=20
-ProduceCashAmount=250
-UnitsGainSelfHeal=1
-InfantryGainSelfHeal=1
 
 [CARGOPLANE]
 ROT=2
@@ -12246,6 +12250,8 @@ LegalTarget=no
 RadarVisible=no
 Insignificant=yes
 RadarInvisible=yes
+UnitsGainSelfHeal=1
+InfantryGainSelfHeal=1
 
 [CATECH01]
 CanC4=no
@@ -12281,6 +12287,8 @@ LegalTarget=no
 RadarVisible=no
 Insignificant=yes
 RadarInvisible=yes
+UnitsGainSelfHeal=1
+InfantryGainSelfHeal=1
 
 [CGBUNK05]
 Cost=600
@@ -12581,6 +12589,22 @@ RequiredHouses=Russians,Confederation,Africans,Arabs
 
 [DISK]
 BuildLimit=30
+
+[DiskLaserEEE]
+ROF=5
+Range=16
+Speed=70
+Bright=yes
+Damage=4000
+Report=FloatingDiscAttack
+Warhead=DiskWH
+OmniFire=yes
+DiskLaser=yes
+Projectile=InvisibleAll
+LaserDuration=15
+LaserInnerColor=216,0,184
+LaserOuterColor=80,0,88
+LaserOuterSpread=0,0,0
 
 [Electric]
 Verses=100%,100%,100%,85%,100%,100%,50%,50%,65%,200%,100%
@@ -13024,9 +13048,10 @@ IsElectricBolt=true
 01000955=1,13,0,2
 01000957=2,13,0,2670,36,0,1
 01000959=2,13,0,2730,36,0,1
+01000961=1,13,0,5400
 
 [FA2spVersionControl]
-Version=891
+Version=894
 
 [FLAKT]
 Cost=450
@@ -16826,10 +16851,6 @@ LegalTarget=no
 RadarVisible=no
 Insignificant=yes
 RadarInvisible=yes
-ProduceCashDelay=20
-ProduceCashAmount=250
-UnitsGainSelfHeal=1
-InfantryGainSelfHeal=1
 
 [ScriptTypes]
 0=01000018
@@ -17189,7 +17210,7 @@ AffectsAllies=no
 1003=ChemiBombParadropSpecial
 
 [TELE]
-BuildLimit=10
+TechLevel=-1
 TargetDistanceCoefficient=-1
 
 [TELE2]
@@ -17244,6 +17265,58 @@ TooBigToFitUnderBridge=true
 VoiceSecondaryWeaponAttack=MagnetronMagneShakeVoice
 AllowedToStartInMultiplayer=no
 
+[TELE3]
+ROT=5
+Cost=1000
+Name=Magnetron
+Size=6
+Armor=light
+Image=TELE
+Owner=YuriCountry
+Sight=10
+Speed=5
+Points=25
+Turret=yes
+UIName=Name:Magnetron
+Weight=3.5
+Crusher=no
+Primary=MagneticBeam
+Soylent=1000
+Category=AFV
+DieSound=GenVehicleDie
+IsTilter=yes
+Strength=150
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+Locomotor={4A582741-9839-11d1-B709-00A024DDAFD1}
+Maxdebris=3
+MoveSound=MagnetronMoveStart
+Secondary=MagneShake
+TechLevel=2
+VoiceMove=MagnetronMove
+BuildLimit=10
+Bunkerable=no
+CrushSound=TankCrush
+Accelerates=false
+CrateGoodie=no
+ThreatPosed=40
+VoiceAttack=MagnetronAttackCommand
+VoiceSelect=MagnetronSelect
+ElitePrimary=MagneticBeamE
+MovementZone=Destroyer
+Prerequisite=YAWEAP,NAPSIS
+ZFudgeColumn=8
+ZFudgeTunnel=13
+EliteAbilities=SELF_HEAL,STRONGER,ROF
+OpportunityFire=yes
+CanPassiveAquire=no
+VeteranAbilities=STRONGER,SIGHT,FASTER
+DamageSmokeOffset=100, 100, 275
+DamageParticleSystems=SparkSys,SmallGreySSys
+IsSelectableCombatant=yes
+TooBigToFitUnderBridge=true
+VoiceSecondaryWeaponAttack=MagnetronMagneShakeVoice
+AllowedToStartInMultiplayer=no
+
 [TESLA]
 Trainable=yes
 EliteAbilities=STRONGER,FIREPOWER,ROF
@@ -17252,6 +17325,77 @@ EVA.ElitePromoted=EVA_UnitUpgraded
 Promote.EliteSound=UpgradeDefenseElite
 EVA.VeteranPromoted=EVA_UnitUpgraded
 Promote.VeteranSound=UpgradeDefenseVeteran
+
+[TESTMAPDISK]
+ROT=100
+Cost=10
+Name=Flying UFO
+Size=6
+Armor=light
+Image=DISK
+Owner=Russians,Confederation,Africans,Arabs,YuriCountry,Americans,Alliance,French,Germans,British
+Sight=9
+Speed=15
+Points=25
+Turret=no
+UIName=Flying UFO
+Weight=3.5
+Crusher=no
+Primary=DiskLaserEEE
+Soylent=1750
+Category=AirPower
+IsTilter=yes
+Strength=100000
+Crashable=yes
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+Locomotor={92612C46-F71F-11d1-AC9F-006008055BB5}
+MaxDebris=14
+MoveSound=FloatingDiscMoveLoop
+Secondary=DiskDrain
+SpeedType=Hover
+TechLevel=-1
+VoiceMove=FloatingDiscMove
+Accelerates=false
+CrateGoodie=no
+CreateSound=FloatingDiscCreated
+DeathWeapon=BlimpBombEffect
+SelfHealing=yes
+ThreatPosed=20
+TurretSpins=no
+VoiceAttack=FloatingDiscAttackCommand
+VoiceSelect=FloatingDiscSelect
+BalloonHover=yes
+ElitePrimary=DiskLaserEEE
+JumpJetAccel=10
+JumpjetClimb=8
+JumpjetCrash=15
+JumpjetSpeed=25
+MoveToShroud=yes
+MovementZone=Fly
+Prerequisite=FACTORY
+ZFudgeColumn=8
+ZFudgeTunnel=13
+CrashingSound=FloatingDiscDie
+JumpjetHeight=750
+VoiceFeedback=
+EliteAbilities=SELF_HEAL,STRONGER,FIREPOWER,ROF
+JumpjetWobbles=.1
+JumpJetTurnRate=100
+OpportunityFire=yes
+CanPassiveAquire=yes
+JumpjetDeviation=15
+JumpjetNoWobbles=yes
+TiltCrashJumpjet=yes
+VeteranAbilities=STRONGER,FIREPOWER,SIGHT,FASTER
+DamageSmokeOffset=100, 100, 275
+ConsideredAircraft=yes
+DamageParticleSystems=SparkSys,SmallGreySSys
+IsSelectableCombatant=yes
+TooBigToFitUnderBridge=true
+DeathWeaponDamageModifier=.1
+TargetDistanceCoefficient=-1
+VoiceSecondaryWeaponAttack=FloatingDiscSteal
+AllowedToStartInMultiplayer=no
 
 [TNKD]
 Name=Tank Destructor
@@ -17699,6 +17843,7 @@ IsAlternateColor=true
 01000956=0,CB- CIV- LG- B-2 1,01000955
 01000958=0,Wave T.20 TNK B.1.2 1,01000957
 01000960=0,Wave T.20 TNK B.2.1 1,01000959
+01000962=0,Hunt  1,01000961
 
 [TankEMP]
 ROF=10
@@ -18461,6 +18606,7 @@ SubjectToElevation=no
 01000955=Neutral,<none>,CB- CIV- LG- B-2,1,1,1,1,0
 01000957=Neutral,<none>,Wave T.20 TNK B.1.2,0,1,1,1,0
 01000959=Neutral,<none>,Wave T.20 TNK B.2.1,0,1,1,1,0
+01000961=Americans,<none>,Hunt ,0,1,1,1,0
 
 [UltraAP]
 Verses=2%,2%,2%,100%,40%,100%,2%,2%,60%,2%,100%
@@ -18492,6 +18638,9 @@ BuildLimit=50
 2008=CONA
 2009=TELE2
 2010=KH-HIND
+2011=TELE3
+2012=ZEP2
+2013=TESTMAPDISK
 
 [VoxelAnims]
 2000=TS-ElectricFragments
@@ -18940,7 +19089,69 @@ PercentBuilt=0
 PlayerControl=no
 
 [ZEP]
+TechLevel=-1
+
+[ZEP2]
+ROT=10
+Cost=2000
+Name=Kirov Airship
+Size=50
+Armor=medium
+Image=ZEP
+Owner=Russians,Confederation,Africans,Arabs
+Sight=8
+Speed=5
+Crewed=no
+Points=100
+UIName=Name:ZEP
+Primary=BlimpBomb
+Soylent=2000
+Category=AirPower
+DieSound=
+Strength=2000
+AuxSound1=Dummy
+AuxSound2=Dummy
+Crashable=yes
+Explosion=TWLT070,S_BANG48,S_BRNL58,S_CLSN58,S_TUMU60
+Locomotor={92612C46-F71F-11d1-AC9F-006008055BB5}
+MaxDebris=14
+MoveSound=KirovMoveLoop
+SpeedType=Hover
+TechLevel=10
+VoiceMove=KirovMove
 BuildLimit=18
+Bunkerable=no
+PitchAngle=0
+PitchSpeed=.9
+CreateSound=KirovCreated
+SelfHealing=Yes
+ThreatPosed=30
+VoiceAttack=KirovAttackCommand
+VoiceSelect=KirovSelect
+BalloonHover=yes
+ElitePrimary=BlimpBombE
+JumpJetAccel=10
+JumpjetClimb=6
+JumpjetCrash=12
+JumpjetSpeed=5
+MoveToShroud=yes
+MovementZone=Fly
+Parasiteable=no
+Prerequisite=NAWEAP,NATECH
+CrashingSound=KirovDie
+JumpjetHeight=750
+VoiceCrashing=KirovVoiceDie
+VoiceFeedback=
+EliteAbilities=SELF_HEAL,STRONGER,FIREPOWER,ROF
+RadarInvisible=no
+ImpactLandSound=KirovCrash
+JumpJetTurnRate=2
+JumpjetNoWobbles=yes
+VeteranAbilities=STRONGER,FIREPOWER,SIGHT,FASTER
+ConsideredAircraft=yes
+DamageParticleSystems=SparkSys,SmallGreySSys
+IsSelectableCombatant=yes
+AllowedToStartInMultiplayer=no
 
 [Digest]
-1=YGT1UWGeXl9OU6FRsn65KtdrGR0=
+1=97bZ9OwOdBvXT8aU3e0TIxR89AU=
