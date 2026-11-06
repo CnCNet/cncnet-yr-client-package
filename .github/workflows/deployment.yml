@@ -88,6 +88,25 @@ jobs:
         if: github.event_name == 'release'
         run: curl -fsSL https://cncnet.org/master-list -o package/Client/tunnel_cache
 
+      # CSF string tables are stored in the repository as readable .csf.ini files. The
+      # game and the MIX archives need the binary .csf files, so generate them before packing.
+      # The vendored Ra2CsfFileCLI requires the .NET 8 runtime.
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Convert CSF sources to binary
+        working-directory: tools
+        run: npm run csf-converter
+
+      # The *.csf.ini files are build inputs only. The game-asset sources are excluded by
+      # mix-packer, but the translation sources live inside package/, so remove them
+      # before the package archives are created.
+      - name: Remove CSF source files from the package
+        shell: pwsh
+        run: Get-ChildItem -Path "package/Resources/Translations" -Recurse -Filter "*.csf.ini" | Remove-Item -Force
+
       - name: Pack Game Assets
         working-directory: tools
         run: npm run mix-packer
