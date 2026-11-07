@@ -26,7 +26,9 @@ export default class MIXFile {
 
         const filesArray = ExFS.GetFileArray(this.folderPath);
 
-        this.body = new ExBuffer(ExFS.GetFolderSize(this.folderPath) + filesArray.length);
+        // Size the body from the files that go into it, not from a folder-size estimate.
+        const bodySize = filesArray.reduce((sum, filePath) => sum + ExFS.GetFileSize(filePath), 0);
+        this.body = new ExBuffer(bodySize);
 
         for (let i = 0; i < filesArray.length; i++) {
             this.addFile(filesArray[i]);
@@ -109,9 +111,21 @@ export default class MIXFile {
         this.addLocalMixDatabase();
         const headerBuffer = this.getHeader();
         const bodyBuffer = this.getBody();
+        if (bodyBuffer.length !== this.body.offset) {
+            throw new Error(
+                `${mixPath}: the index describes ${this.body.offset} bytes but only ${bodyBuffer.length} were collected`,
+            );
+        }
 
         fs.writeFileSync(mixPath, headerBuffer);
         fs.appendFileSync(mixPath, bodyBuffer);
+
+        const written = fs.statSync(mixPath).size;
+        const expected = headerBuffer.length + bodyBuffer.length;
+        if (written !== expected) {
+            throw new Error(`${mixPath}: wrote ${written} bytes, expected ${expected}`);
+        }
+        console.log(`${mixPath}: ${this.includedFilesID.size} files, ${written} bytes`);
         return this;
     }
 
