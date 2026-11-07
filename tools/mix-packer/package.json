@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "tsx": "^4.21.0",
-    "fast-folder-size": "^2.4.0",
     "fs-extra": "^11.3.4",
     "glob": "^13.0.6"
   },

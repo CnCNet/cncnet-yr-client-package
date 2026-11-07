@@ -18,9 +18,10 @@ export default class ExBuffer {
     buffer: Buffer;
     offset: number;
 
+    // `size` is the expected number of bytes; the buffer grows if more is written.
     constructor(size: number) {
         this.offset = 0;
-        this.buffer = Buffer.allocUnsafe(size * 2);
+        this.buffer = Buffer.allocUnsafe(Math.max(size, 1));
     }
 
     GetBuffer(): Buffer {
@@ -37,6 +38,7 @@ export default class ExBuffer {
 
     copy(source: Buffer) {
         const result = this.offset;
+        this.reserve(source.length);
         source.copy(this.buffer, result);
         this.offset += source.length;
         this.fileItems.add(this.buffer.subarray(result, this.offset), result);
@@ -45,7 +47,21 @@ export default class ExBuffer {
     }
 
     write(value: number) {
+        this.reserve(4);
         this.buffer.writeUInt32LE(value, this.offset);
         this.offset += 4;
+    }
+
+    // Make room for `length` more bytes. Buffer.copy drops whatever does not fit in the target
+    // without an error, so a buffer that is too small would silently produce a MIX whose index
+    // describes bytes that were never written.
+    private reserve(length: number) {
+        const needed = this.offset + length;
+        if (needed <= this.buffer.length) {
+            return;
+        }
+        const grown = Buffer.allocUnsafe(Math.max(needed, this.buffer.length * 2));
+        this.buffer.copy(grown, 0, 0, this.offset);
+        this.buffer = grown;
     }
 }
