@@ -88,6 +88,25 @@ jobs:
         if: github.event_name == 'release'
         run: curl -fsSL https://cncnet.org/master-list -o package/Client/tunnel_cache
 
+      # CSF string tables are stored in the repository as readable .csf.ini files. The
+      # game and the MIX archives need the binary .csf files, so generate them before packing.
+      # The vendored Ra2CsfFileCLI requires the .NET 8 runtime.
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Convert CSF sources to binary
+        working-directory: tools
+        run: npm run csf-converter
+
+      # The *.csf.ini files are build inputs only. The game-asset sources are excluded by
+      # mix-packer, but the translation sources live inside package/, so remove them
+      # before the package archives are created.
+      - name: Remove CSF source files from the package
+        shell: pwsh
+        run: Get-ChildItem -Path "package/Resources/Translations" -Recurse -Filter "*.csf.ini" | Remove-Item -Force
+
       - name: Pack Game Assets
         working-directory: tools
         run: npm run mix-packer
@@ -253,6 +272,32 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           overwrite: true
           source: "CnCNet5_YR_Installer.exe"
+          target: "${{ secrets.PUBLICDOWNLOADFOLDER }}"
+
+      # Linux users (Wine, Bottles, Lutris, ...) download the package as an archive instead of
+      # running the installer. package.tar.gz is built on Windows, which drops the executable bit,
+      # so repack it here with the launcher scripts made executable.
+      - name: Build Linux archive
+        if: github.event_name == 'release' && github.event.action == 'published' && github.event.release.prerelease == false
+        run: |
+          mkdir linux-package
+          tar -xzf package.tar.gz -C linux-package
+          find linux-package -name '*.sh' -exec chmod +x {} +
+          tar -C linux-package --owner=0 --group=0 -czf CnCNet5_YR_Installer.tar.gz .
+
+      # Same rules as the installer upload above; offered as the Linux download on cncnet.org.
+      - name: Upload Linux archive
+        if: github.event_name == 'release' && github.event.action == 'published' && github.event.release.prerelease == false
+        # This is a 3rd-party action using secret credentials. Therefore, please only specify verified commits. Be careful when updating.
+        uses: appleboy/scp-action@7179e72a3fa4d4c33870a471708fda724fae7596
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          passphrase: ${{ secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          overwrite: true
+          source: "CnCNet5_YR_Installer.tar.gz"
           target: "${{ secrets.PUBLICDOWNLOADFOLDER }}"
 
       # Create/update a mirror link for client update purposes, using the GitVersion pre release label as the link name.

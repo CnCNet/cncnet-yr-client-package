@@ -1,8 +1,9 @@
 import * as path from 'path';
 
-import fastFolderSizeSync from 'fast-folder-size/sync';
 import fs from 'fs-extra';
 import * as glob from 'glob';
+
+const CSF_SOURCE_FILE_SUFFIX = '.csf.ini';
 
 function toPosixPath(pathStr: string) {
     return pathStr.replace(/\\/g, '/');
@@ -37,7 +38,11 @@ export default class ExFS {
 
         const globPattern = toPosixPath(path.join(folderPath, '**'));
 
-        return glob.sync(globPattern, globOptions).sort();
+        // CSF sources end with .csf.ini and are converted to .csf before packing.
+        return glob
+            .sync(globPattern, globOptions)
+            .filter((filePath) => !filePath.toLowerCase().endsWith(CSF_SOURCE_FILE_SUFFIX))
+            .sort();
     }
 
     static GetPackArray(folderPath: string) {
@@ -50,35 +55,8 @@ export default class ExFS {
         return result;
     }
 
-    static GetFolderSize(folderPath: string) {
-        if (!fs.existsSync(folderPath)) {
-            return 0;
-        }
-
-        try {
-            // Try the quick method
-            return fastFolderSizeSync(folderPath) || 0;
-        } catch {
-            try {
-                const globPattern = toPosixPath(path.join(folderPath, '**', '*'));
-                const filesList = glob.sync(globPattern, { nodir: true, absolute: true });
-
-                let totalSize = 0;
-                for (const currentFile of filesList) {
-                    try {
-                        const st = fs.statSync(currentFile);
-                        totalSize += st.size || 0;
-                    } catch {
-                        // ignore files that disappear / are inaccessible
-                        continue;
-                    }
-                }
-
-                return totalSize;
-            } catch {
-                return 0;
-            }
-        }
+    static GetFileSize(filePath: string) {
+        return fs.statSync(filePath).size;
     }
 
     static GetFile(filePath: string) {
