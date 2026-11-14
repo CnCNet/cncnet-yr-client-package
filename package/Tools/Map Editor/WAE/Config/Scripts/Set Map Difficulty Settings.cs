@@ -13,12 +13,12 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using TSMapEditor;
-using TSMapEditor.GameMath;
-using TSMapEditor.Initialization;
-using TSMapEditor.Misc;
-using TSMapEditor.Models;
-using TSMapEditor.Mutations;
+using MapEditorLibrary;
+using MapEditorLibrary.GameMath;
+using MapEditorLibrary.Initialization;
+using MapEditorLibrary.Misc;
+using MapEditorLibrary.Models;
+using MapEditorLibrary.Mutations;
 using TSMapEditor.Rendering;
 using TSMapEditor.Scripts;
 using TSMapEditor.UI;
@@ -345,7 +345,7 @@ $Text=translate(Apply)
         public void Perform()
         {
             setMapDifficultySettingsWindow = new SetMapDifficultySettingsWindow(ScriptDependencies.WindowManager, ScriptDependencies);
-            ScriptDependencies.WindowController.AddWindow(setMapDifficultySettingsWindow);
+            ScriptDependencies.WindowController.RegisterWindow(setMapDifficultySettingsWindow);
             setMapDifficultySettingsWindow.Closed += SetMapDifficultySettingsWindow_Closed;
             ScriptDependencies.WindowManager.AddCallback(new Action(() => setMapDifficultySettingsWindow.Open()));
         }
@@ -353,7 +353,7 @@ $Text=translate(Apply)
         private void SetMapDifficultySettingsWindow_Closed(object sender, EventArgs e)
         {
             setMapDifficultySettingsWindow.Closed -= SetMapDifficultySettingsWindow_Closed;            
-            ScriptDependencies.WindowController.RemoveWindow(setMapDifficultySettingsWindow);
+            ScriptDependencies.WindowController.UnregisterWindow(setMapDifficultySettingsWindow);
         }
     }
 }

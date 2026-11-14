@@ -9,14 +9,111 @@
       "WorldAlteringEditor/1.0.0": {
         "dependencies": {
           "ImeSharp": "1.4.1",
+          "MapEditorLibrary": "1.0.0",
+          "MapEditorMCP": "1.0.0",
           "MonoGame.Framework.WindowsDX": "3.8.3",
-          "Rampastring.Tools": "2.0.7",
-          "Rampastring.XNAUI.WindowsDX": "3.1.8",
+          "Rampastring.Tools": "3.0.3",
+          "Rampastring.XNAUI.WindowsDX": "4.1.4",
           "SixLabors.ImageSharp": "2.1.11",
+          "TextCopy": "6.2.1",
           "Westwind.Scripting": "1.3.3"
         },
         "runtime": {
           "WorldAlteringEditor.dll": {}
+        }
+      },
+      "Cyotek.Drawing.BitmapFont/2.0.4": {
+        "runtime": {
+          "lib/net5.0/Cyotek.Drawing.BitmapFont.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.0.4.0"
+          }
+        }
+      },
+      "FontStashSharp.Base/1.2.3": {
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.Base.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
+          }
+        }
+      },
+      "FontStashSharp.MonoGame/1.5.5": {
+        "dependencies": {
+          "Cyotek.Drawing.BitmapFont": "2.0.4",
+          "FontStashSharp.Base": "1.2.3",
+          "FontStashSharp.Rasterizers.StbTrueTypeSharp": "1.2.3",
+          "StbImageSharp": "2.30.15"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.MonoGame.dll": {
+            "assemblyVersion": "1.5.5.0",
+            "fileVersion": "1.5.5.0"
+          }
+        }
+      },
+      "FontStashSharp.Rasterizers.StbTrueTypeSharp/1.2.3": {
+        "dependencies": {
+          "FontStashSharp.Base": "1.2.3",
+          "StbTrueTypeSharp": "1.26.12"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.Rasterizers.StbTrueTypeSharp.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
+          }
+        }
+      },
+      "FontStashSharp.TextShapers.HarfBuzz/1.2.3": {
+        "dependencies": {
+          "FontStashSharp.Base": "1.2.3",
+          "HarfBuzzSharp": "8.3.1.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.TextShapers.HarfBuzz.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
+          }
+        }
+      },
+      "HarfBuzzSharp/8.3.1.2": {
+        "dependencies": {
+          "HarfBuzzSharp.NativeAssets.Win32": "8.3.1.2",
+          "HarfBuzzSharp.NativeAssets.macOS": "8.3.1.2"
+        },
+        "runtime": {
+          "lib/net8.0/HarfBuzzSharp.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "8.3.1.2"
+          }
+        }
+      },
+      "HarfBuzzSharp.NativeAssets.macOS/8.3.1.2": {
+        "runtimeTargets": {
+          "runtimes/osx/native/libHarfBuzzSharp.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "HarfBuzzSharp.NativeAssets.Win32/8.3.1.2": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/libHarfBuzzSharp.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libHarfBuzzSharp.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libHarfBuzzSharp.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
         }
       },
       "ImeSharp/1.4.1": {
@@ -60,11 +157,153 @@
           }
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {
+      "Microsoft.Extensions.AI.Abstractions/10.8.3": {
+        "dependencies": {
+          "System.Text.Json": "10.0.10"
+        },
         "runtime": {
-          "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.22.51805"
+          "lib/net8.0/Microsoft.Extensions.AI.Abstractions.dll": {
+            "assemblyVersion": "10.8.0.0",
+            "fileVersion": "10.800.326.37702"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/10.0.10": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "10.0.10"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/10.0.10": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "10.0.10"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection/10.0.10": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.10"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.10": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.Abstractions/10.0.10": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.10",
+          "Microsoft.Extensions.Options": "10.0.10",
+          "System.Diagnostics.DiagnosticSource": "10.0.10"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Abstractions/10.0.10": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "10.0.10"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
+      "Microsoft.Extensions.Hosting.Abstractions/10.0.10": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.10",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.10",
+          "Microsoft.Extensions.Diagnostics.Abstractions": "10.0.10",
+          "Microsoft.Extensions.FileProviders.Abstractions": "10.0.10",
+          "Microsoft.Extensions.Logging.Abstractions": "10.0.10"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Hosting.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/10.0.10": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.10",
+          "System.Diagnostics.DiagnosticSource": "10.0.10"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
+      "Microsoft.Extensions.Options/10.0.10": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.10",
+          "Microsoft.Extensions.Primitives": "10.0.10"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Options.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
+      "Microsoft.Extensions.Primitives/10.0.10": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
+      "ModelContextProtocol/2.1.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "10.0.10",
+          "Microsoft.Extensions.Hosting.Abstractions": "10.0.10",
+          "ModelContextProtocol.Core": "2.1.0"
+        },
+        "runtime": {
+          "lib/net8.0/ModelContextProtocol.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "ModelContextProtocol.Core/2.1.0": {
+        "dependencies": {
+          "Microsoft.Extensions.AI.Abstractions": "10.8.3",
+          "Microsoft.Extensions.Logging.Abstractions": "10.0.10",
+          "System.IO.Pipelines": "10.0.10",
+          "System.Net.ServerSentEvents": "10.0.10"
+        },
+        "runtime": {
+          "lib/net8.0/ModelContextProtocol.Core.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
@@ -85,25 +324,28 @@
           }
         }
       },
-      "Rampastring.Tools/2.0.7": {
+      "Rampastring.Tools/3.0.3": {
         "runtime": {
           "lib/net8.0/Rampastring.Tools.dll": {
-            "assemblyVersion": "2.0.7.0",
-            "fileVersion": "2.0.7.0"
+            "assemblyVersion": "3.0.3.0",
+            "fileVersion": "3.0.3.0"
           }
         }
       },
-      "Rampastring.XNAUI.WindowsDX/3.1.8": {
+      "Rampastring.XNAUI.WindowsDX/4.1.4": {
         "dependencies": {
+          "FontStashSharp.MonoGame": "1.5.5",
+          "FontStashSharp.TextShapers.HarfBuzz": "1.2.3",
+          "HarfBuzzSharp": "8.3.1.2",
           "MonoGame.Framework.WindowsDX": "3.8.3",
-          "Rampastring.Tools": "2.0.7",
+          "Rampastring.Tools": "3.0.3",
           "SixLabors.ImageSharp": "2.1.11",
           "TextCopy": "6.2.1"
         },
         "runtime": {
           "lib/net8.0-windows7.0/Rampastring.XNAUI.WindowsDX.dll": {
-            "assemblyVersion": "3.1.8.0",
-            "fileVersion": "3.1.8.0"
+            "assemblyVersion": "4.1.4.0",
+            "fileVersion": "4.1.4.0"
           }
         }
       },
@@ -235,9 +477,77 @@
           }
         }
       },
+      "StbImageSharp/2.30.15": {
+        "runtime": {
+          "lib/netstandard2.0/StbImageSharp.dll": {
+            "assemblyVersion": "2.30.15.0",
+            "fileVersion": "2.30.15.0"
+          }
+        }
+      },
+      "StbTrueTypeSharp/1.26.12": {
+        "runtime": {
+          "lib/netstandard2.0/StbTrueTypeSharp.dll": {
+            "assemblyVersion": "1.26.12.0",
+            "fileVersion": "1.26.12.0"
+          }
+        }
+      },
+      "System.Diagnostics.DiagnosticSource/10.0.10": {
+        "runtime": {
+          "lib/net8.0/System.Diagnostics.DiagnosticSource.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
+      "System.IO.Pipelines/10.0.10": {
+        "runtime": {
+          "lib/net8.0/System.IO.Pipelines.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
+      "System.Net.ServerSentEvents/10.0.10": {
+        "runtime": {
+          "lib/net8.0/System.Net.ServerSentEvents.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
+      "System.Text.Encodings.Web/10.0.10": {
+        "runtime": {
+          "lib/net8.0/System.Text.Encodings.Web.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll": {
+            "rid": "browser",
+            "assetType": "runtime",
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
+      "System.Text.Json/10.0.10": {
+        "dependencies": {
+          "System.IO.Pipelines": "10.0.10",
+          "System.Text.Encodings.Web": "10.0.10"
+        },
+        "runtime": {
+          "lib/net8.0/System.Text.Json.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1026.32716"
+          }
+        }
+      },
       "TextCopy/6.2.1": {
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.10"
         },
         "runtime": {
           "lib/net6.0/TextCopy.dll": {
@@ -269,6 +579,37 @@
             "fileVersion": "1.3.3.0"
           }
         }
+      },
+      "MapEditorLibrary/1.0.0": {
+        "dependencies": {
+          "FontStashSharp.MonoGame": "1.5.5",
+          "FontStashSharp.TextShapers.HarfBuzz": "1.2.3",
+          "HarfBuzzSharp": "8.3.1.2",
+          "MonoGame.Framework.WindowsDX": "3.8.3",
+          "Rampastring.Tools": "3.0.3",
+          "Rampastring.XNAUI.WindowsDX": "4.1.4"
+        },
+        "runtime": {
+          "MapEditorLibrary.dll": {
+            "assemblyVersion": "1.9.8.0",
+            "fileVersion": "1.9.8.0"
+          }
+        }
+      },
+      "MapEditorMCP/1.0.0": {
+        "dependencies": {
+          "MapEditorLibrary": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection": "10.0.10",
+          "ModelContextProtocol": "2.1.0",
+          "MonoGame.Framework.WindowsDX": "3.8.3",
+          "Rampastring.XNAUI.WindowsDX": "4.1.4"
+        },
+        "runtime": {
+          "MapEditorMCP.dll": {
+            "assemblyVersion": "1.9.8.0",
+            "fileVersion": "1.9.8.0"
+          }
+        }
       }
     }
   },
@@ -277,6 +618,62 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Cyotek.Drawing.BitmapFont/2.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iA6WehGVdMUuNbfsQQDq/Bt+mMd/OqHjiMUtKFLIQd/0pyYh4ehT7FEjTxN9/4OXNKQZsp9bAJgltP2nnswUJg==",
+      "path": "cyotek.drawing.bitmapfont/2.0.4",
+      "hashPath": "cyotek.drawing.bitmapfont.2.0.4.nupkg.sha512"
+    },
+    "FontStashSharp.Base/1.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kw8ovakGHz8jCah+H5M7qI8aOvtESF0jQRpcpubXUMsSid86dRO6DoDPlh+Tk/XAW5a3XgzGDgsHfeZTfZTr+Q==",
+      "path": "fontstashsharp.base/1.2.3",
+      "hashPath": "fontstashsharp.base.1.2.3.nupkg.sha512"
+    },
+    "FontStashSharp.MonoGame/1.5.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UTHcfF2qLr06SWl69BCfDw/cguzGPPzICRuJ8xmh/vKHYya9OgrJXglhKU8GRsUmEpv/hc6gwXd4wICgF8c9Qg==",
+      "path": "fontstashsharp.monogame/1.5.5",
+      "hashPath": "fontstashsharp.monogame.1.5.5.nupkg.sha512"
+    },
+    "FontStashSharp.Rasterizers.StbTrueTypeSharp/1.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xjzgWeiaODbW7DR/kI05V7C3CVtDvtB+4TrgX4EKNpRGzxb42vsvXKWrXORQWU2LCLnPPqdBNNSgtRujnpK2ww==",
+      "path": "fontstashsharp.rasterizers.stbtruetypesharp/1.2.3",
+      "hashPath": "fontstashsharp.rasterizers.stbtruetypesharp.1.2.3.nupkg.sha512"
+    },
+    "FontStashSharp.TextShapers.HarfBuzz/1.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XNqav6B77iq1JaN+O+vy7bGE2jEhM5ySMMnNZyFBGDPtd5Fi1PWew6DmVqzvqHDksVdAuGzXWmYd82ODIwQb5A==",
+      "path": "fontstashsharp.textshapers.harfbuzz/1.2.3",
+      "hashPath": "fontstashsharp.textshapers.harfbuzz.1.2.3.nupkg.sha512"
+    },
+    "HarfBuzzSharp/8.3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fqZTo17dEIn/u/YZ1A6avsmF8BYoLSvDsHm+uDp38wortckHWZhJ5pMwJW97xTeOZ9/oxqwUQfRMkf6ni9s5Gw==",
+      "path": "harfbuzzsharp/8.3.1.2",
+      "hashPath": "harfbuzzsharp.8.3.1.2.nupkg.sha512"
+    },
+    "HarfBuzzSharp.NativeAssets.macOS/8.3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+0NtlZSQA540z6VpVoajXldvAOuj5D+BWceh70U3YApxcpUKD/5hjdbdzvyhRaTSTCSZNjRxeaWpBpgJ1U1YcQ==",
+      "path": "harfbuzzsharp.nativeassets.macos/8.3.1.2",
+      "hashPath": "harfbuzzsharp.nativeassets.macos.8.3.1.2.nupkg.sha512"
+    },
+    "HarfBuzzSharp.NativeAssets.Win32/8.3.1.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qmYJsYtOPVeLg7NQoKO5fq1oc5mRKzdgxBXWICx0R03epZ1RIsuzgWRFhVNN0br3c+J+9rIQhy0SXdBwVv0ebA==",
+      "path": "harfbuzzsharp.nativeassets.win32/8.3.1.2",
+      "hashPath": "harfbuzzsharp.nativeassets.win32.8.3.1.2.nupkg.sha512"
     },
     "ImeSharp/1.4.1": {
       "type": "package",
@@ -306,12 +703,96 @@
       "path": "microsoft.codeanalysis.scripting.common/4.6.0",
       "hashPath": "microsoft.codeanalysis.scripting.common.4.6.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {
+    "Microsoft.Extensions.AI.Abstractions/10.8.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-h3j/QfmFN4S0w4C2A6X7arXij/M/OVw3uQHSOFxnND4DyAzO1F9eMX7Eti7lU/OkSthEE0WzRsfT/Dmx86jzCw==",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/7.0.0",
-      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+      "sha512": "sha512-K0B05oApxmviWalNHPMBBcRC7erKiDATz3ENNR/jqTR9JwIwLRefgDhj2jCRwL1aca99pXUe0qyQC73/xIuZig==",
+      "path": "microsoft.extensions.ai.abstractions/10.8.3",
+      "hashPath": "microsoft.extensions.ai.abstractions.10.8.3.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Abstractions/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4ZFBNE+jzR+CrWWlhOesnmywCW7pYKT0dxyAQRdL11yJwxe4jvcAu31eorFtEkoFeCDcUTeNssgPv2yaRRptaQ==",
+      "path": "microsoft.extensions.caching.abstractions/10.0.10",
+      "hashPath": "microsoft.extensions.caching.abstractions.10.0.10.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5Vnd2I75DmZCVEjSynIdJ/0EGafgnLQwgR3t2C2/fkjx/nRG+cLwxLLdInoHeCEpkD5K4Ov/g9ZCRYrl4TRsaA==",
+      "path": "microsoft.extensions.configuration.abstractions/10.0.10",
+      "hashPath": "microsoft.extensions.configuration.abstractions.10.0.10.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ANyvsgkNBRvcJh2XLgn8veGmajf+8m0AbKK+HPWdRL1yraSNVVSmQhFntLtdz/C795jxqqup+k05cs/3jZQPOA==",
+      "path": "microsoft.extensions.dependencyinjection/10.0.10",
+      "hashPath": "microsoft.extensions.dependencyinjection.10.0.10.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z/2xXlFw2aLGjHyEm6E0tQ+In6VfzQzTrtArbQ2c0TQE16ZbyDCMGPvaUT9I0s8rgy9sRWlU2P9waW37qV04qA==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/10.0.10",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.10.0.10.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Diagnostics.Abstractions/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9uWiKpeOVac355STyChWR/pliFX/5CeLqChW9kKsaxyDH4EUTZxMkT4Jwp/J/peLm0GBFmSX5c0WCse3yCnq1Q==",
+      "path": "microsoft.extensions.diagnostics.abstractions/10.0.10",
+      "hashPath": "microsoft.extensions.diagnostics.abstractions.10.0.10.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileProviders.Abstractions/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-c5zqFCY9DiIpMovLd7/d/CTiEtrMOuQ639dhv3PABtKQIKNQikSHwQt8+N679uii9q+B55lgK28Uv64FOwEu8w==",
+      "path": "microsoft.extensions.fileproviders.abstractions/10.0.10",
+      "hashPath": "microsoft.extensions.fileproviders.abstractions.10.0.10.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Hosting.Abstractions/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5LugpYGHk+mkn0a8IZgcyfBca8PCTAU9RQFoMrTdtOOidq88M2SI5f3px6ugnzgxC+eTkvYYJi8pzlUnG5xdAQ==",
+      "path": "microsoft.extensions.hosting.abstractions/10.0.10",
+      "hashPath": "microsoft.extensions.hosting.abstractions.10.0.10.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zkFxGYUvdxAvIKTyXHrmW+Sux53D4SezD9dMyZ6hrwwzPQJNuwCRy1f5W7AvYTqacEGhWF2XderRQG1OvbV8og==",
+      "path": "microsoft.extensions.logging.abstractions/10.0.10",
+      "hashPath": "microsoft.extensions.logging.abstractions.10.0.10.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-srnhnk7nE8krBiIXp71LvBmKBtraBONWSRzdjJgRv1Ko9Mp8IVNqv4vIS9hGeVteBig8aQkva9ZG+sC+o5sVcA==",
+      "path": "microsoft.extensions.options/10.0.10",
+      "hashPath": "microsoft.extensions.options.10.0.10.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Primitives/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5wu/GrYVd8mG2DVUw3vFJzF+O336TyTGg/Kmcgw9bfwYhCoFiV5lR5QeEmKecJyrW4W54nMfD3p3589E8a7czQ==",
+      "path": "microsoft.extensions.primitives/10.0.10",
+      "hashPath": "microsoft.extensions.primitives.10.0.10.nupkg.sha512"
+    },
+    "ModelContextProtocol/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Oa4rU7EL9C2qyFjQj1dx+ysGMzfWDRpM8RRaUMmLGs5vPvfJ9xyz4ZtyF4ychY+Nx1b/auGCqIQLqSz/IpPkKA==",
+      "path": "modelcontextprotocol/2.1.0",
+      "hashPath": "modelcontextprotocol.2.1.0.nupkg.sha512"
+    },
+    "ModelContextProtocol.Core/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cU/urrhRxE4/iSyBIJI7QOaFqSP1FOEnwEHsct9n6t6/XluCAFD9iqnrPkBAsEYr+f/G4tVQ21U+6wN/6fQvOg==",
+      "path": "modelcontextprotocol.core/2.1.0",
+      "hashPath": "modelcontextprotocol.core.2.1.0.nupkg.sha512"
     },
     "MonoGame.Framework.WindowsDX/3.8.3": {
       "type": "package",
@@ -320,19 +801,19 @@
       "path": "monogame.framework.windowsdx/3.8.3",
       "hashPath": "monogame.framework.windowsdx.3.8.3.nupkg.sha512"
     },
-    "Rampastring.Tools/2.0.7": {
+    "Rampastring.Tools/3.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BchEewWN1D1x2Myq/Cqb6uqw05VsFSn9EEs2BHy1b3PCKGp2NuECfc9oPdvTW88tyVWx9tFR3mfJ+sjW2E5GFQ==",
-      "path": "rampastring.tools/2.0.7",
-      "hashPath": "rampastring.tools.2.0.7.nupkg.sha512"
+      "sha512": "sha512-fZwxEQ6LdfF4Tx8hpZF6W2ObwOxSIy3VFpqbMPf/v2r4pSq+h0HEEFZhryRw2RtCEsotRQkug2wbfYqWP9wAiA==",
+      "path": "rampastring.tools/3.0.3",
+      "hashPath": "rampastring.tools.3.0.3.nupkg.sha512"
     },
-    "Rampastring.XNAUI.WindowsDX/3.1.8": {
+    "Rampastring.XNAUI.WindowsDX/4.1.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JE5PXV5FwasxKqUFFLWHARJKATk2nil77UH3GB3vP8Inpcyg4ruqXN8QNWqn3H1fc09yx03ap4Y+vL+T517MzA==",
-      "path": "rampastring.xnaui.windowsdx/3.1.8",
-      "hashPath": "rampastring.xnaui.windowsdx.3.1.8.nupkg.sha512"
+      "sha512": "sha512-nsHZarfLzv/ggWMIwtfXSAjPXF2Otz7wJmblup3771UeKQZk7i/jDyz5OgM/Fr7eF/sAOZ02UZaRXoTC/o7alA==",
+      "path": "rampastring.xnaui.windowsdx/4.1.4",
+      "hashPath": "rampastring.xnaui.windowsdx.4.1.4.nupkg.sha512"
     },
     "SharpDX/4.0.1": {
       "type": "package",
@@ -418,6 +899,55 @@
       "path": "sixlabors.imagesharp/2.1.11",
       "hashPath": "sixlabors.imagesharp.2.1.11.nupkg.sha512"
     },
+    "StbImageSharp/2.30.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7QqbupVhz2kcFUPTgMw4iHR9rYDHGundzzee19Mwmd1typ2Lnv8EVJcLJxlkeBM2+4ex0NwsMtdbGSJctp1XCQ==",
+      "path": "stbimagesharp/2.30.15",
+      "hashPath": "stbimagesharp.2.30.15.nupkg.sha512"
+    },
+    "StbTrueTypeSharp/1.26.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hCc6/OsfcPa5VsLECcEU2m78WOshBrKwK42nAodSm9Z5wH68f7n66SoiRLCdGCkDaqbWz2TlX4zYHIjogj1HJA==",
+      "path": "stbtruetypesharp/1.26.12",
+      "hashPath": "stbtruetypesharp.1.26.12.nupkg.sha512"
+    },
+    "System.Diagnostics.DiagnosticSource/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cjtKi6ERMYWp6b9UTVPcwDT29PjKDtlM3W9OwnWL5abRsI8ku42Q2wqZoLIIXJnT/XF2s2CjuK8Nl4a3mmTxQQ==",
+      "path": "system.diagnostics.diagnosticsource/10.0.10",
+      "hashPath": "system.diagnostics.diagnosticsource.10.0.10.nupkg.sha512"
+    },
+    "System.IO.Pipelines/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7WX0W96y3dpQdYG4sEGdh38g3/0lOD4/dKbn2rRVOVzKhzoZUn2gKNIKaFeKWs8RCbpFfmmEWsRhSy95hMpvqA==",
+      "path": "system.io.pipelines/10.0.10",
+      "hashPath": "system.io.pipelines.10.0.10.nupkg.sha512"
+    },
+    "System.Net.ServerSentEvents/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1m3dGOl5YI9VhOE+MPCSII+WXZcyYVr5D/UbBifOUxkrx2npczhWjdl0PYZ1tMGygVce1mIfUDhdM1LBiEQFNw==",
+      "path": "system.net.serversentevents/10.0.10",
+      "hashPath": "system.net.serversentevents.10.0.10.nupkg.sha512"
+    },
+    "System.Text.Encodings.Web/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-o16m2YpDN/pjHsnxf9pTGwkpcuvjW8v1/wGUwJtM1c3QZUKm7ZEO/eYRJg7iIx6GxS2Zv9lAMHpiQwHDdgqauA==",
+      "path": "system.text.encodings.web/10.0.10",
+      "hashPath": "system.text.encodings.web.10.0.10.nupkg.sha512"
+    },
+    "System.Text.Json/10.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bmsO6UdYtBdtn32zYXfsh7KlyTIzV/3V9hdT9RIb4pXKgYOsNxXR+VbWigNwBtNFVGYGm6Hwmqw5a+/IWFd36Q==",
+      "path": "system.text.json/10.0.10",
+      "hashPath": "system.text.json.10.0.10.nupkg.sha512"
+    },
     "TextCopy/6.2.1": {
       "type": "package",
       "serviceable": true,
@@ -438,6 +968,16 @@
       "sha512": "sha512-YofCyqEuck+szOP/KL1kpYg3JkgXQKSEKCkRRtjxqOn8Vo6xM4wR5wPRT/3i9GLP52JUQYN0q/YY37ooAErz8w==",
       "path": "westwind.scripting/1.3.3",
       "hashPath": "westwind.scripting.1.3.3.nupkg.sha512"
+    },
+    "MapEditorLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MapEditorMCP/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -4,13 +4,13 @@
 // Unless you know what's in the WAE code-base, you want to always include
 // these "standard usings".
 using System;
-using TSMapEditor;
-using TSMapEditor.Models;
-using TSMapEditor.CCEngine;
+using MapEditorLibrary;
+using MapEditorLibrary.Models;
+using MapEditorLibrary.CCEngine;
 using TSMapEditor.Rendering;
-using TSMapEditor.GameMath;
+using MapEditorLibrary.GameMath;
 using TSMapEditor.UI.Windows;
-using TSMapEditor.Misc;
+using MapEditorLibrary.Misc;
 
 namespace WAEScript
 {
@@ -28,15 +28,10 @@ namespace WAEScript
         /// </summary>
         public string GetSuccessMessage()
         {
-            if (error == null)
-                return string.Format(Translator.Translate("MapScripts.AddMapRevealTrigger.SuccessMessage",
-                    "Successfully created a map reveal trigger with name \"{0}\". You can locate it in the Triggers window."),
-                    mapRevealTriggerName);
-
-            return error;
+            return string.Format(Translator.Translate("MapScripts.AddMapRevealTrigger.SuccessMessage",
+                "Created a map reveal trigger with name \"{0}\". You can locate it in the Triggers window."),
+                mapRevealTriggerName);
         }
-
-        private string error;
 
         private string mapRevealTriggerName = Translator.Translate("MapScripts.AddMapRevealTrigger.TriggerName", "Map Reveal Trigger");
 
@@ -48,7 +43,7 @@ namespace WAEScript
         {
             var trigger = new Trigger(map.GetNewUniqueInternalId());
             trigger.Name = mapRevealTriggerName;
-            trigger.HouseType = "Neutral";
+            trigger.HouseType = map.FindHouseType(Constants.DefaultHouseTypeName);
 
             var timeElapsedCondition = new TriggerCondition();
             timeElapsedCondition.ConditionIndex = 13;
