@@ -2,12 +2,12 @@
 // Unless you know what's in the WAE code-base, you want to always include
 // these "standard usings".
 using System;
-using TSMapEditor;
-using TSMapEditor.Models;
-using TSMapEditor.CCEngine;
+using MapEditorLibrary;
+using MapEditorLibrary.Models;
+using MapEditorLibrary.CCEngine;
 using TSMapEditor.Rendering;
-using TSMapEditor.GameMath;
-using TSMapEditor.Misc;
+using MapEditorLibrary.GameMath;
+using MapEditorLibrary.Misc;
 
 namespace WAEScript
 {
