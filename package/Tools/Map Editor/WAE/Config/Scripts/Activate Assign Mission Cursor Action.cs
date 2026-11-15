@@ -13,11 +13,13 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using TSMapEditor;
-using TSMapEditor.GameMath;
-using TSMapEditor.Misc;
-using TSMapEditor.Models;
-using TSMapEditor.Mutations;
+using MapEditorLibrary;
+using MapEditorLibrary.Configuration;
+using MapEditorLibrary.GameMath;
+using MapEditorLibrary.Misc;
+using MapEditorLibrary.Models;
+using MapEditorLibrary.Models.Enums;
+using MapEditorLibrary.Mutations;
 using TSMapEditor.Rendering;
 using TSMapEditor.Scripts;
 using TSMapEditor.UI;
@@ -371,7 +373,7 @@ Text=OK
         public void Perform()
         {
             selectMissionWindow = new SelectMissionWindow(ScriptDependencies.WindowManager, ScriptDependencies);
-            ScriptDependencies.WindowController.AddWindow(selectMissionWindow);
+            ScriptDependencies.WindowController.RegisterWindow(selectMissionWindow);
             selectMissionWindow.Closed += SelectMissionWindow_Closed;
             selectMissionWindow.Open();
         }
@@ -379,7 +381,7 @@ Text=OK
         private void SelectMissionWindow_Closed(object sender, EventArgs e)
         {
             selectMissionWindow.Closed -= SelectMissionWindow_Closed;
-            ScriptDependencies.WindowController.RemoveWindow(selectMissionWindow);
+            ScriptDependencies.WindowController.UnregisterWindow(selectMissionWindow);
         }
     }
 }

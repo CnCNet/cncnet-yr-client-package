@@ -6,9 +6,9 @@
 using System;
 using System.Globalization;
 using System.Text;
-using TSMapEditor.CCEngine;
-using TSMapEditor.Models;
-using TSMapEditor.Models.Enums;
+using MapEditorLibrary.CCEngine;
+using MapEditorLibrary.Models;
+using MapEditorLibrary.Models.Enums;
 
 namespace WAEScript
 {
