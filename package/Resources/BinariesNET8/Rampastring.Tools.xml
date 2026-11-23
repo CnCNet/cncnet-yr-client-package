@@ -692,13 +692,13 @@
         </member>
         <member name="T:Rampastring.Tools.SafePath">
             <summary>
-            Provides safe cross platform Path handling.
+            Provides safe cross platform Path handling that tolerates mixing multiple absolute paths and mixing path separator styles.
             </summary>
         </member>
         <member name="M:Rampastring.Tools.SafePath.CombineDirectoryPath(System.String[])">
             <summary>
             Safely combines multiple directory paths for all platforms.
-            The first path can be a relative or absolute path.
+            The first path can be a relative or absolute path, while all later paths are treated as relative paths.
             </summary>
             <param name="paths">Ordered list of directory paths.</param>
             <returns>The combined directory path of all <paramref name="paths"/>, with trailing separator character and with leading separator character if the path has a root.</returns>
@@ -706,7 +706,7 @@
         <member name="M:Rampastring.Tools.SafePath.CombineFilePath(System.String[])">
             <summary>
             Safely combines multiple directory paths with a file name for all platforms.
-            The first path can be a relative or absolute path.
+            The first path can be a relative or absolute path, while all later paths are treated as relative paths.
             </summary>
             <param name="paths">Ordered list of directory paths with a file name.</param>
             <returns>The combined directory path and file name of all <paramref name="paths"/> with leading separator character if the path has a root.</returns>
@@ -748,6 +748,50 @@
             </summary>
             <param name="paths">Ordered list of directory paths and a file name.</param>
             <returns>The name (not path) of the directory a given file resides in.</returns>
+        </member>
+        <member name="M:Rampastring.Tools.SafePath.Combine(System.Boolean,System.String[])">
+             <remarks>
+             Paths are combined as a base followed by names. Every segment after the first is folded
+             into the base - it is treated as a name, never as a new root - and both separator styles
+             are accepted on every platform.
+            
+             <code>
+             CombineFilePath("folder",  "/file")      = "folder/file"
+             CombineFilePath("folder/", "/file")      = "folder/file"
+             CombineFilePath("folder/", "file")       = "folder/file"
+             CombineFilePath("folder1", "C:\folder2") = "folder1/C/folder2" or "folder1/C:/folder2" depending on platform
+             </code>
+            
+             The examples use "/" for readability; the result uses the platform separator ("\" on
+             Windows, "/" elsewhere), as it always has.
+            
+             Folding matches the plain "/" concatenation the client used before this class existed,
+             where a later segment could never replace the base. It also keeps a call producing the
+             same shape on Windows and Linux when the segments come from a Windows-authored INI file.
+             A caller that wants the opposite rule - a rooted later path replaces the base - should
+             use <see cref="M:System.IO.Path.Combine(System.String[])"/> directly.
+            
+             The first segment is the base; it may be relative or absolute and keeps its root. A
+             directory result ends with a separator, a file result does not. Empty or whitespace-only
+             segments are ignored, and a call without any segment returns <see langword="null"/>.
+            
+             UNC paths are not supported: any segment that starts with two separator characters
+             (\\server\share, \\?\C:\path, \\.\device, or a POSIX leading double slash) throws
+             <see cref="T:System.ArgumentException"/>.
+             </remarks>
+        </member>
+        <member name="M:Rampastring.Tools.SafePath.FoldDrivePrefix(System.String)">
+            <summary>
+            Turns a drive-rooted path ("C:\folder") into a name ("C/folder") so that
+            it can be folded into the base like any other later segment. Other paths are
+            returned unchanged.
+            </summary>
+        </member>
+        <member name="M:Rampastring.Tools.SafePath.IsUncPath(System.String)">
+            <summary>
+            Whether a path starts with two separator characters - a UNC path such as
+            \\server\share, \\?\C:\path or \\.\device, or the POSIX double-slash form.
+            </summary>
         </member>
         <member name="T:Rampastring.Tools.Utilities">
             <summary>
