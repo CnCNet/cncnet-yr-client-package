@@ -45,7 +45,7 @@ jobs:
         
         7z x xna-cncnet-client-*.7z -y -oTEMPORARY
         rm xna-cncnet-client-*.7z
-        $product_version = (Get-Item -Path "TEMPORARY\Resources\clientdx.exe").VersionInfo.ProductVersion
+        $product_version = (Get-Item -Path "TEMPORARY\clientdx.exe").VersionInfo.ProductVersion
 
         "product_version=$product_version" >> $env:GITHUB_OUTPUT
         "tag_name=$tag_name" >> $env:GITHUB_OUTPUT
@@ -89,7 +89,7 @@ jobs:
         # Delete old binaries, copy new one, remove temporary folder
         rm -r -fo "$clientDir\Resources\Binaries"
         rm -r -fo "$clientDir\Resources\BinariesNET8"
-        cp -r -fo "TEMPORARY\Resources\*" "$clientDir\Resources\"
+        cp -r -fo "TEMPORARY\*" "$clientDir\Resources\"
         rm -r -fo TEMPORARY
 
         # Commit changes
